@@ -1,5 +1,7 @@
-/** @type {import('tailwindcss').Config} */
+import tailwindCustomConfig from './.tailwind/tailwind.custom.config';
+
 export default {
+	presets: [tailwindCustomConfig],
 	content: ['./src/**/*.{astro,html,js,jsx,md,mdx,ts,tsx}'],
   theme: {
     extend: {
