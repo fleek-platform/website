@@ -13,7 +13,7 @@ interface Props {
  target?: Target;
 }
 
-export const Link: FC<PropsWithChildren<Props>> = ({ href, className, target }) => (
+export const Link: FC<PropsWithChildren<Props>> = ({ href, className, target, children }) => (
   <a href={href} target={target} className={className}>
     {children}
   </a>

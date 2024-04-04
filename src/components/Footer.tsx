@@ -3,7 +3,7 @@ import Container from "@components/Container";
 import Text from "@components/Text";
 import IconSocial from "@components/IconSocial";
 import StatusBar from "@components/StatusBar";
-import Link from "@components/Link";
+import Link, { Target } from "@components/Link";
 import fleekLogo from "../../public/images/fleek-logo-color.png";
 
 const RESOURCES = [
@@ -139,7 +139,7 @@ const Footer = () => {
                 <ul className="flex flex-col gap-10 md:gap-8">
                   {RESOURCES.map((item, index) => (
                     <li className="flex justify-start" key={index}>
-                      <Link href={item.url} target={item.target} rel={item.rel}>
+                      <Link href={item.url} target={item.target?.toLowerCase() === '_blank' ? Target.Blank : Target.Self}>
                         <Text style="caption-text">{item.text}</Text>
                       </Link>
                     </li>
@@ -151,7 +151,7 @@ const Footer = () => {
                 <ul className="flex flex-col gap-10 md:gap-8">
                   {PRODUCT.map((item, index) => (
                     <li className="flex justify-start" key={index}>
-                      <Link href={item.url} target={item.target} rel={item.rel}>
+                      <Link href={item.url} target={item.target?.toLowerCase() == '_blank' ? Target.Blank : Target.Self}>
                         <Text style="caption-text">{item.text}</Text>
                       </Link>
                     </li>
@@ -163,7 +163,7 @@ const Footer = () => {
                 <ul className="flex flex-col gap-10 md:gap-8">
                   {COMPANY.map((item, index) => (
                     <li className="flex justify-start" key={index}>
-                      <Link href={item.url} target={item.target} rel={item.rel}>
+                      <Link href={item.url} target={item.target?.toLowerCase() == '_blank' ? Target.Blank : Target.Self}>
                         <Text style="caption-text">{item.text}</Text>
                       </Link>
                     </li>
@@ -175,7 +175,7 @@ const Footer = () => {
                 <ul className="flex flex-col gap-10 md:gap-8">
                   {LEGAL.map((item, index) => (
                     <li className="flex justify-start" key={index}>
-                      <Link href={item.url} target={item.target} rel={item.rel}>
+                      <Link href={item.url} target={item.target?.toLowerCase() == '_blank' ? Target.Blank : Target.Self}>
                         <Text style="caption-text">{item.text}</Text>
                       </Link>
                     </li>
