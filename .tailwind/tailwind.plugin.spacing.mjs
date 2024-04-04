@@ -1,8 +1,8 @@
 /* eslint-disable @typescript-eslint/no-var-requires */
-const plugin = require("tailwindcss/plugin");
-const {pxToRemUnit} = require("./tailwind.config.utils")
+import plugin from "tailwindcss/plugin";
+import { pxToRemUnit } from "./tailwind.config.utils";
 
-module.exports = function(usePx) {
+export default function(usePx) {
     /**
      * Creates a custom spacing scale, where the classname maps
      * 1:1 to its pixel value. Uses px to rem conversion under the hood.
@@ -18,7 +18,6 @@ module.exports = function(usePx) {
      * 512-1024 = 32px steps.
      * ```
      */
-
     const createScale = ({ min = 0, max = 100, steps = 1, valFM, keyFM }) => {
         const limit = Math.round((max - min) / steps);
         const scale = [...new Array(limit + 1)].map((_, i) => min + i * steps);
@@ -48,9 +47,6 @@ module.exports = function(usePx) {
             extend: {
                 minWidth: spacing,
                 minHeight: spacing,
-                // https://tailwindcss.com/docs/gap#customizing-your-theme
-                // tailwind normally should use the defined spacings for the gaps too, but
-                // apparently we need to extend them extra for them to work with px units
                 gap: spacing,
             },
         },
@@ -61,4 +57,3 @@ module.exports = function(usePx) {
         plugin: spacings,
     };
 };
-
