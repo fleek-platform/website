@@ -1,4 +1,5 @@
 import tailwindCustomConfig from './.tailwind/tailwind.custom.config';
+import tailwindPluginTypography from './.tailwind/tailwind.plugin.typography';
 
 export default {
 	presets: [tailwindCustomConfig],
@@ -61,5 +62,6 @@ export default {
         },
       },
     },
-  }
+  },
+  plugins: [tailwindPluginTypography],
 }
