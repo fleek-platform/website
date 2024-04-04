@@ -7,9 +7,9 @@ export default {
   theme: {
     extend: {
       fontFamily: {
-        sans: ["var(--font-sans)"],
-        "plex-sans": ["var(--font-plex-sans)"],
-        "plex-mono": ["var(--font-plex-mono)"],
+        sans: ["AtypDisplay"],
+        "plex-sans": ["IBM Plex Sans"],
+        "plex-mono": ["IBM Plex Mono"],
       },
       backgroundImage: {
         "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
