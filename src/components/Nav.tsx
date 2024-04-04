@@ -1,11 +1,7 @@
-// TODO: replace next Link behaviour
-// import Link from "next/link";
 import Link from '@components/Link';
 import { useState, useEffect } from "react";
 import clsx from "clsx";
-// TODO: replace usePathname and ExportedImage behaviour
 import usePathname from "@hooks/usePathname";
-// import ExportedImage from "next-image-export-optimizer";
 import { useMediaQuery } from "@hooks/useMediaQuery";
 import { up } from "@utils/screens";
 
@@ -131,7 +127,7 @@ const Nav: React.FC = () => {
     <Container>
       <div className="relative z-10 mb-16 flex select-none items-center gap-33 py-16 pl-16 lg:px-28">
         <Link href="/" className="pb-8">
-          <ExportedImage src={FleekLogoIcon} alt="fleek logo" />
+          <img src={FleekLogoIcon.src} alt="fleek logo" />
         </Link>
         <nav className="hidden items-center gap-40 lg:flex">
           {NAV.map((navItem, index) =>
