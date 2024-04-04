@@ -1,0 +1,20 @@
+<svg width="111" height="111" viewBox="0 0 111 111" fill="none" xmlns="http://www.w3.org/2000/svg">
+<mask id="mask0_54_5038" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="0" y="0" width="111" height="111">
+<path d="M81.3929 82.1004C81.3929 96.4024 69.7988 107.996 55.4968 107.996C41.1947 107.996 29.6007 96.4024 29.6007 82.1004C29.6007 67.7984 41.1947 56.2043 55.4968 56.2043C69.7988 56.2043 81.3929 67.7984 81.3929 82.1004Z" stroke="#F1F1F1" stroke-width="4.61538"/>
+<path d="M81.3929 28.904C81.3929 43.206 69.7988 54.8001 55.4968 54.8001C41.1947 54.8001 29.6007 43.206 29.6007 28.904C29.6007 14.602 41.1947 3.00789 55.4968 3.00789C69.7988 3.00789 81.3929 14.602 81.3929 28.904Z" stroke="#F1F1F1" stroke-width="4.61538"/>
+<circle cx="28.8991" cy="54.8694" r="25.8961" stroke="#F1F1F1" stroke-width="4.61538"/>
+<path d="M107.996 54.8694C107.996 69.1715 96.4023 80.7655 82.1003 80.7655C67.7983 80.7655 56.2042 69.1715 56.2042 54.8694C56.2042 40.5674 67.7983 28.9733 82.1003 28.9733C96.4023 28.9733 107.996 40.5674 107.996 54.8694Z" stroke="#F1F1F1" stroke-width="4.61538"/>
+</mask>
+<g mask="url(#mask0_54_5038)">
+<rect x="-6.16797" y="-6.16833" width="123.333" height="123.333" fill="url(#paint0_linear_54_5038)"/>
+</g>
+<defs>
+<linearGradient id="paint0_linear_54_5038" x1="117.165" y1="117.165" x2="-26.4156" y2="25.5718" gradientUnits="userSpaceOnUse">
+<stop offset="0.0727574" stop-color="#FFE702"/>
+<stop offset="0.333333" stop-color="#FF3DCF"/>
+<stop offset="0.661458" stop-color="#14BCDF"/>
+<stop offset="0.854167" stop-color="#49F0A1"/>
+<stop offset="1" stop-color="#49E34B"/>
+</linearGradient>
+</defs>
+</svg>

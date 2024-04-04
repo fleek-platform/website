@@ -1,0 +1,26 @@
+<svg width="32" height="48" viewBox="0 0 32 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g id="container">
+<g id="Mask group">
+<mask id="mask0_317_726" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="0" y="0" width="32" height="48">
+<path id="Vector 1109" d="M-0.180051 29.9346L8.06885 23.1804L-0.180051 16.4261" stroke="#F1F1F1" stroke-width="1.66667" stroke-linejoin="bevel"/>
+<path id="Vector 1110" d="M-0.180051 27.0996L8.06885 23.1806L-0.180051 19.2616" stroke="#F1F1F1" stroke-width="1.66667" stroke-linejoin="bevel"/>
+<path id="Vector 1111" d="M-0.180051 24.5312L8.06885 23.1807L-0.180051 21.8301" stroke="#F1F1F1" stroke-width="1.66667" stroke-linejoin="bevel"/>
+<path id="Vector 1109_2" d="M32.4083 3.74121L8.6442 23.1993L32.4083 42.6575" stroke="#F1F1F1" stroke-width="1.66667" stroke-linejoin="bevel"/>
+<path id="Vector 1110_2" d="M32.4083 11.9092L8.6442 23.1994L32.4083 34.4897" stroke="#F1F1F1" stroke-width="1.66667" stroke-linejoin="bevel"/>
+<path id="Vector 1111_2" d="M32.4083 19.3086L8.6442 23.1995L32.4083 27.0904" stroke="#F1F1F1" stroke-width="1.66667" stroke-linejoin="bevel"/>
+</mask>
+<g mask="url(#mask0_317_726)">
+<rect width="32" height="48" fill="url(#paint0_linear_53_1368)"/>
+</g>
+</g>
+</g>
+<defs>
+<linearGradient id="paint0_linear_53_1368" x1="32" y1="48" x2="-5.25345" y2="8.23528" gradientUnits="userSpaceOnUse">
+<stop offset="0.0727574" stop-color="#FFE702"/>
+<stop offset="0.333333" stop-color="#FF3DCF"/>
+<stop offset="0.661458" stop-color="#14BCDF"/>
+<stop offset="0.854167" stop-color="#49F0A1"/>
+<stop offset="1" stop-color="#49E34B"/>
+</linearGradient>
+</defs>
+</svg>
