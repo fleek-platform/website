@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/no-var-requires */
 import plugin from "tailwindcss/plugin";
 import { pxToRemUnit } from "./tailwind.config.utils";
 

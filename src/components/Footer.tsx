@@ -4,7 +4,6 @@ import Text from "@components/Text";
 import IconSocial from "@components/IconSocial";
 import StatusBar from "@components/StatusBar";
 import Link, { Target } from "@components/Link";
-import fleekLogo from "../../public/images/fleek-logo-color.png";
 
 const RESOURCES = [
   {
@@ -105,7 +104,7 @@ const Footer = () => {
         <GridLayout>
           <div className="col-span-16 mb-24 flex flex-col md:col-span-3 md:mb-0">
             <img
-              src={fleekLogo.src}
+              src="/svg/fleek-logo.svg"
               width={82}
               alt="fleek logo"
               className="mb-24"

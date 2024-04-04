@@ -30,28 +30,22 @@ const Card: React.FC<{ card: Card }> = ({ card }) => {
   return (
     <CardWrapper key={card.domain} noInnerPadding>
       <div className="aspect-h-1 aspect-w-2 relative overflow-hidden rounded-tl-12 rounded-tr-12 lg:w-240">
-        /*
-        <ExportedImage
-          fill
+        <img
           src={card.bannerImage}
           alt={card.domain}
           sizes={`${down("lg")} 100vw, ${up("lg")} 240px`}
           className="object-cover"
         />
-        */
       </div>
       <div className="p-16">
         <div className="mb-16 flex items-center gap-8">
           <div className="relative h-32 w-32">
-            /*
-            <ExportedImage
+            <img
               className="object-contain"
               src={card.icon}
               sizes="32px"
-              fill
               alt={`${card.title} icon`}
             />
-            */
           </div>
           <div className="typo-caption-m text-ui-white">{card.title}</div>
         </div>

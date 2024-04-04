@@ -9,7 +9,6 @@ import Container from "@components/Container";
 import NavItemWithSubMenu from "@components/NavItemWithSubMenu";
 import Text from "@components/Text";
 import ButtonRainbowOutlined from "@components/ButtonRainbowOutlined";
-import FleekLogoIcon from "/public/svg/fleek-logo.svg";
 
 type NavItemSimple = {
   label: string | JSX.Element;
@@ -127,7 +126,7 @@ const Nav: React.FC = () => {
     <Container>
       <div className="relative z-10 mb-16 flex select-none items-center gap-33 py-16 pl-16 lg:px-28">
         <Link href="/" className="pb-8">
-          <img src={FleekLogoIcon.src} alt="fleek logo" />
+          <img src="/svg/fleek-logo.svg" alt="fleek logo" />
         </Link>
         <nav className="hidden items-center gap-40 lg:flex">
           {NAV.map((navItem, index) =>
