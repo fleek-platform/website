@@ -16,7 +16,8 @@ const HomepageHero = () => (
               muted
               playsInline
               className="animate-float delay-1000"
-              placeholder="blur"
+              // TODO: add blur support, as original
+              // placeholder="blur"
             >
               <source
                 src="/videos/flash-header-safari.mp4"
