@@ -1,9 +1,12 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import HomepageHero from "@components/HomepageHero";
 ---
 
 <Layout title="Fleek | Build Lightning Fast Web3 Apps">
 	<main>
-		<h1>Hello world</h1>
+		<div className="flex flex-col gap-24 lg:gap-32">
+			<HomepageHero />
+		</div>
 	</main>
 </Layout>

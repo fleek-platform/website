@@ -1,0 +1,24 @@
+
+@keyframes rainbow {
+  0% {
+    background-color: #FF3DCF;
+  }
+  25% {
+    background-color: #FFE702;
+  }
+  50% {
+    background-color: #49F0A1;
+  }
+  75% {
+    background-color: #14BCDF;
+  }
+  100% {
+    background-color: #FF3DCF;
+  }
+}
+
+.rainbowBackground {
+  animation: rainbow 5s ease-in-out infinite;
+  color: transparent;
+  background-clip: text;
+}
