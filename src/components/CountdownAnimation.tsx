@@ -9,8 +9,7 @@ import PageSection from "@components/PageSection";
 import GlowWrapper from "@components/GlowWrapper";
 import GridLayout from "@components/GridLayout";
 import Button from "@components/Button";
-import Link from "next/link";
-import ExportedImage from "next-image-export-optimizer";
+import Link, { Target } from "@components/Link";
 import { useMediaQuery } from "@hooks/useMediaQuery";
 import { up } from "@utils/screens";
 import globeCountdownImage from "../../public/images/globe-countdown.png";
@@ -235,8 +234,8 @@ const CountdownAnimation = () => {
             ref={globeRef}
             className="absolute left-0 top-1/2 w-full mix-blend-screen"
           >
-            <ExportedImage
-              src={globeCountdownImage}
+            <img
+              src={globeCountdownImage.src}
               className="mx-auto w-[90%]"
               alt="image of a globe render"
             />
@@ -270,7 +269,7 @@ const CountdownAnimation = () => {
           </div>
           <div className="flex basis-2/3 items-center justify-center">
             <div className="inline-flex">
-              <Link href="https://app.fleek.xyz/" target="_blank" rel="noopener noreferrer">
+              <Link href="https://app.fleek.xyz/" target={Target.Blank}>
                 <GlowWrapper>
                   <button className="flex items-center gap-19 rounded-28 bg-button-gradient px-38 py-25 font-plex-sans text-30 font-normal uppercase leading-[150%] tracking-[0.6144rem] xl:gap-30 xl:rounded-33 xl:px-56 xl:py-30 xl:text-40 2xl:gap-38 2xl:rounded-44 2xl:px-76 2xl:py-50 2xl:text-52">
                     <span>try it out</span>
@@ -311,11 +310,11 @@ const CountdownAnimation = () => {
               ))}
             </div>
             <div className="relative flex justify-center overflow-hidden pb-64 pt-48">
-              <Link href="https://app.fleek.xyz/" target="_blank" rel="noopener noreferrer">
+              <Link href="https://app.fleek.xyz/" target={Target.Blank}>
                 <Button>get started</Button>
               </Link>
-              <ExportedImage
-                src={globeCountdownImage}
+              <img
+                src={globeCountdownImage.src}
                 className="absolute left-1/2 top-0 -z-1 w-[110vw] max-w-none -translate-x-1/2 pt-24 mix-blend-screen"
                 alt="image of a globe render"
               />

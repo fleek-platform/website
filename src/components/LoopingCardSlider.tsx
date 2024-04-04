@@ -1,5 +1,3 @@
-"use client";
-
 import { Swiper, SwiperSlide } from "swiper/react";
 import Marquee from "react-fast-marquee";
 
@@ -7,7 +5,7 @@ import Container from "@components/Container";
 import GridLayout from "@components/GridLayout";
 import PageSection from "@components/PageSection";
 import CardWrapper from "@components/CardWrapper";
-import ExportedImage from "next-image-export-optimizer";
+// import ExportedImage from "next-image-export-optimizer";
 import TextGlowHoverEffect from "@components/TextGlowHoverEffect";
 
 import { down, up } from "@utils/screens";
@@ -31,6 +29,7 @@ const Card: React.FC<{ card: Card }> = ({ card }) => {
   return (
     <CardWrapper key={card.domain} noInnerPadding>
       <div className="aspect-h-1 aspect-w-2 relative overflow-hidden rounded-tl-12 rounded-tr-12 lg:w-240">
+        /*
         <ExportedImage
           fill
           src={card.bannerImage}
@@ -38,10 +37,12 @@ const Card: React.FC<{ card: Card }> = ({ card }) => {
           sizes={`${down("lg")} 100vw, ${up("lg")} 240px`}
           className="object-cover"
         />
+        */
       </div>
       <div className="p-16">
         <div className="mb-16 flex items-center gap-8">
           <div className="relative h-32 w-32">
+            /*
             <ExportedImage
               className="object-contain"
               src={card.icon}
@@ -49,6 +50,7 @@ const Card: React.FC<{ card: Card }> = ({ card }) => {
               fill
               alt={`${card.title} icon`}
             />
+            */
           </div>
           <div className="typo-caption-m text-ui-white">{card.title}</div>
         </div>
