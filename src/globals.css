@@ -1,0 +1,27 @@
+@import "swiper/css";
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    font-size: 62.5%;
+  }
+  body {
+    @apply text-white;
+    font-feature-settings: "ss01" 1;
+  }
+  table {
+    height: 1px;
+  } /* Will be ignored, don't worry. */
+  tr {
+    height: 100%;
+  }
+  td {
+    height: 100%;
+  }
+  td > div {
+    height: 100%;
+  }
+}
