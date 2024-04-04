@@ -1,5 +1,4 @@
-/* eslint-disable @typescript-eslint/no-var-requires */
-const plugin = require("tailwindcss/plugin");
+import plugin from "tailwindcss/plugin";
 /**
  * Creates a custom css grid with 24 columns instead of 12 columns, which are Tailwind default
  */
@@ -72,4 +71,4 @@ const grid = plugin(function () {}, {
     // },
 });
 
-module.exports = grid;
+export default grid;

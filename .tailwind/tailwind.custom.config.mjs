@@ -1,6 +1,6 @@
 // Import the necessary modules using ESM syntax
 import createSpacingPlugin from "./tailwind.plugin.spacing";
-import gridPlugin from "./tailwind.plugin.grid.cjs";
+import gridPlugin from "./tailwind.plugin.grid";
 import safelist from "./tailwind.safelist.cjs";
 import aspectRatioPlugin from "@tailwindcss/aspect-ratio";
 
