@@ -1,4 +1,3 @@
-import ExportedImage from "next-image-export-optimizer";
 import clsx from "clsx";
 
 import Container from "@components/Container";
@@ -7,15 +6,15 @@ import GridLayout from "@components/GridLayout";
 import Button from "@components/Button";
 import TextGlowHoverEffect from "@components/TextGlowHoverEffect";
 
-import type { StaticImageData } from "next/image";
 import type { RoundedType } from "@components/PageSection";
-import Link from "next/link";
+import Link, { Target } from "@components/Link";
 
 import { down } from "@utils/screens";
 
 type OptionalProps =
   | {
-      image: StaticImageData;
+      // TODO: Verify as original was import type { StaticImageData } from "next/image";
+      image: string;
       children?: never;
     }
   | {
@@ -56,7 +55,7 @@ const ImageWithCopy: React.FC<Props & OptionalProps> = (props) => {
               >
                 {props.children}
                 {!props.children && props.image && (
-                  <ExportedImage
+                  <img
                     className="object-contain mix-blend-screen"
                     src={props.image}
                     alt=""
@@ -83,7 +82,8 @@ const ImageWithCopy: React.FC<Props & OptionalProps> = (props) => {
                   <Link
                     href={props.cta.url}
                     className="inline-block"
-                    target="_blank"
+                    // TODO: Change to keyof Target instead to avoid importing the enum here
+                    target={Target.Blank}
                   >
                     <Button>{props.cta.text}</Button>
                   </Link>

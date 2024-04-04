@@ -1,4 +1,3 @@
-import ExportedImage from "next-image-export-optimizer";
 import clsx from "clsx";
 
 import Container from "@components/Container";
@@ -23,11 +22,12 @@ const BlackFeatureCards: React.FC<BlackFeatureCardsProps> = ({ features, classNa
   <Container>
     <PageSection>
       <GridLayout className={clsx("py-24 lg:py-64 gap-y-10", className)}>
-        <ExportedImage
+        <img
           src="/svg/dotted-squiggle-bg.svg"
           alt="bg-squiggle"
           className="absolute top-0 left-0 w-full h-full"
-          placeholder="blur"
+          // TODO: original has support for blur, solve
+          // placeholder="blur"
           width={1440}
           height={540}
         />

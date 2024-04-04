@@ -1,7 +1,5 @@
 import ImageWithCopy from "@components/ImageWithCopy";
 import dnsEnsIpnsManagementImage from "/public/images/dns-ens-ipns-management.png";
-import ExportedImage from "next-image-export-optimizer";
-import { down } from "@utils/screens";
 
 const NSManagement = ({ cta }: { cta: string }) => (
   <ImageWithCopy
@@ -13,9 +11,9 @@ const NSManagement = ({ cta }: { cta: string }) => (
     cta={{ url: "https://fleek.xyz/domains/", text: cta }}
   >
     <div className="my-24 px-48 md:px-128 lg:my-0 lg:px-64 2xl:px-128">
-      <ExportedImage
+      <img
         className="object-contain mix-blend-screen"
-        src={dnsEnsIpnsManagementImage}
+        src={dnsEnsIpnsManagementImage.src}
         alt="DNS/ENS/IPNS Management"
       />
     </div>

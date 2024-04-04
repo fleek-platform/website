@@ -14,6 +14,7 @@
     "@astrojs/check": "^0.5.10",
     "@astrojs/react": "^3.1.1",
     "@astrojs/tailwind": "^5.1.0",
+    "@fleekxyz/sdk": "^0.7.3",
     "@tailwindcss/aspect-ratio": "^0.4.2",
     "@types/react": "^18.2.74",
     "@types/react-dom": "^18.2.24",
@@ -23,8 +24,13 @@
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-fast-marquee": "^1.6.4",
+    "react-hot-toast": "^2.4.1",
+    "react-tooltip": "^5.26.3",
     "swiper": "^11.1.0",
     "tailwindcss": "^3.4.3",
     "typescript": "^5.4.3"
+  },
+  "devDependencies": {
+    "@types/node": "^20.12.4"
   }
 }

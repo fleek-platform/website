@@ -1,7 +1,6 @@
 import ImageWithCopy from "@components/ImageWithCopy";
 import hostingOnFleekImage from "/public/images/hosting-on-fleek.png";
 import RainbowHeart from "@components/RaibowHeart";
-import ExportedImage from "next-image-export-optimizer";
 import type { RoundedType } from "@components/PageSection";
 
 interface Props {
@@ -23,9 +22,9 @@ const HostingOnFleek: React.FC<Props> = (props) => (
     rounded={props.rounded}
   >
     <div className="flex w-full">
-      <ExportedImage
+      <img
         className="max-w-[280px] object-contain mix-blend-screen md:max-w-[550px] xl:max-w-[663px]"
-        src={hostingOnFleekImage}
+        src={hostingOnFleekImage.src}
         alt="Hosting on Fleek"
       />
     </div>

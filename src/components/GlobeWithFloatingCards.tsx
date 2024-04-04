@@ -2,7 +2,6 @@ import Container from "@components/Container";
 import PageSection from "@components/PageSection";
 import GridLayout from "@components/GridLayout";
 import CardWrapper from "@components/CardWrapper";
-import ExportedImage from "next-image-export-optimizer";
 import ExternalLink from "./ExternalLink";
 import TextGlowHoverEffect from "@components/TextGlowHoverEffect";
 
@@ -125,7 +124,7 @@ const GlobeWithFloatingCards = () => {
                     </div>
                   </CardWrapper>
                 </div>
-                <ExportedImage
+                <img
                   src="/images/globe-with-bolt.jpg"
                   alt="globe with bolt"
                   width={480}

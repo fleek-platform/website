@@ -5,6 +5,7 @@ import Container from "@components/Container";
 import GridLayout from "@components/GridLayout";
 import PageSection from "@components/PageSection";
 import CardWrapper from "@components/CardWrapper";
+// TODO: needs correct replacement, check original intent
 // import ExportedImage from "next-image-export-optimizer";
 import TextGlowHoverEffect from "@components/TextGlowHoverEffect";
 

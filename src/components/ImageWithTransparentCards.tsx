@@ -2,10 +2,8 @@ import Container from "@components/Container";
 import GridLayout from "@components/GridLayout";
 import PageSection from "@components/PageSection";
 import Text from "@components/Text";
-import ExportedImage from "next-image-export-optimizer";
 import TransparentCard from "./TransparentCard";
 import clsx from "clsx";
-import { StaticImageData } from "next/image";
 import TextGlowHoverEffect from "./TextGlowHoverEffect";
 
 type Feature = {
@@ -17,7 +15,8 @@ type Feature = {
 };
 
 interface Props {
-  image: StaticImageData;
+  // TODO: verify as original was import { StaticImageData } from "next/image";
+  image: string;
   features: Array<Feature>;
   kicker: string;
   headline: string | JSX.Element;
@@ -36,10 +35,11 @@ const ImageWithTransparentCards: React.FC<Props> = ({ image, features, headline,
     <PageSection>
       <GridLayout className={clsx("py-80 gap-y-32", className)}>
         <div className={clsx("col-span-16 lg:col-span-8 flex justify-center", inverse && "lg:col-start-9 justify-start")}>
-          <ExportedImage
+          <img
             src={image}
             alt="Domain Management"
-            placeholder="blur"
+            // TODO: This is an attribute from a deprecated component, so add support with css etc
+            // placeholder="blur"
             {...imageProps}
           />
         </div>

@@ -2,7 +2,7 @@
 
 import React, { useRef, useState } from 'react';
 import Text from './Text';
-import ExportedImage from 'next-image-export-optimizer';
+// import ExportedImage from 'next-image-export-optimizer';
 import ButtonWhite from './ButtonWhite';
 import { uploadFileToIPFS } from '@utils/uploadFileToIPFS';
 import clsx from 'clsx';
@@ -157,7 +157,7 @@ const FileUpload: React.FC = () => {
           <Text style="caption-s" className="text-center w-full">
             {getTitle({ loading, uploaded: !!upload })}
           </Text>
-          <ExportedImage
+          <img
             src="/svg/bolt-white.svg"
             className="w-full max-w-[1rem] opacity-40"
             alt="Arrow Down"
@@ -186,7 +186,7 @@ const FileUpload: React.FC = () => {
             <div className='flex items-center justify-end w-fit p-8 pl-24 gap-16 bg-ui-fleek-black rounded-12'>
               <Text style='s' className='text-ui-light-grey'>{`https://ipfs.io/ipfs/${upload.cid.slice(0, 15)}...`}</Text>
                 <Tooltip openOnClick id="copy-tooltip" place="top" content="Copied!" className='rounded-32 p-8 bg-ui-fleek-black'/>
-                <ExportedImage
+                <img
                   src="/svg/copy-icon.svg"
                   className="w-full max-w-[16px] opacity-60 cursor-pointer active:opacity-100 hover:opacity-80"
                   alt="Copy"
@@ -195,7 +195,7 @@ const FileUpload: React.FC = () => {
                   onClick={copyToClipboard}
                   data-tooltip-id="copy-tooltip"
                 />
-              <ExportedImage
+              <img
                 src="/svg/close-icon.svg"
                 className="w-full max-w-[16px] opacity-60 cursor-pointer active:opacity-100 hover:opacity-80"
                 alt="Copy"

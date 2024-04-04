@@ -1,4 +1,3 @@
-import ExportedImage from "next-image-export-optimizer";
 import CardWrapper from "./CardWrapper";
 
 type TemplateAppCardProps = {
@@ -20,7 +19,7 @@ const TemplateAppCard = ({
       <div className="flex flex-col gap-15">
         <div className="flex w-full justify-between">
           <div className="typo-caption-l text-ui-white">{title}</div>
-          <ExportedImage src={icon.src} alt={icon.alt} width={32} height={32} />
+          <img src={icon.src} alt={icon.alt} width={32} height={32} />
         </div>
         <p className="typo-s">{description}</p>
       </div>

@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import Link from "next/link";
+import Link from "@components/Link";
 import clsx from "clsx";
 
 import Container from "@components/Container";
@@ -9,7 +9,7 @@ import PageSection from "@components/PageSection";
 import GridLayout from "@components/GridLayout";
 import Button from "@components/Button";
 import TextGlowHoverEffect from "@components/TextGlowHoverEffect";
-import ExportedImage from "next-image-export-optimizer";
+// import ExportedImage from "next-image-export-optimizer";
 
 import uploadSdkImage from "../../public/images/fleek-sdk-uploadtoipfs.png";
 import uploadCliImage from "../../public/images/fleek-cli-upload-file.png";
@@ -64,8 +64,8 @@ const CopyWithImageSwap: React.FC<Props> = (props) => {
                     }
                   )}
                 >
-                  <ExportedImage
-                    src={uploadSdkImage}
+                  <img
+                    src={uploadSdkImage.src}
                     sizes={`${down("md")} 100vw, 50vw`}
                     className={clsx(
                       "flex-shrink-0 object-contain transition duration-500",
@@ -75,8 +75,8 @@ const CopyWithImageSwap: React.FC<Props> = (props) => {
                     )}
                     alt="upload to ipfs with the fleekxyz sdk"
                   />
-                  <ExportedImage
-                    src={uploadCliImage}
+                  <img
+                    src={uploadCliImage.src}
                     className={clsx(
                       "flex-shrink-0 object-contain transition duration-500",
                       {

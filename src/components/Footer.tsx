@@ -3,9 +3,8 @@ import Container from "@components/Container";
 import Text from "@components/Text";
 import IconSocial from "@components/IconSocial";
 import StatusBar from "@components/StatusBar";
-import Link from "next/link";
+import Link from "@components/Link";
 import fleekLogo from "../../public/images/fleek-logo-color.png";
-import ExportedImage from "next-image-export-optimizer";
 
 const RESOURCES = [
   {
@@ -105,8 +104,8 @@ const Footer = () => {
       <Container>
         <GridLayout>
           <div className="col-span-16 mb-24 flex flex-col md:col-span-3 md:mb-0">
-            <ExportedImage
-              src={fleekLogo}
+            <img
+              src={fleekLogo.src}
               width={82}
               alt="fleek logo"
               className="mb-24"

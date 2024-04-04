@@ -1,7 +1,4 @@
-/* eslint-disable @next/next/no-img-element */
-
 import clsx from "clsx";
-import ExportedImage from "next-image-export-optimizer";
 
 type ExternalLinkProps = {
   href: string;
@@ -15,7 +12,7 @@ const ExternalLink: React.FC<ExternalLinkProps> = ({ href, className }) => (
     rel="noopener noreferrer"
     className={clsx("inline-flex", className)}
   >
-    <ExportedImage
+    <img
       className="inline-block"
       src="/svg/external-link-icon.svg"
       alt="app and mobile statistics"

@@ -4,7 +4,7 @@ import GridLayout from "@components/GridLayout";
 import PageSection from "@components/PageSection";
 import TemplateAppCard from "@components/TemplateAppCard";
 import TextGlowHoverEffect from "./TextGlowHoverEffect";
-import Link from "next/link";
+import Link, { Target } from "@components/Link";
 
 interface Card {
   title: string;
@@ -69,7 +69,7 @@ const CardsWithDottedLinesBackground: React.FC<Props> = (props) => (
                   </div>
                   <div className="flex flex-col gap-8 lg:grid lg:grid-cols-3 lg:gap-x-10">
                     {section.cards.map(({ title, description, icon, cta }) => (
-                      <Link href={cta.url} key={title} target="_blank" rel="noopener noreferrer">
+                      <Link href={cta.url} key={title} target={Target.Blank}>
                         <TemplateAppCard
                           key={title}
                           title={title}
@@ -83,7 +83,7 @@ const CardsWithDottedLinesBackground: React.FC<Props> = (props) => (
               ))}
               {props.cta && (
                 <div className="self-center lg:self-end">
-                  <Link href={props.cta.url} target="_blank" rel="noopener noreferrer">
+                  <Link href={props.cta.url} target={Target.Blank}>
                     <ButtonOutlined>{props.cta.text}</ButtonOutlined>
                   </Link>
                 </div>
