@@ -1,9 +1,8 @@
-/** @type {import('tailwindcss/types/config').PluginCreator} */
-const plugin = require("tailwindcss/plugin");
+import plugin from "tailwindcss/plugin";
 
 // define typography here so intellisense completion works
-module.exports = plugin(({ addComponents }) => {
-  addComponents({
+export default plugin(({ addComponents }) => {
+ addComponents({
     ".typo-h1": {
       "@apply font-sans text-[12rem] font-medium leading-[100%] tracking-[-0.357rem]":
         {},
@@ -72,5 +71,5 @@ module.exports = plugin(({ addComponents }) => {
       "@apply font-plex-sans text-16 font-medium uppercase leading-[150%] tracking-[0.192rem]":
         {},
     },
-  });
+ });
 });
