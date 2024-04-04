@@ -1,10 +1,11 @@
-"use client";
-
-import Link from "next/link";
+// TODO: replace next Link behaviour
+// import Link from "next/link";
+import Link from '@components/Link';
 import { useState, useEffect } from "react";
 import clsx from "clsx";
-import { usePathname } from "next/navigation";
-import ExportedImage from "next-image-export-optimizer";
+// TODO: replace usePathname and ExportedImage behaviour
+import usePathname from "@hooks/usePathname";
+// import ExportedImage from "next-image-export-optimizer";
 import { useMediaQuery } from "@hooks/useMediaQuery";
 import { up } from "@utils/screens";
 

@@ -2,8 +2,8 @@
 
 import clsx from "clsx";
 import { useState, useEffect } from "react";
-import { usePathname } from "next/navigation";
-import Link from "next/link";
+import usePathname from "@hooks/usePathname";
+import Link, { Target } from "@components/Link";
 
 import Text from "@components/Text";
 import useClickOutside from "@hooks/useClickOutside";
@@ -54,7 +54,7 @@ const NavItemWithSubMenu: React.FC<NavItemWithChildren> = (props) => {
         <ul className="flex flex-col gap-8 rounded-12 bg-ui-fleek-black p-12">
           {props.children.map((item) => (
             <li key={item.url} className="flex items-start">
-              <Link href={item.url} target={item.openInNewTab ? "_blank" : ""}>
+              <Link href={item.url} target={item.openInNewTab ? Target.Blank : Target.Self}>
                 <Text style="caption-text" className="whitespace-nowrap lg:text-14">
                   {item.label}
                 </Text>
