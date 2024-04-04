@@ -1,4 +1,6 @@
 ---
+import Announcement from "@components/Announcement";
+
 interface Props {
 	title: string;
 }
@@ -16,7 +18,18 @@ const { title } = Astro.props;
 		<meta name="generator" content={Astro.generator} />
 		<title>{title}</title>
 	</head>
-	<body>
+  <body
+    class="--font-plex-sans --font-plex-mono --font-sans bg-mesh bg-black font-sans text-ui-light-grey selection:bg-[#ff3dcf] selection:text-black"
+  >
+    <noscript>
+      <iframe
+        src="https://www.googletagmanager.com/ns.html?id=GTM-WMT553Z"
+        height="0"
+        width="0"
+        style={{ display: "none", visibility: "hidden" }}
+      />
+    </noscript>
+    <Announcement client:only />
 		<slot />
 	</body>
 </html>

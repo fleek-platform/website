@@ -1,6 +1,4 @@
-"use client";
-
-import { useEffect, useRef, createElement } from "react";
+import { useRef, createElement } from "react";
 import clsx from "clsx";
 
 type TextStyle =
