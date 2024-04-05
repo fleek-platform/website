@@ -29,8 +29,10 @@ const SidebarMenu: FC<Props> = ({ data }) => {
         >
           <div className="font-plex-sans text-16 font-light">
             {menuItem.category !== "root" && menuItem.list.length > 0
-              ? menuItem.category
-              : menuItem.list[0]}
+              ? menuItem.title
+              : (
+                <a href={`docs/${menuItem.slug}`}>{menuItem.title}</a>
+              )}
           </div>
 
           {menuItem.category !== "root" && menuItem.list.length > 0 && (
@@ -43,7 +45,7 @@ const SidebarMenu: FC<Props> = ({ data }) => {
                   className="font-plex-sans text-16 font-light"
                   onClick={handleNestedClick}
                 >
-                  <a href={`docs/${menuItem.category}/${item}`}>{item}</a>
+                  <a href={`docs/${menuItem.category}/${item.slug}`}>{item.title}</a>
                 </li>
               ))}
             </ul>

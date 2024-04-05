@@ -8,17 +8,14 @@ import { getCollection } from "astro:content";
 const pageTitle = "Documentation";
 const allPosts = await getCollection("docs");
 const orderBy = [{
-	category: 'root',
-	order: 0,
-}, {
 	category: 'randomx',
-	order: 1,
+	order: 10,
 }, {
 	category: 'categoryx',
-	order: 3,
+	order: 30,
 }, {
 	category: 'has_whitespace_and-dash',
-	order: 2,
+	order: 20,
 }];
 
 console.log('[debug] allPosts', allPosts);

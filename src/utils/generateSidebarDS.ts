@@ -7,10 +7,17 @@ type SidebarItem = Pick<Doc["data"], 'title' | 'order'>;
 
 export type SidebarData = Record<string, SidebarItem[]>;
 
+type List = {
+  slug: string;
+  title: string;  
+}[];
+
 export type GenerateSidebarResponse = {
   category: string;
-  list: string[];
+  list: List;
   order?: number;
+  title?: string;
+  slug: string;
 }[];
 
 export type UserOrder = {
@@ -88,7 +95,7 @@ type UserOrderItem = {
 };
 
 export const generateSidebarDSByUserOrder = (allPosts: Doc[], userOrder: UserOrderItem[]): GenerateSidebarResponse => {
- const data = allPosts.map(item => {
+  const data = allPosts.map(item => {
     const split = item.slug.split('/');
     const hasCategory = split.length > 1;
     const categoryFromSlug = split[0];
@@ -106,15 +113,15 @@ export const generateSidebarDSByUserOrder = (allPosts: Doc[], userOrder: UserOrd
       category: categoryFromSlug,
       slug: split[1],
     };
- });
+  });
 
- console.log('[debug] allPosts -> data: ', data);
+  console.log('[debug] allPosts -> data: ', data);
 
- // Initialize the Map with empty arrays for each category
- const dataMap = new Map<string, DocWithCategory[]>(data.map(item => [item.category, []]));
+  // Initialize the Map with empty arrays for each category
+  const dataMap = new Map<string, DocWithCategory[]>(data.map(item => [item.category, []]));
 
- // Populate the Map with items for each category
- data.forEach(item => {
+  // Populate the Map with items for each category
+  data.forEach(item => {
     const existingItems = dataMap.get(item.category);
     if (existingItems) {
        existingItems.push(item);
@@ -122,29 +129,47 @@ export const generateSidebarDSByUserOrder = (allPosts: Doc[], userOrder: UserOrd
        // This should not happen if the map was initialized correctly, but it's a safeguard
        dataMap.set(item.category, [item]);
     }
- });
+  });
 
- console.log('[debug] dataMap', dataMap);
+  console.log('[debug] dataMap', dataMap);
 
- // Separate categories that are in userOrder from those that are not
- const userOrderCategories = new Set(userOrder.map(item => item.category));
- const remainingCategories = data.filter(item => !userOrderCategories.has(item.category));
+  // Separate categories that are in userOrder from those that are not
+  const userOrderCategories = new Set(userOrder.map(item => item.category));
+  const remainingCategories = data.filter(item => !userOrderCategories.has(item.category));
 
- // Sort the userOrder array based on the order field
- userOrder.sort((a, b) => a.order - b.order);
+  // Sort the userOrder array based on the order field
+  userOrder.sort((a, b) => a.order - b.order);
 
- // Create a new array based on the order specified in userOrder
- const orderedUserOrderItems: DocWithCategory[] = userOrder.flatMap(orderItem => dataMap.get(orderItem.category) ?? [])
- .filter((item): item is DocWithCategory => item !== undefined);
+  // Create a new array based on the order specified in userOrder
+  const orderedUserOrderItems: DocWithCategory[] = userOrder.flatMap(orderItem => dataMap.get(orderItem.category) ?? [])
+  .filter((item): item is DocWithCategory => item !== undefined);
 
- // Sort the remaining categories alphabetically
- remainingCategories.sort((a, b) => a.category.localeCompare(b.category));
+  // Sort the remaining categories alphabetically
+  remainingCategories.sort((a, b) => a.category.localeCompare(b.category));
 
- // Combine the sorted userOrder items with the sorted remaining categories
- const sortedOrderedUserOrderItems = transformData(orderedUserOrderItems);
- const orderedData: GenerateSidebarResponse = [...sortedOrderedUserOrderItems, ...transformData(remainingCategories, sortedOrderedUserOrderItems.length)];
+  // Combine the sorted userOrder items with the sorted remaining categories
+  const sortedOrderedUserOrderItems = transformData(orderedUserOrderItems);
+  const orderedData: GenerateSidebarResponse = [...sortedOrderedUserOrderItems, ...transformData(remainingCategories, sortedOrderedUserOrderItems.length)].filter(item => item.category !== ROOT_FALLBACK_CATEGORY);
 
- return orderedData;
+  // We'll now work with a list of data that is sorted by user preference, but we want the root items which are not in a category to be considered in ordering
+  const filtered = data.filter(item => item.category == ROOT_FALLBACK_CATEGORY);
+
+  const flatten: GenerateSidebarResponse = filtered.map(item => ({
+    category: item.category,
+    slug: item.slug,
+    order: item.order,
+    title: item.title,
+    list: [],
+  }));
+
+  const join = [
+    ...flatten,
+    ...orderedData,
+  ].sort((a, b) => (a.order ?? Infinity) - (b.order ?? Infinity));
+
+  console.log('[debug] join: ', join);
+
+  return join;
 }
 
 const transformData = (data: DocWithCategory[], offset: number = 0): GenerateSidebarResponse => {
@@ -163,8 +188,13 @@ const transformData = (data: DocWithCategory[], offset: number = 0): GenerateSid
 
     return {
       category,
-      list: sortedItems.map(item => item.slug),
+      slug: category,
       order: offset + idx,
+      title: normalizeCategoryName(category),
+      list: sortedItems.map(item => ({
+        slug: item.slug,
+        title: item.title,
+      })),
     };
  });
 
