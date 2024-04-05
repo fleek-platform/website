@@ -46,16 +46,19 @@ const sidebarSorted = generateSidebarDSByUserOrder(allPosts, orderBy);
   <body class="--font-plex-sans --font-plex-mono --font-sans bg-mesh bg-black font-sans text-ui-light-grey selection:bg-[#ff3dcf] selection:text-black">
     <Nav client:load pathname={Astro.url.pathname} />
     <main class="container min-h-container">
-      <div class="grid grid-cols-[auto,1fr] gap-4">
-        <div class="min-w-[240px] px-32">
+      <div class="grid grid-cols-[1fr,3fr,1fr] gap-4">
+        <div class="px-32">
           <Sidebar
             client:load
             data={sidebarSorted}
             pathname={Astro.url.pathname}
           />
         </div>
-        <div class="px-64">
+        <div class="px-32">
           <slot />
+        </div>
+        <div>
+          TODO: On page nav
         </div>
       </div>
     </main>
