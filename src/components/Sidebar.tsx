@@ -15,9 +15,9 @@ const SidebarMenu: FC<Props> = ({ data }) => {
     setActiveCategory(activeCategory === category ? DEFAULT : category);
   };
 
-   const handleNestedClick = (event: React.MouseEvent) => {
-      event.stopPropagation();
-   };
+  const handleNestedClick = (event: React.MouseEvent) => {
+    event.stopPropagation();
+  };
 
   return (
     <ul className="flex flex-col gap-6">
@@ -27,8 +27,13 @@ const SidebarMenu: FC<Props> = ({ data }) => {
           className="cursor-pointer"
           onClick={() => handleCategoryClick(menuItem.category)}
         >
-          <div className="font-plex-sans text-16 font-light">{menuItem.list.length > 1 ? menuItem.category : menuItem.list[0]}</div>
-          {menuItem.list.length > 1 && (
+          <div className="font-plex-sans text-16 font-light">
+            {menuItem.category !== "root" && menuItem.list.length > 0
+              ? menuItem.category
+              : menuItem.list[0]}
+          </div>
+
+          {menuItem.category !== "root" && menuItem.list.length > 0 && (
             <ul
               className={`${activeCategory === menuItem.category ? "block" : "hidden"} space-y-1 ml-4`}
             >
@@ -38,7 +43,7 @@ const SidebarMenu: FC<Props> = ({ data }) => {
                   className="font-plex-sans text-16 font-light"
                   onClick={handleNestedClick}
                 >
-                  {item}
+                  <a href={`docs/${menuItem.category}/${item}`}>{item}</a>
                 </li>
               ))}
             </ul>

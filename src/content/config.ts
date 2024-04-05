@@ -12,7 +12,6 @@ const docsCollection = defineCollection({
         url: z.string(),
         alt: z.string()
       }).optional(),
-      category: z.string().optional(),
       order: z.number().optional(),
       tags: z.array(z.string()).optional(),
     })

@@ -1,6 +1,6 @@
 ---
-title: Getting started
-order: 1
+title: Other
+order: 3
 ---
 
 # Subtitle Foobar 1
