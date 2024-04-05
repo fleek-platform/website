@@ -1,6 +1,7 @@
 import type { CollectionEntry } from "astro:content" 
 
 type Doc = CollectionEntry<"docs">;
+type DocWithCategory = Doc["data"] & { category: string; slug: string; };
 
 type SidebarItem = Pick<Doc["data"], 'title' | 'order'>;
 
@@ -9,6 +10,7 @@ export type SidebarData = Record<string, SidebarItem[]>;
 export type GenerateSidebarResponse = {
   category: string;
   list: string[];
+  order?: number;
 }[];
 
 export type UserOrder = {
@@ -80,17 +82,12 @@ const generateSidebarDS = (data: Doc[]) => {
 
 export default generateSidebarDS;
 
-type DataItem = {
- category: string;
- list: string[];
-};
-
 type UserOrderItem = {
  category: string;
  order: number;
 };
 
-export const generateSidebarDSByUserOrder = (allPosts: Doc[], userOrder: UserOrderItem[]): DataItem[] => {
+export const generateSidebarDSByUserOrder = (allPosts: Doc[], userOrder: UserOrderItem[]): GenerateSidebarResponse => {
  const data = allPosts.map(item => {
     const split = item.slug.split('/');
     const hasCategory = split.length > 1;
@@ -100,19 +97,34 @@ export const generateSidebarDSByUserOrder = (allPosts: Doc[], userOrder: UserOrd
       return {
         ...item.data,
         category: ROOT_FALLBACK_CATEGORY,
+        slug: item.slug,
       };
     }
 
     return {
       ...item.data,
       category: categoryFromSlug,
+      slug: split[1],
     };
  });
 
- type DocWithCategory = typeof data[number];
+ console.log('[debug] allPosts -> data: ', data);
 
- // Create a map for quick lookup of data items by category
- const dataMap = new Map<string, DocWithCategory>(data.map(item => [item.category, item]));
+ // Initialize the Map with empty arrays for each category
+ const dataMap = new Map<string, DocWithCategory[]>(data.map(item => [item.category, []]));
+
+ // Populate the Map with items for each category
+ data.forEach(item => {
+    const existingItems = dataMap.get(item.category);
+    if (existingItems) {
+       existingItems.push(item);
+    } else {
+       // This should not happen if the map was initialized correctly, but it's a safeguard
+       dataMap.set(item.category, [item]);
+    }
+ });
+
+ console.log('[debug] dataMap', dataMap);
 
  // Separate categories that are in userOrder from those that are not
  const userOrderCategories = new Set(userOrder.map(item => item.category));
@@ -122,21 +134,20 @@ export const generateSidebarDSByUserOrder = (allPosts: Doc[], userOrder: UserOrd
  userOrder.sort((a, b) => a.order - b.order);
 
  // Create a new array based on the order specified in userOrder
- const orderedUserOrderItems: DocWithCategory[] = userOrder.map(orderItem => dataMap.get(orderItem.category))
+ const orderedUserOrderItems: DocWithCategory[] = userOrder.flatMap(orderItem => dataMap.get(orderItem.category) ?? [])
  .filter((item): item is DocWithCategory => item !== undefined);
 
  // Sort the remaining categories alphabetically
  remainingCategories.sort((a, b) => a.category.localeCompare(b.category));
 
  // Combine the sorted userOrder items with the sorted remaining categories
- const orderedData: DataItem[] = [...transformData(orderedUserOrderItems), ...transformData(remainingCategories)];
+ const sortedOrderedUserOrderItems = transformData(orderedUserOrderItems);
+ const orderedData: GenerateSidebarResponse = [...sortedOrderedUserOrderItems, ...transformData(remainingCategories, sortedOrderedUserOrderItems.length)];
 
  return orderedData;
 }
 
-type DocWithCategory = Doc["data"] & { category: string; };
-
-const transformData = (data: DocWithCategory[]): DataItem[] => {
+const transformData = (data: DocWithCategory[], offset: number = 0): GenerateSidebarResponse => {
  const groupedByCategory = data.reduce((acc, item) => {
     if (!acc[item.category]) {
       acc[item.category] = [];
@@ -145,12 +156,15 @@ const transformData = (data: DocWithCategory[]): DataItem[] => {
     return acc;
  }, {} as Record<string, DocWithCategory[]>);
 
- const transformedData: DataItem[] = Object.entries(groupedByCategory).map(([category, items]) => {
+ console.log('[debug] groupedByCategory: ', groupedByCategory);
+
+ const transformedData: GenerateSidebarResponse = Object.entries(groupedByCategory).map(([category, items], idx) => {
     const sortedItems = items.sort((a, b) => (a.order ?? Infinity) - (b.order ?? Infinity));
 
     return {
       category,
-      list: sortedItems.map(item => item.title),
+      list: sortedItems.map(item => item.slug),
+      order: offset + idx,
     };
  });
 
