@@ -94,10 +94,9 @@ const NAV: Nav = [
     url: "/pricing",
   },
   {
-    label: "Status",
-    url: "https://fleek.statuspage.io/",
-    openInNewTab: true,
-  },
+    label: "Blog",
+    url: "/blog",
+  }
 ];
 
 type Props = {
