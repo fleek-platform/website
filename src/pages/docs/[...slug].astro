@@ -9,7 +9,7 @@ export async function getStaticPaths() {
   }));
 }
 
-const { entry, title } = Astro.props;
+const { entry } = Astro.props;
 const { Content } = await entry.render();
 ---
 

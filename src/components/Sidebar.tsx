@@ -21,13 +21,6 @@ const SidebarMenu: FC<Props> = ({ data, pathname }) => {
     event.stopPropagation();
   };
 
-  useEffect(() => {
-    console.log('[debug] pathname: ', pathname);
-    console.log('[debug] category: ', category);
-    setActiveCategory(category);
-  }, []);
-
-
   return (
     <ul className="flex flex-col gap-6">
       {data.map((menuItem, index) => (
