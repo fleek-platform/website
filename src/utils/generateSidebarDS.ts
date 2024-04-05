@@ -25,6 +25,8 @@ export type UserOrder = {
   order: number;  
 }[];
 
+type UserOrderLookupTable = Record<string, number>;
+
 export const ROOT_FALLBACK_CATEGORY = 'root';
 
 // Normalize directory into human-friendly name
@@ -115,8 +117,6 @@ export const generateSidebarDSByUserOrder = (allPosts: Doc[], userOrder: UserOrd
     };
   });
 
-  console.log('[debug] allPosts -> data: ', data);
-
   // Initialize the Map with empty arrays for each category
   const dataMap = new Map<string, DocWithCategory[]>(data.map(item => [item.category, []]));
 
@@ -131,14 +131,17 @@ export const generateSidebarDSByUserOrder = (allPosts: Doc[], userOrder: UserOrd
     }
   });
 
-  console.log('[debug] dataMap', dataMap);
-
   // Separate categories that are in userOrder from those that are not
   const userOrderCategories = new Set(userOrder.map(item => item.category));
   const remainingCategories = data.filter(item => !userOrderCategories.has(item.category));
 
   // Sort the userOrder array based on the order field
   userOrder.sort((a, b) => a.order - b.order);
+
+  const userOrderLookupTable = userOrder.reduce((acc, item) => {
+    acc[item.category] = item.order;
+    return acc;
+  }, {} as Record<string, number>);
 
   // Create a new array based on the order specified in userOrder
   const orderedUserOrderItems: DocWithCategory[] = userOrder.flatMap(orderItem => dataMap.get(orderItem.category) ?? [])
@@ -148,8 +151,8 @@ export const generateSidebarDSByUserOrder = (allPosts: Doc[], userOrder: UserOrd
   remainingCategories.sort((a, b) => a.category.localeCompare(b.category));
 
   // Combine the sorted userOrder items with the sorted remaining categories
-  const sortedOrderedUserOrderItems = transformData(orderedUserOrderItems);
-  const orderedData: GenerateSidebarResponse = [...sortedOrderedUserOrderItems, ...transformData(remainingCategories, sortedOrderedUserOrderItems.length)].filter(item => item.category !== ROOT_FALLBACK_CATEGORY);
+  const sortedOrderedUserOrderItems = transformData(orderedUserOrderItems, userOrderLookupTable);
+  const orderedData: GenerateSidebarResponse = [...sortedOrderedUserOrderItems, ...transformData(remainingCategories, userOrderLookupTable)].filter(item => item.category !== ROOT_FALLBACK_CATEGORY);
 
   // We'll now work with a list of data that is sorted by user preference, but we want the root items which are not in a category to be considered in ordering
   const filtered = data.filter(item => item.category == ROOT_FALLBACK_CATEGORY);
@@ -167,12 +170,10 @@ export const generateSidebarDSByUserOrder = (allPosts: Doc[], userOrder: UserOrd
     ...orderedData,
   ].sort((a, b) => (a.order ?? Infinity) - (b.order ?? Infinity));
 
-  console.log('[debug] join: ', join);
-
   return join;
 }
 
-const transformData = (data: DocWithCategory[], offset: number = 0): GenerateSidebarResponse => {
+const transformData = (data: DocWithCategory[], userOrderLookupTable: UserOrderLookupTable): GenerateSidebarResponse => {
  const groupedByCategory = data.reduce((acc, item) => {
     if (!acc[item.category]) {
       acc[item.category] = [];
@@ -181,15 +182,13 @@ const transformData = (data: DocWithCategory[], offset: number = 0): GenerateSid
     return acc;
  }, {} as Record<string, DocWithCategory[]>);
 
- console.log('[debug] groupedByCategory: ', groupedByCategory);
-
  const transformedData: GenerateSidebarResponse = Object.entries(groupedByCategory).map(([category, items], idx) => {
     const sortedItems = items.sort((a, b) => (a.order ?? Infinity) - (b.order ?? Infinity));
 
     return {
       category,
       slug: category,
-      order: offset + idx,
+      order: userOrderLookupTable ? userOrderLookupTable[category] : idx,
       title: normalizeCategoryName(category),
       list: sortedItems.map(item => ({
         slug: item.slug,

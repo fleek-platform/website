@@ -1,6 +1,6 @@
 ---
 title: Other
-order: 3
+order: 4
 ---
 
 # Subtitle Foobar 1
