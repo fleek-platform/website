@@ -1,6 +1,6 @@
 ---
-layout: ../../layouts/Page.astro
-title: Getting started
+title: Title1
+order: 1
 ---
 
 Welcome to the documentation for the alpha of Fleek.xyz. Whether you are an expert or an absolute beginner, you'll find your answers here.

@@ -31,6 +31,7 @@
     "typescript": "^5.4.3"
   },
   "devDependencies": {
+    "@astrojs/ts-plugin": "^1.6.1",
     "@types/node": "^20.12.4"
   }
 }

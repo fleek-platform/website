@@ -1,0 +1,22 @@
+---
+import Layout from '@layouts/ContentPage.astro';
+import Container from "@components/Container";
+import { getCollection } from "astro:content";
+import generateSidebarDS, { ROOT_FALLBACK_CATEGORY } from '@utils/generateSidebarDS';
+import Sidebar from '@components/Sidebar';
+
+const pageTitle = "Documentation";
+const allPosts = await getCollection("docs");
+
+const sidebarSorted = generateSidebarDS(allPosts);
+---
+
+<Layout title="Fleek | Build Lightning Fast Web3 Apps">
+	<div class="flex flex-col gap-24 lg:gap-32">
+		<Sidebar
+			client:only="react"
+			data={sidebarSorted}
+		/>
+	</div>
+</Layout>
+
