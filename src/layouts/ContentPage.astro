@@ -7,12 +7,22 @@ import Footer from "@components/Footer";
 import generateSidebarDS, { generateSidebarDSByUserOrder } from '@utils/generateSidebarDS';
 import { getCollection } from "astro:content";
 import Sidebar from '@components/Sidebar';
+import OnPageNavigation from '@components/OnPageNavigation/OnPageNavigation.astro';
 
-interface Props {
-	title: string;
-}
+import type { MarkdownHeading } from 'astro';
 
-const { title } = Astro.props;
+type Props = {
+  title: string;
+	headings: MarkdownHeading[];
+};
+
+// TODO: Get from settings (create)
+const GITHUB_EDIT_URL = 'https://github.com/fleekxyz/<TODO:RESPOSITORY-NAME>/edit/';
+
+const { title, headings } = Astro.props;
+const currentPage = Astro.url.pathname;
+const currentFile = `src/content/docs/${currentPage.replace(/\/$/, '')}.md`;
+const githubEditUrl = `${GITHUB_EDIT_URL}/${currentFile}`;
 
 const allPosts = await getCollection("docs");
 const orderBy = [{
@@ -58,7 +68,7 @@ const sidebarSorted = generateSidebarDSByUserOrder(allPosts, orderBy);
           <slot />
         </div>
         <div>
-          TODO: On page nav
+          <OnPageNavigation headings={headings} githubEditUrl={githubEditUrl} />
         </div>
       </div>
     </main>
