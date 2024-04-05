@@ -1,0 +1,38 @@
+---
+import { getCollection } from 'astro:content';
+import ContentPageLayout from '../../layouts/BlogPage.astro';
+
+export async function getStaticPaths() {
+  const docsEntries = await getCollection('blog');
+  return docsEntries.map(entry => ({
+    params: { slug: entry.slug }, props: { entry },
+  }));
+}
+
+const { entry } = Astro.props;
+const { Content, headings } = await entry.render();
+---
+
+<ContentPageLayout title={entry.data.title} headings={headings}>
+  <article class="blog">
+    <Content />
+  </article>
+</ContentPageLayout>
+
+<style is:global>
+ @tailwind components;
+
+ @layer components {
+  .doc {
+    h1 {
+      @apply font-plex-mono text-38 font-bold leading-loose;
+    }
+    h2 {
+      @apply font-plex-mono text-32 font-bold leading-loose;
+    }
+    p {
+      @apply font-plex-mono text-18 pb-32 leading-normal;
+    }   
+  }
+ }
+</style>

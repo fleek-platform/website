@@ -1,24 +1,17 @@
 ---
+// TODO: Possibly best to move the sidebar etc here
+// and have a default home page when no-slug
 import Layout from '@layouts/ContentPage.astro';
 import Container from "@components/Container";
 import generateSidebarDS, { generateSidebarDSByUserOrder } from '@utils/generateSidebarDS';
 import Sidebar from '@components/Sidebar';
 import { getCollection } from "astro:content";
+import { docs } from '@base/settings.json';
 
 const pageTitle = "Documentation";
 const allPosts = await getCollection("docs");
-const orderBy = [{
-	category: 'randomx',
-	order: 5,
-}, {
-	category: 'categoryx',
-	order: 3,
-}, {
-	category: 'has_whitespace_and-dash',
-	order: 2,
-}];
 
-const sidebarSorted = generateSidebarDSByUserOrder(allPosts, orderBy);
+const sidebarSorted = generateSidebarDSByUserOrder(allPosts, docs.menu.order);
 ---
 
 <Layout title="Fleek | Build Lightning Fast Web3 Apps">

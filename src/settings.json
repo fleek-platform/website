@@ -1,0 +1,18 @@
+{
+  "docs": {
+    "menu": {
+      "order": [
+        {
+          "category": "randomx",
+          "order": 5
+        }, {
+          "category": "categoryx",
+          "order": 3
+        }, {
+          "category": "has_whitespace_and-dash",
+          "order": 2
+        }
+      ]
+    }
+  }
+}

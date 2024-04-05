@@ -1,0 +1,14 @@
+---
+import Layout from '@layouts/BlogPage.astro';
+import Container from "@components/Container";
+import { getCollection } from "astro:content";
+
+const pageTitle = "Blog";
+const allPosts = await getCollection("blog");
+
+console.log('[debug] allPosts: ', allPosts);
+---
+
+<Layout title="Fleek | Build Lightning Fast Web3 Apps">
+	<p>The src/pages/blogs.astro</p>
+</Layout>
