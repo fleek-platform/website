@@ -9,11 +9,30 @@ export async function getStaticPaths() {
   }));
 }
 
-const { entry } = Astro.props;
+const { entry, title } = Astro.props;
 const { Content } = await entry.render();
 ---
 
-<!-- <ContentPageLayout frontmatter={entry.data}> -->
-<ContentPageLayout title="">
-  <Content />
+<ContentPageLayout title={entry.data.title}>
+  <article class="doc">
+    <Content />
+  </article>
 </ContentPageLayout>
+
+<style is:global>
+ @tailwind components;
+
+ @layer components {
+  .doc {
+    h1 {
+      @apply font-plex-mono text-38 font-bold leading-loose;
+    }
+    h2 {
+      @apply font-plex-mono text-32 font-bold leading-loose;
+    }
+    p {
+      @apply font-plex-mono text-18 pb-32 leading-normal;
+    }   
+  }
+ }
+</style>

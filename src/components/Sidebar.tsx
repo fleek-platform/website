@@ -10,7 +10,8 @@ interface Props {
 const DEFAULT = "";
 
 const SidebarMenu: FC<Props> = ({ data, pathname }) => {
-  const [activeCategory, setActiveCategory] = useState<string>(DEFAULT);
+  const category = pathname.split('/')[2];
+  const [activeCategory, setActiveCategory] = useState<string>(category);
 
   const handleCategoryClick = (category: string) => {
     setActiveCategory(activeCategory === category ? DEFAULT : category);
@@ -22,7 +23,6 @@ const SidebarMenu: FC<Props> = ({ data, pathname }) => {
 
   useEffect(() => {
     console.log('[debug] pathname: ', pathname);
-    const category = pathname.split('/')[2];
     console.log('[debug] category: ', category);
     setActiveCategory(category);
   }, []);
