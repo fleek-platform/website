@@ -27,8 +27,6 @@ const orderBy = [{
 }];
 
 const sidebarSorted = generateSidebarDSByUserOrder(allPosts, orderBy);
-
-console.log('[debug]', Astro.props);
 ---
 
 <!doctype html>
@@ -45,19 +43,26 @@ console.log('[debug]', Astro.props);
     class="--font-plex-sans --font-plex-mono --font-sans bg-mesh bg-black font-sans text-ui-light-grey selection:bg-[#ff3dcf] selection:text-black"
   >
 		<Nav client:load pathname={Astro.url.pathname} />
-		<main class="container grid grid-cols-[auto,1fr] gap-4">
-		 <div class="min-w-[240px] px-32">
-      		<Sidebar
-      			client:load
-      			data={sidebarSorted}
-            pathname={Astro.url.pathname}
-      		/>
-		 </div>
-		 <div class="px-64">
-					<slot />
-		 </div>
+  	<!-- <main class="container flex min-h-container"> -->
+				<!-- <div class="px-32"> -->
+				<!-- </div> -->
+    	  <!-- <div class="px-64"> -->
+				<!-- </div> -->
+    <!-- </main> -->
+		<main class="container min-h-container">
+			<div class="grid grid-cols-[auto,1fr] gap-4">
+			 <div class="min-w-[240px] px-32">
+	      		<Sidebar
+	      			client:load
+	      			data={sidebarSorted}
+	            pathname={Astro.url.pathname}
+	      		/>
+			 </div>
+			 <div class="px-64">
+						<slot />
+			 </div>
+			</div>
 		</main>
-    </Container>
     <Footer client:load />
 	</body>
 </html>

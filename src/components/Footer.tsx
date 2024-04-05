@@ -99,7 +99,7 @@ const LEGAL = [
 
 const Footer = () => {
   return (
-    <footer className="mt-32 bg-ui-fleek-black pb-40 pt-80 text-ui-light-grey">
+    <footer className="bg-ui-fleek-black pb-40 pt-80 text-ui-light-grey">
       <Container>
         <GridLayout>
           <div className="col-span-16 mb-24 flex flex-col md:col-span-3 md:mb-0">
