@@ -13,6 +13,32 @@ const sidebarSorted = generateSidebarDS(allPosts);
 
 <Layout title="Fleek | Build Lightning Fast Web3 Apps">
 	<div class="flex flex-col gap-24 lg:gap-32">
+	  <!-- <ul class="flex flex-col gap-6"> -->
+	    <!-- { -->
+	      <!-- sidebarSorted.map((doc) => ( -->
+					<!-- <li class="font-plex-sans text-16 font-light"> -->
+						<!-- { -->
+							<!-- doc.category !== ROOT_FALLBACK_CATEGORY -->
+							<!-- ? doc.category -->
+							<!-- : doc.list.title -->
+						<!-- } -->
+
+						<!-- { -->
+							<!-- doc?.list.length -->
+							<!-- ? (<ul class="flex flex-col gap-6 font-light"> -->
+								<!-- { -->
+									<!-- doc.list.map((item) => ( -->
+											<!-- <li>{item}</li> -->
+										<!-- ) -->
+									<!-- ) -->
+								<!-- } -->
+								<!-- </ul>) -->
+							<!-- : '' -->
+						<!-- } -->
+					<!-- </li> -->
+	      <!-- )) -->
+	    <!-- } -->
+	  <!-- </ul> -->
 		<Sidebar
 			client:only="react"
 			data={sidebarSorted}
