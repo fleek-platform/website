@@ -6,6 +6,9 @@ export default {
 	content: ['./src/**/*.{astro,html,js,jsx,md,mdx,ts,tsx}'],
   theme: {
     extend: {
+      minHeight: {
+        'container': 'calc(50vh + 6rem)',
+      },
       fontFamily: {
         sans: ["AtypDisplay"],
         "plex-sans": ["IBM Plex Sans"],

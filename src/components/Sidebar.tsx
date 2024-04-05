@@ -1,14 +1,15 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import type { FC } from "react";
 import type { GenerateSidebarResponse } from "@utils/generateSidebarDS";
 
 interface Props {
   data: GenerateSidebarResponse;
+  pathname: string;
 }
 
 const DEFAULT = "";
 
-const SidebarMenu: FC<Props> = ({ data }) => {
+const SidebarMenu: FC<Props> = ({ data, pathname }) => {
   const [activeCategory, setActiveCategory] = useState<string>(DEFAULT);
 
   const handleCategoryClick = (category: string) => {
@@ -18,6 +19,14 @@ const SidebarMenu: FC<Props> = ({ data }) => {
   const handleNestedClick = (event: React.MouseEvent) => {
     event.stopPropagation();
   };
+
+  useEffect(() => {
+    console.log('[debug] pathname: ', pathname);
+    const category = pathname.split('/')[2];
+    console.log('[debug] category: ', category);
+    setActiveCategory(category);
+  }, []);
+
 
   return (
     <ul className="flex flex-col gap-6">
@@ -31,7 +40,7 @@ const SidebarMenu: FC<Props> = ({ data }) => {
             {menuItem.category !== "root" && menuItem.list.length > 0
               ? menuItem.title
               : (
-                <a href={`docs/${menuItem.slug}`}>{menuItem.title}</a>
+                <a href={`/docs/${menuItem.slug}`}>{menuItem.title}</a>
               )}
           </div>
 
@@ -45,7 +54,7 @@ const SidebarMenu: FC<Props> = ({ data }) => {
                   className="font-plex-sans text-16 font-light"
                   onClick={handleNestedClick}
                 >
-                  <a href={`docs/${menuItem.category}/${item.slug}`}>{item.title}</a>
+                  <a href={`/docs/${menuItem.category}/${item.slug}`}>{item.title}</a>
                 </li>
               ))}
             </ul>

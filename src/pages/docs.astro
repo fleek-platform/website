@@ -18,15 +18,11 @@ const orderBy = [{
 	order: 2,
 }];
 
+console.log('[debug] allPosts: ', allPosts);
+
 const sidebarSorted = generateSidebarDSByUserOrder(allPosts, orderBy);
 ---
 
 <Layout title="Fleek | Build Lightning Fast Web3 Apps">
-	<div class="flex flex-col gap-24 lg:gap-32">
-		<Sidebar
-			client:only="react"
-			data={sidebarSorted}
-		/>
-	</div>
+	<p>The src/pages/docs.astro</p>
 </Layout>
-

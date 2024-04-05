@@ -10,6 +10,7 @@ import GlowWrapper from './GlowWrapper';
 import Spinner from './Spinner';
 import { Tooltip } from 'react-tooltip';
 import toast, { Toaster } from 'react-hot-toast';
+import type { IpfsFile } from '@fleekxyz/sdk';
 
 const MAX_FILE_SIZE_MB = 50;
 
@@ -42,7 +43,7 @@ const FileUpload: React.FC = () => {
     const fileToUpload = {
       content: file,
       path: file.name,
-    };
+    } as unknown as IpfsFile;
 
     // If file is over 50Mb, don't upload
     if (file.size > MAX_FILE_SIZE_MB * 1024 * 1024) {

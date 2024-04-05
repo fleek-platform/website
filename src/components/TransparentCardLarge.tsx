@@ -1,4 +1,4 @@
-import { PropsWithChildren } from "react";
+import type { PropsWithChildren } from "react";
 import Text from "./Text";
 
 type TransparentCardLargeProps = PropsWithChildren & {

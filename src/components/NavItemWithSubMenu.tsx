@@ -2,7 +2,6 @@
 
 import clsx from "clsx";
 import { useState, useEffect } from "react";
-import usePathname from "@hooks/usePathname";
 import Link, { Target } from "@components/Link";
 
 import Text from "@components/Text";
@@ -10,11 +9,11 @@ import useClickOutside from "@hooks/useClickOutside";
 import type { NavItemWithChildren } from "@components/Nav";
 
 const NavItemWithSubMenu: React.FC<NavItemWithChildren> = (props) => {
+  const { pathname } = props;
   const [isOpen, setIsOpen] = useState(false);
 
   const wrapperRef = useClickOutside<HTMLDivElement>(() => setIsOpen(false));
 
-  const pathname = usePathname();
 
   useEffect(() => {
     setIsOpen(false);

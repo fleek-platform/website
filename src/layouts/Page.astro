@@ -22,7 +22,7 @@ const { title } = Astro.props;
 		<title>{title}</title>
 	</head>
   <body
-    class="--font-plex-sans --font-plex-mono --font-sans bg-mesh bg-black font-sans text-ui-light-grey selection:bg-[#ff3dcf] selection:text-black"
+    class="--font-plex-sans --font-plex-mono --font-sans bg-mesh bg-black font-sans text-ui-light-grey selection:bg-[#ff3dcf] selection:text-black min-h-full"
   >
     <noscript>
       <iframe
@@ -32,10 +32,9 @@ const { title } = Astro.props;
         style={{ display: "none", visibility: "hidden" }}
       />
     </noscript>
-    <Announcement client:only="react" />
-		<Nav client:only="react" />
+		<Nav client:load pathname={Astro.url.pathname} />
 		<slot />
-    <Footer client:only="react" />
+    <Footer client:load />
 
     <!-- TODO: enable after initial setup, or prevent from loading on DEV -->
     <!-- <script id="gtm-script" strategy="beforeInteractive"> -->

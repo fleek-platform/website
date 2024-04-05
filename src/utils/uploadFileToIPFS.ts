@@ -1,7 +1,7 @@
 import { FleekSdk, ApplicationAccessTokenService } from '@fleekxyz/sdk';
+import type { IpfsFile } from '@fleekxyz/sdk';
 
-
-type IpfsFile = { content: File; path: string; };
+// type IpfsFile = { content: File; path: string; };
 
 export const uploadFileToIPFS = async (file: IpfsFile) => {
   try {

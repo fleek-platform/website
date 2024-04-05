@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import Link from "@components/Link";
+import Link, { Target } from "@components/Link";
 import clsx from "clsx";
 
 import Container from "@components/Container";
@@ -45,7 +45,7 @@ const CopyWithImageSwap: React.FC<Props> = (props) => {
               <div className="mt-48">
                 <Link
                   href={props.cta.url}
-                  target="_blank"
+                  target={Target.Blank}
                   className="inline-block"
                 >
                   <Button>{props.cta.text}</Button>

@@ -1,7 +1,6 @@
-import Link from '@components/Link';
+import Link, { Target } from '@components/Link';
 import { useState, useEffect } from "react";
 import clsx from "clsx";
-import usePathname from "@hooks/usePathname";
 import { useMediaQuery } from "@hooks/useMediaQuery";
 import { up } from "@utils/screens";
 
@@ -21,6 +20,7 @@ export type NavItemWithChildren = {
   label: string | JSX.Element;
   url?: never;
   openInNewTab?: boolean;
+  pathname?: string;
   children: Array<{
     label: string | JSX.Element;
     url: string;
@@ -66,8 +66,7 @@ const NAV: Nav = [
   },
   {
     label: "Docs",
-    url: "https://docs.fleek.xyz/",
-    openInNewTab: true,
+    url: "/docs",
   },
   {
     label: "Resources",
@@ -101,12 +100,15 @@ const NAV: Nav = [
   },
 ];
 
-const Nav: React.FC = () => {
+type Props = {
+  pathname: string;
+}
+
+const Nav: React.FC<Props> = ({ pathname }) => {
   const [isOpen, setIsOpen] = useState(false);
   const [selectedItem, setSelectedItem] = useState<number | null>(null);
 
   const isLg = useMediaQuery(up("lg"));
-  const pathname = usePathname();
 
   useEffect(() => {
     setIsOpen(false);
@@ -131,11 +133,11 @@ const Nav: React.FC = () => {
         <nav className="hidden items-center gap-40 lg:flex">
           {NAV.map((navItem, index) =>
             navItem.children ? (
-              <NavItemWithSubMenu {...navItem} key={index} />
+              <NavItemWithSubMenu {...navItem} key={index} pathname={pathname} />
             ) : (
               <Link
                 href={navItem.url}
-                target={navItem.openInNewTab ? "_blank" : ""}
+                target={navItem.openInNewTab ? Target.Blank : Target.Self}
                 key={navItem.url}
               >
                 <Text style="nav-m">{navItem.label}</Text>
@@ -208,7 +210,7 @@ const Nav: React.FC = () => {
                   ) : (
                     <Link
                       href={navItem.url}
-                      target={navItem.openInNewTab ? "_blank" : ""}
+                      target={navItem.openInNewTab ? Target.Blank : Target.Self }
                       key={navItem.url}
                     >
                       <Text style="nav-m">{navItem.label}</Text>
@@ -226,7 +228,7 @@ const Nav: React.FC = () => {
                   >
                     <Link
                       href={item.url}
-                      target={item.openInNewTab ? "_blank" : ""}
+                      target={item.openInNewTab ? Target.Blank : Target.Self}
                     >
                       {item.label}
                     </Link>

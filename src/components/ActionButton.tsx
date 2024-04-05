@@ -1,6 +1,6 @@
 import Text from "@components/Text";
 
-const ActionButton: React.FC<React.PropsWithChildren> = (props) => {
+const ActionButton: React.FC<React.PropsWithChildren> = () => {
   return (
     <a href="https://app.fleek.xyz" target="_blank" rel="noopener noreferrer">
       <button className="inline-block rounded-10 bg-brand-rainbow p-1 max-w-[230px] w-full">

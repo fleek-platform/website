@@ -34,7 +34,7 @@ const BlackFeatureCards: React.FC<BlackFeatureCardsProps> = ({ features, classNa
         {features.map((feature, index) => (
           <CardWrapper key={index} className={clsx("border-lg col-span-16 md:col-span-16 lg:col-span-4", !index && 'lg:col-start-3')}>
             <div className="flex flex-col items-center lg:items-start gap-16 py-16 text-center lg:text-start">
-              <ExportedImage
+              <img
                 src={feature.icon}
                 alt="globe with bolt"
                 width={64}

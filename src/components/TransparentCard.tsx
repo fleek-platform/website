@@ -1,7 +1,7 @@
 import Text from "@components/Text";
 import clsx from "clsx";
 import IconOnBlack from "./IconOnBlack";
-import { PropsWithChildren } from "react";
+import type { PropsWithChildren } from "react";
 
 type Feature = PropsWithChildren & {
   icon: {
