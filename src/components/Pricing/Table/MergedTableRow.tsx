@@ -1,5 +1,6 @@
 import TableCell from "./TableCell";
-import { FeaturePricing } from "./types";
+
+import type { FeaturePricing } from "./types";
 
 const MergedTableRows = ({ headers, features }: { features: FeaturePricing; headers: string[] }) => (
   <div className="flex">

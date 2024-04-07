@@ -1,6 +1,7 @@
 import Text from "@components/Text";
 import clsx from "clsx";
-import { PlanHeader } from "./types";
+
+import type { PlanHeader } from "./types";
 
 const TableHeader = ({ title, titleClassName, subtitle, description, cta }: PlanHeader) => (
   <div className="bg-ui-black flex flex-col items-center justify-between rounded-t-28 py-20 px-10 gap-16 border-1 border-b-0 border-ui-dark-grey w-full lg:max-w-[342px] h-full">

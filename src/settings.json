@@ -34,5 +34,72 @@
         "answer": "You can stop adding credits, or delete your account, anytime without restrictions."
       }
     ]
+  },
+  "payMethods": {
+    "cryptoPaymentsIcons": [
+      {
+        "image": "/svg/ethereum-icon.svg",
+        "title": "ETH"
+      },
+      {
+        "image": "/svg/polygon-icon.svg",
+        "title": "MATIC"
+      },
+      {
+        "image": "/svg/filecoin-icon.svg",
+        "title": "FIL"
+      },
+      {
+        "image": "/svg/optimism-icon.svg",
+        "title": "OP"
+      },
+      {
+        "image": "/svg/solana-icon.svg",
+        "title": "SOL"
+      },
+      {
+        "image": "/svg/dai-icon.svg",
+        "title": "DAI"
+      },
+      {
+        "image": "/svg/usdc-icon.svg",
+        "title": "USDC"
+      },
+      {
+        "image": "/svg/usdt-icon.svg",
+        "title": "USDT"
+      },
+      {
+        "image": "/svg/btc-logo.svg",
+        "title": "BTC"
+      },
+      {
+        "image": "/svg/arbitrum-icon.svg",
+        "title": "ARB"
+      },
+      {
+        "image": "/svg/cosmos-icon.svg",
+        "title": "ATOM"
+      },
+      {
+        "image": "/svg/arweave-icon.svg",
+        "title": "AR"
+      },
+      {
+        "image": "/svg/bnb-chain-icon.svg",
+        "title": "BNB"
+      },
+      {
+        "image": "/svg/link-logo.svg",
+        "title": "LINK"
+      },
+      {
+        "image": "/svg/uni-logo.svg",
+        "title": "UNI"
+      }
+    ]
+  },
+  "github": {
+    "editUrl": "https://github.com/fleekxyz/<TODO:RESPOSITORY-NAME>/edit"
   }
 }

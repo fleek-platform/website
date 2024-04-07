@@ -4,70 +4,7 @@ import GridLayout from "@components/GridLayout";
 import Text from "@components/Text";
 import WhiteIcon from "@components/WhiteIcon";
 import TextGlowHoverEffect from "@components/TextGlowHoverEffect";
-
-// TODO: Move to settings
-const CRYPTO_PAYMENT_ICONS = [
-  {
-    image: "/svg/ethereum-icon.svg",
-    title: "ETH",
-  },
-  {
-    image: "/svg/polygon-icon.svg",
-    title: "MATIC",
-  },
-  {
-    image: "/svg/filecoin-icon.svg",
-    title: "FIL",
-  },
-  {
-    image: "/svg/optimism-icon.svg",
-    title: "OP",
-  },
-  {
-    image: "/svg/solana-icon.svg",
-    title: "SOL",
-  },
-  {
-    image: "/svg/dai-icon.svg",
-    title: "DAI",
-  },
-  {
-    image: "/svg/usdc-icon.svg",
-    title: "USDC",
-  },
-  {
-    image: "/svg/usdt-icon.svg",
-    title: "USDT",
-  },
-  {
-    image: "/svg/btc-logo.svg",
-    title: "BTC",
-  },
-  {
-    image: "/svg/arbitrum-icon.svg",
-    title: "ARB",
-  },
-  {
-    image: "/svg/cosmos-icon.svg",
-    title: "ATOM",
-  },
-  {
-    image: "/svg/arweave-icon.svg",
-    title: "AR",
-  },
-  {
-    image: "/svg/bnb-chain-icon.svg",
-    title: "BNB",
-  },
-  {
-    image: "/svg/link-logo.svg",
-    title: "LINK",
-  },
-  {
-    image: "/svg/uni-logo.svg",
-    title: "UNI",
-  },
-];
+import settings from '@base/settings.json';
 
 const PayMethods = () => (
   <Container>
@@ -84,7 +21,7 @@ const PayMethods = () => (
           </Text>
           <div className="flex flex-col items-center gap-16">
             <div className="flex flex-wrap justify-center gap-16">
-              {CRYPTO_PAYMENT_ICONS.map((item) => (
+              {settings.payMethods.cryptoPaymentsIcons.map((item) => (
                 <WhiteIcon key={item.title} title={item.title} image={item.image} />
               ))}
             </div>

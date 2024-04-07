@@ -8,6 +8,7 @@ import generateSidebarDS, { generateSidebarDSByUserOrder } from '@utils/generate
 import { getCollection } from "astro:content";
 import Sidebar from '@components/Sidebar';
 import OnPageNavigation from '@components/OnPageNavigation/OnPageNavigation.astro';
+import settings from '@base/settings.json';
 
 import type { MarkdownHeading } from 'astro';
 
@@ -16,27 +17,14 @@ type Props = {
 	headings: MarkdownHeading[];
 };
 
-// TODO: Get from settings (create)
-const GITHUB_EDIT_URL = 'https://github.com/fleekxyz/<TODO:RESPOSITORY-NAME>/edit/';
-
 const { title, headings } = Astro.props;
 const currentPage = Astro.url.pathname;
 const currentFile = `src/content/blog/${currentPage.replace(/\/$/, '')}.md`;
-const githubEditUrl = `${GITHUB_EDIT_URL}/${currentFile}`;
+const githubEditUrl = `${settings.github.editUrl}/${currentFile}`;
 
 const allPosts = await getCollection("docs");
-const orderBy = [{
-	category: 'randomx',
-	order: 5,
-}, {
-	category: 'categoryx',
-	order: 3,
-}, {
-	category: 'has_whitespace_and-dash',
-	order: 2,
-}];
 
-const sidebarSorted = generateSidebarDSByUserOrder(allPosts, orderBy);
+const sidebarSorted = generateSidebarDSByUserOrder(allPosts, settings.docs.menu.order);
 ---
 
 <!doctype html>
