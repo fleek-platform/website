@@ -14,5 +14,25 @@
         }
       ]
     }
+  },
+  "pricing": {
+    "faq": [
+      {
+        "question": "Can I change my payment method anytime?",
+        "answer": "Yes. You can switch from crypto to credit card payments, and any credit top-up model anytime."
+      },
+      {
+        "question": "If I am in a paid/pro plan, do I still get the free monthly credits?",
+        "answer": "Yes! All users each month receive $5 worth of credits for free, regardless of their account type."
+      },
+      {
+        "question": "What happens if I ran out of credits? Are accounts suspended?",
+        "answer": "You will be notified before and after you run out of credits, and we will only suspend your plan after a notice period, all data is saved and easy to restore."
+      },
+      {
+        "question": "What happens if I want to cancel?",
+        "answer": "You can stop adding credits, or delete your account, anytime without restrictions."
+      }
+    ]
   }
 }

@@ -4,28 +4,9 @@ import GridLayout from "@components/GridLayout";
 import Text from "@components/Text";
 import { useState } from "react";
 import TextGlowHoverEffect from "@components/TextGlowHoverEffect";
+import { pricing } from '@base/settings.json';
 
 import type { PropsWithChildren } from "react";
-
-// TODO: Move to settings
-const FAQs = [
-  {
-    question: "Can I change my payment method anytime?",
-    answer: "Yes. You can switch from crypto to credit card payments, and any credit top-up model anytime.",
-  },
-  {
-    question: "If I am in a paid/pro plan, do I still get the free monthly credits?",
-    answer: "Yes! All users each month receive $5 worth of credits for free, regardless of their account type.",
-  },
-  {
-    question: "What happens if I ran out of credits? Are accounts suspended?",
-    answer: "You will be notified before and after you run out of credits, and we will only suspend your plan after a notice period, all data is saved and easy to restore.",
-  },
-  {
-    question: "What happens if I want to cancel?",
-    answer: "You can stop adding credits, or delete your account, anytime without restrictions.",
-  }
-];
 
 const Dropdown = ({ title, children }: PropsWithChildren<{ title: string }>) => {
   const [isOpen, setIsOpen] = useState(false);
@@ -62,7 +43,7 @@ const FAQ = () => (
           </TextGlowHoverEffect>
         </div>
         <div className="col-span-14 col-start-2 lg:col-span-8 flex flex-col">
-          {FAQs.map(({ question, answer }) => (
+          {pricing.faq.map(({ question, answer }) => (
             <Dropdown key={question} title={question}>
               <Text className="text-ui-light-grey">
                 {answer}
