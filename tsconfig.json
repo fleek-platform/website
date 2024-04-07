@@ -9,7 +9,8 @@
       "@hooks/*": ["./src/hooks/*"],
       "@assets/*": ["./src/assets/*"],
       "@utils/*": ["./src/utils/*"],
-      "@layouts/*": ["./src/layouts/*"]
+      "@layouts/*": ["./src/layouts/*"],
+      "@base/*": ["./src/*"],
     },
     "plugins": [{
       "name": "@astrojs/ts-plugin"

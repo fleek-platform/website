@@ -1,59 +1,89 @@
-import { useState, useEffect } from "react";
 import type { FC } from "react";
-import type { GenerateSidebarResponse } from "@utils/generateSidebarDS";
+import { ROOT_FALLBACK_CATEGORY, type GenerateSidebarResponse } from "@utils/generateSidebarDS";
 
 interface Props {
   data: GenerateSidebarResponse;
   pathname: string;
 }
 
-const DEFAULT = "";
-
 const SidebarMenu: FC<Props> = ({ data, pathname }) => {
-  const category = pathname.split('/')[2];
-  const [activeCategory, setActiveCategory] = useState<string>(category);
+  const splitted = pathname.split('/').filter(Boolean);
+  const activeCategory = splitted.length > 2 ? splitted[1] : ROOT_FALLBACK_CATEGORY;
+  const activeSlug = splitted.length > 2 ? splitted[2] : splitted[1];
+  const isHome = (activeSlug: string) => !activeSlug ? 'font-bold' : '';
 
-  const handleCategoryClick = (category: string) => {
-    setActiveCategory(activeCategory === category ? DEFAULT : category);
-  };
-
-  const handleNestedClick = (event: React.MouseEvent) => {
-    event.stopPropagation();
-  };
+  const isActiveCategory = (category: string) => category === activeCategory;
+  const isActiveSlug = (slug: string) => slug === activeSlug ? 'font-bold' : '';
 
   return (
-    <ul className="flex flex-col gap-6">
-      {data.map((menuItem, index) => (
-        <li
-          key={index}
-          className="cursor-pointer"
-          onClick={() => handleCategoryClick(menuItem.category)}
-        >
-          <div className="font-plex-sans text-16 font-light">
-            {menuItem.category !== "root" && menuItem.list.length > 0
-              ? menuItem.title
-              : (
-                <a href={`/docs/${menuItem.slug}`}>{menuItem.title}</a>
-              )}
-          </div>
+    <ul className="space-y-1">
+      <li>
+        <a href="/docs" className={`block rounded-lg px-4 py-2 text-16 font-plex-sans ${isHome(activeSlug)}`}>
+          Home
+        </a>
+      </li>
 
-          {menuItem.category !== "root" && menuItem.list.length > 0 && (
-            <ul
-              className={`${activeCategory === menuItem.category ? "block" : "hidden"} space-y-1 ml-4`}
-            >
-              {menuItem.list.map((item, itemIndex) => (
-                <li
-                  key={itemIndex}
-                  className="font-plex-sans text-16 font-light"
-                  onClick={handleNestedClick}
+      {
+        data.map((item, idx) => {
+          if (item.category === ROOT_FALLBACK_CATEGORY) {
+            return (
+              <li key={`${idx}-${item.slug}`}>
+                <a
+                  href={`/docs/${item.slug}`}
+                  className={`block rounded-lg px-4 py-2 text-16 font-plex-sans hover hover ${isActiveSlug(item.slug)}`}
                 >
-                  <a href={`/docs/${menuItem.category}/${item.slug}`}>{item.title}</a>
-                </li>
-              ))}
-            </ul>
-          )}
-        </li>
-      ))}
+                  {item.title}
+                </a>
+              </li>
+            );
+          }
+
+          if (item.category !== ROOT_FALLBACK_CATEGORY) {
+            return (
+              <li key={`${idx}-${item.slug}`}>
+                <details className="group [&_summary::-webkit-details-marker]:hidden" open={item.category === activeCategory}>
+                  <summary
+                    className="flex cursor-pointer items-center justify-between rounded-lg px-4 py-2 hover hover"
+                  >
+                    <span className="text-16 font-plex-sans">{item.title}</span>
+
+                    <span className="shrink-0 transition duration-300 group-open:rotate-90">
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width={20}
+                        height={20}
+                        fill="none"
+                      >
+                        <path
+                          fill="#fff"
+                          fillRule="evenodd"
+                          d="M7.293 14.707a1 1 0 0 1 0-1.414L10.586 10 7.293 6.707a1 1 0 1 1 1.414-1.414l4 4a1 1 0 0 1 0 1.414l-4 4a1 1 0 0 1-1.414 0Z"
+                          clipRule="evenodd"
+                        />
+                      </svg>
+                    </span>
+                  </summary>
+
+                  <ul className="mt-2 space-y-1 px-4">
+                    {
+                      item.list.map((sItem, idx) => (
+                        <li key={`${idx}-${item.slug}`}>
+                          <a
+                            href={`/docs/${item.category}/${sItem.slug}`}
+                            className={`block rounded-lg px-4 py-2 text-16 font-plex-sans hover hover ${isActiveCategory(item.category) && isActiveSlug(sItem.slug)}`}
+                          >
+                            {sItem.title}
+                          </a>
+                        </li>                      
+                      ))
+                    }
+                  </ul>
+                </details>
+              </li>
+            );
+          }
+        })
+      }
     </ul>
   );
 };

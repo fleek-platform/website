@@ -10,5 +10,12 @@ console.log('[debug] allPosts: ', allPosts);
 ---
 
 <Layout title="Fleek | Build Lightning Fast Web3 Apps">
-	<p>The src/pages/blogs.astro</p>
+	<ul>
+		{
+			allPosts.map(post => (
+					<li>{post.data.title}</li>
+				)
+			)
+		}
+	</ul>
 </Layout>
