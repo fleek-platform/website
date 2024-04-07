@@ -28,6 +28,7 @@ export type UserOrder = {
 type UserOrderLookupTable = Record<string, number>;
 
 export const ROOT_FALLBACK_CATEGORY = 'root';
+const ROOT_INDEX = 'index';
 
 // Normalize directory into human-friendly name
 // e.g. `15-has_whitespace_and_dash-word`
@@ -168,7 +169,7 @@ export const generateSidebarDSByUserOrder = (allPosts: Doc[], userOrder: UserOrd
   const join = [
     ...flatten,
     ...orderedData,
-  ].sort((a, b) => (a.order ?? Infinity) - (b.order ?? Infinity));
+  ].sort((a, b) => (a.order ?? Infinity) - (b.order ?? Infinity)).filter(item => item.category !== ROOT_FALLBACK_CATEGORY && item.slug !== ROOT_INDEX);
 
   return join;
 }
