@@ -44,6 +44,7 @@ export default {
         "ui-fleek-black": "#151718",
         "glass": "rgb(75, 75, 75, 0.8)",
         "ui-light-grey": "#CCCCCC",
+        "ui-mid-grey": "#8c8c8c",
         "ui-dark-grey": "#4B4B4B",
         "ui-black": "#1b1b1b",
         "ui-white": "#f1f1f1",

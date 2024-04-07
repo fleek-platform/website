@@ -10,12 +10,20 @@ console.log('[debug] allPosts: ', allPosts);
 ---
 
 <Layout title="Fleek | Build Lightning Fast Web3 Apps">
-	<ul>
-		{
-			allPosts.map(post => (
-					<li>{post.data.title}</li>
+  <main class="container min-h-container">
+		<div class="p-64 grid grid-cols-1 gap-4 lg:grid-cols-3 lg:gap-32">
+			{
+				allPosts.map(post => (
+						<article class="bg-ui-fleek-black overflow-hidden rounded-8 shadow transition cursor-pointer hover:scale-105">
+							<img alt="" src="https://blog.fleek.xyz/static/237f5b7bc93c88c20c9283ff2a832cf7/54c35/nextjsguide.webp" class="h-[200px] w-full object-cover">
+							<div class="p-32">
+								<span class="text-16 font-plex-sans font-light text-ui-mid-grey">Tag</span>
+								<h3 class="text-24 font-plex-sans font-medium leading-tight">How To Deploy A Next.js App To Fleek.xyz: A Step-by-Step Guide for Developers</h3>
+							</div>
+						</article>
+					)
 				)
-			)
-		}
-	</ul>
+			}
+		</div>
+	</main>
 </Layout>
