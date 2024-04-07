@@ -52,6 +52,39 @@ const sidebarSorted = generateSidebarDSByUserOrder(allPosts, orderBy);
     <link rel="icon" type="image/svg+xml" href="/favicon.ico" />
     <meta name="generator" content={Astro.generator} />
     <title>{title}</title>
+    <style>
+     @tailwind components;
+
+     @layer components {
+      .doc {
+        @apply font-plex-mono text-18 leading-normal pb-128;
+  
+        h1 {
+          @apply font-plex-mono text-38 font-bold leading-loose;
+        }
+
+        h2 {
+          @apply font-plex-mono text-32 font-bold leading-loose;
+        }
+
+        p {
+          @apply font-plex-mono text-18 pb-32 leading-normal;
+        }
+
+        a {
+          @apply text-blue-500;
+        }
+
+        ul {
+          @apply pl-32;
+
+          li {
+            @apply pb-10 list-disc;
+          }
+        }
+      }
+     }
+    </style>
   </head>
   <body class="--font-plex-sans --font-plex-mono --font-sans bg-mesh bg-black font-sans text-ui-light-grey selection:bg-[#ff3dcf] selection:text-black">
     <Nav client:load pathname={Astro.url.pathname} />
@@ -65,7 +98,9 @@ const sidebarSorted = generateSidebarDSByUserOrder(allPosts, orderBy);
           />
         </div>
         <div class="px-32">
-          <slot />
+          <article class="doc">
+            <slot />
+          </article>
         </div>
         <div>
           <OnPageNavigation headings={headings} githubEditUrl={githubEditUrl} />

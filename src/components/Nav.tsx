@@ -65,10 +65,6 @@ const NAV: Nav = [
     ],
   },
   {
-    label: "Docs",
-    url: "/docs",
-  },
-  {
     label: "Resources",
     children: [
       {
@@ -90,13 +86,17 @@ const NAV: Nav = [
     ],
   },
   {
+    label: "Blog",
+    url: "/blog",
+  },
+  {
+    label: "Docs",
+    url: "/docs",
+  },
+  {
     label: "Pricing",
     url: "/pricing",
   },
-  {
-    label: "Blog",
-    url: "/blog",
-  }
 ];
 
 type Props = {
@@ -129,7 +129,7 @@ const Nav: React.FC<Props> = ({ pathname }) => {
         <Link href="/" className="pb-8">
           <img src="/svg/fleek-logo.svg" alt="fleek logo" />
         </Link>
-        <nav className="hidden items-center gap-40 lg:flex">
+        <nav className="hidden items-center pl-32 leading-10 gap-40 lg:flex">
           {NAV.map((navItem, index) =>
             navItem.children ? (
               <NavItemWithSubMenu {...navItem} key={index} pathname={pathname} />

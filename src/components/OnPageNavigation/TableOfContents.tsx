@@ -56,7 +56,7 @@ const TableOfContents: FC<Props> = ({
 					.map((heading) => (
 						<li
 							key={heading.slug}
-							className={`leading-loose ${heading.depth > 1 ? 'pl-25' : 'pl-10'} heading-link depth-${heading.depth} ${
+							className={`leading-loose ${heading.depth > 1 ? 'pl-10' : ''} heading-link depth-${heading.depth} ${
 								activeId === heading.slug ? 'font-bold' : ''
 							}`.trim()}
 							onClick={() => onClickHandler(heading.slug)}

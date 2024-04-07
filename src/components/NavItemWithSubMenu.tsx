@@ -35,7 +35,7 @@ const NavItemWithSubMenu: React.FC<NavItemWithChildren> = (props) => {
   }, []);
 
   return (
-    <div className="relative px-20" ref={wrapperRef}>
+    <div className="relative" ref={wrapperRef}>
       <div onClick={handleClick} className="cursor-pointer">
         <Text style="nav-m">
           {props.label}

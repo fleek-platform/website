@@ -8,7 +8,7 @@
     "build": "astro check && astro build",
     "preview": "astro preview",
     "astro": "astro",
-    "clean": "rm -rf node_modules/.vite"
+    "clean": "rm -rf .astro node_modules/.vite"
   },
   "dependencies": {
     "@astrojs/check": "^0.5.10",
