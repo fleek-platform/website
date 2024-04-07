@@ -30,7 +30,7 @@ const SidebarMenu: FC<Props> = ({ data, pathname }) => {
               <li key={`${idx}-${item.slug}`}>
                 <a
                   href={`/docs/${item.slug}`}
-                  className={`block rounded-lg px-4 py-2 text-16 font-plex-sans hover hover ${isActiveSlug(item.slug)}`}
+                  className={`block rounded-lg px-4 py-2 text-16 font-plex-sans capitalize hover hover ${isActiveSlug(item.slug)}`}
                 >
                   {item.title}
                 </a>
@@ -45,7 +45,7 @@ const SidebarMenu: FC<Props> = ({ data, pathname }) => {
                   <summary
                     className="flex cursor-pointer items-center justify-between rounded-lg px-4 py-2 hover hover"
                   >
-                    <span className="text-16 font-plex-sans">{item.title}</span>
+                    <span className="text-16 font-plex-sans capitalize">{item.title}</span>
 
                     <span className="shrink-0 transition duration-300 group-open:rotate-90">
                       <svg
