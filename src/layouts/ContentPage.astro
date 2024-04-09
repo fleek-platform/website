@@ -1,5 +1,6 @@
 ---
 import '../globals.css';
+import BaseHtml from '@layouts/BaseHtml.astro';
 import Announcement from "@components/Announcement";
 import Container from "@components/Container";
 import Nav from "@components/Nav";
@@ -39,74 +40,57 @@ const orderBy = [{
 const sidebarSorted = generateSidebarDSByUserOrder(allPosts, orderBy);
 ---
 
-<!doctype html>
+<BaseHtml title={title}>
+  <style>
+   @tailwind components;
 
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta
-      name="description"
-      content="Seamlessly build Web3 apps and services that are edge-optimized for performance. Decentralized hosting, storage, gateways and more."
-    />
-    <meta name="viewport" content="width=device-width" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.ico" />
-    <meta name="generator" content={Astro.generator} />
-    <title>{title}</title>
-    <style>
-     @tailwind components;
+   @layer components {
+    .doc {
+      @apply font-plex-mono text-18 leading-normal pb-128;
 
-     @layer components {
-      .doc {
-        @apply font-plex-mono text-18 leading-normal pb-128;
-  
-        h1 {
-          @apply font-plex-mono text-38 font-bold leading-loose;
-        }
+      h1 {
+        @apply font-plex-mono text-38 font-bold leading-loose;
+      }
 
-        h2 {
-          @apply font-plex-mono text-32 font-bold leading-loose;
-        }
+      h2 {
+        @apply font-plex-mono text-32 font-bold leading-loose;
+      }
 
-        p {
-          @apply font-plex-mono text-18 pb-32 leading-normal;
-        }
+      p {
+        @apply font-plex-mono text-18 pb-32 leading-normal;
+      }
 
-        a {
-          @apply text-blue-500;
-        }
+      a {
+        @apply text-blue-500;
+      }
 
-        ul {
-          @apply pl-32;
+      ul {
+        @apply pl-32;
 
-          li {
-            @apply pb-10 list-disc;
-          }
+        li {
+          @apply pb-10 list-disc;
         }
       }
-     }
-    </style>
-  </head>
-  <body class="--font-plex-sans --font-plex-mono --font-sans bg-mesh bg-black font-sans text-ui-light-grey selection:bg-[#ff3dcf] selection:text-black">
-    <Nav client:load pathname={Astro.url.pathname} />
-    <main class="container min-h-container">
-      <div class="grid grid-cols-[1fr,3fr,1fr] gap-4">
-        <div class="px-32">
-          <Sidebar
-            client:load
-            data={sidebarSorted}
-            pathname={Astro.url.pathname}
-          />
-        </div>
-        <div class="px-32">
-          <article class="doc">
-            <slot />
-          </article>
-        </div>
-        <div>
-          <OnPageNavigation headings={headings} githubEditUrl={githubEditUrl} />
-        </div>
+    }
+   }
+  </style>
+  <main class="container min-h-container">
+    <div class="grid grid-cols-[1fr,3fr,1fr] gap-4">
+      <div class="px-32">
+        <Sidebar
+          client:load
+          data={sidebarSorted}
+          pathname={Astro.url.pathname}
+        />
       </div>
-    </main>
-    <Footer client:load />
-  </body>
-</html>
+      <div class="px-32">
+        <article class="doc">
+          <slot />
+        </article>
+      </div>
+      <div>
+        <OnPageNavigation headings={headings} githubEditUrl={githubEditUrl} />
+      </div>
+    </div>
+  </main>
+</BaseHtml>
