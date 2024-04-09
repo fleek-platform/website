@@ -8,6 +8,7 @@ import Footer from "@components/Footer";
 import generateSidebarDS, { generateSidebarDSByUserOrder } from '@utils/generateSidebarDS';
 import { getCollection } from "astro:content";
 import Sidebar from '@components/Sidebar';
+import GithubEditLink from '@components/GitHubEditLink.astro';
 import OnPageNavigation from '@components/OnPageNavigation/OnPageNavigation.astro';
 import settings from '@base/settings.json';
 
@@ -20,10 +21,10 @@ type Props = {
 
 const { title, headings } = Astro.props;
 const currentPage = Astro.url.pathname;
-const currentFile = `src/content/blog/${currentPage.replace(/\/$/, '')}.md`;
-const githubEditUrl = `${settings.github.editUrl}/${currentFile}`;
+const currentFile = `${currentPage.replace(/\/$/, '')}.md`;
+const githubEditUrlPathname = currentFile.replace(/\//, '');
 
-const allPosts = await getCollection("docs");
+const allPosts = await getCollection("blog");
 
 const sidebarSorted = generateSidebarDSByUserOrder(allPosts, settings.docs.menu.order);
 ---
@@ -49,6 +50,7 @@ const sidebarSorted = generateSidebarDSByUserOrder(allPosts, settings.docs.menu.
   <main class="container min-h-container">
     <article class="blog">
       <slot />
+      <GithubEditLink pathname={githubEditUrlPathname} />
     </article>
   </main>
 </BaseHtml>
