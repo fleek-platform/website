@@ -16,16 +16,15 @@ import type { MarkdownHeading } from 'astro';
 
 type Props = {
   title: string;
-	headings: MarkdownHeading[];
 };
 
-const { title, headings } = Astro.props;
+const { title } = Astro.props;
 const currentPage = Astro.url.pathname;
 const currentFile = `${currentPage.replace(/\/$/, '')}.md`;
 const githubEditUrlPathname = currentFile.replace(/\//, '');
 ---
 
-<BaseHtml title={title} headings={headings}>
+<BaseHtml title={title}>
   <style is:global>
    @tailwind components;
 
