@@ -1,15 +1,17 @@
+[TODO] Add banner
+
 # ⚡️Fleek.xyz Website
 
 [![Conventional Commits](https://img.shields.io/badge/Conventional%20Commits-1.0.0-blue.svg)](https://conventionalcommits.org)
 
 This repository contains the source code and assets for the Fleek.xyz website, which is built using the Astro.js framework for enhanced performance and speed. The project leverages Tailwind CSS for styling, providing a modern and responsive design, and TypeScript for type safety and scalability, ensuring a robust and maintainable codebase.
 
-## 🤖 Requirements
+## ⚙️ Requirements
 
 - Nodejs
 - NPM, Yarn or PNPM
 
-## Install
+## 🤖 Install
 
 Install the project dependencies in your local environment.
 
