@@ -24,7 +24,8 @@ const GITHUB_EDIT_URL = 'https://github.com/fleekxyz/<TODO:RESPOSITORY-NAME>/edi
 const { title, headings } = Astro.props;
 const currentPage = Astro.url.pathname;
 const currentFile = `${currentPage.replace(/\/$/, '')}.md`;
-const githubEditUrlPathname = currentFile.replace(/\//, '');
+let githubEditUrlPathname = currentFile.replace(/\//, '');
+githubEditUrlPathname = currentPage === '/docs' ? `/docs/index.md` : githubEditUrlPathname;
 
 const allPosts = await getCollection("docs");
 const orderBy = [{
