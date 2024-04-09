@@ -10,6 +10,9 @@ This repository contains the source code and assets for the Fleek.xyz website, w
 
 - Nodejs
 - NPM, Yarn or PNPM
+- Some experience with CLI
+
+Learn how to install Nodejs in your operating system by following the instructions [here](https://nodejs.org/en/download/package-manager/).
 
 ## 🤖 Install
 
