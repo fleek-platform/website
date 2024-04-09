@@ -1,0 +1,11 @@
+---
+import settings from '../settings.json';
+
+const branch = 'main';
+const { pathname } = Astro.props;
+
+console.log('[debug]', pathname);
+---
+<div>
+  <a href={`${settings.github.editUrl}/${branch}/${pathname}`}>Edit this page</a>
+</div>

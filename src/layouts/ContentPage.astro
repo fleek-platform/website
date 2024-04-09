@@ -9,6 +9,7 @@ import generateSidebarDS, { generateSidebarDSByUserOrder } from '@utils/generate
 import { getCollection } from "astro:content";
 import Sidebar from '@components/Sidebar';
 import OnPageNavigation from '@components/OnPageNavigation/OnPageNavigation.astro';
+import GithubEditLink from '@components/GitHubEditLink.astro';
 
 import type { MarkdownHeading } from 'astro';
 
@@ -22,8 +23,8 @@ const GITHUB_EDIT_URL = 'https://github.com/fleekxyz/<TODO:RESPOSITORY-NAME>/edi
 
 const { title, headings } = Astro.props;
 const currentPage = Astro.url.pathname;
-const currentFile = `src/content/docs/${currentPage.replace(/\/$/, '')}.md`;
-const githubEditUrl = `${GITHUB_EDIT_URL}/${currentFile}`;
+const currentFile = `${currentPage.replace(/\/$/, '')}.md`;
+const githubEditUrlPathname = currentFile.replace(/\//, '');
 
 const allPosts = await getCollection("docs");
 const orderBy = [{
@@ -86,10 +87,11 @@ const sidebarSorted = generateSidebarDSByUserOrder(allPosts, orderBy);
       <div class="px-32">
         <article class="doc">
           <slot />
+          <GithubEditLink pathname={githubEditUrlPathname} />
         </article>
       </div>
       <div>
-        <OnPageNavigation headings={headings} githubEditUrl={githubEditUrl} />
+        <OnPageNavigation headings={headings} githubEditUrl={githubEditUrlPathname} />
       </div>
     </div>
   </main>
