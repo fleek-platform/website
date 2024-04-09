@@ -2,6 +2,10 @@
   "name": "Fleekxyz Website",
   "type": "module",
   "version": "0.0.1",
+   "repository": {
+      "type": "git",
+      "url": "git+https://github.com/fleekxyz/fleekxyz-website.git"
+   },
   "scripts": {
     "dev": "astro dev",
     "start": "astro dev",
