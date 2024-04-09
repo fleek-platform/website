@@ -61,4 +61,4 @@ refactor: 💡 A code change that neither fixes a bug or adds a feature
 style: 💄 Markup, white-space, formatting, missing semi-colons...
 ```
 
-Find more about contributing [TODO:OPEN-SOURCE-CONTRIBUTION-DOC](TODO:OPEN-SOURCE-CONTRIBUTION-DOC), please!
+Find more about contributing [TODO:OPEN-SOURCE-CONTRIBUTION-DOC](https://TODO:OPEN-SOURCE-CONTRIBUTION-DOC), please!
