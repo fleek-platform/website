@@ -47,7 +47,9 @@ npm run preview
 
 ## 🙏 Contribution guideline
 
-Create branches from the `develop` branch and name it in accordance with **conventional commits**** [here](https://www.conventionalcommits.org/en/v1.0.0/), or follow the examples below:
+Create branches from the `develop` branch and name it in accordance with conventional commits [here](https://www.conventionalcommits.org/en/v1.0.0/).
+
+Here's an example:
 
 ```txt
 test: 💍 Adding missing tests
@@ -59,4 +61,4 @@ refactor: 💡 A code change that neither fixes a bug or adds a feature
 style: 💄 Markup, white-space, formatting, missing semi-colons...
 ```
 
-Find more about contributing [here](https://fleek.xyz/docs/Open-source/contributing), please!
+Find more about contributing [TODO:OPEN-SOURCE-CONTRIBUTION-DOC](TODO:OPEN-SOURCE-CONTRIBUTION-DOC), please!
