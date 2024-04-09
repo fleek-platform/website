@@ -23,10 +23,6 @@ const { title, headings } = Astro.props;
 const currentPage = Astro.url.pathname;
 const currentFile = `${currentPage.replace(/\/$/, '')}.md`;
 const githubEditUrlPathname = currentFile.replace(/\//, '');
-
-const allPosts = await getCollection("blog");
-
-const sidebarSorted = generateSidebarDSByUserOrder(allPosts, settings.docs.menu.order);
 ---
 
 <BaseHtml title={title} headings={headings}>
