@@ -2,6 +2,11 @@
 import Layout from '@layouts/Page.astro';
 import HostingOnFleek from "@components/HostingOnFleek";
 import BlackFeatureCards from "@components/BlackFeatureCards";
+import ContinuousDelivery from "@components/ContinuousDelivery";
+import FastAsFleek from "@components/FastAsFleek";
+import TrueWeb3Hosting from "@components/TrueWeb3Hosting";
+import HostAnythingOnFleek from "@components/HostAnythingOnFleek";
+import LiveOnTheEdge from "@components/LiveOnTheEdge";
 
 // TODO: Move to settings
 // notice that the settings is getting a bit too big? Maybe rethink
@@ -28,5 +33,10 @@ const features = [
   <main class="flex flex-col gap-16 pb-64">
     <HostingOnFleek />
     <BlackFeatureCards features={features} />
+    <ContinuousDelivery />
+    <FastAsFleek />
+    <TrueWeb3Hosting />
+    <HostAnythingOnFleek />
+    <LiveOnTheEdge />
   </main>
 </Layout>
