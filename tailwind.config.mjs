@@ -2,6 +2,7 @@ import tailwindCustomConfig from './.tailwind/tailwind.custom.config';
 import tailwindPluginTypography from './.tailwind/tailwind.plugin.typography';
 
 export default {
+  mode: 'jit',
 	presets: [tailwindCustomConfig],
 	content: ['./src/**/*.{astro,html,js,jsx,md,mdx,ts,tsx}'],
   theme: {
