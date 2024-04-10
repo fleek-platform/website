@@ -1,5 +1,5 @@
 ---
-layout: '../../layouts/ContentPage.astro'
+layout: '../../layouts/DocPage.astro'
 title: Home
 date: 2023-01-10
 description: Welcome to the documentation for the beta of Fleek.xyz. Whether you are an expert or an absolute beginner, you'll find your answers here.

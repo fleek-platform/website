@@ -1,6 +1,6 @@
 ---
 import { getCollection } from 'astro:content';
-import ContentPageLayout from '../../layouts/ContentPage.astro';
+import DocPageLayout from '../../layouts/DocPage.astro';
 
 export async function getStaticPaths() {
   const docsEntries = await getCollection('docs');
@@ -13,6 +13,6 @@ const { entry } = Astro.props;
 const { Content, headings } = await entry.render();
 ---
 
-<ContentPageLayout title={entry.data.title} headings={headings}>
+<DocPageLayout title={entry.data.title} headings={headings}>
   <Content />
-</ContentPageLayout>
+</DocPageLayout>
