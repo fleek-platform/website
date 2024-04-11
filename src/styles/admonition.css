@@ -1,0 +1,9 @@
+@tailwind components;
+
+@layer components {
+  .blog, .doc {
+    aside.callout {
+      @apply mb-20;
+    }
+  }
+}

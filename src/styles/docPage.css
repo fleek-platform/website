@@ -17,7 +17,7 @@
     }
 
     p { 
-      @apply leading-normal pb-10;
+      @apply leading-normal pb-20;
     }
 
     a {
@@ -43,6 +43,9 @@
       unicode-bidi: isolate;
     }
 
+    img {
+      @apply pb-20;
+    }
   }
 
 	.sidebar-nav {

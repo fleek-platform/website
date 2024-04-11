@@ -17,7 +17,7 @@ const SidebarMenu: FC<Props> = ({ data, pathname }) => {
 
   return (
     <ul>
-      <li>
+      <li className="text-16 font-plex-sans capitalize">
         <a href="/docs" className={`${isHome(activeSlug)}`}>
           Home
         </a>
@@ -30,7 +30,7 @@ const SidebarMenu: FC<Props> = ({ data, pathname }) => {
               <li key={`${idx}-${item.slug}`}>
                 <a
                   href={`/docs/${item.slug}`}
-                  className={`block rounded-lg px-4 py-2 text-16 font-plex-sans capitalize hover hover ${isActiveSlug(item.slug)}`}
+                  className={`block rounded-lg py-2 text-16 font-plex-sans capitalize hover hover ${isActiveSlug(item.slug)}`}
                 >
                   {item.title}
                 </a>
@@ -43,7 +43,7 @@ const SidebarMenu: FC<Props> = ({ data, pathname }) => {
               <li key={`${idx}-${item.slug}`}>
                 <details className="group [&_summary::-webkit-details-marker]:hidden" open={item.category === activeCategory}>
                   <summary
-                    className="flex cursor-pointer items-center justify-between rounded-lg px-4 py-2 hover hover"
+                    className="flex cursor-pointer items-center justify-between rounded-lg py-2 hover hover"
                   >
                     <span className="text-16 font-plex-sans capitalize">{item.title}</span>
 
@@ -64,13 +64,13 @@ const SidebarMenu: FC<Props> = ({ data, pathname }) => {
                     </span>
                   </summary>
 
-                  <ul className="mt-2 space-y-1 px-4">
+                  <ul className="mt-2 space-y-1">
                     {
                       item.list.map((sItem, idx) => (
                         <li key={`${idx}-${item.slug}`}>
                           <a
                             href={`/docs/${item.category}/${sItem.slug}`}
-                            className={`block rounded-lg px-4 py-2 text-16 font-plex-sans hover hover ${isActiveCategory(item.category) && isActiveSlug(sItem.slug)}`}
+                            className={`block rounded-lg py-2 text-16 font-plex-sans hover hover ${isActiveCategory(item.category) && isActiveSlug(sItem.slug)}`}
                           >
                             {sItem.title}
                           </a>
