@@ -46,6 +46,14 @@
     img {
       @apply pb-20;
     }
+
+  	pre {
+  	  @apply p-10 mb-20 rounded-8 whitespace-pre-wrap;
+  	  
+  	  > code {
+  	    @apply text-16 inline-block p-20;
+  	  }
+  	}
   }
 
 	.sidebar-nav {
@@ -76,4 +84,5 @@
   		overflow: auto;
   	}
 	}
+
 }

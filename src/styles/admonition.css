@@ -68,3 +68,7 @@
 .callout-info {
 	--callout-accent: var(--callout-accent-important);
 }
+
+.callout-content p {
+  @apply pb-0;
+}
