@@ -43,23 +43,23 @@ const sidebarSorted = generateSidebarDSByUserOrder(allPosts, orderBy);
 
 <BaseHtml title={title}>
   <main class="container min-h-container">
-    <div class="grid grid-cols-[1fr,auto,1fr] gap-4">
-      <div class="px-32">
+    <div class="grid grid-cols-[1fr] md:grid-cols-[1fr,auto,1fr] gap-4">
+      <aside class="px-32 w-320">
         <Sidebar
           client:load
           data={sidebarSorted}
           pathname={Astro.url.pathname}
         />
-      </div>
-      <div class="px-32 max-w-[960px]">
+      </aside>
+      <div class="px-32 min-w-0 max-w-[900px]">
         <article class="doc">
           <slot />
           <GithubEditLink pathname={githubEditUrlPathname} />
         </article>
       </div>
-      <div>
+      <aside class="w-240 hidden lg:block">
         <OnPageNavigation headings={headings} githubEditUrl={githubEditUrlPathname} />
-      </div>
+      </aside>
     </div>
   </main>
 </BaseHtml>
