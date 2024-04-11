@@ -38,6 +38,7 @@
   },
   "devDependencies": {
     "@astrojs/ts-plugin": "^1.6.1",
+    "@types/lodash-es": "^4.17.12",
     "@types/node": "^20.12.4"
   }
 }

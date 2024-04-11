@@ -55,8 +55,14 @@ const TableOfContents: FC<Props> = ({
 
 	useEffect(() => {
 		const doc = document.querySelector('.doc');
+
+		if (!doc) return;
+		
 		const update = throttle(() => {
 			const sections = doc.querySelectorAll('h1, h2, h3, h4');
+
+			if (!sections) return;
+			
 			let currentSectionId;
       const isAtBottom = window.scrollY + window.innerHeight >= document.body.scrollHeight;
 
