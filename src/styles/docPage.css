@@ -48,10 +48,14 @@
     }
 
   	pre {
-  	  @apply p-10 mb-20 rounded-8 whitespace-pre-wrap;
+  	  @apply p-10 mb-20 rounded-8;
+  	  box-sizing: border-box;
+  	  display: block;
   	  
   	  > code {
   	    @apply text-16 inline-block p-20;
+  	    min-width: 100%;
+  	    box-sizing: border-box;
   	  }
   	}
   }
