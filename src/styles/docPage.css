@@ -65,7 +65,8 @@
 	.sidebar-nav {
 		width: 100%;
 		position: sticky;
-		top: 0;
+		top: 34px;
+		margin-top: 34px;
     border-left-style: dashed;
     border-left-width: 1px;
     border-color: #555;
