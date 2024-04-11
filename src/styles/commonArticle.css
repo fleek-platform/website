@@ -1,0 +1,12 @@
+@tailwind components;
+
+@layer components {
+  #githubEdit {
+    @apply inline p-20 pl-0 text-16 font-plex-sans transition hover:opacity-50;
+  }
+
+  main ~ #githubEdit {
+    @apply hidden;
+  }
+}
+

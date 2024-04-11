@@ -1,7 +1,6 @@
 ---
 import '@styles/globals.css';
 import '@styles/blogPage.css';
-import '@styles/admonition.css';
 import BaseHtml from '@layouts/BaseHtml.astro';
 import Announcement from "@components/Announcement";
 import Container from "@components/Container";
@@ -27,23 +26,6 @@ const githubEditUrlPathname = currentFile.replace(/\//, '');
 ---
 
 <BaseHtml title={title}>
-  <style is:global>
-   @tailwind components;
-
-   @layer components {
-    .blog {
-      h1 {
-        @apply font-plex-mono text-38 font-bold leading-loose;
-      }
-      h2 {
-        @apply font-plex-mono text-32 font-bold leading-loose;
-      }
-      p {
-        @apply font-plex-mono text-18 pb-32 leading-normal;
-      }   
-    }
-   }
-  </style>
   <main class="container min-h-container">
     <article class="blog">
       <slot />

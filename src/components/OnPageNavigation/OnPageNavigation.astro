@@ -12,6 +12,10 @@ const { headings, githubEditUrl } = Astro.props as Props;
 
 <nav class="sidebar-nav" aria-labelledby="grid-right">
 	<div>
-		<TableOfContents client:media="(min-width: 50em)" headings={headings} />
+	{
+		headings.length && (
+			<TableOfContents client:media="(min-width: 50em)" headings={headings} />
+		)
+	}
 	</div>
 </nav>
