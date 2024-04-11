@@ -83,7 +83,7 @@ Find more about contributing [TODO:OPEN-SOURCE-CONTRIBUTION-DOC](https://TODO:OP
 This is a note
 :::
 
-:::commend
+:::success
 This is a success
 :::
 
@@ -91,11 +91,11 @@ This is a success
 This is a warning
 :::
 
-:::deter
+:::danger
 This is a danger
 :::
 
-:::assert
+:::info
 This is a info
 :::
 
