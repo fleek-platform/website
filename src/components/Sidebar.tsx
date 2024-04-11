@@ -6,14 +6,24 @@ interface Props {
   pathname: string;
 }
 
+const findBase = (splitted: string[]) => {
+  if (splitted[0] === '/docs') return ROOT_FALLBACK_CATEGORY;
+
+  if (splitted.length === 1) {
+    throw Error("Oops! Unexpected path found")
+  }
+
+  return splitted[1];
+}
+
 const SidebarMenu: FC<Props> = ({ data, pathname }) => {
   const splitted = pathname.split('/').filter(Boolean);
-  const activeCategory = splitted.length > 2 ? splitted[1] : ROOT_FALLBACK_CATEGORY;
+  const activeCategory = splitted.length > 2 ? splitted[1] : findBase(splitted);
   const activeSlug = splitted.length > 2 ? splitted[2] : splitted[1];
   const isHome = (activeSlug: string) => !activeSlug ? 'font-bold' : '';
 
   const isActiveCategory = (category: string) => category === activeCategory;
-  const isActiveSlug = (slug: string) => slug === activeSlug ? 'font-bold' : '';
+  const isActiveSlug = (slug: string) => slug === activeSlug;
 
   return (
     <ul>
@@ -30,7 +40,7 @@ const SidebarMenu: FC<Props> = ({ data, pathname }) => {
               <li key={`${idx}-${item.slug}`}>
                 <a
                   href={`/docs/${item.slug}`}
-                  className={`block rounded-lg py-2 text-16 font-plex-sans capitalize hover hover ${isActiveSlug(item.slug)}`}
+                  className={`block rounded-lg py-2 text-16 font-plex-sans capitalize hover hover ${isActiveSlug(item.slug) ? 'font-bold' : ''}`}
                 >
                   {item.title}
                 </a>
@@ -45,7 +55,7 @@ const SidebarMenu: FC<Props> = ({ data, pathname }) => {
                   <summary
                     className="flex cursor-pointer items-center justify-between rounded-lg py-2 hover hover"
                   >
-                    <span className="text-16 font-plex-sans capitalize">{item.title}</span>
+                    <a className={`text-16 font-plex-sans capitalize ${isActiveSlug(item.slug) && isActiveCategory(item.category) ? 'font-bold' : ''}`} href={`/docs/${item.slug}`}>{item.title}</a>
 
                     <span className="shrink-0 transition duration-300 group-open:rotate-90">
                       <svg
@@ -70,7 +80,7 @@ const SidebarMenu: FC<Props> = ({ data, pathname }) => {
                         <li key={`${idx}-${item.slug}`}>
                           <a
                             href={`/docs/${item.category}/${sItem.slug}`}
-                            className={`block rounded-lg py-2 text-16 font-plex-sans hover hover ${isActiveCategory(item.category) && isActiveSlug(sItem.slug)}`}
+                            className={`block rounded-lg py-2 text-16 font-plex-sans hover hover ${isActiveCategory(item.category) && isActiveSlug(sItem.slug) ? 'font-bold' : ''}`}
                           >
                             {sItem.title}
                           </a>
