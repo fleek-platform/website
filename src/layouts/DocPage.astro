@@ -58,7 +58,10 @@ const sidebarSorted = generateSidebarDSByUserOrder(allPosts, orderBy);
         </article>
       </div>
       <aside class="w-240 hidden lg:block">
-        <OnPageNavigation headings={headings} githubEditUrl={githubEditUrlPathname} />
+        <OnPageNavigation
+          headings={headings}
+          githubEditUrl={githubEditUrlPathname}
+        />
       </aside>
     </div>
   </main>

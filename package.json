@@ -24,6 +24,7 @@
     "@types/react-dom": "^18.2.24",
     "astro": "^4.5.15",
     "framer-motion": "^11.0.24",
+    "lodash-es": "^4.17.21",
     "pixi.js": "^7.2.4",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
