@@ -80,14 +80,25 @@ Find more about contributing [TODO:OPEN-SOURCE-CONTRIBUTION-DOC](https://TODO:OP
 
 ```
 :::note
-This is a note.
+This is a note
 :::
 
-:::warning
-This is a warning.
+:::commend
+This is a success
 :::
 
-:::tip
-This is a tip.
+:::warn
+This is a warning
 :::
+
+:::deter
+This is a danger
+:::
+
+:::assert
+This is a info
+:::
+
 ```
+
+To learn more read the directives [here](https://github.com/Microflash/remark-callout-directives)
