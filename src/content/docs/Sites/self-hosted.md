@@ -19,7 +19,7 @@ tags:
 
 In self-custodial deployments, you can configure your site with your code repository. This allows you to trigger a deploy manually or connect it to your CI pipeline.
 
-### Setting up a self managed deployment
+## Setting up a self managed deployment
 
 To set up a self managed deployment you need to create a site and choose the option to manage the deployment via the Fleek CLI at the bottom of the git provider screen.
 
@@ -36,6 +36,6 @@ With this you will be redirected to the site overview page where you will find t
 
 Though the Fleek.json file is mandatory you can decide not to use the Github Action workflow and trigger the deploy process in your own way.
 
-### Deploying your site
+## Deploying your site
 
 To deploy your site using the Fleek CLI you can follow the guide in the [CLI section](/docs/cli/sites).

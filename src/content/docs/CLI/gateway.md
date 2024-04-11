@@ -14,7 +14,7 @@ tags:
 - Fleek
 ---
 
-### Creating a private gateway
+## Creating a private gateway
 
 To create a private gateway you will need to have a Fleek project and a custom domain. Currently we are making mandatory that each private gateway has at least one custom domain associated with it to avoid abuse.
 
@@ -64,7 +64,7 @@ Once you have confured your DNS records, you can verify your domain. To do this,
 
 Now that your domain is verified, you can start using it to serve your content. The content will no appear under `ipfs.my-gateway.online/ipfs/<cid>`
 
-### Exploring the private gateway settings
+## Exploring the private gateway settings
 
 At any moment you can access the private gateway settings by running the following command:
 
@@ -81,7 +81,7 @@ cljqwfv790002lc08g6nmf8e0  beefy-clever-autumn  my-first-gateway  2023-07-06T08:
 > https://ipfs.my-gateway.online/ipfs/<cid>
 ```
 
-### Adding a custom domain to an existing gateway
+## Adding a custom domain to an existing gateway
 
 To add a domain to an existing gateway you will need to run the following command:
 

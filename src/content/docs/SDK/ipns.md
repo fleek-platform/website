@@ -18,7 +18,7 @@ tags:
 In case you are using the Fleek SDK with a PAT as the authentication service you need to make sure that the projectId is set in the PersonalAccessTokenService.
 :::
 
-### How to Create an IPNS Record
+## How to Create an IPNS Record
 
 To create an IPNS record using the SDK, you need to be authenticated and have a project selected.
 
@@ -42,7 +42,7 @@ You can query the record by name:
 const record = await sdk.ipns().getRecord({ name: record.name });
 ```
 
-### How to Publish an IPNS Record
+## How to Publish an IPNS Record
 
 To publish an IPNS record, you need to provide the IPNS record name and the IPFS hash you want to associate with it.
 
@@ -54,7 +54,7 @@ const record = await sdk.ipns().publishRecord({ id: record.id, hash });
 It is important to note that IPNS propagation can take anywhere from 1 to 30 minutes.
 :::
 
-### List All Records
+## List All Records
 
 To list all the records associated with a project, use the `listRecords` method.
 
@@ -62,7 +62,7 @@ To list all the records associated with a project, use the `listRecords` method.
 const records = await sdk.ipns().listRecords();
 ```
 
-### Delete a Record
+## Delete a Record
 
 To delete an IPNS record, use the `deleteRecord` method.
 

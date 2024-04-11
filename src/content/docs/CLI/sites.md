@@ -14,7 +14,7 @@ tags:
 - Fleek
 ---
 
-### Seting up a Site
+## Seting up a Site
 
 To begin a deployment, you must first set up a site. To do this, you must be authenticated in the CLI and have a project selected. If you are not authenticated or have not selected a project, the CLI can help you. Use the `sites init` command to start the setup process.
 
@@ -78,7 +78,7 @@ That's it! Your site is set up. You will see a file named fleek.json has been cr
 > Success! Fleek config file has been saved.
 ```
 
-### Deploy a Site
+## Deploy a Site
 
 To deploy your site, simply run the `sites deploy` command in the same directory where you set up the site.
 
@@ -93,7 +93,7 @@ WARN! Fleek CLI is in beta, use it at your own discretion
 > https://ipfs.io/ipfs/QmP1nDyoHqSrRabwUSrxRV3DJqiKH7b9t1tpLcr1NTkm1M
 ```
 
-### Continuous Integration (CI)
+## Continuous Integration (CI)
 
 Imagine you're working on a group project. You want to check a new pull request (PR) and see how the changes look on the site you're creating. To do this, you need to check out the branch of the PR, build it, and run the project to check it live. Wouldn't it be great if, after a PR is made, a new version of the project is built and uploaded so anyone can run tests on it?
 

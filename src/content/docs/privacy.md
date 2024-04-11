@@ -21,17 +21,17 @@ We at Fleek LLC (Fleek,” “we” and “us”) know you care about how your p
 
 Remember that your use of Fleek’s Services is at all times subject to the Terms of Use, which incorporates this Privacy Policy. Any terms we use in this Policy without defining them have the definitions given to them in the Terms of Use.
 
-### What does this Privacy Policy cover?
+## What does this Privacy Policy cover?
 
 This Privacy Policy covers our treatment of personally identifiable information (“Personal Information”) that we gather when you are accessing or using our Services, but not to the practices of companies we don’t own or control, or people that we don’t manage. We gather various types of Personal Information from our users, as explained in more detail below, and we use this Personal Information internally in connection with our Services, including to personalize, provide, and improve our services, to allow you to set up a user account and profile, to contact you and allow other users to contact you, to fulfill your requests for certain products and services, and to analyze how you use the Services.
 
 As noted in the Terms of Use, we do not knowingly collect or solicit personal information from anyone under the age of 16. If you are under 16, please do not attempt to register for the Services or send any personal information about yourself to us. If we learn that we have collected personal information from a child under age 16, we will delete that information as quickly as possible. If you believe that a child under 16 may have provided us personal information, please contact us at support@fleek.xyz.
 
-### Will Fleek ever change this Privacy Policy?
+## Will Fleek ever change this Privacy Policy?
 
 We’re constantly trying to improve our Services, so we may need to change this Privacy Policy from time to time as well, but we will alert you to changes by placing a notice on the Services, by sending you an email, and/or by some other means. Please note that if you’ve opted not to receive legal notice emails from us (or you haven’t provided us with your email address), those legal notices will still govern your use of the Services, and you are still responsible for reading and understanding them. If you use the Services after any changes to the Privacy Policy have been posted, that means you agree to all of the changes.
 
-### What Information does Fleek Collect?
+## What Information does Fleek Collect?
 
 Information You Provide to Us:
 
@@ -47,11 +47,11 @@ Certain information may be required to register with us or to take advantage of 
 
 We may communicate with you if you’ve provided us the means to do so. For example, if you’ve given us your email address, we may send you promotional email offers on behalf of other businesses, or email you about your use of the Services. Also, we may receive a confirmation when you open an email from us. This confirmation helps us make our communications with you more interesting and improve our services. If you do not want to receive communications from us, please indicate your preference by contacting us at support@fleek.xyz or via any email's subscription handling option.
 
-### Information Collected Automatically
+## Information Collected Automatically
 
 Whenever you interact with our Services, we automatically receive and record information on our server logs from your browser or device, which may include your geolocation data, device identification, the type of browser and/or device you’re using to access our Services, and the page or feature you requested. We may use this data to customize content for you that we think you might like, based on your usage patterns. We may also use it to improve the Services – for example, this data can tell us how often users use a particular feature of the Services, and we can use that knowledge to make the Services interesting to as many users as possible.
 
-### Will Fleek Share Any of the Personal Information it Receives?
+## Will Fleek Share Any of the Personal Information it Receives?
 
 We may share your Personal Information with third parties as described in this section:
 
@@ -59,13 +59,13 @@ Analytics: We may use third party analytics service providers, such as Google An
 
 Protection of Fleek and Others: We reserve the right to access, read, preserve, and disclose any information that we believe is necessary to comply with applicable law or court order or respond to valid legal process, including from law enforcement or other government agencies; enforce or apply our Terms of Use and other agreements; prevent spam or other unwanted communications and investigate or protect against fraud; protect the rights, property, or safety of Fleek, our employees, our users, or others; or maintain the security of our products and services.
 
-### Is Personal Information about me secure?
+## Is Personal Information about me secure?
 
 Your account is protected by a password for your privacy and security. If you access your account via a third party site or service, you may have additional or different sign-on protections via that third party site or service. You must prevent unauthorized access to your account and Personal Information by selecting and protecting your password and/or other sign-on mechanism appropriately and limiting access to your computer or device and browser by signing off after you have finished accessing your account.
 
 We endeavor to protect the privacy of your account and other Personal Information we hold in our records, but unfortunately, we cannot guarantee complete security. Unauthorized entry or use, hardware or software failure, and other factors, may compromise the security of user information at any time.
 
-### What Personal Information can I access?
+## What Personal Information can I access?
 
 Through your account settings, you may access, and, in some cases, edit or delete the following information you’ve provided to us:
 
@@ -77,13 +77,13 @@ Through your account settings, you may access, and, in some cases, edit or delet
 
 The information you can view, update, and delete may change as the Services change. If you have any questions about viewing or updating information we have on file about you, please contact us at support@fleek.xyz.
 
-### What choices do I have?
+## What choices do I have?
 
 You can always opt not to disclose information to us, but keep in mind some information may be needed to register with us or to take advantage of some of our features.
 
 You may be able to add, update, or delete information as explained above. When you update information, however, we may maintain a copy of the unrevised information in our records. You may request deletion of your account by emailing support@fleek.xyz. Some information may remain in our records after your deletion of such information from your account. We may use any aggregated data derived from or incorporating your Personal Information after you update or delete it, but not in a manner that would identify you personally.
 
-### EU Residents
+## EU Residents
 
 If you are a resident of the European Union (“EU”), United Kingdom, Lichtenstein, Norway, or Iceland, you may have additional rights under the EU General Data Protection Regulation (the “GDPR”) with respect to your Personal Data, as outlined below.
 
@@ -193,17 +193,17 @@ We also share Personal Data when we believe it is necessary to:
 
 – Maintain the security of our products and services
 
-### How Long Do We Retain Your Personal Data? 
+## How Long Do We Retain Your Personal Data? 
 
 We retain Personal Data about you for as long as you have an open account with us and for 6 months after you close your account. In some cases we retain Personal Data for longer, if doing so is necessary to comply with our legal obligations, resolve disputes or collect fees owed, or is otherwise permitted or required by applicable law, rule or regulation. Afterwards, we retain some information in a depersonalized or aggregated form but not in a way that would identify you personally.
 
-### What Security Measures Do We Use?
+## What Security Measures Do We Use?
 
 We seek to protect Personal Data using appropriate technical and organizational measures based on the type of Personal Data and applicable processing activity. For example, at any point a user can delete his account and remove their associated information from our database.
 
 Personal Data of Children: As noted in the Terms of Use, we do not knowingly collect or solicit Personal Data from anyone under the age of 16. If you are under 16, please do not attempt to register for the Services or send any Personal Data about yourself to us. If we learn that we have collected Personal Data from a child under age 16, we will delete that information as quickly as possible. If you believe that a child under 16 may have provided us Personal Data, please contact us at support@fleek.xyz.
 
-### What Rights Do You Have Regarding Your Personal Data? 
+## What Rights Do You Have Regarding Your Personal Data? 
 
 You have certain rights with respect to your Personal Data, including those set forth below. For more information about these rights, or to submit a request, please email support@fleek.xyz. Please note that in some circumstances, we may not be able to fully comply with your request, such as if it is frivolous or extremely impractical, if it jeopardizes the rights of others, or if it is not required by law, but in those circumstances, we will still respond to notify you of such a decision. In some cases, we may also need to you to provide us with additional information, which may include Personal Data, if necessary to verify your identity and the nature of your request.
 
@@ -231,6 +231,6 @@ Fleek is committed to the following principles regarding the collection and use 
 
 Please contact us at support@fleek.xyz with any questions or concerns relating to [our privacy practices].
 
-### What if I have questions about this Privacy Policy?
+## What if I have questions about this Privacy Policy?
 
 If you have any questions or concerns regarding our Privacy Policy, please send us a detailed message to support@fleek.xyz, and we will try to resolve your concerns.

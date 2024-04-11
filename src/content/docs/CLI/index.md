@@ -22,11 +22,11 @@ The minimum requirement to use the Fleek CLI is Node.js Version 18.
 
 :::
 
-### What is a CLI?
+## What is a CLI?
 
 A CLI is a command-line program that accepts text input to execute operating system functions. With this, you can interact directly with all the services offered by Fleek directly from your command line. Fleek CLI provides a unified command line interface to Fleek Services.
 
-### Installation
+## Installation
 
 This package requires a minimum of Node.js 18. To install the CLI, run:
 
@@ -43,7 +43,7 @@ sudo npm install -g @fleekxyz/cli
 
 :::
 
-### Usage
+## Usage
 
 The Fleek CLI command has the following structure:
 
@@ -56,7 +56,7 @@ To view all available services and commands, you can use:
 fleek help
 ```
 
-### Authentication
+## Authentication
 
 All the services in the Fleek CLI require authentication. To do this, you have to run:
 
@@ -79,7 +79,7 @@ fleek logout
 ✅ Successfully logged out.
 ```
 
-### Projects
+## Projects
 
 As explained [here](/docs/Projects), to interact with services, you need to have a project. This can be created and managed via the CLI too!
 

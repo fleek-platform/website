@@ -21,7 +21,7 @@ For example, accessing https://ipfs.io/ipns/docs.ipfs.tech will point to the mos
 
 The [IPFS documentation](https://docs.ipfs.tech/concepts/dnslink/) provides a detailed explanation of DNSLink and its utility.
 
-### Setting up DNSLink
+## Setting up DNSLink
 
 To set up DNSLink for your site, first you need to have a custom domain linked to your site. If you don't have a domain linked yet, please follow the steps in the [Domains](/docs/Domains/custom-domains) section.
 

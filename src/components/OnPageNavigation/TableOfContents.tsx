@@ -48,17 +48,17 @@ const TableOfContents: FC<Props> = ({
 	return (
 		<>
 			<ul>
-				<li className="leading-loose">
+				<li>
 					<a href="" className="font-plex-sans text-18 font-bold">Content</a>
 				</li>
 				{headings
-					.filter(({ depth }) => depth < 3)
+					.filter(({ depth }) => depth > 1)
 					.map((heading) => (
 						<li
 							key={heading.slug}
-							className={`leading-loose ${heading.depth > 1 ? 'pl-10' : ''} heading-link depth-${heading.depth} ${
+							className={
 								activeId === heading.slug ? 'font-bold' : ''
-							}`.trim()}
+							}
 							onClick={() => onClickHandler(heading.slug)}
 						>
 							<a className="font-plex-sans text-13" href={`#${heading.slug}`}>{heading.text}</a>

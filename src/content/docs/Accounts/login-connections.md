@@ -18,15 +18,15 @@ tags:
 
 In our platform, users have the flexibility to enhance their login experience by linking wallets and emails to their accounts. This feature is designed to provide a seamless and secure way of accessing accounts, catering to the diverse preferences of our users.
 
-### Account Linking Limitations
+## Account Linking Limitations
 
 It is important to note that each account is limited to having only one email and one wallet linked. This limitation ensures the security and uniqueness of each account, preventing any conflicts or confusions that may arise from multiple links.
 
-### How to Link a Wallet or Email
+## How to Link a Wallet or Email
 
 To link a wallet or an email, users should navigate to the 'Log In Connections' section found within the account settings. This area is dedicated to managing all aspects of your login connections.
 
-#### Adding an Ethereum Wallet
+### Adding an Ethereum Wallet
 
 ![](../images/login-connections-3.png)
 
@@ -38,7 +38,7 @@ For users looking to link an Ethereum wallet, the process is straightforward:
 4. Select your wallet of choice and scan the provided QR code.
 5. Upon successful scanning, the wallet becomes linked to the user's account.
 
-#### Unlinking a wallet
+### Unlinking a wallet
 
 ![](../images/login-connections-2.png)
 
@@ -48,7 +48,7 @@ If you decide to unlink your wallet, you can do so by:
 2. Clicking on the three-dotted menu on your wallet.
 3. Selecting 'Unlink Wallet' from the available options.
 
-#### Adding an Email to a Wallet-Created Account
+### Adding an Email to a Wallet-Created Account
 
 ![](../images/login-connections-5.png)
 
@@ -58,7 +58,7 @@ If you created your account using an Ethereum wallet also have the option to add
 2. Clicking on the 'Add Email Address' button.
 3. Following the prompted steps, which include OTP validation to ensure the email's validity.
 
-#### Updating your Email Address
+### Updating your Email Address
 
 ![](../images/login-connections-4.png)
 

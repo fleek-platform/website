@@ -15,7 +15,7 @@ tags:
 - Fleek
 ---
 
-### Introduction
+## Introduction
 
 To set up a custom domain, we will create a unique URL for your pull zone, which will point to the last deployed content on your site. You will then need to configure your domain to the pull zone URL using a CNAME record or an ANAME, depending on your DNS provider. This ensures that when someone visits your custom domain, they will be directed to the cached content on our CDN, resulting in faster load times.
 
@@ -39,7 +39,7 @@ Domains on our CDN are unique and since we are sharing the same cdn for both pla
 
 :::
 
-### Adding a custom domain
+## Adding a custom domain
 
 To add a custom domain to your site, first you need to have a site created. If you don't have a site yet, please follow the steps in the [Sites](/docs/Sites) section.
 
@@ -57,17 +57,17 @@ When setting up a sub domain in your DNS provider make sure you add only the sub
 
 After you configure your DNS provider, you have to trigger the validation process. To do this, click on the **Ok, I have add it** button in the custom domains table. This will trigger the validation process and you will see the status of the domain change to `validating`. Once the validation process is completed, you will see the status of the domain change to `Active`.
 
-### Primary Domains
+## Primary Domains
 
 ![](../images/primary-domain.png)
 
 When you have correctly set up your first domain it will be marked with the tag of `Primary`. The `Primary` domain is the main domain for a site and it will be used inside of the platform for every action that is related to a site as source of truth. For example, when you deploy a site, the domain that will be used in the `view site` button will be the `Primary` domain.
 
-#### Changing a primary domain
+### Changing a primary domain
 
 At any point, as long as you have another `Active` domain seted up for the site you can change the `Primary` domain. To do this, you need to click on the three dots icon in the custom domains table and select the `Make Primary` option. This will change the `Primary` domain to the one you selected. It is important to remind you that you cannot set a domain as `Primary` if it is not `Active`, meaning that we have verified that the domain is correctly configured in your DNS provider.
 
-### Deleting a custom domain
+## Deleting a custom domain
 
 ![](../images/primary-domain-delete.png)
 

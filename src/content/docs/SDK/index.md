@@ -14,13 +14,13 @@ tags:
 - Fleek
 ---
 
-### Introduction
+## Introduction
 
 The Fleek SDK is a set of tools that allow you to interact with Fleek’s services. It’s composed of a set of libraries that you can leverage to build your own application on top of Fleek’s services.
 
 All of the code snippets provided in these docs are based on Typescript. We strongly encourage Typescript to get the most out of the type of safety that the SDK provides.
 
-### Installation
+## Installation
 
 The SDK is available as an npm package.
 
@@ -36,17 +36,17 @@ npm install @fleekxyz/sdk
 yarn install @fleekxyz/sdk
 ```
 
-### Authentication
+## Authentication
 To authenticate, you must provide an `Access Token Service`. Currently, there are two `Access Token Service` available `PersonalAccessTokenService` and `ApplicationAccessTokenService`, but we’re working on adding more services.
 
-#### Available Authenticaition options
+### Available Authenticaition options
 
 |*Auth method*|*Web Environment*|*Node Environment*|
 |:----------:|:-----------:|:----:|
 |`PersonalAccessTokenService`|❌|✅|
 |`ApplicationAccessTokenService`|✅|❌|
 
-#### Updating `AccessTokenService`
+### Updating `AccessTokenService`
 
 If you need to access multiple projects or switch between them, you will need to create a new instance of the `SDK` with the desired `projectID`
 
@@ -61,11 +61,11 @@ const newAccessTokenService = new PersonalAccessTokenService({
 const fleekSdk = new FleekSdk({ accessTokenService: newAccessTokenService });
 ```
 
-#### Personal Access Token Service
+### Personal Access Token Service
 
 The personal access token (PAT) is ment to be used in Backend Node.js environment and should be kept private, you should use an environment variable to store it.
 
-##### *Parameters*
+#### *Parameters*
   |*parameters*|*description*|
   |:----------:|:-----------:|
   |`personalAccessToken`|Private PAT, generated from the `CLI`.|
@@ -77,7 +77,7 @@ The personal access token (PAT) is ment to be used in Backend Node.js environmen
   fleek pat create
   ```
 
-##### Example
+#### Example
 ```typescript copy
 import { FleekSdk, PersonalAccessTokenService } from '@fleekxyz/sdk';
 
@@ -89,13 +89,13 @@ const patService = new PersonalAccessTokenService({
 const fleekSdk = new FleekSdk({ accessTokenService: patService })
 ```
 
-#### Application Access Token
+### Application Access Token
 
 Application credentials are the keys to your project. They are used to authenticate your application with Fleek's services. You can create multiple application credentials for a single project, and each application credential can have different permissions.
 
 You can create an application token following the steps [here](/docs/Projects/application-credentials).
 
-#### *Parameters*
+### *Parameters*
 |*parameters*|*description*|
 |:----------:|:-----------:|
 |`clientId`|Client Id, generated from the `CLI`.|
@@ -110,7 +110,7 @@ This method of authentication relies on a `clientId` which can be obtained after
 > Success! Successfully created. Your new application has client's ID: client_FYMego6wIogtm36sUFQb
 ```
 
-#### Example
+### Example
 ```typescript copy
 import { FleekSdk, ApplicationAccessTokenService } from '@fleekxyz/sdk';
 

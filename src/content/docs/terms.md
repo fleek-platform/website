@@ -30,7 +30,7 @@ NOTICE: Please read these Terms carefully. They cover important information abou
 
  
 
-### Will these Terms ever change?
+## Will these Terms ever change?
 
 We are constantly trying to improve our Services, so these Terms may need to change along with the Services. We reserve the right to change the Terms at any time, but if we do, we will bring it to your attention by placing a notice on the https://fleek.xyz website, by sending you an email, and/or by some other means.
 
@@ -40,18 +40,18 @@ Except for changes by us as described here, no other amendment or modification o
 
  
 
-### What about my privacy?
+## What about my privacy?
 
 Fleek takes the privacy of its users very seriously.
 
 The Children’s Online Privacy Protection Act (“COPPA”) requires that online service providers obtain parental consent before they knowingly collect personally identifiable information online from children who are under 13. We do not knowingly collect or solicit personally identifiable information from children under 16; if you are a child under 16, please do not attempt to register for the Services or send any personal information about yourself to us. If we learn we have collected personal information from a child under 16, we will delete that information as quickly as possible. If you believe that a child under 16 may have provided us personal information, please contact us at support@fleek.xyz.
 
-### What are the basics of using Fleek?
+## What are the basics of using Fleek?
 
 You may be required to sign up for an account, and select a password and user name (“Fleek User ID”). You promise to provide us with accurate, complete, and updated registration information about yourself. You may not select as your Fleek User ID a name that you don’t have the right to use, or another person’s name with the intent to impersonate that person. You may not transfer your account to anyone else without our prior written permission. You represent and warrant that you are of legal age to form a binding contract (or if not, you’ve received your parent’s or guardian’s permission to use the Services and gotten your parent or guardian to agree to these Terms on your behalf). If you’re agreeing to these Terms on behalf of an organization or entity, you represent and warrant that you are authorized to agree to these Terms on that organization or entity’s behalf and bind them to these Terms (in which case, the references to “you” and “your” in these Terms, except for in this sentence, refer to that organization or entity). You will only use the Services for your own personal use, and not on behalf of or for the benefit of any third party, and only in a manner that complies with all laws that apply to you. If your use of the Services is prohibited by applicable laws, then you aren’t authorized to use the Services. We can’t and won’t be responsible for your using the Services in a way that breaks the law. You will not share your account or password with anyone, and you must protect the security of your account and your password. You’re responsible for any activity associated with your account.
 
 
-### Consent to receive periodic messages
+## Consent to receive periodic messages
 
 As part of the Services, you may receive communications through the Services, including messages that Fleek sends you (for example, via SMS) for two-factor authentication. BY SIGNING UP FOR THE SERVICES, YOU AGREE TO RECEIVE COMMUNICATIONS FROM FLEEK, AND YOU REPRESENT AND WARRANT THAT EACH PERSON YOU REGISTER FOR THE SERVICES OR FOR WHOM YOU PROVIDE A WIRELESS PHONE NUMBER HAS CONSENTED TO RECEIVE COMMUNICATIONS FROM FLEEK. You agree to indemnify and hold Fleek harmless from and against any and all claims, liabilities, damages (actual and consequential), losses and expenses (including attorneys’ fees) arising from or in any way related to your breach of the foregoing.
 
@@ -81,11 +81,11 @@ You represent, warrant, and agree that you will not contribute any Content or Us
 
 A violation of any of the foregoing is grounds for termination of your right to use or access the Services.
 
-### What are my rights in the Services?
+## What are my rights in the Services?
 
 The materials displayed or performed or available on or through the Services, including, but not limited to, text, graphics, data, articles, photos, images, illustrations, User Submissions, and so forth (all of the foregoing, the “Content”) are protected by copyright and/or other intellectual property laws. You promise to abide by all copyright notices, trademark rules, information, and restrictions contained in any Content you access through the Services, and you won’t use, copy, reproduce, modify, translate, publish, broadcast, transmit, distribute, perform, upload, display, license, sell, commercialize or otherwise exploit for any purpose any Content not owned by you, (i) without the prior consent of the owner of that Content or (ii) in a way that violates someone else’s (including Fleek’s) rights. You understand that Fleek owns the Services. You won’t modify, publish, transmit, participate in the transfer or sale of, reproduce (except as expressly provided in this Section), create derivative works based on, or otherwise exploit any of the Services. The Services may allow you to copy or download certain Content; please remember that just because this functionality exists, doesn’t mean that all the restrictions above don’t apply – they do!
 
-### Do I have to grant any licenses to Fleek or to other users?
+## Do I have to grant any licenses to Fleek or to other users?
 
 Anything you post, upload, share, store, or otherwise provide through the Services is your “User Submission.” Some User Submissions may be viewable by other users. In order to display your User Submissions on the Services, and to allow other users to enjoy them (where applicable), you grant us certain rights in those User Submissions. Please note that all of the following licenses are subject to our Privacy Policy to the extent they relate to User Submissions that are also your personally-identifiable information.
 
@@ -101,11 +101,11 @@ You agree that the licenses you grant are royalty-free, perpetual, sublicensable
 
 Finally, you understand and agree that Fleek, in performing the required technical steps to provide the Services to our users (including you), may need to make changes to your User Submissions to conform and adapt those User Submissions to the technical requirements of connection networks, devices, services, or media, and the foregoing licenses include the rights to do so.
 
-### What if I see something on the Services that infringes my copyright?
+## What if I see something on the Services that infringes my copyright?
 
 You may have heard of the Digital Millennium Copyright Act (the “DMCA”), as it relates to online service providers, like Fleek, being asked to remove material that allegedly violates someone’s copyright. We respect others’ intellectual property rights, and we reserve the right to delete or disable Content alleged to be infringing, and to terminate the accounts of repeat alleged infringers; to review our complete Copyright Dispute Policy and learn how to report potentially infringing content. To learn more about the DMCA, click here http://www.copyright.gov/legislation/dmca.pdf
 
-### Who is responsible for what I see and do on the Services?
+## Who is responsible for what I see and do on the Services?
 
 Any information or content publicly posted or privately transmitted through the Services is the sole responsibility of the person from whom such content originated, and you access all such information and content at your own risk, and we aren’t liable for any errors or omissions in that information or content or for any damages or loss you might suffer in connection with it. We cannot control and have no duty to take any action regarding how you may interpret and use the Content or what actions you may take as a result of having been exposed to the Content, and you hereby release us from all liability for you having acquired or not acquired Content through the Services. We can’t guarantee the identity of any users with whom you interact in using the Services and are not responsible for which users gain access to the Services. You are responsible for all Content you contribute, in any manner, to the Services, and you represent and warrant you have all rights necessary to do so, in the manner in which you contribute it. You will keep all your registration information accurate and current. You are responsible for all your activity in connection with the Services.
 
@@ -117,11 +117,11 @@ Your interactions with organizations and/or individuals found on or through the 
 
 If there is a dispute between participants on this site, or between users and any third party, you agree that Fleek is under no obligation to become involved. In the event that you have a dispute with one or more other users, you release Fleek, its directors, officers, employees, agents, and successors from claims, demands, and damages of every kind or nature, known or unknown, suspected or unsuspected, disclosed or undisclosed, arising out of or in any way related to such disputes and/or our Services. If you are a California resident, you shall and hereby do waive California Civil Code Section 1542, which says: “A general release does not extend to claims which the creditor does not know or suspect to exist in his favor at the time of executing the release, which, if known by him must have materially affected his settlement with the debtor.”
 
-### Will Fleek ever change the Services?
+## Will Fleek ever change the Services?
 
 We’re always trying to improve the Services, so they may change over time. We may suspend or discontinue any part of the Services, or we may introduce new features or impose limits on certain features or restrict access to parts or all of the Services. We reserve the right to remove any Content from the Services at any time, for any reason (including, but not limited to, if someone alleges you contributed that Content in violation of these Terms), in our sole discretion, and without notice.
 
-### Do the Services cost anything?
+## Do the Services cost anything?
 
 The Services may be free or we may charge a fee for using the Services. If you are using a free version of the Services, we will notify you before any Services you are then using begin carrying a fee, and if you wish to continue using such Services, you must pay all applicable fees for such Services. Note that if you elect to receive text messages through the Services, data and message rates may apply. Any and all such charges, fees or costs are your sole responsibility. You should consult with your wireless carrier to determine what rates, charges, fees or costs may apply to your use of the Services.
 
@@ -141,7 +141,7 @@ g. Reaffirmation of Authorization. Your non-termination or continued use of a Pa
 
 Free Trials and Other Promotions. Any free trial or other promotion that provides access to a Paid Service must be used within the specified time of the trial. You must stop using a Paid Service before the end of the trial period in order to avoid being charged for that Paid Service. If you cancel prior to the end of the trial period and are inadvertently charged for a Paid Service, please contact us at support@fleek.xyz.
 
-### What if I want to stop using the Services?
+## What if I want to stop using the Services?
 
 You’re free to do that at any time, by contacting us at support@fleek.xyz; please refer to our Privacy Policy, as well as the licenses above, to understand how we treat information you provide to us after you have stopped using our Services.
 
@@ -151,7 +151,7 @@ Account termination may result in destruction of any Content associated with you
 
 Provisions that, by their nature, should survive termination of these Terms shall survive termination. By way of example, all of the following will survive termination: any obligation you have to pay us or indemnify us, any limitations on our liability, any terms regarding ownership or intellectual property rights, and terms regarding disputes between us, including without limitation the arbitration agreement.
 
-### What else do I need to know?
+## What else do I need to know?
 
 Warranty Disclaimer. Neither Fleek nor its licensors or suppliers make any representations or warranties concerning any content contained in or accessed through the Services, and we will not be responsible or liable for the accuracy, copyright compliance, legality, or decency of material contained in or accessed through the Services. We (and our licensors and suppliers) make no representations or warranties regarding suggestions or recommendations of services or products offered or purchased through the Services. Products and services purchased or offered (whether or not following such recommendations and suggestions) through the Services are provided “AS IS” and without any warranty of any kind from Fleek or others (unless, with respect to such others only, provided expressly and unambiguously in writing by a designated third party for a specific product). THE SERVICES AND CONTENT ARE PROVIDED BY FLEEK (AND ITS LICENSORS AND SUPPLIERS) ON AN “AS-IS” BASIS, WITHOUT WARRANTIES OR ANY KIND, EITHER EXPRESS OR IMPLIED, INCLUDING, WITHOUT LIMITATION, IMPLIED WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE, NON-INFRINGEMENT, OR THAT USE OF THE SERVICES WILL BE UNINTERRUPTED OR ERROR-FREE. SOME STATES DO NOT ALLOW LIMITATIONS ON HOW LONG AN IMPLIED WARRANTY LASTS, SO THE ABOVE LIMITATIONS MAY NOT APPLY TO YOU.
 

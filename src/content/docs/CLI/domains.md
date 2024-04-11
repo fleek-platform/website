@@ -14,7 +14,7 @@ tags:
   - Fleek
 ---
 
-### Introduction
+## Introduction
 
 In this documentation, we will guide you through the process of setting up a custom domain for your Fleek site. With a custom domain, you can create a unique web address for your site that reflects your brand or organization.
 
@@ -26,7 +26,7 @@ We'll cover the following topics:
 - Listing your current domains
 - Manually Verifying your domain
 
-### Add a custom domain
+## Add a custom domain
 
 The first step is to add a domain. To do this, you will need a project and a site to configure it on. Once you have these, you can choose from the different interfaces available to set up the domain.
 
@@ -81,7 +81,7 @@ WARN! Fleek CLI is in beta, use it at your own discretion
 
 That is it! Once the DNS propagation is complete, your domain will be ready to use.
 
-### List domains
+## List domains
 
 At any moment you can list the domains you have added to your site.
 
@@ -95,7 +95,7 @@ Hostname           Created At                 Verified
 fleekdemos.online  2023-03-01T09:43:09.698Z  ✔
 ```
 
-### Domain details
+## Domain details
 
 You can check the detils for the configuration of your domain at any moment, this can help if you are changing DSN provider for example.
 
@@ -119,7 +119,7 @@ Type   Name      Value
 CNAME  hostname  <your pullzone>
 ```
 
-### Manual verification
+## Manual verification
 
 If during the setup process you couldn't verify your domain, you can do it manually.
 
@@ -132,7 +132,7 @@ WARN! Fleek CLI is in beta, use it at your own discretion
 > Success! Domain "fleekdemos.online" was verified.
 ```
 
-### Delete a domain
+## Delete a domain
 
 To do this, you can use the `domains delete` method. This will prompt the wizzerd for domains deletion.
 

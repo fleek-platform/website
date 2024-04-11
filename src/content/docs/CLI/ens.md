@@ -14,7 +14,7 @@ tags:
 - Fleek
 ---
 
-### Linking an ENS Name
+## Linking an ENS Name
 
 To link a Fleek site to an ENS name, you will need to set the ENS name's content record to the IPFS hash or IPNS record of your site. This can be done via the ENS app.
 
@@ -60,7 +60,7 @@ WARN! Fleek CLI is in beta, use it at your own discretion
 > Press any key as soon as you configure your ENS.
 ```
 
-### List domains
+## List domains
 
 At any moment you can list the ENS you have added to your site.
 
@@ -75,7 +75,7 @@ ENS        Status   Created At
 test.eth  VERIFIED  2023-07-25T09:34:37.891Z
 ```
 
-### ENS details
+## ENS details
 
 You can check the detils for the configuration of your ENS at any moment, this can help if you are changing DSN provider for example.
 

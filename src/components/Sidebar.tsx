@@ -16,9 +16,9 @@ const SidebarMenu: FC<Props> = ({ data, pathname }) => {
   const isActiveSlug = (slug: string) => slug === activeSlug ? 'font-bold' : '';
 
   return (
-    <ul className="space-y-1">
+    <ul>
       <li>
-        <a href="/docs" className={`block rounded-lg px-4 py-2 text-16 font-plex-sans ${isHome(activeSlug)}`}>
+        <a href="/docs" className={`${isHome(activeSlug)}`}>
           Home
         </a>
       </li>

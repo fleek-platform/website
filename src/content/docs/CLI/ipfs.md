@@ -14,22 +14,22 @@ tags:
 - Fleek
 ---
 
-### What is IPFS?
+## What is IPFS?
 
 The Interplanetary File system (IPFS) is a distributed file storage protocol that allow computers all over the globe to store and serve files as part of a giant peer-to-peer network.
 
-### What is Pinning?
+## What is Pinning?
 
 Pinning is a mechanism that allows you to tell IPFS to store and keep a given object somewhere - the default being you local node, though in this case you will be pinning the object to Fleek’s IPFS node.
 
-### How to pin a file
+## How to pin a file
 
 You can pin a file from your file system by using the `add` command.
 
 ```bash copy
 fleek ipfs add <file-direction>
 ```
-### Usage
+## Usage
 
 ```bash
 fleek ipfs add hello.txt

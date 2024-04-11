@@ -14,13 +14,13 @@ tags:
 - Fleek
 ---
 
-### What is IPNS?
+## What is IPNS?
 
 The InterPlanetary Name System (IPNS) is a system for creating mutable pointers to CIDs known as names or IPNS names. IPNS names can be thought of as links that can be updated over time, while retaining the verifiability of content addressing. In this case in particular, they are mostly used to represent IPFS files (through their hashes).
 
 If you want to know more about IPNS and how it works you can read it [here](https://docs.ipfs.tech/concepts/ipns/#interplanetary-name-system-ipns)
 
-### Creating an IPNS record
+## Creating an IPNS record
 
 Creating an IPNS record refers to the creation of an IPNS record and signing it with a private key. Note: Currently Fleek holds the private key with wich all records ar being sigend, in future iterations there will be an option for the user to manage their own keys.
 
@@ -54,7 +54,7 @@ If you don't want to associate the IPNS record with a site, you can use it freel
 
 After creating the IPNS you can update it with a CID and publish it to the different nodes so it can be resolved.
 
-### Publishing a record
+## Publishing a record
 
 Publishing an IPNS record means advertising it so that other nodes can resolve it, thus mapping the record to a CID so that the gateway can resolve to it and direct user to the set content.
 
@@ -70,7 +70,7 @@ https://ipfs.io/ipns/k51qzi5uqu5didozh8jmvbnowwj2d545yacagcply19yvjz8rhn0i1hrbw2
 WARN! IPNS propagation can take up to 30 minutes.
 ```
 
-### Resolving an IPNS record
+## Resolving an IPNS record
 
 Fleek comes with a built in resolver for IPNS that allows you to get the CID based on an IPNS record.
 
@@ -83,7 +83,7 @@ To resolve an IPNS record using the CLI you need to be authenticated, with a pro
 > Success! /ipfs/QmRG4xcsmoZuXqKuPz3uVBgvo3GZ6k1kLZWhmvzuKtDr9s
 ```
 
-### Listing records
+## Listing records
 
 If at any time you want to check all the IPNS records that were created / published with this project you can do so
 

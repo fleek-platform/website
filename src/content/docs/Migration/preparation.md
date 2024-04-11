@@ -36,7 +36,7 @@ The whole migration process will take less than a minute and our goal is to crea
 
 Stay tuned for more information, as well as the rollout of tools and guides to help you migrate, coming at the start of 2024.
 
-### Fleek.co SDK Deprecation
+## Fleek.co SDK Deprecation
 
 As part of the migration to Fleek.xyz and sunsetting of Fleek.co, the Fleek.co Storage SDK will also be sunset. This means that aside from migrating accounts, sites, and files, developers will also want to switch any previous references to the Fleek.co SDK in their codebase to the new Fleek.xyz SDK to ensure their applications and projects continue to operate at full functionality without any hiccups post official sunsetting and deprecation of Fleek.co.
 

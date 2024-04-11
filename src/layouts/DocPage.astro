@@ -1,5 +1,6 @@
 ---
-import '../globals.css';
+import '@styles/globals.css';
+import '@styles/docPage.css';
 import BaseHtml from '@layouts/BaseHtml.astro';
 import Announcement from "@components/Announcement";
 import Container from "@components/Container";
@@ -17,9 +18,6 @@ type Props = {
   title: string;
 	headings: MarkdownHeading[];
 };
-
-// TODO: Get from settings (create)
-const GITHUB_EDIT_URL = 'https://github.com/fleekxyz/<TODO:RESPOSITORY-NAME>/edit/';
 
 const { title, headings } = Astro.props;
 const currentPage = Astro.url.pathname;
@@ -43,39 +41,6 @@ const sidebarSorted = generateSidebarDSByUserOrder(allPosts, orderBy);
 ---
 
 <BaseHtml title={title}>
-  <style>
-   @tailwind components;
-
-   @layer components {
-    .doc {
-      @apply font-plex-mono text-18 leading-normal pb-128;
-
-      h1 {
-        @apply font-plex-mono text-38 font-bold leading-loose;
-      }
-
-      h2 {
-        @apply font-plex-mono text-32 font-bold leading-loose;
-      }
-
-      p {
-        @apply font-plex-mono text-18 pb-32 leading-normal;
-      }
-
-      a {
-        @apply text-blue-500;
-      }
-
-      ul {
-        @apply pl-32;
-
-        li {
-          @apply pb-10 list-disc;
-        }
-      }
-    }
-   }
-  </style>
   <main class="container min-h-container">
     <div class="grid grid-cols-[1fr,3fr,1fr] gap-4">
       <div class="px-32">

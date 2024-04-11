@@ -16,13 +16,13 @@ tags:
 
 Some services, such as **IPFS storage** & **IPNS** will require you to authenticate with a `projectId` to interact with them. You can use the SDK to obtain the `projectId` required to use the services that need it.
 
-### Create a project
+## Create a project
 
 ```typescript copy
 const projectId = await fleekSdk.projects().create({ name: 'My Project' });
 ```
 
-### List projects
+## List projects
 
 ```typescript copy
 const projects = await fleekSdk.projects().list();
@@ -35,7 +35,7 @@ This returns a list of projects:
 ]
 ```
 
-### Get project
+## Get project
 
  ```typescript copy
 const project = await fleekSdk.projects().get({ id: 'clfk15m6p0002l608gvtp9gm5' })

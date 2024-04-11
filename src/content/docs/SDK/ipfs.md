@@ -18,7 +18,7 @@ tags:
 In case you are using the Fleek SDK with a PAT as the authentication service you need to make sure that the projectId is set in the PersonalAccessTokenService.
 :::
 
-### How to pin a file
+## How to pin a file
 
 Here is a list of the available methods for the `IPFS` service:
 
@@ -126,13 +126,13 @@ const uploadToIPFS = async (files: IpfsFile[]) => {
 <details>
 <summary>`addFromPath`</summary>
 
-#### ***Parameters***
+### ***Parameters***
 
 > - `path`: String path of file in local filesystem
 > - `options:` Optional Object with properties:
 > - `wrapWithDirectory`: boolean if is folder
 
-#### **Returns**
+### **Returns**
 
 > - `UploadResult[]`: List of Objects with properties:
 >   - `path`: Path of the file
@@ -140,7 +140,7 @@ const uploadToIPFS = async (files: IpfsFile[]) => {
 >   - `size`: Size of the file
 
 
-#### **Function types**
+### **Function types**
 ```typescript
 type AddFromPathOptions = {
   wrapWithDirectory?: boolean;
@@ -158,7 +158,7 @@ addFromPath: (
 ) => Promise<UploadResult[]>;
 ```
 
-#### **Example**
+### **Example**
 ```typescript copy
 // fleekSdk is an authenticated instance of FleekSDK
 // with a selected projectId

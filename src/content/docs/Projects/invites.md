@@ -28,7 +28,7 @@ But will be restricted from doing actions like
 - Deleting the project
 - Inviting new members
 
-### Inviting a new user
+## Inviting a new user
 
 To invite a new user into your project you need to go to the project settins and select the teams tab. There you will find a list of members in the project and a button to generate a link to invite a new user.
 

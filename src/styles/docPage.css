@@ -1,0 +1,76 @@
+@tailwind components;
+
+@layer components {
+  .doc {
+    @apply font-plex-sans text-18 leading-loose pb-128;
+
+    h1, h2, h3, h4 {
+      @apply font-plex-sans font-bold leading-loose py-10;
+    }
+  
+    h1 {
+      @apply text-38;
+    }
+
+    h2 {
+      @apply text-32;
+    }
+
+    p { 
+      @apply leading-normal pb-10;
+    }
+
+    a {
+      @apply text-blue-500;
+    }
+
+    ul {
+      @apply pl-32;
+
+      li {
+        @apply pb-10 list-disc;
+      }
+    }
+
+    ol {
+      display: block;
+      list-style-type: decimal;
+      margin-block-start: 1em;
+      margin-block-end: 1em;
+      margin-inline-start: 0px;
+      margin-inline-end: 0px;
+      padding-inline-start: 40px;
+      unicode-bidi: isolate;
+    }
+
+  }
+
+	.sidebar-nav {
+		width: 100%;
+		position: sticky;
+		top: 0;
+    border-left-style: dashed;
+    border-left-width: 1px;
+    border-color: #555;
+    padding-left: 18px;
+		@apply mb-50;
+
+		li {
+      &:first-child {
+        @apply pl-0;
+        line-height: 1;
+      }
+      &:last-child {
+        @apply pb-0;
+      }
+		  
+		  @apply pl-10 pb-10;
+		}
+
+		> div {
+  		height: 100%;
+  		padding: 0;
+  		overflow: auto;
+  	}
+	}
+}
