@@ -84,10 +84,9 @@ This is a note.
 :::
 ```
 
-:::note
-This is a note.
-:::
-
+> **Note**
+>
+> This is a note
 
 ```
 :::warning
@@ -95,10 +94,9 @@ This is a warning.
 :::
 ```
 
-:::warning
-This is a warning.
-:::
-
+> **Warning**
+>
+> This is a warning
 
 ```
 :::tip
@@ -106,6 +104,6 @@ This is a tip.
 :::
 ```
 
-:::tip
-This is a tip.
-:::
+> **tip**
+>
+> This is a tip
