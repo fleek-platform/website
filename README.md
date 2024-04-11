@@ -82,12 +82,30 @@ Find more about contributing [TODO:OPEN-SOURCE-CONTRIBUTION-DOC](https://TODO:OP
 :::note
 This is a note.
 :::
+```
+
+:::note
+This is a note.
+:::
+
+
+```
+:::warning
+This is a warning.
+:::
+```
 
 :::warning
 This is a warning.
 :::
 
+
+```
 :::tip
 This is a tip.
 :::
 ```
+
+:::tip
+This is a tip.
+:::
