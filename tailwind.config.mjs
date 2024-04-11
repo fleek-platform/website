@@ -14,6 +14,8 @@ export default {
         sans: ["AtypDisplay"],
         "plex-sans": ["IBM Plex Sans"],
         "plex-mono": ["IBM Plex Mono"],
+        // System Fonts as used by GitHub
+        system: "-apple-system, BlinkMacSystemFont, \"Segoe UI\", Roboto, Helvetica, Arial, sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\""
       },
       backgroundImage: {
         "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
