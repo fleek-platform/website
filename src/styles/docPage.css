@@ -20,6 +20,11 @@
 
     p { 
       @apply leading-normal pb-20;
+
+      > img {
+        width: 100%;
+        height: auto;
+      }
     }
 
     a {
