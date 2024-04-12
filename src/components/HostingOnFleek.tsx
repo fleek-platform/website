@@ -6,9 +6,10 @@ import type { RoundedType } from "@components/PageSection";
 
 interface Props {
   rounded?: RoundedType;
+  optImgHostingOnFleek: ReactNode;
 }
 
-const HostingOnFleek: React.FC<Props> = (props) => (
+const HostingOnFleek: React.FC<Props> = ({ rounded, optImgHostingOnFleek }) => (
   <ImageWithCopy
     kicker="hosting"
     floatingImageEffect
@@ -20,14 +21,10 @@ const HostingOnFleek: React.FC<Props> = (props) => (
     }
     copy="All you need is a repo or a template to get your app live in under a minute. Comes with built in CI/CD, IPFS content addressing, decentralized storage (Filecoin/Arweave) and CDN/Edge (Fleek Network soon™)."
     cta={{ url: "https://app.fleek.xyz/", text: "try it out" }}
-    rounded={props.rounded}
+    rounded={rounded}
   >
     <div className="flex w-full">
-      <img
-        className="max-w-[280px] object-contain mix-blend-screen md:max-w-[550px] xl:max-w-[663px]"
-        src={imgHostingOnFleek.src}
-        alt="Hosting on Fleek"
-      />
+      { optImgHostingOnFleek }
     </div>
   </ImageWithCopy>
 );

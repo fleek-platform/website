@@ -12,6 +12,10 @@ import NSManagement from "@components/NSManagement";
 import CountdownAnimation from "@components/CountdownAnimation";
 import JoinOurFriends from "@components/JoinOurFriends";
 import BuildUseCases from "@components/BuildUseCases";
+
+import { Image } from 'astro:assets';
+import imgDnsEnsIpnsManagement from "@images/dns-ens-ipns-management.png";
+import imgHostingOnFleek from "@images/hosting-on-fleek.png";
 ---
 
 <Layout title="Fleek | Build Lightning Fast Web3 Apps">
@@ -22,7 +26,14 @@ import BuildUseCases from "@components/BuildUseCases";
       <HostingOnFleek
         client:load
         rounded="top-big-bottom-small"
-      />
+      >
+        <Image
+          class="max-w-[280px] object-contain mix-blend-screen md:max-w-[550px] xl:max-w-[663px]"
+          src={imgHostingOnFleek}
+          alt="Hosting on Fleek"
+          slot="optImgHostingOnFleek"
+        />
+      </HostingOnFleek>
       <JoinOurFriends client:only="react" />
       <BuildUseCases client:load />
       <ChainAgnostic client:load />
@@ -37,7 +48,13 @@ import BuildUseCases from "@components/BuildUseCases";
         }}
       />
 		</div>
-    <NSManagement client:load cta="Learn More" />
+    <NSManagement client:load cta="Learn More">
+      <Image
+        class="object-contain mix-blend-screen"
+        src={imgDnsEnsIpnsManagement} slot="OptImgDnsEnsIpnsManagement"
+        alt="DNS/ENS/IPNS Management"
+      />
+    </NSManagement>
     <CountdownAnimation client:load />
 	</div>
 </Layout>
