@@ -32,7 +32,7 @@ const configRemarkCalloutDirectives = {
 // https://astro.build/config
 export default defineConfig({
   site: 'https://fleekxyz.github.io',
-  base: 'fleekxyz-website',
+  base: '/fleekxyz-website',
   integrations: [tailwind({
     nesting: true,
   }), react({
