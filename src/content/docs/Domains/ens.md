@@ -83,8 +83,6 @@ To configure the ENS record using the manual configuration, you need to follow t
 7. We will run a verification thta the content hash was setted up correctly and if everything is ok, you will see the ENS domain marked as verified. 
 8. Once set up, the site can be accessed via any ENS gateway, such as ETH.limo, by appending '.limo' to the ENS record.
 
-![ENS Record](../images/ens.gif)
-
 ## Manually Adding an ENS Subname
 
 Normally, trying to add an ENS subdomain or Subname of ENS V3 can trigger an errors due to controller settings in ENS. To ensure you can easily add any ENS subdomain to any Fleek site you want, go to the ENS app at https://app.ens.domains / yourname and:
