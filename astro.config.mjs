@@ -3,7 +3,6 @@ import tailwind from "@astrojs/tailwind";
 import remarkDirective from 'remark-directive';
 import remarkCalloutDirectives from '@microflash/remark-callout-directives';
 import react from "@astrojs/react";
-import tailwindcss from 'tailwindcss';
 
 const configRemarkCalloutDirectives = {
   callouts: {
@@ -46,8 +45,4 @@ export default defineConfig({
       theme: 'dracula',
     },
   },
-  vite: {
-    // Example: Add custom vite plugins directly to your Astro project
-    plugins: [tailwindcss()],
-  }
 });
