@@ -1,5 +1,6 @@
 import IconsCollectionWithHeadline from "@components/IconsCollectionWithHeadline";
 import settings from '@base/settings.json'
+import imgBolt from "@images/bolt.png";
 
 const ChainAgnostic = () => {
   return (
@@ -8,7 +9,7 @@ const ChainAgnostic = () => {
       subheadline={
         <div className="flex items-center justify-center gap-16">
           <img
-            src="/images/bolt.png"
+            src={imgBolt.src}
             alt="fleek bolt icon"
             className="h-32 w-16"
           />
@@ -16,7 +17,7 @@ const ChainAgnostic = () => {
             chain agnostic
           </div>
           <img
-            src="/images/bolt.png"
+            src={imgBolt.src}
             alt="fleek bolt icon"
             className="h-32 w-16"
           />
