@@ -117,7 +117,7 @@ const TableOfContents: FC<Props> = ({
 							</li>
 						)
 						: (
-							<li>
+							<li key={`${heading.depth}-${heading.slug}`}>
 								<ul>
 									<li
 										key={heading.slug}
