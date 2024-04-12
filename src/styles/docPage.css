@@ -89,7 +89,7 @@
         line-height: 1;
       }
 		  
-		  @apply pl-0 pb-10;
+		  @apply pl-0 pb-8;
 
   	  > ul {
   	    @apply pl-10;

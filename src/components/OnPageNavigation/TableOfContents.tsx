@@ -98,7 +98,7 @@ const TableOfContents: FC<Props> = ({
 	return (
 		<>
 			<ul>
-				<li>
+				<li className='leading-normal'>
 					<a href="" className="font-plex-sans text-18 font-bold">Content</a>
 				</li>
 				{headings
@@ -109,7 +109,7 @@ const TableOfContents: FC<Props> = ({
 							<li
 								key={heading.slug}
 								className={
-									activeId === heading.slug ? 'font-bold' : ''
+									`leading-normal ${activeId === heading.slug ? 'font-bold' : ''}`
 								}
 								onClick={() => onClickHandler(heading.slug)}
 							>
@@ -122,11 +122,11 @@ const TableOfContents: FC<Props> = ({
 									<li
 										key={heading.slug}
 										className={
-											activeId === heading.slug ? 'font-bold' : ''
+											`leading-normal ${activeId === heading.slug ? 'font-bold' : ''}`
 										}
 										onClick={() => onClickHandler(heading.slug)}
 									>
-										<a className="font-plex-sans text-13" href={`#${heading.slug}`}>{heading.text}</a>
+										<a className="leading-normal font-plex-sans text-13" href={`#${heading.slug}`}>{heading.text}</a>
 									</li>
 								</ul>
 							</li>
