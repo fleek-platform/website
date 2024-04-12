@@ -8,9 +8,9 @@ import Container from "@components/Container";
 import Button from "@components/Button";
 import Text from "@components/Text";
 
-import ArweaveTokenImage from "public/images/arweave-token.png";
-import FilecoinTokenImage from "public/images/filecoin-token.png";
-import IPFSTokenImage from "public/images/ipfs-token.png";
+import ArweaveTokenImage from "@images/arweave-token.png";
+import FilecoinTokenImage from "@images/filecoin-token.png";
+import IPFSTokenImage from "@images/ipfs-token.png";
 
 const StorageSection4 = () => (
   <Container>
