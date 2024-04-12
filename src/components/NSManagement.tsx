@@ -1,5 +1,5 @@
 import ImageWithCopy from "@components/ImageWithCopy";
-import dnsEnsIpnsManagementImage from "/public/images/dns-ens-ipns-management.png";
+import imgDnsEnsIpnsManagement from "@images/dns-ens-ipns-management.png";
 
 const NSManagement = ({ cta }: { cta: string }) => (
   <ImageWithCopy
@@ -13,7 +13,7 @@ const NSManagement = ({ cta }: { cta: string }) => (
     <div className="my-24 px-48 md:px-128 lg:my-0 lg:px-64 2xl:px-128">
       <img
         className="object-contain mix-blend-screen"
-        src={dnsEnsIpnsManagementImage.src}
+        src={imgDnsEnsIpnsManagement.src}
         alt="DNS/ENS/IPNS Management"
       />
     </div>
