@@ -1,9 +1,11 @@
 import ImageWithTransparentCards from "@components/ImageWithTransparentCards";
+import imgGlobeWithLocks from "@images/globe-with-locks.png";
+import imgIpfsLogo from "@images/ipfs-logo.png";
 
 const features = [
   {
     icon: {
-      src: "/images/ipfs-logo.png",
+      src: imgIpfsLogo.src,
       alt: "IPFS Standard",
     },
     description: "IPFS Standard for Trustless Gateway Specification",
@@ -25,7 +27,7 @@ const features = [
 ];
 
 const GatewayCryptoVerifiedDataDelivery = () => <ImageWithTransparentCards
-  image="/images/globe-with-locks.png"
+  image={imgGlobeWithLocks.src}
   features={features}
   kicker="GATEWAYS"
   headline="Cryptographically Verified Data Delivery"

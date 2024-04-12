@@ -1,4 +1,5 @@
 import ImageWithCopy from "@components/ImageWithCopy";
+import imgFleekBoltGateway from "@images/fleek-bolt-gateway.png";
 
 const GatewaysOwn = () => (
   <ImageWithCopy
@@ -11,7 +12,7 @@ const GatewaysOwn = () => (
   >
     <img
       className="object-contain mix-blend-screen transform-gpu"
-      src="/images/fleek-bolt-gateway.png"
+      src={imgFleekBoltGateway.src}
       alt="Fleek Gateway"
     />
   </ImageWithCopy>
