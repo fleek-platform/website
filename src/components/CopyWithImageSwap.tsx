@@ -10,6 +10,8 @@ import GridLayout from "@components/GridLayout";
 import Button from "@components/Button";
 import TextGlowHoverEffect from "@components/TextGlowHoverEffect";
 import { down } from "@utils/screens";
+import imgFleekSdkUploadToIpfs from "@images/fleek-sdk-uploadtoipfs.png";
+import imgFleekCliUploadFile from "@images/fleek-cli-upload-file.png";
 
 interface Props {
   kicker: string;
@@ -60,7 +62,7 @@ const CopyWithImageSwap: React.FC<Props> = (props) => {
                   )}
                 >
                   <img
-                    src="/images/fleek-sdk-uploadtoipfs.png"
+                    src={imgFleekSdkUploadToIpfs.src}
                     sizes={`${down("md")} 100vw, 50vw`}
                     className={clsx(
                       "flex-shrink-0 object-contain transition duration-500",
@@ -71,7 +73,7 @@ const CopyWithImageSwap: React.FC<Props> = (props) => {
                     alt="upload to ipfs with the fleekxyz sdk"
                   />
                   <img
-                    src="/images/fleek-cli-upload-file.png"
+                    src={imgFleekCliUploadFile.src}
                     className={clsx(
                       "flex-shrink-0 object-contain transition duration-500",
                       {
