@@ -1,6 +1,6 @@
 ---
 draft: false
-title: IPFS | SDK 
+title: IPFS 
 sidebarCollapsible: false
 sidebar_position: 3
 date: 2023-01-10T09:00:00.000+00:00
