@@ -10,6 +10,7 @@ import ChainAgnostic from "@components/ChainAgnostic";
 import CopyWithImageSwap from "@components/CopyWithImageSwap";
 import NSManagement from "@components/NSManagement";
 import CountdownAnimation from "@components/CountdownAnimation";
+import JoinOurFriends from "@components/JoinOurFriends";
 ---
 
 <Layout title="Fleek | Build Lightning Fast Web3 Apps">
@@ -21,57 +22,7 @@ import CountdownAnimation from "@components/CountdownAnimation";
         client:load
         rounded="top-big-bottom-small"
       />
-      <LoopingCardSlider
-				client:only="react"
-        headline="Join your friends"
-        cards={[
-          {
-            bannerImage: "/images/snapshot-banner.jpg",
-            icon: "/images/snapshot-icon.png",
-            title: "snapshot",
-            domain: "snapshot.org",
-            cta: {
-              url: "https://snapshot.org/",
-            },
-          },
-          {
-            bannerImage: "/images/vitalik-buterin-banner.jpg",
-            icon: "/images/eth-icon.png",
-            title: "Vitalik Buterin",
-            domain: "vitalik.eth",
-            cta: {
-              url: "https://vitalik.eth.limo/",
-            },
-          },
-          {
-            bannerImage: "/images/dappradar-banner.jpg",
-            icon: "/images/dappradar-icon.png",
-            title: "dappradar",
-            domain: "dappradar.com",
-            cta: {
-              url: "https://dappradar.com/",
-            },
-          },
-          {
-            bannerImage: "/images/synthetix-banner.jpg",
-            icon: "/images/synthetix-icon.png",
-            title: "Synthetix",
-            domain: "staking.synthetix.io",
-            cta: {
-              url: "https://staking.synthetix.io/",
-            },
-          },
-          {
-            bannerImage: "/images/ensapp-banner.jpg",
-            icon: "/images/ens-icon.png",
-            title: "ENS App",
-            domain: "app.ens.domains",
-            cta: {
-              url: "https://app.ens.domains/",
-            },
-          },
-        ]}
-      />
+      <JoinOurFriends client:only="react" />
       <CardsWithDottedLinesBackground
         client:load
         headline="Get building with these examples."
