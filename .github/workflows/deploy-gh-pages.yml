@@ -28,8 +28,8 @@ jobs:
     steps:
       - name: CNAME
         run: |
-          touch public/CNAME
-          echo "flk-xyz-stg.punkbit.com" > public/CNAME
+          touch CNAME
+          echo "flk-xyz-stg.punkbit.com" > CNAME
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
