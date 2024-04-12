@@ -5,10 +5,15 @@ import GlobeWithFloatingCards from "@components/GlobeWithFloatingCards";
 import CardsWithDottedLinesBackground from "@components/CardsWithDottedLinesBackground";
 import HostingOnFleek from "@components/HostingOnFleek";
 import LoopingCardSlider from "@components/LoopingCardSlider";
+import IconsCollectionWithHeadline from "@components/IconsCollectionWithHeadline";
+import ChainAgnostic from "@components/ChainAgnostic";
+import CopyWithImageSwap from "@components/CopyWithImageSwap";
+import NSManagement from "@components/NSManagement";
+import CountdownAnimation from "@components/CountdownAnimation";
 ---
 
 <Layout title="Fleek | Build Lightning Fast Web3 Apps">
-	<div class="flex flex-col gap-24 lg:gap-32">
+	<div class="flex flex-col gap-24 mb-40 lg:gap-32">
 		<HomepageHero client:load />
 		<GlobeWithFloatingCards client:load />
 		<div class="flex flex-col gap-8 lg:gap-16">
@@ -143,6 +148,19 @@ import LoopingCardSlider from "@components/LoopingCardSlider";
           },
         ]}
       />
+      <ChainAgnostic client:load />
+      <CopyWithImageSwap
+        client:load
+        kicker="Storage"
+        headline="IPFS, Arweave, Filecoin, OH MY."
+        copy="Multiple storage layer options. All with IPFS content addressing/routing built in. In just 3 lines of code."
+        cta={{
+          text: "learn more",
+          url: "https://fleek.xyz/storage/",
+        }}
+      />
 		</div>
+    <NSManagement client:load cta="Learn More" />
+    <CountdownAnimation client:load />
 	</div>
 </Layout>
