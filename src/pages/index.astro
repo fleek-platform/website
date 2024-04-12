@@ -16,12 +16,22 @@ import BuildUseCases from "@components/BuildUseCases";
 import { Image } from 'astro:assets';
 import imgDnsEnsIpnsManagement from "@images/dns-ens-ipns-management.png";
 import imgHostingOnFleek from "@images/hosting-on-fleek.png";
+import imgGlobeWithBolt from "@images/globe-with-bolt.jpg";
 ---
 
 <Layout title="Fleek | Build Lightning Fast Web3 Apps">
 	<div class="flex flex-col gap-24 mb-40 lg:gap-32">
 		<HomepageHero client:load />
-		<GlobeWithFloatingCards client:load />
+		<GlobeWithFloatingCards client:load>
+      <Image
+        src={imgGlobeWithBolt}
+        alt="globe with bolt"
+        width={480}
+        height={480}
+        class="absolute left-1/2 top-1/2 hidden -translate-x-1/2 -translate-y-1/2 transform-gpu mix-blend-screen lg:block"
+        slot="optImgGlobeWithBolt "
+      />
+    </GlobeWithFloatingCards>
 		<div class="flex flex-col gap-8 lg:gap-16">
       <HostingOnFleek
         client:load
