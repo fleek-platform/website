@@ -10,6 +10,8 @@ import Button from "@components/Button";
 import Link, { Target } from "@components/Link";
 import { useMediaQuery } from "@hooks/useMediaQuery";
 import { up } from "@utils/screens";
+import imgBolt from "@images/bolt.png";
+import imgGlobeCountDown from "@images/globe-countdown.png";
 
 interface Card {
   title: string;
@@ -232,7 +234,7 @@ const CountdownAnimation = () => {
             className="absolute left-0 top-1/2 w-full mix-blend-screen"
           >
             <img
-              src="/images/globe-countdown.png"
+              src={imgGlobeCountDown.src}
               className="mx-auto w-[90%]"
               alt="image of a globe render"
             />
@@ -271,7 +273,7 @@ const CountdownAnimation = () => {
                   <button className="flex items-center gap-19 rounded-28 bg-button-gradient px-38 py-25 font-plex-sans text-30 font-normal uppercase leading-[150%] tracking-[0.6144rem] xl:gap-30 xl:rounded-33 xl:px-56 xl:py-30 xl:text-40 2xl:gap-38 2xl:rounded-44 2xl:px-76 2xl:py-50 2xl:text-52">
                     <span>try it out</span>
                     <img
-                      src="/images/bolt.png"
+                      src={imgBolt.src}
                       alt="fleek bolt icon"
                       className="h-56 w-28 xl:h-80 xl:w-40"
                     />
@@ -311,7 +313,7 @@ const CountdownAnimation = () => {
                 <Button>get started</Button>
               </Link>
               <img
-                src="/images/globe-countdown.png"
+                src={imgGlobeCountDown.src}
                 className="absolute left-1/2 top-0 -z-1 w-[110vw] max-w-none -translate-x-1/2 pt-24 mix-blend-screen"
                 alt="image of a globe render"
               />
