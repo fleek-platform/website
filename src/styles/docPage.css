@@ -22,6 +22,7 @@
       @apply leading-normal pb-20;
 
       > img {
+        @apply rounded-8 p-0 m-0;
         width: 100%;
         height: auto;
       }
