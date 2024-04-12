@@ -102,18 +102,36 @@ const TableOfContents: FC<Props> = ({
 					<a href="" className="font-plex-sans text-18 font-bold">Content</a>
 				</li>
 				{headings
-					.filter(({ depth }) => depth > 1)
-					.map((heading) => (
-						<li
-							key={heading.slug}
-							className={
-								activeId === heading.slug ? 'font-bold' : ''
-							}
-							onClick={() => onClickHandler(heading.slug)}
-						>
-							<a className="font-plex-sans text-13" href={`#${heading.slug}`}>{heading.text}</a>
-						</li>
-					))}
+					.filter(({ depth }) => depth > 1 && depth < 4)
+					.map((heading) => 
+						heading.depth == 2
+						? (
+							<li
+								key={heading.slug}
+								className={
+									activeId === heading.slug ? 'font-bold' : ''
+								}
+								onClick={() => onClickHandler(heading.slug)}
+							>
+								<a className="font-plex-sans text-13" href={`#${heading.slug}`}>{heading.text}</a>
+							</li>
+						)
+						: (
+							<li>
+								<ul>
+									<li
+										key={heading.slug}
+										className={
+											activeId === heading.slug ? 'font-bold' : ''
+										}
+										onClick={() => onClickHandler(heading.slug)}
+									>
+										<a className="font-plex-sans text-13" href={`#${heading.slug}`}>{heading.text}</a>
+									</li>
+								</ul>
+							</li>
+						)
+					)}
 			</ul>
 		</>
 	);

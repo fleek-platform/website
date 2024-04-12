@@ -79,18 +79,26 @@
     padding-left: 18px;
 		@apply mb-50;
 
+		> ul {
+      &:last-child {
+        @apply pb-0;
+      }	  
+		}
+
 		li {
       &:first-child {
         @apply pl-0;
         line-height: 1;
       }
-      &:last-child {
-        @apply pb-0;
-      }
 		  
-		  @apply pl-10 pb-10;
+		  @apply pl-0 pb-10;
+
+  	  > ul {
+  	    @apply pl-10;
+  	  }
 		}
 
+	  
 		> div {
   		height: 100%;
   		padding: 0;
