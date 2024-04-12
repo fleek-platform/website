@@ -31,6 +31,7 @@ const configRemarkCalloutDirectives = {
 
 // https://astro.build/config
 export default defineConfig({
+  // TODO: Temporary for testing remote/no-cdn
   site: 'https://flk-xyz-stg.punkbit.com',
   integrations: [tailwind({
     nesting: true,

@@ -11,7 +11,8 @@
       "@utils/*": ["./src/utils/*"],
       "@layouts/*": ["./src/layouts/*"],
       "@base/*": ["./src/*"],
-      "@styles/*": ["./src/styles/*"]
+      "@styles/*": ["./src/styles/*"],
+      "@images/*": ["./src/images/*"],
     },
     "plugins": [{
       "name": "@astrojs/ts-plugin"

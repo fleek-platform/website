@@ -4,6 +4,7 @@ import GridLayout from "@components/GridLayout";
 import CardWrapper from "@components/CardWrapper";
 import ExternalLink from "./ExternalLink";
 import TextGlowHoverEffect from "@components/TextGlowHoverEffect";
+import imgGlobeWithBolt from "@images/globe-with-bolt.jpg";
 
 const GlobeWithFloatingCards = () => {
   return (
@@ -125,7 +126,7 @@ const GlobeWithFloatingCards = () => {
                   </CardWrapper>
                 </div>
                 <img
-                  src="/images/globe-with-bolt.jpg"
+                  src={imgGlobeWithBolt.src}
                   alt="globe with bolt"
                   width={480}
                   height={480}
