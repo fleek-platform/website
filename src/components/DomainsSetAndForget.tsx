@@ -1,31 +1,32 @@
 import Container from "@components/Container";
 import PageSection from "@components/PageSection";
 import Text from "@components/Text";
-import MetamaskIcon from "/public/images/metamask-icon.png";
-import PagePreviewImage from '/public/images/page-preview-screen.png'
-import RainbowIcon from "/public/images/rainbow-icon.png";
-import GnosisIcon from "/public/images/gnosis-icon.png";
-import WalletConnectIcon from "/public/images/walletconnect-icon.png";
+import imgMetamaskIcon from "@images/metamask-icon.png";
+import imgPagePreviewImage from '@images/page-preview-screen.png'
+import imgRainbowIcon from "@images/rainbow-icon.png";
+import imgGnosisIcon from "@images/gnosis-icon.png";
+import imgWalletConnectIcon from "@images/walletconnect-icon.png";
 import TextGlowHoverEffect from "@components/TextGlowHoverEffect";
 import TransparentCardLarge from "@components/TransparentCardLarge";
 import WalletItem from "@components/WalletItem";
+import imgBoltYellow from "@images/bolt-yellow.png";
 
 
 const WALLET_ITEMS = [
   {
-    icon: MetamaskIcon.src,
+    icon: imgMetamaskIcon.src,
     label: "Metamask",
   },
   {
-    icon: RainbowIcon.src,
+    icon: imgRainbowIcon.src,
     label: "Rainbow",
   },
   {
-    icon: GnosisIcon.src,
+    icon: imgGnosisIcon.src,
     label: "Gnosis",
   },
   {
-    icon: WalletConnectIcon.src,
+    icon: imgWalletConnectIcon.src,
     label: "Walletconnect",
   },
 ]
@@ -93,7 +94,7 @@ const DomainsSetAndForget = () => (
           <TransparentCardLarge title="3. Keep building and shipping">
             <div className="flex flex-col rounded-16 bg-ui-black">
               <img
-                src={PagePreviewImage.src}
+                src={imgPagePreviewImage.src}
                 alt="Metamask"
                 // TODO: see what the idea was as original was next img optimizer
                 // placeholder="blur"
@@ -102,19 +103,19 @@ const DomainsSetAndForget = () => (
               <div className="flex flex-col p-16 gap-16">
               <div className="flex items-center gap-8">
                   <img
-                    src="/images/bolt-yellow.png"
+                    src={imgBoltYellow.src}
                     alt="ENS"
                     width={32}
                     height={32}
                   />
                   <img
-                    src="/images/bolt-yellow.png"
+                    src={imgBoltYellow.src}
                     alt="ENS"
                     width={32}
                     height={32}
                   />
                   <img
-                    src="/images/bolt-yellow.png"
+                    src={imgBoltYellow.src}
                     alt="ENS"
                     width={32}
                     height={32}
