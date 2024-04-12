@@ -1,5 +1,4 @@
 @import 'commonArticle.css';
-
 @tailwind components;
 
 @layer components {
@@ -7,9 +6,11 @@
     h1 {
       @apply font-plex-mono text-38 font-bold leading-loose;
     }
+
     h2 {
       @apply font-plex-mono text-32 font-bold leading-loose;
     }
+
     p {
       @apply font-plex-mono text-18 pb-32 leading-normal;
     }   

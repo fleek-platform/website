@@ -18,14 +18,16 @@
       @apply text-32;
     }
 
+    img {
+      @apply rounded-8 p-0 m-0 pb-20;
+;
+      width: 100%;
+      height: auto;
+    }
+
     p { 
       @apply leading-normal pb-20;
 
-      > img {
-        @apply rounded-8 p-0 m-0;
-        width: 100%;
-        height: auto;
-      }
     }
 
     a {
@@ -49,10 +51,6 @@
       margin-inline-end: 0px;
       padding-inline-start: 40px;
       unicode-bidi: isolate;
-    }
-
-    img {
-      @apply pb-20;
     }
 
   	pre {
@@ -97,7 +95,6 @@
   	    @apply pl-10;
   	  }
 		}
-
 	  
 		> div {
   		height: 100%;
@@ -105,5 +102,4 @@
   		overflow: auto;
   	}
 	}
-
 }

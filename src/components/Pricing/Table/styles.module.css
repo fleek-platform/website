@@ -16,7 +16,6 @@
   text-align: center;
   background: linear-gradient(331deg, #49F0A1 7.28%,#14BCDF 66.15% );
   background-clip: text;
-  -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 
@@ -26,7 +25,6 @@
   text-align: center;
   background: linear-gradient(330deg,  #FF3DCF 33.33%, #14BCDF 66.15%, #49F0A1 100%);
   background-clip: text;
-  -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 
@@ -36,7 +34,6 @@
   text-align: center;
   background: linear-gradient(350deg, #FFE702 0%, #FF3DCF 100.00%);
   background-clip: text;
-  -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 
