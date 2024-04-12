@@ -10,7 +10,6 @@ import Button from "@components/Button";
 import Link, { Target } from "@components/Link";
 import { useMediaQuery } from "@hooks/useMediaQuery";
 import { up } from "@utils/screens";
-import globeCountdownImage from "../../public/images/globe-countdown.png";
 
 interface Card {
   title: string;
@@ -233,7 +232,7 @@ const CountdownAnimation = () => {
             className="absolute left-0 top-1/2 w-full mix-blend-screen"
           >
             <img
-              src={globeCountdownImage.src}
+              src="/images/globe-countdown.png"
               className="mx-auto w-[90%]"
               alt="image of a globe render"
             />
@@ -312,7 +311,7 @@ const CountdownAnimation = () => {
                 <Button>get started</Button>
               </Link>
               <img
-                src={globeCountdownImage.src}
+                src="/images/globe-countdown.png"
                 className="absolute left-1/2 top-0 -z-1 w-[110vw] max-w-none -translate-x-1/2 pt-24 mix-blend-screen"
                 alt="image of a globe render"
               />
