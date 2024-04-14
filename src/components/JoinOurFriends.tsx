@@ -1,14 +1,4 @@
 import LoopingCardSlider from "@components/LoopingCardSlider";
-// import imgSnapshotBanner from "@images/snapshot-banner.jpg";
-// import imgSnapshotIcon from "@images/snapshot-icon.png";
-// import imgVitalikButerinBanner from "@images/vitalik-buterin-banner.jpg";
-// import imgEthIcon from "@images/eth-icon.png";
-// import imgDappRadar from "@images/dappradar-banner.jpg";
-// import imgDappRadarIcon from "@images/dappradar-icon.png";
-// import imgSynthetixBanner from "@images/synthetix-banner.jpg";
-// import imgSynthetixIcon from "@images/synthetix-icon.png";
-// import imgEnsAppBanner from "@images/ensapp-banner.jpg";
-// import imgEnsAppIcon from "@images/ens-icon.png";
 
 import type { ReactNode } from "react";
 

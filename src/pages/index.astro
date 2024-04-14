@@ -28,6 +28,7 @@ import imgSynthetixBanner from "@images/synthetix-banner.jpg";
 import imgSynthetixIcon from "@images/synthetix-icon.png";
 import imgEnsAppBanner from "@images/ensapp-banner.jpg";
 import imgEnsAppIcon from "@images/ens-icon.png";
+import imgBolt from "@images/bolt.png";
 ---
 
 <Layout title="Fleek | Build Lightning Fast Web3 Apps">
@@ -128,7 +129,14 @@ import imgEnsAppIcon from "@images/ens-icon.png";
         />
       </JoinOurFriends>
       <BuildUseCases client:load />
-      <ChainAgnostic client:load />
+      <ChainAgnostic client:load>
+        <Image
+          src={imgBolt}
+          className="h-32 w-16"
+          alt="fleek bolt icon"
+          slot="optImgBolt"
+        />
+      </ChainAgnostic>
       <CopyWithImageSwap
         client:load
         kicker="Storage"
