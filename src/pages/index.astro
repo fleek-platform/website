@@ -12,11 +12,22 @@ import NSManagement from "@components/NSManagement";
 import CountdownAnimation from "@components/CountdownAnimation";
 import JoinOurFriends from "@components/JoinOurFriends";
 import BuildUseCases from "@components/BuildUseCases";
+import { down, up } from "@utils/screens";
 
 import { Image } from 'astro:assets';
 import imgDnsEnsIpnsManagement from "@images/dns-ens-ipns-management.png";
 import imgHostingOnFleek from "@images/hosting-on-fleek.png";
 import imgGlobeWithBolt from "@images/globe-with-bolt.jpg";
+import imgSnapshotBanner from "@images/snapshot-banner.jpg";
+import imgSnapshotIcon from "@images/snapshot-icon.png";
+import imgVitalikButerinBanner from "@images/vitalik-buterin-banner.jpg";
+import imgEthIcon from "@images/eth-icon.png";
+import imgDappRadar from "@images/dappradar-banner.jpg";
+import imgDappRadarIcon from "@images/dappradar-icon.png";
+import imgSynthetixBanner from "@images/synthetix-banner.jpg";
+import imgSynthetixIcon from "@images/synthetix-icon.png";
+import imgEnsAppBanner from "@images/ensapp-banner.jpg";
+import imgEnsAppIcon from "@images/ens-icon.png";
 ---
 
 <Layout title="Fleek | Build Lightning Fast Web3 Apps">
@@ -44,7 +55,78 @@ import imgGlobeWithBolt from "@images/globe-with-bolt.jpg";
           slot="optImgHostingOnFleek"
         />
       </HostingOnFleek>
-      <JoinOurFriends client:only="react" />
+      <JoinOurFriends client:only="react">
+        <Image
+          src={imgSnapshotBanner}
+          className="object-cover"
+          sizes={`${down("lg")} 100vw, ${up("lg")} 240px`}
+          alt="snapshot.org"
+          slot="optImgSnapshotBanner"
+        />
+        <Image
+          src={imgSnapshotIcon}
+          className="object-contain"
+          sizes="32px"
+          alt="snapshot icon"
+          slot="optImgSnapshotIcon"
+        />
+        <Image
+          src={imgVitalikButerinBanner}
+          className="object-cover"
+          sizes={`${down("lg")} 100vw, ${up("lg")} 240px`}
+          alt="vitalik.eth"
+          slot="optImgVitalikButerinBanner "
+        />
+        <Image
+          src={imgEthIcon}
+          className="object-contain"
+          sizes="32px"
+          alt="Vitalik Buterin icon"
+          slot="optImgEthIcon"
+        />
+        <Image
+          src={imgDappRadar}
+          className="object-contain"
+          sizes={`${down("lg")} 100vw, ${up("lg")} 240px`}
+          slot="optImgDappRadar"
+          alt="Dapp Radar icon"
+        />
+        <Image
+          src={imgDappRadarIcon}
+          className="object-contain"
+          sizes="32px"
+          alt="dappradar.com"
+          slot="optImgDappRadarIcon"
+        />
+        <Image
+          src={imgSynthetixBanner}
+          className="object-contain"
+          sizes={`${down("lg")} 100vw, ${up("lg")} 240px`}
+          slot="optImgSynthetixBanner"
+          alt="Synthetix icon"
+        />
+        <Image
+          src={imgSynthetixIcon}
+          className="object-contain"
+          sizes="32px"
+          alt="staking.synthetix.io"
+          slot="optImgSynthetixIcon"
+        />
+        <Image
+          src={imgEnsAppBanner}
+          className="object-contain"
+          sizes={`${down("lg")} 100vw, ${up("lg")} 240px`}
+          slot="optImgEnsAppBanner"
+          alt="ENS icon"
+        />
+        <Image
+          src={imgEnsAppIcon}
+          className="object-contain"
+          sizes="32px"
+          alt="app.ens.domains"
+          slot="optImgEnsAppIcon"
+        />
+      </JoinOurFriends>
       <BuildUseCases client:load />
       <ChainAgnostic client:load />
       <CopyWithImageSwap

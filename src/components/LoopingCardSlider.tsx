@@ -5,16 +5,14 @@ import Container from "@components/Container";
 import GridLayout from "@components/GridLayout";
 import PageSection from "@components/PageSection";
 import CardWrapper from "@components/CardWrapper";
-// TODO: needs correct replacement, check original intent
-// import ExportedImage from "next-image-export-optimizer";
 import TextGlowHoverEffect from "@components/TextGlowHoverEffect";
 
-import { down, up } from "@utils/screens";
+import type { ReactNode } from "react";
 
 interface Card {
-  bannerImage: string;
+  bannerImage: ReactNode;
   title: string | JSX.Element;
-  icon: string;
+  icon: ReactNode;
   domain: string;
   cta: {
     url: string;
@@ -30,22 +28,12 @@ const Card: React.FC<{ card: Card }> = ({ card }) => {
   return (
     <CardWrapper key={card.domain} noInnerPadding>
       <div className="aspect-h-1 aspect-w-2 relative overflow-hidden rounded-tl-12 rounded-tr-12 lg:w-240">
-        <img
-          src={card.bannerImage}
-          alt={card.domain}
-          sizes={`${down("lg")} 100vw, ${up("lg")} 240px`}
-          className="object-cover"
-        />
+        {card.bannerImage}
       </div>
       <div className="p-16">
         <div className="mb-16 flex items-center gap-8">
           <div className="relative h-32 w-32">
-            <img
-              className="object-contain"
-              src={card.icon}
-              sizes="32px"
-              alt={`${card.title} icon`}
-            />
+            {card.icon}
           </div>
           <div className="typo-caption-m text-ui-white">{card.title}</div>
         </div>
