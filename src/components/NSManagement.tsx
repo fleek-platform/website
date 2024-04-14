@@ -1,5 +1,6 @@
 import ImageWithCopy from "@components/ImageWithCopy";
-import imgDnsEnsIpnsManagement from "@images/dns-ens-ipns-management.png";
+
+import type { ReactNode } from "react";
 
 type Props = {
   cta: string;

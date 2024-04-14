@@ -32,6 +32,7 @@ import imgEnsAppIcon from "@images/ens-icon.png";
 import imgBolt from "@images/bolt.png";
 import imgFleekSdkUploadToIpfs from "@images/fleek-sdk-uploadtoipfs.png";
 import imgFleekCliUploadFile from "@images/fleek-cli-upload-file.png";
+import imgGlobeCountDown from "@images/globe-countdown.png";
 
 // Warn: Use getImage carefully as it generates a big amount of source-code due to its async nature
 const optImgFleekSdkUploadToIpfs = await getImage({src: imgFleekSdkUploadToIpfs, format: 'webp'});
@@ -160,10 +161,30 @@ const optImgFleekCliUploadFile = await getImage({src: imgFleekCliUploadFile, for
     <NSManagement client:load cta="Learn More">
       <Image
         class="object-contain mix-blend-screen"
-        src={imgDnsEnsIpnsManagement} slot="OptImgDnsEnsIpnsManagement"
+        src={imgDnsEnsIpnsManagement}
         alt="DNS/ENS/IPNS Management"
+        slot="OptImgDnsEnsIpnsManagement"
       />
     </NSManagement>
-    <CountdownAnimation client:load />
+    <CountdownAnimation client:load>
+      <Image
+        src={imgBolt}
+        className="h-56 w-28 xl:h-80 xl:w-40"
+        alt="fleek bolt icon"
+        slot="optImgBolt"
+      />
+      <Image
+        src={imgGlobeCountDown}
+        className="mx-auto w-[90%]"
+        alt="image of a globe render"
+        slot="optImgGlobeCountDown1"
+      />
+      <Image
+        src={imgGlobeCountDown}
+        className="absolute left-1/2 top-0 -z-1 w-[110vw] max-w-none -translate-x-1/2 pt-24 mix-blend-screen"
+        alt="image of a globe render"
+        slot="imgGlobeCountDown2"
+      />
+    </CountDownAnimation>
 	</div>
 </Layout>
