@@ -5,8 +5,10 @@ import CardWrapper from "@components/CardWrapper";
 import ExternalLink from "./ExternalLink";
 import TextGlowHoverEffect from "@components/TextGlowHoverEffect";
 
+import type { ReactNode } from 'react';
+
 type Props = {
-  optImgGlobeWithBolt: ReactNode;
+  optImgGlobeWithBolt?: ReactNode;
 }
 
 const GlobeWithFloatingCards = ({ optImgGlobeWithBolt }: Props) => {

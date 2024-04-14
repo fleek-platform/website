@@ -4,7 +4,7 @@ import settings from '@base/settings.json'
 import type { ReactNode } from 'react';
 
 type Props = {
-  optImgBolt: ReactNode;
+  optImgBolt?: ReactNode;
 }
 
 const ChainAgnostic = ({

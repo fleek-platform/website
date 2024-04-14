@@ -1,12 +1,12 @@
 import ImageWithCopy from "@components/ImageWithCopy";
 import RainbowHeart from "@components/RaibowHeart";
-import imgHostingOnFleek from "@images/hosting-on-fleek.png";
 
 import type { RoundedType } from "@components/PageSection";
+import type { ReactNode } from 'react';
 
 interface Props {
   rounded?: RoundedType;
-  optImgHostingOnFleek: ReactNode;
+  optImgHostingOnFleek?: ReactNode;
 }
 
 const HostingOnFleek: React.FC<Props> = ({ rounded, optImgHostingOnFleek }) => (

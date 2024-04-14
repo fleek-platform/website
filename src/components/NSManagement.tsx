@@ -4,7 +4,7 @@ import type { ReactNode } from "react";
 
 type Props = {
   cta: string;
-  OptImgDnsEnsIpnsManagement: ReactNode;
+  OptImgDnsEnsIpnsManagement?: ReactNode;
 }
 
 const NSManagement = ({ cta, OptImgDnsEnsIpnsManagement }: Props) => (

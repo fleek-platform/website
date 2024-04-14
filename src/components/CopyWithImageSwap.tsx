@@ -19,8 +19,8 @@ interface Props {
     url: string;
     text: string;
   };
-  optImgFleekSdkUploadToIpfs: string;
-  optImgFleekCliUploadFile: string;
+  optImgFleekSdkUploadToIpfs?: string;
+  optImgFleekCliUploadFile?: string;
 }
 
 const CopyWithImageSwap: React.FC<Props> = (props) => {

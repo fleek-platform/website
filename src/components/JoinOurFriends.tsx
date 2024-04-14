@@ -3,16 +3,16 @@ import LoopingCardSlider from "@components/LoopingCardSlider";
 import type { ReactNode } from "react";
 
 type Props = {
-  optImgSnapshotBanner: ReactNode;  
-  optImgSnapshotIcon: ReactNode;
-  optImgVitalikButerinBanner: ReactNode;
-  optImgEthIcon: ReactNode;
-  optImgDappRadar: ReactNode;
-  optImgDappRadarIcon: ReactNode;
-  optImgSynthetixBanner: ReactNode;
-  optImgSynthetixIcon: ReactNode;
-  optImgEnsAppBanner: ReactNode;
-  optImgEnsAppIcon: ReactNode;
+  optImgSnapshotBanner?: ReactNode;  
+  optImgSnapshotIcon?: ReactNode;
+  optImgVitalikButerinBanner?: ReactNode;
+  optImgEthIcon?: ReactNode;
+  optImgDappRadar?: ReactNode;
+  optImgDappRadarIcon?: ReactNode;
+  optImgSynthetixBanner?: ReactNode;
+  optImgSynthetixIcon?: ReactNode;
+  optImgEnsAppBanner?: ReactNode;
+  optImgEnsAppIcon?: ReactNode;
 };
 
 const JoinOurFriends = ({

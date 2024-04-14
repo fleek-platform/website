@@ -50,9 +50,9 @@ const wait = (time: number) =>
   new Promise((resolve) => setTimeout(() => resolve(null), time));
 
 type Props  = {
-  optImgBolt: ReactNode;
-  optImgGlobeCountDown1: ReactNode;
-  optImgGlobeCountDown2: ReactNode;
+  optImgBolt?: ReactNode;
+  optImgGlobeCountDown1?: ReactNode;
+  optImgGlobeCountDown2?: ReactNode;
 }
 
 const CountdownAnimation = ({ optImgBolt, optImgGlobeCountDown1, optImgGlobeCountDown2 }: Props) => {
