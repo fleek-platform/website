@@ -27,7 +27,7 @@ interface Props {
 const Card: React.FC<{ card: Card }> = ({ card }) => {
   return (
     <CardWrapper key={card.domain} noInnerPadding>
-      <div className="aspect-h-1 aspect-w-2 relative overflow-hidden rounded-tl-12 rounded-tr-12 lg:w-240">
+      <div className="aspect-h-1 relative overflow-hidden rounded-tl-12 rounded-tr-12 lg:w-240">
         {card.bannerImage}
       </div>
       <div className="p-16">
