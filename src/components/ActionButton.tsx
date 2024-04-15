@@ -1,6 +1,12 @@
 import Text from "@components/Text";
 
-const ActionButton: React.FC<React.PropsWithChildren> = () => {
+type Props = {
+  optImgFleekBolt: string;
+}
+
+const ActionButton = ({
+  optImgFleekBolt,
+}: Props) => {
   return (
     <a href="https://app.fleek.xyz" target="_blank" rel="noopener noreferrer">
       <button className="inline-block rounded-10 bg-brand-rainbow p-1 max-w-[230px] w-full">
@@ -9,7 +15,7 @@ const ActionButton: React.FC<React.PropsWithChildren> = () => {
           Get started
         </Text>
         <img
-          src="/images/fleek-bolt.png"
+          src={optImgFleekBolt}
           alt="Fleek Bolt"
           width={13}
           height={26}
