@@ -9,12 +9,13 @@
   "scripts": {
     "dev": "astro dev",
     "start": "astro dev",
-    "build": "astro check && astro build",
+    "build": "npm run check:strict && astro build",
     "preview": "astro preview",
     "astro": "astro",
     "clean": "rm -rf .astro node_modules/.vite",
     "lint": "npm run lint:css",
-    "lint:css": "npx stylelint src/**/*.css"
+    "lint:css": "npx stylelint src/**/*.css",
+    "check:strict": "npx astro check --minimumFailingSeverity error --minimumSeverity error"
   },
   "dependencies": {
     "@astrojs/check": "^0.5.10",

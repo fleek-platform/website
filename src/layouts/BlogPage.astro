@@ -9,7 +9,6 @@ import Footer from "@components/Footer";
 import generateSidebarDS, { generateSidebarDSByUserOrder } from '@utils/generateSidebarDS';
 import { getCollection } from "astro:content";
 import Sidebar from '@components/Sidebar';
-import GithubEditLink from '@components/GitHubEditLink.astro';
 import OnPageNavigation from '@components/OnPageNavigation/OnPageNavigation.astro';
 import settings from '@base/settings.json';
 
@@ -27,9 +26,6 @@ const githubEditUrlPathname = currentFile.replace(/\//, '');
 
 <BaseHtml title={title}>
   <main class="container min-h-container">
-    <article class="blog">
-      <slot />
-      <GithubEditLink pathname={githubEditUrlPathname} />
-    </article>
+    <slot />
   </main>
 </BaseHtml>

@@ -1,18 +1,44 @@
 @import 'commonArticle.css';
+
 @tailwind components;
 
 @layer components {
   .blog {
+    @apply font-plex-sans text-18 leading-normal px-20 pb-128 max-w-[768px] m-auto;
+
+    h1, h2, h3, h4 {
+      @apply font-plex-sans font-bold leading-normal py-10;
+    }
+  
     h1 {
-      @apply font-plex-mono text-38 font-bold leading-loose;
+      @apply text-38;
     }
 
     h2 {
-      @apply font-plex-mono text-32 font-bold leading-loose;
+      @apply text-32;
     }
 
-    p {
-      @apply font-plex-mono text-18 pb-32 leading-normal;
-    }   
+    img {
+      @apply rounded-8 p-0 m-0 max-w-[768px];
+      width: 100%;
+      height: auto;
+    }
+
+    p { 
+      @apply leading-normal text-20 pb-20;
+
+    }
+
+    a {
+      @apply text-blue-500;
+    }
+
+    ul {
+      @apply pl-32;
+
+      li {
+        @apply pb-10 list-disc;
+      }
+    }
   }
 }

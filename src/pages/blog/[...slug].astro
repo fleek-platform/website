@@ -1,6 +1,7 @@
 ---
 import { getCollection } from 'astro:content';
 import BlogPageLayout from '../../layouts/BlogPage.astro';
+import GithubEditLink from '@components/GitHubEditLink.astro';
 
 export async function getStaticPaths() {
   const docsEntries = await getCollection('blog');
@@ -11,8 +12,19 @@ export async function getStaticPaths() {
 
 const { entry } = Astro.props;
 const { Content } = await entry.render();
+const { title } = Astro.props;
+const currentPage = Astro.url.pathname;
+const currentFile = `${currentPage.replace(/\/$/, '')}.md`;
+const githubEditUrlPathname = currentFile.replace(/\//, '');
 ---
 
 <BlogPageLayout title={entry.data.title}>
-  <Content />
+  <article class="blog">
+    <h1>{entry.data.title}</h1>
+    <p>
+      <img src={entry.data.image.src} alt={entry.data.title} />
+    </p>
+    <Content />
+    <GithubEditLink pathname={githubEditUrlPathname} />
+  </article>
 </BlogPageLayout>
