@@ -12,7 +12,6 @@ export async function getStaticPaths() {
 
 const { entry } = Astro.props;
 const { Content } = await entry.render();
-const { title } = Astro.props;
 const currentPage = Astro.url.pathname;
 const currentFile = `${currentPage.replace(/\/$/, '')}.md`;
 const githubEditUrlPathname = currentFile.replace(/\//, '');

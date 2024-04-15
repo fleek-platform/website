@@ -47,7 +47,10 @@ We’ve also now added the ability to create application credentials directly wi
 
 Anyone can now interact with the SDK directly from a client in a secure way, through whitelisted domains, allowing only those with the application credentials to access the specified domains. Creating and managing Application Credentials can be done in the `Application Credentials` tab within the settings of your Fleek project:
 
-![](./Appcreds.gif)
+<video width="100%" height="auto" autoplay loop>
+ <source src="/videos/blog/appcreds.mp4" type="video/mp4">
+ Your browser does not support the video tag.
+</video>
 
 ---
 
