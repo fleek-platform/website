@@ -19,8 +19,7 @@
     }
 
     img {
-      @apply rounded-8 p-0 m-0 pb-20;
-;
+      @apply rounded-8 p-0 m-0 mb-20;
       width: 100%;
       height: auto;
     }
