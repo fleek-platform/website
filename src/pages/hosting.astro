@@ -7,6 +7,8 @@ import FastAsFleek from "@components/FastAsFleek";
 import TrueWeb3Hosting from "@components/TrueWeb3Hosting";
 import HostAnythingOnFleek from "@components/HostAnythingOnFleek";
 import LiveOnTheEdge from "@components/LiveOnTheEdge";
+import { Image } from 'astro:assets';
+import imgHostingOnFleek from "@images/hosting-on-fleek.png";
 
 // TODO: Move to settings
 // notice that the settings is getting a bit too big? Maybe rethink
@@ -31,7 +33,13 @@ const features = [
 
 <Layout title="Fleek | Build Lightning Fast Web3 Apps">
   <main class="flex flex-col gap-16 pb-64">
-    <HostingOnFleek />
+    <HostingOnFleek>
+      <Image
+        src={imgHostingOnFleek}
+        alt="Hosting on Fleek"
+        slot="optImgHostingOnFleek"
+      />
+    </HostingOnFleek>
     <BlackFeatureCards features={features} />
     <ContinuousDelivery />
     <FastAsFleek />
