@@ -39,5 +39,9 @@
         @apply pb-10 list-disc;
       }
     }
+
+    hr {
+      @apply bg-transparent border-t-1 border-t-gray-800 my-32;
+    }
   }
 }
