@@ -16,18 +16,17 @@ import { Image } from "astro:assets";
     <GatewayCards />
     <GatewayFetchFromMultipleProtocols />
     <GatewayCryptoVerifiedDataDelivery />
-    <GatewayDecentralized>
+    <GatewayDecentralized client:load>
       <Image
         src={imgFleekGlobe}
         alt="Fleek Site Preview"
-        className="lg:hidden mix-blend-screen w-full col-span-12 col-start-3 md:col-span-10 md:col-start-4 transform-gpu"
-        alt=""
+        class="lg:hidden mix-blend-screen w-full col-span-12 col-start-3 md:col-span-10 md:col-start-4 transform-gpu"
         slot="optImgFleekGlobeMobile"
       />
       <Image
         src={imgFleekGlobe}
         alt="Fleek Site Preview"
-        className="absolute max-w-[1244px] max-h-[1244px] hidden lg:block lg:top-[-15%] lg:right-[-50%] xl:top-[-25%] xl:right-[-30%] mix-blend-screen transform-gpu"
+        class="absolute max-w-[1244px] max-h-[1244px] hidden lg:block lg:top-[-15%] lg:right-[-50%] xl:top-[-25%] xl:right-[-30%] mix-blend-screen transform-gpu"
         slot="optImgFleekGlobe"
       />
     </GatewayDecentralized>

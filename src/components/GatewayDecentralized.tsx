@@ -8,8 +8,8 @@ import ExternalLink from "@components/ExternalLink";
 import type { ReactNode } from 'react';
 
 type Props = {
-  optImgFleekGlobeMobile: ReactNode;
-  optImgFleekGlobe: ReactNode;
+  optImgFleekGlobeMobile?: ReactNode;
+  optImgFleekGlobe?: ReactNode;
 }
 
 const GatewayDecentralized = ({
