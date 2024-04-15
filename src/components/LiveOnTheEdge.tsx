@@ -5,13 +5,7 @@ import PageSection from "@components/PageSection";
 import Text from "@components/Text";
 import TextGlowHoverEffect from "./TextGlowHoverEffect";
 
-type Props = {
-  optImgFleekBolt: string;
-}
-
-const LiveOnTheEdge = ({
-  optImgFleekBolt
-}: Props) => (
+const LiveOnTheEdge = () => (
   <Container>
     <PageSection>
       <GridLayout className="py-50">
@@ -19,7 +13,7 @@ const LiveOnTheEdge = ({
           <TextGlowHoverEffect style="h4" align="center">
             <Text style="h4">Ready to live on the edge?</Text>
           </TextGlowHoverEffect>
-          <ActionButton optImgFleekBolt={optImgFleekBolt} />
+          <ActionButton />
         </div>
       </GridLayout>
     </PageSection>

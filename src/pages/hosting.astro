@@ -9,7 +9,6 @@ import HostAnythingOnFleek from "@components/HostAnythingOnFleek";
 import LiveOnTheEdge from "@components/LiveOnTheEdge";
 import { Image } from 'astro:assets';
 import imgHostingOnFleek from "@images/hosting-on-fleek.png";
-import imgFleekBolt from "@images/fleek-bolt.png";
 
 // TODO: Move to settings
 // notice that the settings is getting a bit too big? Maybe rethink
@@ -46,12 +45,6 @@ const features = [
     <FastAsFleek />
     <TrueWeb3Hosting />
     <HostAnythingOnFleek />
-    <LiveOnTheEdge>
-      <Image
-        src={imgFleekBolt}
-        alt=""
-        slot="optImgFleekBolt"
-      />
-    </LiveOnThEdge>
+    <LiveOnTheEdge />
   </main>
 </Layout>
