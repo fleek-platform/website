@@ -6,6 +6,8 @@ import GatewayFetchFromMultipleProtocols from '@components/GatewayFetchFromMulti
 import GatewayCryptoVerifiedDataDelivery from '@components/GatewayCryptoVerifiedDataDelivery';
 import GatewayDecentralized from '@components/GatewayDecentralized';
 import LiveOnTheEdge from "@components/LiveOnTheEdge";
+import imgFleekGlobe from "@images/fleek-globe.png";
+import { Image } from "astro:assets";
 ---
 
 <Layout title="Fleek | Build Lightning Fast Web3 Apps">
@@ -14,7 +16,21 @@ import LiveOnTheEdge from "@components/LiveOnTheEdge";
     <GatewayCards />
     <GatewayFetchFromMultipleProtocols />
     <GatewayCryptoVerifiedDataDelivery />
-    <GatewayDecentralized />
+    <GatewayDecentralized>
+      <Image
+        src={imgFleekGlobe}
+        alt="Fleek Site Preview"
+        className="lg:hidden mix-blend-screen w-full col-span-12 col-start-3 md:col-span-10 md:col-start-4 transform-gpu"
+        alt=""
+        slot="optImgFleekGlobeMobile"
+      />
+      <Image
+        src={imgFleekGlobe}
+        alt="Fleek Site Preview"
+        className="absolute max-w-[1244px] max-h-[1244px] hidden lg:block lg:top-[-15%] lg:right-[-50%] xl:top-[-25%] xl:right-[-30%] mix-blend-screen transform-gpu"
+        slot="optImgFleekGlobe"
+      />
+    </GatewayDecentralized>
     <LiveOnTheEdge />
   </main>
 </Layout>
