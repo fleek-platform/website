@@ -1,4 +1,5 @@
 import Text from "@components/Text";
+import imgFleekBolt from "@images/fleek-bolt.png";
 
 const ActionButton: React.FC<React.PropsWithChildren> = () => {
   return (
@@ -9,7 +10,7 @@ const ActionButton: React.FC<React.PropsWithChildren> = () => {
           Get started
         </Text>
         <img
-          src="/images/fleek-bolt.png"
+          src={imgFleekBolt}
           alt="Fleek Bolt"
           width={13}
           height={26}
