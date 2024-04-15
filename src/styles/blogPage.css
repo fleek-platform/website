@@ -18,7 +18,7 @@
       @apply text-32;
     }
 
-    img {
+    img, video {
       @apply rounded-8 p-0 m-0 max-w-[768px];
       width: 100%;
       height: auto;

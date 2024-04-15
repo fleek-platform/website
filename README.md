@@ -74,6 +74,68 @@ Find more about contributing [TODO:OPEN-SOURCE-CONTRIBUTION-DOC](https://TODO:OP
 
 [TODO] Write instructions intro
 
+## Blog
+
+### New post
+
+A blog post is organized as a directory that should include all the necessary image assets.
+
+The directory should be named after the slug, a system-friendly name, e.g. "My short title" would become "my-short-title". Additionally, the markdown filename containing all the text should be named as "index.md".
+
+For example, let's assume the creation of an hypothetical blog post named "My Blog post".
+
+1) Create the directory with corresponding slug "my-blog-post" in the `src/content/blog` location, as follows:
+
+```sh
+src/content/blog/my-blog-post
+```
+
+2) Create the file named "index.md" in the directory.
+
+```sh
+src/content/blog/my-blog-post/index.md
+```
+
+The "index.md" is a markdown file where the text content and story is going to be stored.
+
+3) Set the "index.md" markdown header values, that include title, category, date, etc
+
+```markdown
+---
+title: My Blog post
+slug: my-blog-post
+category: Announcements
+date: 2024-01-31
+desc: A short description about my blog post
+thumbnail: "./thumbnail.jpg"
+image: "./main-image.jpg"
+author: "Fleek"
+---
+```
+
+4) Write the content, including any image references
+
+```markdown
+---
+title: My Blog post
+slug: my-blog-post
+category: Announcements
+date: 2024-01-31
+desc: A short description about my blog post
+thumbnail: "./thumbnail.jpg"
+image: "./main-image.jpg"
+author: "Fleek"
+---
+
+Dive into a world of concise knowledge and thought-provoking ideas. Whether you're a seasoned reader or a curious newcomer, this blog post promises to captivate your mind and leave you pondering long after you've finished reading. So grab your favorite beverage, find a cozy spot, and let's explore together!
+
+## My subtitle 1
+
+In the world where text is text, I show you an image:
+
+![My image](./my-image.jpg)
+```
+
 ## Admonitions
 
 [TODO] Write admonitions intro
