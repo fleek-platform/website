@@ -10,7 +10,7 @@ const ActionButton: React.FC<React.PropsWithChildren> = () => {
           Get started
         </Text>
         <img
-          src={imgFleekBolt}
+          src={imgFleekBolt.src}
           alt="Fleek Bolt"
           width={13}
           height={26}
