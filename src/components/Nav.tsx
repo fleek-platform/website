@@ -68,10 +68,6 @@ const NAV: Nav = [
     label: "Resources",
     children: [
       {
-        label: "Blog",
-        url: "https://blog.fleek.xyz/",
-      },
-      {
         label: "Github",
         url: "https://github.com/fleekxyz",
       },
