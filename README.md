@@ -20,7 +20,7 @@ This repository contains the source code and assets for the Fleek.xyz website, w
     - [Blog](#blog)
         - [New post](#new-post)
     - [Admonitions](#admonitions)
-    - [Images](#images)
+    - [Images](#📸-images)
 
 # Setup
 
@@ -88,13 +88,13 @@ style: 💄 Markup, white-space, formatting, missing semi-colons...
 
 Find more about contributing [TODO:OPEN-SOURCE-CONTRIBUTION-DOC](https://TODO:OPEN-SOURCE-CONTRIBUTION-DOC), please!
 
-# Instructions
+# 🎓 Instructions
 
 [TODO] Write instructions intro
 
-## Blog
+## 📝 Blog
 
-### New post
+### 🚩New post
 
 A blog post is organized as a directory that should include all the necessary image assets.
 
@@ -154,7 +154,7 @@ In the world where text is text, I show you an image:
 ![My image](./my-image.jpg)
 ```
 
-## Admonitions
+## 🎯 Admonitions
 
 [TODO] Write admonitions intro
 
@@ -183,7 +183,7 @@ This is a info
 
 To learn more read the directives [here](https://github.com/Microflash/remark-callout-directives)
 
-## Images
+## 📸 Images
 
 Local images are kept in `src/images` when possible so that the build process can transform, optimize and bundle them. Files in the `/public` directory are always served or copied into the build folder as-is, with no processing.
 
