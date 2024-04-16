@@ -94,7 +94,7 @@ Find more about contributing [TODO:OPEN-SOURCE-CONTRIBUTION-DOC](https://TODO:OP
 
 # 🎓 Instructions
 
-[TODO] Write instructions intro
+Instructions for common tasks.
 
 ## 📝 Blog
 
@@ -279,7 +279,9 @@ To complete select "Create pull request".
 
 ## 🎯 Admonitions
 
-[TODO] Write admonitions intro
+The concept of admonitions is often used in documentation and content creation to highlight important notes, warnings, tips, or other types of information in a distinctive way.
+
+Here's the syntax to create admonitions in markdown content, such as a docs post:
 
 ```
 :::note
