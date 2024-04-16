@@ -1,0 +1,21 @@
+name: 🔧 Build dry-run
+
+on:
+  pull_request: 
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout your repository using git
+        uses: actions/checkout@v4
+      - name: Setup node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 18
+          cache: 'npm'
+      - name: Install
+        run: npm install
+      - name: Build site
+        run: npm run build
