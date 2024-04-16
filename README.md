@@ -21,6 +21,9 @@ This repository contains the source code and assets for the Fleek.xyz website, w
         - [New post](#-new-post)
     - [Admonitions](#-admonitions)
     - [Images](#-images)
+- [Development](#-development)
+    - [Images in Astro components](#-images-in-astro-components)
+    - [Images in Reactjs components](#-images-in-reactjs-omponents)
 
 # Setup
 
@@ -183,7 +186,7 @@ This is a info
 
 To learn more read the directives [here](https://github.com/Microflash/remark-callout-directives)
 
-# Component Development
+# 👷‍♀️Development
 
 ## 📸 Images in Astro Components
 
