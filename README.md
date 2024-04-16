@@ -1,4 +1,4 @@
-[TODO] Add banner
+![](https://raw.githubusercontent.com/fleekxyz/fleekxyz-website/main/public/images/fleek/repo-banner.png?202404161720)
 
 # ⚡️Fleek.xyz Website
 
