@@ -32,13 +32,7 @@ const configRemarkCalloutDirectives = {
 };
 
 export default defineConfig({
-  site: (() => {
-    if (process.env.NODE_ENV === 'prod' || process.env.NODE_ENV === 'production') {
-      return settings.site.prod.url;
-    }
-    
-    return settings.site.staging.url;
-  })(),
+  site: settings.site[process.env.NODE_ENV || 'staging'].url,
   integrations: [
     tailwind({
       nesting: true

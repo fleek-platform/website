@@ -1,9 +1,12 @@
 {
   "site": {
-    "prod": {
+    "production": {
       "url": "https://rapping-jelly-echoing.on-fleek.app"
     },
     "staging": {
+      "url": "https://rapping-jelly-echoing.on-fleek.app"
+    },
+    "development": {
       "url": "https://rapping-jelly-echoing.on-fleek.app"
     }
   },
