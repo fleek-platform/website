@@ -1,15 +1,14 @@
 import ImageWithCopy from "@components/ImageWithCopy";
 import RainbowHeart from "@components/RaibowHeart";
+import imgHostingOnFleek from "@images/hosting-on-fleek.png?w=663&format=webp";
 
 import type { RoundedType } from "@components/PageSection";
-import type { ReactNode } from 'react';
 
 interface Props {
   rounded?: RoundedType;
-  optImgHostingOnFleek?: ReactNode;
 }
 
-const HostingOnFleek: React.FC<Props> = ({ rounded, optImgHostingOnFleek }) => (
+const HostingOnFleek: React.FC<Props> = ({ rounded }) => (
   <ImageWithCopy
     kicker="hosting"
     floatingImageEffect
@@ -24,7 +23,11 @@ const HostingOnFleek: React.FC<Props> = ({ rounded, optImgHostingOnFleek }) => (
     rounded={rounded}
   >
     <div className="flex w-full">
-      { optImgHostingOnFleek }
+      <img
+        className="max-w-[280px] object-contain mix-blend-screen md:max-w-[550px] xl:max-w-[663px]"
+        src={imgHostingOnFleek}
+        alt="Hosting on Fleek"
+      />
     </div>
   </ImageWithCopy>
 );
