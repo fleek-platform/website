@@ -8,6 +8,10 @@
     },
     "development": {
       "url": "https://rapping-jelly-echoing.on-fleek.app"
+    },
+    "metadata": {
+      "title": "Fleek | Build Lightning Fast Web3 Apps",
+      "description": "Seamlessly build Web3 apps and services that are edge-optimized for performance. Decentralized hosting, storage, gateways and more."
     }
   },
   "docs": {
