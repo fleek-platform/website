@@ -180,6 +180,12 @@ The import name convention is camel-case and to use the prefix img, e.g. imgMyIm
 import imgFleekLogo from "@images/globe-with-bolt.jpg?w=480&h=480&format=webp";
 ```
 
+Place the image in the <img> src field:
+
+```html
+<img src={imgFleekLogo} alt="Image text replacement" />
+```
+
 To generate responsive images, e.g. [SrcSet](https://developer.mozilla.org/en-US/docs/Learn/HTML/Multimedia_and_embedding/Responsive_images):
 
 ```ts
