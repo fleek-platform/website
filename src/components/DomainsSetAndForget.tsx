@@ -1,32 +1,37 @@
 import Container from "@components/Container";
 import PageSection from "@components/PageSection";
 import Text from "@components/Text";
-import imgMetamaskIcon from "@images/metamask-icon.png";
-import imgPagePreviewImage from '@images/page-preview-screen.png'
-import imgRainbowIcon from "@images/rainbow-icon.png";
-import imgGnosisIcon from "@images/gnosis-icon.png";
-import imgWalletConnectIcon from "@images/walletconnect-icon.png";
+// @ts-ignore
+import imgMetamaskIcon from "@images/metamask-icon.png?w=40&format=webp";
+// @ts-ignore
+import imgPagePreviewImage from '@images/page-preview-screen.png?w=40&format=webp'
+// @ts-ignore
+import imgRainbowIcon from "@images/rainbow-icon.png?w=40&format=webp";
+// @ts-ignore
+import imgGnosisIcon from "@images/gnosis-icon.png?w=40&format=webp";
+// @ts-ignore
+import imgWalletConnectIcon from "@images/walletconnect-icon.png?w=40&format=webp";
 import TextGlowHoverEffect from "@components/TextGlowHoverEffect";
 import TransparentCardLarge from "@components/TransparentCardLarge";
 import WalletItem from "@components/WalletItem";
-import imgBoltYellow from "@images/bolt-yellow.png";
-
+// @ts-ignore
+import imgBoltYellow from "@images/bolt-yellow.png?w=32&format=webp";
 
 const WALLET_ITEMS = [
   {
-    icon: imgMetamaskIcon.src,
+    icon: imgMetamaskIcon,
     label: "Metamask",
   },
   {
-    icon: imgRainbowIcon.src,
+    icon: imgRainbowIcon,
     label: "Rainbow",
   },
   {
-    icon: imgGnosisIcon.src,
+    icon: imgGnosisIcon,
     label: "Gnosis",
   },
   {
-    icon: imgWalletConnectIcon.src,
+    icon: imgWalletConnectIcon,
     label: "Walletconnect",
   },
 ]
@@ -103,19 +108,19 @@ const DomainsSetAndForget = () => (
               <div className="flex flex-col p-16 gap-16">
               <div className="flex items-center gap-8">
                   <img
-                    src={imgBoltYellow.src}
+                    src={imgBoltYellow}
                     alt="ENS"
                     width={32}
                     height={32}
                   />
                   <img
-                    src={imgBoltYellow.src}
+                    src={imgBoltYellow}
                     alt="ENS"
                     width={32}
                     height={32}
                   />
                   <img
-                    src={imgBoltYellow.src}
+                    src={imgBoltYellow}
                     alt="ENS"
                     width={32}
                     height={32}
