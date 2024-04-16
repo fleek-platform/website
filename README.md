@@ -17,10 +17,10 @@ This repository contains the source code and assets for the Fleek.xyz website, w
     - [Preview](#-preview-locally)
     - [Contribution guideline](#-contribution-guideline)
 - [Instructions](#instructions)
-    - [Blog](#blog)
-        - [New post](#new-post)
-    - [Admonitions](#admonitions)
-    - [Images](#📸-images)
+    - [Blog](#-blog)
+        - [New post](#-new-post)
+    - [Admonitions](#-admonitions)
+    - [Images](#-images)
 
 # Setup
 
@@ -183,7 +183,23 @@ This is a info
 
 To learn more read the directives [here](https://github.com/Microflash/remark-callout-directives)
 
-## 📸 Images
+# Component Development
+
+## 📸 Images in Astro Components
+
+For astro components (<component-name>.astro) do:
+
+```
+---
+import { Image } from 'astro:assets';
+import localBirdImage from '../../images/subfolder/localBirdImage.png';
+---
+<Image src={localBirdImage} alt="A bird sitting on a nest of eggs." /> 
+```
+
+To learn more read [here](https://docs.astro.build/en/guides/images/)
+
+## 📸 Images in Reactjs Components
 
 Local images are kept in `src/images` when possible so that the build process can transform, optimize and bundle them. Files in the `/public` directory are always served or copied into the build folder as-is, with no processing.
 
@@ -219,3 +235,5 @@ const html = `<picture>
 </picture>
 `
 ```
+
+Learn more [here](https://github.com/JonasKruckenberg/imagetools/)
