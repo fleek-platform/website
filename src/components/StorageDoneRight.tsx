@@ -3,7 +3,8 @@ import GridLayout from "@components/GridLayout";
 import PageSection from "@components/PageSection";
 import Text from "@components/Text";
 import TextGlowHoverEffect from "@components/TextGlowHoverEffect";
-import StorageLayersImage from "/public/images/storage-layers.png";
+// @ts-ignore
+import imgStorageLayersImage from "@images/storage-layers.png?w=626&format=webp";
 
 const FEATURES = [
   {
@@ -42,7 +43,7 @@ const StorageSection6 = () => (
       <GridLayout className="px-16 py-50 lg:py-80 lg:pl-48">
         <img
           className="col-span-10 col-start-4 self-end lg:col-span-8 lg:col-start-9"
-          src={StorageLayersImage.src}
+          src={imgStorageLayersImage}
           alt="Fleek Globe"
           // TODO: verify what the itention was here as original was vercel img optimizer
           // placeholder="blur"

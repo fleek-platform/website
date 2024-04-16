@@ -5,7 +5,6 @@ import Text from "@components/Text";
 import TextGlowHoverEffect from "@components/TextGlowHoverEffect";
 import TransparentCard from "@components/TransparentCard";
 
-
 const features = [
   {
     title: 'Integrate Seamlessly',
