@@ -3,7 +3,8 @@ import Container from "@components/Container";
 import PageSection from "@components/PageSection";
 import Text from "@components/Text";
 import TextGlowHoverEffect from "@components/TextGlowHoverEffect";
-import imgGlobeWithBolt from "@images/globe-with-bolt.jpg";
+// @ts-ignore
+import imgGlobeWithBolt from "@images/globe-with-bolt.jpg?w=420&format=webp";
 
 const features = [
   { icon: '/svg/vertical-waves-icon.svg', title: 'Anycast DNS'},
@@ -44,7 +45,7 @@ const DomainsNeedsCovered = () => (
             ))}
           </div>
           <img
-            src={imgGlobeWithBolt.src}
+            src={imgGlobeWithBolt}
             alt="globe with bolt"
               // TODO: check original intent as it was rel to next opt
               // {480}
