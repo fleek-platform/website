@@ -14,7 +14,8 @@ This repository contains the source code and assets for the Fleek.xyz website, w
     - [Install](#-install)
     - [Develop](#%EF%B8%8Fdevelop)
     - [Build](#%EF%B8%8F-build)
-    - [Preview](#-preview-locally)
+    - [Preview (locally)](#-preview-locally)
+    - [Preview (staging)](#-preview-staging)
     - [Contribution guideline](#-contribution-guideline)
 - [Instructions](#instructions)
     - [Blog](#-blog)
@@ -73,6 +74,10 @@ npm run preview
 ```
 
 💡 By default, the local site will be available in the address [http://localhost:4322](http://localhost:4322).
+
+## 👀 Preview staging
+
+You can preview the develop branch version by visiting the preview [here](https://rapping-jelly-echoing.on-fleek.app).
 
 ## 🙏 Contribution guideline
 
