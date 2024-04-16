@@ -17,7 +17,7 @@ This repository contains the source code and assets for the Fleek.xyz website, w
     - [Preview (locally)](#-preview-locally)
     - [Preview (staging)](#-preview-staging)
     - [Contribution guideline](#-contribution-guideline)
-- [Instructions](#instructions)
+- [Instructions](#-instructions)
     - [Blog](#-blog)
         - [New post](#-new-post)
         - [Create a Pull request](#-create-a-pull-request)
