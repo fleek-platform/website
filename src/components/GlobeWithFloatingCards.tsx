@@ -4,14 +4,9 @@ import GridLayout from "@components/GridLayout";
 import CardWrapper from "@components/CardWrapper";
 import ExternalLink from "./ExternalLink";
 import TextGlowHoverEffect from "@components/TextGlowHoverEffect";
+import imgGlobeWithBolt from "@images/globe-with-bolt.jpg";
 
-import type { ReactNode } from 'react';
-
-type Props = {
-  optImgGlobeWithBolt?: ReactNode;
-}
-
-const GlobeWithFloatingCards = ({ optImgGlobeWithBolt }: Props) => {
+const GlobeWithFloatingCards = () => {
   return (
     <Container>
       <PageSection rounded="all-big">
@@ -130,7 +125,13 @@ const GlobeWithFloatingCards = ({ optImgGlobeWithBolt }: Props) => {
                     </div>
                   </CardWrapper>
                 </div>
-                {optImgGlobeWithBolt}
+                <img
+                  src={imgGlobeWithBolt.src}
+                  alt="globe with bolt"
+                  width={480}
+                  height={480}
+                  className="absolute left-1/2 top-1/2 hidden -translate-x-1/2 -translate-y-1/2 transform-gpu mix-blend-screen lg:block"
+                />
               </div>
             </div>
           </GridLayout>

@@ -166,3 +166,30 @@ This is a info
 ```
 
 To learn more read the directives [here](https://github.com/Microflash/remark-callout-directives)
+
+## Images
+
+Local images are kept in `src/images` when possible so that the build process can transform, optimize and bundle them. Files in the `/public` directory are always served or copied into the build folder as-is, with no processing.
+
+When importing images, you have to provide query parameters such as width, height and format. This settings are used by the build process to generate optimized images.
+
+The import name convention is camel-case and to use the prefix img, e.g. imgMyImage.
+
+```ts
+import imgFleekLogo from "@images/globe-with-bolt.jpg?w=480&h=480&format=webp";
+```
+
+To generate responsive images, e.g. [SrcSet](https://developer.mozilla.org/en-US/docs/Learn/HTML/Multimedia_and_embedding/Responsive_images):
+
+```ts
+import avif from '@images/example.jpg?w=500;900;1200&format=avif&as=srcset'
+import webp from '@images/example.jpg?w=500;900;1200&format=webp&as=srcset'
+import fallback from 'example.jpg?w=700'
+
+const html = `<picture>
+    <source srcset="${avif}" type="image/avif" />
+    <source srcset="${webp}" type="image/webp" />
+    <img src="${fallback}" />
+</picture>
+`
+```
