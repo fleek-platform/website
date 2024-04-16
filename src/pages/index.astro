@@ -12,30 +12,6 @@ import NSManagement from "@components/NSManagement";
 import CountdownAnimation from "@components/CountdownAnimation";
 import JoinOurFriends from "@components/JoinOurFriends";
 import BuildUseCases from "@components/BuildUseCases";
-import { down, up } from "@utils/screens";
-import { getImage } from "astro:assets";
-
-import { Image } from 'astro:assets';
-import imgDnsEnsIpnsManagement from "@images/dns-ens-ipns-management.png";
-import imgHostingOnFleek from "@images/hosting-on-fleek.png";
-import imgSnapshotBanner from "@images/snapshot-banner.jpg";
-import imgSnapshotIcon from "@images/snapshot-icon.png";
-import imgVitalikButerinBanner from "@images/vitalik-buterin-banner.jpg";
-import imgEthIcon from "@images/eth-icon.png";
-import imgDappRadar from "@images/dappradar-banner.jpg";
-import imgDappRadarIcon from "@images/dappradar-icon.png";
-import imgSynthetixBanner from "@images/synthetix-banner.jpg";
-import imgSynthetixIcon from "@images/synthetix-icon.png";
-import imgEnsAppBanner from "@images/ensapp-banner.jpg";
-import imgEnsAppIcon from "@images/ens-icon.png";
-import imgBolt from "@images/bolt.png";
-import imgFleekSdkUploadToIpfs from "@images/fleek-sdk-uploadtoipfs.png";
-import imgFleekCliUploadFile from "@images/fleek-cli-upload-file.png";
-import imgGlobeCountDown from "@images/globe-countdown.png";
-
-// Warn: Use getImage carefully as it generates a big amount of source-code due to its async nature
-const optImgFleekSdkUploadToIpfs = await getImage({src: imgFleekSdkUploadToIpfs, format: 'webp'});
-const optImgFleekCliUploadFile = await getImage({src: imgFleekCliUploadFile, format: 'webp'});
 ---
 
 <Layout title="Fleek | Build Lightning Fast Web3 Apps">

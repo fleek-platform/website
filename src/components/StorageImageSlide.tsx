@@ -1,14 +1,6 @@
 import CopyWithImageSwap from "@components/CopyWithImageSwap";
 
-interface Props {
-  optImgFleekSdkUploadToIpfs?: string;
-  optImgFleekCliUploadFile?: string;
-}
-
-const StorageImageSlide = ({
-  optImgFleekSdkUploadToIpfs,
-  optImgFleekCliUploadFile,
-}: Props) => (
+const StorageImageSlide = () => (
   <CopyWithImageSwap
     kicker="Storage"
     headline="Decentralized Storage Is Better Than You Think"
@@ -17,8 +9,6 @@ const StorageImageSlide = ({
       text: "try it out",
       url: "https://app.fleek.xyz/",
     }}
-    optImgFleekSdkUploadToIpfs={optImgFleekSdkUploadToIpfs}
-    optImgFleekCliUploadFile={optImgFleekCliUploadFile}
   />
 );
 
