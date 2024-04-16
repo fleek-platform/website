@@ -15,7 +15,7 @@ const HomepageHero = () => (
               autoPlay
               muted
               playsInline
-              className="animate-float delay-1000"
+              className="animate-float delay-1000 lg:mt-[-30px]"
               // TODO: add blur support, as original
               // placeholder="blur"
             >
