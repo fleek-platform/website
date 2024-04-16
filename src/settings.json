@@ -1,4 +1,12 @@
 {
+  "site": {
+    "prod": {
+      "url": "https://rapping-jelly-echoing.on-fleek.app"
+    },
+    "staging": {
+      "url": "https://rapping-jelly-echoing.on-fleek.app"
+    }
+  },
   "docs": {
     "menu": {
       "order": [

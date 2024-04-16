@@ -3,6 +3,8 @@ import tailwind from "@astrojs/tailwind";
 import remarkDirective from 'remark-directive';
 import remarkCalloutDirectives from '@microflash/remark-callout-directives';
 import react from "@astrojs/react";
+import sitemap from "@astrojs/sitemap";
+import settings from "./src/settings.json";
 
 const configRemarkCalloutDirectives = {
   callouts: {
@@ -29,22 +31,27 @@ const configRemarkCalloutDirectives = {
   }
 };
 
-// https://astro.build/config
 export default defineConfig({
-  // TODO: Temporary for testing remote/no-cdn
-  site: 'https://flk-xyz-stg.punkbit.com',
-  integrations: [tailwind({
-    nesting: true,
-  }), react({
-     experimentalReactChildren: true,
-  })],
+  site: (() => {
+    if (process.env.NODE_ENV === 'prod' || process.env.NODE_ENV === 'prod') {
+      return settings.site.prod.url;
+    }
+    
+    return settings.site.staging.url;
+  })(),
+  integrations: [
+    tailwind({
+      nesting: true
+    }),
+    react({
+      experimentalReactChildren: true
+    }),
+    sitemap(),
+  ],
   markdown: {
-    remarkPlugins: [
-      remarkDirective,
-      [remarkCalloutDirectives, configRemarkCalloutDirectives],
-    ],
+    remarkPlugins: [remarkDirective, [remarkCalloutDirectives, configRemarkCalloutDirectives]],
     shikiConfig: {
-      theme: 'dracula',
-    },
-  },
+      theme: 'dracula'
+    }
+  }
 });
