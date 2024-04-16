@@ -6,6 +6,22 @@
 
 This repository contains the source code and assets for the Fleek.xyz website, which is built using the [Astro.js framework](https://astro.build) for enhanced performance and speed. The project leverages Tailwind CSS for styling, providing a modern and responsive design, and TypeScript for type safety and scalability, ensuring a robust and maintainable codebase.
 
+
+## 📒 Content
+
+- [Setup](#setup)
+    - [Requirements](##requirements)
+    - [Install](##install)
+    - [Develop](##develop)
+    - [Build](##build)
+    - [Preview](##preview-locally)
+    - [Contribution guideline](##contribution-guideline)
+- [Instructions](#instructions)
+    - [Blog](##blog)
+        - [New post](##new-post)
+    - [Admonitions](##admonitions)
+    - [Images](##images)
+
 # Setup
 
 ## ⚙️ Requirements
