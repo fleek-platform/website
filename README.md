@@ -19,7 +19,7 @@ This repository contains the source code and assets for the Fleek.xyz website, w
 - [Instructions](#instructions)
     - [Blog](#-blog)
         - [New post](#-new-post)
-        - [Create post branch](#-create-post-branch)
+        - [Create a Pull request](#-create-a-pull-request)
     - [Admonitions](#-admonitions)
     - [Images](#-images)
 - [Development](#-development)
@@ -158,13 +158,15 @@ In the world where text is text, I show you an image:
 ![My image](./my-image.jpg)
 ```
 
-## 🥷 Create post branch
+## 🥷 Create a Pull request
 
 You can create a PR (pull request) programmatically or by using the GitHub web interface.
 
-In order to create a PR, you have to understand that the project has a file structure architecture, containing source-files for components, images, stylesheets and much more. For new content these are placed in the `src/content` directory: blog or docs.
+In order to create a pull request (PR), you have to understand that the project has a file structure architecture, containing source-files for components, images, stylesheets and much more.
 
-Here's how to do it:
+For our example we are going to create new content. The content is placed in the `src/content` directory for blog or docs.
+
+Here's how to create a new blog post content using the GitHub web interface:
 
 1) Navigate the content source files (src/content) in the GitHub file explorer
 
