@@ -17,6 +17,9 @@
     "plugins": [{
       "name": "@astrojs/ts-plugin"
     }],
-    "noErrorTruncation": true,
-  }
+    "noErrorTruncation": true
+  },
+  "include": [
+    "images.d.ts"
+  ]
 }

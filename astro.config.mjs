@@ -5,6 +5,7 @@ import remarkCalloutDirectives from '@microflash/remark-callout-directives';
 import react from "@astrojs/react";
 import sitemap from "@astrojs/sitemap";
 import settings from "./src/settings.json";
+import { imagetools } from 'vite-imagetools'
 
 const configRemarkCalloutDirectives = {
   callouts: {
@@ -33,6 +34,9 @@ const configRemarkCalloutDirectives = {
 
 export default defineConfig({
   site: settings.site[process.env.NODE_ENV || 'staging'].url,
+  vite: {
+    plugins: [imagetools()],
+  },
   integrations: [
     tailwind({
       nesting: true
