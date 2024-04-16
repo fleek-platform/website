@@ -47,78 +47,7 @@ const optImgFleekCliUploadFile = await getImage({src: imgFleekCliUploadFile, for
         client:load
         rounded="top-big-bottom-small"
       />
-      <JoinOurFriends client:only="react">
-        <Image
-          src={imgSnapshotBanner}
-          class="object-cover"
-          sizes={`${down("lg")} 100vw, ${up("lg")} 240px`}
-          alt="snapshot.org"
-          slot="optImgSnapshotBanner"
-        />
-        <Image
-          src={imgSnapshotIcon}
-          class="object-contain"
-          sizes="32px"
-          alt="snapshot icon"
-          slot="optImgSnapshotIcon"
-        />
-        <Image
-          src={imgVitalikButerinBanner}
-          class="object-cover"
-          sizes={`${down("lg")} 100vw, ${up("lg")} 240px`}
-          alt="vitalik.eth"
-          slot="optImgVitalikButerinBanner"
-        />
-        <Image
-          src={imgEthIcon}
-          class="object-contain h-32"
-          sizes="32px"
-          alt="Vitalik icon"
-          slot="optImgEthIcon"
-        />
-        <Image
-          src={imgDappRadar}
-          class="object-contain"
-          sizes={`${down("lg")} 100vw, ${up("lg")} 240px`}
-          slot="optImgDappRadar"
-          alt="Dapp Radar icon"
-        />
-        <Image
-          src={imgDappRadarIcon}
-          class="object-contain"
-          sizes="32px"
-          alt="dappradar.com"
-          slot="optImgDappRadarIcon"
-        />
-        <Image
-          src={imgSynthetixBanner}
-          class="object-contain"
-          sizes={`${down("lg")} 100vw, ${up("lg")} 240px`}
-          slot="optImgSynthetixBanner"
-          alt="Synthetix icon"
-        />
-        <Image
-          src={imgSynthetixIcon}
-          class="object-contain"
-          sizes="32px"
-          alt="staking.synthetix.io"
-          slot="optImgSynthetixIcon"
-        />
-        <Image
-          src={imgEnsAppBanner}
-          class="object-contain"
-          sizes={`${down("lg")} 100vw, ${up("lg")} 240px`}
-          slot="optImgEnsAppBanner"
-          alt="ENS icon"
-        />
-        <Image
-          src={imgEnsAppIcon}
-          class="object-contain"
-          sizes="32px"
-          alt="app.ens.domains"
-          slot="optImgEnsAppIcon"
-        />
-      </JoinOurFriends>
+      <JoinOurFriends client:only="react" />
       <BuildUseCases client:load />
       <ChainAgnostic client:load>
         <Image

@@ -1,5 +1,6 @@
 import ImageWithCopy from "@components/ImageWithCopy";
 import RainbowHeart from "@components/RaibowHeart";
+// @ts-ignore
 import imgHostingOnFleek from "@images/hosting-on-fleek.png?w=663&format=webp";
 
 import type { RoundedType } from "@components/PageSection";

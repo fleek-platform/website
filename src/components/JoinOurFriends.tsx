@@ -1,38 +1,33 @@
 import LoopingCardSlider from "@components/LoopingCardSlider";
 
-import type { ReactNode } from "react";
+// @ts-ignore
+import imgSnapshotBanner from "@images/snapshot-banner.jpg?w=240&format=webp";
+// @ts-ignore
+import imgSnapshotIcon from "@images/snapshot-icon.png?w=100&format=webp";
+// @ts-ignore
+import imgVitalikButerinBanner from "@images/vitalik-buterin-banner.jpg?w=240&format=webp";
+// @ts-ignore
+import imgEthIcon from "@images/eth-icon.png?w=100&format=webp";
+// @ts-ignore
+import imgDappRadar from "@images/dappradar-banner.jpg?w=240&format=webp";
+// @ts-ignore
+import imgDappRadarIcon from "@images/dappradar-icon.png?w=100&format=webp";
+// @ts-ignore
+import imgSynthetixBanner from "@images/synthetix-banner.jpg?w=240&format=webp";
+// @ts-ignore
+import imgSynthetixIcon from "@images/synthetix-icon.png?w=100&format=webp";
+// @ts-ignore
+import imgEnsAppBanner from "@images/ensapp-banner.jpg?w=240&format=webp";
+// @ts-ignore
+import imgEnsAppIcon from "@images/ens-icon.png?w=100&format=webp";
 
-type Props = {
-  optImgSnapshotBanner?: ReactNode;  
-  optImgSnapshotIcon?: ReactNode;
-  optImgVitalikButerinBanner?: ReactNode;
-  optImgEthIcon?: ReactNode;
-  optImgDappRadar?: ReactNode;
-  optImgDappRadarIcon?: ReactNode;
-  optImgSynthetixBanner?: ReactNode;
-  optImgSynthetixIcon?: ReactNode;
-  optImgEnsAppBanner?: ReactNode;
-  optImgEnsAppIcon?: ReactNode;
-};
-
-const JoinOurFriends = ({
-  optImgSnapshotBanner,
-  optImgSnapshotIcon,
-  optImgVitalikButerinBanner,
-  optImgEthIcon,
-  optImgDappRadar,
-  optImgDappRadarIcon,
-  optImgSynthetixBanner,
-  optImgSynthetixIcon,
-  optImgEnsAppBanner,
-  optImgEnsAppIcon,
-}: Props) => (
+const JoinOurFriends = () => (
       <LoopingCardSlider
         headline="Join your friends"
         cards={[
           {
-            bannerImage: optImgSnapshotBanner,
-            icon: optImgSnapshotIcon,
+            bannerImage: imgSnapshotBanner,
+            icon: imgSnapshotIcon,
             title: "snapshot",
             domain: "snapshot.org",
             cta: {
@@ -40,8 +35,8 @@ const JoinOurFriends = ({
             },
           },
           {
-            bannerImage: optImgVitalikButerinBanner,
-            icon: optImgEthIcon,
+            bannerImage: imgVitalikButerinBanner,
+            icon: imgEthIcon,
             title: "Vitalik Buterin",
             domain: "vitalik.eth",
             cta: {
@@ -49,8 +44,8 @@ const JoinOurFriends = ({
             },
           },
           {
-            bannerImage: optImgDappRadar,
-            icon: optImgDappRadarIcon,
+            bannerImage: imgDappRadar,
+            icon: imgDappRadarIcon,
             title: "dappradar",
             domain: "dappradar.com",
             cta: {
@@ -58,8 +53,8 @@ const JoinOurFriends = ({
             },
           },
           {
-            bannerImage: optImgSynthetixBanner,
-            icon: optImgSynthetixIcon,
+            bannerImage: imgSynthetixBanner,
+            icon: imgSynthetixIcon,
             title: "Synthetix",
             domain: "staking.synthetix.io",
             cta: {
@@ -67,8 +62,8 @@ const JoinOurFriends = ({
             },
           },
           {
-            bannerImage: optImgEnsAppBanner,
-            icon: optImgEnsAppIcon,
+            bannerImage: imgEnsAppBanner,
+            icon: imgEnsAppIcon,
             title: "ENS App",
             domain: "app.ens.domains",
             cta: {
