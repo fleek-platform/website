@@ -62,25 +62,6 @@ const optImgFleekCliUploadFile = await getImage({src: imgFleekCliUploadFile, for
       />
 		</div>
     <NSManagement client:load cta="Learn More" />
-    <CountdownAnimation client:load>
-      <Image
-        src={imgBolt}
-        class="h-56 w-28 xl:h-80 xl:w-40"
-        alt="fleek bolt icon"
-        slot="optImgBolt"
-      />
-      <Image
-        src={imgGlobeCountDown}
-        class="mx-auto w-[90%]"
-        alt="image of a globe render"
-        slot="optImgGlobeCountDown1"
-      />
-      <Image
-        src={imgGlobeCountDown}
-        class="absolute left-1/2 top-0 -z-1 w-[110vw] max-w-none -translate-x-1/2 pt-24 mix-blend-screen"
-        alt="image of a globe render"
-        slot="imgGlobeCountDown2"
-      />
-    </CountDownAnimation>
+    <CountdownAnimation client:load />
 	</div>
 </Layout>

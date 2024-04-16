@@ -10,8 +10,10 @@ import Button from "@components/Button";
 import Link, { Target } from "@components/Link";
 import { useMediaQuery } from "@hooks/useMediaQuery";
 import { up } from "@utils/screens";
-
-import type { ReactNode } from 'react';
+// @ts-ignore
+import imgBolt from "@images/bolt.png?w=200&format=webp";
+// @ts-ignore
+import imgGlobeCountDown from "@images/globe-countdown.png?w=1354&format=webp";
 
 interface Card {
   title: string;
@@ -49,13 +51,7 @@ const CARDS: Array<Card> = [
 const wait = (time: number) =>
   new Promise((resolve) => setTimeout(() => resolve(null), time));
 
-type Props  = {
-  optImgBolt?: ReactNode;
-  optImgGlobeCountDown1?: ReactNode;
-  optImgGlobeCountDown2?: ReactNode;
-}
-
-const CountdownAnimation = ({ optImgBolt, optImgGlobeCountDown1, optImgGlobeCountDown2 }: Props) => {
+const CountdownAnimation = () => {
   let cardRefs: Array<HTMLDivElement> = [];
   const headlineRef = useRef<HTMLDivElement>(null);
   const counterRef = useRef<HTMLDivElement>(null);
@@ -239,7 +235,11 @@ const CountdownAnimation = ({ optImgBolt, optImgGlobeCountDown1, optImgGlobeCoun
             ref={globeRef}
             className="absolute left-0 top-1/2 w-full mix-blend-screen"
           >
-            {optImgGlobeCountDown1}
+            <img
+              src={imgGlobeCountDown}
+              className="mx-auto w-[90%]"
+              alt="image of a globe render"
+            />
           </div>
         </div>
         <div
@@ -274,7 +274,11 @@ const CountdownAnimation = ({ optImgBolt, optImgGlobeCountDown1, optImgGlobeCoun
                 <GlowWrapper>
                   <button className="flex items-center gap-19 rounded-28 bg-button-gradient px-38 py-25 font-plex-sans text-30 font-normal uppercase leading-[150%] tracking-[0.6144rem] xl:gap-30 xl:rounded-33 xl:px-56 xl:py-30 xl:text-40 2xl:gap-38 2xl:rounded-44 2xl:px-76 2xl:py-50 2xl:text-52">
                     <span>try it out</span>
-                    {optImgBolt}
+                    <img
+                      src={imgBolt}
+                      alt="fleek bolt icon"
+                      className="h-56 w-28 xl:h-80 xl:w-40"
+                    />
                   </button>
                 </GlowWrapper>
               </Link>
@@ -310,7 +314,11 @@ const CountdownAnimation = ({ optImgBolt, optImgGlobeCountDown1, optImgGlobeCoun
               <Link href="https://app.fleek.xyz/" target={Target.Blank}>
                 <Button>get started</Button>
               </Link>
-              {optImgGlobeCountDown2}
+              <img
+                src={imgGlobeCountDown.src}
+                className="absolute left-1/2 top-0 -z-1 w-[110vw] max-w-none -translate-x-1/2 pt-24 mix-blend-screen"
+                alt="image of a globe render"
+              />
             </div>
           </div>
         </GridLayout>
