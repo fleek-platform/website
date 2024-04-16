@@ -4,7 +4,8 @@ import GridLayout from "@components/GridLayout";
 import Text from "@components/Text";
 import ExternalLink from "@components/ExternalLink";
 import TextGlowHoverEffect from "@components/TextGlowHoverEffect";
-import imgFleekGlobe from "@images/fleek-globe.png";
+// @ts-ignore
+import imgFleekGlobe from "@images/fleek-globe.png?w=1200&format=webp";
 
 // TODO: Move to settings
 const FEATURES = [
@@ -37,7 +38,7 @@ const FastAsFleek = () => (
       <GridLayout className="py-40 h-[540px]">
         <div className="absolute top-[-200px] left-[-300px]">
           <img
-            src={imgFleekGlobe.src}
+            src={imgFleekGlobe}
             alt="Fleek Globe"
             width={1177}
             height={1177}
