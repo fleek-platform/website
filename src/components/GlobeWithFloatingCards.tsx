@@ -4,6 +4,7 @@ import GridLayout from "@components/GridLayout";
 import CardWrapper from "@components/CardWrapper";
 import ExternalLink from "./ExternalLink";
 import TextGlowHoverEffect from "@components/TextGlowHoverEffect";
+// @ts-ignore
 import imgGlobeWithBolt from "@images/globe-with-bolt.jpg?w=480&h=480&format=webp";
 
 const GlobeWithFloatingCards = () => {

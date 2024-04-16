@@ -171,19 +171,23 @@ To learn more read the directives [here](https://github.com/Microflash/remark-ca
 
 Local images are kept in `src/images` when possible so that the build process can transform, optimize and bundle them. Files in the `/public` directory are always served or copied into the build folder as-is, with no processing.
 
-When importing images, you have to provide query parameters such as width, height and format. This settings are used by the build process to generate optimized images.
+When importing images, you have to provide query parameters such as width, height and format. This settings are used by the build process to generate optimized images. Also, the optimizer doesn't have support for Typescript, meaning that you have to use the `// @ts-ignore` to ignore the import line.
 
 The import name convention is camel-case and to use the prefix img, e.g. imgMyImage.
 
 ```ts
+// @ts-ignore
 import imgFleekLogo from "@images/globe-with-bolt.jpg?w=480&h=480&format=webp";
 ```
 
 To generate responsive images, e.g. [SrcSet](https://developer.mozilla.org/en-US/docs/Learn/HTML/Multimedia_and_embedding/Responsive_images):
 
 ```ts
+// @ts-ignore
 import avif from '@images/example.jpg?w=500;900;1200&format=avif&as=srcset'
+// @ts-ignore
 import webp from '@images/example.jpg?w=500;900;1200&format=webp&as=srcset'
+// @ts-ignore
 import fallback from 'example.jpg?w=700'
 
 const html = `<picture>

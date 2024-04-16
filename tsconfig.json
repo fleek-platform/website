@@ -5,21 +5,18 @@
     "jsx": "react-jsx",
     "jsxImportSource": "react",
     "paths": {
-      "@components/*": ["./src/components/*"],
-      "@hooks/*": ["./src/hooks/*"],
-      "@assets/*": ["./src/assets/*"],
-      "@utils/*": ["./src/utils/*"],
-      "@layouts/*": ["./src/layouts/*"],
-      "@base/*": ["./src/*"],
-      "@styles/*": ["./src/styles/*"],
-      "@images/*": ["./src/images/*"],
+      "@components/*": ["src/components/*"],
+      "@hooks/*": ["src/hooks/*"],
+      "@assets/*": ["src/assets/*"],
+      "@utils/*": ["src/utils/*"],
+      "@layouts/*": ["src/layouts/*"],
+      "@base/*": ["src/*"],
+      "@styles/*": ["src/styles/*"],
+      "@images/*": ["src/images/*"]
     },
     "plugins": [{
       "name": "@astrojs/ts-plugin"
     }],
     "noErrorTruncation": true
   },
-  "include": [
-    "images.d.ts"
-  ]
 }
