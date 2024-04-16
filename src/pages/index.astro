@@ -49,14 +49,7 @@ const optImgFleekCliUploadFile = await getImage({src: imgFleekCliUploadFile, for
       />
       <JoinOurFriends client:only="react" />
       <BuildUseCases client:load />
-      <ChainAgnostic client:load>
-        <Image
-          src={imgBolt}
-          class="h-32 w-16"
-          alt="fleek bolt icon"
-          slot="optImgBolt"
-        />
-      </ChainAgnostic>
+      <ChainAgnostic client:load />
       <CopyWithImageSwap
         client:load
         kicker="Storage"
