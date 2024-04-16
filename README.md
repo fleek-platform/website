@@ -1,4 +1,4 @@
-![](public/images/repo-banner.png?202404161720)
+![](public/images/repo/repo-banner.png?202404161720)
 
 # ⚡️Fleek.xyz Website
 
@@ -19,6 +19,7 @@ This repository contains the source code and assets for the Fleek.xyz website, w
 - [Instructions](#instructions)
     - [Blog](#-blog)
         - [New post](#-new-post)
+        - [Create post branch](#-create-post-branch)
     - [Admonitions](#-admonitions)
     - [Images](#-images)
 - [Development](#-development)
@@ -156,6 +157,123 @@ In the world where text is text, I show you an image:
 
 ![My image](./my-image.jpg)
 ```
+
+## 🥷 Create post branch
+
+You can create a PR (pull request) programmatically or by using the GitHub web interface.
+
+In order to create a PR, you have to understand that the project has a file structure architecture, containing source-files for components, images, stylesheets and much more. For new content these are placed in the `src/content` directory: blog or docs.
+
+Here's how to do it:
+
+1) Navigate the content source files (src/content) in the GitHub file explorer
+
+```
+src/content/blog
+├── announcements
+├── changelog-march-11
+│   ├── fleekchangelog01mar11.png
+│   └── index.md
+└── fleek-release-notes-v004
+    ├── Log-in-connections.png
+    ├── fleekreleasenotes06.jpg
+    └── index.md
+
+4 directories, 5 files
+```
+
+2) Expand the file tree if collapsed
+
+Click on the file tree icon to expand it.
+
+![File tree](public/images/repo/github-file-tree-collapsed.png?202404161822)
+
+Once expanded you should see the file tree.
+
+![File tree expanded](public/images/repo/github-file-tree-expanded.png?202404161824)
+
+3) Create a branch
+
+Click on the drop-down menu and type a new name. Make sure that you follow the naming conventions in the [Contribution guidelines](#contribution-guidelines).
+
+For example, in the image we see the creation of a branch named **docs/my-new-branch**
+
+![New branch](public/images/repo/github-new-branch.png?202404161826)
+
+Click in the "Create branch docs/my-new-branch from develop".
+
+4) Create a directory for the post content files
+
+To create a new directory in a repository click “create a new file.” Type your new directory's name in the area where you would write the file name, and at the end of the file name type a "/" to initilize it as a direcvtory. After this you can create a new file in the directory.
+
+![Create directory](public/images/repo/create-new-directory.png?202404161826)
+
+5) Create the "index.md"
+
+Type the name "index.md" for the new filename.
+
+![Create new file](public/images/repo/create-new-file.png?202404161826)
+
+6) Commit changes
+
+Type a brief commit message following the [Contribution guidelines](#contribution-guidelines), such as:
+
+```
+docs: ✏️ Created document in post directory
+```
+
+If you wish, you can add more details in the "Extended description".
+
+Select the option "Commit directly to the docs/my-new-branch branch" and commit it by pressing "Commit changes".
+
+7) Click the filename to open it
+
+![Click filename to open](public/images/repo/click-in-filename-index-md.png?202404161826)
+
+8) Click in the option "Edit this file" to edit
+
+In the right side of the window, locate the pencil icon and click it to start editing the file.
+
+![Edit this file](public/images/repo/edit-this-file.png?202404161826)
+
+9) Start adding content to the file
+
+Add content to the file. For example, here we have put the markdown header and some text.
+
+```
+---
+title: "Put a title here"
+slug: "put-a-title-here"
+category: "Name of category"
+date: 2024-03-11
+desc: "A short description"
+thumbnail: "./a-local-image.png"
+image: "./a-local-image.png"
+author: "Your name"
+---
+
+The content goes here
+```
+
+Learn more by reading the [New post](#new-post) section.
+
+10) Commit your changes
+
+Everytime there's a new change, you can commit it. It'll store the changes in the repository branch you have created.
+
+11) Once happy create a pull request
+
+You can create a pull request by visiting the [compare](https://github.com/fleekxyz/fleekxyz-website/compare).
+
+Use the second drop box to select the branch name you have just created for your post content.
+
+![Use compare to create a new pull request](public/images/repo/use-compare-to-create-pull-request.png?202404161849)
+
+Press the "Create pull request" and fill up the following filds by providing a title for your pull request and a description.
+
+To complete select "Create pull request".
+
+![Pull request form](public/images/repo/pull-request-form.png?202404161849)
 
 ## 🎯 Admonitions
 
