@@ -319,7 +319,7 @@ To learn more read the directives [here](https://github.com/Microflash/remark-ca
 
 The build process can optimize the images but that requires the user to use the correct image components. Use the instructions provided to optimize the images.
 
-### Astro
+### 🪐 Astro
 
 For astro components (<component-name>.astro) do:
 
@@ -333,7 +333,7 @@ import localBirdImage from '../../images/subfolder/localBirdImage.png';
 
 To learn more read [here](https://docs.astro.build/en/guides/images/)
 
-### Reactjs
+### 🎁 Reactjs
 
 Local images are kept in `src/images` when possible so that the build process can transform, optimize and bundle them. Files in the `/public` directory are always served or copied into the build folder as-is, with no processing.
 
