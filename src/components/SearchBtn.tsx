@@ -20,7 +20,7 @@ const searchClient = algoliasearch(
 
 type HitProps = {
   hit: AlgoliaHit<{
-    content: string;
+    overview: string;
     url: string;
     url_without_anchor: string;
   }>;
