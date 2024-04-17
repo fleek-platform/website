@@ -9,3 +9,17 @@ export const getSiteUrl = (): string => {
  
  return (settings.site as any)[env].url;
 };
+
+export const isActivePath = ({
+  lookup,
+  pathname,
+}: {
+  lookup: string;
+  pathname?: string;
+}) => {
+  const basePath = (pathname || window.location.pathname).split('/').filter(Boolean)[0];
+
+  const re = new RegExp(`^\\/${basePath}(\\/[^\/]+)?$`);
+
+  return re.test(lookup);
+}

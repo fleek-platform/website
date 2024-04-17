@@ -8,6 +8,7 @@ import Container from "@components/Container";
 import NavItemWithSubMenu from "@components/NavItemWithSubMenu";
 import Text from "@components/Text";
 import ButtonRainbowOutlined from "@components/ButtonRainbowOutlined";
+import { isActivePath } from '@utils/url';
 
 type NavItemSimple = {
   label: string | JSX.Element;
@@ -134,6 +135,7 @@ const Nav: React.FC<Props> = ({ pathname }) => {
                 href={navItem.url}
                 target={navItem.openInNewTab ? Target.Blank : Target.Self}
                 key={navItem.url}
+                className={isActivePath({ pathname, lookup: navItem.url }) ? 'font-bold' : ''}
               >
                 <Text style="nav-m">{navItem.label}</Text>
               </Link>
