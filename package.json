@@ -22,7 +22,6 @@
     "@astrojs/react": "^3.1.1",
     "@astrojs/sitemap": "^3.1.2",
     "@astrojs/tailwind": "^5.1.0",
-    "@docsearch/js": "^3.6.0",
     "@fleekxyz/sdk": "^0.7.3",
     "@microflash/remark-callout-directives": "^4.1.0",
     "@tailwindcss/aspect-ratio": "^0.4.2",
