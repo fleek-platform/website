@@ -28,13 +28,13 @@ type HitProps = {
 };
 
 const Hit = ({ hit }: HitProps) => {
-  const maxLength = 80;
+  const maxLength = 90;
 
   if (!hit.content) return;
   
   return (
     <a href={hit.url}>
-      <span className="text-12 bg-neutral-600 p-10 leading-loose rounded-8 w-full">
+      <span className="text-12 bg-neutral-600 transition hover:opacity-80 p-10 leading-loose rounded-8 w-full inline-block">
         {
           hit.content.substring(0, maxLength) + '...'
         }
