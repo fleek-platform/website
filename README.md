@@ -111,13 +111,13 @@ The directory should be named after the slug, a system-friendly name, e.g. "My s
 
 For example, let's assume the creation of an hypothetical blog post named "My Blog post".
 
-1) Create the directory with corresponding slug "my-blog-post" in the `src/content/blog` location, as follows:
+#### 1) Create the directory with corresponding slug "my-blog-post" in the `src/content/blog` location, as follows:
 
 ```sh
 src/content/blog/my-blog-post
 ```
 
-2) Create the file named "index.md" in the directory.
+#### 2) Create the file named "index.md" in the directory.
 
 ```sh
 src/content/blog/my-blog-post/index.md
@@ -125,7 +125,7 @@ src/content/blog/my-blog-post/index.md
 
 The "index.md" is a markdown file where the text content and story is going to be stored.
 
-3) Set the "index.md" markdown header values, that include title, category, date, etc
+#### 3) Set the "index.md" markdown header values, that include title, category, date, etc
 
 ```markdown
 ---
@@ -140,7 +140,7 @@ author: "Fleek"
 ---
 ```
 
-4) Write the content, including any image references
+#### 4) Write the content, including any image references
 
 ```markdown
 ---
@@ -173,7 +173,7 @@ For our example we are going to create new content. The content is placed in the
 
 Here's how to create a new blog post content using the GitHub web interface:
 
-1) Navigate the content source files (src/content) in the GitHub file explorer
+#### 1) Navigate the content source files (src/content) in the GitHub file explorer
 
 ```
 src/content/blog
@@ -189,7 +189,7 @@ src/content/blog
 4 directories, 5 files
 ```
 
-2) Expand the file tree if collapsed
+#### 2) Expand the file tree if collapsed
 
 Click on the file tree icon to expand it.
 
@@ -199,7 +199,7 @@ Once expanded you should see the file tree.
 
 ![File tree expanded](public/images/repo/github-file-tree-expanded.png?202404161824)
 
-3) Create a branch
+#### 3) Create a branch
 
 Click on the drop-down menu and type a new name. Make sure that you follow the naming conventions in the [Contribution guidelines](#contribution-guidelines).
 
@@ -209,19 +209,19 @@ For example, in the image we see the creation of a branch named **docs/my-new-br
 
 Click in the "Create branch docs/my-new-branch from develop".
 
-4) Create a directory for the post content files
+#### 4) Create a directory for the post content files
 
 To create a new directory in a repository click “create a new file.” Type your new directory's name in the area where you would write the file name, and at the end of the file name type a "/" to initilize it as a direcvtory. After this you can create a new file in the directory.
 
 ![Create directory](public/images/repo/create-new-directory.png?202404161826)
 
-5) Create the "index.md"
+#### 5) Create the "index.md"
 
 Type the name "index.md" for the new filename.
 
 ![Create new file](public/images/repo/create-new-file.png?202404161826)
 
-6) Commit changes
+#### 6) Commit changes
 
 Type a brief commit message following the [Contribution guidelines](#contribution-guidelines), such as:
 
@@ -233,17 +233,17 @@ If you wish, you can add more details in the "Extended description".
 
 Select the option "Commit directly to the docs/my-new-branch branch" and commit it by pressing "Commit changes".
 
-7) Click the filename to open it
+#### 7) Click the filename to open it
 
 ![Click filename to open](public/images/repo/click-in-filename-index-md.png?202404161826)
 
-8) Click in the option "Edit this file" to edit
+#### 8) Click in the option "Edit this file" to edit
 
 In the right side of the window, locate the pencil icon and click it to start editing the file.
 
 ![Edit this file](public/images/repo/edit-this-file.png?202404161826)
 
-9) Start adding content to the file
+#### 9) Start adding content to the file
 
 Add content to the file. For example, here we have put the markdown header and some text.
 
@@ -264,11 +264,11 @@ The content goes here
 
 Learn more by reading the [New post](#new-post) section.
 
-10) Commit your changes
+#### 10) Commit your changes
 
 Everytime there's a new change, you can commit it. It'll store the changes in the repository branch you have created.
 
-11) Once happy create a pull request
+#### 11) Once happy create a pull request
 
 You can create a pull request by visiting the [compare](https://github.com/fleekxyz/fleekxyz-website/compare).
 
