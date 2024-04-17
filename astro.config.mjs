@@ -32,8 +32,11 @@ const configRemarkCalloutDirectives = {
   }
 };
 
+// Environment mode
+const env = import.meta.env.MODE || 'staging';
+
 export default defineConfig({
-  site: settings.site[process.env.NODE_ENV || 'staging'].url,
+  site: settings.site[env].url,
   vite: {
     plugins: [imagetools()],
   },

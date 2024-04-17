@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef } from 'react';
+import { useState } from 'react';
 import algoliasearch from 'algoliasearch/lite';
 import {
   InstantSearch,
@@ -9,10 +9,9 @@ import {
 
 import type { Hit as AlgoliaHit } from 'instantsearch.js';
 
-// TODO: Move as ENV VAR
-// these are public keys hard-typed for dev
-const appId = 'ZLPPXSKTFE';
-const apiKey = '33ed5b78ac12317e4243d3f44874cbc8';
+// Algolia search key is safe to be made public
+const appId = import.meta.env.PUBLIC_ALGOLIA_APP_ID;
+const apiKey = import.meta.env.PUBLIC_ALGOLIA_API_KEY;
 
 const searchClient = algoliasearch(
   appId,
@@ -27,16 +26,20 @@ type HitProps = {
   }>;
 };
 
+// TODO: Change to corresponding indexed field
+// at the moment is using dummy data
+const HIT_KEY = "overview";
+
 const Hit = ({ hit }: HitProps) => {
   const maxLength = 90;
 
-  if (!hit.content) return;
+  if (!hit[HIT_KEY]) return;
   
   return (
     <a href={hit.url}>
       <span className="text-12 bg-neutral-600 transition hover:opacity-80 p-10 leading-loose rounded-8 w-full inline-block">
         {
-          hit.content.substring(0, maxLength) + '...'
+          hit[HIT_KEY].substring(0, maxLength) + '...'
         }
       </span>
     </a>
