@@ -16,7 +16,7 @@
     "lint": "npm run lint:css",
     "lint:css": "npx stylelint src/**/*.css",
     "check:strict": "npx astro check --minimumFailingSeverity error --minimumSeverity error",
-    "search:serve": "docker run -it --rm -p 7700:7700 -v $(pwd)/meili_data:/meili_data getmeili/meilisearch:v1.7"
+    "search:serve": "./Services/Search/dev.bash"
   },
   "dependencies": {
     "@astrojs/check": "^0.5.10",

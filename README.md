@@ -326,6 +326,8 @@ You can start a server locally by running the command:
 npm run search:serve
 ```
 
+⚠️ You'll see a warning message "No master key was found" that can be ignored for local environment development work. If for some reason you want to have a master key, modify the `search:serve` script to include it.
+
 ## 📸 Images (Optimization)
 
 The build process can optimize the images but that requires the user to use the correct image components. Use the instructions provided to optimize the images.
