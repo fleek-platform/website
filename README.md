@@ -318,6 +318,8 @@ To learn more read the directives [here](https://github.com/Microflash/remark-ca
 
 ## 🔎 Search
 
+### Serve (Development)
+
 Search is provided by [Meilisearch](https://www.meilisearch.com/). The local search server is provided as a [Docker](https://www.docker.com/) image, which you have to have installed and running.
 
 You can start a server locally by running the command:
@@ -327,6 +329,28 @@ npm run search:serve
 ```
 
 ⚠️ You'll see a warning message "No master key was found" that can be ignored for local environment development work. If for some reason you want to have a master key, modify the `search:serve` script to include it.
+
+### Indexer (Development)
+
+### Put markdown content (Development)
+
+If you're running the search server via Docker container, data has to be indexed.
+
+Provide data by running the command:
+
+```sh
+npm run search:index_blog_dev
+```
+
+### Query via cURL (Development)
+
+A quick way to query the server is by using cURL.
+
+In the following example, we query **changelogs** in the index name **blog**, on the local server, running on port **7700**.
+
+```sh
+curl "localhost:7700/indexes/blog/search?q=changelogs"
+```
 
 ## 📸 Images (Optimization)
 
