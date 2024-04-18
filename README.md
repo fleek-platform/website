@@ -330,6 +330,20 @@ npm run search:serve
 
 ⚠️ You'll see a warning message "No master key was found" that can be ignored for local environment development work. If for some reason you want to have a master key, modify the `search:serve` script to include it.
 
+### Health check
+
+```sh
+curl \
+  -X GET 'http://localhost:7700/health'
+```
+
+Otherwise:
+
+```sh
+curl \
+  -X GET '<PROTOCOL>://<ADDRESS>:<PORT>/health'
+```
+
 ### Indexer (Development)
 
 ### Put markdown content (Development)
@@ -342,7 +356,7 @@ Provide data by running the command:
 npm run search:index_blog_dev
 ```
 
-### Query via cURL (Development)
+### Query via cURL
 
 A quick way to query the server is by using cURL.
 
@@ -350,6 +364,16 @@ In the following example, we query **changelogs** in the index name **blog**, on
 
 ```sh
 curl "localhost:7700/indexes/blog/search?q=changelogs"
+```
+
+Otherwise, for production server:
+
+```sh
+curl \
+  -X POST '<PROTOCOL>://<ADDRESS>:<PORT>/indexes/<INDEX_NAME>/search' \
+  -H 'Content-Type: application/json' \
+  -H 'Authorization: Bearer <API_KEY>' \
+  --data-binary '{ "q": "<SEARCH_QUERY>" }'
 ```
 
 ## 📸 Images (Optimization)
