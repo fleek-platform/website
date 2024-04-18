@@ -17,7 +17,7 @@
     "lint:css": "npx stylelint src/**/*.css",
     "check:strict": "npx astro check --minimumFailingSeverity error --minimumSeverity error",
     "search:serve": "./Services/Search/dev.bash",
-    "search:index_blog_dev": "./Services/Search/Indexer/indexation.ts '127.0.0.1:7700' 'src/content/blog' 'blog'"
+    "search:index_blog_dev": "./Services/Search/Indexer/indexation.ts '127.0.0.1:7700' 'src/content/blog' 'fleekxyz_website_blog'"
   },
   "dependencies": {
     "@astrojs/check": "^0.5.10",
@@ -25,11 +25,11 @@
     "@astrojs/sitemap": "^3.1.2",
     "@astrojs/tailwind": "^5.1.0",
     "@fleekxyz/sdk": "^0.7.3",
+    "@meilisearch/instant-meilisearch": "^0.17.0",
     "@microflash/remark-callout-directives": "^4.1.0",
     "@tailwindcss/aspect-ratio": "^0.4.2",
     "@types/react": "^18.2.74",
     "@types/react-dom": "^18.2.24",
-    "algoliasearch": "^4.23.3",
     "astro": "^4.5.15",
     "framer-motion": "^11.0.24",
     "lodash-es": "^4.17.21",
@@ -38,7 +38,7 @@
     "react-dom": "^18.2.0",
     "react-fast-marquee": "^1.6.4",
     "react-hot-toast": "^2.4.1",
-    "react-instantsearch": "^7.7.1",
+    "react-instantsearch": "^7.7.2",
     "react-tooltip": "^5.26.3",
     "rehype-pretty-code": "^0.13.1",
     "remark-directive": "^3.0.0",
@@ -51,6 +51,7 @@
     "@types/lodash-es": "^4.17.12",
     "@types/markdown-it": "^14.0.1",
     "@types/node": "^20.12.4",
+    "@types/react-instantsearch-dom": "^6.12.7",
     "bun": "^1.1.4",
     "meilisearch": "^0.38.0",
     "remark": "^15.0.1",

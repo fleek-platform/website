@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import algoliasearch from 'algoliasearch/lite';
+import { instantMeiliSearch } from "@meilisearch/instant-meilisearch";
 import {
   InstantSearch,
   SearchBox,
@@ -9,34 +9,31 @@ import {
 
 import type { Hit as AlgoliaHit } from 'instantsearch.js';
 
-// Algolia search key is safe to be made public
-const appId = import.meta.env.PUBLIC_ALGOLIA_APP_ID;
-const apiKey = import.meta.env.PUBLIC_ALGOLIA_API_KEY;
-
-const searchClient = algoliasearch(
-  appId,
-  apiKey,
+const host = import.meta.env.PUBLIC_MEILISEARCH_HOST;
+const { searchClient } = instantMeiliSearch(
+  host,
 );
 
+// TODO: Share types with indexer  
 type HitProps = {
   hit: AlgoliaHit<{
-    overview: string;
+    id: string;
+    title: string;
+    content: string;
+    date: Date;
     url: string;
-    url_without_anchor: string;
   }>;
 };
 
 // TODO: Change to corresponding indexed field
 // at the moment is using dummy data
-const HIT_KEY = "overview";
+const HIT_KEY = "title";
 
 const Hit = ({ hit }: HitProps) => {
   const maxLength = 90;
-
-  if (!hit[HIT_KEY]) return;
   
   return (
-    <a href={hit.url}>
+    <a key={hit.id} href={hit.url}>
       <span className="text-12 bg-neutral-600 transition hover:opacity-80 p-10 leading-loose rounded-8 w-full inline-block">
         {
           hit[HIT_KEY].substring(0, maxLength) + '...'
