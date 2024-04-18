@@ -10,8 +10,10 @@ import {
 import type { Hit as AlgoliaHit } from 'instantsearch.js';
 
 const host = import.meta.env.PUBLIC_MEILISEARCH_HOST;
+const apiKey = import.meta.env.PROD ? import.meta.env.PUBLIC_MEILISEARCH_DOCUMENTS_CLIENT_API_KEY : '';
 const { searchClient } = instantMeiliSearch(
   host,
+  apiKey,
 );
 
 // TODO: Share types with indexer  

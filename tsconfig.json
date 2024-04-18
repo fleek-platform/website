@@ -17,6 +17,7 @@
     "plugins": [{
       "name": "@astrojs/ts-plugin"
     }],
+    "module": "es2020",
     "noErrorTruncation": true
   },
 }
