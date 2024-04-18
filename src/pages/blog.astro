@@ -4,6 +4,8 @@ import Container from "@components/Container";
 import { getCollection } from "astro:content";
 import SearchBtn from '@components/SearchBtn';
 
+const indexNameBlog = import.meta.env.PUBLIC_MEILISEARCH_INDEX_BLOG;
+
 const pageTitle = "Blog";
 const allPosts = await getCollection("blog");
 ---
@@ -15,7 +17,7 @@ const allPosts = await getCollection("blog");
 			<div class="relative flex items-center h-48">
 				<SearchBtn
 					client:load
-					indexName="fleekxyz_website_blog"
+					indexName={indexNameBlog}
 				/>
 			</div>
 		</div>

@@ -6,7 +6,7 @@ import remarkFrontmatter from 'remark-frontmatter';
 import remarkParseFrontmatter from 'remark-parse-frontmatter';
 import MeiliSearch from 'meilisearch';
 
-import type { Index } from 'meilisearch';
+import type { Index, Config } from 'meilisearch';
 
 const sleep = (timeout: number) => {
   return new Promise((resolve) => {
@@ -72,9 +72,20 @@ export default async ({
   host: string;
   indexName: string;
 }) => {
+  const apiKey = process.env.PRIVATE_MEILISEARCH_DOCUMENTS_ADMIN_API_KEY;
+
+  if (!apiKey) throw Error("👹 Oops! Missing admin api key...");
+
+  console.log('[debug]', {
+    host,
+    apiKey,
+    indexName,
+  })
+
   const client = new MeiliSearch({
     host,
-  });
+    apiKey,
+  } as Config);
 
   let index: Index | undefined = undefined;
 
