@@ -12,7 +12,7 @@ const host = process.env.PUBLIC_MEILISEARCH_HOST;
 const targetDir = args[0];
 const indexName = args[1];
 
-if (!targetDir || !indexName) {
+if (!host || !targetDir || !indexName) {
   console.error("👹 Oops! Failed to parse arguments for some reason...");
 
   process.exit(1);
