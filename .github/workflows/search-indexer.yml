@@ -14,7 +14,7 @@ jobs:
       - name: Blog Indexation
         run: |
           npm run search:index_blog_prod
-        with:
+        env:
           PUBLIC_MEILISEARCH_INDEX_BLOG: ${{ secrets.PUBLIC_MEILISEARCH_INDEX_BLOG }}
           PUBLIC_MEILISEARCH_HOST: ${{ secrets.PUBLIC_MEILISEARCH_HOST }}
           PUBLIC_MEILISEARCH_DOCUMENTS_CLIENT_API_KEY: ${{ secrets.PUBLIC_MEILISEARCH_DOCUMENTS_CLIENT_API_KEY }}
