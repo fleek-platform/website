@@ -17,8 +17,8 @@
     "lint:css": "npx stylelint src/**/*.css",
     "check:strict": "npx astro check --minimumFailingSeverity error --minimumSeverity error",
     "search:serve": "./Services/Search/dev.bash",
-    "search:index_blog_dev": "./Services/Search/Indexer/indexation.ts '127.0.0.1:7700' 'src/content/blog' 'fleekxyz_website_blog'",
-    "search:index_blog_prod": "./Services/Search/Indexer/indexation.ts '165.232.41.164' 'src/content/blog' 'fleekxyz_website_blog'"
+    "search:index_blog": "./Services/Search/Indexer/indexation.ts \"src/content/blog\" \"fleekxyz_website_blog\"",
+    "search:index_blog_prod": "dotenvx run -f .env.production -- npm run search:index_blog"
   },
   "dependencies": {
     "@astrojs/check": "^0.5.10",
@@ -49,6 +49,7 @@
   },
   "devDependencies": {
     "@astrojs/ts-plugin": "^1.6.1",
+    "@dotenvx/dotenvx": "^0.34.0",
     "@types/lodash-es": "^4.17.12",
     "@types/markdown-it": "^14.0.1",
     "@types/node": "^20.12.4",

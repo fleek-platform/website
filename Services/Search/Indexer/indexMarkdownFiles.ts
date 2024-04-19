@@ -76,12 +76,6 @@ export default async ({
 
   if (!apiKey) throw Error("👹 Oops! Missing admin api key...");
 
-  console.log('[debug]', {
-    host,
-    apiKey,
-    indexName,
-  })
-
   const client = new MeiliSearch({
     host,
     apiKey,

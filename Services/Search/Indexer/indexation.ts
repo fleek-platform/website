@@ -8,9 +8,15 @@ if (!process.argv.slice(2).length) {
 }
 
 const args = process.argv.slice(2);
-const host = args[0];
-const targetDir = args[1];
-const indexName = args[2];
+const host = process.env.PUBLIC_MEILISEARCH_HOST;
+const targetDir = args[0];
+const indexName = args[1];
+
+if (!targetDir || !indexName) {
+  console.error("👹 Oops! Failed to parse arguments for some reason...");
+
+  process.exit(1);
+}
 
 try {
   const indexMarkdownFiles = await initIndexMarkdownFiles({

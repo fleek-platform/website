@@ -330,6 +330,18 @@ npm run search:serve
 
 ⚠️ You'll see a warning message "No master key was found" that can be ignored for local environment development work. If for some reason you want to have a master key, modify the `search:serve` script to include it.
 
+### Cloud
+
+The default location of the service file is `/etc/systemd/system/meilisearch.service`.
+
+To configure Meilisearch with environment variables in a cloud-hosted instance, modify Meilisearch's env file. Its default location is `/var/opt/meilisearch/env`.
+
+After editing your configuration options, relaunch the Meilisearch service:
+
+```
+systemctl restart meilisearch  
+```
+
 ### Health check
 
 ```sh
@@ -344,7 +356,9 @@ curl \
   -X GET '<PROTOCOL>://<ADDRESS>:<PORT>/health'
 ```
 
-### Indexer (Development)
+### Indexer
+
+The Indexer's job refered to as indexation is the process of organizing and storing data in a structured manner to facilitate efficient search and retrieval.
 
 ### Put markdown content (Development)
 
@@ -353,7 +367,7 @@ If you're running the search server via Docker container, data has to be indexed
 Provide data by running the command:
 
 ```sh
-npm run search:index_blog_dev
+npm run search:index_blog
 ```
 
 ### Query via cURL
