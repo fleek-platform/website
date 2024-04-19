@@ -7,6 +7,7 @@ jobs:
   meilisearch:
     name: MeiliSearch Service
     runs-on: ubuntu-latest
+    environment: production
     steps:
       - name: Checkout Repository
         uses: actions/checkout@v4
@@ -18,6 +19,5 @@ jobs:
         run: |
           npm run search:index_blog
         env:
-          PUBLIC_MEILISEARCH_INDEX_BLOG: ${{ secrets.PUBLIC_MEILISEARCH_INDEX_BLOG }}
-          PUBLIC_MEILISEARCH_HOST: ${{ secrets.PUBLIC_MEILISEARCH_HOST }}
-          PUBLIC_MEILISEARCH_DOCUMENTS_CLIENT_API_KEY: ${{ secrets.PUBLIC_MEILISEARCH_DOCUMENTS_CLIENT_API_KEY }}
+          PRIVATE_MEILISEARCH_DOCUMENTS_ADMIN_API_KEY: ${{ secrets.PRIVATE_MEILISEARCH_DOCUMENTS_ADMIN_API_KEY}}
+          PUBLIC_MEILISEARCH_HOST: ${{ env.PUBLIC_MEILISEARCH_HOST }}

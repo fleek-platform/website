@@ -66,16 +66,14 @@ const toSlug = (name: string) => {
 }
 
 export default async ({
+  apiKey,
   host,
   indexName,
 }: {
   host: string;
   indexName: string;
+  apiKey: string;
 }) => {
-  const apiKey = process.env.PRIVATE_MEILISEARCH_DOCUMENTS_ADMIN_API_KEY;
-
-  if (!apiKey) throw Error("👹 Oops! Missing admin api key...");
-
   const client = new MeiliSearch({
     host,
     apiKey,

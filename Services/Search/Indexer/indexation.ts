@@ -8,19 +8,21 @@ if (!process.argv.slice(2).length) {
 }
 
 const args = process.argv.slice(2);
-const host = process.env.PUBLIC_MEILISEARCH_HOST;
 const targetDir = args[0];
 const indexName = args[1];
 
-if (!host || !targetDir || !indexName) {
+const host = process.env.PUBLIC_MEILISEARCH_HOST;
+const apiKey = process.env.PRIVATE_MEILISEARCH_DOCUMENTS_ADMIN_API_KEY;
+
+if (!apiKey || !host || !targetDir || !indexName) {
   console.error("👹 Oops! Failed to parse arguments for some reason...");
-  console.log('[debug]', host,targetDir, indexName);
 
   process.exit(1);
 }
 
 try {
   const indexMarkdownFiles = await initIndexMarkdownFiles({
+    apiKey,
     host,
     indexName,
   });
