@@ -74,7 +74,11 @@ const toSlug = (name: string) => {
  return text;
 }
 
-const generateUrlPath = ({ filePath }) => {
+const generateUrlPath = ({
+  filePath,
+}: {
+  filePath: string;
+}) => {
   const baseDir = 'src/content/';
 
   if (!filePath.startsWith(baseDir)) {
