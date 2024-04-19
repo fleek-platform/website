@@ -55,6 +55,7 @@
     "@types/node": "^20.12.4",
     "@types/react-instantsearch-dom": "^6.12.7",
     "bun": "^1.1.4",
+    "husky": "^9.0.11",
     "meilisearch": "^0.38.0",
     "remark": "^15.0.1",
     "remark-frontmatter": "^5.0.0",
@@ -64,5 +65,10 @@
     "stylelint-config-recommended": "^14.0.0",
     "stylelint-config-tailwindcss": "^0.0.7",
     "vite-imagetools": "^6.0.0"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "./scripts/check-file-size.ts"
+    }
   }
 }
