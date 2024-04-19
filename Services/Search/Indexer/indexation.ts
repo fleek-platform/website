@@ -14,6 +14,7 @@ const indexName = args[1];
 
 if (!host || !targetDir || !indexName) {
   console.error("👹 Oops! Failed to parse arguments for some reason...");
+  console.log('[debug]', host,targetDir, indexName);
 
   process.exit(1);
 }
