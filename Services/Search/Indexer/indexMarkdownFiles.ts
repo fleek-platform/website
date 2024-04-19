@@ -74,6 +74,24 @@ const toSlug = (name: string) => {
  return text;
 }
 
+const generateUrlPath = ({ filePath }) => {
+  const baseDir = 'src/content/';
+
+  if (!filePath.startsWith(baseDir)) {
+    throw new Error(`👹 Oops! Unexpected file path, as it should start with the base directory ${baseDir}. Is there a new feature that requires implementation updates?`);
+  }
+
+  const relativePath = filePath.substring(baseDir.length);
+
+  const parts = relativePath.split(path.sep);
+
+  const isIndexFile = parts[parts.length - 1].startsWith('index.');
+
+  if (isIndexFile) parts.pop();
+  
+  return `/${parts.join('/')}`;
+}
+
 export default async ({
   apiKey,
   host,
@@ -138,6 +156,8 @@ export default async ({
 
       const content = processedContent.toString();
 
+      const url = generateUrlPath({ filePath });
+
       try {
         // TODO: Change to addDocuments in batches
         // client.index('myIndex').addDocumentsInBatches(documents: Document<T>[], batchSize = 1000): Promise<EnqueuedTask[]>
@@ -148,10 +168,8 @@ export default async ({
           category,
           date,
           desc,
+          url,
         }]);
-
-        // TODO: this should be removed as its only used for debugging at the moment  
-        await waitForTask(client, task.taskUid);
 
         console.log(`✅ Added document ${filePath}`);
       } catch (e) {
