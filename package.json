@@ -19,7 +19,7 @@
     "search:serve": "./Services/Search/dev.bash",
     "search:index_blog": "./Services/Search/Indexer/indexation.ts \"blog\" \"fleekxyz_website_blog\"",
     "search:index_blog_prod_debug": "echo \"⚠️ For debugging production indexation based on local .env.production file!\" && sleep 3 && dotenvx run -f .env.production -- npm run search:index_blog",
-    "prepare": "husky install"
+    "prepare": "husky"
   },
   "dependencies": {
     "@astrojs/check": "^0.5.10",
