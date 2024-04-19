@@ -1,23 +1,20 @@
-name: 🚜 Algolia Crawler (push on main)
+name: 🚜 Search (Indexer)
 on:
   push:
     branches: [ main ]
 
 jobs:
-  algolia_crawl:
-    name: Algolia crawl
+  meilisearch:
+    name: MeiliSearch Service
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout Repo
-        uses: actions/checkout@v2
-
-      - name: Crawler
-        uses: algolia/algoliasearch-crawler-github-actions@v1
-        id: crawler_push
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+        
+      - name: Blog Indexation
+        run: |
+          npm run search:index_blog_prod
         with:
-          crawler-user-id: ${{ secrets.CRAWLER_USER_ID }}
-          crawler-api-key: ${{ secrets.CRAWLER_API_KEY }}
-          algolia-app-id: ${{ secrets.ALGOLIA_APP_ID }}
-          algolia-api-key: ${{ secrets.ALGOLIA_API_KEY }}
-          site-url: 'https://rapping-jelly-echoing.on-fleek.app'
-          override-config: true
+          PUBLIC_MEILISEARCH_INDEX_BLOG: ${{ secrets.PUBLIC_MEILISEARCH_INDEX_BLOG }}
+          PUBLIC_MEILISEARCH_HOST: ${{ secrets.PUBLIC_MEILISEARCH_HOST }}
+          PUBLIC_MEILISEARCH_DOCUMENTS_CLIENT_API_KEY: ${{ secrets.PUBLIC_MEILISEARCH_DOCUMENTS_CLIENT_API_KEY }}
