@@ -1,6 +1,12 @@
 echo "🚑 Health check, please be patient..."
 
-./scripts/check-file-size.ts
+if ./scripts/check-file-size.ts; then
+  echo "✅ File sizes checked!"
+fi
+
+if ./scripts/check-file-extensions.ts; then
+  echo "✅ File extensions checked!"
+fi
 
 echo "👍 Health check completed."
 echo
