@@ -16,6 +16,12 @@ const apiKey = process.env.PRIVATE_MEILISEARCH_DOCUMENTS_ADMIN_API_KEY;
 
 if (!apiKey || !host || !targetDir || !indexName) {
   console.error("👹 Oops! Failed to parse arguments for some reason...");
+  console.log('[debug]', {
+    apiKey: typeof apiKey,
+    host,
+    targetDir,
+    indexName,
+  })
 
   process.exit(1);
 }
