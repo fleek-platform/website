@@ -3,3 +3,4 @@ echo "🚑 Health check, please be patient..."
 ./scripts/check-file-size.ts
 
 echo "👍 Health check completed."
+echo
