@@ -332,7 +332,7 @@ npm run search:serve
 
 ### Cloud
 
-The default location of the service file is `/etc/systemd/system/meilisearch.service`.
+The service hostname is `meili.flkservices.io`. The default location of the service file is `/etc/systemd/system/meilisearch.service`.
 
 To configure Meilisearch with environment variables in a cloud-hosted instance, modify Meilisearch's env file. Its default location is `/var/opt/meilisearch/env`.
 
