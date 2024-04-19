@@ -17,7 +17,7 @@
     "lint:css": "npx stylelint src/**/*.css",
     "check:strict": "npx astro check --minimumFailingSeverity error --minimumSeverity error",
     "search:serve": "./Services/Search/dev.bash",
-    "search:index_blog": "./Services/Search/Indexer/indexation.ts \"src/content/blog\" \"fleekxyz_website_blog\"",
+    "search:index_blog": "./Services/Search/Indexer/indexation.ts \"blog\" \"fleekxyz_website_blog\"",
     "search:index_blog_prod_debug": "echo \"⚠️ For debugging production indexation based on local .env.production file!\" && sleep 3 && dotenvx run -f .env.production -- npm run search:index_blog"
   },
   "dependencies": {

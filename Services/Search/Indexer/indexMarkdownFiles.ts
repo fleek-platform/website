@@ -8,6 +8,15 @@ import MeiliSearch from 'meilisearch';
 
 import type { Index, Config } from 'meilisearch';
 
+const contentBasePath = 'src/content';
+
+export enum ContentDirByName {
+  'blog' = `${contentBasePath}/blog`,
+  'docs' = `${contentBasePath}/docs`,
+};
+
+export type ContentName = keyof typeof ContentDirByName;
+
 const sleep = (timeout: number) => {
   return new Promise((resolve) => {
     setTimeout(() => resolve(true), timeout);
