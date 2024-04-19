@@ -18,7 +18,8 @@
     "check:strict": "npx astro check --minimumFailingSeverity error --minimumSeverity error",
     "search:serve": "./Services/Search/dev.bash",
     "search:index_blog": "./Services/Search/Indexer/indexation.ts \"blog\" \"fleekxyz_website_blog\"",
-    "search:index_blog_prod_debug": "echo \"⚠️ For debugging production indexation based on local .env.production file!\" && sleep 3 && dotenvx run -f .env.production -- npm run search:index_blog"
+    "search:index_blog_prod_debug": "echo \"⚠️ For debugging production indexation based on local .env.production file!\" && sleep 3 && dotenvx run -f .env.production -- npm run search:index_blog",
+    "prepare": "husky install"
   },
   "dependencies": {
     "@astrojs/check": "^0.5.10",
@@ -65,10 +66,5 @@
     "stylelint-config-recommended": "^14.0.0",
     "stylelint-config-tailwindcss": "^0.0.7",
     "vite-imagetools": "^6.0.0"
-  },
-  "husky": {
-    "hooks": {
-      "pre-commit": "./scripts/check-file-size.ts"
-    }
   }
 }
