@@ -10,7 +10,10 @@ jobs:
     steps:
       - name: Checkout Repository
         uses: actions/checkout@v4
-        
+
+      - name: Install Dependencies
+        run: npm ci
+
       - name: Blog Indexation
         run: |
           npm run search:index_blog_prod
