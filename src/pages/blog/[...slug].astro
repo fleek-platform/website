@@ -1,6 +1,7 @@
 ---
 import { getCollection } from 'astro:content';
 import BlogPageLayout from '../../layouts/BlogPage.astro';
+import { getEntry } from 'astro:content';
 import GithubEditLink from '@components/GitHubEditLink.astro';
 
 export async function getStaticPaths() {
@@ -14,7 +15,11 @@ const { entry } = Astro.props;
 const { Content } = await entry.render();
 const currentPage = Astro.url.pathname;
 const currentFile = `${currentPage.replace(/\/$/, '')}.md`;
-const githubEditUrlPathname = currentFile.replace(/\//, '');
+
+// TODO: use function to verify that file exists indeed
+const entryPath = Astro.url.pathname.split('/').filter(Boolean);
+const { id } = await getEntry(...entryPath);
+const githubEditUrlPathname = `${entryPath[0]}/${id}`;
 ---
 
 <BlogPageLayout title={entry.data.title}>
