@@ -11,8 +11,8 @@ import generateSidebarDS, { generateSidebarDSByUserOrder } from '@utils/generate
 import { getCollection } from "astro:content";
 import Sidebar from '@components/Sidebar';
 import OnPageNavigation from '@components/OnPageNavigation/OnPageNavigation.astro';
-import { getEntry } from 'astro:content';
 import GithubEditLink from '@components/GitHubEditLink.astro';
+import { generateGitHubEditLink } from '@utils/url';
 
 import type { MarkdownHeading } from 'astro';
 
@@ -21,14 +21,13 @@ type Props = {
 	headings: MarkdownHeading[];
 };
 
-const { title, headings, url } = Astro.props;
-const currentPage = Astro.url.pathname;
-const currentFile = `${currentPage.replace(/\/$/, '')}.md`;
+const { title, headings, url, id, collection, slug } = Astro.props;
 
 // TODO: use function to verify that file exists indeed
-const entryPath = Astro.url.pathname.split('/').filter(Boolean);
-const { id } = await getentryPath(...entryPath);
-const githubEditUrlPathname = `${entryPath[0]}/${id}`;
+const githubEditUrlPathname = generateGitHubEditLink({
+  collection,
+  id,
+});
 
 const allPosts = await getCollection("docs");
 const orderBy = [{

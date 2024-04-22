@@ -1,3 +1,4 @@
+import fs from 'fs';
 import settings from "@base/settings.json";
 
 export const getSiteUrl = (): string => {
@@ -22,4 +23,20 @@ export const isActivePath = ({
   const re = new RegExp(`^\\/${basePath}(\\/[^\/]+)?$`);
 
   return re.test(lookup);
+}
+
+export const generateGitHubEditLink = ({
+  collection,
+  id,
+}: {
+  collection: string;
+  id: string;
+}) => {
+  const path = `src/content/${collection}/${id}`; 
+  
+  if (!fs.existsSync(path)) {
+    throw Error(`👹 Oops! The GitHub source link verification, couldn't find the resource ${path}`);
+  }
+
+  return `${collection}/${id}`;
 }
