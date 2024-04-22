@@ -50,7 +50,7 @@ const Hit = ({ hit }: HitProps) => {
   
   return (
     <a key={hit.id} href={hit.url}>
-      <span className="text-12 bg-neutral-600 transition hover:opacity-80 p-10 leading-loose rounded-8 w-full inline-block">
+      <span className="text-12 font-light bg-neutral-600 transition hover:opacity-80 p-10 leading-loose rounded-8 w-full inline-block">
         {
           hit[HIT_KEY].substring(0, maxLength) + '...'
         }
@@ -137,11 +137,6 @@ export default ({
                 insights={false}
               >
                 <Configure hitsPerPage={12} />
-                {
-                 /*
-                  <SearchBox className="" autoFocus={true} placeholder='Search...' />
-                 */
-                }
                 <div className="w-full p-10">
                   <CustomSearchBox />
                 </div>
