@@ -8,5 +8,9 @@ if ./scripts/check-file-extensions.ts; then
   echo "✅ File extensions checked!"
 fi
 
+if ./scripts/validate-json.ts; then
+  echo "✅ JSON configs checked!"
+fi
+
 echo "👍 Health check completed."
 echo
