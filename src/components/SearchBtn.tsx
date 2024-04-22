@@ -6,6 +6,7 @@ import {
   Hits,
   Configure,
   useSearchBox,
+  useInstantSearch,
 } from 'react-instantsearch';
 
 import type { Hit as AlgoliaHit } from 'instantsearch.js';
@@ -60,6 +61,7 @@ const Hit = ({ hit }: HitProps) => {
 
 const CustomSearchBox = () => {
   const { query, refine } = useSearchBox();
+  const { results } = useInstantSearch();
   const [inputValue, setInputValue] = useState(query);
   const inputRef = useRef<HTMLInputElement>(null);
 
@@ -70,21 +72,29 @@ const CustomSearchBox = () => {
   }
   
   return (
-    <input
-      className="w-full bg-black rounded-8 outline-0 border-0 font-light p-10 text-16 indent-8"
-      ref={inputRef}
-      autoComplete="off"
-      autoCorrect="off"
-      autoCapitalize="off"
-      placeholder="Search..."
-      spellCheck={false}
-      maxLength={300}
-      value={inputValue}
-      onChange={(event) => {
-        setQuery(event.currentTarget.value);
-      }}
-      autoFocus
-    />
+    <>
+      <input
+        className="w-full bg-black rounded-8 outline-0 border-0 font-light p-10 text-16 indent-8"
+        ref={inputRef}
+        autoComplete="off"
+        autoCorrect="off"
+        autoCapitalize="off"
+        placeholder="Search..."
+        spellCheck={false}
+        maxLength={300}
+        value={inputValue}
+        onChange={(event) => {
+          setQuery(event.currentTarget.value);
+        }}
+        autoFocus
+      />
+      {
+        !results.hits.length
+        && (
+          <p className="text-16 font-light p-10">No results</p>
+        )
+      }
+    </>
   )
 };
 
