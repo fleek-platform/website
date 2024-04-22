@@ -17,26 +17,37 @@ import { generateGitHubEditLink } from '@utils/url';
 import settings from '@base/settings.json';
 
 import type { MarkdownHeading } from 'astro';
+import type { ContentEntryMap } from 'astro:content';
 
 type Props = {
   title: string;
 	headings: MarkdownHeading[];
 };
 
-const { title, headings, url } = Astro.props;
-
-const entryPath = (() => {
+const { title, headings } = Astro.props;
+const { collection, id }: {
+  collection: keyof ContentEntryMap;
+  id: string;
+} = (() => {
   let entries = Astro.url.pathname.split('/').filter(Boolean);
+
+  if (!Array.isArray(entries)) {
+    throw new Error('Expected an array');
+  }
 
   if (entries.length < 2) {
     entries.push('index');
   }
 
-  return entries;
+  return {
+    collection: entries[0] as keyof ContentEntryMap,
+    id: entries[1],
+  };
 })();
 
-const { id } = await getEntry(...entryPath);
-const githubEditUrlPathname = `${entryPath[0]}/${id}`;
+const a: string = "docs";
+const data = await getEntry(collection, id);
+const githubEditUrlPathname = `${collection}/${id}`;
 
 const allPosts = await getCollection("docs");
 const orderBy = settings.docs.menu.order;
