@@ -8,6 +8,9 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
+    env:
+      PRIVATE_MEILISEARCH_DOCUMENTS_ADMIN_API_KEY: ${{ secrets.PRIVATE_MEILISEARCH_DOCUMENTS_ADMIN_API_KEY}}
+      PUBLIC_MEILISEARCH_HOST: ${{ vars.PUBLIC_MEILISEARCH_HOST }}
     steps:
       - name: Checkout your repository using git
         uses: actions/checkout@v4
@@ -18,13 +21,5 @@ jobs:
           cache: 'npm'
       - name: Install
         run: npm ci
-        env:
-          PRIVATE_MEILISEARCH_DOCUMENTS_ADMIN_API_KEY: abc.def
-          PUBLIC_MEILISEARCH_DOCUMENTS_CLIENT_API_KEY: abc.def
-          PUBLIC_MEILISEARCH_HOST: abc.def
       - name: Build site
         run: npm run build
-        env:
-          PRIVATE_MEILISEARCH_DOCUMENTS_ADMIN_API_KEY: abc.def
-          PUBLIC_MEILISEARCH_DOCUMENTS_CLIENT_API_KEY: abc.def
-          PUBLIC_MEILISEARCH_HOST: abc.def
