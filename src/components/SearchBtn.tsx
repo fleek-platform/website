@@ -10,10 +10,10 @@ import {
 import type { Hit as AlgoliaHit } from 'instantsearch.js';
 
 const { apiKey, host } = (() => {
-  const host = import.meta.env.PUBLIC_MEILISEARCH_HOST;
   const apiKey = import.meta.env.PUBLIC_MEILISEARCH_DOCUMENTS_CLIENT_API_KEY;
+  const host = import.meta.env.PUBLIC_MEILISEARCH_HOST;
 
-  if (!host || !apiKey) {
+  if (!apiKey || !host) {
     throw Error(`👹 Oops! Missing environment variables (host ${host}, apiKey ${apiKey})`);
   }
 
