@@ -1,10 +1,11 @@
-import { useState } from 'react';
+import { useState, useRef } from 'react';
 import { instantMeiliSearch } from "@meilisearch/instant-meilisearch";
 import {
   InstantSearch,
   SearchBox,
   Hits,
   Configure,
+  useSearchBox,
 } from 'react-instantsearch';
 
 import type { Hit as AlgoliaHit } from 'instantsearch.js';
@@ -57,6 +58,36 @@ const Hit = ({ hit }: HitProps) => {
   );
 }
 
+const CustomSearchBox = () => {
+  const { query, refine } = useSearchBox();
+  const [inputValue, setInputValue] = useState(query);
+  const inputRef = useRef<HTMLInputElement>(null);
+
+  const setQuery = (newQuery: string) => {
+    setInputValue(newQuery);
+
+    refine(newQuery);
+  }
+  
+  return (
+    <input
+      className="w-full bg-black rounded-8 outline-0 border-0 font-light p-10 text-16 indent-8"
+      ref={inputRef}
+      autoComplete="off"
+      autoCorrect="off"
+      autoCapitalize="off"
+      placeholder="Search..."
+      spellCheck={false}
+      maxLength={300}
+      value={inputValue}
+      onChange={(event) => {
+        setQuery(event.currentTarget.value);
+      }}
+      autoFocus
+    />
+  )
+};
+
 type Props = {
   indexName: string;
 }
@@ -96,7 +127,14 @@ export default ({
                 insights={false}
               >
                 <Configure hitsPerPage={12} />
-                <SearchBox className="" autoFocus={true} placeholder='Search...' />
+                {
+                 /*
+                  <SearchBox className="" autoFocus={true} placeholder='Search...' />
+                 */
+                }
+                <div className="w-full p-10">
+                  <CustomSearchBox />
+                </div>
                 <div className="w-full h-[420px] overflow-hidden overflow-y-visible p-10">
                   <Hits hitComponent={Hit} />
                 </div>
