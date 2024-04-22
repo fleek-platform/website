@@ -9,8 +9,8 @@ jobs:
   build:
     runs-on: ubuntu-latest
     env:
-      PRIVATE_MEILISEARCH_DOCUMENTS_ADMIN_API_KEY: ${{ secrets.PRIVATE_MEILISEARCH_DOCUMENTS_ADMIN_API_KEY}}
-      PUBLIC_MEILISEARCH_HOST: ${{ vars.PUBLIC_MEILISEARCH_HOST }}
+      PRIVATE_MEILISEARCH_DOCUMENTS_ADMIN_API_KEY: abc.def
+      PUBLIC_MEILISEARCH_HOST: abc.def
     steps:
       - name: Checkout your repository using git
         uses: actions/checkout@v4
