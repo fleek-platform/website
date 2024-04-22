@@ -14,6 +14,7 @@ import OnPageNavigation from '@components/OnPageNavigation/OnPageNavigation.astr
 import { getEntry } from 'astro:content';
 import GithubEditLink from '@components/GitHubEditLink.astro';
 import { generateGitHubEditLink } from '@utils/url';
+import settings from '@base/settings.json';
 
 import type { MarkdownHeading } from 'astro';
 
@@ -38,16 +39,7 @@ const { id } = await getEntry(...entryPath);
 const githubEditUrlPathname = `${entryPath[0]}/${id}`;
 
 const allPosts = await getCollection("docs");
-const orderBy = [{
-	category: 'randomx',
-	order: 5,
-}, {
-	category: 'categoryx',
-	order: 3,
-}, {
-	category: 'has_whitespace_and-dash',
-	order: 2,
-}];
+const orderBy = settings.docs.menu.order;
 
 const sidebarSorted = generateSidebarDSByUserOrder(allPosts, orderBy);
 ---

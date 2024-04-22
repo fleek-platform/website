@@ -18,14 +18,14 @@
     "menu": {
       "order": [
         {
-          "category": "randomx",
-          "order": 5
+          "category": "accounts",
+          "order": 1
         }, {
-          "category": "categoryx",
-          "order": 3
-        }, {
-          "category": "has_whitespace_and-dash",
+          "category": "projects",
           "order": 2
+        }, {
+          "category": "Storage",
+          "order": 3
         }
       ]
     }

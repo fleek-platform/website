@@ -21,6 +21,8 @@ This repository contains the source code and assets for the Fleek.xyz website, w
     - [Blog](#-blog)
         - [New post](#-new-post)
         - [Create a Pull request](#-create-a-pull-request)
+    - [Docs](#-docs)
+        - [Sidebar menu item ordering](#-sidebar-menu-item-ordering)
     - [Admonitions](#-admonitions)
     - [Images](#-images)
 - [Development](#-development)
@@ -163,6 +165,39 @@ In the world where text is text, I show you an image:
 
 ![My image](./my-image.jpg)
 ```
+
+## 📝 Docs
+
+Creating a document in the **Docs** section is similar to **Blog**.Learn how to create a document by using the instructions for [blog](#-blog).
+
+## 🎰 Sidebar menu item ordering
+
+Editing the menu and sidebar is crucial. These elements serve as the primary navigation for your visitors, guiding them through your content. 
+
+To reorder menu items, edit the **docs -> menu -> order** section in the settings file located in **src/settings.json**.
+
+Here's an example where we order the categories accounts, projects and storage by naming the category name and order numerical value. If you don't order, the system will fallback to ordering it alphabetically or randomly.
+
+```
+"docs": {
+  "menu": {
+    "order": [
+      {
+        "category": "accounts",
+        "order": 1,
+      }, {
+        "category": "projects",
+        "order": 2,
+      }, {
+        "category": "Storage",
+        "order": 3,
+      }
+    ]
+  }
+}
+```
+
+💡 In the example above, the categories are the "directory", while Content documents (.md files) have a numerical **order** value that is also computed when ordering the sidebar items. For example, the **src/content/docs/index.md** is the landing page document, while **src/content/Accounts** is a directory that has one or more markdown documents.
 
 ## 🥷 Create a Pull request
 
