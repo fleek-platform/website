@@ -10,6 +10,7 @@ import {
 } from 'react-instantsearch';
 
 import type { Hit as AlgoliaHit } from 'instantsearch.js';
+import type { Dispatch, SetStateAction } from 'react';
 
 const { apiKey, host } = (() => {
   const apiKey = import.meta.env.PUBLIC_MEILISEARCH_DOCUMENTS_CLIENT_API_KEY;
@@ -62,7 +63,7 @@ const Hit = ({ hit }: HitProps) => {
 const CustomSearchBox = ({
   setOpenModal,
 }: {
-  setOpenModal: () => void,
+  setOpenModal: Dispatch<SetStateAction<boolean>>,
 }) => {
   const { query, refine } = useSearchBox();
   const { results } = useInstantSearch();
@@ -127,7 +128,7 @@ export default ({
   }, []);
   
   const onSearchFocus = () => setOpenModal(true);
-  const handleKeyDown = (event) => {
+  const handleKeyDown = (event: KeyboardEvent) => {
     if (event.key.toLowerCase() === 'escape') {
       setOpenModal(false);
     }
