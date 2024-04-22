@@ -1,8 +1,9 @@
 name: 🔧 Build (dry-run)
 
 on:
-  pull_request: 
   workflow_dispatch:
+  push:
+    branches: [ develop ]
 
 jobs:
   build:
