@@ -70,7 +70,7 @@ const CustomSearchBox = () => {
 
     refine(newQuery);
   }
-  
+ 
   return (
     <>
       <input
@@ -89,7 +89,7 @@ const CustomSearchBox = () => {
         autoFocus
       />
       {
-        !results.hits.length
+        query && !results.hits.length
         && (
           <p className="text-16 font-light p-10">No results</p>
         )
