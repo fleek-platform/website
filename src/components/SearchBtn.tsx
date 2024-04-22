@@ -102,7 +102,7 @@ const CustomSearchBox = ({
       {
         query && !results.hits.length
         && (
-          <p className="text-16 font-light p-10">No results</p>
+          <p className="text-neutral-400 text-16 font-light p-10">No results</p>
         )
       }
     </>
