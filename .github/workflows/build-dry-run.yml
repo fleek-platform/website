@@ -7,7 +7,6 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
-    environment: production
     steps:
       - name: Checkout your repository using git
         uses: actions/checkout@v4
