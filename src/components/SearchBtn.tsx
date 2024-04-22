@@ -94,7 +94,7 @@ const CustomSearchBox = ({
           autoFocus
         />
         <button
-          className="absolute color p-2 text-10 text-neutral-400	 font-light top-0 right-10 border border-solid border-neutral-400	 rounded-4 top-1/2 transform -translate-y-1/2"
+          className="absolute color p-2 text-10 text-neutral-400	 font-light top-0 right-10 border border-solid border-neutral-400	 rounded-4 top-1/2 transform -translate-y-1/2 transition hover:opacity-80"
           type="button"
           onClick={() => setOpenModal(false)}
         >Esc</button>
