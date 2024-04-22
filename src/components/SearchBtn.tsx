@@ -1,4 +1,4 @@
-import { useState, useRef } from 'react';
+import { useEffect, useState, useRef } from 'react';
 import { instantMeiliSearch } from "@meilisearch/instant-meilisearch";
 import {
   InstantSearch,
@@ -59,7 +59,11 @@ const Hit = ({ hit }: HitProps) => {
   );
 }
 
-const CustomSearchBox = () => {
+const CustomSearchBox = ({
+  setOpenModal,
+}: {
+  setOpenModal: () => void,
+}) => {
   const { query, refine } = useSearchBox();
   const { results } = useInstantSearch();
   const [inputValue, setInputValue] = useState(query);
@@ -73,21 +77,28 @@ const CustomSearchBox = () => {
  
   return (
     <>
-      <input
-        className="w-full bg-black rounded-8 outline-0 border-0 font-light p-10 text-16 indent-8"
-        ref={inputRef}
-        autoComplete="off"
-        autoCorrect="off"
-        autoCapitalize="off"
-        placeholder="Search..."
-        spellCheck={false}
-        maxLength={300}
-        value={inputValue}
-        onChange={(event) => {
-          setQuery(event.currentTarget.value);
-        }}
-        autoFocus
-      />
+      <div className="relative h-auto">
+        <input
+          className="flex w-full bg-black rounded-8 outline-0 border-0 font-light p-10 text-16 indent-8"
+          ref={inputRef}
+          autoComplete="off"
+          autoCorrect="off"
+          autoCapitalize="off"
+          placeholder="Search..."
+          spellCheck={false}
+          maxLength={300}
+          value={inputValue}
+          onChange={(event) => {
+            setQuery(event.currentTarget.value);
+          }}
+          autoFocus
+        />
+        <button
+          className="absolute color p-2 text-10 text-neutral-400	 font-light top-0 right-10 border border-solid border-neutral-400	 rounded-4 top-1/2 transform -translate-y-1/2"
+          type="button"
+          onClick={() => setOpenModal(false)}
+        >Esc</button>
+      </div>
       {
         query && !results.hits.length
         && (
@@ -107,7 +118,20 @@ export default ({
 }: Props) => {
   const [openModal, setOpenModal] = useState(false);
 
+  useEffect(() => {
+    document.addEventListener('keydown', handleKeyDown);
+
+    return () => {
+      document.removeEventListener('keydown', handleKeyDown);
+    };
+  }, []);
+  
   const onSearchFocus = () => setOpenModal(true);
+  const handleKeyDown = (event) => {
+    if (event.key.toLowerCase() === 'escape') {
+      setOpenModal(false);
+    }
+  };
 
   return (
     <>
@@ -138,7 +162,9 @@ export default ({
               >
                 <Configure hitsPerPage={12} />
                 <div className="w-full p-10">
-                  <CustomSearchBox />
+                  <CustomSearchBox
+                    setOpenModal={setOpenModal}  
+                  />
                 </div>
                 <div className="w-full h-[420px] overflow-hidden overflow-y-visible p-10">
                   <Hits hitComponent={Hit} />
