@@ -11,6 +11,7 @@ import generateSidebarDS, { generateSidebarDSByUserOrder } from '@utils/generate
 import { getCollection } from "astro:content";
 import Sidebar from '@components/Sidebar';
 import OnPageNavigation from '@components/OnPageNavigation/OnPageNavigation.astro';
+import { getEntry } from 'astro:content';
 import GithubEditLink from '@components/GitHubEditLink.astro';
 import { generateGitHubEditLink } from '@utils/url';
 
@@ -21,13 +22,20 @@ type Props = {
 	headings: MarkdownHeading[];
 };
 
-const { title, headings, url, id, collection, slug } = Astro.props;
+const { title, headings, url } = Astro.props;
 
-// TODO: use function to verify that file exists indeed
-const githubEditUrlPathname = generateGitHubEditLink({
-  collection,
-  id,
-});
+const entryPath = (() => {
+  let entries = Astro.url.pathname.split('/').filter(Boolean);
+
+  if (entries.length < 2) {
+    entries.push('index');
+  }
+
+  return entries;
+})();
+
+const { id } = await getEntry(...entryPath);
+const githubEditUrlPathname = `${entryPath[0]}/${id}`;
 
 const allPosts = await getCollection("docs");
 const orderBy = [{
@@ -42,10 +50,6 @@ const orderBy = [{
 }];
 
 const sidebarSorted = generateSidebarDSByUserOrder(allPosts, orderBy);
-
-getDocumentUrl({
-  pathname: Astro.url.pathname,
-});
 ---
 
 <BaseHtml title={title}>
