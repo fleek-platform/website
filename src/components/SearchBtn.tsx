@@ -43,22 +43,44 @@ type HitProps = {
   }>;
 };
 
-// TODO: Change to corresponding indexed field
-// at the moment is using dummy data
-const HIT_KEY = "title";
-
 const Hit = ({ hit }: HitProps) => {
-  const maxLength = 90;
+  const { results } = useInstantSearch();
+
+  const { value } = hit._highlightResult?.content as { value: string };
+
+  const parser = new DOMParser();
+  const doc = parser.parseFromString(value, 'text/html');
+  const data = doc.body.textContent || '';
+
+  const text = stripHtmlAndEntities(data);
   
   return (
     <a key={hit.id} href={hit.url}>
-      <span>
-        {
-          hit[HIT_KEY].substring(0, maxLength) + '...'
-        }
-      </span>
+      <span>{ !results.query ? hit.title : text }</span>
     </a>
   );
+}
+
+function stripHtmlAndEntities(htmlString: string) {
+ const strippedOfTags = htmlString.replace(/<[^>]*>/g, '');
+ const decodedString = strippedOfTags.replace(/&([a-z]+);/g, (match, entity) => {
+    switch (entity) {
+      case 'lt':
+        return '<';
+      case 'gt':
+        return '>';
+      case 'amp':
+        return '&';
+      case 'quot':
+        return '"';
+      case 'apos':
+        return "'";
+      default:
+        return match;
+    }
+ });
+
+ return decodedString;
 }
 
 const CustomSearchBox = ({
@@ -70,7 +92,7 @@ const CustomSearchBox = ({
   const { results } = useInstantSearch();
   const [inputValue, setInputValue] = useState(query);
   const inputRef = useRef<HTMLInputElement>(null);
-
+  
   const setQuery = (newQuery: string) => {
     setInputValue(newQuery);
 
@@ -155,12 +177,11 @@ export default ({
                 indexName={indexName}
                 searchClient={searchClient}
                 insights={false}
-                searchParameters={{
-                  attributesToCrop: ['content'],
-                  cropLength: 5,
-                }}
               >
-                <Configure hitsPerPage={12} />
+                <Configure
+                  hitsPerPage={12}
+                  attributesToSnippet={['content:32']}
+                />
                 <div className="modal-custom-search-container">
                   <CustomSearchBox
                     setOpenModal={setOpenModal}  
