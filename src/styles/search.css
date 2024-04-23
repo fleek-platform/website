@@ -1,0 +1,66 @@
+@tailwind components;
+
+@layer components {
+  .search-btn {
+    ol {
+      @apply grid gap-12;
+      li {
+        @apply text-16 border border-solid border-1 border-gray-400 rounded-8 p-20 transition hover:bg-gray-400 hover:text-ui-black font-light cursor-pointer;
+      }
+    }
+  }
+
+  #search-input {
+    @apply outline-0 border-2 focus:border-blue-500 h-full pl-40 rounded-8 font-sans h-20 leading-18 text-18 font-light;
+  }
+
+  .input-container {
+    @apply flex h-40;
+
+    input {
+      @apply outline-0 border-2 focus:border-blue-500 h-full pl-40 rounded-8 font-sans leading-18 text-18 font-light;
+    }
+
+    .icon-container {
+      @apply absolute left-0 flex items-center p-10;
+
+      svg {
+        @apply h-20 w-20;
+        stroke: #aaa;
+      }
+    }
+  }
+
+  .search-box {
+    @apply relative h-auto;
+
+    > input {
+      @apply flex w-full bg-black rounded-8 outline-0 border-0 font-light p-10 text-16 indent-8;
+
+    }
+
+    button {
+      @apply absolute p-2 text-10 text-neutral-400 font-light top-0 right-10 border border-solid border-neutral-400	 rounded-4 top-1/2 transform -translate-y-1/2 transition hover:opacity-80;
+    }
+
+    .no-results {
+      @apply text-neutral-400 text-16 font-light p-10;
+    }
+  }
+
+  .modal-open {
+    @apply fixed inset-0 bg-black bg-opacity-50 flex justify-center z-50;
+  }
+
+  .modal-user-box {
+    @apply bg-ui-fleek-black rounded-8 mt-40 w-640 h-480 p-6 shadow-lg z-100;
+  }
+
+  .modal-custom-search-container {
+    @apply w-full p-10;
+  }
+
+  .modal-hits-container {
+    @apply w-full h-[420px] overflow-hidden overflow-y-visible p-10;
+  }
+}
