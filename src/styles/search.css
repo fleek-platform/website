@@ -5,7 +5,11 @@
     ol {
       @apply grid gap-12;
       li {
-        @apply text-16 border border-solid border-1 border-gray-400 rounded-8 p-20 transition hover:bg-gray-400 hover:text-ui-black font-light cursor-pointer;
+        @apply text-16 border border-solid border-1 border-gray-400 rounded-8 transition hover:bg-gray-400 hover:text-ui-black font-light cursor-pointer;
+
+        a {
+          @apply inline-block p-20;
+        }
       }
     }
   }
