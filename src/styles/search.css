@@ -67,4 +67,8 @@
   .modal-hits-container {
     @apply w-full h-[420px] overflow-hidden overflow-y-visible p-10;
   }
+
+  .modal-no-result {
+    @apply text-16 font-light py-10 m-5 text-ui-mid-grey;
+  }
 }

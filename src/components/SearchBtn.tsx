@@ -3,7 +3,6 @@ import { useEffect, useState, useRef } from 'react';
 import { instantMeiliSearch } from "@meilisearch/instant-meilisearch";
 import {
   InstantSearch,
-  SearchBox,
   Hits,
   Configure,
   useSearchBox,
@@ -124,7 +123,7 @@ const CustomSearchBox = ({
       {
         query && !results.hits.length
         && (
-          <p>No results</p>
+          <p className="modal-no-result">No results</p>
         )
       }
     </>
