@@ -129,16 +129,20 @@ const Nav: React.FC<Props> = ({ pathname }) => {
         <nav className="hidden items-center pl-32 leading-10 gap-40 lg:flex">
           {NAV.map((navItem, index) =>
             navItem.children ? (
-              <NavItemWithSubMenu {...navItem} key={index} pathname={pathname} />
+              <div className="transition hover:opacity-80">
+                <NavItemWithSubMenu {...navItem} key={index} pathname={pathname} />
+              </div>
             ) : (
-              <Link
-                href={navItem.url}
-                target={navItem.openInNewTab ? Target.Blank : Target.Self}
-                key={navItem.url}
-                className={isActivePath({ pathname, lookup: navItem.url }) ? 'font-bold' : ''}
-              >
-                <Text style="nav-m">{navItem.label}</Text>
-              </Link>
+              <div className="transition hover:opacity-80">
+                <Link
+                  href={navItem.url}
+                  target={navItem.openInNewTab ? Target.Blank : Target.Self}
+                  key={navItem.url}
+                  className={isActivePath({ pathname, lookup: navItem.url }) ? 'font-bold' : ''}
+                >
+                  <Text style="nav-m">{navItem.label}</Text>
+                </Link>
+              </div>
             )
           )}
         </nav>
@@ -191,9 +195,9 @@ const Nav: React.FC<Props> = ({ pathname }) => {
                       ? setSelectedItem(null)
                       : setSelectedItem(index)
                   }
-                  className={clsx({
+                  className={`${clsx({
                     hidden: selectedItem !== null && selectedItem === index,
-                  })}
+                  })} hover:opacity-80`}
                 >
                   {navItem.children ? (
                     <Text style="nav-m">
