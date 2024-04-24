@@ -55,13 +55,16 @@ const NavBarConfig: MenuSettingsItem[] = [
         }],
       }],
       side: {
-        label: "Resources",
+        label: "Protocols",
         items: [{
-            label: 'GitHub',
-            url: 'TODO:AddGithubUrl',
+            label: 'Fleek Network',
+            url: 'TODO:AddFNUrl',
           }, {
-            label: 'Templates',
-            url: 'TODO:AddTemplatesUrl',
+            label: 'Arweave',
+            url: 'TODO:AddArweaveURL',
+        }, {
+          label: 'IPFS',
+          url: 'TODO:AddIPFSUrl',
         }],
       },
       ctas: [{
