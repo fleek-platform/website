@@ -12,5 +12,9 @@ if ./scripts/validate-json.ts; then
   echo "✅ JSON configs checked!"
 fi
 
+if npm run check:strict; then
+  echo "✅ Type safety checked!"
+fi
+
 echo "👍 Health check completed."
 echo
