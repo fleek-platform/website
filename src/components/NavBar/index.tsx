@@ -10,10 +10,30 @@ import Text from "@components/Text";
 import ButtonRainbowOutlined from "@components/ButtonRainbowOutlined";
 import { isActivePath } from '@utils/url';
 
-type NavSubMenuNavColItem = Record<'label' | 'url', string>;
-type NavSubMenuNavColProps = {
+import NAV from './config';
+
+export type NavProps = Record<'pathname', string>;
+export type NavSubMenuCtaProps = Record<'label' | 'url', string>;
+export type NavSubMenuNavColProps = {
   label: string;
   items: NavSubMenuNavColItem[];
+};
+export type NavSubMenuNavColItem = Record<'label' | 'url', string>;
+export type NavSubMenuProps = {
+  main: {
+    label: string;
+    items: NavSubMenuNavColItem[];
+  }[];
+  side?: {
+    label: string;
+    items: NavSubMenuNavColItem[];
+  };
+};
+export type MenuSettingsItem = {
+  label: string;
+  children?: NavSubMenuProps;
+  url?: string;
+  openInNewTab?: boolean;
 };
 
 const NavSubMenuNavCol = ({
@@ -37,8 +57,6 @@ const NavSubMenuNavCol = ({
   );
 };
 
-type NavSubMenuCtaProps = Record<'label' | 'url', string>;
-
 const NavSubMenuCta = ({
   label,
   url,
@@ -47,79 +65,6 @@ const NavSubMenuCta = ({
     <span>{label}</span>
   </a>
 );
-
-type NavSubMenuProps = {
-  main: {
-    label: string;
-    items: NavSubMenuNavColItem[];
-  }[];
-  side?: {
-    label: string;
-    items: NavSubMenuNavColItem[];
-  };
-};
-
-type Nav = {
-  label: string;
-  children?: NavSubMenuProps;
-  url?: string;
-  openInNewTab?: boolean;
-};
-
-const NAV: Nav[] = [
-  {
-    label: "Product",
-    children: {
-      main: [{
-        label: "Features",
-        items: [{
-          label: 'Hosting',
-          url: '/hosting',
-        }, {
-          label: 'Storage',
-          url: '/storage',
-        }, {
-          label: 'Domains',
-          url: '/domains',
-        }, {
-          label: 'Gateways',
-          url: '/gateways',
-        }],
-      }, {
-        label: "Resources",
-        items: [{
-          label: 'GitHub',
-          url: 'TODO:AddGithubUrl'
-        }, {
-          label: 'Templates',
-          url: 'TODO:AddTemplatesUrl'
-        }],
-      }],
-      side: {
-        label: "Resources",
-        items: [{
-            label: 'GitHub',
-            url: 'TODO:AddGithubUrl',
-          }, {
-            label: 'Templates',
-            url: 'TODO:AddTemplatesUrl',
-        }],
-      },
-    },
-  },
-  {
-    label: "Blog",
-    url: "/blog",
-  },
-  {
-    label: "Docs",
-    url: "/docs",
-  },
-  {
-    label: "Pricing",
-    url: "/pricing",
-  },
-];
 
 const NavSubMenu = ({
   main,
@@ -162,9 +107,7 @@ const NavSubMenu = ({
       </div>
     </div>
   );
-}
-
-type NavProps = Record<'pathname', string>;
+};
 
 const Nav = ({ pathname }: NavProps) => {
   const [isOpen, setIsOpen] = useState(false);
