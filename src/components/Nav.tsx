@@ -103,70 +103,69 @@ type Props = {
 
 const NavSubMenu: React.FC<Props> = () => {
   return (
-    <div className="group-hover:block dropdown-menu absolute hidden h-auto ease absolute top-full hidden w-[45vw] min-w-[600px] gap-40 border-1 border-white bg-black">
-      <div className="flex w-full">
-        <div className="flex-1">
-          <div className="grid grid-cols-2 gap-50 p-36">
-            <div>
-              <div className="text-12 pb-30 font-sans uppercase text-gray-600 dark:text-gray-500 typography text-caption-01 font-sans">Features</div>
-              <ul className="flex flex-col gap-16 text-body-sm">
+    <div className="nav-sub-menu-container">
+      <div className="nav-sub-menu-wrap">
+        <div className="nav-sub-menu-main-col">
+          <div className="nav-sub-menu-nav-cols">
+            <div className="nav-sub-menu-nav-col">
+              <div className="nav-sub-menu-nav-col-title">Features</div>
+              <ul className="nav-sub-menu-nav-col-list">
                 <li>
-                  <a className="text-16" href="/hosting">Hosting</a>
+                  <a href="/hosting">Hosting</a>
                 </li>
                 <li>
-                  <a className="text-16" href="/storage">Storage</a>
+                  <a href="/storage">Storage</a>
                 </li>
                 <li>
-                  <a className="text-16" href="/hosting">Domains</a>
+                  <a href="/hosting">Domains</a>
                 </li>
                 <li>
-                  <a className="text-16" href="/hosting">Gateways</a>
+                  <a href="/hosting">Gateways</a>
                 </li>
               </ul>
             </div>
-            <div>
-              <div className="text-12 pb-30 font-sans uppercase text-gray-600 dark:text-gray-500 typography text-caption-01 font-sans">Resources</div>
-              <ul className="flex flex-col gap-20 text-body-sm">
+            <div className="nav-sub-menu-nav-col">
+              <div className="nav-sub-menu-nav-col-title">Features</div>
+              <ul className="nav-sub-menu-nav-col-list">
                 <li>
-                  <a className="text-16" href="TODO:GITHUB_URL">GitHub</a>
+                  <a href="TODO:github">GitHub</a>
                 </li>
                 <li>
-                  <a className="text-16" href="TODO:TEMPLATES">Templates</a>
+                  <a href="TODO:templates">Templates</a>
                 </li>
               </ul>
             </div>
           </div>
-          <div className="p-36 pt-18 grid grid-cols-2 gap-50">
-            <div>
-              <a href="" className="inline-block w-auto col-span-auto group relative z-[1] cursor-pointer items-center justify-between overflow-hidden font-sans text-16 p-12 gap-15 bg-gray-900 text-gray-100 dark:bg-gray-100 dark:text-gray-900 dark:active:text-gray-100 rounded-2">
-                <span className="text-16 relative z-[1] inline-block transition-transform">Comparison</span>
+          <div className="nav-sub-menu-cta-items">
+            <div className="nav-sub-menu-cta-items-col">
+              <a href="" className="nav-sub-menu-cta">
+                <span>Comparison</span>
               </a>
             </div>
-            <div>
-              <a href="" className="inline-block w-auto col-span-auto group relative z-[1] cursor-pointer items-center justify-between overflow-hidden font-sans text-16 p-12 bg-gray-900 text-gray-100 dark:bg-gray-100 dark:text-gray-900 dark:active:text-gray-100 rounded-2">
-                <span className="text-16 relative z-[1] inline-block transition-transform">Support</span>
+            <div className="nav-sub-menu-cta-items-col">
+              <a href="" className="nav-sub-menu-cta">
+                <span>Support</span>
               </a>
             </div>
           </div>
         </div>
-        <div className="w-1/3 border-l-1 p-36 border-gray-300 bg-ui-fleek-black">
-            <div>
-              <div className="text-12 pb-30 font-sans uppercase text-gray-600 dark:text-gray-500 typography text-caption-01 font-sans">Protocols</div>
-              <ul className="flex flex-col gap-20 text-body-sm">
-                <li>
-                  <a className="text-16" href="TODO:GITHUB_URL">Fleek Network</a>
-                </li>
-                <li>
-                  <a className="text-16" href="TODO:TEMPLATES">Arweave</a>
-                </li>
-                <li>
-                  <a className="text-16" href="TODO:TEMPLATES">IPFS</a>
-                </li>
-              </ul>
-            </div>
+        <div className="nav-sub-menu-side-container">
+          <div className="nav-sub-menu-nav-col">
+            <div className="nav-sub-menu-nav-col-title">Protocols</div>
+            <ul className="nav-sub-menu-nav-col-list">
+              <li>
+                <a href="TODO:FN">Fleek Network</a>
+              </li>
+              <li>
+                <a href="TODO:AR">Arweave</a>
+              </li>
+              <li>
+                <a href="TODO:IPFS">IPFS</a>
+              </li>
+            </ul>
+          </div>
         </div>
       </div>
-      <div className="fixed w-100vw h-100vh z-0 bg-yellow opacity-05"></div>
     </div>
   );
 }

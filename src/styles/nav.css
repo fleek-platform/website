@@ -64,4 +64,52 @@
   .nav-menu-launch-app {
     @apply mx-auto;
   }
+
+  .nav-sub-menu-container {
+    @apply group-hover:block absolute hidden h-auto top-full hidden w-[45vw] min-w-[600px] gap-40 border-1 border-white bg-black cursor-default;
+  }
+
+  .nav-sub-menu-wrap {
+    @apply flex w-full;
+  }
+
+  .nav-sub-menu-main-col {
+    @apply flex-1;
+  }
+
+  .nav-sub-menu-nav-cols {
+    @apply grid grid-cols-2 gap-50 p-36;
+  }
+
+  .nav-sub-menu-cta-items {
+    @apply p-36 pt-18 grid grid-cols-2 gap-50;
+  }
+
+  .nav-sub-menu-nav-col {
+    
+  }
+
+  .nav-sub-menu-nav-col-title {
+    @apply text-12 pb-30 font-sans uppercase text-gray-600 dark:text-gray-500 font-sans;
+  }
+
+  .nav-sub-menu-nav-col-list {
+    @apply flex flex-col gap-16;
+
+    a {
+      @apply text-16;
+    }
+  }
+
+  .nav-sub-menu-cta {
+    @apply inline-block w-auto relative z-[1] cursor-pointer items-center justify-between overflow-hidden font-sans text-16 p-12 gap-15 bg-gray-900 text-gray-100 dark:bg-gray-100 dark:text-gray-900 dark:active:text-gray-100 rounded-2;
+
+    > span {
+      @apply text-16 relative z-[1] inline-block transition-transform;
+    }
+  }
+
+  .nav-sub-menu-side-container {
+    @apply w-1/3 border-l-1 p-36 border-gray-300 bg-ui-fleek-black;
+  }
 }
