@@ -28,10 +28,11 @@ export type NavSubMenuProps = {
     label: string;
     items: NavSubMenuNavColItem[];
   };
+  ctas?: NavSubMenuCtaProps[];
 };
 export type MenuSettingsItem = {
   label: string;
-  children?: NavSubMenuProps;
+  subMenu?: NavSubMenuProps;
   url?: string;
   openInNewTab?: boolean;
 };
@@ -69,6 +70,7 @@ const NavSubMenuCta = ({
 const NavSubMenu = ({
   main,
   side,
+  ctas,
 }: NavSubMenuProps) => {
   return (
     <div className="nav-sub-menu-container">
@@ -85,13 +87,18 @@ const NavSubMenu = ({
               )
             }
           </div>
-          <div className="nav-sub-menu-cta-items">
-            <div className="nav-sub-menu-cta-items-col">
-              <NavSubMenuCta label="Comparison" url="TODO:addComparisonUrl" />
-            </div>
-            <div className="nav-sub-menu-cta-items-col">
-              <NavSubMenuCta label="Support" url="TODO:addSupportUrl" />
-            </div>
+          <div className={`nav-sub-menu-cta-items ${!ctas ? 'hidden' : ''}`}>
+            {
+              ctas?.map(({ label, url }) => (
+                  <div className="nav-sub-menu-cta-items-col">
+                    <NavSubMenuCta
+                      label={label}
+                      url={url}
+                    />
+                  </div>
+                )
+              )
+            }
           </div>
         </div>
         <div className="nav-sub-menu-side-container">
@@ -134,12 +141,12 @@ const Nav = ({ pathname }: NavProps) => {
         </Link>
         <nav className="hidden items-center pl-32 leading-10 gap-40 lg:flex">
           {NAV.map((navItem, index) =>
-            navItem.children ? (
+            navItem.subMenu ? (
               <div key={index} className="nav-link py-20 nav-drop-down-container relative group">
                 <Text style="nav-m" className="nav-text-item">
                   {navItem.label}
                 </Text>
-                <NavSubMenu main={navItem.children.main} side={navItem.children.side} />
+                <NavSubMenu main={navItem.subMenu.main} side={navItem.subMenu.side} ctas={navItem.subMenu.ctas} />
               </div>
             ) : (
               <div className="nav-link py-20">
@@ -200,7 +207,7 @@ const Nav = ({ pathname }: NavProps) => {
                 <div
                  key={index}
                  onClick={() =>
-                    (!navItem.children || selectedItem) === index
+                    (!navItem.subMenu || selectedItem) === index
                       ? setSelectedItem(null)
                       : setSelectedItem(index)
                  }
@@ -208,10 +215,10 @@ const Nav = ({ pathname }: NavProps) => {
                     "nav-menu-item-selected": selectedItem !== null && selectedItem === index,
                  })} nav-menu-item`}
                 >
-                 {navItem.children ? (
+                 {navItem.subMenu ? (
                     <Text style="nav-m">
                       {navItem.label}
-                      {navItem.children && (
+                      {navItem.subMenu && (
                         <span className="ml-4 inline-block w-8">
                           {selectedItem === index ? "-" : "+"}
                         </span>

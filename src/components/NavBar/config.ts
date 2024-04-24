@@ -1,11 +1,34 @@
 import type { MenuSettingsItem } from './index';
 
-// When editing enable Typescript LSP
-// to avoid any typos
-const NavBarSettings: MenuSettingsItem[] = [
+// Warning: when editing enable Typescript LSP
+// to avoid any typos.
+// 
+// Each `menuItem` is an object with key `label`
+// and `url`. There are the optionals `openInNewTab`
+// and the `subMenu`.
+//
+//  {
+//    label: "Blog",
+//    url: "/blog",
+//    openInNewTab: true or false
+//  }
+//
+// The `subMenu` takes a list of `subMenuItems`.
+// The apearance is limited to the conditions
+// supported by the styles or component.
+//
+// For this reason the data is placed in
+// the `main` and `side` (optional) fields.
+// 
+// {
+//   label: "A title"
+//   items: <Same as `menuItem`>
+// }
+// 
+const NavBarConfig: MenuSettingsItem[] = [
   {
     label: "Product",
-    children: {
+    subMenu: {
       main: [{
         label: "Features",
         items: [{
@@ -41,6 +64,13 @@ const NavBarSettings: MenuSettingsItem[] = [
             url: 'TODO:AddTemplatesUrl',
         }],
       },
+      ctas: [{
+        label: 'Comparison',
+        url: 'TODO:ComparisonUrl'
+      }, {
+        label: 'Support',
+        url: 'TODO:SupportUrl',  
+      }],
     },
   },
   {
@@ -57,4 +87,4 @@ const NavBarSettings: MenuSettingsItem[] = [
   },
 ];
 
-export default NavBarSettings;
+export default NavBarConfig;
