@@ -122,7 +122,16 @@ const NavSubMenuNavCol = ({
       </ul>
     </div>
   );
-}
+};
+
+const NavSubMenuCta = ({
+  title,
+  path,
+}: Record<'title' | 'path', string>) => (
+  <a href={path} className="nav-sub-menu-cta">
+    <span>{title}</span>
+  </a>
+);
 
 const NavSubMenu = () => {
   return (
@@ -163,14 +172,10 @@ const NavSubMenu = () => {
           </div>
           <div className="nav-sub-menu-cta-items">
             <div className="nav-sub-menu-cta-items-col">
-              <a href="" className="nav-sub-menu-cta">
-                <span>Comparison</span>
-              </a>
+              <NavSubMenuCta title="Comparison" path="TODO:addComparisonUrl" />
             </div>
             <div className="nav-sub-menu-cta-items-col">
-              <a href="" className="nav-sub-menu-cta">
-                <span>Support</span>
-              </a>
+              <NavSubMenuCta title="Support" path="TODO:addSupportUrl" />
             </div>
           </div>
         </div>
