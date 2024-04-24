@@ -59,48 +59,6 @@ type NavSubMenuProps = {
   };
 };
 
-const mainData = [{
-  label: "Features",
-  items: [{
-    label: 'Hosting',
-    url: '/hosting',
-  }, {
-    label: 'Storage',
-    url: '/storage',
-  }, {
-    label: 'Domains',
-    url: '/domains',
-  }, {
-    label: 'Gateways',
-    url: '/gateways',
-  }],
-}, {
-  label: "Resources",
-  items: [{
-    label: 'GitHub',
-    url: 'TODO:AddGithubUrl'
-  }, {
-    label: 'Templates',
-    url: 'TODO:AddTemplatesUrl'
-  }],
-}];
-
-const sideData = {
-  label: "Resources",
-  items: [{
-      label: 'GitHub',
-      url: 'TODO:AddGithubUrl',
-    }, {
-      label: 'Templates',
-      url: 'TODO:AddTemplatesUrl',
-  }],
-};
-
-const subMenuData: NavSubMenuProps = {
-  main: mainData,
-  side: sideData,
-};
-
 type Nav = {
   label: string;
   children?: NavSubMenuProps;
@@ -111,7 +69,43 @@ type Nav = {
 const NAV: Nav[] = [
   {
     label: "Product",
-    children: subMenuData,
+    children: {
+      main: [{
+        label: "Features",
+        items: [{
+          label: 'Hosting',
+          url: '/hosting',
+        }, {
+          label: 'Storage',
+          url: '/storage',
+        }, {
+          label: 'Domains',
+          url: '/domains',
+        }, {
+          label: 'Gateways',
+          url: '/gateways',
+        }],
+      }, {
+        label: "Resources",
+        items: [{
+          label: 'GitHub',
+          url: 'TODO:AddGithubUrl'
+        }, {
+          label: 'Templates',
+          url: 'TODO:AddTemplatesUrl'
+        }],
+      }],
+      side: {
+        label: "Resources",
+        items: [{
+            label: 'GitHub',
+            url: 'TODO:AddGithubUrl',
+          }, {
+            label: 'Templates',
+            url: 'TODO:AddTemplatesUrl',
+        }],
+      },
+    },
   },
   {
     label: "Blog",
