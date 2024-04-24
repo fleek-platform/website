@@ -19,12 +19,13 @@ This repository contains the source code and assets for the Fleek.xyz website, w
     - [Contribution guideline](#-contribution-guideline)
 - [Instructions](#-instructions)
     - [Blog](#-blog)
-        - [New post](#-new-post)
+        - [New post](#new-post)
         - [Create a Pull request](#-create-a-pull-request)
     - [Docs](#-docs)
         - [Sidebar menu item ordering](#-sidebar-menu-item-ordering)
     - [Admonitions](#-admonitions)
-    - [Images](#-images)
+    - [Navigation bar](#-navigation-bar)
+        - [Configuration](#-configuration)
 - [Development](#-development)
     - [Search server](#-search-server)
     - [Images (optimization)](#-images-optimization)
@@ -348,6 +349,110 @@ This is a info
 ```
 
 To learn more read the directives [here](https://github.com/Microflash/remark-callout-directives)
+
+## Navigation bar
+
+### 🎰 Configuration
+
+The main Navigation bar can be configured by editing the file located in [src/components/NavBar/config.ts](./src/components/NavBar/config.ts).
+
+Each menu item is represented by an object with the following properties:
+
+- label: A string that defines the text displayed for the menu item.
+- url: A string that specifies the URL to navigate to when the menu item is clicked.
+- openInNewTab (optional): A boolean value (true or false) that determines whether the link should open in a new browser tab.
+
+Example of a basic menu item:
+
+```
+{
+ "label": "Blog",
+ "url": "/blog",
+ "openInNewTab": true
+}
+```
+
+For more complex menus, you can include submenus. A submenu is defined by an object with a label and an items array, which contains a list of menu items.
+
+Example of a menu item with a submenu:
+
+```sh
+{
+ "label": "Products",
+ "items": [
+    {
+      "label": "Product A",
+      "url": "/products/a"
+    },
+    {
+      "label": "Product B",
+      "url": "/products/b"
+    }
+ ]
+}
+```
+
+The menu configuration is divided into two main sections: main and side. Both sections are arrays that contain objects representing menu categories. Each category object can have a label and an items array, similar to the submenu example above.
+
+- main: This section is for the primary menu items. It's an array of category objects.
+- side (optional): This section is for secondary or additional menu items. It follows the same structure as the main section.
+
+Example of a menu configuration with both main and side sections:
+
+```
+{
+ "main": [
+    {
+      "label": "Products",
+      "items": [
+        {
+          "label": "About Us",
+          "url": "/about"
+        }
+      ]
+    },
+    {
+      "label": "Resources",
+      "items": [
+        {
+          "label": "Templates",
+          "url": "/templates"
+        }
+      ],
+    },
+ ],
+ "side": [
+    {
+      "label": "Protocols",
+      "items": [
+        {
+          "label": "Fleek Network",
+          "url": "https://fleek.network",
+          "openInNewTab": true,
+        }
+      ]
+    }
+ ]
+}
+```
+
+In addition to the main and side menus, you can define a list of Call to Action (CTA) items. These are typically used for promotional or important actions. Each CTA is an object with a label and a url.
+
+Example of a CTA configuration:
+
+```
+{
+ "ctas": [
+    {
+      "label": "Sign Up",
+      "url": "/signup"
+    }
+ ]
+}
+```
+
+When configuring your menu, ensure that the structure and properties of your objects match the guidelines provided. This will help maintain consistency and ensure that your menu is displayed correctly. Remember, the appearance of your menu is limited by the styles or components you use, so adjust your configuration or business logic accordingly.
+
 
 # 👷‍♀️Development
 
