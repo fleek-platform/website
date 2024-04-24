@@ -46,8 +46,8 @@ const NavSubMenuNavCol = ({
       <div className="nav-sub-menu-nav-col-title">{label}</div>
       <ul className="nav-sub-menu-nav-col-list">
         {
-          items.map(({ label, url }) => (
-              <li>
+          items.map(({ label, url }, index) => (
+              <li key={`${index}-${label}`}>
                 <a href={url}>{label}</a>
               </li>
             )
@@ -78,8 +78,9 @@ const NavSubMenu = ({
         <div className="nav-sub-menu-main-col">
           <div className="nav-sub-menu-nav-cols">
             {
-              main.map(({ label, items }) => (
+              main.map(({ label, items }, index) => (
                   <NavSubMenuNavCol
+                    key={`${index}-${label}`}
                     label={label}
                     items={items}
                   />
@@ -89,8 +90,11 @@ const NavSubMenu = ({
           </div>
           <div className={`nav-sub-menu-cta-items ${!ctas ? 'hidden' : ''}`}>
             {
-              ctas?.map(({ label, url }) => (
-                  <div className="nav-sub-menu-cta-items-col">
+              ctas?.map(({ label, url }, index) => (
+                  <div
+                    key={`${index}-${label}`}
+                    className="nav-sub-menu-cta-items-col"
+                  >
                     <NavSubMenuCta
                       label={label}
                       url={url}
@@ -143,13 +147,20 @@ const Nav = ({ pathname }: NavProps) => {
           {NAV.map((navItem, index) =>
             navItem.subMenu ? (
               <div key={index} className="nav-link py-20 nav-drop-down-container relative group">
-                <Text style="nav-m" className="nav-text-item">
+                <Text
+                  style="nav-m"
+                  className="nav-text-item"
+                >
                   {navItem.label}
                 </Text>
-                <NavSubMenu main={navItem.subMenu.main} side={navItem.subMenu.side} ctas={navItem.subMenu.ctas} />
+                <NavSubMenu
+                  main={navItem.subMenu.main}
+                  side={navItem.subMenu.side}
+                  ctas={navItem.subMenu.ctas}
+                />
               </div>
             ) : (
-              <div className="nav-link py-20">
+              <div key={index} className="nav-link py-20">
                 <Link
                  href={navItem.url || ''}
                  target={navItem.openInNewTab ? Target.Blank : Target.Self}
