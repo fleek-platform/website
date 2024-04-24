@@ -1,0 +1,67 @@
+@tailwind components;
+
+@layer components {
+  .nav-container {
+    @apply relative z-10 mb-16 flex select-none items-center gap-33 py-16 pl-16 lg:px-28;
+  }
+
+  .nav-link {
+    @apply cursor-pointer;
+    
+    .nav-text-item {
+      @apply transition hover:opacity-80;
+    }
+  }
+
+  .nav-button {
+    @apply ml-auto w-42 px-16 font-plex-sans text-25 leading-[150%] text-ui-white lg:hidden;
+  }
+
+  .nav-button-launch {
+    @apply ml-auto hidden lg:block;
+  }
+
+  .nav-menu {
+    @apply fixed left-0 top-0 z-20 flex h-full w-full flex-col bg-ui-fleek-black pb-50 transition duration-300;
+  }
+
+  .nav-menu-open {
+    @apply pointer-events-auto opacity-100;
+  }
+
+  .nav-menu-closed {
+    @apply pointer-events-none opacity-0;
+  }
+
+  .nav-menu-logo {
+    @apply flex py-8 pl-24;
+  }
+
+  .nav-menu-close-button {
+    @apply ml-auto mr-8 w-42 px-16 font-plex-sans text-25 leading-[150%] text-ui-white;
+  }
+
+  .nav-menu-nav {
+    @apply flex flex-grow flex-col items-center justify-center;
+  }
+
+  .nav-menu-item {
+    @apply hover:opacity-80;
+  }
+
+  .nav-menu-item-selected {
+    @apply hidden;
+  }
+
+  .nav-menu-item-children {
+    @apply flex flex-col items-center gap-16 rounded-12 bg-fleek-gradient p-12;
+  }
+
+  .nav-menu-item-children-link {
+    @apply font-plex-sans text-13 font-medium leading-[150%];
+  }
+
+  .nav-menu-launch-app {
+    @apply mx-auto;
+  }
+}

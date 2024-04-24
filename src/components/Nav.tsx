@@ -1,3 +1,4 @@
+import '@styles/nav.css';
 import Link, { Target } from '@components/Link';
 import { useState, useEffect } from "react";
 import clsx from "clsx";
@@ -35,7 +36,7 @@ type Nav = Array<NavItem>;
 
 const NAV: Nav = [
   {
-    label: "Features",
+    label: "Product",
     children: [
       {
         label: "Hosting",
@@ -100,6 +101,76 @@ type Props = {
   pathname: string;
 }
 
+const NavSubMenu: React.FC<Props> = () => {
+  return (
+    <div className="group-hover:block dropdown-menu absolute hidden h-auto ease absolute top-full hidden w-[45vw] min-w-[600px] gap-40 border-1 border-white bg-black">
+      <div className="flex w-full">
+        <div className="flex-1">
+          <div className="grid grid-cols-2 gap-50 p-36">
+            <div>
+              <div className="text-12 pb-30 font-sans uppercase text-gray-600 dark:text-gray-500 typography text-caption-01 font-sans">Features</div>
+              <ul className="flex flex-col gap-16 text-body-sm">
+                <li>
+                  <a className="text-16" href="/hosting">Hosting</a>
+                </li>
+                <li>
+                  <a className="text-16" href="/storage">Storage</a>
+                </li>
+                <li>
+                  <a className="text-16" href="/hosting">Domains</a>
+                </li>
+                <li>
+                  <a className="text-16" href="/hosting">Gateways</a>
+                </li>
+              </ul>
+            </div>
+            <div>
+              <div className="text-12 pb-30 font-sans uppercase text-gray-600 dark:text-gray-500 typography text-caption-01 font-sans">Resources</div>
+              <ul className="flex flex-col gap-20 text-body-sm">
+                <li>
+                  <a className="text-16" href="TODO:GITHUB_URL">GitHub</a>
+                </li>
+                <li>
+                  <a className="text-16" href="TODO:TEMPLATES">Templates</a>
+                </li>
+              </ul>
+            </div>
+          </div>
+          <div className="p-36 pt-18 grid grid-cols-2 gap-50">
+            <div>
+              <a href="" className="inline-block w-auto col-span-auto group relative z-[1] cursor-pointer items-center justify-between overflow-hidden font-sans text-16 p-12 gap-15 bg-gray-900 text-gray-100 dark:bg-gray-100 dark:text-gray-900 dark:active:text-gray-100 rounded-2">
+                <span className="text-16 relative z-[1] inline-block transition-transform">Comparison</span>
+              </a>
+            </div>
+            <div>
+              <a href="" className="inline-block w-auto col-span-auto group relative z-[1] cursor-pointer items-center justify-between overflow-hidden font-sans text-16 p-12 bg-gray-900 text-gray-100 dark:bg-gray-100 dark:text-gray-900 dark:active:text-gray-100 rounded-2">
+                <span className="text-16 relative z-[1] inline-block transition-transform">Support</span>
+              </a>
+            </div>
+          </div>
+        </div>
+        <div className="w-1/3 border-l-1 p-36 border-gray-300 bg-ui-fleek-black">
+            <div>
+              <div className="text-12 pb-30 font-sans uppercase text-gray-600 dark:text-gray-500 typography text-caption-01 font-sans">Protocols</div>
+              <ul className="flex flex-col gap-20 text-body-sm">
+                <li>
+                  <a className="text-16" href="TODO:GITHUB_URL">Fleek Network</a>
+                </li>
+                <li>
+                  <a className="text-16" href="TODO:TEMPLATES">Arweave</a>
+                </li>
+                <li>
+                  <a className="text-16" href="TODO:TEMPLATES">IPFS</a>
+                </li>
+              </ul>
+            </div>
+        </div>
+      </div>
+      <div className="fixed w-100vw h-100vh z-0 bg-yellow opacity-05"></div>
+    </div>
+  );
+}
+
 const Nav: React.FC<Props> = ({ pathname }) => {
   const [isOpen, setIsOpen] = useState(false);
   const [selectedItem, setSelectedItem] = useState<number | null>(null);
@@ -120,27 +191,30 @@ const Nav: React.FC<Props> = ({ pathname }) => {
   const navChildren = () =>
     selectedItem !== null ? NAV[selectedItem].children : null;
 
-  return (
+ return (
     <Container>
-      <div className="relative z-10 mb-16 flex select-none items-center gap-33 py-16 pl-16 lg:px-28">
+      <div className="nav-container">
         <Link href="/" className="pb-8">
           <img src="/svg/fleek-logo.svg" alt="fleek logo" />
         </Link>
         <nav className="hidden items-center pl-32 leading-10 gap-40 lg:flex">
           {NAV.map((navItem, index) =>
             navItem.children ? (
-              <div className="transition hover:opacity-80">
-                <NavItemWithSubMenu {...navItem} key={index} pathname={pathname} />
+              <div className="nav-link py-20 nav-drop-down-container relative group">
+                <Text style="nav-m" className="nav-text-item">
+                  {navItem.label}
+                </Text>
+                <NavSubMenu />
               </div>
             ) : (
-              <div className="transition hover:opacity-80">
+              <div className="nav-link py-20">
                 <Link
-                  href={navItem.url}
-                  target={navItem.openInNewTab ? Target.Blank : Target.Self}
-                  key={navItem.url}
-                  className={isActivePath({ pathname, lookup: navItem.url }) ? 'font-bold' : ''}
+                 href={navItem.url}
+                 target={navItem.openInNewTab ? Target.Blank : Target.Self}
+                 key={navItem.url}
+                 className={isActivePath({ pathname, lookup: navItem.url }) ? 'font-bold' : 'nav-text-item'}
                 >
-                  <Text style="nav-m">{navItem.label}</Text>
+                 <Text style="nav-m">{navItem.label}</Text>
                 </Link>
               </div>
             )
@@ -148,11 +222,11 @@ const Nav: React.FC<Props> = ({ pathname }) => {
         </nav>
         <button
           onClick={() => setIsOpen(true)}
-          className="ml-auto w-42 px-16 font-plex-sans text-25 leading-[150%] text-ui-white lg:hidden"
+          className="nav-button"
         >
           +
         </button>
-        <div className="ml-auto hidden lg:block">
+        <div className="nav-button-launch">
           <a
             href="https://app.fleek.xyz/"
             target="_blank"
@@ -164,23 +238,23 @@ const Nav: React.FC<Props> = ({ pathname }) => {
       </div>
       <div
         className={clsx(
-          "fixed left-0 top-0 z-20 flex h-full w-full flex-col bg-ui-fleek-black pb-50 transition duration-300",
+          "nav-menu",
           {
-            "pointer-events-none opacity-0": !isOpen,
-            "pointer-events-auto opacity-100": isOpen,
+            "nav-menu-open": isOpen,
+            "nav-menu-closed": !isOpen,
           }
         )}
       >
-        <div className="flex py-8 pl-24">
+        <div className="nav-menu-logo">
           <img src="/svg/fleek-logo.svg" alt="fleek logo" />
           <button
             onClick={() => setIsOpen(false)}
-            className="ml-auto mr-8 w-42 px-16 font-plex-sans text-25 leading-[150%] text-ui-white"
+            className="nav-menu-close-button"
           >
             -
           </button>
         </div>
-        <div className="flex flex-grow flex-col items-center justify-center">
+        <div className="nav-menu-nav">
           <nav>
             <div
               className={clsx("flex flex-col items-center gap-16", {
@@ -189,17 +263,17 @@ const Nav: React.FC<Props> = ({ pathname }) => {
             >
               {NAV.map((navItem, index) => (
                 <div
-                  key={index}
-                  onClick={() =>
+                 key={index}
+                 onClick={() =>
                     (!navItem.children || selectedItem) === index
                       ? setSelectedItem(null)
                       : setSelectedItem(index)
-                  }
-                  className={`${clsx({
-                    hidden: selectedItem !== null && selectedItem === index,
-                  })} hover:opacity-80`}
+                 }
+                 className={`${clsx({
+                    "nav-menu-item-selected": selectedItem !== null && selectedItem === index,
+                 })} nav-menu-item`}
                 >
-                  {navItem.children ? (
+                 {navItem.children ? (
                     <Text style="nav-m">
                       {navItem.label}
                       {navItem.children && (
@@ -208,7 +282,7 @@ const Nav: React.FC<Props> = ({ pathname }) => {
                         </span>
                       )}
                     </Text>
-                  ) : (
+                 ) : (
                     <Link
                       href={navItem.url}
                       target={navItem.openInNewTab ? Target.Blank : Target.Self }
@@ -216,30 +290,30 @@ const Nav: React.FC<Props> = ({ pathname }) => {
                     >
                       <Text style="nav-m">{navItem.label}</Text>
                     </Link>
-                  )}
+                 )}
                 </div>
               ))}
             </div>
             {navChildren() && (
-              <div className="flex flex-col items-center gap-16 rounded-12 bg-fleek-gradient p-12">
+              <div className="nav-menu-item-children">
                 {navChildren()?.map((item, index) => (
-                  <div
-                    className="font-plex-sans text-13 font-medium leading-[150%]"
+                 <div
+                    className="nav-menu-item-children-link"
                     key={index}
-                  >
+                 >
                     <Link
                       href={item.url}
                       target={item.openInNewTab ? Target.Blank : Target.Self}
                     >
                       {item.label}
                     </Link>
-                  </div>
+                 </div>
                 ))}
               </div>
             )}
           </nav>
         </div>
-        <div className="mx-auto">
+        <div className="nav-menu-launch-app">
           <a
             href="https://app.fleek.xyz/"
             target="_blank"
@@ -250,7 +324,7 @@ const Nav: React.FC<Props> = ({ pathname }) => {
         </div>
       </div>
     </Container>
-  );
+ );
 };
 
 export default Nav;
