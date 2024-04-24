@@ -513,7 +513,7 @@ If you're running the search server via Docker container, data has to be indexed
 Provide data by running the command:
 
 ```sh
-npm run search:index_blog
+npm run search:index_all
 ```
 
 ### Query via cURL
