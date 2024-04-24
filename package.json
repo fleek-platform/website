@@ -18,6 +18,7 @@
     "check:strict": "npx astro check --minimumFailingSeverity error --minimumSeverity error",
     "check:json": "./scripts/validate-json.ts",
     "search:serve": "./Services/Search/dev.bash",
+    "search:index_all": "npm run search:index_blog && npm run search:index_docs",
     "search:index_blog": "./Services/Search/Indexer/indexation.ts \"blog\" \"fleekxyz_website_blog\"",
     "search:index_docs": "./Services/Search/Indexer/indexation.ts \"docs\" \"fleekxyz_website_docs\"",
     "search:index_blog_prod_debug": "npm run search:index_warn && dotenvx run -f .env.production -- npm run search:index_blog",
