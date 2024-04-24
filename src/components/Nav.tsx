@@ -6,82 +6,112 @@ import { useMediaQuery } from "@hooks/useMediaQuery";
 import { up } from "@utils/screens";
 
 import Container from "@components/Container";
-import NavItemWithSubMenu from "@components/NavItemWithSubMenu";
 import Text from "@components/Text";
 import ButtonRainbowOutlined from "@components/ButtonRainbowOutlined";
 import { isActivePath } from '@utils/url';
 
-type NavItemSimple = {
-  label: string | JSX.Element;
-  url: string;
-  openInNewTab?: boolean;
-  children?: never;
+type NavSubMenuNavColItem = Record<'label' | 'url', string>;
+type NavSubMenuNavColProps = {
+  label: string;
+  items: NavSubMenuNavColItem[];
 };
 
-export type NavItemWithChildren = {
-  label: string | JSX.Element;
-  url?: never;
-  openInNewTab?: boolean;
-  pathname?: string;
-  children: Array<{
-    label: string | JSX.Element;
-    url: string;
-    openInNewTab?: boolean;
-  }>;
+const NavSubMenuNavCol = ({
+  label,
+  items,
+}: NavSubMenuNavColProps) => {
+  return (
+    <div className="nav-sub-menu-nav-col">
+      <div className="nav-sub-menu-nav-col-title">{label}</div>
+      <ul className="nav-sub-menu-nav-col-list">
+        {
+          items.map(({ label, url }) => (
+              <li>
+                <a href={url}>{label}</a>
+              </li>
+            )
+          )
+        }
+      </ul>
+    </div>
+  );
 };
 
-type NavItem = NavItemSimple | NavItemWithChildren;
+type NavSubMenuCtaProps = Record<'label' | 'url', string>;
 
-type Nav = Array<NavItem>;
+const NavSubMenuCta = ({
+  label,
+  url,
+}: NavSubMenuCtaProps) => (
+  <a href={url} className="nav-sub-menu-cta">
+    <span>{label}</span>
+  </a>
+);
 
-const NAV: Nav = [
+type NavSubMenuProps = {
+  main: {
+    label: string;
+    items: NavSubMenuNavColItem[];
+  }[];
+  side?: {
+    label: string;
+    items: NavSubMenuNavColItem[];
+  };
+};
+
+const mainData = [{
+  label: "Features",
+  items: [{
+    label: 'Hosting',
+    url: '/hosting',
+  }, {
+    label: 'Storage',
+    url: '/storage',
+  }, {
+    label: 'Domains',
+    url: '/domains',
+  }, {
+    label: 'Gateways',
+    url: '/gateways',
+  }],
+}, {
+  label: "Resources",
+  items: [{
+    label: 'GitHub',
+    url: 'TODO:AddGithubUrl'
+  }, {
+    label: 'Templates',
+    url: 'TODO:AddTemplatesUrl'
+  }],
+}];
+
+const sideData = {
+  label: "Resources",
+  items: [{
+      label: 'GitHub',
+      url: 'TODO:AddGithubUrl',
+    }, {
+      label: 'Templates',
+      url: 'TODO:AddTemplatesUrl',
+  }],
+};
+
+const subMenuData: NavSubMenuProps = {
+  main: mainData,
+  side: sideData,
+};
+
+type Nav = {
+  label: string;
+  children?: NavSubMenuProps;
+  url?: string;
+  openInNewTab?: boolean;
+};
+
+const NAV: Nav[] = [
   {
     label: "Product",
-    children: [
-      {
-        label: "Hosting",
-        url: "/hosting",
-      },
-      {
-        label: "Storage",
-        url: "/storage",
-      },
-      {
-        label: "Domains",
-        url: "/domains",
-      },
-      {
-        label: "Gateways",
-        url: "/gateways",
-      },
-      {
-        label: (
-          <span className="flex items-center gap-4">
-            <span className="flex-shrink-0">Fleek Network</span>
-            <img src="/svg/external-link-icon-alt.svg" />
-          </span>
-        ),
-        url: "https://fleek.network",
-        openInNewTab: true,
-      },
-    ],
-  },
-  {
-    label: "Resources",
-    children: [
-      {
-        label: "Github",
-        url: "https://github.com/fleekxyz",
-      },
-      {
-        label: "Knowledge Base",
-        url: "https://support.fleek.xyz/",
-      },
-      {
-        label: "Templates",
-        url: "https://app.fleek.xyz/templates/",
-      },
-    ],
+    children: subMenuData,
   },
   {
     label: "Blog",
@@ -97,104 +127,43 @@ const NAV: Nav = [
   },
 ];
 
-type NavSubMenuNavColItem = Record<'title' | 'path', string>;
-type NavSubMenuNavColProps = {
-  title: string;
-  items: NavSubMenuNavColItem[];
-};
-
-const NavSubMenuNavCol = ({
-  title,
-  items,
-}: NavSubMenuNavColProps) => {
-  return (
-    <div className="nav-sub-menu-nav-col">
-      <div className="nav-sub-menu-nav-col-title">{title}</div>
-      <ul className="nav-sub-menu-nav-col-list">
-        {
-          items.map(({ title, path }) => (
-              <li>
-                <a href={path}>{title}</a>
-              </li>
-            )
-          )
-        }
-      </ul>
-    </div>
-  );
-};
-
-const NavSubMenuCta = ({
-  title,
-  path,
-}: Record<'title' | 'path', string>) => (
-  <a href={path} className="nav-sub-menu-cta">
-    <span>{title}</span>
-  </a>
-);
-
-const NavSubMenu = () => {
+const NavSubMenu = ({
+  main,
+  side,
+}: NavSubMenuProps) => {
   return (
     <div className="nav-sub-menu-container">
       <div className="nav-sub-menu-wrap">
         <div className="nav-sub-menu-main-col">
           <div className="nav-sub-menu-nav-cols">
-            <NavSubMenuNavCol
-              title="Features"
-              items={
-                [{
-                  title: 'Hosting',
-                  path: '/hosting',
-                }, {
-                  title: 'Storage',
-                  path: '/storage',
-                }, {
-                  title: 'Domains',
-                  path: '/domains',
-                }, {
-                  title: 'Gateways',
-                  path: '/gateways',
-                }]
-              }
-            />
-            <NavSubMenuNavCol
-              title="Resources"
-              items={
-                [{
-                  title: 'GitHub',
-                  path: 'TODO:AddGithubUrl',
-                }, {
-                  title: 'Templates',
-                  path: 'TODO:AddTemplatesUrl',
-                }]
-              }
-            />
+            {
+              main.map(({ label, items }) => (
+                  <NavSubMenuNavCol
+                    label={label}
+                    items={items}
+                  />
+                )
+              )
+            }
           </div>
           <div className="nav-sub-menu-cta-items">
             <div className="nav-sub-menu-cta-items-col">
-              <NavSubMenuCta title="Comparison" path="TODO:addComparisonUrl" />
+              <NavSubMenuCta label="Comparison" url="TODO:addComparisonUrl" />
             </div>
             <div className="nav-sub-menu-cta-items-col">
-              <NavSubMenuCta title="Support" path="TODO:addSupportUrl" />
+              <NavSubMenuCta label="Support" url="TODO:addSupportUrl" />
             </div>
           </div>
         </div>
         <div className="nav-sub-menu-side-container">
-          <NavSubMenuNavCol
-            title="Protocols"
-            items={
-              [{
-                title: 'Fleek Network',
-                path: 'TODO:AddFNUrl',
-              }, {
-                title: 'Arweave',
-                path: 'TODO:AddArWeaveUrl',
-              }, {
-                title: 'IPFS',
-                path: 'TODO:AddIpfsUrl',
-              }]
-            }
-          />
+          {
+            side && (
+              <NavSubMenuNavCol
+                label={side.label}
+                items={side.items}
+              />
+            ) || ''
+          }
         </div>
       </div>
     </div>
@@ -220,9 +189,6 @@ const Nav = ({ pathname }: NavProps) => {
     }
   }, [isLg]);
 
-  const navChildren = () =>
-    selectedItem !== null ? NAV[selectedItem].children : null;
-
  return (
     <Container>
       <div className="nav-container">
@@ -236,15 +202,15 @@ const Nav = ({ pathname }: NavProps) => {
                 <Text style="nav-m" className="nav-text-item">
                   {navItem.label}
                 </Text>
-                <NavSubMenu />
+                <NavSubMenu main={navItem.children.main} side={navItem.children.side} />
               </div>
             ) : (
               <div className="nav-link py-20">
                 <Link
-                 href={navItem.url}
+                 href={navItem.url || ''}
                  target={navItem.openInNewTab ? Target.Blank : Target.Self}
                  key={navItem.url}
-                 className={isActivePath({ pathname, lookup: navItem.url }) ? 'font-bold' : 'nav-text-item'}
+                 className={isActivePath({ pathname, lookup: navItem.url || ''}) ? 'font-bold' : 'nav-text-item'}
                 >
                  <Text style="nav-m">{navItem.label}</Text>
                 </Link>
@@ -316,7 +282,7 @@ const Nav = ({ pathname }: NavProps) => {
                     </Text>
                  ) : (
                     <Link
-                      href={navItem.url}
+                      href={navItem.url || ''}
                       target={navItem.openInNewTab ? Target.Blank : Target.Self }
                       key={navItem.url}
                     >
@@ -326,23 +292,6 @@ const Nav = ({ pathname }: NavProps) => {
                 </div>
               ))}
             </div>
-            {navChildren() && (
-              <div className="nav-menu-item-children">
-                {navChildren()?.map((item, index) => (
-                 <div
-                    className="nav-menu-item-children-link"
-                    key={index}
-                 >
-                    <Link
-                      href={item.url}
-                      target={item.openInNewTab ? Target.Blank : Target.Self}
-                    >
-                      {item.label}
-                    </Link>
-                 </div>
-                ))}
-              </div>
-            )}
           </nav>
         </div>
         <div className="nav-menu-launch-app">
