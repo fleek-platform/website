@@ -97,44 +97,69 @@ const NAV: Nav = [
   },
 ];
 
-type Props = {
-  pathname: string;
+type NavSubMenuNavColItem = Record<'title' | 'path', string>;
+type NavSubMenuNavColProps = {
+  title: string;
+  items: NavSubMenuNavColItem[];
+};
+
+const NavSubMenuNavCol = ({
+  title,
+  items,
+}: NavSubMenuNavColProps) => {
+  return (
+    <div className="nav-sub-menu-nav-col">
+      <div className="nav-sub-menu-nav-col-title">{title}</div>
+      <ul className="nav-sub-menu-nav-col-list">
+        {
+          items.map(({ title, path }) => (
+              <li>
+                <a href={path}>{title}</a>
+              </li>
+            )
+          )
+        }
+      </ul>
+    </div>
+  );
 }
 
-const NavSubMenu: React.FC<Props> = () => {
+const NavSubMenu = () => {
   return (
     <div className="nav-sub-menu-container">
       <div className="nav-sub-menu-wrap">
         <div className="nav-sub-menu-main-col">
           <div className="nav-sub-menu-nav-cols">
-            <div className="nav-sub-menu-nav-col">
-              <div className="nav-sub-menu-nav-col-title">Features</div>
-              <ul className="nav-sub-menu-nav-col-list">
-                <li>
-                  <a href="/hosting">Hosting</a>
-                </li>
-                <li>
-                  <a href="/storage">Storage</a>
-                </li>
-                <li>
-                  <a href="/hosting">Domains</a>
-                </li>
-                <li>
-                  <a href="/hosting">Gateways</a>
-                </li>
-              </ul>
-            </div>
-            <div className="nav-sub-menu-nav-col">
-              <div className="nav-sub-menu-nav-col-title">Features</div>
-              <ul className="nav-sub-menu-nav-col-list">
-                <li>
-                  <a href="TODO:github">GitHub</a>
-                </li>
-                <li>
-                  <a href="TODO:templates">Templates</a>
-                </li>
-              </ul>
-            </div>
+            <NavSubMenuNavCol
+              title="Features"
+              items={
+                [{
+                  title: 'Hosting',
+                  path: '/hosting',
+                }, {
+                  title: 'Storage',
+                  path: '/storage',
+                }, {
+                  title: 'Domains',
+                  path: '/domains',
+                }, {
+                  title: 'Gateways',
+                  path: '/gateways',
+                }]
+              }
+            />
+            <NavSubMenuNavCol
+              title="Resources"
+              items={
+                [{
+                  title: 'GitHub',
+                  path: 'TODO:AddGithubUrl',
+                }, {
+                  title: 'Templates',
+                  path: 'TODO:AddTemplatesUrl',
+                }]
+              }
+            />
           </div>
           <div className="nav-sub-menu-cta-items">
             <div className="nav-sub-menu-cta-items-col">
@@ -150,27 +175,30 @@ const NavSubMenu: React.FC<Props> = () => {
           </div>
         </div>
         <div className="nav-sub-menu-side-container">
-          <div className="nav-sub-menu-nav-col">
-            <div className="nav-sub-menu-nav-col-title">Protocols</div>
-            <ul className="nav-sub-menu-nav-col-list">
-              <li>
-                <a href="TODO:FN">Fleek Network</a>
-              </li>
-              <li>
-                <a href="TODO:AR">Arweave</a>
-              </li>
-              <li>
-                <a href="TODO:IPFS">IPFS</a>
-              </li>
-            </ul>
-          </div>
+          <NavSubMenuNavCol
+            title="Protocols"
+            items={
+              [{
+                title: 'Fleek Network',
+                path: 'TODO:AddFNUrl',
+              }, {
+                title: 'Arweave',
+                path: 'TODO:AddArWeaveUrl',
+              }, {
+                title: 'IPFS',
+                path: 'TODO:AddIpfsUrl',
+              }]
+            }
+          />
         </div>
       </div>
     </div>
   );
 }
 
-const Nav: React.FC<Props> = ({ pathname }) => {
+type NavProps = Record<'pathname', string>;
+
+const Nav = ({ pathname }: NavProps) => {
   const [isOpen, setIsOpen] = useState(false);
   const [selectedItem, setSelectedItem] = useState<number | null>(null);
 
@@ -199,7 +227,7 @@ const Nav: React.FC<Props> = ({ pathname }) => {
         <nav className="hidden items-center pl-32 leading-10 gap-40 lg:flex">
           {NAV.map((navItem, index) =>
             navItem.children ? (
-              <div className="nav-link py-20 nav-drop-down-container relative group">
+              <div key={index} className="nav-link py-20 nav-drop-down-container relative group">
                 <Text style="nav-m" className="nav-text-item">
                   {navItem.label}
                 </Text>
