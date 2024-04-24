@@ -1,4 +1,4 @@
-import '@styles/nav.css';
+import './component.css';
 import Link, { Target } from '@components/Link';
 import { useState, useEffect } from "react";
 import clsx from "clsx";

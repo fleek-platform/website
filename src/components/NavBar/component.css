@@ -97,12 +97,12 @@
     @apply flex flex-col gap-16;
 
     a {
-      @apply text-16;
+      @apply text-16 transition hover:opacity-80;
     }
   }
 
   .nav-sub-menu-cta {
-    @apply inline-block w-auto relative z-[1] cursor-pointer items-center justify-between overflow-hidden font-sans text-16 p-12 gap-15 bg-gray-900 text-gray-100 dark:bg-gray-100 dark:text-gray-900 dark:active:text-gray-100 rounded-2;
+    @apply inline-block w-auto relative z-[1] cursor-pointer items-center justify-between overflow-hidden font-sans text-16 p-12 gap-15 bg-gray-900 bg-gray-100 text-gray-900 active:text-gray-100 rounded-2 transition hover:bg-gray-400;
 
     > span {
       @apply text-16 relative z-[1] inline-block transition-transform;
