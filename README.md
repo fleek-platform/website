@@ -16,6 +16,7 @@ This repository contains the source code and assets for the Fleek.xyz website, w
     - [Build](#%EF%B8%8F-build)
     - [Preview (locally)](#-preview-locally)
     - [Preview (staging)](#-preview-staging)
+    - [Code formatter](#-code-formatter)
     - [Contribution guideline](#-contribution-guideline)
 - [Instructions](#-instructions)
     - [Blog](#-blog)
@@ -82,6 +83,14 @@ npm run preview
 ## 👀 Preview staging
 
 You can preview the develop branch version by visiting the preview [here](https://rapping-jelly-echoing.on-fleek.app).
+
+## 🎀 Code Formatter
+
+Code formatter is available by executing the command:
+
+```sh
+npm run fmt
+```
 
 ## 🙏 Contribution guideline
 
