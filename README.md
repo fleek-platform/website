@@ -92,6 +92,12 @@ Code formatter is available by executing the command:
 npm run fmt
 ```
 
+Changes will be written in file. Alternatively, you can run a code format check by running a dry-run, which doesn't make changes in-file:
+
+```sh
+npm run fmt:check
+```
+
 ## 🙏 Contribution guideline
 
 Create branches from the `develop` branch and name it in accordance with conventional commits [here](https://www.conventionalcommits.org/en/v1.0.0/).

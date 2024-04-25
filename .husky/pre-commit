@@ -16,5 +16,9 @@ if npm run check:strict; then
   echo "✅ Type safety checked!"
 fi
 
+if npm run fmt:check; then
+  echo "✅ Code format checked!"
+fi
+
 echo "👍 Health check completed."
 echo
