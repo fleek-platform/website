@@ -24,7 +24,8 @@ type TextStyle =
   | "btn-xs"
   | "btn-s"
   | "btn-l"
-  | "nav-m";
+  | "nav-m"
+  | "nav-item";
 
 interface Props {
   as?: keyof HTMLElementTagNameMap;

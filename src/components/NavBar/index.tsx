@@ -254,7 +254,7 @@ const Nav = ({ pathname }: NavProps) => {
                                         target={
                                           openInNewTab
                                           ? Target.Blank
-                                          : Target.self
+                                          : Target.Self
                                         }
                                       >
                                         <Text
