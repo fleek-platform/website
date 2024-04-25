@@ -155,7 +155,7 @@
   }
 
   .nav-sub-menu-cta {
-    @apply relative z-[1] inline-block w-auto cursor-pointer items-center justify-between gap-15 overflow-hidden rounded-2 bg-gray-100 bg-gray-900 p-12 font-sans text-16 text-gray-900 transition hover:bg-gray-400 active:text-gray-100;
+    @apply relative z-[1] inline-block w-auto cursor-pointer items-center justify-between gap-15 overflow-hidden rounded-2 p-12 font-sans text-16 bg-gray-100 text-gray-900 transition hover:bg-gray-400 hover:text-gray-600;
 
     > span {
       @apply relative z-[1] inline-block text-16 capitalize transition-transform;
