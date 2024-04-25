@@ -137,7 +137,7 @@
   }
 
   .nav-sub-menu-nav-col-title {
-    @apply text-12 pb-30 font-sans uppercase text-gray-600 dark:text-gray-500 font-sans;
+    @apply text-12 pb-20 font-sans uppercase text-gray-600 dark:text-gray-500 font-sans;
   }
 
   .nav-sub-menu-nav-col-list {
