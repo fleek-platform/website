@@ -20,10 +20,12 @@
         {
           "category": "accounts",
           "order": 1
-        }, {
+        },
+        {
           "category": "projects",
           "order": 2
-        }, {
+        },
+        {
           "category": "Domains",
           "order": 5
         }

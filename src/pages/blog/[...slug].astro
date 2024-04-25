@@ -7,8 +7,9 @@ import { generateGitHubEditLink } from '@utils/url';
 
 export async function getStaticPaths() {
   const docsEntries = await getCollection('blog');
-  return docsEntries.map(entry => ({
-    params: { slug: entry.slug }, props: { entry },
+  return docsEntries.map((entry) => ({
+    params: { slug: entry.slug },
+    props: { entry },
   }));
 }
 

@@ -5,7 +5,7 @@
     ol {
       @apply grid gap-12;
       li {
-        @apply text-16 border border-solid border-1 border-gray-400 rounded-8 transition hover:bg-gray-400 hover:text-ui-black font-light cursor-pointer;
+        @apply cursor-pointer rounded-8 border border-1 border-solid border-gray-400 text-16 font-light transition hover:bg-gray-400 hover:text-ui-black;
 
         a {
           @apply inline-block p-20;
@@ -15,14 +15,14 @@
   }
 
   #search-input {
-    @apply outline-0 border-2 focus:border-blue-500 h-full pl-40 rounded-8 font-sans h-20 leading-18 text-18 font-light;
+    @apply h-20 h-full rounded-8 border-2 pl-40 font-sans text-18 font-light leading-18 outline-0 focus:border-blue-500;
   }
 
   .input-container {
     @apply flex h-40;
 
     input {
-      @apply outline-0 border-2 focus:border-blue-500 h-full pl-40 rounded-8 font-sans leading-18 text-18 font-light;
+      @apply h-full rounded-8 border-2 pl-40 font-sans text-18 font-light leading-18 outline-0 focus:border-blue-500;
     }
 
     .icon-container {
@@ -39,25 +39,24 @@
     @apply relative h-auto;
 
     > input {
-      @apply flex w-full bg-black rounded-8 outline-0 border-0 font-light p-10 text-16 indent-8;
-
+      @apply flex w-full rounded-8 border-0 bg-black p-10 indent-8 text-16 font-light outline-0;
     }
 
     button {
-      @apply absolute p-2 text-10 text-neutral-400 font-light top-0 right-10 border border-solid border-neutral-400	 rounded-4 top-1/2 transform -translate-y-1/2 transition hover:opacity-80;
+      @apply absolute right-10 top-0 top-1/2 -translate-y-1/2 transform rounded-4 border border-solid border-neutral-400	 p-2 text-10 font-light text-neutral-400 transition hover:opacity-80;
     }
 
     .no-results {
-      @apply text-neutral-400 text-16 font-light p-10;
+      @apply p-10 text-16 font-light text-neutral-400;
     }
   }
 
   .modal-open {
-    @apply fixed inset-0 bg-black bg-opacity-50 flex justify-center z-50;
+    @apply fixed inset-0 z-50 flex justify-center bg-black bg-opacity-50;
   }
 
   .modal-user-box {
-    @apply bg-ui-fleek-black rounded-8 mt-40 w-640 h-480 p-6 shadow-lg z-100;
+    @apply z-100 mt-40 h-480 w-640 rounded-8 bg-ui-fleek-black p-6 shadow-lg;
   }
 
   .modal-custom-search-container {
@@ -65,10 +64,10 @@
   }
 
   .modal-hits-container {
-    @apply w-full h-[420px] overflow-hidden overflow-y-visible p-10;
+    @apply h-[420px] w-full overflow-hidden overflow-y-visible p-10;
   }
 
   .modal-no-result {
-    @apply text-16 font-light py-10 m-5 text-ui-mid-grey;
+    @apply m-5 py-10 text-16 font-light text-ui-mid-grey;
   }
 }

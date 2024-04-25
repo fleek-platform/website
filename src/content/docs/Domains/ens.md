@@ -1,6 +1,6 @@
 ---
 draft: false
-title: ENS 
+title: ENS
 sidebarCollapsible: false
 sidebar_position: 2
 date: 2023-01-10T09:00:00.000+00:00
@@ -8,11 +8,11 @@ description: Learn to set and manage your .eth domains. Discover the convenience
 category: Documentation
 keywords: [services, documentation, getting started]
 tags:
-- Edge Platform
-- CDN
-- Guide
-- Learn
-- Fleek
+  - Edge Platform
+  - CDN
+  - Guide
+  - Learn
+  - Fleek
 ---
 
 ## Introduction
@@ -59,8 +59,8 @@ IMPORTANT: To set up your ENS using the automatic integration you need to have t
 To configure your ENS using the automatic integration, you need to follow these steps:
 
 1. First you must choose between IPFS or IPNS as the content hash record.
-    - We recommend using IPNS for sites that are going to be updated frequently as this means not paying gas on every update.
-    - If you are not going to update your site frequently and are ok on paying gas to update the content hash on every deploy, you can use IPFS as the content hash record.
+   - We recommend using IPNS for sites that are going to be updated frequently as this means not paying gas on every update.
+   - If you are not going to update your site frequently and are ok on paying gas to update the content hash on every deploy, you can use IPFS as the content hash record.
 2. After selecting the method, users will be prompted to sign a transaction. This action sets up the content hash record with the chosen hash.
 3. Once set up, the site can be accessed via any ENS gateway, such as ETH.limo, by appending '.limo' to the ENS record.
 
@@ -75,12 +75,12 @@ To configure the ENS record using the manual configuration, you need to follow t
 1. Select 'Set manually' as the desired method.
 2. Choose between IPNS or IPFS and copy the corresponding content hash.
 3. Go to the ENS application and set the content hash record manually.
-4. With the edit and management view enabled, you will be able to scroll down to the records section and click ADD/EDIT RECORD. Scroll down to the CONTENT field and enter 
-    - For an IPNS name: `ipns://your-ipns-name`
-    - For an IPFS name: `ipfs://your-ipfs-hash`
+4. With the edit and management view enabled, you will be able to scroll down to the records section and click ADD/EDIT RECORD. Scroll down to the CONTENT field and enter
+   - For an IPNS name: `ipns://your-ipns-name`
+   - For an IPFS name: `ipfs://your-ipfs-hash`
 5. Once set, scroll down to confirm and validate the Ethereum transaction with your wallet.
-6. To finalize the process you need to go back to the Fleek application and click the **Ok! I have added it** button. 
-7. We will run a verification thta the content hash was setted up correctly and if everything is ok, you will see the ENS domain marked as verified. 
+6. To finalize the process you need to go back to the Fleek application and click the **Ok! I have added it** button.
+7. We will run a verification thta the content hash was setted up correctly and if everything is ok, you will see the ENS domain marked as verified.
 8. Once set up, the site can be accessed via any ENS gateway, such as ETH.limo, by appending '.limo' to the ENS record.
 
 ## Manually Adding an ENS Subname

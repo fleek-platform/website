@@ -1,11 +1,11 @@
-import Container from "@components/Container";
-import PageSection from "@components/PageSection";
-import GridLayout from "@components/GridLayout";
-import CardWrapper from "@components/CardWrapper";
-import ExternalLink from "./ExternalLink";
-import TextGlowHoverEffect from "@components/TextGlowHoverEffect";
+import Container from '@components/Container';
+import PageSection from '@components/PageSection';
+import GridLayout from '@components/GridLayout';
+import CardWrapper from '@components/CardWrapper';
+import ExternalLink from './ExternalLink';
+import TextGlowHoverEffect from '@components/TextGlowHoverEffect';
 // @ts-ignore
-import imgGlobeWithBolt from "@images/globe-with-bolt.jpg?w=480&h=480&format=webp";
+import imgGlobeWithBolt from '@images/globe-with-bolt.jpg?w=480&h=480&format=webp';
 
 const GlobeWithFloatingCards = () => {
   return (
@@ -20,7 +20,7 @@ const GlobeWithFloatingCards = () => {
                 </h2>
               </TextGlowHoverEffect>
               <p className="typo-l lg:typo-xl">
-                Your users want fast loading apps{" "}
+                Your users want fast loading apps{' '}
                 <ExternalLink href="https://www.thinkwithgoogle.com/marketing-resources/data-measurement/mobile-page-speed-new-industry-benchmarks/" />
                 . Let&apos;s give them what they want.
               </p>
@@ -31,79 +31,87 @@ const GlobeWithFloatingCards = () => {
                 <div className="z-1 mb-8 flex flex-col gap-y-8 lg:absolute lg:left-[12%] lg:top-1/2 lg:mb-0 lg:w-[32.5rem] lg:-translate-y-1/2 lg:gap-y-48">
                   <CardWrapper>
                     <a href="https://fleek.xyz/hosting/">
-                    <div className="mb-8 flex flex-col gap-8 lg:max-w-[32.5rem]">
-                      <div className="flex flex-col items-center gap-4 lg:flex-row lg:gap-16">
-                        <img src="/svg/hosting-icon.svg" />
-                        <span className="typo-caption-m text-ui-white lg:typo-caption-l">
-                          Hosting
-                        </span>
+                      <div className="mb-8 flex flex-col gap-8 lg:max-w-[32.5rem]">
+                        <div className="flex flex-col items-center gap-4 lg:flex-row lg:gap-16">
+                          <img src="/svg/hosting-icon.svg" />
+                          <span className="typo-caption-m text-ui-white lg:typo-caption-l">
+                            Hosting
+                          </span>
+                        </div>
+                        <p className="typo-xs text-center lg:typo-s lg:text-start">
+                          Host web3 apps on web3 infra (IPFS, ENS, etc.).
+                        </p>
                       </div>
-                      <p className="typo-xs text-center lg:typo-s lg:text-start">
-                        Host web3 apps on web3 infra (IPFS, ENS, etc.).
-                      </p>
-                    </div>
                     </a>
                   </CardWrapper>
                   <CardWrapper className="lg:relative lg:right-72">
-                  <a href="https://fleek.xyz/storage/">
-                    <div className="mb-8 flex flex-col gap-8 lg:max-w-[32.5rem]">
-                      <div className="flex flex-col items-center gap-4 lg:flex-row lg:gap-16">
-                        <img src="/svg/storage-icon.svg" />
-                        <span className="typo-caption-m text-ui-white lg:typo-caption-l">
-                          Storage
-                        </span>
+                    <a href="https://fleek.xyz/storage/">
+                      <div className="mb-8 flex flex-col gap-8 lg:max-w-[32.5rem]">
+                        <div className="flex flex-col items-center gap-4 lg:flex-row lg:gap-16">
+                          <img src="/svg/storage-icon.svg" />
+                          <span className="typo-caption-m text-ui-white lg:typo-caption-l">
+                            Storage
+                          </span>
+                        </div>
+                        <p className="typo-xs text-center lg:typo-s lg:text-start">
+                          Store on Filecoin and Arweave, addressable via IPFS.
+                        </p>
                       </div>
-                      <p className="typo-xs text-center lg:typo-s lg:text-start">
-                        Store on Filecoin and Arweave, addressable via IPFS.
-                      </p>
-                    </div>
                     </a>
                   </CardWrapper>
                   <CardWrapper>
-                  <a href="https://fleek.xyz/domains/">
-                    <div className="mb-8 flex flex-col gap-8 lg:max-w-[32.5rem]">
-                      <div className="flex flex-col items-center gap-4 lg:flex-row lg:gap-16">
-                        <img src="/svg/domains-icon.svg" />
-                        <span className="typo-caption-m text-ui-white lg:typo-caption-l">
-                          Domains
-                        </span>
+                    <a href="https://fleek.xyz/domains/">
+                      <div className="mb-8 flex flex-col gap-8 lg:max-w-[32.5rem]">
+                        <div className="flex flex-col items-center gap-4 lg:flex-row lg:gap-16">
+                          <img src="/svg/domains-icon.svg" />
+                          <span className="typo-caption-m text-ui-white lg:typo-caption-l">
+                            Domains
+                          </span>
+                        </div>
+                        <p className="typo-xs text-center lg:typo-s lg:text-start">
+                          Manage ENS, DNS, and IPNS records.
+                        </p>
                       </div>
-                      <p className="typo-xs text-center lg:typo-s lg:text-start">
-                        Manage ENS, DNS, and IPNS records.
-                      </p>
-                    </div>
                     </a>
                   </CardWrapper>
                 </div>
                 <div className="z-1 flex flex-col gap-y-8 lg:absolute lg:right-[12%] lg:top-1/2 lg:w-[32.5rem] lg:-translate-y-1/2 lg:gap-y-48">
                   <CardWrapper>
-                  <a href="https://docs.fleek.xyz/docs/Storage#content-addressing" target="_blank" rel="noopener noreferrer">
-                    <div className="mb-8 flex flex-col gap-8 lg:max-w-[32.5rem]">
-                      <div className="flex flex-col items-center gap-4 lg:flex-row lg:gap-16">
-                        <img src="/svg/content-addressing-icon.svg" />
-                        <span className="typo-caption-m text-ui-white">
-                          Content Addressing
-                        </span>
+                    <a
+                      href="https://docs.fleek.xyz/docs/Storage#content-addressing"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      <div className="mb-8 flex flex-col gap-8 lg:max-w-[32.5rem]">
+                        <div className="flex flex-col items-center gap-4 lg:flex-row lg:gap-16">
+                          <img src="/svg/content-addressing-icon.svg" />
+                          <span className="typo-caption-m text-ui-white">
+                            Content Addressing
+                          </span>
+                        </div>
+                        <p className="typo-xs text-center lg:typo-s lg:text-start">
+                          Use IPFS and/or IPNS for addressing files and data.
+                        </p>
                       </div>
-                      <p className="typo-xs text-center lg:typo-s lg:text-start">
-                        Use IPFS and/or IPNS for addressing files and data.
-                      </p>
-                    </div>
                     </a>
                   </CardWrapper>
                   <CardWrapper className="lg:relative lg:left-72">
-                  <a href="https://docs.fleek.xyz/docs/Sites#cdn" target="_blank" rel="noopener noreferrer">
-                    <div className="mb-8 flex flex-col gap-8 lg:max-w-[32.5rem]">
-                      <div className="flex flex-col items-center gap-4 lg:flex-row lg:gap-16">
-                        <img src="/svg/concentric-circles-icon.svg" />
-                        <span className="typo-caption-m text-ui-white lg:typo-caption-l">
-                          CDN
-                        </span>
+                    <a
+                      href="https://docs.fleek.xyz/docs/Sites#cdn"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      <div className="mb-8 flex flex-col gap-8 lg:max-w-[32.5rem]">
+                        <div className="flex flex-col items-center gap-4 lg:flex-row lg:gap-16">
+                          <img src="/svg/concentric-circles-icon.svg" />
+                          <span className="typo-caption-m text-ui-white lg:typo-caption-l">
+                            CDN
+                          </span>
+                        </div>
+                        <p className="typo-xs text-center lg:typo-s lg:text-start">
+                          Accelerate files, data, sites, gateways, and more.
+                        </p>
                       </div>
-                      <p className="typo-xs text-center lg:typo-s lg:text-start">
-                        Accelerate files, data, sites, gateways, and more.
-                      </p>
-                    </div>
                     </a>
                   </CardWrapper>
                   <CardWrapper>

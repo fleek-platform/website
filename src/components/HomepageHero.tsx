@@ -1,9 +1,9 @@
-import Container from "@components/Container";
-import GridLayout from "@components/GridLayout";
-import PageSection from "@components/PageSection";
-import Button from "@components/Button";
-import TextGlowHoverEffect from "@components/TextGlowHoverEffect";
-import Text from "./Text";
+import Container from '@components/Container';
+import GridLayout from '@components/GridLayout';
+import PageSection from '@components/PageSection';
+import Button from '@components/Button';
+import TextGlowHoverEffect from '@components/TextGlowHoverEffect';
+import Text from './Text';
 
 const HomepageHero = () => (
   <Container>

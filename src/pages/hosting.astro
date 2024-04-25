@@ -1,33 +1,35 @@
 ---
 import Layout from '@layouts/Page.astro';
-import HostingOnFleek from "@components/HostingOnFleek";
-import BlackFeatureCards from "@components/BlackFeatureCards";
-import ContinuousDelivery from "@components/ContinuousDelivery";
-import FastAsFleek from "@components/FastAsFleek";
-import TrueWeb3Hosting from "@components/TrueWeb3Hosting";
-import HostAnythingOnFleek from "@components/HostAnythingOnFleek";
-import LiveOnTheEdge from "@components/LiveOnTheEdge";
+import HostingOnFleek from '@components/HostingOnFleek';
+import BlackFeatureCards from '@components/BlackFeatureCards';
+import ContinuousDelivery from '@components/ContinuousDelivery';
+import FastAsFleek from '@components/FastAsFleek';
+import TrueWeb3Hosting from '@components/TrueWeb3Hosting';
+import HostAnythingOnFleek from '@components/HostAnythingOnFleek';
+import LiveOnTheEdge from '@components/LiveOnTheEdge';
 import { Image } from 'astro:assets';
-import imgHostingOnFleek from "@images/hosting-on-fleek.png";
+import imgHostingOnFleek from '@images/hosting-on-fleek.png';
 
 // TODO: Move to settings
 // notice that the settings is getting a bit too big? Maybe rethink
 const features = [
   {
     title: 'Build Seamlessly',
-    description: 'Automated CI/CD, git integrations, deploy previews, CLI & SDK’s.',
+    description:
+      'Automated CI/CD, git integrations, deploy previews, CLI & SDK’s.',
     icon: '/svg/edge-icon.svg',
   },
   {
     title: 'Work Colaboratively',
-    description: 'Invite your team, share deploy previews, test builds and track activity.',
+    description:
+      'Invite your team, share deploy previews, test builds and track activity.',
     icon: '/svg/colaborate-icon.svg',
   },
   {
     title: 'Deploy Globally',
     description: 'The Fleek Edge helps your app load lightning fast worldwide',
     icon: '/svg/concentric-circles-icon.svg',
-  }
+  },
 ];
 ---
 

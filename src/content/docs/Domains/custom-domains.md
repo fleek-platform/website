@@ -8,11 +8,11 @@ description: Set up custom DNS domains on Fleek to surface your sites online. Wi
 category: Documentation
 keywords: [services, documentation, getting started]
 tags:
-- Edge Platform
-- CDN
-- Guide
-- Learn
-- Fleek
+  - Edge Platform
+  - CDN
+  - Guide
+  - Learn
+  - Fleek
 ---
 
 ## Introduction

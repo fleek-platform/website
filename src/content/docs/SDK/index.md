@@ -8,10 +8,10 @@ description: The Fleek SDK is a set of tools that allow you to interact with Fle
 category: Documentation
 keywords: [services, documentation, getting started]
 tags:
-- Accounts
-- Guide
-- Learn
-- Fleek
+  - Accounts
+  - Guide
+  - Learn
+  - Fleek
 ---
 
 ## Introduction
@@ -37,14 +37,15 @@ yarn install @fleekxyz/sdk
 ```
 
 ## Authentication
+
 To authenticate, you must provide an `Access Token Service`. Currently, there are two `Access Token Service` available `PersonalAccessTokenService` and `ApplicationAccessTokenService`, but we’re working on adding more services.
 
 ### Available Authenticaition options
 
-|*Auth method*|*Web Environment*|*Node Environment*|
-|:----------:|:-----------:|:----:|
-|`PersonalAccessTokenService`|❌|✅|
-|`ApplicationAccessTokenService`|✅|❌|
+|          _Auth method_          | _Web Environment_ | _Node Environment_ |
+| :-----------------------------: | :---------------: | :----------------: |
+|  `PersonalAccessTokenService`   |        ❌         |         ✅         |
+| `ApplicationAccessTokenService` |        ✅         |         ❌         |
 
 ### Updating `AccessTokenService`
 
@@ -54,9 +55,9 @@ If you need to access multiple projects or switch between them, you will need to
 import { FleekSdk, PersonalAccessTokenService } from '@fleekxyz/sdk';
 
 const newAccessTokenService = new PersonalAccessTokenService({
-	personalAccessToken: '<your-personal-access-token>',
-	projectId: '<your-project-id>',
-})
+  personalAccessToken: '<your-personal-access-token>',
+  projectId: '<your-project-id>',
+});
 
 const fleekSdk = new FleekSdk({ accessTokenService: newAccessTokenService });
 ```
@@ -65,28 +66,30 @@ const fleekSdk = new FleekSdk({ accessTokenService: newAccessTokenService });
 
 The personal access token (PAT) is ment to be used in Backend Node.js environment and should be kept private, you should use an environment variable to store it.
 
-#### *Parameters*
-  |*parameters*|*description*|
-  |:----------:|:-----------:|
-  |`personalAccessToken`|Private PAT, generated from the `CLI`.|
-  |`projectId` (Optional)|Project Id is required for IPFS and IPNS service |
+#### _Parameters_
 
-  This method of authentication relies on a `personalAccessToken` which can be obtained from the Fleek CLI:
+|      _parameters_      |                  _description_                   |
+| :--------------------: | :----------------------------------------------: |
+| `personalAccessToken`  |      Private PAT, generated from the `CLI`.      |
+| `projectId` (Optional) | Project Id is required for IPFS and IPNS service |
 
-  ```bash copy
-  fleek pat create
-  ```
+This method of authentication relies on a `personalAccessToken` which can be obtained from the Fleek CLI:
+
+```bash copy
+fleek pat create
+```
 
 #### Example
+
 ```typescript copy
 import { FleekSdk, PersonalAccessTokenService } from '@fleekxyz/sdk';
 
 const patService = new PersonalAccessTokenService({
-    personalAccessToken: '<your-pat>',
-    projectId: '<your-project-id>' // Optional
-})
+  personalAccessToken: '<your-pat>',
+  projectId: '<your-project-id>', // Optional
+});
 
-const fleekSdk = new FleekSdk({ accessTokenService: patService })
+const fleekSdk = new FleekSdk({ accessTokenService: patService });
 ```
 
 ### Application Access Token
@@ -95,11 +98,12 @@ Application credentials are the keys to your project. They are used to authentic
 
 You can create an application token following the steps [here](/docs/Projects/application-credentials).
 
-### *Parameters*
-|*parameters*|*description*|
-|:----------:|:-----------:|
-|`clientId`|Client Id, generated from the `CLI`.|
-|`authAppsServiceUrl` (Optional)| |
+### _Parameters_
+
+|          _parameters_           |            _description_             |
+| :-----------------------------: | :----------------------------------: |
+|           `clientId`            | Client Id, generated from the `CLI`. |
+| `authAppsServiceUrl` (Optional) |                                      |
 
 This method of authentication relies on a `clientId` which can be obtained after creating an application from the CLI:
 
@@ -111,12 +115,13 @@ This method of authentication relies on a `clientId` which can be obtained after
 ```
 
 ### Example
+
 ```typescript copy
 import { FleekSdk, ApplicationAccessTokenService } from '@fleekxyz/sdk';
 
 const applicationService = new ApplicationAccessTokenService({
-    clientId: '<your-client-id>',
-})
+  clientId: '<your-client-id>',
+});
 
-const fleekSdk = new FleekSdk({ accessTokenService: applicationService })
+const fleekSdk = new FleekSdk({ accessTokenService: applicationService });
 ```

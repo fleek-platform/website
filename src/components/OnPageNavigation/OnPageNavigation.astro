@@ -3,21 +3,21 @@ import TableOfContents from './TableOfContents';
 import type { MarkdownHeading } from 'astro';
 
 type Props = {
-	headings: MarkdownHeading[];
-	githubEditUrl: string;
+  headings: MarkdownHeading[];
+  githubEditUrl: string;
 };
 
 const { headings, githubEditUrl } = Astro.props as Props;
 ---
 
 <nav class="sidebar-nav" aria-labelledby="grid-right">
-	<div>
-	{
-		headings.length
-		? (
-			<TableOfContents client:media="(min-width: 50em)" headings={headings} />
-		)
-		: ''
-	}
-	</div>
+  <div>
+    {
+      headings.length ? (
+        <TableOfContents client:media="(min-width: 50em)" headings={headings} />
+      ) : (
+        ''
+      )
+    }
+  </div>
 </nav>

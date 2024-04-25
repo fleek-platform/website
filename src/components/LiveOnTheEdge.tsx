@@ -1,9 +1,9 @@
-import Container from "@components/Container";
-import ActionButton from "@components/ActionButton";
-import GridLayout from "@components/GridLayout";
-import PageSection from "@components/PageSection";
-import Text from "@components/Text";
-import TextGlowHoverEffect from "./TextGlowHoverEffect";
+import Container from '@components/Container';
+import ActionButton from '@components/ActionButton';
+import GridLayout from '@components/GridLayout';
+import PageSection from '@components/PageSection';
+import Text from '@components/Text';
+import TextGlowHoverEffect from './TextGlowHoverEffect';
 
 const LiveOnTheEdge = () => (
   <Container>

@@ -1,99 +1,99 @@
-import GridLayout from "@components/GridLayout";
-import Container from "@components/Container";
-import Text from "@components/Text";
-import IconSocial from "@components/IconSocial";
-import StatusBar from "@components/StatusBar";
-import Link, { Target } from "@components/Link";
+import GridLayout from '@components/GridLayout';
+import Container from '@components/Container';
+import Text from '@components/Text';
+import IconSocial from '@components/IconSocial';
+import StatusBar from '@components/StatusBar';
+import Link, { Target } from '@components/Link';
 
 const RESOURCES = [
   {
-    text: "Pricing",
-    url: "/pricing",
+    text: 'Pricing',
+    url: '/pricing',
   },
   {
-    text: "Documentation",
-    url: "https://docs.fleek.xyz/",
-    target: "_blank",
-    rel: "noopener noreferrer",
+    text: 'Documentation',
+    url: 'https://docs.fleek.xyz/',
+    target: '_blank',
+    rel: 'noopener noreferrer',
   },
   {
-    text: "Community",
-    url: "https://discord.gg/fleek",
-    target: "_blank",
-    rel: "noopener noreferrer",
+    text: 'Community',
+    url: 'https://discord.gg/fleek',
+    target: '_blank',
+    rel: 'noopener noreferrer',
   },
   {
-    text: "Support",
-    url: "https://support.fleek.xyz/",
-    target: "_blank",
-    rel: "noopener noreferrer",
+    text: 'Support',
+    url: 'https://support.fleek.xyz/',
+    target: '_blank',
+    rel: 'noopener noreferrer',
   },
   {
-    text: "Blog",
-    url: "https://blog.fleek.xyz/",
-    target: "_blank",
-    rel: "noopener noreferrer",
+    text: 'Blog',
+    url: 'https://blog.fleek.xyz/',
+    target: '_blank',
+    rel: 'noopener noreferrer',
   },
 ];
 
 const PRODUCT = [
   {
-    text: "Hosting",
-    url: "/hosting",
+    text: 'Hosting',
+    url: '/hosting',
   },
   {
-    text: "Storage",
-    url: "/storage",
+    text: 'Storage',
+    url: '/storage',
   },
   {
-    text: "Domains",
-    url: "/domains",
+    text: 'Domains',
+    url: '/domains',
   },
   {
-    text: "Gateways",
-    url: "/gateways",
+    text: 'Gateways',
+    url: '/gateways',
   },
   {
-    text: "Fleek Network",
-    url: "https://fleek.network/",
-    target: "_blank",
-    rel: "noopener noreferrer",
+    text: 'Fleek Network',
+    url: 'https://fleek.network/',
+    target: '_blank',
+    rel: 'noopener noreferrer',
   },
 ];
 
 const COMPANY = [
   {
-    text: "Careers",
-    url: "https://wellfound.com/company/fleekhq/",
-    target: "_blank",
-    rel: "noopener noreferrer",
+    text: 'Careers',
+    url: 'https://wellfound.com/company/fleekhq/',
+    target: '_blank',
+    rel: 'noopener noreferrer',
   },
   {
-    text: "Contact Us",
-    url: "https://support.fleek.xyz/",
-    target: "_blank",
-    rel: "noopener noreferrer",
+    text: 'Contact Us',
+    url: 'https://support.fleek.xyz/',
+    target: '_blank',
+    rel: 'noopener noreferrer',
   },
 ];
 
 const LEGAL = [
   {
-    text: "Terms of Service",
-    url: "https://docs.fleek.xyz/docs/terms",
-    target: "_blank",
-    rel: "noopener noreferrer",
+    text: 'Terms of Service',
+    url: 'https://docs.fleek.xyz/docs/terms',
+    target: '_blank',
+    rel: 'noopener noreferrer',
   },
   {
-    text: "Privacy Policies",
-    url: "https://docs.fleek.xyz/docs/privacy",
-    target: "_blank",
-    rel: "noopener noreferrer",
+    text: 'Privacy Policies',
+    url: 'https://docs.fleek.xyz/docs/privacy',
+    target: '_blank',
+    rel: 'noopener noreferrer',
   },
   {
-    text: "Report Abuse",
-    url: "https://support.fleek.xyz/hc/en-us/requests/new?ticket_form_id=16807535390093/",
-    target: "_blank",
-    rel: "noopener noreferrer",
+    text: 'Report Abuse',
+    url: 'https://support.fleek.xyz/hc/en-us/requests/new?ticket_form_id=16807535390093/',
+    target: '_blank',
+    rel: 'noopener noreferrer',
   },
 ];
 
@@ -117,13 +117,25 @@ const Footer = () => {
               Build lightning fast web3 apps on the edge.
             </Text>
             <div className="mb-16 flex gap-16">
-              <a href="https://github.com/fleekxyz" rel="noopener noreferrer" target="_blank">
+              <a
+                href="https://github.com/fleekxyz"
+                rel="noopener noreferrer"
+                target="_blank"
+              >
                 <IconSocial icon="github" />
               </a>
-              <a href="https://twitter.com/fleekxyz/" rel="noopener noreferrer" target="_blank">
+              <a
+                href="https://twitter.com/fleekxyz/"
+                rel="noopener noreferrer"
+                target="_blank"
+              >
                 <IconSocial icon="twitter" />
               </a>
-              <a href="https://discord.gg/fleek" rel="noopener noreferrer" target="_blank">
+              <a
+                href="https://discord.gg/fleek"
+                rel="noopener noreferrer"
+                target="_blank"
+              >
                 <IconSocial icon="discord" />
               </a>
             </div>
@@ -138,7 +150,14 @@ const Footer = () => {
                 <ul className="flex flex-col gap-10 md:gap-8">
                   {RESOURCES.map((item, index) => (
                     <li className="flex justify-start" key={index}>
-                      <Link href={item.url} target={item.target?.toLowerCase() === '_blank' ? Target.Blank : Target.Self}>
+                      <Link
+                        href={item.url}
+                        target={
+                          item.target?.toLowerCase() === '_blank'
+                            ? Target.Blank
+                            : Target.Self
+                        }
+                      >
                         <Text style="caption-text">{item.text}</Text>
                       </Link>
                     </li>
@@ -150,7 +169,14 @@ const Footer = () => {
                 <ul className="flex flex-col gap-10 md:gap-8">
                   {PRODUCT.map((item, index) => (
                     <li className="flex justify-start" key={index}>
-                      <Link href={item.url} target={item.target?.toLowerCase() == '_blank' ? Target.Blank : Target.Self}>
+                      <Link
+                        href={item.url}
+                        target={
+                          item.target?.toLowerCase() == '_blank'
+                            ? Target.Blank
+                            : Target.Self
+                        }
+                      >
                         <Text style="caption-text">{item.text}</Text>
                       </Link>
                     </li>
@@ -162,7 +188,14 @@ const Footer = () => {
                 <ul className="flex flex-col gap-10 md:gap-8">
                   {COMPANY.map((item, index) => (
                     <li className="flex justify-start" key={index}>
-                      <Link href={item.url} target={item.target?.toLowerCase() == '_blank' ? Target.Blank : Target.Self}>
+                      <Link
+                        href={item.url}
+                        target={
+                          item.target?.toLowerCase() == '_blank'
+                            ? Target.Blank
+                            : Target.Self
+                        }
+                      >
                         <Text style="caption-text">{item.text}</Text>
                       </Link>
                     </li>
@@ -174,7 +207,14 @@ const Footer = () => {
                 <ul className="flex flex-col gap-10 md:gap-8">
                   {LEGAL.map((item, index) => (
                     <li className="flex justify-start" key={index}>
-                      <Link href={item.url} target={item.target?.toLowerCase() == '_blank' ? Target.Blank : Target.Self}>
+                      <Link
+                        href={item.url}
+                        target={
+                          item.target?.toLowerCase() == '_blank'
+                            ? Target.Blank
+                            : Target.Self
+                        }
+                      >
                         <Text style="caption-text">{item.text}</Text>
                       </Link>
                     </li>

@@ -1,6 +1,6 @@
 ---
 draft: false
-title: Gateway 
+title: Gateway
 sidebarCollapsible: false
 sidebar_position: 8
 date: 2023-01-10T09:00:00.000+00:00
@@ -8,10 +8,10 @@ description: Learn how to set up and configure a private gateway on Fleek, servi
 category: Documentation
 keywords: [services, documentation, getting started]
 tags:
-- Accounts
-- Guide
-- Learn
-- Fleek
+  - Accounts
+  - Guide
+  - Learn
+  - Fleek
 ---
 
 ## Creating a private gateway
@@ -26,18 +26,18 @@ To create a gateway using the CLI you will need to run the following command:
 > Success! Private gateway "my-first-gateway" successfully created.
 ```
 
-The next step will be to configure the custom domain for your gateway. 
+The next step will be to configure the custom domain for your gateway.
 
 ```shellscript filename="Configuring the custom domain" copy
 > fleek gateways create
 ✔ Enter private gateway name (eg. first): … my-first-gateway
 ✔ Enter domain name (eg. example.com): … ipfs.my-gateway.online
-> Success! Domain "ipfs.my-gateway.online" successfully created.   
+> Success! Domain "ipfs.my-gateway.online" successfully created.
 ```
 
 Now that the domain is created you will need to set up the correct DNS records to make sure that your domain points to the CDN pull zone. The CLI will provide you with the DNS records you need to add to your domain.
 
-```shellscript  filename="Setting up the DNS records" copy
+```shellscript filename="Setting up the DNS records" copy
 > fleek gateways creat
 ✔ Enter private gateway name (eg. first): … my-first-gateway
 ✔ Enter domain name (eg. example.com): … ipfs.my-gateway.online
@@ -59,7 +59,7 @@ Once you have confured your DNS records, you can verify your domain. To do this,
 > Update DNS records for "ipfs.my-gateway.online":
 > CNAME @ <your-pullzone-id>.fleekcdn.xyz
 > Press any key as soon as you configure your domain provider for verification.
-> Success! Domain "ipfs.my-gateway.online" was verified.    
+> Success! Domain "ipfs.my-gateway.online" was verified.
 ```
 
 Now that your domain is verified, you can start using it to serve your content. The content will no appear under `ipfs.my-gateway.online/ipfs/<cid>`
@@ -73,7 +73,7 @@ At any moment you can access the private gateway settings by running the followi
 WARN! Fleek CLI is in beta, use it at your own discretion
 ✔ Choose existing private gateway: › beefy-clever-autumn
 
-ID                         Slug                 Name                    Created At              
+ID                         Slug                 Name                    Created At
 ------------------------------------------------------------------------------------------------
 cljqwfv790002lc08g6nmf8e0  beefy-clever-autumn  my-first-gateway  2023-07-06T08:41:58.963Z
 

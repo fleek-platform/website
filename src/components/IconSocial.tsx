@@ -1,4 +1,4 @@
-type Icon = "github" | "twitter" | "discord";
+type Icon = 'github' | 'twitter' | 'discord';
 
 interface Props {
   icon: Icon;

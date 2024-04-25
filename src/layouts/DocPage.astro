@@ -3,12 +3,14 @@ import '@styles/globals.css';
 import '@styles/docPage.css';
 import '@styles/admonition.css';
 import BaseHtml from '@layouts/BaseHtml.astro';
-import Announcement from "@components/Announcement";
-import Container from "@components/Container";
-import Nav from "@components/NavBar";
-import Footer from "@components/Footer";
-import generateSidebarDS, { generateSidebarDSByUserOrder } from '@utils/generateSidebarDS';
-import { getCollection } from "astro:content";
+import Announcement from '@components/Announcement';
+import Container from '@components/Container';
+import Nav from '@components/NavBar';
+import Footer from '@components/Footer';
+import generateSidebarDS, {
+  generateSidebarDSByUserOrder,
+} from '@utils/generateSidebarDS';
+import { getCollection } from 'astro:content';
 import Sidebar from '@components/Sidebar';
 import OnPageNavigation from '@components/OnPageNavigation/OnPageNavigation.astro';
 import { getEntry } from 'astro:content';
@@ -21,11 +23,14 @@ import type { ContentEntryMap } from 'astro:content';
 
 type Props = {
   title: string;
-	headings: MarkdownHeading[];
+  headings: MarkdownHeading[];
 };
 
 const { title, headings } = Astro.props;
-const { collection, id }: {
+const {
+  collection,
+  id,
+}: {
   collection: keyof ContentEntryMap;
   id: string;
 } = (() => {
@@ -45,11 +50,11 @@ const { collection, id }: {
   };
 })();
 
-const a: string = "docs";
+const a: string = 'docs';
 const data = await getEntry(collection, id);
 const githubEditUrlPathname = `${collection}/${id}`;
 
-const allPosts = await getCollection("docs");
+const allPosts = await getCollection('docs');
 const orderBy = settings.docs.menu.order;
 
 const sidebarSorted = generateSidebarDSByUserOrder(allPosts, orderBy);
@@ -57,21 +62,21 @@ const sidebarSorted = generateSidebarDSByUserOrder(allPosts, orderBy);
 
 <BaseHtml title={title}>
   <main class="container min-h-container">
-    <div class="grid grid-cols-[1fr] md:grid-cols-[1fr,auto,1fr] gap-4">
-      <aside class="px-32 w-320">
+    <div class="grid grid-cols-[1fr] gap-4 md:grid-cols-[1fr,auto,1fr]">
+      <aside class="w-320 px-32">
         <Sidebar
           client:load
           data={sidebarSorted}
           pathname={Astro.url.pathname}
         />
       </aside>
-      <div class="px-32 min-w-0 max-w-[900px]">
+      <div class="min-w-0 max-w-[900px] px-32">
         <article class="doc">
           <slot />
           <GithubEditLink pathname={githubEditUrlPathname} />
         </article>
       </div>
-      <aside class="w-240 hidden lg:block">
+      <aside class="hidden w-240 lg:block">
         <OnPageNavigation
           headings={headings}
           githubEditUrl={githubEditUrlPathname}

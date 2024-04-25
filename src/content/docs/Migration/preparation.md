@@ -8,11 +8,11 @@ description: Get all the information needed for the sunsetting of the Fleek.co P
 category: Documentation
 keywords: [introduction, documentation, getting started]
 tags:
-- Edge Platform
-- CDN
-- Guide
-- Learn
-- Fleek
+  - Edge Platform
+  - CDN
+  - Guide
+  - Learn
+  - Fleek
 ---
 
 ![](../images/migration-details.png)

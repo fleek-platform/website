@@ -1,19 +1,19 @@
-"use client";
+'use client';
 
-import { useState } from "react";
-import Link, { Target } from "@components/Link";
-import clsx from "clsx";
+import { useState } from 'react';
+import Link, { Target } from '@components/Link';
+import clsx from 'clsx';
 
-import Container from "@components/Container";
-import PageSection from "@components/PageSection";
-import GridLayout from "@components/GridLayout";
-import Button from "@components/Button";
-import TextGlowHoverEffect from "@components/TextGlowHoverEffect";
-import { down } from "@utils/screens";
+import Container from '@components/Container';
+import PageSection from '@components/PageSection';
+import GridLayout from '@components/GridLayout';
+import Button from '@components/Button';
+import TextGlowHoverEffect from '@components/TextGlowHoverEffect';
+import { down } from '@utils/screens';
 // @ts-ignore
-import imgFleekSdkUploadToIpfs from "@images/fleek-sdk-uploadtoipfs.png?w=640&format=webp";
+import imgFleekSdkUploadToIpfs from '@images/fleek-sdk-uploadtoipfs.png?w=640&format=webp';
 // @ts-ignore
-import imgFleekCliUploadFile from "@images/fleek-cli-upload-file.png?w=640&format=webp";
+import imgFleekCliUploadFile from '@images/fleek-cli-upload-file.png?w=640&format=webp';
 
 interface Props {
   kicker: string;
@@ -52,37 +52,41 @@ const CopyWithImageSwap: React.FC<Props> = (props) => {
               </div>
             )}
           </div>
-          <div className="order-1 col-span-16 lg:order-none lg:col-span-7" onMouseOver={() => setSwap(true)} onMouseLeave={() => setSwap(false)}>
+          <div
+            className="order-1 col-span-16 lg:order-none lg:col-span-7"
+            onMouseOver={() => setSwap(true)}
+            onMouseLeave={() => setSwap(false)}
+          >
             <div className="aspect-h-10 aspect-w-16 relative mb-16 lg:mb-0">
               <div className="absolute bottom-0 left-0 right-0 top-0">
                 <div
                   className={clsx(
-                    "flex cursor-pointer transition duration-500 ease-in-out",
+                    'flex cursor-pointer transition duration-500 ease-in-out',
                     {
-                      "-translate-x-full": swap,
-                    }
+                      '-translate-x-full': swap,
+                    },
                   )}
                 >
                   <img
                     src={imgFleekSdkUploadToIpfs}
-                    sizes={`${down("md")} 100vw, 50vw`}
+                    sizes={`${down('md')} 100vw, 50vw`}
                     className={clsx(
-                      "flex-shrink-0 object-contain transition duration-500",
+                      'flex-shrink-0 object-contain transition duration-500',
                       {
-                        "translate-x-full scale-50 opacity-0": swap,
-                      }
+                        'translate-x-full scale-50 opacity-0': swap,
+                      },
                     )}
                     alt="upload to ipfs with the fleekxyz sdk"
                   />
                   <img
                     src={imgFleekCliUploadFile}
                     className={clsx(
-                      "flex-shrink-0 object-contain transition duration-500",
+                      'flex-shrink-0 object-contain transition duration-500',
                       {
-                        "scale-90": !swap,
-                      }
+                        'scale-90': !swap,
+                      },
                     )}
-                    sizes={`${down("md")} 100vw, 50vw`}
+                    sizes={`${down('md')} 100vw, 50vw`}
                     alt="upload to ipfs with the fleekxyz cli"
                   />
                 </div>

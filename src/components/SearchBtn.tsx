@@ -1,6 +1,6 @@
-import "@styles/search.css";
+import '@styles/search.css';
 import { useEffect, useState, useRef } from 'react';
-import { instantMeiliSearch } from "@meilisearch/instant-meilisearch";
+import { instantMeiliSearch } from '@meilisearch/instant-meilisearch';
 import {
   InstantSearch,
   Hits,
@@ -17,21 +17,20 @@ const { apiKey, host } = (() => {
   const host = import.meta.env.PUBLIC_MEILISEARCH_HOST;
 
   if (!apiKey || !host) {
-    throw Error(`👹 Oops! Missing environment variables (host ${host}, apiKey ${apiKey})`);
+    throw Error(
+      `👹 Oops! Missing environment variables (host ${host}, apiKey ${apiKey})`,
+    );
   }
 
   return {
     apiKey,
     host,
-  }
+  };
 })();
 
-const { searchClient } = instantMeiliSearch(
-  host,
-  apiKey,
-);
+const { searchClient } = instantMeiliSearch(host, apiKey);
 
-// TODO: Share types with indexer  
+// TODO: Share types with indexer
 type HitProps = {
   hit: AlgoliaHit<{
     id: string;
@@ -52,52 +51,55 @@ const Hit = ({ hit }: HitProps) => {
   const data = doc.body.textContent || '';
 
   const text = stripHtmlAndEntities(data);
-  
+
   return (
     <a key={hit.id} href={hit.url}>
-      <span>{ !results.query ? hit.title : text }</span>
+      <span>{!results.query ? hit.title : text}</span>
     </a>
   );
-}
+};
 
 function stripHtmlAndEntities(htmlString: string) {
- const strippedOfTags = htmlString.replace(/<[^>]*>/g, '');
- const decodedString = strippedOfTags.replace(/&([a-z]+);/g, (match, entity) => {
-    switch (entity) {
-      case 'lt':
-        return '<';
-      case 'gt':
-        return '>';
-      case 'amp':
-        return '&';
-      case 'quot':
-        return '"';
-      case 'apos':
-        return "'";
-      default:
-        return match;
-    }
- });
+  const strippedOfTags = htmlString.replace(/<[^>]*>/g, '');
+  const decodedString = strippedOfTags.replace(
+    /&([a-z]+);/g,
+    (match, entity) => {
+      switch (entity) {
+        case 'lt':
+          return '<';
+        case 'gt':
+          return '>';
+        case 'amp':
+          return '&';
+        case 'quot':
+          return '"';
+        case 'apos':
+          return "'";
+        default:
+          return match;
+      }
+    },
+  );
 
- return decodedString;
+  return decodedString;
 }
 
 const CustomSearchBox = ({
   setOpenModal,
 }: {
-  setOpenModal: Dispatch<SetStateAction<boolean>>,
+  setOpenModal: Dispatch<SetStateAction<boolean>>;
 }) => {
   const { query, refine } = useSearchBox();
   const { results } = useInstantSearch();
   const [inputValue, setInputValue] = useState(query);
   const inputRef = useRef<HTMLInputElement>(null);
-  
+
   const setQuery = (newQuery: string) => {
     setInputValue(newQuery);
 
     refine(newQuery);
-  }
- 
+  };
+
   return (
     <>
       <div className="search-box">
@@ -115,28 +117,22 @@ const CustomSearchBox = ({
           }}
           autoFocus
         />
-        <button
-          type="button"
-          onClick={() => setOpenModal(false)}
-        >Esc</button>
+        <button type="button" onClick={() => setOpenModal(false)}>
+          Esc
+        </button>
       </div>
-      {
-        query && !results.hits.length
-        && (
-          <p className="modal-no-result">No results</p>
-        )
-      }
+      {query && !results.hits.length && (
+        <p className="modal-no-result">No results</p>
+      )}
     </>
-  )
+  );
 };
 
 type Props = {
   indexName: string;
-}
+};
 
-export default ({
-  indexName
-}: Props) => {
+export default ({ indexName }: Props) => {
   const [openModal, setOpenModal] = useState(false);
 
   useEffect(() => {
@@ -146,7 +142,7 @@ export default ({
       document.removeEventListener('keydown', handleKeyDown);
     };
   }, []);
-  
+
   const onSearchFocus = () => setOpenModal(true);
   const handleKeyDown = (event: KeyboardEvent) => {
     if (event.key.toLowerCase() === 'escape') {
@@ -157,43 +153,47 @@ export default ({
   return (
     <div className="search-btn">
       <div className="input-container" onClick={onSearchFocus}>
-        <input
-          type="text"
-          placeholder="Search blog posts..."
-          readOnly={true}
-        />
-      	<div className="icon-container">
-      	  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
-      	    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
-      	  </svg>
-      	</div>
+        <input type="text" placeholder="Search blog posts..." readOnly={true} />
+        <div className="icon-container">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 24 24"
+          >
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth="2"
+              d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
+            />
+          </svg>
+        </div>
       </div>
-      {
-        openModal && (
-          <div className="modal-open" onClick={() => setOpenModal(false)}>
-            <div className="modal-user-box" onClick={(e: any) => e.stopPropagation()}>
-              <InstantSearch
-                indexName={indexName}
-                searchClient={searchClient}
-                insights={false}
-              >
-                <Configure
-                  hitsPerPage={12}
-                  attributesToSnippet={['content:32']}
-                />
-                <div className="modal-custom-search-container">
-                  <CustomSearchBox
-                    setOpenModal={setOpenModal}  
-                  />
-                </div>
-                <div className="modal-hits-container">
-                  <Hits hitComponent={Hit} />
-                </div>
-              </InstantSearch>
-            </div>
+      {openModal && (
+        <div className="modal-open" onClick={() => setOpenModal(false)}>
+          <div
+            className="modal-user-box"
+            onClick={(e: any) => e.stopPropagation()}
+          >
+            <InstantSearch
+              indexName={indexName}
+              searchClient={searchClient}
+              insights={false}
+            >
+              <Configure
+                hitsPerPage={12}
+                attributesToSnippet={['content:32']}
+              />
+              <div className="modal-custom-search-container">
+                <CustomSearchBox setOpenModal={setOpenModal} />
+              </div>
+              <div className="modal-hits-container">
+                <Hits hitComponent={Hit} />
+              </div>
+            </InstantSearch>
           </div>
-        )
-      }
+        </div>
+      )}
     </div>
   );
-}
+};

@@ -1,10 +1,10 @@
-import ButtonOutlined from "@components/ButtonOutlined";
-import Container from "@components/Container";
-import GridLayout from "@components/GridLayout";
-import PageSection from "@components/PageSection";
-import TemplateAppCard from "@components/TemplateAppCard";
-import TextGlowHoverEffect from "./TextGlowHoverEffect";
-import Link, { Target } from "@components/Link";
+import ButtonOutlined from '@components/ButtonOutlined';
+import Container from '@components/Container';
+import GridLayout from '@components/GridLayout';
+import PageSection from '@components/PageSection';
+import TemplateAppCard from '@components/TemplateAppCard';
+import TextGlowHoverEffect from './TextGlowHoverEffect';
+import Link, { Target } from '@components/Link';
 
 interface Card {
   title: string;

@@ -17,10 +17,16 @@ const MAX_FILE_SIZE_MB = 50;
 const getImageAsFile = async (imageUrl: string): Promise<File> => {
   const response = await fetch(imageUrl);
   const data = await response.blob();
-  return new File([data], "test-image.png", { type: "image/png" });
-}
+  return new File([data], 'test-image.png', { type: 'image/png' });
+};
 
-const getTitle = ({ loading, uploaded }: { loading: boolean, uploaded: boolean }) => {
+const getTitle = ({
+  loading,
+  uploaded,
+}: {
+  loading: boolean;
+  uploaded: boolean;
+}) => {
   if (loading) return 'PROCESSING';
   if (uploaded) return 'SUCCESSFUL';
   return 'FILE UPLOAD';
@@ -37,7 +43,7 @@ const FileUpload: React.FC = () => {
   const uploadTestFile = async () => {
     const content = await getImageAsFile('/images/test-image.png');
     await uploadToIPFS(content);
-  }
+  };
 
   const uploadToIPFS = async (file: File) => {
     const fileToUpload = {
@@ -47,7 +53,9 @@ const FileUpload: React.FC = () => {
 
     // If file is over 50Mb, don't upload
     if (file.size > MAX_FILE_SIZE_MB * 1024 * 1024) {
-      toast.error(`File is too large. Please upload a file under ${MAX_FILE_SIZE_MB}Mb.`);
+      toast.error(
+        `File is too large. Please upload a file under ${MAX_FILE_SIZE_MB}Mb.`,
+      );
       reset();
       return;
     }
@@ -114,16 +122,18 @@ const FileUpload: React.FC = () => {
   };
 
   return (
-    <GlowWrapper className='w-full' hidden={!!upload}>
+    <GlowWrapper className="w-full" hidden={!!upload}>
       <div
-        className={clsx("flex flex-col h-full w-full rounded-5 border-1 border-dashed border-ui-light-grey shadow-dark backdrop-blur-[6px] bg-glass relative")}
+        className={clsx(
+          'relative flex h-full w-full flex-col rounded-5 border-1 border-dashed border-ui-light-grey bg-glass shadow-dark backdrop-blur-[6px]',
+        )}
         onDragEnter={handleDragEnter}
         onDragLeave={handleDragLeave}
         onDragOver={handleDragOver}
         onDrop={handleDrop}
       >
         <Toaster
-          position='bottom-center'
+          position="bottom-center"
           toastOptions={{
             // Define default options
             className: '',
@@ -131,31 +141,31 @@ const FileUpload: React.FC = () => {
             style: {
               background: '#151718',
               color: '#f1f1f1',
-            }
+            },
           }}
         />
         {upload?.file && (
           // eslint-disable-next-line @next/next/no-img-element
           <img
             src={URL.createObjectURL(upload?.file)}
-            className="object-contain h-full w-full rounded-5 absolute -z-1"
+            className="absolute -z-1 h-full w-full rounded-5 object-contain"
             alt="Uploaded Image"
           />
         )}
-        <input 
-          type="file" 
-          multiple 
-          ref={fileInputRef} 
-          onChange={handleFileChange} 
-          className="hidden" 
+        <input
+          type="file"
+          multiple
+          ref={fileInputRef}
+          onChange={handleFileChange}
+          className="hidden"
         />
-        <div className="flex justify-between items-center p-10 pl-20 relative self-stretch">
-          <div className="absolute top-[0.75rem] left-10 flex gap-[0.625rem]">
-            <div className="rounded-full border-1 border-ui-light-grey h-10 w-10 opacity-40" />
-            <div className="rounded-full border-1 border-ui-light-grey h-10 w-10 opacity-40" />
-            <div className="rounded-full border-1 border-ui-light-grey h-10 w-10 opacity-40" />
+        <div className="relative flex items-center justify-between self-stretch p-10 pl-20">
+          <div className="absolute left-10 top-[0.75rem] flex gap-[0.625rem]">
+            <div className="h-10 w-10 rounded-full border-1 border-ui-light-grey opacity-40" />
+            <div className="h-10 w-10 rounded-full border-1 border-ui-light-grey opacity-40" />
+            <div className="h-10 w-10 rounded-full border-1 border-ui-light-grey opacity-40" />
           </div>
-          <Text style="caption-s" className="text-center w-full">
+          <Text style="caption-s" className="w-full text-center">
             {getTitle({ loading, uploaded: !!upload })}
           </Text>
           <img
@@ -167,38 +177,63 @@ const FileUpload: React.FC = () => {
           />
         </div>
 
-        <div className={clsx("flex flex-col items-center gap-25 h-full p-15 shadow-dark", {
-          'justify-center': !upload?.cid,
-          'justify-end': !!upload?.cid,
-        })}>
-          {loading && <Spinner className='mb-16'/>}
+        <div
+          className={clsx(
+            'flex h-full flex-col items-center gap-25 p-15 shadow-dark',
+            {
+              'justify-center': !upload?.cid,
+              'justify-end': !!upload?.cid,
+            },
+          )}
+        >
+          {loading && <Spinner className="mb-16" />}
           {!upload && !loading && (
             <>
-              <Text className="whitespace-pre text-center" style="s">{dragging ? 'Drop your files here!' : `Drag & drop your image here \n to test our performance`}</Text>
-              <div className='flex flex-col items-center gap-15'>
-                <ButtonWhite onClick={handleClick} className="w-full">UPLOAD IMAGE</ButtonWhite>
+              <Text className="whitespace-pre text-center" style="s">
+                {dragging
+                  ? 'Drop your files here!'
+                  : `Drag & drop your image here \n to test our performance`}
+              </Text>
+              <div className="flex flex-col items-center gap-15">
+                <ButtonWhite onClick={handleClick} className="w-full">
+                  UPLOAD IMAGE
+                </ButtonWhite>
                 <div onClick={uploadTestFile}>
-                  <Text style="caption-xs" className='text-ui-light-grey cursor-pointer'>USE A TEST FILE</Text>
+                  <Text
+                    style="caption-xs"
+                    className="cursor-pointer text-ui-light-grey"
+                  >
+                    USE A TEST FILE
+                  </Text>
                 </div>
               </div>
             </>
           )}
           {upload?.cid && (
-            <div className='flex items-center justify-end w-fit p-8 pl-24 gap-16 bg-ui-fleek-black rounded-12'>
-              <Text style='s' className='text-ui-light-grey'>{`https://ipfs.io/ipfs/${upload.cid.slice(0, 15)}...`}</Text>
-                <Tooltip openOnClick id="copy-tooltip" place="top" content="Copied!" className='rounded-32 p-8 bg-ui-fleek-black'/>
-                <img
-                  src="/svg/copy-icon.svg"
-                  className="w-full max-w-[16px] opacity-60 cursor-pointer active:opacity-100 hover:opacity-80"
-                  alt="Copy"
-                  width={16}
-                  height={16}
-                  onClick={copyToClipboard}
-                  data-tooltip-id="copy-tooltip"
-                />
+            <div className="flex w-fit items-center justify-end gap-16 rounded-12 bg-ui-fleek-black p-8 pl-24">
+              <Text
+                style="s"
+                className="text-ui-light-grey"
+              >{`https://ipfs.io/ipfs/${upload.cid.slice(0, 15)}...`}</Text>
+              <Tooltip
+                openOnClick
+                id="copy-tooltip"
+                place="top"
+                content="Copied!"
+                className="rounded-32 bg-ui-fleek-black p-8"
+              />
+              <img
+                src="/svg/copy-icon.svg"
+                className="w-full max-w-[16px] cursor-pointer opacity-60 hover:opacity-80 active:opacity-100"
+                alt="Copy"
+                width={16}
+                height={16}
+                onClick={copyToClipboard}
+                data-tooltip-id="copy-tooltip"
+              />
               <img
                 src="/svg/close-icon.svg"
-                className="w-full max-w-[16px] opacity-60 cursor-pointer active:opacity-100 hover:opacity-80"
+                className="w-full max-w-[16px] cursor-pointer opacity-60 hover:opacity-80 active:opacity-100"
                 alt="Copy"
                 width={24}
                 height={24}

@@ -49,5 +49,3 @@ You can manage your application credentials by going to the `Application Credent
 You can update, add or remove whitelisted domains for an application credential by clicking on the `Edit` button next to the application credential in the `Application Credentials` tab in the `Settings` tab of your project in the [Fleek Dashboard](https://app.fleek.xyz/).
 
 ![](../images/app-credentials-3.png)
-
-

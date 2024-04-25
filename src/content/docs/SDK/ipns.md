@@ -1,6 +1,6 @@
 ---
 draft: false
-title: IPNS 
+title: IPNS
 sidebarCollapsible: false
 sidebar_position: 4
 date: 2023-01-10T09:00:00.000+00:00
@@ -8,10 +8,10 @@ description: Learn how to pin a file on IPNS using the service's primary methods
 category: Documentation
 keywords: [services, documentation, getting started]
 tags:
-- Accounts
-- Guide
-- Learn
-- Fleek
+  - Accounts
+  - Guide
+  - Learn
+  - Fleek
 ---
 
 :::info

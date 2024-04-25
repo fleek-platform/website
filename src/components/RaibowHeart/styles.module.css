@@ -1,23 +1,22 @@
-
 @keyframes rainbow {
   0% {
-    background-color: #FF3DCF;
+    background-color: #ff3dcf;
   }
 
   25% {
-    background-color: #FFE702;
+    background-color: #ffe702;
   }
 
   50% {
-    background-color: #49F0A1;
+    background-color: #49f0a1;
   }
 
   75% {
-    background-color: #14BCDF;
+    background-color: #14bcdf;
   }
 
   100% {
-    background-color: #FF3DCF;
+    background-color: #ff3dcf;
   }
 }
 

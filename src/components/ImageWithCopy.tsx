@@ -1,15 +1,15 @@
-import clsx from "clsx";
+import clsx from 'clsx';
 
-import Container from "@components/Container";
-import PageSection from "@components/PageSection";
-import GridLayout from "@components/GridLayout";
-import Button from "@components/Button";
-import TextGlowHoverEffect from "@components/TextGlowHoverEffect";
+import Container from '@components/Container';
+import PageSection from '@components/PageSection';
+import GridLayout from '@components/GridLayout';
+import Button from '@components/Button';
+import TextGlowHoverEffect from '@components/TextGlowHoverEffect';
 
-import type { RoundedType } from "@components/PageSection";
-import Link, { Target } from "@components/Link";
+import type { RoundedType } from '@components/PageSection';
+import Link, { Target } from '@components/Link';
 
-import { down } from "@utils/screens";
+import { down } from '@utils/screens';
 
 type OptionalProps =
   | {
@@ -40,17 +40,17 @@ const ImageWithCopy: React.FC<Props & OptionalProps> = (props) => {
   return (
     <Container>
       <PageSection rounded={props.rounded}>
-        <div className={props?.className || "pb-64 pt-24 lg:py-80"}>
+        <div className={props?.className || 'pb-64 pt-24 lg:py-80'}>
           <GridLayout>
             <div
               className={clsx(
-                "col-span-16 flex justify-center lg:col-span-8",
-                props.inverse && "lg:col-start-9"
+                'col-span-16 flex justify-center lg:col-span-8',
+                props.inverse && 'lg:col-start-9',
               )}
             >
               <div
                 className={clsx({
-                  "animate-float": props.floatingImageEffect,
+                  'animate-float': props.floatingImageEffect,
                 })}
               >
                 {props.children}
@@ -59,7 +59,7 @@ const ImageWithCopy: React.FC<Props & OptionalProps> = (props) => {
                     className="object-contain mix-blend-screen"
                     src={props.image}
                     alt=""
-                    sizes={`${down("lg")} 100vw, 50vw`}
+                    sizes={`${down('lg')} 100vw, 50vw`}
                     width={600}
                   />
                 )}

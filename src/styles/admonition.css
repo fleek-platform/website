@@ -1,7 +1,8 @@
 @tailwind components;
 
 @layer components {
-  .blog, .doc {
+  .blog,
+  .doc {
     aside.callout {
       @apply mb-20;
     }
@@ -9,68 +10,68 @@
 }
 
 :root {
-	--callout-accent-note: hsl(212deg 92% 45%);
-	--callout-accent-tip: hsl(137deg 66% 30%);
-	--callout-accent-important: hsl(261deg 69% 59%);
-	--callout-accent-warning: hsl(40deg 100% 30%);
-	--callout-accent-caution: hsl(356deg 71% 48%);
+  --callout-accent-note: hsl(212deg 92% 45%);
+  --callout-accent-tip: hsl(137deg 66% 30%);
+  --callout-accent-important: hsl(261deg 69% 59%);
+  --callout-accent-warning: hsl(40deg 100% 30%);
+  --callout-accent-caution: hsl(356deg 71% 48%);
 }
 
 @media (prefers-color-scheme: dark) {
-	:root {
-		--callout-accent-note: hsl(215deg 93% 58%);
-		--callout-accent-tip: hsl(128deg 49% 49%);
-		--callout-accent-important: hsl(262deg 89% 71%);
-		--callout-accent-warning: hsl(41deg 72% 48%);
-		--callout-accent-caution: hsl(3deg 93% 63%);
-	}
+  :root {
+    --callout-accent-note: hsl(215deg 93% 58%);
+    --callout-accent-tip: hsl(128deg 49% 49%);
+    --callout-accent-important: hsl(262deg 89% 71%);
+    --callout-accent-warning: hsl(41deg 72% 48%);
+    --callout-accent-caution: hsl(3deg 93% 63%);
+  }
 }
 
 .callout {
-	--calloutAccent: var(--callout-accent, var(--callout-accent-note));
-	--calloutHeaderFontWeight: var(--callout-header-font-weight, 500);
+  --calloutAccent: var(--callout-accent, var(--callout-accent-note));
+  --calloutHeaderFontWeight: var(--callout-header-font-weight, 500);
 
-	border-left: .25em solid var(--calloutAccent);
-	padding: 0.5rem 1rem;
-	color: inherit;
+  border-left: 0.25em solid var(--calloutAccent);
+  padding: 0.5rem 1rem;
+  color: inherit;
 }
 
 .callout-indicator {
-	display: flex;
-	align-items: center;
-	line-height: 1;
-	margin-bottom: 16px;
-	color: var(--calloutAccent);
+  display: flex;
+  align-items: center;
+  line-height: 1;
+  margin-bottom: 16px;
+  color: var(--calloutAccent);
 }
 
 .callout-indicator > svg:first-of-type {
-	margin-right: 0.5rem;
+  margin-right: 0.5rem;
 }
 
 .callout-content:first-child,
 .callout-content:only-child {
-	margin-block-start: 0;
+  margin-block-start: 0;
 }
 
 .callout-content:last-child,
 .callout-content:only-child {
-	margin-block-end: 0;
+  margin-block-end: 0;
 }
 
 .callout-success {
-	--callout-accent: var(--callout-accent-tip);
+  --callout-accent: var(--callout-accent-tip);
 }
 
 .callout-warn {
-	--callout-accent: var(--callout-accent-warning);
+  --callout-accent: var(--callout-accent-warning);
 }
 
 .callout-danger {
-	--callout-accent: var(--callout-accent-caution);
+  --callout-accent: var(--callout-accent-caution);
 }
 
 .callout-info {
-	--callout-accent: var(--callout-accent-important);
+  --callout-accent: var(--callout-accent-important);
 }
 
 .callout-content p {

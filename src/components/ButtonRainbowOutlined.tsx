@@ -1,4 +1,4 @@
-import Text from "@components/Text";
+import Text from '@components/Text';
 
 const ButtonRainbowOutlined: React.FC<React.PropsWithChildren> = (props) => {
   return (

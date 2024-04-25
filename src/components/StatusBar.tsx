@@ -1,22 +1,22 @@
-"use client";
+'use client';
 
-import { useEffect, useState } from "react";
-import clsx from "clsx";
+import { useEffect, useState } from 'react';
+import clsx from 'clsx';
 
-import Text from "@components/Text";
+import Text from '@components/Text';
 
-type StatusIndicator = "none" | "minor" | "major";
+type StatusIndicator = 'none' | 'minor' | 'major';
 
 const StatusBar: React.FC = () => {
-  const [description, setDescription] = useState("All System Operational");
-  const [indicator, setIndicator] = useState<StatusIndicator>("none");
+  const [description, setDescription] = useState('All System Operational');
+  const [indicator, setIndicator] = useState<StatusIndicator>('none');
 
   useEffect(() => {
     const fetchData = async () => {
       const response = await fetch(
-        "https://fleek.statuspage.io/api/v2/status.json"
+        'https://fleek.statuspage.io/api/v2/status.json',
       );
-      if (!response.ok) throw new Error("could not fetch status");
+      if (!response.ok) throw new Error('could not fetch status');
 
       const data = await response.json();
       const description = data.status?.description;
@@ -43,10 +43,10 @@ const StatusBar: React.FC = () => {
         </div>
         <div className="flex items-center gap-10 rounded-8 border border-[rgba(255,255,255,0.04)] bg-[rgba(255,255,255,0.04)] px-12 py-8 md:rounded-bl-none md:rounded-tl-none">
           <span
-            className={clsx("block h-12 w-12 rounded-full", {
-              "bg-red-500": indicator === "major",
-              "bg-yellow": indicator === "minor",
-              "bg-ui-status-operational": indicator === "none",
+            className={clsx('block h-12 w-12 rounded-full', {
+              'bg-red-500': indicator === 'major',
+              'bg-yellow': indicator === 'minor',
+              'bg-ui-status-operational': indicator === 'none',
             })}
           />
           <Text style="caption-text">{description}</Text>

@@ -33,7 +33,7 @@ To link a wallet or an email, users should navigate to the 'Log In Connections' 
 For users looking to link an Ethereum wallet, the process is straightforward:
 
 1. Go to the 'Log In Connections' section of the account settings.
-2. Click on the 'Add Ethereum Wallet'. 
+2. Click on the 'Add Ethereum Wallet'.
 3. This will open the wallet linking modal.
 4. Select your wallet of choice and scan the provided QR code.
 5. Upon successful scanning, the wallet becomes linked to the user's account.

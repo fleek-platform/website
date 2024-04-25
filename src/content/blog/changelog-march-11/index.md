@@ -1,12 +1,12 @@
 ---
-title: "Fleek.xyz Changelog - March 11th, 2024: Automatic Phishing Detection, Application Credentials, Image Improvements"
+title: 'Fleek.xyz Changelog - March 11th, 2024: Automatic Phishing Detection, Application Credentials, Image Improvements'
 slug: changelog-march-11
-category: "Announcements"
+category: 'Announcements'
 date: 2024-03-11
-desc: "An overview of all the latest changes to the Fleek.xyz Open Beta, including new phishing detection measures, in-app application credential creation, and image handling improvements"
-thumbnail: "./fleekchangelog01mar11.png"
-image: "./fleekchangelog01mar11.png"
-author: "Fleek"
+desc: 'An overview of all the latest changes to the Fleek.xyz Open Beta, including new phishing detection measures, in-app application credential creation, and image handling improvements'
+thumbnail: './fleekchangelog01mar11.png'
+image: './fleekchangelog01mar11.png'
+author: 'Fleek'
 ---
 
 We're back with a new update to the Fleek.xyz platform, this time packed with new features and enhancements rolled out throughout February, aiming to streamline your development process and improve the security of all projects deployed on Fleek for end users.

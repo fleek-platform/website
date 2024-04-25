@@ -1,5 +1,5 @@
-import { useState } from "react";
-import { useIsomorphicLayoutEffect } from "@hooks/useIsomorphicLayoutEffect";
+import { useState } from 'react';
+import { useIsomorphicLayoutEffect } from '@hooks/useIsomorphicLayoutEffect';
 
 const getMatch = (query: string) => {
   return window.matchMedia(query);
@@ -19,7 +19,7 @@ export const useMediaQuery = (query: string, defaultState = false) => {
     };
 
     if (mql.addEventListener) {
-      mql.addEventListener("change", onChange);
+      mql.addEventListener('change', onChange);
     } else {
       mql.addListener(onChange); // iOS 13 and below
     }
@@ -30,7 +30,7 @@ export const useMediaQuery = (query: string, defaultState = false) => {
       mounted = false;
 
       if (mql.removeEventListener) {
-        mql.removeEventListener("change", onChange);
+        mql.removeEventListener('change', onChange);
       } else {
         mql.removeListener(onChange); // iOS 13 and below
       }

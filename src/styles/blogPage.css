@@ -4,12 +4,15 @@
 
 @layer components {
   .blog {
-    @apply font-plex-sans text-18 leading-normal px-20 pb-128 max-w-[768px] m-auto;
+    @apply m-auto max-w-[768px] px-20 pb-128 font-plex-sans text-18 leading-normal;
 
-    h1, h2, h3, h4 {
-      @apply font-plex-sans font-bold leading-normal py-10;
+    h1,
+    h2,
+    h3,
+    h4 {
+      @apply py-10 font-plex-sans font-bold leading-normal;
     }
-  
+
     h1 {
       @apply text-38;
     }
@@ -18,14 +21,15 @@
       @apply text-32;
     }
 
-    img, video {
-      @apply rounded-8 p-0 m-0 max-w-[768px];
+    img,
+    video {
+      @apply m-0 max-w-[768px] rounded-8 p-0;
       width: 100%;
       height: auto;
     }
 
-    p { 
-      @apply leading-normal text-20 pb-20;
+    p {
+      @apply pb-20 text-20 leading-normal;
     }
 
     a {
@@ -36,12 +40,12 @@
       @apply pl-32;
 
       li {
-        @apply pb-10 list-disc;
+        @apply list-disc pb-10;
       }
     }
 
     hr {
-      @apply bg-transparent border-t-1 border-t-gray-800 my-32;
+      @apply my-32 border-t-1 border-t-gray-800 bg-transparent;
     }
   }
 }

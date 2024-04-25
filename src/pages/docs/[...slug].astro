@@ -4,8 +4,9 @@ import DocPageLayout from '../../layouts/DocPage.astro';
 
 export async function getStaticPaths() {
   const docsEntries = await getCollection('docs');
-  return docsEntries.map(entry => ({
-    params: { slug: entry.slug }, props: { entry },
+  return docsEntries.map((entry) => ({
+    params: { slug: entry.slug },
+    props: { entry },
   }));
 }
 

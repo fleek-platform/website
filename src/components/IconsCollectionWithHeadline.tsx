@@ -1,7 +1,7 @@
-import Container from "@components/Container";
-import PageSection from "@components/PageSection";
-import GridLayout from "@components/GridLayout";
-import TextGlowHoverEffect from "@components/TextGlowHoverEffect";
+import Container from '@components/Container';
+import PageSection from '@components/PageSection';
+import GridLayout from '@components/GridLayout';
+import TextGlowHoverEffect from '@components/TextGlowHoverEffect';
 
 interface Props {
   headline: string;

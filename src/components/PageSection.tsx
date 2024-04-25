@@ -1,4 +1,4 @@
-import clsx from "clsx";
+import clsx from 'clsx';
 
 interface Props {
   className?: string;
@@ -6,30 +6,30 @@ interface Props {
 }
 
 export type RoundedType =
-  | "all-small"
-  | "all-big"
-  | "top-big-bottom-small"
-  | "top-small-bottom-big";
+  | 'all-small'
+  | 'all-big'
+  | 'top-big-bottom-small'
+  | 'top-small-bottom-big';
 
 const PageSection: React.FC<React.PropsWithChildren<Props>> = ({
   className,
   children,
-  rounded = "all-small",
+  rounded = 'all-small',
 }) => {
   return (
-    <section className={clsx("relative", className)}>
+    <section className={clsx('relative', className)}>
       {children}
       <div
         className={clsx(
-          "absolute left-0 top-0 -z-2 h-full w-full bg-fleek-gradient backdrop-blur-[1px]",
+          'absolute left-0 top-0 -z-2 h-full w-full bg-fleek-gradient backdrop-blur-[1px]',
           {
-            "rounded-24 lg:rounded-48": rounded === "all-big",
-            "rounded-8": rounded === "all-small",
-            "rounded-8 rounded-tl-24 rounded-tr-24 lg:rounded-tl-48 lg:rounded-tr-48":
-              rounded === "top-big-bottom-small",
-            "rounded-8 rounded-bl-24 rounded-br-24 lg:rounded-bl-48 lg:rounded-br-48":
-              rounded === "top-small-bottom-big",
-          }
+            'rounded-24 lg:rounded-48': rounded === 'all-big',
+            'rounded-8': rounded === 'all-small',
+            'rounded-8 rounded-tl-24 rounded-tr-24 lg:rounded-tl-48 lg:rounded-tr-48':
+              rounded === 'top-big-bottom-small',
+            'rounded-8 rounded-bl-24 rounded-br-24 lg:rounded-bl-48 lg:rounded-br-48':
+              rounded === 'top-small-bottom-big',
+          },
         )}
       ></div>
     </section>

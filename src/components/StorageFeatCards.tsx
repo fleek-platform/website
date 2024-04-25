@@ -1,9 +1,10 @@
-import BlackFeatureCards from "@components/BlackFeatureCards";
+import BlackFeatureCards from '@components/BlackFeatureCards';
 
 const features = [
   {
     title: 'Lightning Fast',
-    description: 'Built in CDN & content addressing makes every storage layer performant.',
+    description:
+      'Built in CDN & content addressing makes every storage layer performant.',
     icon: '/svg/vertical-waves-icon.svg',
   },
   {
@@ -13,9 +14,10 @@ const features = [
   },
   {
     title: 'Better Guarantees',
-    description: 'Better data security and availability guarantees. No vendor lock-in.',
+    description:
+      'Better data security and availability guarantees. No vendor lock-in.',
     icon: '/svg/star-icon.svg',
-  }
+  },
 ];
 
 const StorageFeatCards = () => <BlackFeatureCards features={features} />;

@@ -1,4 +1,4 @@
-import clsx from "clsx";
+import clsx from 'clsx';
 
 type ExternalLinkProps = {
   href: string;
@@ -10,7 +10,7 @@ const ExternalLink: React.FC<ExternalLinkProps> = ({ href, className }) => (
     href={href}
     target="_blank"
     rel="noopener noreferrer"
-    className={clsx("inline-flex", className)}
+    className={clsx('inline-flex', className)}
   >
     <img
       className="inline-block"

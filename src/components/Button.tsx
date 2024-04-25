@@ -1,5 +1,5 @@
-import Text from "@components/Text";
-import GlowWrapper from "@components/GlowWrapper";
+import Text from '@components/Text';
+import GlowWrapper from '@components/GlowWrapper';
 
 interface Props {
   className?: string;

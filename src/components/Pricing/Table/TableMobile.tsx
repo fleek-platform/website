@@ -1,14 +1,14 @@
-import TableHeader from "./TableHeader";
-import PricingPlanSection from "./PricingPlanSection";
-import { PLAN_SECTIONS, PRICING_PLANS } from "./constants";
+import TableHeader from './TableHeader';
+import PricingPlanSection from './PricingPlanSection';
+import { PLAN_SECTIONS, PRICING_PLANS } from './constants';
 
-import type { SectionKey } from "./types";
- 
+import type { SectionKey } from './types';
+
 export default function TableMobile() {
   return (
-    <div className="w-full text-left flex flex-col lg:hidden">
+    <div className="flex w-full flex-col text-left lg:hidden">
       {Object.values(PRICING_PLANS).map(({ features, header }) => (
-        <div key={header.title} className="flex flex-col mb-30 w-full lg:mb-0">
+        <div key={header.title} className="mb-30 flex w-full flex-col lg:mb-0">
           <TableHeader {...header} />
           {Object.entries(features).map(([section, features], index) => (
             <PricingPlanSection
@@ -21,4 +21,4 @@ export default function TableMobile() {
       ))}
     </div>
   );
-};
+}

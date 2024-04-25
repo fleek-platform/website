@@ -1,20 +1,25 @@
 .wagmiCTA:hover {
-  background: linear-gradient(331deg, #49F0A1 7.28%,#14BCDF 66.15% );
+  background: linear-gradient(331deg, #49f0a1 7.28%, #14bcdf 66.15%);
 }
 
 .proCTA:hover {
-  background: linear-gradient(330deg,  #FF3DCF 33.33%, #14BCDF 66.15%, #49F0A1 100%);
+  background: linear-gradient(
+    330deg,
+    #ff3dcf 33.33%,
+    #14bcdf 66.15%,
+    #49f0a1 100%
+  );
 }
 
 .enterpriseCTA:hover {
-  background: linear-gradient(350deg, #FFE702 0%, #FF3DCF 100.00%);
+  background: linear-gradient(350deg, #ffe702 0%, #ff3dcf 100%);
 }
 
 .wagmiHeader {
   max-width: 325px;
   width: 100%;
   text-align: center;
-  background: linear-gradient(331deg, #49F0A1 7.28%,#14BCDF 66.15% );
+  background: linear-gradient(331deg, #49f0a1 7.28%, #14bcdf 66.15%);
   background-clip: text;
   -webkit-text-fill-color: transparent;
 }
@@ -23,7 +28,12 @@
   max-width: 325px;
   width: 100%;
   text-align: center;
-  background: linear-gradient(330deg,  #FF3DCF 33.33%, #14BCDF 66.15%, #49F0A1 100%);
+  background: linear-gradient(
+    330deg,
+    #ff3dcf 33.33%,
+    #14bcdf 66.15%,
+    #49f0a1 100%
+  );
   background-clip: text;
   -webkit-text-fill-color: transparent;
 }
@@ -32,9 +42,7 @@
   max-width: 325px;
   width: 100%;
   text-align: center;
-  background: linear-gradient(350deg, #FFE702 0%, #FF3DCF 100.00%);
+  background: linear-gradient(350deg, #ffe702 0%, #ff3dcf 100%);
   background-clip: text;
   -webkit-text-fill-color: transparent;
 }
-
-

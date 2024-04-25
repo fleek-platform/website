@@ -1,14 +1,16 @@
 import fs from 'fs';
-import settings from "@base/settings.json";
+import settings from '@base/settings.json';
 
 export const getSiteUrl = (): string => {
- const env = process.env.NODE_ENV || 'staging';
- 
- if (!(settings.site as any)[env]) {
-    throw new Error(`👹 Oops! Environment "${env}" is not configured in settings.`);
- }
- 
- return (settings.site as any)[env].url;
+  const env = process.env.NODE_ENV || 'staging';
+
+  if (!(settings.site as any)[env]) {
+    throw new Error(
+      `👹 Oops! Environment "${env}" is not configured in settings.`,
+    );
+  }
+
+  return (settings.site as any)[env].url;
 };
 
 export const isActivePath = ({
@@ -18,12 +20,14 @@ export const isActivePath = ({
   lookup: string;
   pathname?: string;
 }) => {
-  const basePath = (pathname || window.location.pathname).split('/').filter(Boolean)[0];
+  const basePath = (pathname || window.location.pathname)
+    .split('/')
+    .filter(Boolean)[0];
 
   const re = new RegExp(`^\\/${basePath}(\\/[^\/]+)?$`);
 
   return re.test(lookup);
-}
+};
 
 export const generateGitHubEditLink = ({
   collection,
@@ -32,11 +36,13 @@ export const generateGitHubEditLink = ({
   collection: string;
   id: string;
 }) => {
-  const path = `src/content/${collection}/${id}`; 
-  
+  const path = `src/content/${collection}/${id}`;
+
   if (!fs.existsSync(path)) {
-    throw Error(`👹 Oops! The GitHub source link verification, couldn't find the resource ${path}`);
+    throw Error(
+      `👹 Oops! The GitHub source link verification, couldn't find the resource ${path}`,
+    );
   }
 
   return `${collection}/${id}`;
-}
+};

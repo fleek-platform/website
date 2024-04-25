@@ -8,27 +8,25 @@ description: Overview of Fleek LLC's Terms of Use detailing the rules and regula
 category: Documentation
 keywords: [services, documentation, getting started]
 tags:
-- Edge Platform
-- CDN
-- Guide
-- Learn
-- Fleek
+  - Edge Platform
+  - CDN
+  - Guide
+  - Learn
+  - Fleek
 ---
 
 # Terms And Conditions
 
 PLEASE NOTE THAT YOUR USE OF AND ACCESS TO OUR SERVICES (DEFINED BELOW) ARE SUBJECT TO THE FOLLOWING TERMS; IF YOU DO NOT AGREE TO ALL OF THE FOLLOWING, YOU MAY NOT USE OR ACCESS THE SERVICES IN ANY MANNER.
-Terms of Use 
+Terms of Use
 
 Effective date: 16/01/2023
 
 Welcome to Fleek. Please read on to learn the rules and restrictions that govern your use of our website(s), products, services and applications (the “Services”). If you have any questions, comments, or concerns regarding these terms or the Services, please contact us at support@fleek.xyz.
- 
+
 These Terms of Use (the “Terms”) are a binding contract between you and Fleek LLC (Fleek,” “we” and “us”). You must agree to and accept all of the Terms, or you don’t have the right to use the Services. Your using the Services in any way means that you agree to all of these Terms, and these Terms will remain in effect while you use the Services. These Terms include the provisions in this document, as well as those in the Privacy Policy and Copyright Dispute Policy.
 
 NOTICE: Please read these Terms carefully. They cover important information about Services provided to you and any charges, taxes, and fees we bill you. These Terms include information about future changes to these Terms, limitations of liability, a class action waiver, and resolution of disputes by arbitration instead of in court.
-
- 
 
 ## Will these Terms ever change?
 
@@ -37,8 +35,6 @@ We are constantly trying to improve our Services, so these Terms may need to cha
 If you don’t agree with the new Terms, you are free to reject them; unfortunately, that means you will no longer be able to use the Services. If you use the Services in any way after a change to the Terms is effective, that means you agree to all of the changes
 
 Except for changes by us as described here, no other amendment or modification of these Terms will be effective unless in writing and signed by both you and us.
-
- 
 
 ## What about my privacy?
 
@@ -50,12 +46,11 @@ The Children’s Online Privacy Protection Act (“COPPA”) requires that onlin
 
 You may be required to sign up for an account, and select a password and user name (“Fleek User ID”). You promise to provide us with accurate, complete, and updated registration information about yourself. You may not select as your Fleek User ID a name that you don’t have the right to use, or another person’s name with the intent to impersonate that person. You may not transfer your account to anyone else without our prior written permission. You represent and warrant that you are of legal age to form a binding contract (or if not, you’ve received your parent’s or guardian’s permission to use the Services and gotten your parent or guardian to agree to these Terms on your behalf). If you’re agreeing to these Terms on behalf of an organization or entity, you represent and warrant that you are authorized to agree to these Terms on that organization or entity’s behalf and bind them to these Terms (in which case, the references to “you” and “your” in these Terms, except for in this sentence, refer to that organization or entity). You will only use the Services for your own personal use, and not on behalf of or for the benefit of any third party, and only in a manner that complies with all laws that apply to you. If your use of the Services is prohibited by applicable laws, then you aren’t authorized to use the Services. We can’t and won’t be responsible for your using the Services in a way that breaks the law. You will not share your account or password with anyone, and you must protect the security of your account and your password. You’re responsible for any activity associated with your account.
 
-
 ## Consent to receive periodic messages
 
 As part of the Services, you may receive communications through the Services, including messages that Fleek sends you (for example, via SMS) for two-factor authentication. BY SIGNING UP FOR THE SERVICES, YOU AGREE TO RECEIVE COMMUNICATIONS FROM FLEEK, AND YOU REPRESENT AND WARRANT THAT EACH PERSON YOU REGISTER FOR THE SERVICES OR FOR WHOM YOU PROVIDE A WIRELESS PHONE NUMBER HAS CONSENTED TO RECEIVE COMMUNICATIONS FROM FLEEK. You agree to indemnify and hold Fleek harmless from and against any and all claims, liabilities, damages (actual and consequential), losses and expenses (including attorneys’ fees) arising from or in any way related to your breach of the foregoing.
 
-Your use of the Services is subject to the following additional restrictions: 
+Your use of the Services is subject to the following additional restrictions:
 
 You represent, warrant, and agree that you will not contribute any Content or User Submission (each of those terms is defined below) or otherwise use the Services or interact with the Services in a manner that:
 

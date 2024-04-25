@@ -1,15 +1,15 @@
-import { Swiper, SwiperSlide } from "swiper/react";
-import Marquee from "react-fast-marquee";
+import { Swiper, SwiperSlide } from 'swiper/react';
+import Marquee from 'react-fast-marquee';
 
-import Container from "@components/Container";
-import GridLayout from "@components/GridLayout";
-import PageSection from "@components/PageSection";
-import CardWrapper from "@components/CardWrapper";
+import Container from '@components/Container';
+import GridLayout from '@components/GridLayout';
+import PageSection from '@components/PageSection';
+import CardWrapper from '@components/CardWrapper';
 // TODO: needs correct replacement, check original intent
 // import ExportedImage from "next-image-export-optimizer";
-import TextGlowHoverEffect from "@components/TextGlowHoverEffect";
+import TextGlowHoverEffect from '@components/TextGlowHoverEffect';
 
-import { down, up } from "@utils/screens";
+import { down, up } from '@utils/screens';
 
 interface Card {
   bannerImage: string;
@@ -40,7 +40,7 @@ const Card: React.FC<{ card: Card }> = ({ card }) => {
         <div className="mb-16 flex items-center gap-8">
           <div className="relative h-32 w-32">
             <img
-              className="object-contain h-32"
+              className="h-32 object-contain"
               src={card.icon}
               alt={`${card.title} icon`}
             />
@@ -78,7 +78,7 @@ const LoopingCardSlider: React.FC<Props> = (props) => {
           </div>
           <div className="mt-46 px-16 lg:hidden">
             <Swiper
-              slidesPerView={"auto"}
+              slidesPerView={'auto'}
               centeredSlides={true}
               centeredSlidesBounds={true}
               spaceBetween={16}
@@ -86,7 +86,11 @@ const LoopingCardSlider: React.FC<Props> = (props) => {
             >
               {props.cards.map((card, index) => (
                 <SwiperSlide className="w-4/5 md:w-1/2" key={index}>
-                  <a href={card.cta.url} target="_blank" rel="noopener noreferrer">
+                  <a
+                    href={card.cta.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
                     <Card card={card} />
                   </a>
                 </SwiperSlide>

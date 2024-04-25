@@ -1,19 +1,19 @@
-import { useEffect, useRef } from "react";
+import { useEffect, useRef } from 'react';
 
-import { animate, useInView } from "framer-motion";
+import { animate, useInView } from 'framer-motion';
 
-import Container from "@components/Container";
-import PageSection from "@components/PageSection";
-import GlowWrapper from "@components/GlowWrapper";
-import GridLayout from "@components/GridLayout";
-import Button from "@components/Button";
-import Link, { Target } from "@components/Link";
-import { useMediaQuery } from "@hooks/useMediaQuery";
-import { up } from "@utils/screens";
+import Container from '@components/Container';
+import PageSection from '@components/PageSection';
+import GlowWrapper from '@components/GlowWrapper';
+import GridLayout from '@components/GridLayout';
+import Button from '@components/Button';
+import Link, { Target } from '@components/Link';
+import { useMediaQuery } from '@hooks/useMediaQuery';
+import { up } from '@utils/screens';
 // @ts-ignore
-import imgBolt from "@images/bolt.png?w=200&format=webp";
+import imgBolt from '@images/bolt.png?w=200&format=webp';
 // @ts-ignore
-import imgGlobeCountDown from "@images/globe-countdown.png?w=1354&format=webp";
+import imgGlobeCountDown from '@images/globe-countdown.png?w=1354&format=webp';
 
 interface Card {
   title: string;
@@ -23,28 +23,28 @@ interface Card {
 
 const TIMESCALE = 0.75;
 
-const HEADLINE = "Ready to live on the edge?";
+const HEADLINE = 'Ready to live on the edge?';
 
 const CARDS: Array<Card> = [
   {
-    title: "Web 3",
-    subtitle: "Infrastructure",
-    icon: "/svg/countdown/web3.svg",
+    title: 'Web 3',
+    subtitle: 'Infrastructure',
+    icon: '/svg/countdown/web3.svg',
   },
   {
-    title: "Web 2",
-    subtitle: "Speed",
-    icon: "/svg/countdown/web2.svg",
+    title: 'Web 2',
+    subtitle: 'Speed',
+    icon: '/svg/countdown/web2.svg',
   },
   {
-    title: "One",
-    subtitle: "Unified Platform",
-    icon: "/svg/countdown/one.svg",
+    title: 'One',
+    subtitle: 'Unified Platform',
+    icon: '/svg/countdown/one.svg',
   },
   {
-    title: "Free",
-    subtitle: "To get started",
-    icon: "/svg/countdown/zero.svg",
+    title: 'Free',
+    subtitle: 'To get started',
+    icon: '/svg/countdown/zero.svg',
   },
 ];
 
@@ -63,7 +63,7 @@ const CountdownAnimation = () => {
   const isRunning = useRef(false);
 
   const isInView = useInView(countdownSequenceRef);
-  const isLg = useMediaQuery(up("lg"));
+  const isLg = useMediaQuery(up('lg'));
 
   const setCardRef: React.RefCallback<HTMLDivElement> = (ref) => {
     if (ref) cardRefs.push(ref);
@@ -96,7 +96,7 @@ const CountdownAnimation = () => {
           await animate(
             cardRefs,
             { scale: 0.8, opacity: 0.4 },
-            { duration: 1 * TIMESCALE, ease: "easeInOut" }
+            { duration: 1 * TIMESCALE, ease: 'easeInOut' },
           );
 
           counterEl.innerText = counter;
@@ -105,12 +105,12 @@ const CountdownAnimation = () => {
             animate(
               counterEl,
               { opacity: 1 },
-              { duration: 2 * TIMESCALE, ease: "easeInOut" }
+              { duration: 2 * TIMESCALE, ease: 'easeInOut' },
             ),
             animate(
               cardsWrapperEl,
               { y: offset },
-              { duration: 2 * TIMESCALE, ease: "easeInOut" }
+              { duration: 2 * TIMESCALE, ease: 'easeInOut' },
             ),
           ]);
 
@@ -118,12 +118,12 @@ const CountdownAnimation = () => {
             animate(
               counterEl,
               { opacity: 0 },
-              { duration: 1 * TIMESCALE, ease: "easeInOut" }
+              { duration: 1 * TIMESCALE, ease: 'easeInOut' },
             ),
             animate(
               cardRefs,
               { scale: 1, opacity: 1 },
-              { duration: 1 * TIMESCALE, ease: "easeInOut" }
+              { duration: 1 * TIMESCALE, ease: 'easeInOut' },
             ),
           ]);
         };
@@ -135,39 +135,39 @@ const CountdownAnimation = () => {
         await animate(headlineEl, { opacity: 1 }, { duration: 2 * TIMESCALE });
         animate(
           globeEl,
-          { y: "35%" },
-          { duration: 18 * TIMESCALE, ease: "easeIn" }
+          { y: '35%' },
+          { duration: 18 * TIMESCALE, ease: 'easeIn' },
         );
         await animate(headlineEl, { opacity: 0 }, { duration: 1 * TIMESCALE });
         await animate(counterEl, { opacity: 1 }, { duration: 2 * TIMESCALE });
-        await animate(cardsWrapperEl, { y: "-100%" }, { duration: 0 });
-        await animate(cardsWrapperEl, { y: "0%" }, { duration: 1 * TIMESCALE });
+        await animate(cardsWrapperEl, { y: '-100%' }, { duration: 0 });
+        await animate(cardsWrapperEl, { y: '0%' }, { duration: 1 * TIMESCALE });
         await Promise.all([
           animate(
             cardRefs,
             { scale: 1, opacity: 1 },
-            { duration: 1 * TIMESCALE }
+            { duration: 1 * TIMESCALE },
           ),
           animate(counterEl, { opacity: 0 }, { duration: 1 * TIMESCALE }),
         ]);
 
-        await stepsAnimation("2", "100%");
-        await stepsAnimation("1", "200%");
-        await stepsAnimation("0", "300%");
+        await stepsAnimation('2', '100%');
+        await stepsAnimation('1', '200%');
+        await stepsAnimation('0', '300%');
         await wait(1000 * TIMESCALE);
 
         // outro sequence
         await animate(
           countdownSequenceEl,
           { opacity: 0 },
-          { duration: 1.5 * TIMESCALE }
+          { duration: 1.5 * TIMESCALE },
         );
-        outroSequenceEl.style.pointerEvents = "auto";
+        outroSequenceEl.style.pointerEvents = 'auto';
         await animate(outroSequenceEl, { scale: 0.95 }, { duration: 0 });
         await animate(
           outroSequenceEl,
           { scale: 1, opacity: 1 },
-          { duration: 1 * TIMESCALE, ease: "easeOut" }
+          { duration: 1 * TIMESCALE, ease: 'easeOut' },
         );
       }
     };

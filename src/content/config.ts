@@ -1,4 +1,4 @@
-import { z, defineCollection } from "astro:content";
+import { z, defineCollection } from 'astro:content';
 
 enum Category {
   Announcements = 'Announcements',
@@ -12,29 +12,32 @@ const docsCollection = defineCollection({
     pubDate: z.date().optional(),
     description: z.string().optional(),
     author: z.string().optional(),
-    image: z.object({
-      url: z.string(),
-      alt: z.string()
-    }).optional(),
+    image: z
+      .object({
+        url: z.string(),
+        alt: z.string(),
+      })
+      .optional(),
     order: z.number().optional(),
     tags: z.array(z.string()).optional(),
-  })
+  }),
 });
 
 // TODO: remove optionals
 const blogCollection = defineCollection({
   type: 'content',
-  schema: ({ image }) => z.object({
-    title: z.string(),
-    image: image(),
-    thumbnail: image(),
-    category: z.nativeEnum(Category),
-    date: z.date().optional(),
-    desc: z.string().optional(),
-    author: z.string().optional(),
-    order: z.number().optional(),
-    tags: z.array(z.string()).optional(),
-  })
+  schema: ({ image }) =>
+    z.object({
+      title: z.string(),
+      image: image(),
+      thumbnail: image(),
+      category: z.nativeEnum(Category),
+      date: z.date().optional(),
+      desc: z.string().optional(),
+      author: z.string().optional(),
+      order: z.number().optional(),
+      tags: z.array(z.string()).optional(),
+    }),
 });
 
 // Export a single `collections` object to register your collection(s)

@@ -2,25 +2,25 @@
 
 @layer components {
   #githubEdit {
-    @apply inline p-20 pl-0 text-16 font-plex-sans transition hover:opacity-50;
+    @apply inline p-20 pl-0 font-plex-sans text-16 transition hover:opacity-50;
   }
 
   main ~ #githubEdit {
     @apply hidden;
   }
 
-  .doc, .blog {
-  	pre {
-  	  @apply p-10 mb-20 rounded-8;
-  	  box-sizing: border-box;
-  	  display: block;
-	  
-  	  > code {
-  	    @apply text-16 inline-block p-20;
-  	    min-width: 100%;
-  	    box-sizing: border-box;
-  	  }
-  	}    
+  .doc,
+  .blog {
+    pre {
+      @apply mb-20 rounded-8 p-10;
+      box-sizing: border-box;
+      display: block;
+
+      > code {
+        @apply inline-block p-20 text-16;
+        min-width: 100%;
+        box-sizing: border-box;
+      }
+    }
   }
 }
-

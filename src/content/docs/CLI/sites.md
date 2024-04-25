@@ -8,10 +8,10 @@ description: Set and deploy your site with Fleek. Follow our concise CLI guide t
 category: Documentation
 keywords: [services, documentation, getting started]
 tags:
-- Accounts
-- Guide
-- Learn
-- Fleek
+  - Accounts
+  - Guide
+  - Learn
+  - Fleek
 ---
 
 ## Seting up a Site
@@ -19,16 +19,16 @@ tags:
 To begin a deployment, you must first set up a site. To do this, you must be authenticated in the CLI and have a project selected. If you are not authenticated or have not selected a project, the CLI can help you. Use the `sites init` command to start the setup process.
 
 For this example we are using a Next.js application that you can find in the [template repository](https://github.com/fleekxyz/templates/tree/main/example-apps).
-When you start the process, you will be prompted to create a new site or use an existing one. 
+When you start the process, you will be prompted to create a new site or use an existing one.
 
 ```shellscript filename="Initializing a site" copy
 > fleek sites init
 WARN! Fleek CLI is in beta phase, use it under your own responsibility
-? Choose one of the existing sites or create a new one. › 
+? Choose one of the existing sites or create a new one. ›
 ❯   Create a new site
 ```
 
-Let's start by creating a new one and inputting a name for the site. 
+Let's start by creating a new one and inputting a name for the site.
 
 ```shellscript filename="Initializing a site" copy
 ✔ Choose one of the existing sites or create a new one. › Create a new site
@@ -48,7 +48,7 @@ Then you'll need to configure the build command that will run before the files a
 ```shellscript filename="Initializing a site" copy
 ✔ Choose one of the existing sites or create a new one. › Create a new site
 ✔ Type name of you new site. … fleek-demo-docs
-✔ Specify the dist directory from where the site will be uploaded from > out 
+✔ Specify the dist directory from where the site will be uploaded from > out
 ✔ Do you want to include the optional "build" command? … yes
 ✔ Specify `build` command … npm run build
 ```
@@ -58,7 +58,7 @@ And the last step is choosing the format for your configuration file. If you cho
 ```shellscript filename="Initializing a site" copy
 ✔ Choose one of the existing sites or create a new one. › Create a new site
 ✔ Type name of you new site. … fleek-demo-docs
-✔ Specify the dist directory from where the site will be uploaded from > out 
+✔ Specify the dist directory from where the site will be uploaded from > out
 ? Do you want to include the optional "build" command? › (Y/n)
 ? Select a format how the site's configuration will be saved: ›
 >    Typescript (fleek.config.ts)
@@ -71,7 +71,7 @@ That's it! Your site is set up. You will see a file named fleek.json has been cr
 ```shellscript filename="Initializing a site" copy
 ✔ Choose one of the existing sites or create a new one. › Create a new site
 ✔ Type name of you new site. … fleek-demo-docs
-✔ Specify the dist directory from where the site will be uploaded from > out 
+✔ Specify the dist directory from where the site will be uploaded from > out
 ✔ Do you want to include the optional "build" command? … yes
 ✔ Specify `build` command … npm run build
 ✔ Select a format how the site's configuration will be saved: › JSON (fleek.config.json)
@@ -82,7 +82,7 @@ That's it! Your site is set up. You will see a file named fleek.json has been cr
 
 To deploy your site, simply run the `sites deploy` command in the same directory where you set up the site.
 
- When you start the process, you will be prompted to create a new site or use an existing one. This process will first run the build command you have in the `fleek.json` file and the upload the build directory to the desired storage.
+When you start the process, you will be prompted to create a new site or use an existing one. This process will first run the build command you have in the `fleek.json` file and the upload the build directory to the desired storage.
 
 ```shellscript filename="Deploying a site" copy
 WARN! Fleek CLI is in beta, use it at your own discretion
@@ -125,7 +125,7 @@ Next you need to set up the directory where the workflow file will be created. T
 WARN! Fleek CLI is in beta, use it at your own discretion
 ? Workflow config will be saved in: CWD/.github/workflows/fleek-deploy.yaml. Would you like to specify a different path? › No / Yes
 WARN! Can't find .github/workflows directory.
-WARN! Creating .github/workflows directory. 
+WARN! Creating .github/workflows directory.
 > Success! Github Actions workflow was saved to CWD/.github/workflows/fleek-deploy.yaml file.
 ```
 
@@ -155,10 +155,10 @@ jobs:
 
 As you can see there are two secrets `secrets.FLEEK_TOKEN` and `secrets.FLEEK_PROJECT_ID`. This is information that has been outputed at the end of the process and you need to configure it in your Github Repository.
 
-``` shellscript filename="Github Secrets"
+```shellscript filename="Github Secrets"
 > Set following secrets in your Github repository settings:
 
-Name              Value                    
+Name              Value
 -------------------------------------------
 FLEEK_TOKEN       <VALUE>
 FLEEK_PROJECT_ID  <VALUE>

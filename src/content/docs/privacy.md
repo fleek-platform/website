@@ -8,11 +8,11 @@ description: Review Fleek LLC's Privacy Policy, detailing how we use and protect
 category: Documentation
 keywords: [services, documentation, getting started]
 tags:
-- Edge Platform
-- CDN
-- Guide
-- Learn
-- Fleek
+  - Edge Platform
+  - CDN
+  - Guide
+  - Learn
+  - Fleek
 ---
 
 # Privacy Policy
@@ -125,27 +125,27 @@ We will only process your Personal Data if we have a lawful basis for doing so. 
 
 – Contractual Necessity: We process the following categories of Personal Data as a matter of “contractual necessity”, meaning that we need to process the data to perform under our Terms of Use with you, which enables us to provide you with the Services. When we process data due to contractual necessity, failure to provide such Personal Data will result in your inability to use some or all portions of the Services that require such data.
 
-* Your full name
+- Your full name
 
-* Your email address
+- Your email address
 
 – Legitimate Interest: We process the following categories of Personal Data when we believe it furthers the legitimate interest of us or third parties.
 
-* Your phone number
+- Your phone number
 
-* Your IP address
+- Your IP address
 
 Examples of these legitimate interests include:
 
-* Operation and improvement of our business, products and services
+- Operation and improvement of our business, products and services
 
-* Marketing of our products and services
+- Marketing of our products and services
 
-* Provision of customer support
+- Provision of customer support
 
-* Protection from fraud or security threats
+- Protection from fraud or security threats
 
-* Compliance with legal obligations
+- Compliance with legal obligations
 
 – Consent: In some cases, we process Personal Data based on the consent you expressly grant to us at the time we collect such data. When we process Personal Data based on your consent, it will be expressly indicated to you at the point and time of collection.
 
@@ -193,7 +193,7 @@ We also share Personal Data when we believe it is necessary to:
 
 – Maintain the security of our products and services
 
-## How Long Do We Retain Your Personal Data? 
+## How Long Do We Retain Your Personal Data?
 
 We retain Personal Data about you for as long as you have an open account with us and for 6 months after you close your account. In some cases we retain Personal Data for longer, if doing so is necessary to comply with our legal obligations, resolve disputes or collect fees owed, or is otherwise permitted or required by applicable law, rule or regulation. Afterwards, we retain some information in a depersonalized or aggregated form but not in a way that would identify you personally.
 
@@ -203,7 +203,7 @@ We seek to protect Personal Data using appropriate technical and organizational 
 
 Personal Data of Children: As noted in the Terms of Use, we do not knowingly collect or solicit Personal Data from anyone under the age of 16. If you are under 16, please do not attempt to register for the Services or send any Personal Data about yourself to us. If we learn that we have collected Personal Data from a child under age 16, we will delete that information as quickly as possible. If you believe that a child under 16 may have provided us Personal Data, please contact us at support@fleek.xyz.
 
-## What Rights Do You Have Regarding Your Personal Data? 
+## What Rights Do You Have Regarding Your Personal Data?
 
 You have certain rights with respect to your Personal Data, including those set forth below. For more information about these rights, or to submit a request, please email support@fleek.xyz. Please note that in some circumstances, we may not be able to fully comply with your request, such as if it is frivolous or extremely impractical, if it jeopardizes the rights of others, or if it is not required by law, but in those circumstances, we will still respond to notify you of such a decision. In some cases, we may also need to you to provide us with additional information, which may include Personal Data, if necessary to verify your identity and the nature of your request.
 

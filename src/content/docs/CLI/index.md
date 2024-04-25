@@ -1,6 +1,6 @@
 ---
 draft: false
-title: Fleek CLI 
+title: Fleek CLI
 sidebarCollapsible: false
 sidebar_position: 8
 date: 2023-01-10T09:00:00.000+00:00
@@ -8,10 +8,10 @@ description: Find all the information on how to set up and start interacting wit
 category: Documentation
 keywords: [services, documentation, getting started]
 tags:
-- Accounts
-- Guide
-- Learn
-- Fleek
+  - Accounts
+  - Guide
+  - Learn
+  - Fleek
 ---
 
 In this guide, you will find all the information on how to set up and start interacting with Fleek's Command Line Interface (CLI).
@@ -37,6 +37,7 @@ npm install -g @fleekxyz/cli
 :::info
 
 Incase this returns an access error (EACCES), run:
+
 ```bash copy
 sudo npm install -g @fleekxyz/cli
 ```
@@ -52,6 +53,7 @@ fleek <service> <command> [options and parameters]
 ```
 
 To view all available services and commands, you can use:
+
 ```bash copy
 fleek help
 ```
@@ -63,11 +65,12 @@ All the services in the Fleek CLI require authentication. To do this, you have t
 ```bash copy
 fleek login
 ```
+
 This will trigger the login process, and we use Web3Auth to manage authentication. Once the flow is completed, you will be greeted like this:
 
 ```bash copy
 fleek login
-🔗 Opening browser on https://app.fleek.xyz/login.html?verificationSession=... 
+🔗 Opening browser on https://app.fleek.xyz/login.html?verificationSession=...
 🧑‍💻 Please login to continue
 ✅ Successfully logged in.
 ```
@@ -87,7 +90,7 @@ To create a project, you can do it like this:
 
 ```bash copy
 fleek projects create
-$ ? Enter project name: › 
+$ ? Enter project name: ›
 ```
 
 When you enter a correct name, you will be automatically switched to it. Additionally, you can switch between different projects using the 'switch' command, which will prompt a selector:

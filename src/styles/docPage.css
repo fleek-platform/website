@@ -4,12 +4,15 @@
 
 @layer components {
   .doc {
-    @apply font-plex-sans text-18 leading-loose pb-128;
+    @apply pb-128 font-plex-sans text-18 leading-loose;
 
-    h1, h2, h3, h4 {
-      @apply font-plex-sans font-bold leading-loose py-10;
+    h1,
+    h2,
+    h3,
+    h4 {
+      @apply py-10 font-plex-sans font-bold leading-loose;
     }
-  
+
     h1 {
       @apply text-38;
     }
@@ -19,14 +22,13 @@
     }
 
     img {
-      @apply rounded-8 p-0 m-0 mb-20;
+      @apply m-0 mb-20 rounded-8 p-0;
       width: 100%;
       height: auto;
     }
 
-    p { 
-      @apply leading-normal pb-20;
-
+    p {
+      @apply pb-20 leading-normal;
     }
 
     a {
@@ -37,7 +39,7 @@
       @apply pl-32;
 
       li {
-        @apply pb-10 list-disc;
+        @apply list-disc pb-10;
       }
     }
 
@@ -53,40 +55,40 @@
     }
   }
 
-	.sidebar-nav {
-		width: 100%;
-		position: sticky;
-		top: 34px;
-		margin-top: 34px;
+  .sidebar-nav {
+    width: 100%;
+    position: sticky;
+    top: 34px;
+    margin-top: 34px;
     border-left-style: dashed;
     border-left-width: 1px;
     border-color: #555;
     padding-left: 18px;
-		@apply mb-50;
+    @apply mb-50;
 
-		> ul {
+    > ul {
       &:last-child {
         @apply pb-0;
-      }	  
-		}
+      }
+    }
 
-		li {
+    li {
       &:first-child {
         @apply pl-0;
         line-height: 1;
       }
-		  
-		  @apply pl-0 pb-8;
 
-  	  > ul {
-  	    @apply pl-10;
-  	  }
-		}
-	  
-		> div {
-  		height: 100%;
-  		padding: 0;
-  		overflow: auto;
-  	}
-	}
+      @apply pb-8 pl-0;
+
+      > ul {
+        @apply pl-10;
+      }
+    }
+
+    > div {
+      height: 100%;
+      padding: 0;
+      overflow: auto;
+    }
+  }
 }

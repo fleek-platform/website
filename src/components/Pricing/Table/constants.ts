@@ -1,9 +1,9 @@
 import styles from './styles.module.css';
-import clsx from "clsx";
+import clsx from 'clsx';
 
-import type { Plan, PlanKeys, SectionFeatures } from "./types";
+import type { Plan, PlanKeys, SectionFeatures } from './types';
 
-export const PLAN_SECTIONS: SectionFeatures  = {
+export const PLAN_SECTIONS: SectionFeatures = {
   storage: {
     icon: '/svg/storage-icon.svg',
     title: 'Storage',
@@ -11,7 +11,7 @@ export const PLAN_SECTIONS: SectionFeatures  = {
       ipfs: 'IPFS',
       filecoin: 'Filecoin',
       arweave: 'Arweave',
-    }
+    },
   },
   hosting: {
     icon: '/svg/hosting-icon.svg',
@@ -22,7 +22,7 @@ export const PLAN_SECTIONS: SectionFeatures  = {
       buildMinutes4Ram: 'Build Minutes\n(4GB RAM)',
       freeSSL: 'Free SSL',
       customSSL: 'Custom SSL',
-    }
+    },
   },
   bandwidth: {
     icon: '/svg/hosting-icon.svg',
@@ -30,14 +30,14 @@ export const PLAN_SECTIONS: SectionFeatures  = {
     features: {
       bandwidth: 'Bandwidth',
       privateGateways: 'Private Gateways',
-    }
+    },
   },
   compute: {
     icon: '/svg/compute-icon.svg',
     title: 'Compute',
     features: {
       edgeFunctions: 'Edge functions',
-    }
+    },
   },
   features: {
     icon: '/svg/support-icon.svg',
@@ -54,7 +54,7 @@ export const PLAN_SECTIONS: SectionFeatures  = {
       anycastDNS: 'Anycast DNS',
       loadBalancing: 'Load Balancing',
       automaticCacheRefresh: 'Automatic Cache Refreshes',
-    }
+    },
   },
   support: {
     icon: '/svg/support-icon.svg',
@@ -63,15 +63,15 @@ export const PLAN_SECTIONS: SectionFeatures  = {
       knowledgeBase: 'Knowledge Base',
       supportHub: 'Support hub',
       premiumSupport: 'Premium support',
-    }
+    },
   },
 };
- 
+
 export const PRICING_PLANS: Record<PlanKeys, Plan> = {
   wagmi: {
     features: {
       storage: {
-        sharedPricing: "⚡️\n($5 in free usage credits each month)",
+        sharedPricing: '⚡️\n($5 in free usage credits each month)',
       },
       hosting: {
         sites: 3,
@@ -110,7 +110,8 @@ export const PRICING_PLANS: Record<PlanKeys, Plan> = {
       title: 'WAGMI',
       titleClassName: clsx('bg-clip-text', styles.wagmiHeader),
       subtitle: '$0',
-      description: 'For those just starting.\n⚡ Up to $5 in free usage every month. ⚡',
+      description:
+        'For those just starting.\n⚡ Up to $5 in free usage every month. ⚡',
       cta: {
         text: 'Sign up',
         href: 'https://app.fleek.xyz/',
@@ -162,7 +163,8 @@ export const PRICING_PLANS: Record<PlanKeys, Plan> = {
       title: 'Pro',
       titleClassName: clsx('bg-clip-text', styles.proHeader),
       subtitle: 'Usage based pricing',
-      description: 'Pricing that scales with your project. Free $5 included monthly. #WAGMI',
+      description:
+        'Pricing that scales with your project. Free $5 included monthly. #WAGMI',
       cta: {
         text: 'Coming soon',
         href: '/pricing/',
@@ -174,16 +176,16 @@ export const PRICING_PLANS: Record<PlanKeys, Plan> = {
     // TODO: make custom
     features: {
       storage: {
-        sharedPricing: "CUSTOM",
+        sharedPricing: 'CUSTOM',
       },
       hosting: {
-        sharedPricing: "CUSTOM",
+        sharedPricing: 'CUSTOM',
       },
       bandwidth: {
-        sharedPricing: "CUSTOM",
+        sharedPricing: 'CUSTOM',
       },
       compute: {
-        sharedPricing: "Soon",
+        sharedPricing: 'Soon',
       },
       features: {
         projects: 'Unlimited',
@@ -216,4 +218,4 @@ export const PRICING_PLANS: Record<PlanKeys, Plan> = {
       },
     },
   },
-}
+};

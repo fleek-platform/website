@@ -1,28 +1,25 @@
 ---
 import Layout from '@layouts/Page.astro';
-import HomepageHero from "@components/HomepageHero";
-import GlobeWithFloatingCards from "@components/GlobeWithFloatingCards";
-import CardsWithDottedLinesBackground from "@components/CardsWithDottedLinesBackground";
-import HostingOnFleek from "@components/HostingOnFleek";
-import LoopingCardSlider from "@components/LoopingCardSlider";
-import IconsCollectionWithHeadline from "@components/IconsCollectionWithHeadline";
-import ChainAgnostic from "@components/ChainAgnostic";
-import CopyWithImageSwap from "@components/CopyWithImageSwap";
-import NSManagement from "@components/NSManagement";
-import CountdownAnimation from "@components/CountdownAnimation";
-import JoinOurFriends from "@components/JoinOurFriends";
-import BuildUseCases from "@components/BuildUseCases";
+import HomepageHero from '@components/HomepageHero';
+import GlobeWithFloatingCards from '@components/GlobeWithFloatingCards';
+import CardsWithDottedLinesBackground from '@components/CardsWithDottedLinesBackground';
+import HostingOnFleek from '@components/HostingOnFleek';
+import LoopingCardSlider from '@components/LoopingCardSlider';
+import IconsCollectionWithHeadline from '@components/IconsCollectionWithHeadline';
+import ChainAgnostic from '@components/ChainAgnostic';
+import CopyWithImageSwap from '@components/CopyWithImageSwap';
+import NSManagement from '@components/NSManagement';
+import CountdownAnimation from '@components/CountdownAnimation';
+import JoinOurFriends from '@components/JoinOurFriends';
+import BuildUseCases from '@components/BuildUseCases';
 ---
 
 <Layout title="Fleek | Build Lightning Fast Web3 Apps">
-	<div class="flex flex-col gap-24 mb-40 lg:gap-32">
-		<HomepageHero client:load />
-		<GlobeWithFloatingCards client:load />
-		<div class="flex flex-col gap-8 lg:gap-16">
-      <HostingOnFleek
-        client:load
-        rounded="top-big-bottom-small"
-      />
+  <div class="mb-40 flex flex-col gap-24 lg:gap-32">
+    <HomepageHero client:load />
+    <GlobeWithFloatingCards client:load />
+    <div class="flex flex-col gap-8 lg:gap-16">
+      <HostingOnFleek client:load rounded="top-big-bottom-small" />
       <JoinOurFriends client:only="react" />
       <BuildUseCases client:load />
       <ChainAgnostic client:load />
@@ -32,12 +29,12 @@ import BuildUseCases from "@components/BuildUseCases";
         headline="IPFS, Arweave, Filecoin, OH MY."
         copy="Multiple storage layer options. All with IPFS content addressing/routing built in. In just 3 lines of code."
         cta={{
-          text: "learn more",
-          url: "https://fleek.xyz/storage/",
+          text: 'learn more',
+          url: 'https://fleek.xyz/storage/',
         }}
       />
-		</div>
+    </div>
     <NSManagement client:load cta="Learn More" />
     <CountdownAnimation client:load />
-	</div>
+  </div>
 </Layout>

@@ -1,6 +1,6 @@
 ---
 draft: false
-title: IPNS 
+title: IPNS
 sidebarCollapsible: false
 sidebar_position: 8
 date: 2023-01-10T09:00:00.000+00:00
@@ -8,10 +8,10 @@ description: Learn to create, publish, and manage IPNS records on Fleek, facilit
 category: Documentation
 keywords: [services, documentation, getting started]
 tags:
-- Accounts
-- Guide
-- Learn
-- Fleek
+  - Accounts
+  - Guide
+  - Learn
+  - Fleek
 ---
 
 ## What is IPNS?
@@ -41,7 +41,6 @@ You can optionally associate an IPNS record to a Fleek site, this means everytim
 
 If you don't want to associate the IPNS record with a site, you can use it freely to point to any valid IPFS CID.
 
-
 ```shellscript filename="Creating an IPS record"
 ❯ fleek ipns create
 > ✔ Do you want to assign new IPNS record to the site? … no
@@ -61,7 +60,7 @@ Publishing an IPNS record means advertising it so that other nodes can resolve i
 To publish an IPNS record you can do as follows
 
 To publish an IPNS record with a CID using the CLI you need to be authenticated, with a project selected and use the `publish` command.
-    
+
 ```shellscript filename="Creating an IPNS record" copy
 > fleek ipns publish k51qzi5uqu5didozh8jmvbnowwj2d545yacagcply19yvjz8rhn0i1hrbw2thy QmRG4xcsmoZuXqKuPz3uVBgvo3GZ6k1kLZWhmvzuKtDr9s
 WARN! Fleek CLI is in beta phase, use it under your own responsibility
@@ -77,7 +76,7 @@ Fleek comes with a built in resolver for IPNS that allows you to get the CID bas
 You can use the resolver to see if what is mapped to a record (yours or someones elses).
 
 To resolve an IPNS record using the CLI you need to be authenticated, with a project selected and use the `resolve` command.
-    
+
 ```shellscript filename="Creating an IPNS record" copy
 > fleek ipns resolve k51qzi5uqu5didozh8jmvbnowwj2d545yacagcply19yvjz8rhn0i1hrbw2thy
 > Success! /ipfs/QmRG4xcsmoZuXqKuPz3uVBgvo3GZ6k1kLZWhmvzuKtDr9s
@@ -92,8 +91,7 @@ To list all the IPNS record using the CLI you need to be authenticated, with a p
 ```shellscript filename="Creating an IPNS record" copy
 > fleek ipns list
 
-id                         name                                                            hash                                          
------------------------------------------------------------------------------------------------------------------------------------------   
+id                         name                                                            hash
+-----------------------------------------------------------------------------------------------------------------------------------------
 clcuq190y0000jt08mpjw7pdz  k51qzi5uqu5didozh8jmvbnowwj2d545yacagcply19yvjz8rhn0i1hrbw2thy  QmRG4xcsmoZuXqKuPz3uVBgvo3GZ6k1kLZWhmvzuKtDr9s
 ```
-

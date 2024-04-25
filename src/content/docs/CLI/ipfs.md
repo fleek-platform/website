@@ -1,6 +1,6 @@
 ---
 draft: false
-title: IPFS 
+title: IPFS
 sidebarCollapsible: false
 sidebar_position: 8
 date: 2023-01-10T09:00:00.000+00:00
@@ -8,10 +8,10 @@ description: Learn how to pin a file using Fleek IPFS add command.
 category: Documentation
 keywords: [services, documentation, getting started]
 tags:
-- Accounts
-- Guide
-- Learn
-- Fleek
+  - Accounts
+  - Guide
+  - Learn
+  - Fleek
 ---
 
 ## What is IPFS?
@@ -29,6 +29,7 @@ You can pin a file from your file system by using the `add` command.
 ```bash copy
 fleek ipfs add <file-direction>
 ```
+
 ## Usage
 
 ```bash
@@ -38,3 +39,4 @@ fleek ipfs add hello.txt
 > You can visit through the gateway:
 https://ipfs.io/ipfs/QmNTCRYiZbtzDGEYtsTKwwtDVQF1XgvebudpRzcXVf5dYM
 
+```

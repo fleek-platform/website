@@ -1,42 +1,50 @@
 ---
 import Layout from '@layouts/BlogPage.astro';
-import Container from "@components/Container";
-import { getCollection } from "astro:content";
+import Container from '@components/Container';
+import { getCollection } from 'astro:content';
 import SearchBtn from '@components/SearchBtn';
 
 const indexNameBlog = import.meta.env.PUBLIC_MEILISEARCH_INDEX_BLOG;
 
-const pageTitle = "Blog";
-const allPosts = await getCollection("blog");
+const pageTitle = 'Blog';
+const allPosts = await getCollection('blog');
 ---
 
 <Layout title="Fleek | Build Lightning Fast Web3 Apps">
   <main class="container min-h-container">
-		<div class="flex items-center justify-between space-x-4 pt-32 mx-64 font-plex-sans text-32 font-bold">
-			<h1>Blog</h1>
-			<div class="relative flex items-center h-48">
-				<SearchBtn
-					client:load
-					indexName={indexNameBlog}
-				/>
-			</div>
-		</div>
+    <div
+      class="mx-64 flex items-center justify-between space-x-4 pt-32 font-plex-sans text-32 font-bold"
+    >
+      <h1>Blog</h1>
+      <div class="relative flex h-48 items-center">
+        <SearchBtn client:load indexName={indexNameBlog} />
+      </div>
+    </div>
 
-		<div class="px-64 py-64 pb-128 grid grid-cols-1 gap-4 lg:grid-cols-3 lg:gap-32">
-			{
-				allPosts.map(post => (
-						<a href={`/blog/${post.slug}`}>
-							<article class="bg-ui-fleek-black overflow-hidden rounded-8 shadow transition cursor-pointer hover:scale-105">
-								<img alt="" src={post.data.image.src} class="h-[200px] w-full object-cover">
-								<div class="p-32">
-									<span class="text-16 font-plex-sans font-light text-ui-mid-grey">{post.data.category}</span>
-									<h3 class="text-24 font-plex-sans font-medium leading-tight">{post.data.title}</h3>
-								</div>
-							</article>
-						</a>
-					)
-				)
-			}
-		</div>
-	</main>
+    <div
+      class="grid grid-cols-1 gap-4 px-64 py-64 pb-128 lg:grid-cols-3 lg:gap-32"
+    >
+      {
+        allPosts.map((post) => (
+          <a href={`/blog/${post.slug}`}>
+            <article class="cursor-pointer overflow-hidden rounded-8 bg-ui-fleek-black shadow transition hover:scale-105">
+              <img
+                alt=""
+                src={post.data.image.src}
+                class="h-[200px] w-full object-cover"
+              />
+              <div class="p-32">
+                <span class="font-plex-sans text-16 font-light text-ui-mid-grey">
+                  {post.data.category}
+                </span>
+                <h3 class="font-plex-sans text-24 font-medium leading-tight">
+                  {post.data.title}
+                </h3>
+              </div>
+            </article>
+          </a>
+        ))
+      }
+    </div>
+  </main>
 </Layout>

@@ -1,5 +1,5 @@
-import resolveConfig from "tailwindcss/resolveConfig";
-import tailwindConfig from "../../tailwind.config.mjs";
+import resolveConfig from 'tailwindcss/resolveConfig';
+import tailwindConfig from '../../tailwind.config.mjs';
 
 const fullConfig = resolveConfig(tailwindConfig);
 
@@ -7,7 +7,7 @@ const fullConfig = resolveConfig(tailwindConfig);
  * NOTE: Keep this in sync with the (custom) Tailwind theme `screens` config.
  * @see https://tailwindcss.com/docs/breakpoints
  */
-export type Screen = "sm" | "md" | "lg" | "xl" | "2xl";
+export type Screen = 'sm' | 'md' | 'lg' | 'xl' | '2xl';
 export const screens: Record<Screen, string> = fullConfig.theme.screens;
 
 // The maximum value is calculated as the minimum of the next one less 0.02px.
