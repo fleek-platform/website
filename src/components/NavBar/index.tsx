@@ -13,12 +13,12 @@ import { isActivePath } from '@utils/url';
 import NAV from './config';
 
 export type NavProps = Record<'pathname', string>;
-export type NavSubMenuCtaProps = Record<'label' | 'url', string>;
+export type NavSubMenuCtaProps = Omit<MenuSettingsItem, 'subMenu'>;
 export type NavSubMenuNavColProps = {
   label: string;
   items: NavSubMenuNavColItem[];
 };
-export type NavSubMenuNavColItem = Record<'label' | 'url', string>;
+export type NavSubMenuNavColItem = Omit<MenuSettingsItem, 'subMenu'>;
 export type NavSubMenuProps = {
   main: {
     label: string;
@@ -46,9 +46,14 @@ const NavSubMenuNavCol = ({
       <div className="nav-sub-menu-nav-col-title">{label}</div>
       <ul className="nav-sub-menu-nav-col-list">
         {
-          items.map(({ label, url }, index) => (
-              <li key={`${index}-${label}`}>
-                <a href={url}>{label}</a>
+          items.map(({ label, url, openInNewTab }, index) => (
+              <li key={`${index}-${label}`} className="">
+                <Link
+                 href={url}
+                 target={openInNewTab ? Target.Blank : Target.Self}
+                >
+                 <Text style="nav-item" className="nav-text-item">{label}</Text>
+                </Link>
               </li>
             )
           )
@@ -73,10 +78,10 @@ const NavSubMenu = ({
   ctas,
 }: NavSubMenuProps) => {
   return (
-    <div className="nav-sub-menu-container">
+    <div className={`nav-sub-menu-container ${!side || main.length < 2 ? 'minimal' : ''}`}>
       <div className="nav-sub-menu-wrap">
         <div className="nav-sub-menu-main-col">
-          <div className="nav-sub-menu-nav-cols">
+          <div className={`nav-sub-menu-nav-cols ${!side || main.length < 2 ? 'hidden': ''}`}>
             {
               main.map(({ label, items }, index) => (
                   <NavSubMenuNavCol
@@ -105,7 +110,7 @@ const NavSubMenu = ({
             }
           </div>
         </div>
-        <div className="nav-sub-menu-side-container">
+        <div className={`nav-sub-menu-side-container ${!side ? 'hidden' : ''}`}>
           {
             side && (
               <NavSubMenuNavCol
@@ -122,13 +127,11 @@ const NavSubMenu = ({
 
 const Nav = ({ pathname }: NavProps) => {
   const [isOpen, setIsOpen] = useState(false);
-  const [selectedItem, setSelectedItem] = useState<number | null>(null);
 
   const isLg = useMediaQuery(up("lg"));
 
   useEffect(() => {
     setIsOpen(false);
-    setSelectedItem(null);
   }, [pathname]);
 
   useEffect(() => {
@@ -143,16 +146,18 @@ const Nav = ({ pathname }: NavProps) => {
         <Link href="/" className="pb-8">
           <img src="/svg/fleek-logo.svg" alt="fleek logo" />
         </Link>
-        <nav className="hidden items-center pl-32 leading-10 gap-40 lg:flex">
+        <nav>
           {NAV.map((navItem, index) =>
             navItem.subMenu ? (
-              <div key={index} className="nav-link py-20 nav-drop-down-container relative group">
-                <Text
-                  style="nav-m"
-                  className="nav-text-item"
+              <div key={index} className="nav-link nav-drop-down-container group">
+                <Link
+                 href={navItem.url || ''}
+                 target={navItem.openInNewTab ? Target.Blank : Target.Self}
+                 key={navItem.url}
+                 className={isActivePath({ pathname, lookup: navItem.url || ''}) ? 'font-bold' : 'nav-text-item'}
                 >
-                  {navItem.label}
-                </Text>
+                 <Text style="nav-m" className="nav-text-item">{navItem.label}</Text>
+                </Link>
                 <NavSubMenu
                   main={navItem.subMenu.main}
                   side={navItem.subMenu.side}
@@ -207,34 +212,51 @@ const Nav = ({ pathname }: NavProps) => {
             -
           </button>
         </div>
-        <div className="nav-menu-nav">
+        <div className="nav-menu-mobile">
           <nav>
             <div
-              className={clsx("flex flex-col items-center gap-16", {
-                "mb-24": selectedItem !== null,
-              })}
+              className={clsx("flex flex-col items-center gap-16 mb-24")}
             >
               {NAV.map((navItem, index) => (
                 <div
                  key={index}
-                 onClick={() =>
-                    (!navItem.subMenu || selectedItem) === index
-                      ? setSelectedItem(null)
-                      : setSelectedItem(index)
-                 }
-                 className={`${clsx({
-                    "nav-menu-item-selected": selectedItem !== null && selectedItem === index,
-                 })} nav-menu-item`}
+                 className="nav-menu-item group"
                 >
                  {navItem.subMenu ? (
+                   <>
                     <Text style="nav-m">
                       {navItem.label}
                       {navItem.subMenu && (
                         <span className="ml-4 inline-block w-8">
-                          {selectedItem === index ? "-" : "+"}
+                          +
                         </span>
                       )}
                     </Text>
+                    <ul className="nav-menu-mobile-sub-menu">
+                    {
+                      navItem.subMenu?.main
+                        .find(({ label }, index) => label.toLowerCase() === 'features')?.items.map(({ label, url, openInNewTab }, index) => (
+                          <li key={index}>
+                            <Link
+                              href={url || ''}
+                              target={
+                                openInNewTab
+                                ? Target.Blank
+                                : Target.self
+                              }
+                            >
+                              <Text
+                                style="nav-item"
+                              >
+                                {label}
+                              </Text>
+                            </Link>
+                          </li>
+                        )
+                      )                    
+                    }
+                    </ul>
+                  </>
                  ) : (
                     <Link
                       href={navItem.url || ''}

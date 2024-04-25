@@ -56,6 +56,8 @@ const textStyles: Record<TextStyle, string> = {
     "font-plex-sans text-10 font-medium leading-[150%] lg:text-13",
   "nav-m":
     "font-plex-sans text-16 uppercase leading-[150%] tracking-[0.064rem]",
+  "nav-item":
+    "font-plex-sans text-16 leading-[150%] tracking-[0.064rem]",
   "btn-action":
     "font-plex-sans text-16 font-medium leading-[150%] tracking-[0.09rem] uppercase",
   "btn-xs":

@@ -68,11 +68,11 @@ const NavBarConfig: MenuSettingsItem[] = [
         }],
       },
       ctas: [{
-        label: 'Comparison',
-        url: 'TODO:ComparisonUrl'
+        label: 'Benchmarks',
+        url: 'TODO:BencharmksUrl'
       }, {
-        label: 'Support',
-        url: 'TODO:SupportUrl',  
+        label: 'Comparison',
+        url: 'TODO:ComparisonUrl',  
       }],
     },
   },
@@ -83,6 +83,37 @@ const NavBarConfig: MenuSettingsItem[] = [
   {
     label: "Docs",
     url: "/docs",
+    subMenu: {
+      main: [{
+        label: 'Documentation',
+        items: [{
+          label: 'Get Started',
+          url: '/docs',
+        }, {
+          label: 'Guides',
+          url: '/guides',
+        }, {
+          label: 'references',
+          url: '/references',
+        }],
+      }],
+      side: {
+        label: "Changelog",
+        items: [{
+            label: 'CLI',
+            url: 'https://github.com/FleekHQ/fleek/blob/master/packages/cli/CHANGELOG.md?TODO-MOVE-TO-OS-REPO',
+            openInNewTab: true,
+          }, {
+            label: 'SDK',
+            url: 'https://github.com/FleekHQ/fleek/blob/master/packages/sdk/CHANGELOG.md?TODO-MOVE-TO-OS-REPO',
+            openInNewTab: true,
+        }],
+      },
+      ctas: [{
+        label: 'Support',
+        url: 'TODO:SupportUrl',  
+      }],
+    },
   },
   {
     label: "Pricing",
