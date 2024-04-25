@@ -272,6 +272,20 @@ const Nav = ({ pathname }: NavProps) => {
                         )
                       )
                     }
+                    <div className="nav-sub-menu-ctas-mobile">
+                    {
+                      navItem.subMenu?.ctas.map(({
+                        label,
+                        url,
+                      }) => (
+                          <NavSubMenuCta
+                            label={label}
+                            url={url}
+                          />
+                        )
+                      )
+                    }
+                    </div>
                   </>
                  ) : (
                     <Link
