@@ -49,7 +49,7 @@ const NavSubMenuNavCol = ({
           items.map(({ label, url, openInNewTab }, index) => (
               <li key={`${index}-${label}`} className="">
                 <Link
-                 href={url}
+                 href={url || ''}
                  target={openInNewTab ? Target.Blank : Target.Self}
                 >
                  <Text style="nav-item" className="nav-text-item">{label}</Text>
