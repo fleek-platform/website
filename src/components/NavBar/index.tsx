@@ -232,30 +232,46 @@ const Nav = ({ pathname }: NavProps) => {
                         </span>
                       )}
                     </Text>
-                    <ul className="nav-menu-mobile-sub-menu">
                     {
-                      navItem.subMenu?.main
-                        .find(({ label }, index) => label.toLowerCase() === 'features')?.items.map(({ label, url, openInNewTab }, index) => (
-                          <li key={index}>
-                            <Link
-                              href={url || ''}
-                              target={
-                                openInNewTab
-                                ? Target.Blank
-                                : Target.self
-                              }
-                            >
-                              <Text
-                                style="nav-item"
-                              >
-                                {label}
-                              </Text>
-                            </Link>
-                          </li>
+                      navItem.subMenu?.main.map(({ label, items }, index) => (
+                        <div className="nav-menu-mobile-sub-menu-container">
+                          <Text
+                            className="nav-menu-mobile-sub-menu-label"
+                            style="nav-m"
+                          >
+                            {label}
+                          </Text>
+                          <ul className="nav-menu-mobile-sub-menu">{
+                              items
+                                .map(({
+                                  label,
+                                  url,
+                                  openInNewTab
+                                  }, index) => (
+                                    <li key={index}>
+                                      <Link
+                                        href={url || ''}
+                                        target={
+                                          openInNewTab
+                                          ? Target.Blank
+                                          : Target.self
+                                        }
+                                      >
+                                        <Text
+                                          style="nav-item"
+                                        >
+                                          {label}
+                                        </Text>
+                                      </Link>
+                                    </li>
+                                  )
+                              )
+                            }
+                          </ul>
+                        </div>
                         )
-                      )                    
+                      )
                     }
-                    </ul>
                   </>
                  ) : (
                     <Link

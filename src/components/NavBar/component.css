@@ -50,7 +50,7 @@
   }
 
   .nav-menu-mobile {
-    @apply flex flex-grow flex-col items-center justify-center;
+    @apply flex flex-grow flex-col items-center justify-center overflow-y-scroll;
 
     .nav-menu-item {
       @apply text-18 relative w-full;
@@ -58,13 +58,21 @@
   }
 
   .nav-menu-mobile-sub-menu {
-    @apply hidden w-full py-10 px-20 leading-loose group-hover:block;
+    @apply w-full;
 
     li {
       a {
         @apply inline-block leading-loose;
       }
     }
+  }
+
+  .nav-menu-mobile-sub-menu-container {
+    @apply hidden w-full py-10 px-20 group-hover:block;
+  }
+
+  .nav-menu-mobile-sub-menu-label {
+    @apply font-bold text-12;
   }
 
   .nav-menu-item {
