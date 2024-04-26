@@ -139,6 +139,10 @@ const NavBarConfig: MenuSettingsItem[] = [
               label: 'References',
               url: '/docs/references',
             },
+            {
+              label: 'Templates',
+              url: '/docs/templates',
+            },
           ],
         },
       ],
