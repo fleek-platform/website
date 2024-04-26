@@ -2,10 +2,12 @@
 
 @layer components {
   .search-btn {
+    @apply relative;
+
     ol {
       @apply grid gap-12;
       li {
-        @apply cursor-pointer rounded-8 border border-1 border-solid border-gray-400 text-16 font-light transition hover:bg-gray-400 hover:text-ui-black;
+        @apply cursor-pointer rounded-8 border-1 border-solid border-gray-400 text-16 font-light transition hover:bg-gray-400 hover:text-ui-black;
 
         a {
           @apply inline-block p-20;
@@ -15,7 +17,7 @@
   }
 
   #search-input {
-    @apply h-20 h-full rounded-8 border-2 pl-40 font-sans text-18 font-light leading-18 outline-0 focus:border-blue-500;
+    @apply h-full rounded-8 border-2 pl-40 font-sans text-18 font-light leading-18 outline-0 focus:border-blue-500;
   }
 
   .input-container {
@@ -43,7 +45,7 @@
     }
 
     button {
-      @apply absolute right-10 top-0 top-1/2 -translate-y-1/2 transform rounded-4 border border-solid border-neutral-400	 p-2 text-10 font-light text-neutral-400 transition hover:opacity-80;
+      @apply absolute right-10 top-1/2 -translate-y-1/2 transform rounded-4 border border-solid border-neutral-400	 p-2 text-10 font-light text-neutral-400 transition hover:opacity-80;
     }
 
     .no-results {

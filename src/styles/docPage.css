@@ -92,4 +92,11 @@
       overflow: auto;
     }
   }
+
+  .docs-search-container {
+    @apply pb-20 pr-8;
+    .search-input {
+      @apply w-full;
+    }
+  }
 }

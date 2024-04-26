@@ -153,7 +153,12 @@ export default ({ indexName }: Props) => {
   return (
     <div className="search-btn">
       <div className="input-container" onClick={onSearchFocus}>
-        <input type="text" placeholder="Search blog posts..." readOnly={true} />
+        <input
+          className="search-input"
+          type="text"
+          placeholder="Search..."
+          readOnly={true}
+        />
         <div className="icon-container">
           <svg
             xmlns="http://www.w3.org/2000/svg"
