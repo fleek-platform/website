@@ -213,7 +213,10 @@ const Nav = ({ pathname }: NavProps) => {
                         )}
                       </Text>
                       {navItem.subMenu?.main.map(({ label, items }, index) => (
-                        <div className="nav-menu-mobile-sub-menu-container">
+                        <div
+                          key={`${index}-${label}`}
+                          className="nav-menu-mobile-sub-menu-container"
+                        >
                           <Text
                             className="nav-menu-mobile-sub-menu-label"
                             style="nav-m"
@@ -240,9 +243,15 @@ const Nav = ({ pathname }: NavProps) => {
                       ))}
                       {navItem.subMenu?.ctas && (
                         <div className="nav-sub-menu-ctas-mobile">
-                          {navItem.subMenu?.ctas.map(({ label, url }) => (
-                            <NavSubMenuCta label={label} url={url} />
-                          ))}
+                          {navItem.subMenu?.ctas.map(
+                            ({ label, url }, index) => (
+                              <NavSubMenuCta
+                                key={`${index}-${label}`}
+                                label={label}
+                                url={url}
+                              />
+                            ),
+                          )}
                         </div>
                       )}
                     </>

@@ -59,7 +59,7 @@ const SidebarMenu: FC<Props> = ({ data, pathname }) => {
               >
                 <summary className="rounded-lg hover hover flex cursor-pointer items-center justify-between py-2">
                   <a
-                    className={`inline-block w-full font-plex-sans text-16 capitalize leading-loose transition duration-150 hover:opacity-100 ${isActiveSlug(item.slug) && isActiveCategory(item.category) ? 'font-bold opacity-100' : 'opacity-80'}`}
+                    className={`TODO inline-block w-full font-plex-sans text-16 capitalize leading-loose transition duration-150 hover:opacity-100 ${isActiveSlug(item.slug) && isActiveCategory(item.category) ? 'font-bold opacity-100' : 'opacity-80'}`}
                     href={`/docs/${item.slug}`}
                   >
                     {item.title}
@@ -86,8 +86,8 @@ const SidebarMenu: FC<Props> = ({ data, pathname }) => {
                   {item.list.map((sItem, idx) => (
                     <li key={`${idx}-${item.slug}`}>
                       <a
-                        href={`/docs/${item.category}/${sItem.slug}`}
-                        className={`rounded-lg block inline-block w-full py-2 font-plex-sans text-16 leading-loose transition duration-150 hover:opacity-100 ${isActiveCategory(item.category) && isActiveSlug(sItem.slug) ? 'font-bold opacity-100' : 'opacity-80'}`}
+                        href={`/docs/${item.category}/${!sItem.index ? sItem.slug : ''}`}
+                        className={`rounded-lg inline-block w-full py-2 font-plex-sans text-16 leading-loose transition duration-150 hover:opacity-100 ${isActiveCategory(item.category) && isActiveSlug(sItem.slug) ? 'font-bold opacity-100' : 'opacity-80'}`}
                       >
                         {sItem.title}
                       </a>

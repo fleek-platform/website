@@ -1,6 +1,6 @@
 ---
-title: Getting started
-order: 1
+title: Overview
+order: 0
 date: 2023-01-10
 description: Learn how to use the Fleek command-line interface (CLI) to manage and configure your Fleek Projects from the command line.
 category: Documentation
@@ -12,6 +12,6 @@ tags:
   - Fleek
 ---
 
-TODO: Introduction
+TODO: cli
 
-## TODO: Installation
+## TODO: cli

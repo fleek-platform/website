@@ -1,7 +1,11 @@
 import type { CollectionEntry } from 'astro:content';
 
 type Doc = CollectionEntry<'docs'>;
-type DocWithCategory = Doc['data'] & { category: string; slug: string };
+type DocWithCategory = Doc['data'] & {
+  category: string;
+  slug: string;
+  index: boolean;
+};
 
 type SidebarItem = Pick<Doc['data'], 'title' | 'order'>;
 
@@ -10,6 +14,7 @@ export type SidebarData = Record<string, SidebarItem[]>;
 type List = {
   slug: string;
   title: string;
+  index: boolean;
 }[];
 
 export type GenerateSidebarResponse = {
@@ -53,12 +58,14 @@ export const generateSidebarDSByUserOrder = (
     const slugSplit = item.slug.split('/');
     const category = slugSplit[0];
     const slug = slugSplit.length > 1 ? slugSplit[1] : item.slug;
+    const index = slugSplit.length == 1 && item.id.includes('index');
 
     if (!hasCategory) {
       return {
         ...item.data,
         category: ROOT_FALLBACK_CATEGORY,
         slug: item.slug,
+        index,
       };
     }
 
@@ -66,6 +73,7 @@ export const generateSidebarDSByUserOrder = (
       ...item.data,
       category,
       slug,
+      index,
     };
   });
 
@@ -180,6 +188,7 @@ const transformData = (
       list: sortedItems.map((item) => ({
         slug: item.slug,
         title: item.title,
+        index: item.index,
       })),
     };
   });
