@@ -2,22 +2,33 @@ echo "🚑 Health check, please be patient..."
 
 if ./scripts/check-file-size.ts; then
   echo "✅ File sizes checked!"
+else
+  exit 1
 fi
 
 if ./scripts/check-file-extensions.ts; then
   echo "✅ File extensions checked!"
+else
+  exit 1
 fi
 
 if ./scripts/validate-json.ts; then
   echo "✅ JSON configs checked!"
+else
+  exit 1
 fi
 
 if npm run check:strict; then
   echo "✅ Type safety checked!"
+else
+  exit 1
 fi
 
 if npm run fmt:check; then
   echo "✅ Code format checked!"
+else
+  echo "💡 Use the command `npm run fmt`"
+  exit 1
 fi
 
 echo "👍 Health check completed."
