@@ -92,8 +92,16 @@ const generateUrlPath = ({
   const isIndexFile = parts[parts.length - 1].startsWith('index.');
 
   if (isIndexFile) parts.pop();
+
+  // Note: Users may utilize the 'slug' field, which supersedes the default URL generation based on the filename.
+  // Warning: As of this writing, deeply nested files with custom slugs do not function correctly in Astro.
+  // For example, a file located at 'src/contents/docs/dir1/dir2/file-has-slug.md' may encounter issues.
+  // Due to this limitation, it's advisable not to use 'slug' in markdown files.
+  const url = `/${parts.join('/')}`;
+  const regex = /(.*\/)(.*)\.(md|mdx)$/;
+  const result = url.replace(regex, '$1');
   
-  return `/${parts.join('/')}`;
+  return result;
 }
 
 export default async ({
@@ -165,7 +173,7 @@ export default async ({
       try {
         // TODO: Change to addDocuments in batches
         // client.index('myIndex').addDocumentsInBatches(documents: Document<T>[], batchSize = 1000): Promise<EnqueuedTask[]>
-        const task = await index.addDocuments([{
+        await index.addDocuments([{
           id: toSlug(`${category}-${title}`),
           content,
           title,
