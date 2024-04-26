@@ -107,7 +107,7 @@ const NavBarConfig: MenuSettingsItem[] = [
           label: 'Documentation',
           items: [
             {
-              label: 'Get Started',
+              label: 'Home',
               url: '/docs',
             },
             {
@@ -119,20 +119,25 @@ const NavBarConfig: MenuSettingsItem[] = [
               url: '/docs/infrastructure',
             },
             {
-              label: 'Guides',
-              url: '/docs/guides',
-            },
-            {
-              label: 'References',
-              url: '/docs/references',
-            },
-            {
               label: 'CLI',
               url: '/docs/cli',
             },
             {
               label: 'SDK',
               url: '/docs/sdk',
+            },
+          ],
+        },
+        {
+          label: 'Resources',
+          items: [
+            {
+              label: 'Guides',
+              url: '/docs/guides',
+            },
+            {
+              label: 'References',
+              url: '/docs/references',
             },
           ],
         },
