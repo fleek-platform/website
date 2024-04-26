@@ -15,6 +15,11 @@ const files = diff.toString().split('\n');
 
 files.forEach((file) => {
   if (!file) return;
+
+  if (!fs.existsSync(file)) {
+    console.log(`🚴‍♀️Skipped! File ${file} not found!`);
+    process.exit(0);
+  }
   
   const stats = fs.statSync(file);
   const bytesSize = stats.size;

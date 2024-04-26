@@ -80,10 +80,14 @@ const indexNameDocs = import.meta.env.PUBLIC_MEILISEARCH_INDEX_DOCS;
         </article>
       </div>
       <aside class="hidden w-240 lg:block">
-        <OnPageNavigation
-          headings={headings}
-          githubEditUrl={githubEditUrlPathname}
-        />
+        {
+          headings && (
+            <OnPageNavigation
+              headings={headings}
+              githubEditUrl={githubEditUrlPathname}
+            />
+          )
+        }
       </aside>
     </div>
   </main>

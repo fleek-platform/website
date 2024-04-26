@@ -150,10 +150,7 @@ export const generateSidebarDSByUserOrder = (
 
   const join = [...flatten, ...orderedData]
     .sort((a, b) => (a.order ?? Infinity) - (b.order ?? Infinity))
-    .filter(
-      (item) =>
-        item.category !== ROOT_FALLBACK_CATEGORY && item.slug !== ROOT_INDEX,
-    );
+    .filter((item) => item.slug !== ROOT_INDEX);
 
   return join;
 };
