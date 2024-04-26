@@ -50,7 +50,7 @@ export const generateSidebarDSByUserOrder = (
 ): GenerateSidebarResponse => {
   const data = allPosts.map((item) => {
     const hasCategory = item.id.split('/').length > 1;
-    const slugSplit = item.slug.split('/');  
+    const slugSplit = item.slug.split('/');
     const category = slugSplit[0];
     const slug = slugSplit.length > 1 ? slugSplit[1] : item.slug;
 
@@ -70,7 +70,7 @@ export const generateSidebarDSByUserOrder = (
   });
 
   // Normalize userOrder category name
-  userOrder = userOrder.map(({ category, ...fields}) => {
+  userOrder = userOrder.map(({ category, ...fields }) => {
     return {
       ...fields,
       category: category.toLowerCase(),
