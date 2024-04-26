@@ -111,12 +111,28 @@ const NavBarConfig: MenuSettingsItem[] = [
               url: '/docs',
             },
             {
-              label: 'Guides',
-              url: '/guides',
+              label: 'Platform',
+              url: '/docs/platform',
             },
             {
-              label: 'references',
-              url: '/references',
+              label: 'Infrastructure',
+              url: '/docs/infrastructure',
+            },
+            {
+              label: 'Guides',
+              url: '/docs/guides',
+            },
+            {
+              label: 'References',
+              url: '/docs/references',
+            },
+            {
+              label: 'CLI',
+              url: '/docs/cli',
+            },
+            {
+              label: 'SDK',
+              url: '/docs/sdk',
             },
           ],
         },

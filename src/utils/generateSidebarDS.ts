@@ -39,69 +39,6 @@ const normalizeCategoryName = (input: string) => {
   return (match ? match[1] : input).replaceAll('_', ' ');
 };
 
-// Deprecated because the convention allows to autogenerate and sort the data by naming conventions, name normalization but the static file name still matters for the ssg. For this reason, will have to create a way to declare the menu order.
-//
-// To use
-// import { getCollection } from "astro:content";
-// const allPosts = await getCollection("docs");
-// const sidebarSorted = generateSidebarDS(allPosts);
-const generateSidebarDS = (data: Doc[]) => {
-  const categories: SidebarData = {};
-
-  data.forEach((item) => {
-    const split = item.slug.split('/');
-    const hasCategory = split.length > 1;
-    // Use the directory name to order alphabetically
-    const categoryFromSlug = split[0];
-
-    if (!hasCategory) {
-      if (!categories[ROOT_FALLBACK_CATEGORY]) {
-        categories[ROOT_FALLBACK_CATEGORY] = [];
-      }
-
-      categories[ROOT_FALLBACK_CATEGORY] = [
-        ...categories[ROOT_FALLBACK_CATEGORY],
-        {
-          title: item.data.title,
-          order: item.data.order,
-        },
-      ];
-    } else {
-      if (!categories[categoryFromSlug]) {
-        categories[categoryFromSlug] = [];
-      }
-
-      categories[categoryFromSlug] = [
-        ...categories[categoryFromSlug],
-        {
-          title: item.data.title,
-          order: item.data.order,
-        },
-      ];
-    }
-  });
-
-  const result = Object.keys(categories)
-    .sort()
-    .map((category) => {
-      const list = categories[category]
-        .sort((a, b) =>
-          a?.order && b?.order
-            ? a.order - b.order
-            : a.title.localeCompare(b.title),
-        )
-        .map((item) => item.title);
-
-      const normalized = normalizeCategoryName(category);
-
-      return { category: normalized, list };
-    });
-
-  return result;
-};
-
-export default generateSidebarDS;
-
 type UserOrderItem = {
   category: string;
   order: number;
@@ -132,7 +69,13 @@ export const generateSidebarDSByUserOrder = (
     };
   });
 
-  console.log('[debug] data: ', data);
+  // Normalize userOrder category name
+  userOrder = userOrder.map(({ category, ...fields}) => {
+    return {
+      ...fields,
+      category: category.toLowerCase(),
+    };
+  });
 
   // Initialize the Map with empty arrays for each category
   const dataMap = new Map<string, DocWithCategory[]>(
@@ -150,13 +93,12 @@ export const generateSidebarDSByUserOrder = (
     }
   });
 
-  // Separate categories that are in userOrder from those that are not
+  // Separate categories that are in userOrder from remaining
   const userOrderCategories = new Set(userOrder.map((item) => item.category));
   const remainingCategories = data.filter(
     (item) => !userOrderCategories.has(item.category),
   );
 
-  // Sort the userOrder array based on the order field
   userOrder.sort((a, b) => a.order - b.order);
 
   const userOrderLookupTable = userOrder.reduce(
@@ -167,7 +109,7 @@ export const generateSidebarDSByUserOrder = (
     {} as Record<string, number>,
   );
 
-  // Create a new array based on the order specified in userOrder
+  // Create array by the order in userOrder
   const orderedUserOrderItems: DocWithCategory[] = userOrder
     .flatMap((orderItem) => dataMap.get(orderItem.category) ?? [])
     .filter((item): item is DocWithCategory => item !== undefined);
@@ -175,7 +117,7 @@ export const generateSidebarDSByUserOrder = (
   // Sort the remaining categories alphabetically
   remainingCategories.sort((a, b) => a.category.localeCompare(b.category));
 
-  // Combine the sorted userOrder items with the sorted remaining categories
+  // Combine sorted userOrder items with remaining sorted cats
   const sortedOrderedUserOrderItems = transformData(
     orderedUserOrderItems,
     userOrderLookupTable,

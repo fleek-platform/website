@@ -18,16 +18,20 @@
     "menu": {
       "order": [
         {
-          "category": "accounts",
+          "category": "Platform",
           "order": 1
         },
         {
-          "category": "projects",
+          "category": "Infrastructure",
           "order": 2
         },
         {
-          "category": "Domains",
-          "order": 5
+          "category": "Cli",
+          "order": 3
+        },
+        {
+          "category": "Sdk",
+          "order": 4
         }
       ]
     }

@@ -29,6 +29,7 @@
 
     p {
       @apply pb-20 leading-normal;
+      width: 100%;
     }
 
     a {
