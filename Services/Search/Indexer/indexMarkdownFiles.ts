@@ -99,8 +99,8 @@ const generateUrlPath = ({
   // Due to this limitation, it's advisable not to use 'slug' in markdown files.
   const url = `/${parts.join('/')}`;
   const regex = /(.*\/)(.*)\.(md|mdx)$/;
-  const result = url.replace(regex, '$1');
-  
+  const result = url.replace(regex, '$1').toLowerCase();
+
   return result;
 }
 
