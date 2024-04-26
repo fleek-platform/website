@@ -19,7 +19,7 @@
     "fmt:check": "npx prettier --check ./src",
     "check:strict": "npx astro check --minimumFailingSeverity error --minimumSeverity error",
     "check:json": "./scripts/validate-json.ts",
-    "search:serve": "./Services/Search/dev.bash",
+    "search:serve": "npm run clear:meili_data && ./Services/Search/dev.bash",
     "search:index_all": "npm run search:index_blog && npm run search:index_docs",
     "search:index_blog": "./Services/Search/Indexer/indexation.ts \"blog\" \"fleekxyz_website_blog\"",
     "search:index_docs": "./Services/Search/Indexer/indexation.ts \"docs\" \"fleekxyz_website_docs\"",
@@ -27,6 +27,8 @@
     "search:index_blog_prod_debug": "npm run search:index_warn && dotenvx run -f .env.production -- npm run search:index_blog",
     "search:index_docs_prod_debug": "npm run search:index_warn && dotenvx run -f .env.production -- npm run search:index_docs",
     "search:index_warn": "echo \"⚠️ For debugging production indexation based on local .env.production file!\" && sleep 3",
+    "clear": "npm run clear:meili_data",
+    "clear:meili_data": "rm -rf meili_data",
     "prepare": "husky"
   },
   "dependencies": {
