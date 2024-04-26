@@ -29,7 +29,7 @@ const SidebarMenu: FC<Props> = ({ data, pathname }) => {
   const isActiveSlug = (slug: string) => slug === activeSlug;
 
   return (
-    <ul>
+    <ul className="mb-80">
       <li className="font-plex-sans text-16 capitalize">
         <a href="/docs" className={`leading-loose ${isHome(activeSlug)}`}>
           Home
