@@ -112,9 +112,10 @@ export const generateSidebarDSByUserOrder = (
   userOrder: UserOrderItem[],
 ): GenerateSidebarResponse => {
   const data = allPosts.map((item) => {
-    const split = item.slug.split('/');
-    const hasCategory = split.length > 1;
-    const categoryFromSlug = split[0];
+    const hasCategory = item.id.split('/').length > 1;
+    const slugSplit = item.slug.split('/');  
+    const category = slugSplit[0];
+    const slug = slugSplit.length > 1 ? slugSplit[1] : item.slug;
 
     if (!hasCategory) {
       return {
@@ -126,10 +127,12 @@ export const generateSidebarDSByUserOrder = (
 
     return {
       ...item.data,
-      category: categoryFromSlug,
-      slug: split[1],
+      category,
+      slug,
     };
   });
+
+  console.log('[debug] data: ', data);
 
   // Initialize the Map with empty arrays for each category
   const dataMap = new Map<string, DocWithCategory[]>(
