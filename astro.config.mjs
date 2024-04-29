@@ -49,7 +49,9 @@ export default defineConfig({
   markdown: {
     remarkPlugins: [remarkDirective, [remarkCalloutDirectives, configRemarkCalloutDirectives]],
     shikiConfig: {
-      theme: 'dracula'
+      // List of themes https://shiki.matsu.io/themes
+      // Might have overrides in src/styles/commonArticle.css
+      theme: 'min-dark'
     }
   }
 });
