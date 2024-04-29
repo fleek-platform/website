@@ -133,11 +133,11 @@ const NavBarConfig: MenuSettingsItem[] = [
           items: [
             {
               label: 'Guides',
-              url: '/docs/guides',
+              url: '/guides',
             },
             {
               label: 'References',
-              url: '/docs/references',
+              url: '/references',
             },
             {
               label: 'Templates',

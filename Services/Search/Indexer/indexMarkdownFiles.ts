@@ -13,6 +13,7 @@ const contentBasePath = 'src/content';
 export enum ContentDirByName {
   'blog' = `${contentBasePath}/blog`,
   'docs' = `${contentBasePath}/docs`,
+  'guides' = `${contentBasePath}/guides`,
 };
 
 export type ContentName = keyof typeof ContentDirByName;
