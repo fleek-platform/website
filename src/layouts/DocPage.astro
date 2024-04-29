@@ -50,8 +50,10 @@ const {
 })();
 
 const data = await getEntry(collection, id);
-const githubEditUrlPathname = `${collection}/${id}`;
-
+const githubEditUrlPathname = generateGitHubEditLink({
+  collection: data.collection,
+  id: data.id,
+});
 const allPosts = await getCollection('docs');
 const orderBy = settings.docs.menu.order;
 
