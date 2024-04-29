@@ -3,6 +3,7 @@ import Layout from '@layouts/BlogPage.astro';
 import Container from '@components/Container';
 import { getCollection } from 'astro:content';
 import SearchBtn from '@components/SearchBtn';
+import BlogPosts from '@components/BlogPosts.astro';
 
 const indexNameBlog = import.meta.env.PUBLIC_MEILISEARCH_INDEX_BLOG;
 
@@ -21,31 +22,8 @@ const allPosts = await getCollection('blog');
         <SearchBtn client:load indexName={indexNameBlog} />
       </div>
     </div>
-
-    <div
-      class="grid grid-cols-1 gap-4 px-64 py-64 pb-128 lg:grid-cols-3 lg:gap-32"
-    >
-      {
-        allPosts.map((post) => (
-          <a href={`/blog/${post.slug}`}>
-            <article class="cursor-pointer overflow-hidden rounded-8 bg-ui-fleek-black shadow transition hover:scale-105">
-              <img
-                alt=""
-                src={post.data.image.src}
-                class="h-[200px] w-full object-cover"
-              />
-              <div class="p-32">
-                <span class="font-plex-sans text-16 font-light text-ui-mid-grey">
-                  {post.data.category}
-                </span>
-                <h3 class="font-plex-sans text-24 font-medium leading-tight">
-                  {post.data.title}
-                </h3>
-              </div>
-            </article>
-          </a>
-        ))
-      }
-    </div>
+    <BlogPosts
+      allPosts={allPosts}
+    />
   </main>
 </Layout>

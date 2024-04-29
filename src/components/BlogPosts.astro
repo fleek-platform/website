@@ -1,0 +1,32 @@
+---
+const { allPosts } = Astro.props;
+---
+<div
+  class="all-posts grid grid-cols-1 gap-4 px-64 py-64 pb-128 lg:grid-cols-3 lg:gap-32 items-stretch"
+>
+  {
+    allPosts.map((post) => (
+      <a href={`/guides/${post.slug}`}>
+        <article class="cursor-pointer overflow-hidden rounded-8 bg-ui-fleek-black shadow transition hover:scale-105 min-h-[360px]">
+          {
+            post.data?.image.src && (
+              <img
+                alt=""
+                src={post.data.image.src}
+                class="h-[200px] w-full object-cover"
+              />                  
+            )
+          }
+          <div class="p-32">
+            <span class="font-plex-sans text-16 font-light text-ui-mid-grey">
+              {post.data.category}
+            </span>
+            <h3 class="font-plex-sans text-24 font-medium leading-tight">
+              {post.data.title}
+            </h3>
+          </div>
+        </article>
+      </a>
+    ))
+  }
+</div>
