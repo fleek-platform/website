@@ -73,7 +73,7 @@ const isHome = Astro.url.pathname === '/docs';
 <BaseHtml title={title}>
   <main class="container min-h-container">
     <div
-      class={`grid grid-cols-[1fr] gap-4 ${isHome ? 'md:grid-cols-[1fr,6fr]' : 'md:grid-cols-[1fr,3fr,1fr]'}`}
+      class={`grid grid-cols-[1fr] gap-4 md:grid-cols-[1fr,3fr,0.8fr]`}
     >
       <aside class="w-320 px-32">
         <div class="docs-search-container">
