@@ -12,7 +12,7 @@ type Props = {
   headings: MarkdownHeading[];
 };
 
-const THROTTLE_MS = 300;
+const THROTTLE_MS = 100;
 
 const TableOfContents: FC<Props> = ({ headings = [] }) => {
   const itemOffsets = useRef<ItemOffsets[]>([]);

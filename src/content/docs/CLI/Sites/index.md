@@ -13,6 +13,8 @@ tags:
 
 # Sites
 
+TODO: sites introduction
+
 ## Setting up a Site
 
 To begin a deployment, you must first set up a site. To do this, you must be authenticated in the CLI and have a project selected. If you are not authenticated or have not selected a project, the CLI can help you. Use the `sites init` command to start the setup process.

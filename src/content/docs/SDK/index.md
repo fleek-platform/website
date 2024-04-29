@@ -17,7 +17,7 @@ The Fleek SDK is a set of tools that allow you to interact with Fleek’s servic
 
 All of the code snippets provided in these docs are based on Typescript. We strongly encourage Typescript to get the most out of the type of safety that the SDK provides.
 
-## Installation
+## Install
 
 The SDK is available as an npm package.
 
