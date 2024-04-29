@@ -2,8 +2,8 @@
 import Layout from '@layouts/BlogPage.astro';
 import Container from '@components/Container';
 import { getCollection } from 'astro:content';
-import SearchBtn from '@components/SearchBtn';
 import BlogPosts from '@components/BlogPosts.astro';
+import BlogHeader from '@components/BlogHeader.astro';
 
 const indexNameBlog = import.meta.env.PUBLIC_MEILISEARCH_INDEX_BLOG;
 
@@ -14,14 +14,10 @@ const allPosts = await getCollection('blog');
 
 <Layout title="Fleek | Build Lightning Fast Web3 Apps">
   <main class="container min-h-container">
-    <div
-      class="mx-64 flex items-center justify-between space-x-4 pt-32 font-plex-sans text-32 font-bold"
-    >
-      <h1>Blog</h1>
-      <div class="relative flex h-48 items-center">
-        <SearchBtn client:load indexName={indexNameBlog} />
-      </div>
-    </div>
+    <BlogHeader
+      title="Blog"
+      indexName={indexNameBlog}
+    />
     <BlogPosts
       allPosts={allPosts}
     />
