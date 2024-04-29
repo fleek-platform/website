@@ -58,11 +58,13 @@ const orderBy = settings.docs.menu.order;
 const sidebarSorted = generateSidebarDSByUserOrder(allPosts, orderBy);
 
 const indexNameDocs = import.meta.env.PUBLIC_MEILISEARCH_INDEX_DOCS;
+
+const isHome = Astro.url.pathname === '/docs';
 ---
 
 <BaseHtml title={title}>
   <main class="container min-h-container">
-    <div class="grid grid-cols-[1fr] gap-4 md:grid-cols-[1fr,3fr,1fr]">
+    <div class={`grid grid-cols-[1fr] gap-4 ${isHome ? 'md:grid-cols-[1fr,6fr]' : 'md:grid-cols-[1fr,3fr,1fr]'}`}>
       <aside class="w-320 px-32">
         <div class="docs-search-container">
           <SearchBtn client:load indexName={indexNameDocs} />
@@ -73,15 +75,21 @@ const indexNameDocs = import.meta.env.PUBLIC_MEILISEARCH_INDEX_DOCS;
           pathname={Astro.url.pathname}
         />
       </aside>
-      <div class="min-w-0 max-w-[900px] px-32">
+      <div class="min-w-0 px-32">
         <article class="doc">
           <slot />
-          <GithubEditLink pathname={githubEditUrlPathname} />
+          {
+            !isHome && (
+              <GithubEditLink pathname={githubEditUrlPathname} />
+            )
+          }
         </article>
       </div>
       <aside class="hidden w-240 lg:block">
         {
-          headings && (
+          !isHome
+          && headings
+          && (
             <OnPageNavigation
               headings={headings}
               githubEditUrl={githubEditUrlPathname}
