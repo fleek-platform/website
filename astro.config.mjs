@@ -5,8 +5,8 @@ import remarkCalloutDirectives from '@microflash/remark-callout-directives';
 import react from "@astrojs/react";
 import sitemap from "@astrojs/sitemap";
 import settings from "./src/settings.json";
-import { imagetools } from 'vite-imagetools'
-
+import { imagetools } from 'vite-imagetools';
+import mdx from "@astrojs/mdx";
 const configRemarkCalloutDirectives = {
   callouts: {
     note: {
@@ -35,20 +35,17 @@ const configRemarkCalloutDirectives = {
 // Environment mode
 const env = import.meta.env.MODE || 'staging';
 
+// https://astro.build/config
 export default defineConfig({
   site: settings.site[env].url,
   vite: {
-    plugins: [imagetools()],
+    plugins: [imagetools()]
   },
-  integrations: [
-    tailwind({
-      nesting: true
-    }),
-    react({
-      experimentalReactChildren: true
-    }),
-    sitemap(),
-  ],
+  integrations: [tailwind({
+    nesting: true
+  }), react({
+    experimentalReactChildren: true
+  }), sitemap(), mdx()],
   markdown: {
     remarkPlugins: [remarkDirective, [remarkCalloutDirectives, configRemarkCalloutDirectives]],
     shikiConfig: {
