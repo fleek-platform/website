@@ -35,7 +35,7 @@ const DocsTitledCards = ({
                 <TransparentCard
                   key={index}
                   {...item}
-                  className="lg:max-w-[325px]"
+                  className="h-full lg:max-w-[325px]"
                 />
               </a>
             ))}
