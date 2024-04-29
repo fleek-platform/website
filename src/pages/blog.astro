@@ -6,6 +6,7 @@ import SearchBtn from '@components/SearchBtn';
 
 const indexNameBlog = import.meta.env.PUBLIC_MEILISEARCH_INDEX_BLOG;
 
+// TODO: load title from settings
 const pageTitle = 'Blog';
 const allPosts = await getCollection('blog');
 ---
