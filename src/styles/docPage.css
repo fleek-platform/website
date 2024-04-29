@@ -21,7 +21,7 @@
       @apply text-32;
     }
 
-    img {
+    p > img {
       @apply m-0 mb-20 rounded-8 p-0;
       width: 100%;
       height: auto;
