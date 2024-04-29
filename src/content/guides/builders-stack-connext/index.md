@@ -1,13 +1,13 @@
 ---
-title: "Build3rs Stack: Connext"
-category: "Guides"
+title: 'Build3rs Stack: Connext'
+category: 'Guides'
 date: 2023-09-13
 desc: "The builder's guide to Connext-  the cross-chain protocol for secure data and fund transfer"
-thumbnail: "./connext-thumb.jpg"
-alt: "builders stack Connext"
-image: "./connext-thumb.jpg"
-cannonical: ""
-author: "Fleek"
+thumbnail: './connext-thumb.jpg'
+alt: 'builders stack Connext'
+image: './connext-thumb.jpg'
+cannonical: ''
+author: 'Fleek'
 ---
 
 Welcome to the Build3rs Stack, our web3 infrastructure overview series! This week we are checking out [Connext](https://www.connext.network/), a protocol for securely passing data and funds between chains.
@@ -26,7 +26,7 @@ Connext built a [bridge](https://blog.connext.network/the-messaging-bridge-stack
 
 - **Transport**: Posting message data from one chain to another.
 - **Verification**: Proving the correctness of the above data.
-- **Execution**: Doing *something* with the bridged data.
+- **Execution**: Doing _something_ with the bridged data.
 
 ---
 
@@ -71,7 +71,7 @@ For a message to be transmitted via the **fast path**, it **must meet two requir
 
 Routers execute the bridge almost instantaneously by providing instant liquidy on the destination domain for the user. Routers receive a fee for following the Aubritrary Message Bridge (AMB).
 
-Messages are directed through the **Slow Path** if *either* of the following conditions apply:
+Messages are directed through the **Slow Path** if _either_ of the following conditions apply:
 
 1. Messages include authenticated calldata (DAO votes across chains, altering protocol settings).
 2. There's insufficient router liquidity for the bridged token on the destination domain.
@@ -121,15 +121,15 @@ Fuji Finance has implemented Connext in their Web3 app for users to lend on one 
 ## Getting Started
 
 - [Developer Documentation](https://docs.connext.network/concepts/readme)
-    - [xERC20 Token Setup Guide](https://www.notion.so/be4e136a6db14191b8d61bd60563ebd0?pvs=21)
-    - [Chain Abstraction Guide](https://docs.connext.network/usecases/chain-abstraction/chain-abstraction-guide)
+  - [xERC20 Token Setup Guide](https://www.notion.so/be4e136a6db14191b8d61bd60563ebd0?pvs=21)
+  - [Chain Abstraction Guide](https://docs.connext.network/usecases/chain-abstraction/chain-abstraction-guide)
 - [Subgraphs](https://docs.connext.network/resources/subgraphs)
-    - [Creating an API Key Video Tutorial](https://www.youtube.com/watch?v=UrfIpm-Vlgs)
-    - [Managing your API Keys and Settings](https://thegraph.com/docs/en/querying/managing-api-keys/)
-    - [Connext Network Explorer Page](https://thegraph.com/explorer/subgraph?id=DfD1tZSmDtjCGC2LeYEQbVzj9j8kNqKAQEsYL27Vg6Sw&view=Playground)
-    - [Connext Subgraph Implementation Repo](https://github.com/connext/monorepo/tree/56a166f3ecb50cc10356dd96c257e2e4d47f29e3/packages/deployments/subgraph/src/amarok-runtime-v0)
+  - [Creating an API Key Video Tutorial](https://www.youtube.com/watch?v=UrfIpm-Vlgs)
+  - [Managing your API Keys and Settings](https://thegraph.com/docs/en/querying/managing-api-keys/)
+  - [Connext Network Explorer Page](https://thegraph.com/explorer/subgraph?id=DfD1tZSmDtjCGC2LeYEQbVzj9j8kNqKAQEsYL27Vg6Sw&view=Playground)
+  - [Connext Subgraph Implementation Repo](https://github.com/connext/monorepo/tree/56a166f3ecb50cc10356dd96c257e2e4d47f29e3/packages/deployments/subgraph/src/amarok-runtime-v0)
 - [Deployments](https://docs.connext.network/resources/deployments)
-    - [Full List of Deployed Contracts](https://github.com/connext/monorepo/blob/main/packages/deployments/contracts/deployments.json)
+  - [Full List of Deployed Contracts](https://github.com/connext/monorepo/blob/main/packages/deployments/contracts/deployments.json)
 - [Routers](https://docs.connext.network/routers/routers-intro)
 - [Bug Bounty](https://immunefi.com/bounty/connext/)
 - [YouTube](https://www.youtube.com/channel/UCJcDUTLSVg2hYEXKPY8WV7g)
@@ -143,4 +143,4 @@ If you enjoyed learning about the protocol check out more of our [Build3rs Stack
 
 You can also [join our Discord server](https://discord.com/invite/fleek) to jam with the team and learn more!
 
-For more resources, visit [our LinkTree](https://linktr.ee/fleek) ⚡ 
+For more resources, visit [our LinkTree](https://linktr.ee/fleek) ⚡

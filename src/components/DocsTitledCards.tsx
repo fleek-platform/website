@@ -5,23 +5,20 @@ import TextGlowHoverEffect from '@components/TextGlowHoverEffect';
 import TransparentCard from '@components/TransparentCard';
 
 type Items = {
- title: string;
- description: string;
- icon: {
+  title: string;
+  description: string;
+  icon: {
     src: string;
     alt: string;
- };
- url: string;
+  };
+  url: string;
 };
 
 type Props = {
   title: string;
   items: Items[];
-}
-const DocsTitledCards = ({
-  title,
-  items,
-}: Props) => (
+};
+const DocsTitledCards = ({ title, items }: Props) => (
   <div className="docs-titled-cards-container">
     <PageSection>
       <GridLayout className="py-40 md:px-16 xl:py-80">

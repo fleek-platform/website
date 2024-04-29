@@ -24,9 +24,11 @@ const BlackFeatureCards: React.FC<BlackFeatureCardsProps> = ({
   <div className="docs-cards-container">
     <PageSection>
       <div className="relative">
-        <div className="font-sans text-center text-20 py-40 md:text-25 2xl:text-39 font-medium leading-[100%]">Resources</div>
+        <div className="py-40 text-center font-sans text-20 font-medium leading-[100%] md:text-25 2xl:text-39">
+          Resources
+        </div>
       </div>
-      <GridLayout className={clsx('gap-y-10 py-24 pt-0 pb-80', className)}>
+      <GridLayout className={clsx('gap-y-10 py-24 pb-80 pt-0', className)}>
         <img
           src="/svg/dotted-squiggle-bg.svg"
           alt="bg-squiggle"
@@ -52,7 +54,10 @@ const BlackFeatureCards: React.FC<BlackFeatureCardsProps> = ({
                   width={64}
                   height={64}
                 />
-                <Text style="h5" className="max-w-[250px] whitespace-pre-wrap text-ui-light-grey">
+                <Text
+                  style="h5"
+                  className="max-w-[250px] whitespace-pre-wrap text-ui-light-grey"
+                >
                   {feature.title}
                 </Text>
                 <Text style="m" className="text-ui-light-grey">

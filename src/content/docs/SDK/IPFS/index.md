@@ -5,10 +5,10 @@ date: 2023-01-10
 description: Learn how to pin a file on IPFS using the service's primary methods. Upload files individually, in bulk, or directly from your local system.
 keywords: [services, documentation, getting started]
 tags:
-- Accounts
-- Guide
-- Learn
-- Fleek
+  - Accounts
+  - Guide
+  - Learn
+  - Fleek
 ---
 
 # IPFS
@@ -21,11 +21,11 @@ In case you are using the Fleek SDK with a PAT as the authentication service you
 
 Here is a list of the available methods for the `IPFS` service:
 
-| Method | Description |
-| --- | --- |
-| `add` | Uploads a file from a Buffer and a path representing the file location. |
-| `addAll` | Upload an array of files, each one represented by a content and a path representing the file location. |
-| `addFromPath` | Uploads a file from the local filesystem. |
+| Method        | Description                                                                                            |
+| ------------- | ------------------------------------------------------------------------------------------------------ |
+| `add`         | Uploads a file from a Buffer and a path representing the file location.                                |
+| `addAll`      | Upload an array of files, each one represented by a content and a path representing the file location. |
+| `addFromPath` | Uploads a file from the local filesystem.                                                              |
 
 <details>
 <summary>`add`</summary>
@@ -34,40 +34,44 @@ Here is a list of the available methods for the `IPFS` service:
 > - `file`: Object of type `IpfsFile`
 
 **Returns:**
+
 > - `path`: Path of the file
 > - `cid`: Content hash associated with the file
 > - `size`: Size of the file
 
 **Function types:**
+
 ```typescript
 type IpfsFile = {
-	path: string;
-	content?: Buffer;
-}
+  path: string;
+  content?: Buffer;
+};
 
 type UploadResult = {
-    cid: CID;
-    size: number;
-    path: string;
-}
+  cid: CID;
+  size: number;
+  path: string;
+};
 
 add: (file: IpfsFile) => Promise<UploadResult>;
 ```
 
 **Example:**
+
 ```typescript copy
 // fleekSdk is an authenticated instance of FleekSDK
 // with a selected projectId
 
 const uploadToIPFS = async (filename: string, content: Buffer) => {
-	const result = await fleekSdk.ipfs().add({
-		path: filename,
-		content: content,
-	})
-	
-	return result
-}
+  const result = await fleekSdk.ipfs().add({
+    path: filename,
+    content: content,
+  });
+
+  return result;
+};
 ```
+
 </details>
 
 <details>
@@ -78,54 +82,51 @@ const uploadToIPFS = async (filename: string, content: Buffer) => {
 > - `options`: Optional Object with properties:
 > - `wrapWithDirectory`: boolean if is folder
 
-***Returns:***
+**_Returns:_**
 
 > - `UploadResult[]`: List of Objects with properties:
 >   - `path`: Path of the file
 >   - `cid`: Content hash associated with the file
 >   - `size`: Size of the file
 
+**_Function types:_**
 
-***Function types:***
 ```typescript
 type IpfsFile = {
-	path: string;
-	content?: Buffer;
-}
+  path: string;
+  content?: Buffer;
+};
 
 type UploadResult = {
-    cid: CID;
-    size: number;
-    path: string;
-}
+  cid: CID;
+  size: number;
+  path: string;
+};
 
-addAll: (
-	files: IpfsFile[],
-	options?: AddAllOptions
-) => Promise<UploadResult[]>;
+addAll: (files: IpfsFile[], options?: AddAllOptions) => Promise<UploadResult[]>;
 ```
 
-***Example:***
+**_Example:_**
+
 ```typescript copy
 // fleekSdk is an authenticated instance of FleekSDK
 // with a selected projectId
 
-import { type IpfsFile } from '@fleekxyz/sdk'
+import { type IpfsFile } from '@fleekxyz/sdk';
 
 const uploadToIPFS = async (files: IpfsFile[]) => {
-	const result = await fleekSdk.ipfs().addAll(
-		files
-	)
-	
-	return result
-}
+  const result = await fleekSdk.ipfs().addAll(files);
+
+  return result;
+};
 ```
+
 </details>
 
 <details>
 <summary>`addFromPath`</summary>
 
-#### ***Parameters***
+#### **_Parameters_**
 
 > - `path`: String path of file in local filesystem
 > - `options:` Optional Object with properties:
@@ -138,26 +139,25 @@ const uploadToIPFS = async (files: IpfsFile[]) => {
 >   - `cid`: Content hash associated with the file
 >   - `size`: Size of the file
 
-
 #### **Function types**
+
 ```typescript
 type AddFromPathOptions = {
   wrapWithDirectory?: boolean;
-}
+};
 
 type UploadResult = {
   cid: CID;
   size: number;
   path: string;
-}
+};
 
-addFromPath: (
-  path: string,
-  options?: AddFromPathOptions
-) => Promise<UploadResult[]>;
+addFromPath: (path: string, options?: AddFromPathOptions) =>
+  Promise<UploadResult[]>;
 ```
 
 ### **Example**
+
 ```typescript copy
 // fleekSdk is an authenticated instance of FleekSDK
 // with a selected projectId
@@ -165,7 +165,8 @@ addFromPath: (
 const uploadToIPFS = async (filePath: string) => {
   const result = await fleekSdk.ipfs().addFromPath(filePath);
 
-  return result
-}
+  return result;
+};
 ```
+
 </details>

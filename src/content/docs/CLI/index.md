@@ -5,10 +5,10 @@ date: 2023-01-10
 description: Find all the information on how to set up and start interacting with Fleek's Command Line Interface (CLI). Install, authenticate, and manage projects directly from your command line.
 keywords: [services, documentation, getting started]
 tags:
-- Accounts
-- Guide
-- Learn
-- Fleek
+  - Accounts
+  - Guide
+  - Learn
+  - Fleek
 ---
 
 # Overview

@@ -5,10 +5,10 @@ date: 2023-01-10
 description: Create, list, and retrieve project details using the SDK, ensuring seamless integration with IPFS storage & IPNS services.
 keywords: [services, documentation, getting started]
 tags:
-- Accounts
-- Guide
-- Learn
-- Fleek
+  - Accounts
+  - Guide
+  - Learn
+  - Fleek
 ---
 
 # Projects
@@ -26,20 +26,26 @@ const projectId = await fleekSdk.projects().create({ name: 'My Project' });
 ```typescript copy
 const projects = await fleekSdk.projects().list();
 ```
+
 This returns a list of projects:
+
 ```json
 [
-    { id: "cldn4lfcy0002lg0835mekajd", name: "fleek" },
-    { id: "cdawndf4fladfcfa2wnay8s25", name: "My Project" },
+  { "id": "cldn4lfcy0002lg0835mekajd", "name": "fleek" },
+  { "id": "cdawndf4fladfcfa2wnay8s25", "name": "My Project" }
 ]
 ```
 
 ## Get project
 
- ```typescript copy
-const project = await fleekSdk.projects().get({ id: 'clfk15m6p0002l608gvtp9gm5' })
+```typescript copy
+const project = await fleekSdk
+  .projects()
+  .get({ id: 'clfk15m6p0002l608gvtp9gm5' });
 ```
+
 This returns a the project details:
+
 ```json
-{ id: "clfk15m6p0002l608gvtp9gm5", name: "My Project" } 
+{ "id": "clfk15m6p0002l608gvtp9gm5", "name": "My Project" }
 ```

@@ -71,7 +71,9 @@ const isHome = Astro.url.pathname === '/docs';
 
 <BaseHtml title={title}>
   <main class="container min-h-container">
-    <div class={`grid grid-cols-[1fr] gap-4 ${isHome ? 'md:grid-cols-[1fr,6fr]' : 'md:grid-cols-[1fr,3fr,1fr]'}`}>
+    <div
+      class={`grid grid-cols-[1fr] gap-4 ${isHome ? 'md:grid-cols-[1fr,6fr]' : 'md:grid-cols-[1fr,3fr,1fr]'}`}
+    >
       <aside class="w-320 px-32">
         <div class="docs-search-container">
           <SearchBtn client:load indexName={indexNameDocs} />
@@ -85,23 +87,11 @@ const isHome = Astro.url.pathname === '/docs';
       <div class="min-w-0 px-32">
         <article class="doc">
           <slot />
-          {
-            !isHome && (
-              <GithubEditLink pathname={githubEditUrlPathname} />
-            )
-          }
+          {!isHome && <GithubEditLink pathname={githubEditUrlPathname} />}
         </article>
       </div>
       <aside class="hidden w-240 lg:block">
-        {
-          !isHome
-          && headings
-          && (
-            <OnPageNavigation
-              headings={headings}
-            />
-          )
-        }
+        {!isHome && headings && <OnPageNavigation headings={headings} />}
       </aside>
     </div>
   </main>

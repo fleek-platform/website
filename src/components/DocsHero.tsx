@@ -7,14 +7,10 @@ import Text from './Text';
 type Props = {
   title: string;
   description: string;
-  ctaTitle: string;  
+  ctaTitle: string;
 };
 
-const DocsHero = ({
-  title,
-  description,
-  ctaTitle,
-}: Props) => (
+const DocsHero = ({ title, description, ctaTitle }: Props) => (
   <div className="docs-hero-container">
     <PageSection className="overflow-hidden" rounded="all-big">
       <GridLayout>
@@ -45,20 +41,18 @@ const DocsHero = ({
               <h1>{title}</h1>
             </Text>
           </TextGlowHoverEffect>
-          <p className="typo-s md:typo-l">
-            {description}
-          </p>
-          {
-            ctaTitle && (
-              <a
-                href="https://app.fleek.xyz/"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <Button className="mx-auto mt-32 md:mx-0 md:mt-0">Start Now</Button>
-              </a>              
-            )
-          }
+          <p className="typo-s md:typo-l">{description}</p>
+          {ctaTitle && (
+            <a
+              href="https://app.fleek.xyz/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <Button className="mx-auto mt-32 md:mx-0 md:mt-0">
+                Start Now
+              </Button>
+            </a>
+          )}
         </div>
       </GridLayout>
     </PageSection>

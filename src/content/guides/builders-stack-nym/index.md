@@ -1,13 +1,13 @@
 ---
-title: "Build3rs Stack: Nym"
-category: "Guides"
+title: 'Build3rs Stack: Nym'
+category: 'Guides'
 date: 2023-09-26
-desc: "The builders guide to Nym, a privacy platform enabling anonymous network traffic"
-thumbnail: "./nymthumb.jpg"
-alt: "builders stack Nym"
-image: "./nymthumb.jpg"
-cannonical: ""
-author: "Fleek"
+desc: 'The builders guide to Nym, a privacy platform enabling anonymous network traffic'
+thumbnail: './nymthumb.jpg'
+alt: 'builders stack Nym'
+image: './nymthumb.jpg'
+cannonical: ''
+author: 'Fleek'
 ---
 
 Welcome back to the Build3rs Stack, Fleek’s web3 infra overview series! This week dive into Nym– the privacy platform protecting end users’ communication patterns, IP addresses, and metadata.
@@ -22,7 +22,7 @@ Let’s get into how you can leverage Nym in your Web3 builds:
 
 ![](./nymmeta.jpg)
 
-Nym provides network-level privacy-preserving software for end users and developers. Along with protection against sophisticated end-to-end attackers, Nym also solves a major problem facing developers today: traffic patterns are visible to anyone observing or monitoring a network. Nym solves this, routing traffic through a decentralized *[mixnet](https://nymtech.net/docs/architecture/traffic-flow.html)*.
+Nym provides network-level privacy-preserving software for end users and developers. Along with protection against sophisticated end-to-end attackers, Nym also solves a major problem facing developers today: traffic patterns are visible to anyone observing or monitoring a network. Nym solves this, routing traffic through a decentralized _[mixnet](https://nymtech.net/docs/architecture/traffic-flow.html)_.
 
 ### Key Aspects of Nym:
 
@@ -97,7 +97,7 @@ Anonymous e-cash payments or self-sovereign identities are also possible with Ny
 - [Rust SDK](https://nymtech.net/developers/tutorials/rust-sdk.html)
 - [TypeScript](https://nymtech.net/developers/tutorials/typescript.html)
 - [MixNode Starting Guide](https://nymtech.net/build/nodes?name=mixnodes)
-    - [Operator’s Guide](https://nymtech.net/operators)
+  - [Operator’s Guide](https://nymtech.net/operators)
 - [NymConnect](https://nymtech.net/download/nymconnect)
 - [Nym Wallet](https://nymtech.net/download/wallet)
 - [Nym vs other Systems](https://nymtech.net/developers/infrastructure/nym-vs-others.html)

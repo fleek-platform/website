@@ -1,18 +1,18 @@
 ---
-title: "How To Deploy A Next.js App To Fleek.xyz: A Step-by-Step Guide for Developers"
-category: "Guides"
+title: 'How To Deploy A Next.js App To Fleek.xyz: A Step-by-Step Guide for Developers'
+category: 'Guides'
 date: 2024-04-03
-desc: "How to deploy a static Next.js app using the Fleek CLI."
-thumbnail: "./nextjsguide.png"
-alt: "How to deploy a static Next.js app using the Fleek CLI"
-image: "./nextjsguide.png"
-cannonical: ""
-author: "Olayinka Oshidipe"
+desc: 'How to deploy a static Next.js app using the Fleek CLI.'
+thumbnail: './nextjsguide.png'
+alt: 'How to deploy a static Next.js app using the Fleek CLI'
+image: './nextjsguide.png'
+cannonical: ''
+author: 'Olayinka Oshidipe'
 ---
 
-The Fleek.xyz platform empowers developers to build lightning-fast web apps, and services that are edge optimized for performance. In this detailed guide, you’ll learn how to deploy a **Next.js** web app onto Fleek using the Fleek CLI.  
+The Fleek.xyz platform empowers developers to build lightning-fast web apps, and services that are edge optimized for performance. In this detailed guide, you’ll learn how to deploy a **Next.js** web app onto Fleek using the Fleek CLI.
 
-### What is NextJs? 
+### What is NextJs?
 
 [Next.js](https://nextjs.org/) is a React framework that simplifies the creation of server-rendered React applications. It offers features like automatic code splitting, route pre-fetching, and built-in support for server-side rendering and static site generation, enabling faster, more SEO-friendly web development.
 
@@ -29,7 +29,7 @@ Let’s get started:
 
 ## Create A New NextJs Project
 
-The first thing we’ll do will be to set up our NextJs project. 
+The first thing we’ll do will be to set up our NextJs project.
 
 To create a new NextJs project open your terminal, `cd` into the directory of your choice, and run the following command:
 
@@ -66,15 +66,14 @@ const nextConfig = {
     unoptimized: true,
   },
   trailingSlash: true,
-}
+};
 
-module.exports = nextConfig
-
+module.exports = nextConfig;
 ```
 
-This line of code will create a new folder called `out` for when we build our NextJs app. 
+This line of code will create a new folder called `out` for when we build our NextJs app.
 
-Next, run the `npm run build` command. This will compile our NextJs project, and produce the corresponding html code into a folder called `out`. 
+Next, run the `npm run build` command. This will compile our NextJs project, and produce the corresponding html code into a folder called `out`.
 
 ![](./out.png)
 
@@ -86,23 +85,23 @@ Once we’ve successfully built our app, we can start the deployment process.
 
 ### Fleek Account Creation
 
-The first thing we’ll need to do is create a Fleek account: head over to http://app.fleek.xyz, and click on the `Create a Free Account` button.  
+The first thing we’ll need to do is create a Fleek account: head over to http://app.fleek.xyz, and click on the `Create a Free Account` button.
 
 > 💡 Feel free to skip this step if you already have an account on Fleek.xyz!
 
 ![](./welcome.png)
 
-You’ll be prompted to create an account with your wallet or an email address. For the sake of this tutorial, we’ll be making an account using our MetaMask account. 
+You’ll be prompted to create an account with your wallet or an email address. For the sake of this tutorial, we’ll be making an account using our MetaMask account.
 
 Click on the `Metamask` option from the wallet list and you’ll be presented with a **sign-in** request in your browser extension. This is to verify ownership of your account.
 
 ![](./metamask.png)
 
-Once you click on the **Sign-In** button, you’ll be redirected to the Fleek Dashboard. 
+Once you click on the **Sign-In** button, you’ll be redirected to the Fleek Dashboard.
 
 ### Fleek CLI Installation
 
-As we are deploying the website using the **fleek-cli**, our next step will be to install the **fleek-cli** on our computer. 
+As we are deploying the website using the **fleek-cli**, our next step will be to install the **fleek-cli** on our computer.
 
 Open up your terminal and run:
 
@@ -110,7 +109,7 @@ Open up your terminal and run:
 npm install -g @fleekxyz/cli
 ```
 
-This will globally install the `fleek-cli` onto your machine. Once installed, open the nextjs-template project in VSCode, and log into your Fleek account via the CLI. This will enable us to run CLI-related commands directly from our terminal. 
+This will globally install the `fleek-cli` onto your machine. Once installed, open the nextjs-template project in VSCode, and log into your Fleek account via the CLI. This will enable us to run CLI-related commands directly from our terminal.
 
 To login, open your terminal and run:
 
@@ -124,7 +123,7 @@ Click on the link displayed to log into your Fleek account. You should see a **S
 
 ### Configurations
 
-Now that we’ve successfully logged in, it’s time to get our app ready for deployment on Fleek. 
+Now that we’ve successfully logged in, it’s time to get our app ready for deployment on Fleek.
 
 To do that, you’ll need to open up your terminal and run:
 
@@ -136,14 +135,14 @@ You’ll get a few prompts, populate them as you wish:
 
 ![](./warnings.png)
 
-- *Type the name of your site*: › `[site-name]`
-    - If there’s an existing site already with this name, it may ask if you want to link to this site. Please note that when you do this, you will overwrite everything on the previous site. Ensure that this is the outcome you desire, otherwise, select **N** and create a new site.
-- *Specify the dist directory from where the site will be uploaded from*: › `out`
-- *Do you want to include the optional "`build`" command?*: › **`yes`**
-- *Specify `build` command*: › `npm run build`
-- *Select a format how the site's configuration will be saved*: › `Javascript (fleek.config.js)`
+- _Type the name of your site_: › `[site-name]`
+  - If there’s an existing site already with this name, it may ask if you want to link to this site. Please note that when you do this, you will overwrite everything on the previous site. Ensure that this is the outcome you desire, otherwise, select **N** and create a new site.
+- _Specify the dist directory from where the site will be uploaded from_: › `out`
+- _Do you want to include the optional "`build`" command?_: › **`yes`**
+- _Specify `build` command_: › `npm run build`
+- _Select a format how the site's configuration will be saved_: › `Javascript (fleek.config.js)`
 
-You should see: 
+You should see:
 
 `> Success! Fleek config file has been saved.`
 
@@ -153,7 +152,7 @@ And a `fleek.config.js` file should appear in your root dir.
 
 ### Deployment
 
-We’re close to the finish line — the next step here will be to deploy our NextJs app to Fleek. 
+We’re close to the finish line — the next step here will be to deploy our NextJs app to Fleek.
 
 We’ll do that by running:
 
@@ -171,7 +170,7 @@ You should get a response that looks like this
 > https://ipfs.io/ipfs/QmVgNN84eJMPoxznUEFmjAhkbhiKS8ic39zucNkWfux3ft
 ```
 
-Congratulations! Your site has been successfully deployed! 
+Congratulations! Your site has been successfully deployed!
 
 Now head over to the dashboard http://app.fleek.xyz, and ensure you are on the right project (open the drop-down menu on the top left of the homepage and select the current project).
 
@@ -185,7 +184,7 @@ Click on your **deployed** site. You should be **brought** to this page:
 
 ![](./deploymentpage.png)
 
-Click on the URL (For this example it’s https://scrawny-lock-most.on-fleek.app/ but yours will be different) and it’ll take you to your fully functional static NextJs blog! 
+Click on the URL (For this example it’s https://scrawny-lock-most.on-fleek.app/ but yours will be different) and it’ll take you to your fully functional static NextJs blog!
 
 From the [Fleek.xyz](http://Fleek.xyz) dashboard, you have the ability to manage a custom domain or ENS address for your site, as well as see deployment history and quickly manage site settings.
 

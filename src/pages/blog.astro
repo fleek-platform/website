@@ -16,12 +16,7 @@ const allPosts: CollectionEntry<'blog'>[] = await getCollection('blog');
 
 <Layout title="Fleek | Build Lightning Fast Web3 Apps">
   <main class="container min-h-container">
-    <BlogHeader
-      title="Blog"
-      indexName={indexNameBlog}
-    />
-    <BlogPosts
-      allPosts={allPosts}
-    />
+    <BlogHeader title="Blog" indexName={indexNameBlog} />
+    <BlogPosts allPosts={allPosts} />
   </main>
 </Layout>

@@ -6,7 +6,10 @@ const { pathname } = Astro.props;
 ---
 
 <div id="githubEdit">
-  <a href={`${settings.github.editUrl}/${branch}/src/content/${pathname}`} target="_blank">
+  <a
+    href={`${settings.github.editUrl}/${branch}/src/content/${pathname}`}
+    target="_blank"
+  >
     <svg
       fill="currentColor"
       height="16"

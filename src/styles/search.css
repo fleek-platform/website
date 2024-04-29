@@ -10,7 +10,7 @@
         @apply cursor-pointer rounded-8 border-1 border-solid border-gray-400 text-16 font-light transition hover:bg-gray-400 hover:text-ui-black;
 
         a {
-          @apply inline-block p-20 w-full;
+          @apply inline-block w-full p-20;
         }
       }
     }
