@@ -1,11 +1,26 @@
 ---
+import type { CollectionEntry } from 'astro:content';
+
 const { allPosts } = Astro.props;
+
+// TODO: Use CollectionEntry correctly
+// instead of custom type
+type AllPosts = {
+  slug: string;
+  data: {
+    title: string;
+    image: {
+      src: string;
+    },
+    category: string;
+  }
+};
 ---
 <div
   class="all-posts grid grid-cols-1 gap-4 px-64 py-64 pb-128 lg:grid-cols-3 lg:gap-32 items-stretch"
 >
   {
-    allPosts.map((post) => (
+    allPosts.map((post: AllPosts) => (
       <a href={`/guides/${post.slug}`}>
         <article class="cursor-pointer overflow-hidden rounded-8 bg-ui-fleek-black shadow transition hover:scale-105 min-h-[360px]">
           {

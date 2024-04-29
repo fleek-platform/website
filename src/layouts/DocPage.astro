@@ -50,6 +50,11 @@ const {
 })();
 
 const data = await getEntry(collection, id);
+
+if (!data || !data?.id || !data?.collection) {
+  throw Error('Oops! Unexpected response data');
+}
+
 const githubEditUrlPathname = generateGitHubEditLink({
   collection: data.collection,
   id: data.id,
@@ -94,7 +99,6 @@ const isHome = Astro.url.pathname === '/docs';
           && (
             <OnPageNavigation
               headings={headings}
-              githubEditUrl={githubEditUrlPathname}
             />
           )
         }

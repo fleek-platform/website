@@ -5,11 +5,13 @@ import { getCollection } from 'astro:content';
 import BlogPosts from '@components/BlogPosts.astro';
 import BlogHeader from '@components/BlogHeader.astro';
 
+import type { CollectionEntry } from 'astro:content';
+
 const indexNameGuides = import.meta.env.PUBLIC_MEILISEARCH_INDEX_GUIDES;
 
 // TODO: load title from settings
 const pageTitle = 'Guides';
-const allPosts = await getCollection('guides');
+const allPosts: CollectionEntry<'guides'>[] = await getCollection('guides');
 ---
 
 <Layout title="Fleek | Build Lightning Fast Web3 Apps">
