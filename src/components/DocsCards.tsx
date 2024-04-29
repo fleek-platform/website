@@ -9,6 +9,7 @@ type Feature = {
   description: string;
   icon: string;
   className?: string;
+  url: string;
 };
 
 type BlackFeatureCardsProps = {
@@ -43,20 +44,22 @@ const BlackFeatureCards: React.FC<BlackFeatureCardsProps> = ({
               (!index || index % 3 === 0) && 'lg:col-start-3',
             )}
           >
-            <div className="flex flex-col items-center gap-16 py-16 text-center lg:items-start lg:text-start">
-              <img
-                src={feature.icon}
-                alt="globe with bolt"
-                width={64}
-                height={64}
-              />
-              <Text style="h5" className="max-w-[250px] whitespace-pre-wrap">
-                {feature.title}
-              </Text>
-              <Text style="m" className="text-ui-light-grey">
-                {feature.description}
-              </Text>
-            </div>
+            <a href={feature.url}>
+              <div className="flex flex-col items-center gap-16 py-16 text-center lg:items-start lg:text-start">
+                <img
+                  src={feature.icon}
+                  alt="globe with bolt"
+                  width={64}
+                  height={64}
+                />
+                <Text style="h5" className="max-w-[250px] whitespace-pre-wrap text-ui-light-grey">
+                  {feature.title}
+                </Text>
+                <Text style="m" className="text-ui-light-grey">
+                  {feature.description}
+                </Text>
+              </div>
+            </a>
           </CardWrapper>
         ))}
       </GridLayout>
