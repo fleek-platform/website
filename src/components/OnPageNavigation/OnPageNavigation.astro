@@ -4,10 +4,9 @@ import type { MarkdownHeading } from 'astro';
 
 type Props = {
   headings: MarkdownHeading[];
-  githubEditUrl: string;
 };
 
-const { headings, githubEditUrl } = Astro.props as Props;
+const { headings } = Astro.props as Props;
 ---
 
 <nav class="sidebar-nav" aria-labelledby="grid-right">
