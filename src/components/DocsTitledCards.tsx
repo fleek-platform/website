@@ -22,7 +22,7 @@ const DocsTitledCards = ({
   title,
   items,
 }: Props) => (
-  <Container>
+  <div className="docs-titled-cards-container">
     <PageSection>
       <GridLayout className="py-40 md:px-16 xl:py-80">
         <div className="col-span-16 flex flex-col items-center gap-30 text-center lg:col-span-12 lg:col-start-3 lg:text-start">
@@ -41,7 +41,7 @@ const DocsTitledCards = ({
         </div>
       </GridLayout>
     </PageSection>
-  </Container>
+  </div>
 );
 
 export default DocsTitledCards;

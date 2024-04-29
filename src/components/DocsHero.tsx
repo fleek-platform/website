@@ -1,4 +1,3 @@
-import Container from '@components/Container';
 import GridLayout from '@components/GridLayout';
 import PageSection from '@components/PageSection';
 import Button from '@components/Button';
@@ -16,7 +15,7 @@ const DocsHero = ({
   description,
   ctaTitle,
 }: Props) => (
-  <Container>
+  <div className="docs-hero-container">
     <PageSection className="overflow-hidden" rounded="all-big">
       <GridLayout>
         <div className="col-span-16 flex items-center md:col-span-8 md:col-start-5 lg:col-span-7 lg:col-start-10">
@@ -63,7 +62,7 @@ const DocsHero = ({
         </div>
       </GridLayout>
     </PageSection>
-  </Container>
+  </div>
 );
 
 export default DocsHero;

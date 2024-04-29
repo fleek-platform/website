@@ -1,6 +1,4 @@
 import clsx from 'clsx';
-
-import Container from '@components/Container';
 import GridLayout from '@components/GridLayout';
 import PageSection from '@components/PageSection';
 import CardWrapper from '@components/CardWrapper';
@@ -22,12 +20,12 @@ const BlackFeatureCards: React.FC<BlackFeatureCardsProps> = ({
   features,
   className,
 }) => (
-  <Container>
+  <div className="docs-cards-container">
     <PageSection>
       <div className="relative">
         <div className="font-sans text-center text-20 py-40 md:text-25 2xl:text-39 font-medium leading-[100%]">Resources</div>
       </div>
-      <GridLayout className={clsx('gap-y-10 py-24 pt-0', className)}>
+      <GridLayout className={clsx('gap-y-10 py-24 pt-0 pb-80', className)}>
         <img
           src="/svg/dotted-squiggle-bg.svg"
           alt="bg-squiggle"
@@ -63,7 +61,7 @@ const BlackFeatureCards: React.FC<BlackFeatureCardsProps> = ({
         ))}
       </GridLayout>
     </PageSection>
-  </Container>
+  </div>
 );
 
 export default BlackFeatureCards;

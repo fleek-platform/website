@@ -4,6 +4,15 @@ title: Home
 date: 2023-01-10
 description: Welcome to the documentation for the beta of Fleek.xyz. Whether you are an expert or an absolute beginner, you'll find your answers here.
 ---
+import DocsHero from '@components/DocsHero';
+import DocsCards from '@components/DocsCards';
+import DocsTitledCards from '@components/DocsTitledCards';
+
+<DocsHero
+  client:load
+  title="Fleek Platform documentation"
+  description="Kickstart your Fleek journey with our documentation, detailed guides, references, and navigate our platform resources for a deep dive into the technology."
+/>
 
 # Quick start
 
@@ -108,3 +117,65 @@ fleek sites deploy
 ```
 
 You can access your Fleek Site through the Fleek Gateway at `https://<SLUG>.on-fleek.app`. Alternatively, you can configure your own gateway or use others, including the main IPFS gateway at <a href="https://ipfs.io/ipfs/YOUR-CID">https://ipfs.io/ipfs/YOUR-CID</a>
+
+## What to read next?
+
+For a more in-depth knowledge, start by reading the [Platform Overview](/docs/platform). Alternatively, explore our Guides for step-by-step guides, ensuring you master our platform with ease. Use references for shorter instructions and troubleshooting; it is assumed that you already have a basic understanding of important concepts Boost your projects with our Templates, featuring pre-designed frameworks and examples that align with our standards and best practices.
+
+<DocsCards
+  features={
+	[
+	  {
+	    title: 'Guides',
+	    description: 'Guides provide detailed instructions and explanations.',
+	    icon: '/svg/trustless-icon.svg',
+	  },
+	  {
+	    title: 'References',
+	    description: 'References offer comprehensive information and resources.',
+	    icon: '/svg/web3-app-icon.svg',
+	  },
+	  {
+	    title: 'Templates',
+	    description: 'Templates are pre-designed solutions for common frameworks.',
+	    icon: '/svg/vertical-waves-icon.svg',
+	  },
+	]
+  }
+/>
+
+## Follow us
+
+Join our community and stay updated with the latest news, features, and insights from our platform. Follow us on social media to receive updates, engage with our community, and share your thoughts. Connect with us on Discord for real-time conversations, support, and collaboration. Together, we're shaping the future of our service.
+
+<DocsTitledCards
+  title="Additional resources"
+  items={
+	[
+	 {
+	    title: 'Blog',
+	    description: 'Explore Fleek\'s blog for insights and updates.',
+	    icon: {
+	      src: '/svg/integrate-icon.svg',
+	      alt: 'Blog',
+	    },
+	 },
+	 {
+	    title: 'Community',
+	    description: 'Join the community to connect with peers and share knowledge.',
+	    icon: {
+	      src: '/svg/storage-icon.svg',
+	      alt: 'Community',
+	    },
+	 },
+	 {
+	    title: 'Repositories',
+	    description: 'Discover Fleek\'s repositories for code examples and tools to enhance your projects.',
+	    icon: {
+	      src: '/svg/scale-icon.svg',
+	      alt: 'Repositories',
+	    },
+	 },
+	]
+  }
+/>

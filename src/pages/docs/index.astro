@@ -1,88 +1,28 @@
 ---
-import DocsCards from '@components/DocsCards';
 import Layout from '@layouts/DocPage.astro';
 import { getEntry } from 'astro:content';
-import DocsHero from '@components/DocsHero';
-import DocsTitledCards from '@components/DocsTitledCards';
 
 const entry = await getEntry('docs', 'index');
 
 const { Content, headings } = await entry.render();
 // TODO: Move title to settings
 const title = entry.data.title || 'Documentation';
-
-const features = [
-  {
-    title: 'Guides',
-    description: 'Guides provide detailed instructions and explanations.',
-    icon: '/svg/trustless-icon.svg',
-  },
-  {
-    title: 'References',
-    description: 'References offer comprehensive information and resources.',
-    icon: '/svg/web3-app-icon.svg',
-  },
-  {
-    title: 'Templates',
-    description: 'Templates are pre-designed solutions for common frameworks.',
-    icon: '/svg/vertical-waves-icon.svg',
-  },
-];
-
-const additionalResources = [
- {
-    title: 'Blog',
-    description: 'Explore Fleek\'s blog for insights and updates.',
-    icon: {
-      src: '/svg/integrate-icon.svg',
-      alt: 'Blog',
-    },
- },
- {
-    title: 'Community',
-    description: 'Join the community to connect with peers and share knowledge.',
-    icon: {
-      src: '/svg/storage-icon.svg',
-      alt: 'Community',
-    },
- },
- {
-    title: 'Repositories',
-    description: 'Discover Fleek\'s repositories for code examples and tools to enhance your projects.',
-    icon: {
-      src: '/svg/scale-icon.svg',
-      alt: 'Repositories',
-    },
- },
-];
 ---
 
 <Layout title={title} headings={headings}>
-  <div class="flex flex-col gap-20">
-    <DocsHero
-      client:load
-      title="Fleek Platform documentation"
-      description="Kickstart your Fleek journey with our documentation, detailed guides, references, and navigate our platform resources for a deep dive into the technology."
-    />
-    <div class="px-30 py-10 text-20 font-plex-sans">
-      <Content />
-      <h1>What to read next?</h1>
-      <p>For a more in-depth knowledge, start by reading the <a href="/docs/overview">Platform Overview</a>. Alternatively, explore our Guides for step-by-step guides, ensuring you master our platform with ease. Use references for shorter instructions and troubleshooting; it is assumed that you already have a basic understanding of important concepts Boost your projects with our Templates, featuring pre-designed frameworks and examples that align with our standards and best practices.</p>
-    </div>    
-    <DocsCards features={features} />
-    <DocsTitledCards title="Additional resources" items={additionalResources} />
-    <div>
-      <ul class="list-none">
-        <li>
-          <p><span class="font-bold">Need some help?</span> Contact support</p>
-        </li>
-        <li>
-          <p><span class="font-bold">Product updates?</span> See Changelogs</p>
-        </li>
-        <li>
-          <p><span class="font-bold">Something's weird?</span> Check system status</p>
-        </li>
-      </ul>
-    </div>
+  <Content />
+  <div>
+    <ul class="list-none">
+      <li>
+        <p><span class="font-bold">Need some help?</span> Contact support</p>
+      </li>
+      <li>
+        <p><span class="font-bold">Product updates?</span> See Changelogs</p>
+      </li>
+      <li>
+        <p><span class="font-bold">Something's weird?</span> Check system status</p>
+      </li>
+    </ul>
   </div>
+</div>
 </Layout>
