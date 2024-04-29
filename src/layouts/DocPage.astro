@@ -66,6 +66,7 @@ const sidebarSorted = generateSidebarDSByUserOrder(allPosts, orderBy);
 
 const indexNameDocs = import.meta.env.PUBLIC_MEILISEARCH_INDEX_DOCS;
 
+// TODO: Fails after prod build
 const isHome = Astro.url.pathname === '/docs';
 ---
 
@@ -87,11 +88,11 @@ const isHome = Astro.url.pathname === '/docs';
       <div class="min-w-0 px-32">
         <article class="doc">
           <slot />
-          {!isHome && <GithubEditLink pathname={githubEditUrlPathname} />}
+          <GithubEditLink pathname={githubEditUrlPathname} />
         </article>
       </div>
       <aside class="hidden w-240 lg:block">
-        {!isHome && headings && <OnPageNavigation headings={headings} />}
+        {headings && <OnPageNavigation headings={headings} />}
       </aside>
     </div>
   </main>
