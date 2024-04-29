@@ -1,0 +1,39 @@
+---
+import { getCollection } from 'astro:content';
+import BlogPageLayout from '../../layouts/BlogPage.astro';
+import { getEntry } from 'astro:content';
+import GithubEditLink from '@components/GitHubEditLink.astro';
+import { generateGitHubEditLink } from '@utils/url';
+
+export async function getStaticPaths() {
+  const docsEntries = await getCollection('guides');
+  return docsEntries.map((entry) => ({
+    params: { slug: entry.slug },
+    props: { entry },
+  }));
+}
+
+const { entry } = Astro.props;
+const { Content } = await entry.render();
+const { collection, id, slug } = entry;
+
+const githubEditUrlPathname = generateGitHubEditLink({
+  collection,
+  id,
+});
+---
+
+<BlogPageLayout title={entry.data.title}>
+  <article class="blog">
+    <h1>{entry.data.title}</h1>
+    {
+      entry.data?.image?.src && (
+        <p>
+          <img src={entry.data.image.src} alt={entry.data.title} />
+        </p>        
+      )
+    }
+    <Content />
+    <GithubEditLink pathname={githubEditUrlPathname} />
+  </article>
+</BlogPageLayout>
