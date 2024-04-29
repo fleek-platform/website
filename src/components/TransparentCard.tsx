@@ -40,7 +40,7 @@ const TransparentCard = ({
           )}
           <Text
             style="caption-s"
-            className="col-span-3 whitespace-pre-line normal-case"
+            className="col-span-3 whitespace-pre-line normal-case text-ui-light-grey"
           >
             {description}
           </Text>

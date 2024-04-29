@@ -1,4 +1,3 @@
-import Container from '@components/Container';
 import GridLayout from '@components/GridLayout';
 import PageSection from '@components/PageSection';
 import Text from '@components/Text';
@@ -12,6 +11,7 @@ type Items = {
     src: string;
     alt: string;
  };
+ url: string;
 };
 
 type Props = {
@@ -31,11 +31,13 @@ const DocsTitledCards = ({
           </TextGlowHoverEffect>
           <div className="grid-dense-flow grid gap-15 gap-x-16 lg:grid-cols-3 lg:px-10">
             {items.map((item, index) => (
-              <TransparentCard
-                key={index}
-                {...item}
-                className="lg:max-w-[325px]"
-              />
+              <a href={item.url} className="transition hover:opacity-80">
+                <TransparentCard
+                  key={index}
+                  {...item}
+                  className="lg:max-w-[325px]"
+                />
+              </a>
             ))}
           </div>
         </div>
