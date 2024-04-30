@@ -14,13 +14,13 @@ const DocsHero = ({ title, description, ctaTitle }: Props) => (
   <div className="docs-hero-container">
     <PageSection className="overflow-hidden" rounded="all-big">
       <GridLayout>
-        <div className="col-span-16 flex items-center md:col-span-8 md:col-start-5 lg:col-span-7 lg:col-start-10">
-          <div className="w-full lg:scale-150 lg:self-start lg:pt-[20rem] xl:scale-125 xl:pt-[10rem] 2xl:pt-[5rem]">
+        <div className="video-container col-span-16 flex items-center md:col-span-8 md:col-start-5 lg:col-span-7 lg:col-start-10">
+          <div className="w-full h-full lg:scale-150 lg:self-start lg:pt-[20rem] xl:scale-125 xl:pt-[10rem] 2xl:pt-[5rem]">
             <video
               autoPlay
               muted
               playsInline
-              className="animate-float delay-1000 lg:mt-[-30px]"
+              className="h-full animate-float delay-1000 lg:mt-[-30px]"
               // TODO: add blur support, as original
               // placeholder="blur"
             >
@@ -35,7 +35,7 @@ const DocsHero = ({ title, description, ctaTitle }: Props) => (
             </video>
           </div>
         </div>
-        <div className="col-span-16 flex flex-col items-center gap-16 pb-64 text-center lg:col-span-9 lg:items-start lg:gap-40 lg:py-[13.2rem] lg:text-left">
+        <div className="col-span-16 flex flex-col items-center pb-64 text-center lg:col-span-9 lg:items-start lg:py-[13.2rem] lg:text-left">
           <TextGlowHoverEffect style="h2">
             <Text style="h2" className="typo-h5 text-ui-white md:typo-h2">
               <h1>{title}</h1>
