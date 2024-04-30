@@ -2,7 +2,11 @@
 
 @layer components {
   #githubEdit {
-    @apply inline p-20 pl-0 font-plex-sans text-16 transition hover:opacity-50;
+    @apply inline-block p-40 pl-0 font-plex-sans text-16 transition hover:opacity-50;
+
+    svg {
+      @apply mb-4;
+    }
   }
 
   main ~ #githubEdit {
