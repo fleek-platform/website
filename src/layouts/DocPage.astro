@@ -72,8 +72,8 @@ const isHome = Astro.url.pathname === '/docs';
 
 <BaseHtml title={title}>
   <main class="container min-h-container">
-    <div class={`grid grid-cols-[1fr] gap-4 md:grid-cols-[1fr,3fr,0.8fr]`}>
-      <aside class="relative w-320 px-32">
+    <div class={`grid grid-cols-[1fr] gap-4 md:grid-cols-[1fr,4fr,1fr]`}>
+      <aside class="relative w-300 pl-32">
         <div class="z-101 lg:sticky lg:top-40 lg:pb-40">
           <div class="docs-search-container">
             <SearchBtn client:load indexName={indexNameDocs} />
