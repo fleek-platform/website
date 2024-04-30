@@ -51,7 +51,7 @@ export default {
         "ui-dark-grey": "#4B4B4B",
         "ui-black": "#1b1b1b",
         "ui-white": "#f1f1f1",
-        "ui-status-operational": "#36DCFF",
+        "ui-status-operational": "#0F0",
       },
       animation: {
         float: "float 5s cubic-bezier(0.5,50,0.6,-50) infinite",
