@@ -13,11 +13,13 @@ type Feature = {
 };
 
 type BlackFeatureCardsProps = {
+  title: string;
   features: Array<Feature>;
   className?: string;
 };
 
 const BlackFeatureCards: React.FC<BlackFeatureCardsProps> = ({
+  title,
   features,
   className,
 }) => (
@@ -25,10 +27,15 @@ const BlackFeatureCards: React.FC<BlackFeatureCardsProps> = ({
     <PageSection>
       <div className="relative">
         <div className="py-40 text-center font-sans text-20 font-medium leading-[100%] md:text-25 2xl:text-39">
-          Resources
+          {title}
         </div>
       </div>
-      <div className={clsx('grid grid-cols-1 lg:grid-cols-3 gap-20 p-40 pt-0', className)}>
+      <div
+        className={clsx(
+          'grid grid-cols-1 gap-20 p-40 pt-0 lg:grid-cols-3',
+          className,
+        )}
+      >
         <img
           src="/svg/dotted-squiggle-bg.svg"
           alt="bg-squiggle"
@@ -39,12 +46,7 @@ const BlackFeatureCards: React.FC<BlackFeatureCardsProps> = ({
           height={540}
         />
         {features.map((feature, index) => (
-          <CardWrapper
-            key={index}
-            className={clsx(
-              'border-lg',
-            )}
-          >
+          <CardWrapper key={index} className={clsx('border-lg')}>
             <a href={feature.url}>
               <div className="flex flex-col items-center gap-16 py-16 text-center lg:items-start lg:text-start">
                 <img
