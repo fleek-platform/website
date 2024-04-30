@@ -15,7 +15,7 @@ const DocsHero = ({ title, description, ctaTitle }: Props) => (
     <PageSection className="overflow-hidden" rounded="all-big">
       <GridLayout>
         <div className="video-container col-span-16 flex items-center md:col-span-8 md:col-start-5 lg:col-span-7 lg:col-start-10">
-          <div className="w-full h-full lg:scale-150 lg:self-start lg:pt-[20rem] xl:scale-125 xl:pt-[10rem] 2xl:pt-[5rem]">
+          <div className="h-full w-full lg:scale-150 lg:self-start lg:pt-[20rem] xl:scale-125 xl:pt-[10rem] 2xl:pt-[5rem]">
             <video
               autoPlay
               muted

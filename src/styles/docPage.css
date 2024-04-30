@@ -53,6 +53,7 @@
       margin-inline-end: 0px;
       padding-inline-start: 40px;
       unicode-bidi: isolate;
+      padding-bottom: 20px;
     }
   }
 
@@ -94,7 +95,7 @@
   }
 
   .docs-search-container {
-    @apply pb-20 pr-8;
+    @apply z-100 pb-20 pr-8;
     .search-input {
       @apply w-full;
     }
