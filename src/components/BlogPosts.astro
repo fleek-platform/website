@@ -1,7 +1,7 @@
 ---
 import type { CollectionEntry } from 'astro:content';
 
-const { allPosts } = Astro.props;
+const { allPosts, collection } = Astro.props;
 
 // TODO: Use CollectionEntry correctly
 // instead of custom type
@@ -22,7 +22,7 @@ type AllPosts = {
 >
   {
     allPosts.map((post: AllPosts) => (
-      <a href={`/guides/${post.slug}`}>
+      <a href={`/${collection}/${post.slug}`}>
         <article class="min-h-[360px] cursor-pointer overflow-hidden rounded-8 bg-ui-fleek-black shadow transition hover:scale-105">
           {post.data?.image.src && (
             <img

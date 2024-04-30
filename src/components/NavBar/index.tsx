@@ -10,7 +10,7 @@ import Text from '@components/Text';
 import ButtonRainbowOutlined from '@components/ButtonRainbowOutlined';
 import { isActivePath } from '@utils/url';
 
-import NAV, { NavBarDefault, NavBarDocs } from './config';
+import { NavBarDefault, NavBarDocs } from './config';
 
 export type NavProps = Record<'pathname', string>;
 export type NavSubMenuCtaProps = Omit<MenuSettingsItem, 'subMenu'>;
@@ -120,48 +120,6 @@ const Nav = ({ pathname }: NavProps) => {
     }
   }, [isLg]);
 
-  const getMenuItems = (items: MenuSettingsItem[]) =>
-    items.map((navItem, index) =>
-      navItem.subMenu ? (
-        <div key={index} className="nav-link nav-drop-down-container group">
-          <Link
-            href={navItem.url || ''}
-            target={navItem.openInNewTab ? Target.Blank : Target.Self}
-            key={navItem.url}
-            className={
-              isActivePath({ pathname, lookup: navItem.url || '' })
-                ? 'font-bold'
-                : 'nav-text-item'
-            }
-          >
-            <Text style="nav-m" className="nav-text-item">
-              {navItem.label}
-            </Text>
-          </Link>
-          <NavSubMenu
-            main={navItem.subMenu.main}
-            side={navItem.subMenu.side}
-            ctas={navItem.subMenu.ctas}
-          />
-        </div>
-      ) : (
-        <div key={index} className="nav-link py-20">
-          <Link
-            href={navItem.url || ''}
-            target={navItem.openInNewTab ? Target.Blank : Target.Self}
-            key={navItem.url}
-            className={
-              isActivePath({ pathname, lookup: navItem.url || '' })
-                ? 'font-bold'
-                : 'nav-text-item'
-            }
-          >
-            <Text style="nav-m">{navItem.label}</Text>
-          </Link>
-        </div>
-      ),
-    );
-
   const docsPaths = [
     '/docs',
     '/guides',
@@ -171,7 +129,7 @@ const Nav = ({ pathname }: NavProps) => {
   ];
 
   const menuItems = (() => {
-    if (docsPaths.find((item) => item == pathname)) {
+    if (docsPaths.some((path) => pathname.startsWith(path))) {
       return NavBarDocs;
     }
 
