@@ -28,7 +28,7 @@ const BlackFeatureCards: React.FC<BlackFeatureCardsProps> = ({
           Resources
         </div>
       </div>
-      <GridLayout className={clsx('gap-y-10 py-24 pb-80 pt-0', className)}>
+      <div className={clsx('grid grid-cols-1 lg:grid-cols-3 gap-20 p-40 pt-0', className)}>
         <img
           src="/svg/dotted-squiggle-bg.svg"
           alt="bg-squiggle"
@@ -42,8 +42,7 @@ const BlackFeatureCards: React.FC<BlackFeatureCardsProps> = ({
           <CardWrapper
             key={index}
             className={clsx(
-              'border-lg col-span-16 md:col-span-16 lg:col-span-4',
-              (!index || index % 3 === 0) && 'lg:col-start-3',
+              'border-lg',
             )}
           >
             <a href={feature.url}>
@@ -67,7 +66,7 @@ const BlackFeatureCards: React.FC<BlackFeatureCardsProps> = ({
             </a>
           </CardWrapper>
         ))}
-      </GridLayout>
+      </div>
     </PageSection>
   </div>
 );
