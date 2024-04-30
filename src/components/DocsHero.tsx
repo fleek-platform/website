@@ -20,7 +20,7 @@ const DocsHero = ({ title, description, ctaTitle }: Props) => (
               autoPlay
               muted
               playsInline
-              className="h-full animate-float p-20 delay-1000 lg:mt-[-30px]"
+              className="h-full animate-float p-20 pr-0 delay-1000 lg:mt-[-30px]"
               // TODO: add blur support, as original
               // placeholder="blur"
             >
@@ -35,7 +35,7 @@ const DocsHero = ({ title, description, ctaTitle }: Props) => (
             </video>
           </div>
         </div>
-        <div className="col-span-16 flex flex-col items-center pb-64 text-center lg:col-span-9 lg:items-start lg:py-[8rem] lg:pl-[4rem] lg:text-left">
+        <div className="col-span-16 flex flex-col items-center pb-64 text-center lg:col-span-9 lg:items-start lg:py-[8rem] lg:pl-[2rem] lg:text-left">
           <TextGlowHoverEffect style="h2">
             <Text style="h2" className="typo-h5 text-ui-white md:typo-h2">
               <h1>{title}</h1>
