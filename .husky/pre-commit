@@ -27,7 +27,7 @@ fi
 if npm run fmt:check; then
   echo "✅ Code format checked!"
 else
-  echo "💡 Use the command `npm run fmt`"
+  echo "💡 Use the command npm run fmt"
   exit 1
 fi
 
