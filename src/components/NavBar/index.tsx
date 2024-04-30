@@ -10,7 +10,7 @@ import Text from '@components/Text';
 import ButtonRainbowOutlined from '@components/ButtonRainbowOutlined';
 import { isActivePath } from '@utils/url';
 
-import NAV from './config';
+import NAV, { NavBarDefault, NavBarDocs } from './config';
 
 export type NavProps = Record<'pathname', string>;
 export type NavSubMenuCtaProps = Omit<MenuSettingsItem, 'subMenu'>;
@@ -120,6 +120,64 @@ const Nav = ({ pathname }: NavProps) => {
     }
   }, [isLg]);
 
+  const getMenuItems = (items: MenuSettingsItem[]) =>
+    items.map((navItem, index) =>
+      navItem.subMenu ? (
+        <div key={index} className="nav-link nav-drop-down-container group">
+          <Link
+            href={navItem.url || ''}
+            target={navItem.openInNewTab ? Target.Blank : Target.Self}
+            key={navItem.url}
+            className={
+              isActivePath({ pathname, lookup: navItem.url || '' })
+                ? 'font-bold'
+                : 'nav-text-item'
+            }
+          >
+            <Text style="nav-m" className="nav-text-item">
+              {navItem.label}
+            </Text>
+          </Link>
+          <NavSubMenu
+            main={navItem.subMenu.main}
+            side={navItem.subMenu.side}
+            ctas={navItem.subMenu.ctas}
+          />
+        </div>
+      ) : (
+        <div key={index} className="nav-link py-20">
+          <Link
+            href={navItem.url || ''}
+            target={navItem.openInNewTab ? Target.Blank : Target.Self}
+            key={navItem.url}
+            className={
+              isActivePath({ pathname, lookup: navItem.url || '' })
+                ? 'font-bold'
+                : 'nav-text-item'
+            }
+          >
+            <Text style="nav-m">{navItem.label}</Text>
+          </Link>
+        </div>
+      ),
+    );
+
+  const docsPaths = [
+    '/docs',
+    '/guides',
+    '/references',
+    '/templates',
+    '/support',
+  ];
+
+  const menuItems = (() => {
+    if (docsPaths.find((item) => item == pathname)) {
+      return NavBarDocs;
+    }
+
+    return NavBarDefault;
+  })();
+
   return (
     <Container>
       <div className="nav-container">
@@ -127,7 +185,7 @@ const Nav = ({ pathname }: NavProps) => {
           <img src="/svg/fleek-logo.svg" alt="fleek logo" />
         </Link>
         <nav>
-          {NAV.map((navItem, index) =>
+          {menuItems.map((navItem, index) =>
             navItem.subMenu ? (
               <div
                 key={index}
@@ -202,7 +260,7 @@ const Nav = ({ pathname }: NavProps) => {
         <div className="nav-menu-mobile">
           <nav>
             <div className={clsx('mb-24 flex flex-col items-center gap-16')}>
-              {NAV.map((navItem, index) => (
+              {menuItems.map((navItem, index) => (
                 <div key={index} className="nav-menu-item group">
                   {navItem.subMenu ? (
                     <>

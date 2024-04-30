@@ -1,0 +1,22 @@
+---
+import { getCollection } from 'astro:content';
+import BlogPageLayout from '../layouts/BlogPage.astro';
+import { getEntry } from 'astro:content';
+import GithubEditLink from '@components/GitHubEditLink.astro';
+import { generateGitHubEditLink } from '@utils/url';
+
+const entry = await getEntry('templates', 'index');
+const { Content, headings } = await entry.render();
+const { collection, id, slug } = entry;
+
+const githubEditUrlPathname = generateGitHubEditLink({
+  collection,
+  id,
+});
+---
+
+<BlogPageLayout title={entry.data.title}>
+  <article class="blog">
+    <Content />
+  </article>
+</BlogPageLayout>

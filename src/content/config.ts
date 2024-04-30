@@ -55,9 +55,25 @@ const guidesCollection = defineCollection({
     }),
 });
 
+const templatesCollection = defineCollection({
+  type: 'content',
+  schema: ({ image }) =>
+    z.object({
+      title: z.string(),
+      image: image(),
+      thumbnail: image(),
+      date: z.date().optional(),
+      desc: z.string().optional(),
+      author: z.string().optional(),
+      order: z.number().optional(),
+      tags: z.array(z.string()).optional(),
+    }),
+});
+
 // Export a single `collections` object to register your collection(s)
 export const collections = {
   docs: docsCollection,
   blog: blogCollection,
   guides: guidesCollection,
+  templates: templatesCollection,
 };

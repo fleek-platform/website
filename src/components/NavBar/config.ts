@@ -1,5 +1,7 @@
 import type { MenuSettingsItem } from './index';
 
+const supportUrlDefault = 'https://support.fleek.xyz';
+
 // Warning: when editing enable Typescript LSP
 // to avoid any typos.
 //
@@ -25,7 +27,7 @@ import type { MenuSettingsItem } from './index';
 //   items: <Same as `menuItem`>
 // }
 //
-const NavBarConfig: MenuSettingsItem[] = [
+export const NavBarDefault: MenuSettingsItem[] = [
   {
     label: 'Product',
     subMenu: {
@@ -164,7 +166,8 @@ const NavBarConfig: MenuSettingsItem[] = [
       ctas: [
         {
           label: 'Support',
-          url: 'TODO:SupportUrl',
+          url: supportUrlDefault,
+          openInNewTab: true,
         },
       ],
     },
@@ -175,4 +178,28 @@ const NavBarConfig: MenuSettingsItem[] = [
   },
 ];
 
-export default NavBarConfig;
+export const NavBarDocs: MenuSettingsItem[] = [
+  {
+    label: 'documentation',
+    url: '/docs',
+  },
+  {
+    label: 'guides',
+    url: '/guides',
+  },
+  {
+    label: 'references',
+    url: '/references',
+  },
+  {
+    label: 'Templates',
+    url: '/templates',
+  },
+  {
+    label: 'Support',
+    url: supportUrlDefault,
+    openInNewTab: true,
+  },
+];
+
+export default NavBarDefault;
