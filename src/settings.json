@@ -12,6 +12,13 @@
     "metadata": {
       "title": "Fleek | Build Lightning Fast Web3 Apps",
       "description": "Seamlessly build Web3 apps and services that are edge-optimized for performance. Decentralized hosting, storage, gateways and more."
+    },
+    "resources": {
+      "careersUrl": "https://wellfound.com/company/fleekhq",
+      "reportAbuseUrl": "https://support.fleek.xyz/hc/en-us/requests/new?ticket_form_id=16807535390093",
+      "fleekNetworkWebsiteUrl": "https://fleek.network",
+      "discordFleekCommunityUrl": "https://discord.gg/fleek",
+      "supportExternalUrl": "https://support.fleek.xyz"
     }
   },
   "docs": {
