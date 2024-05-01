@@ -29,3 +29,12 @@ jobs:
       - name: Auto-format (Markdown files)
         if: steps.fmt_check.outputs.exit_code != '0' && github.event_name == 'pull_request' && github.ref == 'refs/heads/develop'
         run: npx prettier --write "src/**/*.{md,mdx}"
+
+      - name: Commit formatted (Markdown files)
+        if: steps.fmt_check.outputs.exit_code != '0' && github.ref == 'refs/heads/develop'
+        run: |
+          git config --global user.name 'GitHub Action'
+          git config --global user.email 'action@github.com'
+          git add .
+          git commit -m "chore: 🤖 code format" || echo "🦖 Skipped! No changes found and will not commit..."
+          git push
