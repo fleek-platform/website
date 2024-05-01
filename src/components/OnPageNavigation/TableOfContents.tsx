@@ -13,6 +13,7 @@ type Props = {
 };
 
 const THROTTLE_MS = 100;
+const SECTION_OFFSET = 50;
 
 const TableOfContents: FC<Props> = ({ headings = [] }) => {
   const itemOffsets = useRef<ItemOffsets[]>([]);
@@ -67,7 +68,7 @@ const TableOfContents: FC<Props> = ({ headings = [] }) => {
 
       sections.forEach((section) => {
         const sectionTop = section.getBoundingClientRect().top;
-        if (sectionTop <= 0) {
+        if (sectionTop <= SECTION_OFFSET) {
           currentSectionId = section.id;
         }
       });
