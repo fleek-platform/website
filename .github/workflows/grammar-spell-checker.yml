@@ -8,12 +8,52 @@ on:
  pull_request:
 
 jobs:
-  spellcheck:
+ spellcheck:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
-      - uses: matheus23/md-spellcheck-action@v4.2.2
-        with:
-          files-to-check: "./src/**/*.md"
-          # TODO: Create words to ignore list
-          # words-to-ignore-file: ./words-to-ignore.txt
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Install Hunspell
+        run: |
+          sudo apt-get update
+          # Hunspell along with the English (US) dictionary
+          sudo apt-get install -y hunspell-en-us
+
+      - name: Install hunspell-tools
+        run: |
+          sudo apt-get install -y hunspell-tools
+
+      - name: Convert ignore list to .dic format
+        run: |
+          mkdir -p ~/.hunspell
+          echo "SET UTF8" > ~/.hunspell/minimal.aff
+          hunspell-make-dict -o ~/.hunspell/ignore_words.dic .github/actions/spell-checker/ignore_words.txt ~/.hunspell/minimal.aff
+
+      - name: Spell check (Markdown)
+        run: |
+          find ./src \
+            -type f \( -name "*.md" -o -name "*.mdx" \) \
+            -exec hunspell \
+            -l \
+            -d en_US \
+            -p ~/.hunspell/ignore_words.dic {} +
+
+      - name: Spell check (Markdown)
+        run: |
+          diff=$(git diff --name-only origin/main | grep -E '\.mdx?$')
+          
+          if [[ -n "$diff" ]]; then
+            echo "🧐 Going to spell check the following files"
+            echo "$diff"
+            
+            for file in $diff; do
+              output=$(hunspell -l -d en_US -p ~/.hunspell/ignore_words.dic "$file")
+              if [[ -n "$output" ]]; then
+                echo "⚠️ Found typos in $file"
+                echo "$output"
+              fi
+            done
+          else
+            echo "🦖Oh-No! No markdown files were found to be modified, so no spell check happened."
+          fi
