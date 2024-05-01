@@ -1,3 +1,7 @@
 fleek
 ipns
 ipfs
+ci
+cd
+changelong
+xyz

@@ -10,48 +10,45 @@ on:
 jobs:
  spellcheck:
     runs-on: ubuntu-latest
+    env:
+      MAX_NUMBER_OF_TYPOS: 5
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
 
       - name: Install Hunspell
         run: |
           sudo apt-get update
           # Hunspell along with the English (US) dictionary
-          sudo apt-get install -y hunspell-en-us
-
-      - name: Install hunspell-tools
-        run: |
-          sudo apt-get install -y hunspell-tools
-
-      - name: Convert ignore list to .dic format
-        run: |
-          mkdir -p ~/.hunspell
-          echo "SET UTF8" > ~/.hunspell/minimal.aff
-          hunspell-make-dict -o ~/.hunspell/ignore_words.dic .github/actions/spell-checker/ignore_words.txt ~/.hunspell/minimal.aff
+          sudo apt-get install -y hunspell hunspell-en-us
 
       - name: Spell check (Markdown)
         run: |
-          find ./src \
-            -type f \( -name "*.md" -o -name "*.mdx" \) \
-            -exec hunspell \
-            -l \
-            -d en_US \
-            -p ~/.hunspell/ignore_words.dic {} +
+          base_branch=${{ github.base_ref }}
+          diff=$(git diff --name-only origin/$base_branch | grep -E '\.mdx?$')
 
-      - name: Spell check (Markdown)
-        run: |
-          diff=$(git diff --name-only origin/main | grep -E '\.mdx?$')
-          
           if [[ -n "$diff" ]]; then
-            echo "🧐 Going to spell check the following files"
+            echo "🧐 Going to spell check the following files:"
             echo "$diff"
+            echo
             
             for file in $diff; do
-              output=$(hunspell -l -d en_US -p ~/.hunspell/ignore_words.dic "$file")
+              output=$(hunspell -l -d en_US -p .github/actions/spell-checker/ignore_words.txt "$file")
+              typos_count=$(echo "$output" | wc -l)
+
               if [[ -n "$output" ]]; then
-                echo "⚠️ Found typos in $file"
+                echo "🤓 Found the following typos in $file"
+                echo
                 echo "$output"
+                echo
+                echo "👆 If there are false positives, help us improve by adding the word to the ignore list in the location .github/actions/spell-checker/ignore_words.txt, please!"
+              fi
+
+              if [[ "$typos_count" -gt "$MAX_NUMBER_OF_TYPOS" ]]; then
+                echo "👹 Oops! The number of typos found exceed the maximum allowed count of $MAX_NUMBER_OF_TYPOS"
+                exit 1
               fi
             done
           else
