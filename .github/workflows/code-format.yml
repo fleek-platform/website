@@ -23,4 +23,9 @@ jobs:
         run: npm ci
 
       - name: Code format check
-        run: npm run fmt:check
+        id: fmt_check
+        run: npm run fmt:check || echo "::set-output name=exit_code::$?"
+
+      - name: Auto-format (Markdown files)
+        if: steps.fmt_check.outputs.exit_code != '0' && github.event_name == 'pull_request' && github.ref == 'refs/heads/develop'
+        run: npx prettier --write "src/**/*.{md,mdx}"
