@@ -27,14 +27,10 @@ export default {
     {
       text: 'Terms of Service',
       url: '/docs/terms',
-      target: '_blank',
-      rel: 'noopener noreferrer',
     },
     {
       text: 'Privacy Policies',
       url: '/docs/privacy',
-      target: '_blank',
-      rel: 'noopener noreferrer',
     },
     {
       text: 'Report Abuse',
@@ -75,8 +71,6 @@ export default {
     {
       text: 'Documentation',
       url: '/docs',
-      target: '_blank',
-      rel: 'noopener noreferrer',
     },
     {
       text: 'Community',
@@ -93,8 +87,6 @@ export default {
     {
       text: 'Blog',
       url: '/blog',
-      target: '_blank',
-      rel: 'noopener noreferrer',
     },
   ],
 };
