@@ -14,7 +14,7 @@
   }
 
   .nav-link {
-    @apply cursor-pointer px-20;
+    @apply cursor-pointer px-18;
 
     .nav-text-item {
       @apply transition hover:opacity-80;
