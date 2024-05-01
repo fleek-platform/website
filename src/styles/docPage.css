@@ -80,7 +80,7 @@
         line-height: 1;
       }
 
-      @apply pb-8 pl-0;
+      @apply pb-8 pl-0 opacity-80 transition duration-150 hover:opacity-100;
 
       > ul {
         @apply pl-10;
