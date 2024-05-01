@@ -159,7 +159,7 @@ const Nav = ({ pathname }: NavProps) => {
                       : 'nav-text-item'
                   }
                 >
-                  <Text style="nav-m" className="nav-text-item">
+                  <Text style="nav-m" className="nav-text-item  capitalize">
                     {navItem.label}
                   </Text>
                 </Link>
@@ -181,7 +181,9 @@ const Nav = ({ pathname }: NavProps) => {
                       : 'nav-text-item'
                   }
                 >
-                  <Text style="nav-m">{navItem.label}</Text>
+                  <Text style="nav-m" className="capitalize">
+                    {navItem.label}
+                  </Text>
                 </Link>
               </div>
             ),
