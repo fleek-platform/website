@@ -19,6 +19,7 @@
     "fmt:check": "npx prettier --check ./src",
     "check:strict": "npx astro check --minimumFailingSeverity error --minimumSeverity error",
     "check:json": "./scripts/validate-json.ts",
+    "check:markdown": "./scripts/check-markdown.ts",
     "search:serve": "npm run clear:meili_data && ./Services/Search/dev.bash",
     "search:index_all": "npm run search:index_blog && npm run search:index_docs && npm run search:index_guides",
     "search:index_blog": "./Services/Search/Indexer/indexation.ts \"blog\" \"fleekxyz_website_blog\"",

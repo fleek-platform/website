@@ -5,6 +5,7 @@ import html from 'remark-html';
 import remarkFrontmatter from 'remark-frontmatter';
 import remarkParseFrontmatter from 'remark-parse-frontmatter';
 import MeiliSearch from 'meilisearch';
+import { listFilesRecursively } from '../../../scripts/utils';
 
 import type { Index, Config } from 'meilisearch';
 
@@ -38,32 +39,6 @@ const filterMdFiles = (filePaths: string[]) => {
     const extension = path.extname(filePath);
     return extension === '.md' || extension === '.mdx';
  });
-}
-
-const listFilesRecursively = ({
-  directory,
-  fileList = [],
-}: {
-  directory: string;
-  fileList?: string[];
-}) => {
- const files = fs.readdirSync(directory);
-
- files.forEach(file => {
-    const filePath = path.join(directory, file);
-    const stat = fs.statSync(filePath);
-
-    if (stat.isDirectory()) {
-      listFilesRecursively({
-        directory: filePath,
-        fileList,
-      });
-    } else {
-      fileList.push(filePath);
-    }
- });
-
- return fileList;
 }
 
 const toSlug = (name: string) => {
