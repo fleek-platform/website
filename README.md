@@ -22,6 +22,7 @@ This repository contains the source code and assets for the Fleek.xyz website, w
     - [Blog](#-blog)
         - [New post](#new-post)
         - [Create a Pull request](#-create-a-pull-request)
+        - [Spell checker](#-spell-checker)
     - [Docs](#-docs)
         - [Sidebar menu item ordering](#-sidebar-menu-item-ordering)
     - [Admonitions](#-admonitions)
@@ -333,6 +334,16 @@ Press the "Create pull request" and fill up the following filds by providing a t
 To complete select "Create pull request".
 
 ![Pull request form](public/images/repo/pull-request-form.png?202404161849)
+
+## 🧐 Spell checker (Grammar)
+
+A spell checker will verify the markdown (.md, .mdx) file content for any typos. The spell checker is an automated process that is active during the pull request (PR).
+
+Find the spell checker amongst other checks, under the checks component at the very bottom of the conversation tab, in the Github pull request (PR) dashboard. To learn more about the spell check process, open "details".
+
+It should be similar to the following:
+
+![Locate the spell checker in CI/CD](public/images/repo/spell-checker-in-cicd.png?202406011433)
 
 ## 🎯 Admonitions
 
