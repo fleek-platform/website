@@ -1,11 +1,8 @@
 ---
-order: 6
-title: Privacy Policies
+title: Privacy Policy
 date: 2023-01-10
 description: Review Fleek LLC's Privacy Policy, detailing how we use and protect personal information.
 ---
-
-# Privacy Policy
 
 We at Fleek LLC (Fleek,” “we” and “us”) know you care about how your personal information is used and shared, and we take your privacy seriously. Please read the following to learn more about our Privacy Policy. By using or accessing the Services in any manner, you acknowledge that you accept the practices and policies outlined in this Privacy Policy, and you hereby consent that we will collect, use, and share your information in the following ways.
 

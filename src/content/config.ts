@@ -85,6 +85,20 @@ const referencesCollection = defineCollection({
     }),
 });
 
+const legalCollection = defineCollection({
+  type: 'content',
+  schema: ({ image }) =>
+    z.object({
+      title: z.string(),
+      image: image().optional(),
+      thumbnail: image().optional(),
+      date: z.date().optional(),
+      desc: z.string().optional(),
+      author: z.string().optional(),
+      order: z.number().optional(),
+    }),
+});
+
 // Export a single `collections` object to register your collection(s)
 export const collections = {
   docs: docsCollection,
@@ -92,4 +106,5 @@ export const collections = {
   guides: guidesCollection,
   templates: templatesCollection,
   references: referencesCollection,
+  legal: legalCollection,
 };

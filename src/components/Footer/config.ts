@@ -26,11 +26,11 @@ export default {
   legal: [
     {
       text: 'Terms of Service',
-      url: '/docs/terms',
+      url: '/legal/terms-of-service',
     },
     {
-      text: 'Privacy Policies',
-      url: '/docs/privacy',
+      text: 'Privacy Policy',
+      url: '/legal/privacy-policy',
     },
     {
       text: 'Report Abuse',
