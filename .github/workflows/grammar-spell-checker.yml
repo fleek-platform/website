@@ -19,11 +19,11 @@ jobs:
           sudo apt-get update
           # Hunspell along with the English (US) dictionary
           sudo apt-get install -y hunspell hunspell-en-us
-
+      
       - name: Spell check (Markdown)
         run: |
           base_branch=${{ github.base_ref }}
-          diff=$(git diff --name-only origin/$base_branch | grep -E '\.mdx?$')
+          diff=$(git diff --name-only origin/$base_branch | grep -E '\.mdx?$' || true)
 
           if [[ -n "$diff" ]]; then
             echo "🧐 Going to spell check the following files:"
