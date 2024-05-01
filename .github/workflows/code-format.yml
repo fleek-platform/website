@@ -10,9 +10,14 @@ on:
 jobs:
  prettier:
     runs-on: ubuntu-latest
+    defaults:
+      run:
+        shell: bash
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
+        with:
+          ref: ${{ github.head_ref || github.ref }}
 
       - name: Set up Node.js
         uses: actions/setup-node@v4
@@ -24,17 +29,29 @@ jobs:
 
       - name: Code format check
         id: fmt_check
-        run: npm run fmt:check || echo "::set-output name=exit_code::$?"
+        continue-on-error: true
+        run: |
+          if ! npm run fmt:check; then
+            echo "exit_code=1" >> "$GITHUB_OUTPUT"
+          fi
 
       - name: Auto-format (Markdown files)
-        if: steps.fmt_check.outputs.exit_code != '0' && github.event_name == 'pull_request' && github.ref == 'refs/heads/develop'
+        if: steps.fmt_check.outputs.exit_code != '0' && github.event_name == 'pull_request'
         run: npx prettier --write "src/**/*.{md,mdx}"
 
       - name: Commit formatted (Markdown files)
-        if: steps.fmt_check.outputs.exit_code != '0' && github.ref == 'refs/heads/develop'
+        if: steps.fmt_check.outputs.exit_code != '0' && github.event_name == 'pull_request'
         run: |
           git config --global user.name 'GitHub Action'
           git config --global user.email 'action@github.com'
-          git add .
-          git commit -m "chore: 🤖 code format" || echo "🦖 Skipped! No changes found and will not commit..."
-          git push
+          if [[ -n "$(git status --porcelain)" ]]; then
+            git add .
+  
+            if git commit -m "chore: 🤖 code format" --no-verify; then
+              git push
+            else
+              echo "🦖 Skipped! No changes to commit..."
+            fi
+          else
+            echo "🦖 Skipped! No changes found."
+          fi
