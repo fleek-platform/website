@@ -13,7 +13,9 @@ const collection = 'blog';
 
 // TODO: load title from settings
 const pageTitle = 'Blog';
-const allPosts: CollectionEntry<'blog'>[] = await getCollection(collection);
+const allPosts: CollectionEntry<'blog'>[] = (await getCollection('blog')).sort(
+  (a, b) => b.data.date.valueOf() - a.data.date.valueOf()
+);
 ---
 
 <Layout title="Fleek | Build Lightning Fast Web3 Apps">
