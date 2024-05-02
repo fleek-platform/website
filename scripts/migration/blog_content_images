@@ -1,0 +1,91 @@
+#!/bin/bash
+
+# Instructions
+# To execute the script pass the parameter arguments for origin and target paths, e.g. ../gatsby-blog/src/posts/post and ./src/content/blog
+if [[ "$#" -ne 2 && ! "$3" == 'write' ]]; then
+    echo "👹 Oops! Missing origin and target paths! Please do $0 <origin_path> <target_path>"
+    exit 1
+fi
+
+origin_path="$1"
+target_path="$2"
+
+mkdir -p "$target_path"
+
+if [[ ! "$3" == 'write' ]]; then
+  echo "🤖 Dry-run mode"
+else
+  echo "🤖 Blog migration process in write-run mode"
+  while read -rp "❓Are you sure you want to continue (yes/no)? " answer; do
+    if [[ "$answer" == [nN] || "$answer" == [nN][oO] ]]; then
+	  echo "🦖 Exited the blog content migration process"
+	  exit 1
+    elif [[ "$answer" == [yY] || "$answer" == [yY][eE][sS] ]]; then
+      echo "🙏 The migration process will now start, be patient..."
+	  sleep 3
+      break;
+    fi
+	
+    echo  "💩 Uh-oh! We expect a yes or no answer. Try again...\n"
+  done;
+fi
+
+if [[ ! "$3" == 'write' ]]; then
+	sed_inplace_edit=()
+else
+	OS="$(uname)"
+	if [[ "$OS" == "Darwin" ]]; then
+	    sed_inplace_edit=("-i" "")
+	elif [[ "$OS" == "Linux" ]]; then
+	    sed_inplace_edit=("-i")
+	else
+		echo "👹 Oops! Unsupported operating system $OS"
+	    exit 1
+	fi
+fi
+
+find "$target_path" -type f \( -name "*.md" -o -name "*.mdx" \) | while read -r file; do
+	echo "[File] $file"
+
+	target_dir=$(dirname "$file")
+
+	image_paths=$(grep -o '!\[.*\]\(.*\)' "$file" | sed -E 's/!\[.*\]\((.*)\)/\1/')
+	image_paths=$(echo "$image_paths" | grep -v '^http://\|^https://')
+
+    if [[ -z "$image_paths" ]]; then
+		echo "🦖 Skip! Images not found in $file"
+		echo
+        continue
+    fi
+
+    while IFS= read -r image_path; do
+        image_path=$(echo "$image_path" | sed 's|^\./||')
+
+        image_file_name=$(basename "$image_path")
+
+        origin_img_path="$origin_path/$image_path"
+
+        target_img_path="$target_dir/$image_file_name"
+
+		if [[ ! "$3" == "write" ]]; then
+			echo "🫡 Should copy $origin_img_path -> $target_img_path"
+		else
+		    if ! cp "$origin_img_path" "$target_img_path"; then
+				echo "👹 Oops! Failed to copy $origin_img_path to $target_img_path"
+			else
+				echo "✅ Copied the images declared in $file from $origin_img_path to $target_dir"
+			fi
+		fi
+		
+        if ! sed $sed_inplace_edit "s|$image_path|$image_file_name|g" "$file" | head -n 5; then
+			echo "👹 Oops! Failed to replace image path to local content directory"
+		fi
+		
+		echo
+    done <<< "$image_paths"
+
+	echo
+	echo
+done
+
+echo "👍 Image copy process completed."
