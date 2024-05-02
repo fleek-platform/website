@@ -7,7 +7,7 @@ import BlogHeader from '@components/BlogHeader.astro';
 
 import type { CollectionEntry } from 'astro:content';
 
-const indexNameGuides = import.meta.env.PUBLIC_MEILISEARCH_INDEX_GUIDES;
+const indexNameReferences = import.meta.env.PUBLIC_MEILISEARCH_INDEX_REFERENCES;
 
 const collection = 'references';
 
@@ -19,7 +19,7 @@ const allPosts: CollectionEntry<'references'>[] =
 
 <Layout title="Fleek | Build Lightning Fast Web3 Apps">
   <main class="container min-h-container">
-    <BlogHeader title="References" indexName={indexNameGuides} />
+    <BlogHeader title="References" indexName={indexNameReferences} />
     <BlogPosts allPosts={allPosts} collection={collection} />
   </main>
 </Layout>
