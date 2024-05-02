@@ -31,6 +31,8 @@ else
 fi
 
 find "$target_dir" -type f -name "*.gif" | while read -r gif; do
+	echo "[File] $gif"
+
     dir=$(dirname "$gif")
     base_name=$(basename "$gif" .gif)
     
@@ -44,7 +46,10 @@ find "$target_dir" -type f -name "*.gif" | while read -r gif; do
 		else
 			echo "✅ Converted $gif to $output"
 		fi
-	fi    
+	fi
+
+	echo
+	echo
 done
 
 echo "👍 Gif to Mp4 process completed."
