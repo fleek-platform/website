@@ -27,7 +27,7 @@ else
 fi
 
 
-if [[ ! "$3" == 'write' ]]; then
+if [[ ! "$2" == 'write' ]]; then
 	sed_inplace_edit=()
 else
 	OS="$(uname)"
@@ -47,8 +47,7 @@ find "$target_path" -type f \( -name "*.md" -o -name "*.mdx" \) -print0 | while 
     if ! sed "${sed_inplace_edit[@]}" '/^category:/d' "$file" | head -n 5 \
        || ! sed "${sed_inplace_edit[@]}" '/^alt:/d' "$file" | head -n 5 \
        || ! sed "${sed_inplace_edit[@]}" '/^canonical:/d' "$file" | head -n 5 \
-	   || ! sed "${sed_inplace_edit[@]}" 's/^\([a-zA-Z0-9_-]*\): "\(.*\)"$/\1: \2/' "$file" | head -n 5 \
-       || ! sed "${sed_inplace_edit[@]}" 's/^\([a-zA-Z0-9_-]*\): "\(.*\)"$/\1: \2/' "$file" | head -n 5; then
+	   || ! sed "${sed_inplace_edit[@]}" 's/^\(date: \)"\([0-9]\{4\}-[0-9]\{2\}-[0-9]\{2\}\).*/\1\2/' "$file" | head -n 5; then
         echo "👹 Oops! Failed to remove some fields in $file"
     fi
 
