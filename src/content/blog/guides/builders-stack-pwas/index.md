@@ -28,7 +28,11 @@ Let’s get into some more details about PWAs:
 
 ## What are Progressive Web Apps (PWAs)?
 
-![](./pwa-download.gif)
+<video width="100%" height="auto" autoplay loop>
+ <source src="./pwa-download.mp4" type="video/mp4">
+ Your browser does not support the video tag.
+</video>
+
 
 **Progressive Web Apps are built using modern APIs to deliver near native-level reach, reliability, and capabilities across all devices**. They are a blend of the best elements of desktop-web and mobile apps, offering the accessibility and versatility of web-based applications with the user-centric, intuitive, and accessible experience of mobile apps. Additionally, the ability to avoid certain centralized app store restrictions (think high fees on Apple Store transactions) has made a lot of web3 companies turn to PWAs as a way to become available on mobile user’s devices.
 
