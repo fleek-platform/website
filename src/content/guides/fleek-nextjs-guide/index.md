@@ -1,13 +1,13 @@
 ---
 title: 'How To Deploy A Next.js App To Fleek.xyz: A Step-by-Step Guide for Developers'
-category: 'Guides'
 date: 2024-04-03
 desc: 'How to deploy a static Next.js app using the Fleek CLI.'
 thumbnail: './nextjsguide.png'
-alt: 'How to deploy a static Next.js app using the Fleek CLI'
 image: './nextjsguide.png'
 cannonical: ''
-author: 'Olayinka Oshidipe'
+author:
+  - 'Olayinka Oshidipe'
+  - 'Kanishk Khurana'
 ---
 
 The Fleek.xyz platform empowers developers to build lightning-fast web apps, and services that are edge optimized for performance. In this detailed guide, you’ll learn how to deploy a **Next.js** web app onto Fleek using the Fleek CLI.

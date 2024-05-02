@@ -1,13 +1,12 @@
 ---
 title: 'Build3rs Stack: Nym'
-category: 'Guides'
 date: 2023-09-26
 desc: 'The builders guide to Nym, a privacy platform enabling anonymous network traffic'
 thumbnail: './nymthumb.jpg'
-alt: 'builders stack Nym'
 image: './nymthumb.jpg'
 cannonical: ''
-author: 'Fleek'
+author:
+  - 'Fleek'
 ---
 
 Welcome back to the Build3rs Stack, Fleek’s web3 infra overview series! This week dive into Nym– the privacy platform protecting end users’ communication patterns, IP addresses, and metadata.

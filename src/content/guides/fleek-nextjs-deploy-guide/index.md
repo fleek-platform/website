@@ -1,13 +1,12 @@
 ---
 title: 'How to Deploy A NextJs App Using Fleek.xyz UI'
-category: 'Guides'
 date: 2024-04-23
 desc: "How to deploy a static Next.js app using the Fleek UI and your app's GitHub Repo."
 thumbnail: './ghnextjsthumb.png'
-alt: "How to deploy a static Next.js app using the Fleek UI and your app's GitHub Repo"
 image: './ghnextjsthumb.png'
 cannonical: ''
-author: 'Olayinka Oshidipe'
+author:
+  - 'Olayinka Oshidipe'
 ---
 
 The Fleek.xyz platform empowers developers to build lightning-fast web apps, and services that are edge optimized for performance. In this detailed guide, you’ll learn how to deploy a **Next.js** web app using the Fleek.xyz UI and your site’s **GitHub repo**.

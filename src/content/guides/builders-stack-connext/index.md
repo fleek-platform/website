@@ -1,13 +1,12 @@
 ---
 title: 'Build3rs Stack: Connext'
-category: 'Guides'
 date: 2023-09-13
 desc: "The builder's guide to Connext-  the cross-chain protocol for secure data and fund transfer"
 thumbnail: './connext-thumb.jpg'
-alt: 'builders stack Connext'
 image: './connext-thumb.jpg'
 cannonical: ''
-author: 'Fleek'
+author:
+  - 'Fleek'
 ---
 
 Welcome to the Build3rs Stack, our web3 infrastructure overview series! This week we are checking out [Connext](https://www.connext.network/), a protocol for securely passing data and funds between chains.
