@@ -2,7 +2,7 @@
 
 # Instructions
 # To execute the script pass the parameter arguments for origin and target paths, e.g. ../gatsby-blog/src/posts/post and ./src/content/blog
-if [[ "$#" -ne 2 ]]; then
+if [[ "$#" -ne 2 && ! "$3" == 'write' ]]; then
     echo "👹 Oops! Missing origin and target paths! Please do $0 <origin_path> <target_path>"
     exit 1
 fi
