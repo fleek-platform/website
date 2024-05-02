@@ -23,7 +23,10 @@ Let’s get into the changes coming to the Fleek.xyz alpha with v0.0.1:
 
 The randomly generated on-fleek.app URL slugs will default to a combination of words but now, if you want something a little more personalized, you can change it to whatever available slug you want:
 
-![](./slug-change-prd.gif)
+<video width="100%" height="auto" autoplay loop>
+ <source src="./slug-change-prd.mp4" type="video/mp4">
+ Your browser does not support the video tag.
+</video>
 
 ---
 
