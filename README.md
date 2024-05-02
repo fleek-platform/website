@@ -31,8 +31,8 @@ This repository contains the source code and assets for the Fleek.xyz website, w
 - [Development](#-development)
     - [Search server](#-search-server)
     - [Images (optimization)](#-images-optimization)
-- [Migration](#-migration)
-    - [Migrate Gatsby content](#-migrate-gatsby-content)
+- [Migration](#%EF%B8%8Fmigration)
+    - [Migrate Gatsby content](#migrate-gatsby-content)
 
 # Setup
 
@@ -621,9 +621,9 @@ const html = `<picture>
 
 Learn more [here](https://github.com/JonasKruckenberg/imagetools/)
 
-## ⛵️Migration
+## ⛵️ Migration
 
-### 🤖Migrate Gatsby Content
+### 🤖 Migrate Gatsby Content
 
 This section provides detailed instructions on how to execute the script for migrating markdown files from one location to another. The script is designed to organize markdown files into a structured directory based on their category, extracted from the file content.
 
