@@ -2,6 +2,7 @@
 import { Image } from 'astro:assets';
 
 import type { CollectionEntry } from 'astro:content';
+import type { ImageMetadata } from "astro";
 
 const { allPosts, collection } = Astro.props;
 
@@ -11,9 +12,7 @@ type AllPosts = {
   slug: string;
   data: {
     title: string;
-    image: {
-      src: string;
-    };
+    image: ImageMetadata;
     category: string;
   };
 };
@@ -26,7 +25,7 @@ type AllPosts = {
     allPosts.map((post: AllPosts) => (
       <a href={`/${collection}/${post.slug}`}>
         <article class="min-h-[360px] cursor-pointer overflow-hidden rounded-8 bg-ui-fleek-black shadow transition hover:scale-105">
-          {post.data?.image.src && (
+          {post.data?.image && (
             <Image
               class="h-[200px] w-full object-cover"
               src={post.data.image}
