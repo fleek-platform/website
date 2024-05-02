@@ -29,7 +29,7 @@ const blogCollection = defineCollection({
       thumbnail: image(),
       date: z.date().optional(),
       desc: z.string().optional(),
-      author: z.string().optional(),
+      author: z.union([z.string(), z.array(z.string())]).optional(),
       order: z.number().optional(),
       tags: z.array(z.string()).optional(),
     }),
