@@ -36,19 +36,28 @@ To delete a Project, head to the project dashboard, where you’ll need to ackno
 - Domains linked to Private Gateways
 - Files Stored
 
-![](./project-delete.gif)
+<video width="100%" height="auto" autoplay loop>
+ <source src="./project-delete.mp4" type="video/mp4">
+ Your browser does not support the video tag.
+</video>
 
 ### Site Delete
 
 When deleting a site, go to the site overview and click the `Delete Site` option on the general settings page. Deleting your site means the removal of all associated resources and means content for that site will no longer be served, **including the domains and IPNS record linked to it**.
 
-![](./site-delete-updated.gif)
+<video width="100%" height="auto" autoplay loop>
+ <source src="./site-delete-updated.mp4" type="video/mp4">
+ Your browser does not support the video tag.
+</video>
 
 ### Gateway Delete
 
 For Private Gateways, you’ll be prompted to **remove the gateway and all domains associated with it**:
 
-## ![](./delete-gateway.gif)
+<video width="100%" height="auto" autoplay loop>
+ <source src="./delete-gateway.mp4" type="video/mp4">
+ Your browser does not support the video tag.
+</video>
 
 ## Other Fixes and Improvements
 
