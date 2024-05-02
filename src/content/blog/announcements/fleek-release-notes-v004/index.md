@@ -25,7 +25,10 @@ A major step in the direction towards the sunsetting of Fleek.co is reaching fea
 
 **An improvement on the Fleek.co iteration that users are familiar with, this version allows users to set the content hash for their domains without leaving the Fleek platform, as well as now handle subnames and name unwrapping in-app**. It’s quick, easy, and allows you to use your ENS domains for any of your builds on Fleek:
 
-![Set ENS name as Domain](./ens_automatic_setup.gif)
+<video width="100%" height="auto" autoplay loop>
+ <source src="./ens_automatic_setup.mp4" type="video/mp4">
+ Your browser does not support the video tag.
+</video>
 
 ## Deployment Details Page
 
