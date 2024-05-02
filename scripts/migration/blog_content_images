@@ -80,7 +80,7 @@ find "$target_path" -type f \( -name "*.md" -o -name "*.mdx" \) | while read -r 
 			fi
 		fi
  
-        if ! sed $sed_inplace_edit "s|$origin_content_img_path|$target_content_img_path|g" "$file" | head -n 5; then
+        if ! sed "${sed_inplace_edit[@]}" "s|$origin_content_img_path|$target_content_img_path|g" "$file" | head -n 5; then
 			echo "👹 Oops! Failed to replace image path to local content directory"
 		fi
 		
