@@ -1,12 +1,12 @@
 ---
-title: "Build3rs Stack: Gelato Network"
+title: 'Build3rs Stack: Gelato Network'
 date: 2023-05-05
 desc: "The builder's guide to Gelato Network- the decentralized & automated smart contract execution network"
-thumbnail: "./gelato-main.png"
-image: "./gelato-main.png"
-cannonical: ""
-author: 
-  - "Abru Zucchi"
+thumbnail: './gelato-main.png'
+image: './gelato-main.png'
+cannonical: ''
+author:
+  - 'Abru Zucchi'
 ---
 
 Welcome to the Build3rs Stack, Fleek’s **web3 infrastructure overview series**. This week we will take a look at [Gelato Network](https://www.gelato.network/), a decentralized web3 backend that helps to automate smart contracts.
@@ -56,15 +56,15 @@ MakerDAO is a protocol that benefits from Gelato Network’s automated smart con
 
 Yearn Finance is a DeFi protocol that utilizes Gelato Network to automate specific tasks, such as optimizing yield farming strategies or rebalancing users' portfolios. With Gelato's automation, users can achieve better returns on their investments with less manual intervention.
 
-**Vault Collateral Management (e.g [Rysk Finance](https://www.rysk.finance/)**) 
+**Vault Collateral Management (e.g [Rysk Finance](https://www.rysk.finance/)**)
 
-Rysk Finance uses Gelato's Web3 Functions to automate the *adjustVaults* function within the *VaultCollateralMulticall* contract. This ensures efficient monitoring of vault health factors and timely execution of collateral adjustments when needed.
+Rysk Finance uses Gelato's Web3 Functions to automate the _adjustVaults_ function within the _VaultCollateralMulticall_ contract. This ensures efficient monitoring of vault health factors and timely execution of collateral adjustments when needed.
 
-**Automated Rent Distribution (e.g [Tangible](https://www.tangible.store/))** 
+**Automated Rent Distribution (e.g [Tangible](https://www.tangible.store/))**
 
 Tangible leverages Gelato's Web3 Functions to monitor rent collection and automatically distribute payments to real estate token holders when sufficient rent is accrued, streamlining the process and enhancing efficiency.
 
-**Token Buybacks (e.g. [Aavegotchi](https://www.aavegotchi.com/)**) 
+**Token Buybacks (e.g. [Aavegotchi](https://www.aavegotchi.com/)**)
 
 Aavegotchi automates GHST token buybacks using Gelato's Web3 functions. The Web3 function interacts with the GHSTAutoBuy smart contract's buyGHST function to periodically swap USDC for GHST. Additionally, it employs the ParaSwap API to fetch optimal swap rates and execute transactions, purchasing GHST tokens with USDC.
 
@@ -81,7 +81,7 @@ A great starting point for developers is the [official documentation](https://do
 - [Use Cases](https://www.gelato.network/#use-cases)
 - [Developer Resources](https://www.gelato.network/developers)
 
-----
+---
 
 We hope this guide has given you the necessary information and tools to start using Gelato Network! Make sure to follow [Gelato Network](https://twitter.com/gelatonetwork) for further updates and developments.
 

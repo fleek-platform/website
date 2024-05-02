@@ -1,17 +1,17 @@
 ---
-title: "Sites Deployments Release on the CLI Beta."
+title: 'Sites Deployments Release on the CLI Beta.'
 date: 2023-02-01
-desc: "New features are coming to the CLI! Today we are releasing the Sites Deployments service to the CLI for developers to start testing."
-thumbnail: "./cli-sites.png"
-image: "./cli-sites.png"
-cannonical: "https://blog.fleek.xyz/post/release-sites-deployment-beta-cli/"
+desc: 'New features are coming to the CLI! Today we are releasing the Sites Deployments service to the CLI for developers to start testing.'
+thumbnail: './cli-sites.png'
+image: './cli-sites.png'
+cannonical: 'https://blog.fleek.xyz/post/release-sites-deployment-beta-cli/'
 ---
 
 The beta’s growing, and with new testers, new features are coming to the CLI! Today we are releasing the **Sites Deployments service** to the CLI for developers to start testing and [share their feedback](https://github.com/fleekxyz/fleekxyz-support) on.
 
 Step aside, it’s time to host some sites on IPFS! If you want a quick-start, visit our [updated docs](https://docs.fleek.xyz/) right away ⚡️
 
-***
+---
 
 ## Static Sites Deployments on the CLI
 
@@ -39,7 +39,7 @@ Being open-source, **anyone is open to contribute or suggest in the repository**
 
 These templates will set a foundation that in the future, the Fleek's UI and CLI can pick-up and integrate to provide them as options, inside the development experience itself.
 
-***
+---
 
 The CLI’s growing Fleek fam! We’re on the road to matching the legacy platform’s features, and then breaking further into new services and features for web3 developers.
 

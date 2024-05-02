@@ -1,10 +1,10 @@
 ---
-title: "Fleek Leak 02"
+title: 'Fleek Leak 02'
 date: 2023-01-25
-desc: "Time for a development update ⚡️ Over the last few weeks we’ve been jamming on our CLI beta (Jan 18th), adding compute to Fleek, and an NFAs MVP. Let’s dive into why & what you can expect!"
-thumbnail: "./leak2.png"
-image: "./leak2.png"
-cannonical: "https://blog.fleek.xyz/post/fleek-leak-02/"
+desc: 'Time for a development update ⚡️ Over the last few weeks we’ve been jamming on our CLI beta (Jan 18th), adding compute to Fleek, and an NFAs MVP. Let’s dive into why & what you can expect!'
+thumbnail: './leak2.png'
+image: './leak2.png'
+cannonical: 'https://blog.fleek.xyz/post/fleek-leak-02/'
 ---
 
 Issue number two of the Fleek Leak is here fam! ⚡ We’re keeping the bi-weekly pace up: a release one week, and a development update on the other.
@@ -19,11 +19,11 @@ And now? Onwards! We keep rowing the Fleek boat upstream to prepare our next bet
 
 The motto we keep repeating internally? Build and ship in parallel. So while the first beta was coming up, these things were being set up and are now on the final stretch towards completion:
 
-* _More_ services (CLI sites deployment & domain management)
-* Expanding the UI with IPFS Pinning.
-* Bug-fixes and CLI improvements.
+- _More_ services (CLI sites deployment & domain management)
+- Expanding the UI with IPFS Pinning.
+- Bug-fixes and CLI improvements.
 
-***
+---
 
 ### Landing Soon: Sites Deployments & Domains
 
@@ -37,7 +37,7 @@ The second iteration, **managed deployments**, will come later on and offer the 
 
 Again, our architecture design for Fleek.xyz is [fully modular and extensible](https://blog.fleek.co/posts/fleek-xyz-architecture-overview), which means that while on this release Sites deploy to IPFS initially and Domains will support DNS, in the future we will be able to easily expand to other web3 providers (like ENS).
 
-***
+---
 
 ### Preparing the App’s UI for Expansion
 
@@ -49,7 +49,7 @@ The team is working on a simple drag and drop interface for the app’s ui, **to
 
 For that, we are using an early version of the Fleek SDK, which is now powering the CLI. We are working on a node version of the SDK and starting to integrate it into the UI and browsers overall. This work will set the foundation to prepare the SDK for public use, as we remove dependencies to enable client-use and add a user permissioning layer.
 
-***
+---
 
 That wraps up this edition of Fleek Leak! Set your reminders for next week as we prepare to release these new features into the wild. You can also simply [sign up on our website](https://fleek.xyz/) to get a ping when that happens too 📯. While you wait, [pay our docs](https://docs.fleek.xyz/) a visit and give the beta a try!
 

@@ -1,12 +1,12 @@
 ---
-title: "Build3rs Stack: Huddle01"
+title: 'Build3rs Stack: Huddle01'
 date: 2023-08-26
 desc: "The builder's guide to Huddle01- the decentralized communication protocol, network, and app bringing video, audio, streaming, and more to any web3 protocol."
-thumbnail: "./huddle01thumb.jpg"
-image: "./huddle01thumb.jpg"
-cannonical: ""
-author: 
-  - "Fleek"
+thumbnail: './huddle01thumb.jpg'
+image: './huddle01thumb.jpg'
+cannonical: ''
+author:
+  - 'Fleek'
 ---
 
 Welcome back to the Build3rs Stack, a series where our team shares insights on different web3 infrastructure! This week we are jumping into <u>[Huddle01](https://www.huddle01.com/)</u>, a decentralized communication protocol, network, and app. The Huddle01 team is bringing video, audio, streaming and more to any web3 protocol!
@@ -97,9 +97,9 @@ The Huddle01 team provides SDKs and APIs for projects to integrate their protoco
 
 - Adding video chat to a web app in <u>[7 steps](https://huddle01.hashnode.dev/add-video-chat-to-your-web-app-in-7-quick-steps)</u>
 - SDKs
-    - <u>[Javascript](https://huddle01.com/docs/Javascript)</u>
-    - <u>[ReactJS](https://huddle01.com/docs/React)</u>
-    - <u>[React Native](https://huddle01.com/docs/React-Native)</u>
+  - <u>[Javascript](https://huddle01.com/docs/Javascript)</u>
+  - <u>[ReactJS](https://huddle01.com/docs/React)</u>
+  - <u>[React Native](https://huddle01.com/docs/React-Native)</u>
 - <u>[CLI](https://huddle01.com/docs/cli-tool)</u>
 - <u>[iFrame](https://huddle01.com/docs/iFrame/intro)</u>
 - <u>[What is Wallet01 and how to make a chain-agnostic application on NextJS](https://huddle01.hashnode.dev/wallet01-huddle01s-all-new-open-source-multi-chain-wallet-package)</u>

@@ -1,17 +1,17 @@
 ---
-title: "The Fleek Node SDK Beta Has Released!"
+title: 'The Fleek Node SDK Beta Has Released!'
 date: 2023-03-24
-desc: "The Node SDK is now live, integrate Fleek’s services into Node.js applications or environments!"
-thumbnail: "./nodejsrelease.png"
-image: "./nodejsrelease.png"
-cannonical: ""
+desc: 'The Node SDK is now live, integrate Fleek’s services into Node.js applications or environments!'
+thumbnail: './nodejsrelease.png'
+image: './nodejsrelease.png'
+cannonical: ''
 ---
 
 We’re excited to announce that the beta for our **Node SDK is now live**, and ready for developers to start integrating Fleek’s services!
 
 Let’s dive into this release, and do a rundown of what you can build and achieve with the Node SDK today. Find a detailed guide on how to use it in [our SDK documentation](https://docs.fleek.xyz/docs/SDK/).
 
-***
+---
 
 ## The Fleek Node.js SDK
 
@@ -25,7 +25,7 @@ Currently, we are surfacing **IPFS Storage, IPNS management, and project managem
 
 <iframe width="600" height="350" src="https://www.youtube.com/embed/ETbFztiCmGU?controls=0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 
-In the case of Node.js, **that applies to any app with a Node.js backend**. The only thing you need is to request a Personal Access Token from the CLI to authorize your app to leverage your Fleek services, and integrate away! 
+In the case of Node.js, **that applies to any app with a Node.js backend**. The only thing you need is to request a Personal Access Token from the CLI to authorize your app to leverage your Fleek services, and integrate away!
 
 What can you achieve? For example, you could build a desktop web3 game that **integrates the SDK to store your user’s progress data on IPFS**, or an NFT minting application web app with a Node.js backend that stores the user’s NFT collection metadata and images on web3 storage automatically!
 
@@ -35,7 +35,6 @@ Visit our new [SDK documentation](https://docs.fleek.xyz/docs/SDK/) page to lear
 
     npm install -g @fleekxyz/sdk
 
-
 To setup and authenticate your SDK you will need to create a Personal Access Token via the [Fleek CLI](https://docs.fleek.xyz/docs/SDK/#personal-access-token-service), as so:
 
     > fleek pat create
@@ -43,22 +42,21 @@ To setup and authenticate your SDK you will need to create a Personal Access Tok
     > Please follow this link to log in to Fleek.
     > https://app.fleek.xyz/login/200e4c811d843dd7c5f29af12765c5af
     > Success! Your new personal access token is: your-personal-access-token
-    
-***
+
+---
 
 ## Also Included in This Release:
 
 This release comes with a lot more features for domain management, and general enhancements in Fleek’s services!
 
-* Domain Statuses
-* Access Token Improvements
-* General QoL improvements
+- Domain Statuses
+- Access Token Improvements
+- General QoL improvements
 
-***
+---
 
 Time to build away! Let us know what ideas pop up as you test the SDK, and tweet your builds at us or share them on Discord. The team’s excited to start opening up Fleek as the infrastructure layer for all web3 apps.
 
 Found a bug, got an idea or request? Visit our [Support repository](https://github.com/fleekxyz/fleekxyz-support/) and open up an issue! Or pay our [Discord](https://discord.gg/fleek) a visit and let us know.
 
 For more resources visit our [LinkTree](https://linktr.ee/fleek) ⚡
-

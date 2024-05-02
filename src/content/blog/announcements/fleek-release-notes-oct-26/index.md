@@ -1,13 +1,14 @@
 ---
-title: "Fleek v0.0.2 Release Notes: Primary Domains, Lens Template, Faster Upload Speeds"
+title: 'Fleek v0.0.2 Release Notes: Primary Domains, Lens Template, Faster Upload Speeds'
 date: 2023-10-26
-desc: "Get the latest on the changes coming to the Fleek Alpha with v0.0.2, including Primary Domains, Lens Template, Improved Upload Speeds, and more!"
-thumbnail: "./fleekreleasenotes04.png"
-image: "./fleekreleasenotes04.png"
-cannonical: ""
-author: 
-  - "Fleek"
+desc: 'Get the latest on the changes coming to the Fleek Alpha with v0.0.2, including Primary Domains, Lens Template, Improved Upload Speeds, and more!'
+thumbnail: './fleekreleasenotes04.png'
+image: './fleekreleasenotes04.png'
+cannonical: ''
+author:
+  - 'Fleek'
 ---
+
 It’s that time again! We’re back for another bi-weekly update to the Fleek.xyz Alpha– this time with a new template option, faster file uploads, a few new features, and fixes.
 
 Application form for the next batch of testers, who will get onboarded with v0.0.3 coming in ~2 weeks, is open [here](https://fleekxyz.typeform.com/alpha-access)!

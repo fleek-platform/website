@@ -1,18 +1,18 @@
 ---
-title: "Fleek.xyz Platform Update"
+title: 'Fleek.xyz Platform Update'
 date: 2023-06-30
-desc: "Get the latest on our summer plans for the incoming Fleek.xyz launch, from NFAs, to Fleek.co Sunsetting, new features, and more!"
-thumbnail: "./fp-update.png"
-image: "./fp-update.png"
-cannonical: ""
-author: "Fleek"
+desc: 'Get the latest on our summer plans for the incoming Fleek.xyz launch, from NFAs, to Fleek.co Sunsetting, new features, and more!'
+thumbnail: './fp-update.png'
+image: './fp-update.png'
+cannonical: ''
+author: 'Fleek'
 ---
 
 We’ve been a bit quiet the past several weeks finalizing some revised plans/timelines for the new platform based on some [exciting updates to Fleek Network](https://blog.fleek.network/post/fleek-network-milestones-update). But now that that work is done, we want to get back in the rhythm of consistent communication/updates, starting now by laying out the new plan and some milestones to get excited for this summer.
 
 **TLDR:** The new platform took a bit longer than originally anticipated. But the bright side is that extra time allowed us to work in some cool changes/updates, and better align the new Fleek Network direction. **The new Fleek platform will now launch in August** and the full sunsetting of and one-click migration off the legacy Fleek.co platform will happen at some point before the end of the year (we will provide plenty of heads-up).
 
-Some updates/features of the new platform that we’re excited about are 1) NFA’s (**a V1 will be part of the platform launch in August**) and 2) we’ve replaced our use of centralized storage providers for IPFS (ex. IPFS nodes running on AWS/Digital Ocean) **with decentralized storage protocols (Filecoin & Arweave)**. 
+Some updates/features of the new platform that we’re excited about are 1) NFA’s (**a V1 will be part of the platform launch in August**) and 2) we’ve replaced our use of centralized storage providers for IPFS (ex. IPFS nodes running on AWS/Digital Ocean) **with decentralized storage protocols (Filecoin & Arweave)**.
 
 Not only does this align better with web3 and Fleek Network, it actually allows us to offer significantly lower storage costs to our users without sacrificing any performance or developer experience!
 
@@ -57,7 +57,7 @@ The cool part is Fleek users won’t even notice a difference. The performance a
 
 ### What’s the Latest on NFAs?
 
-NFAs are now going to debut as a part of the new platform launch in August. They will be woven into the existing hosting flow so you can 1-click turn your site into an NFA. 
+NFAs are now going to debut as a part of the new platform launch in August. They will be woven into the existing hosting flow so you can 1-click turn your site into an NFA.
 
 For the past few months, we've been tweaking how NFAs work to ensure it’s a seamless and value-add product/experience for both app developers and end users of web3 apps/dapps. Those tweaks include:
 
@@ -72,9 +72,9 @@ The plan is to gradually start surfacing certain Fleek Network-powered features 
 
 Things to expect this year would be:
 
-1) adding the Fleek Network CDN service as an option for existing hosting/storage products on the platform
+1. adding the Fleek Network CDN service as an option for existing hosting/storage products on the platform
 
-2) leverage some of the edge compute services being built on Fleek Network to power some of the new features on the roadmap (ex. cronjobs, serverless functions, SSR, etc.).
+2. leverage some of the edge compute services being built on Fleek Network to power some of the new features on the roadmap (ex. cronjobs, serverless functions, SSR, etc.).
 
 ---
 

@@ -1,10 +1,10 @@
 ---
-title: "Build3rs Stack: Pocket Network"
+title: 'Build3rs Stack: Pocket Network'
 date: 2023-02-09
 desc: "The builder's guide to getting started with Pocket: where it fits in the decentralized Web3 infra-stack, and what you can build with it."
-thumbnail: "./builders-2.png"
-image: "./builders-2.png"
-cannonical: "https://blog.fleek.xyz/post/builders-stack-pocket-network/"
+thumbnail: './builders-2.png'
+image: './builders-2.png'
+cannonical: 'https://blog.fleek.xyz/post/builders-stack-pocket-network/'
 ---
 
 Welcome to the Build3rs Stack! A new content series we’re starting at Fleek highlighting all Web3 infrastructure protocols from a developer and app-building perspective.
@@ -13,7 +13,7 @@ As an orchestrator of web3 infrastructure, we want to help answer **what** **you
 
 The first one we will cover today? [Pocket Network](http://pokt.network) (Pocket in short), a protocol that provides access to decentralized **RPC endpoints**, and can enable the **building of decentralized applications (DApps) on multiple blockchains**. Let’s dive in!
 
-***
+---
 
 ## TL;DR: What is Pocket and how does it work?
 
@@ -27,7 +27,7 @@ Independent “node runners” and providers run RPC nodes for the network, and 
 
 In other words, the network operates as a marketplace where DApps seeking web3 access to blockchain data (demand) are connected with infrastructure providers running full nodes (supply).
 
-***
+---
 
 ## Pocket in Features: RPC Blockchain Data & Interactions.
 
@@ -35,13 +35,13 @@ RPC (Remote Procedure Call) is a communication interface that enables applicatio
 
 Whether you need to show your users recent transaction data, or send and sign a new transaction to a network, RPC is one of the core foundations of building web3 experiences and services. Pocket allows you to use decentralized RPC endpoints to:
 
-* Do on-chain data queries (e.g. query a user’s token balance).
-* Do on-chain interactions (send and sign transactions)
-* [And do so on all supported chains.](https://docs.pokt.network/supported-blockchains/)
+- Do on-chain data queries (e.g. query a user’s token balance).
+- Do on-chain interactions (send and sign transactions)
+- [And do so on all supported chains.](https://docs.pokt.network/supported-blockchains/)
 
 Looking at [Ethereum’s JSON RPC](https://ethereum.org/en/developers/docs/apis/json-rpc/) documentation and its methods, you can have a wide example and understanding of what interactions RPC usually provides on-chain.
 
-***
+---
 
 ## When would I use it as a builder? Applied Use-cases
 
@@ -61,7 +61,7 @@ Given RPC calls can trigger transactions on-chain, it’s an easy way to have a 
 
 Pocket’s chain-agnostic factor is sometimes overlooked. Wonder how wallets like Metamask can support multiple chains at once, and make calls to them? Pocket can help achieve exactly that on a per-chain basis because of its ample folder of supported chains. The network acts as a one-stop shop for multi-chain RPC service, instead of having to piecemeal different RPC solutions for different chains that your DApp operates on.
 
-***
+---
 
 ## Get Building with Pocket
 
@@ -74,13 +74,13 @@ As a dev, you access Pocket via the [Pocket Portal](https://www.portal.pokt.netw
 
 Pocket has several SDKs and resources, depending on the environment you want to develop on or the service you might need.
 
-* [Pocket HTTP DB - Access the Portal DB via Restful API.](https://github.com/pokt-foundation/pocket-http-db)
-* [Portal API - single endpoint to all supported chains.](https://github.com/pokt-foundation/portal-api)
-* [Pocket-go GOlang library.](https://github.com/pokt-foundation/pocket-go)
-* [Pocket Tools - Examples, Tools, and Demo](https://github.com/pokt-foundation/pocket-tools)
-* [Example dApps built on Pocket](https://docs.pokt.network/use/dapps/)
+- [Pocket HTTP DB - Access the Portal DB via Restful API.](https://github.com/pokt-foundation/pocket-http-db)
+- [Portal API - single endpoint to all supported chains.](https://github.com/pokt-foundation/portal-api)
+- [Pocket-go GOlang library.](https://github.com/pokt-foundation/pocket-go)
+- [Pocket Tools - Examples, Tools, and Demo](https://github.com/pokt-foundation/pocket-tools)
+- [Example dApps built on Pocket](https://docs.pokt.network/use/dapps/)
 
-***
+---
 
 ## Wrapping it up.
 

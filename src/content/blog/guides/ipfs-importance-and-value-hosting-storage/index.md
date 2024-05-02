@@ -1,11 +1,11 @@
 ---
 title: "Discover IPFS: How it's Ushering in a New Approach to Decentralized Internet & Storage"
 date: 2023-05-24
-desc: "Explore the benefits and applications of InterPlanetary File System (IPFS) technology for decentralized content addressing, storage, and hosting, and learn how to get started with IPFS through Fleek!"
-thumbnail: "./exploring-ipfs.png"
-image: "./exploring-ipfs.png"
-cannonical: ""
-author: "Fleek"
+desc: 'Explore the benefits and applications of InterPlanetary File System (IPFS) technology for decentralized content addressing, storage, and hosting, and learn how to get started with IPFS through Fleek!'
+thumbnail: './exploring-ipfs.png'
+image: './exploring-ipfs.png'
+cannonical: ''
+author: 'Fleek'
 ---
 
 The Internet has evolved tremendously since its early days, and as we continue to adapt to emerging technologies, addressing the limitations of traditional web infrastructure has become crucial. Content addressing, a more efficient and secure way to access and store data, is now considered a natural evolution of the Internet.
@@ -43,10 +43,12 @@ When applies to hosting and static file storage, IPFS is particularly valuable d
 By distributing data across multiple nodes, IPFS lessens the dependence on centralized servers, cutting down on bandwidth costs and increasing content availability. Depending on their specific use case, some users may also find that IPFS provides faster processing and data retrieval compared to traditional methods, thanks to the location-agnostic way of referencing and retrieving files. It also enables efficient and secure distribution of large files, allowing users to download content from multiple sources at once.
 
 ### Decentralized Storage and Access to Data
- IPFS empowers users to store and access data in a decentralized manner, removing the need for a single point of failure and enhancing the overall resilience of the system. IPFS serves as a viable alternative to traditional storage solutions like Amazon S3, offering a more decentralized and secure option for those who value these qualities. Through its peer-to-peer architecture, IPFS presents a fresh way of thinking about storage and data retrieval, offering a more efficient and distributed approach.
+
+IPFS empowers users to store and access data in a decentralized manner, removing the need for a single point of failure and enhancing the overall resilience of the system. IPFS serves as a viable alternative to traditional storage solutions like Amazon S3, offering a more decentralized and secure option for those who value these qualities. Through its peer-to-peer architecture, IPFS presents a fresh way of thinking about storage and data retrieval, offering a more efficient and distributed approach.
 
 ### Data Integrity and Redundancy
- The content-addressed system of IPFS ensures that data is retrieved in its original form, providing a secure environment for sharing and accessing information. The peer-to-peer nature of IPFS opens the door to more efficient and distributed storage setups, reducing data redundancy and enhancing overall system reliability
+
+The content-addressed system of IPFS ensures that data is retrieved in its original form, providing a secure environment for sharing and accessing information. The peer-to-peer nature of IPFS opens the door to more efficient and distributed storage setups, reducing data redundancy and enhancing overall system reliability
 
 ---
 
@@ -60,7 +62,7 @@ For more resources on getting started with IPFS, check out our [Best Practices f
 
 ## Getting Started with IPFS through Fleek
 
-As a service built on top of IPFS, as well as other decentralized storage solutions, Fleek is a firm believer in the paradigm shift we’ve detailed above. 
+As a service built on top of IPFS, as well as other decentralized storage solutions, Fleek is a firm believer in the paradigm shift we’ve detailed above.
 
 If you want to get started with IPFS for the first time, you can with ease through the Fleek beta! Access IPFS storage and hosting through our [CLI](https://docs.fleek.xyz/docs/CLI/) or [Node.js SDK](https://docs.fleek.xyz/docs/SDK/), with a UI soon to come.
 

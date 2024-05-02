@@ -1,17 +1,17 @@
 ---
-title: "Build3rs Stack: Arweave"
+title: 'Build3rs Stack: Arweave'
 date: 2023-02-16
 desc: "The builder's guide to Arweave: where it fits in your project's Web3 infra-stack, and what you can achieve with it."
-thumbnail: "./arweave-builderstack-2.png"
-image: "./arweave-builderstack-2.png"
-cannonical: "https://blog.fleek.xyz/post/builders-stack-arweave/"
+thumbnail: './arweave-builderstack-2.png'
+image: './arweave-builderstack-2.png'
+cannonical: 'https://blog.fleek.xyz/post/builders-stack-arweave/'
 ---
 
 **Welcome to the Build3rs Stack**! In this content series we cover the most important parts of the web3 infrastructure stack for builders, and go over their applied use-cases.
 
 **Today we will cover:** [**Arweave**](https://www.arweave.org/): a permanent and decentralized web platform built on an open ledger. The main service it provides? A permanent storage protocol with a particular mechanism: you only pay for storage once, and store data permanently on its decentralized network.
 
-***
+---
 
 ## TL;DR: What is Arweave?
 
@@ -27,7 +27,7 @@ For users, unlike traditional centralized systems, Arweave's blockweave only req
 
 **All of these features together form the Permaweb**: a permanent and decentralized web built on top of Arweave; a set of modular and interchangeable protocols (storage, databases, contracts) allowing developers and users to build decentralized projects, end-to-end, on a resilient knowledge base that is replicated across the world.
 
-***
+---
 
 ## Arweave in Features: Permanent Storage & Contracts
 
@@ -35,16 +35,16 @@ As a permanent data storage network, Arweave can be the home to several componen
 
 In short, the main features Arweave can provide to you as a builder are:
 
-* Permanent file storage.
-* Permanent frontend/site hosting.
-* Queryable databases on the Permaweb.
-* Smart contracts
+- Permanent file storage.
+- Permanent frontend/site hosting.
+- Queryable databases on the Permaweb.
+- Smart contracts
 
 Smart contracts in particular are powered by [SmartWeave](https://arwiki.wiki/#/en/smartweave). SmartWeave is a smart contracting system built on top of Arweave that allows users to build and run the logic of their programs through this network.
 
 One particular perk of using Arweave for contracts is that **contract state is computed on the user’s machine**, not the network, removing that burden from the network itself. This allows contracts to have more complex operations without causing added network compute fees, and to be built in multiple friendlier languages (e.g. JS).
 
-***
+---
 
 ## When would I use it as a builder? Applied Use-cases
 
@@ -62,7 +62,7 @@ Arweave's unique contract execution capabilities and environment open up the doo
 
 By leveraging Arweave, Mirror can create a platform that ensures posts made on the platform are preserved indefinitely. Because Arweave's decentralized storage is designed to be resistant to censorship, posts stored on Arweave are guaranteed to be accessible and unchanged for as long as the network continues to operate. Providers like [**Bundlr Network**](https://bundlr.network/) are an easy way to **start doing uploads on Arweave** in an abstracted and simple way.
 
-***
+---
 
 ## Getting Started with Arweave
 
@@ -72,17 +72,17 @@ Arweave has a suite of tools available for all the uses we mentioned above (dece
 
 Here are some of other useful resources and platform you can use to get started:
 
-* [ArDrive](https://ardrive.io/) - GUI for uploading data to Arweave
-* [PermaPages](https://permapages.arweave.dev) - Permanent web3 profiles and permaweb pages
-* [WeaveDB](https://weavedb.dev) - NoSQL database as a smart contract on Arweave. Similar to Firestore
-* [Bundlr Network](https://bundlr.network/) - Main tool and provider for storing data on Arweave.
-* [ArweaveJS](https://github.com/ArweaveTeam/arweave-js) - Arweave JavaScript SDK for interacting with the network
-* [ArConnect](https://arconnect.io) - Arweave web wallet
-* [Permaweb Cookbook](https://cookbook.arweave.dev) - 0 to 1 guides and concepts for building on the permaweb
-* [Warp Contracts](https://warp.cc/) - Secure and scalable smart contracts for Arweave
-* [Dapps built on Arweave](https://list.weavescan.com/) - All the ecosystem projects built on Arweave.
+- [ArDrive](https://ardrive.io/) - GUI for uploading data to Arweave
+- [PermaPages](https://permapages.arweave.dev) - Permanent web3 profiles and permaweb pages
+- [WeaveDB](https://weavedb.dev) - NoSQL database as a smart contract on Arweave. Similar to Firestore
+- [Bundlr Network](https://bundlr.network/) - Main tool and provider for storing data on Arweave.
+- [ArweaveJS](https://github.com/ArweaveTeam/arweave-js) - Arweave JavaScript SDK for interacting with the network
+- [ArConnect](https://arconnect.io) - Arweave web wallet
+- [Permaweb Cookbook](https://cookbook.arweave.dev) - 0 to 1 guides and concepts for building on the permaweb
+- [Warp Contracts](https://warp.cc/) - Secure and scalable smart contracts for Arweave
+- [Dapps built on Arweave](https://list.weavescan.com/) - All the ecosystem projects built on Arweave.
 
-***
+---
 
 ## Wrapping it up.
 

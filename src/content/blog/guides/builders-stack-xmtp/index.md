@@ -1,12 +1,12 @@
 ---
-title: "Build3rs Stack: XMTP"
+title: 'Build3rs Stack: XMTP'
 date: 2023-08-16
 desc: "The builder's guide to XMTP- the decentralized protocol providing encrypted, interoperable messaging capabilities to users, wallets, and apps"
-thumbnail: "./xmtp_thumbnail.jpg"
-image: "./xmtp_thumbnail.jpg"
-cannonical: ""
-author: 
-  - "Fleek"
+thumbnail: './xmtp_thumbnail.jpg'
+image: './xmtp_thumbnail.jpg'
+cannonical: ''
+author:
+  - 'Fleek'
 ---
 
 Welcome back to Build3rs Stack, our web3 infrastructure overview series! This week we’ll explore [XMTP](https://xmtp.org/) (Extensible Message Transport Protocol), an open network, protocol and standard for secure messaging between blockchain accounts.

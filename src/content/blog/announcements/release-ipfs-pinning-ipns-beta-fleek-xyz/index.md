@@ -1,10 +1,10 @@
 ---
-title: "The CLI Beta is Live, with IPFS Pinning & IPNS."
+title: 'The CLI Beta is Live, with IPFS Pinning & IPNS.'
 date: 2023-01-17
-desc: "Fleek.xyz’s first beta release is live with the new CLI, including the IPFS Pinning and IPNS Mapping services."
-thumbnail: "./fleek-wide.png"
-image: "./fleek-wide.png"
-cannonical: "https://blog.fleek.xyz/post/release-ipfs-pinning-ipns-beta-fleek-xyz/"
+desc: 'Fleek.xyz’s first beta release is live with the new CLI, including the IPFS Pinning and IPNS Mapping services.'
+thumbnail: './fleek-wide.png'
+image: './fleek-wide.png'
+cannonical: 'https://blog.fleek.xyz/post/release-ipfs-pinning-ipns-beta-fleek-xyz/'
 ---
 
 This is not a drill, it’s Fleek.xyz first beta release. We are stoked to start the first chapter of Fleek’s new platform with the **test-phase of our new CLI and its two services: IPFS pinning and IPNS mapping.** Both services are live and ready to be battle-tested.
@@ -15,7 +15,7 @@ We’re kicking off with Pinning and IPNS, and expect us to follow up on our nex
 
 Join us as we go over what’s included in this first release. ⚡️
 
-***
+---
 
 ## **Fleek’s Command-line Interface**
 
@@ -25,7 +25,7 @@ Today we present the first of Fleek’s building blocks and interface: the Fleek
 
     npm install -g @fleekxyz/cli
     $ fleek login
-    🔗 Opening browser on https://app.fleek.xyz/login.html?verificationSession=... 
+    🔗 Opening browser on https://app.fleek.xyz/login.html?verificationSession=...
     🧑‍💻 Please login to continue
     ✅ Successfully logged in.
 
@@ -33,7 +33,7 @@ The command line interface provides direct access to Fleek’s services suite, s
 
 The CLI will grow as more services are added to the platform (Sites Deployments coming next). You can find the CLI’s NPM here, and we welcome everybody to share [any thoughts and feedback here!](https://github.com/fleekxyz/fleekxyz-support)
 
-***
+---
 
 ## **IPFS Pinning on Fleek**
 
@@ -48,7 +48,7 @@ All it takes to pin a file with the CLI is a three-word command, and a file. Fle
 
 You can see [the file in any public IPFS gateway](https://ipfs.io/ipfs/QmPMoPDeKLK56v4w1fVQGUHpobX6KERvgV9KKKjuwRipzg), or browser that resolves IPFS hashes, and soon we will add a user’s usage stats and the ability to fetch all pinned files. In the near future, Fleek will add custom domain gateway options for users who want custom gateway endpoints - as well as a default option.
 
-***
+---
 
 ## **IPNS Record Management**
 
@@ -64,7 +64,7 @@ IPNS records allow developers to create a static hash that maps to a dynamic rec
 
 How do you do it in the CLI? With the command above. In this beta, you can create and manage new IPNS records, publish auto generated IPNS names for any hash, list all your records, and set IPNS names to resolve to any hash. [More in the documentation](https://docs.fleek.xyz/).
 
-***
+---
 
 Now that the CLI is out on beta, expect updates to its features and services on a regular basis. The team’s working in parallel in more services and in fact, as you read this, we are cooking up Sites Deployments and Custom Domains 😉.
 

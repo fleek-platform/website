@@ -1,11 +1,11 @@
 ---
-title: "Astro + Fleek Starter Kit: Getting Started Guide"
+title: 'Astro + Fleek Starter Kit: Getting Started Guide'
 date: 2023-04-27
-desc: "Quickly and easily spin up a static site & deploy it to IPFS with our new Astro template!"
-thumbnail: "./astro.png"
-image: "./astro.png"
-cannonical: ""
-author: "Juan Angarita"
+desc: 'Quickly and easily spin up a static site & deploy it to IPFS with our new Astro template!'
+thumbnail: './astro.png'
+image: './astro.png'
+cannonical: ''
+author: 'Juan Angarita'
 ---
 
 Hey everyone, Juan from the Fleek Devrel team here! We're thrilled to announce our new [Astro + Fleek starter kit template](https://github.com/fleekxyz/astro-template).
@@ -45,12 +45,12 @@ Check more information about CI deployments [here](https://docs.fleek.xyz/docs/S
 To set up the CI you can run:
 
 ```jsx
-fleek sites ci 
+fleek sites ci
 ```
 
 You can also check our documentation for setting up custom domains [here](https://docs.fleek.xyz/docs/Domains).
 
-----
+---
 
 ## Use Cases for the Astro + Fleek Starter Kit
 
@@ -60,8 +60,8 @@ This starter kit is ideal for:
 - Documentation
 - Landing pages and marketing sites
 
-
 ---
+
 That’s all for today! with this starting kit, you can develop a super fast & performant static site. Feel free to hop into our [Discord](https://discord.gg/fleek) for requests or open an issue/PR on the repo itself! We’re excited to see what you build using this template!
 
 For more resources visit [our LinkTree](https://linktr.ee/fleek).

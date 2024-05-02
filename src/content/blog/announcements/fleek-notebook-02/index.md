@@ -1,17 +1,17 @@
 ---
-title: "Fleek Release Notes 02: UI Fixes & Improvements, Dark Mode as Default"
+title: 'Fleek Release Notes 02: UI Fixes & Improvements, Dark Mode as Default'
 date: 2023-09-22
-desc: "Explore the range of fixes and improvements made to the Fleek.xyz alpha this week in the latest Fleek Release Notes."
-thumbnail: "./fleekreleasenotes02.png"
-image: "./fleekreleasenotes02.png"
-cannonical: ""
-author: 
-  - "Fleek"
+desc: 'Explore the range of fixes and improvements made to the Fleek.xyz alpha this week in the latest Fleek Release Notes.'
+thumbnail: './fleekreleasenotes02.png'
+image: './fleekreleasenotes02.png'
+cannonical: ''
+author:
+  - 'Fleek'
 ---
 
 What’s up Fleek Freaks? We’re back with another Fleek Release Notes, giving y’all a look into the improvements and bug fixes we’ve implemented into the Fleek.xyz alpha over the last week. If you missed the previous Fleek Release Notes, get caught up [here](https://blog.fleek.xyz/post/fleek-notebook-01/)!
 
-This week, the focus was mainly on some bug fixes, visual improvements, and foundational work for upcoming features like site deletion/template submission. *Don’t forget*: if you want to take part in the Fleek.xyz alpha, join our discord server and fill out [the application](https://fleekxyz.typeform.com/alpha-access) so you can join in the testing ⚡
+This week, the focus was mainly on some bug fixes, visual improvements, and foundational work for upcoming features like site deletion/template submission. _Don’t forget_: if you want to take part in the Fleek.xyz alpha, join our discord server and fill out [the application](https://fleekxyz.typeform.com/alpha-access) so you can join in the testing ⚡
 
 Let’s dive into the updates, shall we?
 
@@ -23,11 +23,11 @@ Let’s dive into the updates, shall we?
 
 We heard your feedback and have spent the week making dark mode the default, with some other improvements sprinkled in:
 
-1) Dark Mode is now set as the Default UI Theme:
+1. Dark Mode is now set as the Default UI Theme:
 
 ![](./dark-mode-alpha.png)
 
-2) Template pages now render the repository’s Readmes as the description
+2. Template pages now render the repository’s Readmes as the description
 
 ![](./tempreadme.gif)
 

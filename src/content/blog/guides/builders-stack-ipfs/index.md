@@ -1,10 +1,10 @@
 ---
-title: "Build3rs Stack: IPFS"
+title: 'Build3rs Stack: IPFS'
 date: 2023-03-04
 desc: "The builder's guide to IPFS: how to use it in your project's Web3 infra-stack, and what you can achieve with it."
-thumbnail: "./ipfs-net.png"
-image: "./ipfs-net.png"
-cannonical: ""
+thumbnail: './ipfs-net.png'
+image: './ipfs-net.png'
+cannonical: ''
 ---
 
 Welcome to the Build3rs Stack, our web3 infrastructure overview series! **This week we will cover [IPFS](https://ipfs.io/)**, the **I**nter**p**lanetary **F**ile **S**ystem Protocol! We’ll talk about how you can use this storage/content-addressing protocol to build on web3, and the features and options it can enable for you as a developer.
@@ -13,11 +13,11 @@ In brief, IPFS is a decentralized peer-to-peer protocol and network designed to 
 
 There’s a lot to cover, and we surely will only scratch the surface, but let’s dive in!
 
-***
+---
 
-## TL;DR: What is IPFS and How Does it Work? 
+## TL;DR: What is IPFS and How Does it Work?
 
-To understand the vision and main purpose of IPFS we need to first know the **difference between centralized & decentralized services**. Typically, centralized services store data on a single server that is managed and controlled by a single entity or organization. 
+To understand the vision and main purpose of IPFS we need to first know the **difference between centralized & decentralized services**. Typically, centralized services store data on a single server that is managed and controlled by a single entity or organization.
 
 Users access this server to access their data, but this approach can create a bottleneck when a large number of users try to access the data at the same time. On the other hand, IPFS uses a decentralized model to eliminate centralized points of risk, **distributing and serving the data across a network of p2p nodes.**
 
@@ -27,27 +27,27 @@ Files are “pinned” on a node. Meaning, **knowing the hash of a file’s cont
 
 This method aims to **reduce delays, lower bandwidth usage, and prevent traffic jams that can happen when relying on a single, central server**. This system makes it easy to share files, and verify they haven't been changed. It also lets people keep track of different versions of a file, which is great for project versioning, or keeping records over time.
 
-***
+---
 
 ## IPFS in Features: File Storage & Decentralized Data Sharing
 
-IPFS offers a powerful set of features for storing and accessing files in a decentralized, secure, and efficient way. As more people adopt IPFS, it has the potential to fundamentally transform the way we store and access data on the web. 
+IPFS offers a powerful set of features for storing and accessing files in a decentralized, secure, and efficient way. As more people adopt IPFS, it has the potential to fundamentally transform the way we store and access data on the web.
 
-* File storage
-* Decentralized data sharing (gossiping)
-* Trustless file retrieval
+- File storage
+- Decentralized data sharing (gossiping)
+- Trustless file retrieval
 
 **File Storage:** IPFS is designed to store files or data in a distributed way, where the file is broken into smaller chunks, hashed, and stored across multiple nodes on the network. This allows for efficient and scalable storage of large files, as well as fast and reliable retrieval of files since the data is not bottlenecked by a single source.
 
 **Decentralized Data Sharing (Gossiping):** Since IPFS is an open network where nodes are encouraged to seed files (download & host them), the network needs to have a robust way of content discovery. This is where gossiping comes in – in a nutshell, when searching for a new file, a node will chat with its peers, who chat with their peers, and so on, until the content (identified by CID) is found and returned to the original peer.
 
-**Trustless File Retrieval:** Files on IPFS are broken into smaller chunks, each with their own unique CIDs as well. In order to facilitate trustless retrievals, [Merkle Trees](https://en.wikipedia.org/wiki/Merkle_tree) can be constructed using the hashes of each chunk to trustlessly the exact same content requested is the content that was delivered. In a network full of anonymous nodes, this eliminates the need to rely on trust in a counterparty. 
+**Trustless File Retrieval:** Files on IPFS are broken into smaller chunks, each with their own unique CIDs as well. In order to facilitate trustless retrievals, [Merkle Trees](https://en.wikipedia.org/wiki/Merkle_tree) can be constructed using the hashes of each chunk to trustlessly the exact same content requested is the content that was delivered. In a network full of anonymous nodes, this eliminates the need to rely on trust in a counterparty.
 
 Route data in IPFS refers to the process by which files are located and retrieved from the network - each file is assigned a unique content-addressed hash, which serves as a unique identifier for the file. When a user wants to retrieve a file, they send a request to the network, which uses a distributed routing algorithm to locate the node or nodes that have a copy of the file. The file is then retrieved from the nearest node, reducing latency and improving performance.
 
-***
+---
 
-## How can you use it as a Builder? Applied Use-cases. 
+## How can you use it as a Builder? Applied Use-cases.
 
 Let’s check out in depth the real use-cases to understand the value of IPFS with some examples and when you can use it.
 
@@ -67,7 +67,7 @@ IPFS is a great resource for hosting static website files. Users can download si
 
 Going one step further, services such as Fleek & Spheron have sprouted to enable managed experiences for hosting IPFS websites accessible through traditional domains. [Check our documentation to try it out!](https://docs.fleek.xyz/)
 
-***
+---
 
 ## Getting Started with IPFS
 
@@ -75,7 +75,7 @@ There are some ways to get started with IPFS, but this protocol is huge - **so h
 
 **Step 1: Install IPFS**
 
-The first step is to download and install IPFS on your device. IPFS is available for all major operating systems, including Windows, macOS, and Linux. 
+The first step is to download and install IPFS on your device. IPFS is available for all major operating systems, including Windows, macOS, and Linux.
 
 After that, run the following command to install IPFS:
 
@@ -87,10 +87,10 @@ Wait for the installation to complete. Once it's done, you can proceed to the ne
 
 Now that you have installed IPFS, you need to initialize your node. This will create a new IPFS repository on your computer and generate a unique identity for your node. Here's how to do it:
 
-* Open a command prompt or terminal window and navigate to the IPFS folder.
+- Open a command prompt or terminal window and navigate to the IPFS folder.
 
-* Run the following command to initialize your node:
- 
+- Run the following command to initialize your node:
+
       ipfs init
 
 Wait for the initialization process to complete. Once it's done, you can proceed to the next step.
@@ -99,8 +99,8 @@ Wait for the initialization process to complete. Once it's done, you can proceed
 
 Now that you have initialized your IPFS node, you can start it and connect to the IPFS network. Here's how to do it:
 
-* Open a command prompt or terminal window and navigate to the IPFS folder.
-* Run the following command to start your node:
+- Open a command prompt or terminal window and navigate to the IPFS folder.
+- Run the following command to start your node:
 
       ipfs daemon
 
@@ -117,22 +117,22 @@ And that’s it! Your IPFS node is now running and connected to the IPFS network
 
 Here we’ll give you a list of the most helpful resources to get started with IPFS - starting with the official documentation.
 
-* [Read the official docs](https://docs.ipfs.tech/) - first of all you can read the developer documentation where you can find many resources and tools.
-* [Install as a CLI](https://github.com/ipfs/js-ipfs#install-as-a-cli-user) - install IPFS globally with the CLI. 
-* [Browser IPFS extension](https://github.com/ipfs/ipfs-companion) - this simplifies your IPFS access by giving your browser support for resolving IPFS hashes. 
-* [IPFS Desktop Tutorial](https://docs.ipfs.tech/how-to/desktop-app/#install-ipfs-desktop) - with this guide you can learn the basics of adding files to IPFS. 
-* [Javascript SDK](https://github.com/ipfs/js-ipfs) - SDK to implement IPFS with Javascript. 
-* [Awesome IPFS](https://github.com/ipfs/awesome-ipfs) - full list of helpful resources on IPFS. 
-* [Fleek Documentation](https://docs.fleek.xyz/) - Visit our docs to learn more about our CLI,  its IPFS features, and more!
+- [Read the official docs](https://docs.ipfs.tech/) - first of all you can read the developer documentation where you can find many resources and tools.
+- [Install as a CLI](https://github.com/ipfs/js-ipfs#install-as-a-cli-user) - install IPFS globally with the CLI.
+- [Browser IPFS extension](https://github.com/ipfs/ipfs-companion) - this simplifies your IPFS access by giving your browser support for resolving IPFS hashes.
+- [IPFS Desktop Tutorial](https://docs.ipfs.tech/how-to/desktop-app/#install-ipfs-desktop) - with this guide you can learn the basics of adding files to IPFS.
+- [Javascript SDK](https://github.com/ipfs/js-ipfs) - SDK to implement IPFS with Javascript.
+- [Awesome IPFS](https://github.com/ipfs/awesome-ipfs) - full list of helpful resources on IPFS.
+- [Fleek Documentation](https://docs.fleek.xyz/) - Visit our docs to learn more about our CLI, its IPFS features, and more!
 
 It’s important to note that given the lack of incentive at the IPFS protocol level, most people rely on pinning providers like Fleek to ensure files are stored multiple times on multiple nodes on the network. [Fleek Network](https://fleek.network/) will help address this by decentralizing IPFS and making it storage-layer agnostic. Learn more in [this article.](https://blog.fleek.network/post/how-fleek-network-helps-decentralize-ipfs/)
 
-***
+---
 
-## Wrapping it up 
+## Wrapping it up
 
 We hope this guide offers you the necessary tools to get started with IPFS and understand more about this protocol and how you can use it. Follow [IPFS](https://twitter.com/IPFS) and [Protocol Labs](https://twitter.com/protocollabs) for more info and updates.
 
-Don’t forget to take a look into our past Build3rs Stack series and the coming ones to stay up-to-date with web3 infra. Also join our discord to get in touch with us! 
+Don’t forget to take a look into our past Build3rs Stack series and the coming ones to stay up-to-date with web3 infra. Also join our discord to get in touch with us!
 
 For more resources visit [our LinkTree](https://linktr.ee/fleek).

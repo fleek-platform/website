@@ -1,12 +1,11 @@
 ---
-title: "A Guide to ENS Domains + IPFS (Ethereum Name Service)"
+title: 'A Guide to ENS Domains + IPFS (Ethereum Name Service)'
 date: 2020-04-27
-desc: "Learn how to register your first ENS domain and use it to host a decentralized IPFS website in Fleek!"
-thumbnail: "./ens1.jpg"
-image: "./ens1.jpg"
-cannonical: ""
+desc: 'Learn how to register your first ENS domain and use it to host a decentralized IPFS website in Fleek!'
+thumbnail: './ens1.jpg'
+image: './ens1.jpg'
+cannonical: ''
 ---
-
 
 ENS ([Ethereum Name Service](https://ens.domains/)) domains, much like the name entails, are the decentralized Ethereum-based naming system alternative to DNS (Domain Name System).
 
@@ -155,7 +154,7 @@ First, **specify the ENS domain** you want to use as your IPFS sites’ addres
 
 Then, you will need to **set Fleek as the controller** of that ENS domain through our platform, which will allow Fleek to point your IPFS site to the domain, and automatically update the content hash in the future whenever a new deployment is detected on your Github, quickly reflecting any changes.
 
-*This doesn’t give Fleek ownership of the domain (you retain the role of the registrant).*
+_This doesn’t give Fleek ownership of the domain (you retain the role of the registrant)._
 
 Finally, you will need to **verify your ownership** via MetaMask/Torus/Authereum and pay for the transaction’s ETH gas fee (the transaction that modifies your ENS controller setting).
 
@@ -167,7 +166,7 @@ And that’s it! Once the transaction is verified, you can…
 
 If you’re using an ENS-compatible browser, or if you have the **MetaMask extension** **installed** like in the GIF above, you can just type your address in the search bar “address.eth/” (don’t forget the “/”) and it should be automatically resolved: [fleekhq.eth/](http://fleekhq.eth/)
 
-Or, if you have none of those, you can always append the “.link” suffix after your domain to visit your IPFS+ENS website on any browser, thanks to a service made available by ENS that makes all the .eth domains accessible via traditional DNS addresses. 
+Or, if you have none of those, you can always append the “.link” suffix after your domain to visit your IPFS+ENS website on any browser, thanks to a service made available by ENS that makes all the .eth domains accessible via traditional DNS addresses.
 
 ## **Explore More on ENS and Stay Tuned!**
 

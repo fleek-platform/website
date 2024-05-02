@@ -4,8 +4,7 @@ import Text from '@components/Text';
 import Marquee from 'react-fast-marquee';
 import settings from '@base/settings.json';
 
-const announcement =
-  `⚡ ${settings.site.annoucement.message} ⚡`;
+const announcement = `⚡ ${settings.site.annoucement.message} ⚡`;
 
 const Announcement: React.FC = () => {
   const [mount, setMount] = useState(false);
@@ -19,7 +18,7 @@ const Announcement: React.FC = () => {
     <a
       href={settings.site.annoucement.url}
       rel="noopener noreferrer"
-      className="mb-16 transition opacity-100 hover:opacity-80"
+      className="mb-16 opacity-100 transition hover:opacity-80"
     >
       <Container>
         <div className="my-8 overflow-hidden rounded-16 bg-ui-fleek-black px-16 py-8">

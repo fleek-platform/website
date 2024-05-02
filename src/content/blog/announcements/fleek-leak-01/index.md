@@ -1,10 +1,10 @@
 ---
-title: "Fleek Leak 01"
+title: 'Fleek Leak 01'
 date: 2023-01-12
-desc: "Progress update incoming ⚡️ Over the last few weeks we’ve been jamming on our CLI beta (Jan 18th), adding compute to Fleek, and an NFAs MVP. Let’s dive into why & what you can expect!"
-thumbnail: "./fleek-leak-01.png"
-image: "./fleek-leak-01.png"
-cannonical: "https://blog.fleek.xyz/post/fleek-leak-01/"
+desc: 'Progress update incoming ⚡️ Over the last few weeks we’ve been jamming on our CLI beta (Jan 18th), adding compute to Fleek, and an NFAs MVP. Let’s dive into why & what you can expect!'
+thumbnail: './fleek-leak-01.png'
+image: './fleek-leak-01.png'
+cannonical: 'https://blog.fleek.xyz/post/fleek-leak-01/'
 ---
 
 Welcome to a new year, Fleek fam! ⚡️ To kickoff 2023 we’re introducing **the Fleek Leak**, a new bi-weekly update segment for us to uncover the veil on all of the awesome things we’re cooking up. The goal is simple: involve everyone in the community more in the development process rather than just the finished product of all things Fleek.xyz.
@@ -13,7 +13,7 @@ Welcome to a new year, Fleek fam! ⚡️ To kickoff 2023 we’re introducing **t
 
 We left off last year taking the first steps towards sunsetting Fleek.co by [deprecating some of our old domains](https://blog.fleek.co/posts/fleek-co-gateway-storage-url-deprecation) & [turning on custom storage domains](https://blog.fleek.co/posts/fleek-co-how-to-add-custom-storage-domains). If you’re an legacy Fleek user take both of those as mandatory reading before proceeding to the good stuff.
 
-But that’s not really why you’re here, you’re here for the juice, the alpha, on what we’ve been up to behind closed doors. Let’s go 🔥 
+But that’s not really why you’re here, you’re here for the juice, the alpha, on what we’ve been up to behind closed doors. Let’s go 🔥
 
 ## So, What’ve We Been Building? ⚡️
 
@@ -30,19 +30,20 @@ Let’s agree to skip all of the fluff and get straight to the point, alright? B
 
 ![Fleek.xyz Platform types and services](https://storageapi.fleek.co/fleek-team-bucket/Blogs/xyz-arch-services.png)
 
-Fleek.xyz is built with a modular, independent service structure in mind (as mentioned [here](https://blog.fleek.co/posts/fleek-xyz-architecture-overview)) to unlock maximum composability, freedom, and extensibility for web3 developers. Internally, this means the ability to work on multiple services in parallel! 
+Fleek.xyz is built with a modular, independent service structure in mind (as mentioned [here](https://blog.fleek.co/posts/fleek-xyz-architecture-overview)) to unlock maximum composability, freedom, and extensibility for web3 developers. Internally, this means the ability to work on multiple services in parallel!
 
 We are currently focused on four main services:
+
 - IPFS Pinning
-- IPNS Management 
-- Sites Deployment 
-- Custom Domains 
+- IPNS Management
+- Sites Deployment
+- Custom Domains
 
 The cool thing about the new Fleek.xyz architecture is that **you’ll be able to use any of these services independent of each other or pick and choose the ones you want**. This will enable developers to create their own stack, with brand new interactions between different web3 protocols that haven’t been seen or thought of before.
 
 The latter is sort of what we’re doing for our custodied services in our UI - We’re simply telling the story that we want to tell, in order to make use-case driven flows. For example, deploying a site to an ENS name, and automatically back up all of your asset files to the storage provider of your choice. We’ll be creating all of this by **consuming the exact same Fleek SDK that you’ll have access to**.
 
-In addition to these four services, **we’re working on two cross-service services** (say that five times fast): Authentication & Event Passing. 
+In addition to these four services, **we’re working on two cross-service services** (say that five times fast): Authentication & Event Passing.
 
 Why should you care? Both are keystone services for those who want to build their own Fleek integrations in the future. Auth for connecting new services to Fleek’s user base, already in testing, and Event Passing so that services can talk with one-another and respond to each other’s actions.
 
@@ -54,12 +55,11 @@ On **January 18th** (mark your calendars, it's coming up soon 🗓) we’ll be d
 
 <!-- gif of pinning beta -->
 
-The **first service we’re debuting is our IPFS pinning beta**. Most of you probably already know the drill - upload any file to IPFS and we’ll ensure it stays pinned through our global network of nodes for everyone to retrieve. 
+The **first service we’re debuting is our IPFS pinning beta**. Most of you probably already know the drill - upload any file to IPFS and we’ll ensure it stays pinned through our global network of nodes for everyone to retrieve.
 
 <!-- gif of ipns beta -->
 
 Here’s one you haven’t seen before 👀 **Manage an IPNS** tied to your Fleek account and map any IPFS hash to it. Previously this was offered as part of the ENS flow, now access it independently and soon build with it through our SDK.
-
 
 ---
 
@@ -67,9 +67,9 @@ Here’s one you haven’t seen before 👀 **Manage an IPNS** tied to your Flee
 
 <!-- gif -->
 
-The title says it all 😎 we’re in the process of **adding compute options to Fleek**! 
+The title says it all 😎 we’re in the process of **adding compute options to Fleek**!
 
-Static sites can take you a long way, but these days more and more of the web is relying on servers to power web apps. But we don’t need to tell you guys this, **you’ve asked for this feature a lot**. The only thing holding us back was making sure that (1) the compute protocols that we integrate were hardened and reliable (2) that we could provide a solid value add versus other alternatives. We finally feel like we’re there. 
+Static sites can take you a long way, but these days more and more of the web is relying on servers to power web apps. But we don’t need to tell you guys this, **you’ve asked for this feature a lot**. The only thing holding us back was making sure that (1) the compute protocols that we integrate were hardened and reliable (2) that we could provide a solid value add versus other alternatives. We finally feel like we’re there.
 
 <!-- akash preview -->
 
@@ -78,7 +78,6 @@ Static sites can take you a long way, but these days more and more of the web is
 Fleek will bring significant value to new and existing Akash users by focusing on improving the developer experience & lowering the technical barriers to entry to make Akash a viable option to use in production use cases. More details & Akash compute beta coming soon.
 
 **p.s. yes, this confirms SSR coming to Fleek.**
-
 
 ---
 

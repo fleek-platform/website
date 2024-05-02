@@ -1,30 +1,31 @@
 ---
-title: "Build3rs Stack: Subsquid"
+title: 'Build3rs Stack: Subsquid'
 date: 2023-05-12
 desc: "The builder's guide to Subsquid, which removes the need for RPC access while extracting, filtering, and decoding large amounts of on-chain data"
-thumbnail: "./subsquidthumbnail.png"
-image: "./subsquidthumbnail.png"
-cannonical: ""
-author: 
-  - "Fleek"
+thumbnail: './subsquidthumbnail.png'
+image: './subsquidthumbnail.png'
+cannonical: ''
+author:
+  - 'Fleek'
 ---
 
-Welcome to the Build3rs Stack, Fleek’s **web3 infrastructure overview series**. This week we'll take a look at Subsquid—  enabling easy access to large volumes of on-chain data, allowing developers to extract, filter, and decode millions of events, transactions, traces, and more **without having to pay for expensive RPC access**.
+Welcome to the Build3rs Stack, Fleek’s **web3 infrastructure overview series**. This week we'll take a look at Subsquid— enabling easy access to large volumes of on-chain data, allowing developers to extract, filter, and decode millions of events, transactions, traces, and more **without having to pay for expensive RPC access**.
 
 With Subsquid, developers can build and deploy custom GraphQL APIs and ETLs for a variety of blockchain use cases. Let’s explore some of these use cases and the architecture that makes them possible!
 
 ---
 
 ## TL;DR: What is Subsquid?
+
 ![](./subsquid.jpg)
 
 Subsquid is a versatile service that allows developers to **extract, filter, and decode on-chain data without the need for RPC access**. It can be used for both real-time and analytic use cases, including as a flexible backend for decentralized applications, a data pipeline for preparing and loading on-chain data for analysis, and a customizable data source for dashboards and monitoring.
 
 Subsquid is designed around batch processing, which is different from other block-based and event-based indexers. This allows Subsquid to replace client RPC read requests with a tailored GraphQL API, reducing infrastructure costs and shortening frontend development cycles. The Squid SDK can **boost indexing performance to over 50k blocks per second!**
 
-When comparing Subsquid to other blockchain indexing services it's important to note that Subsquid aims for an **open and modular architecture**. Subsquid employs separated data extraction and filtering (Archives) and data transformation and presentation (Squid SDK), which means that developers can use pluggable data targets for both online and offline use cases. 
+When comparing Subsquid to other blockchain indexing services it's important to note that Subsquid aims for an **open and modular architecture**. Subsquid employs separated data extraction and filtering (Archives) and data transformation and presentation (Squid SDK), which means that developers can use pluggable data targets for both online and offline use cases.
 
-Subsquid is comprised of Data Lakes, the Squid SDK, and Aquarium-hosted services, all of which play a key role in the indexing and querying service supporting 70+ networks. 
+Subsquid is comprised of Data Lakes, the Squid SDK, and Aquarium-hosted services, all of which play a key role in the indexing and querying service supporting 70+ networks.
 
 ---
 
@@ -33,7 +34,7 @@ Subsquid is comprised of Data Lakes, the Squid SDK, and Aquarium-hosted services
 Subsquid offers comprehensive solutions for blockchain data management, focusing on two primary features: Indexing and Querying/Serving Data:
 
 1.  **Indexing:** Through the Squid SDK, Subsquid allows for the real-time ingestion and transformation of historical and new on-chain data from the Archive. It provides user-defined processing, a built-in GraphQL API server for data presentation, and customizable adapters for databases and data lakes, offering a robust solution for blockchain data indexing.
-2. **Querying/Serving Data:** Subsquid's querying feature employs "Squids," projects that utilize Archives for data extraction and transformation. Archives are specialized data lakes ideal for handling large volumes of raw on-chain data. Managed by Subsquid Labs, these Archives offer free Squid SDK access. Squids, adaptable to various environments, can run locally, on-premises, or be deployed on the Aquarium-hosted service.
+2.  **Querying/Serving Data:** Subsquid's querying feature employs "Squids," projects that utilize Archives for data extraction and transformation. Archives are specialized data lakes ideal for handling large volumes of raw on-chain data. Managed by Subsquid Labs, these Archives offer free Squid SDK access. Squids, adaptable to various environments, can run locally, on-premises, or be deployed on the Aquarium-hosted service.
 
 ---
 

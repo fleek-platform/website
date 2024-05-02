@@ -1,13 +1,14 @@
 ---
-title: "The Build3rs Stack: Progressive Web Apps (PWAs)"
+title: 'The Build3rs Stack: Progressive Web Apps (PWAs)'
 date: 2023-10-10
-desc: "Learn about Progressive Web Apps (PWAs)– what they are, why you should consider turning your app into one, and some best practices in building with PWAs."
-thumbnail: "./pwa-thumb.jpg"
-image: "./pwa-thumb.jpg"
-cannonical: ""
-author: 
-  - "Fleek"
+desc: 'Learn about Progressive Web Apps (PWAs)– what they are, why you should consider turning your app into one, and some best practices in building with PWAs.'
+thumbnail: './pwa-thumb.jpg'
+image: './pwa-thumb.jpg'
+cannonical: ''
+author:
+  - 'Fleek'
 ---
+
 Welcome back to the Build3rs Stack– our web3 infra overview series! **Going forward we're tweaking this series to explore some broader concepts and building trends, starting with a look into Progressive Web Apps (PWAs).**
 
 Progressive Web Apps have emerged as a hot development trend recently, with platforms like [Friend.tech](https://www.friend.tech/) leading the way and the overall concept gaining traction in the web3 development community. This rise isn’t just a temporary trend but instead, a fix for a longstanding issue—**the mobile web experience and distribution of applications is objectively subpar compared to its desktop counterpart**. PWAs are a cool solution to this issue, offering users the familiarity and ease of use of mobile App Store applications combined with the power, versatility, and reach of desktop web apps.
@@ -31,7 +32,7 @@ Let’s get into some more details about PWAs:
 
 **Progressive Web Apps are built using modern APIs to deliver near native-level reach, reliability, and capabilities across all devices**. They are a blend of the best elements of desktop-web and mobile apps, offering the accessibility and versatility of web-based applications with the user-centric, intuitive, and accessible experience of mobile apps. Additionally, the ability to avoid certain centralized app store restrictions (think high fees on Apple Store transactions) has made a lot of web3 companies turn to PWAs as a way to become available on mobile user’s devices.
 
-*From the user's P.O.V:*
+_From the user's P.O.V:_
 
 - PWAs look and function like traditional applications.
 - They can be instantly launched from the user's mobile home screen or laptop dock.

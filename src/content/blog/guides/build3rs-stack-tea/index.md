@@ -1,17 +1,17 @@
 ---
-title: "Build3rs Stack: Tea.xyz"
+title: 'Build3rs Stack: Tea.xyz'
 date: 2023-07-03
 desc: "The builder's guide to Tea, a web3 package manager that adds automation, developer environments and a little bit of magic to software development."
-thumbnail: "./teaxyz-thumbnil.jpg"
-image: "./teaxyz-thumbnil.jpg"
-cannonical: ""
-author: 
-  - "Fleek"
+thumbnail: './teaxyz-thumbnil.jpg'
+image: './teaxyz-thumbnil.jpg'
+cannonical: ''
+author:
+  - 'Fleek'
 ---
 
 Welcome to the Build3rs Stack, Fleek’s web3 infrastructure overview series! This week we'll take a look at Tea— a web3 take on the package manager, the swiss army knife of modern web and app development, from the creator of Brew.
 
-Tea was created with a promise in mind and heart: **to change how packages and dependencies are handled**, and how open-source developers are rewarded for their efforts to maintain them. *Let’s get a taste of that tea* and look under the hood, to understand what makes this brew a delicious addition to your stack ☕
+Tea was created with a promise in mind and heart: **to change how packages and dependencies are handled**, and how open-source developers are rewarded for their efforts to maintain them. _Let’s get a taste of that tea_ and look under the hood, to understand what makes this brew a delicious addition to your stack ☕
 
 ---
 
@@ -31,7 +31,7 @@ That’s especially important because the “infrastructure” side of Tea has a
 
 As a developer, there’s a high chance that you already have a package manager installed in your coding machine. So, **why should you use Tea?** We mentioned two main features: the “magic”, and the developer environment.
 
-### Tea’s “magic” 
+### Tea’s “magic”
 
 We’re using “magic” in quotes not only because it’s not literal magic, but because the creators of Tea call it that. The so-called “magic” is **a series of hooks that get integrated into your shell** when you install tea for the first time:
 
@@ -44,7 +44,7 @@ Therefore, when running any library or script, Tea will automatically deploy to 
 
 As “magic” can be too much –or too automated– for some users, it can be deactivated when installing Tea.
 
-### Developer environments 
+### Developer environments
 
 Tea can automatically determine the tools a project directory needs based on the files it finds inside. Tea’s “magic” automatically fetches the specific versions those projects need and runs them.
 
@@ -56,7 +56,7 @@ To make matters more interesting, Tea can parse and read YAML front matter: if y
 
 ## Tea + web3 = Compensation for open-source developers
 
-*Have you ever heard of “the Nebraska problem”?* This theory, [coined by Randall Munroe from xkcd](https://xkcd.com/2347/), states that huge parts of our modern digital infrastructure are supported by a library created and sacredly maintained “by a random person in Nebraska” who usually does it for personal reasons [or a belief in the open-source philosophy](http://www.catb.org/~esr/writings/cathedral-bazaar/).
+_Have you ever heard of “the Nebraska problem”?_ This theory, [coined by Randall Munroe from xkcd](https://xkcd.com/2347/), states that huge parts of our modern digital infrastructure are supported by a library created and sacredly maintained “by a random person in Nebraska” who usually does it for personal reasons [or a belief in the open-source philosophy](http://www.catb.org/~esr/writings/cathedral-bazaar/).
 
 ![](./nebraska-problem.png)
 
@@ -78,7 +78,7 @@ The protocol side of Tea **is still in an early stage of development**, but we h
 - [FAQ](https://docs.tea.xyz/appendix/faq)
 - [Tea GUI (Beta)](https://tea.xyz/gui/)
 - [Install QEMU with Tea](https://tea.xyz/+qemu.org/)
-- [Install sway with Tea](https://tea.xyz/+fuellabs.github.io/sway/) 
+- [Install sway with Tea](https://tea.xyz/+fuellabs.github.io/sway/)
 
 ---
 

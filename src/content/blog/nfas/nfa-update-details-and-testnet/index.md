@@ -1,12 +1,12 @@
 ---
-title: "Non-Fungible Apps (NFA): Details Page & MVP Scoping"
+title: 'Non-Fungible Apps (NFA): Details Page & MVP Scoping'
 date: 2023-05-04
-desc: "Get caught up on our Non-Fungible Application development progress, with highlights on the new Details Page, Verification Integrations, and MVP Release Scoping!"
-thumbnail: "./nfa-update-details-page.jpeg"
-image: "./nfa-update-details-page.jpeg"
-cannonical: "https://blog.fleek.xyz/post/nfa-update-details-and-testnet/"
-author: 
-  - "Fleek"
+desc: 'Get caught up on our Non-Fungible Application development progress, with highlights on the new Details Page, Verification Integrations, and MVP Release Scoping!'
+thumbnail: './nfa-update-details-page.jpeg'
+image: './nfa-update-details-page.jpeg'
+cannonical: 'https://blog.fleek.xyz/post/nfa-update-details-and-testnet/'
+author:
+  - 'Fleek'
 ---
 
 Time for another NFA update!
@@ -39,11 +39,11 @@ On the topic of MVP scoping, progress is moving steadily toward release!
 
 In terms of remaining work for the MVP release, the team is in progress on the above-mentioned Details Page, integrating Fleek and ENS verifications, as well as polishing the minting, creating access points, exploration, and detail page functionalities.
 
-This is the version currently in scope without user home page-type features.  As we approach release, we are having key discussions to address some specific improvements, such as:
+This is the version currently in scope without user home page-type features. As we approach release, we are having key discussions to address some specific improvements, such as:
 
-* Making access points more like prints that anyone can make from NFAs and optionally add a custom domain
-* Surface these prints in wallets so any user not just protocol owners can have them in their wallet to access
-* Access the app via the NFA and ideally have them run locally
+- Making access points more like prints that anyone can make from NFAs and optionally add a custom domain
+- Surface these prints in wallets so any user not just protocol owners can have them in their wallet to access
+- Access the app via the NFA and ideally have them run locally
 
 All of the above will be included in a public beta release once the testing on testnet and feedback is in. These are all discussions the team continues to have daily, and are open to community input on any of the above! Hop into our [Discord](https://discord.gg/fleek) server, or open a discussion post in our [GitHub](https://github.com/fleekxyz/non-fungible-apps), to contribute.
 
@@ -55,4 +55,4 @@ May is an exciting month for the NFA team as we move closer and closer to the of
 
 For the most up to date information, and to contribute to discussions and conversations surrounding the project, star our [GitHub](https://github.com/fleekxyz/non-fungible-apps) repository and follow along!
 
-For more Fleek resources and information, please visit our [LinkTree](https://linktr.ee/fleek)! 
+For more Fleek resources and information, please visit our [LinkTree](https://linktr.ee/fleek)!

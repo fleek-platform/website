@@ -1,10 +1,10 @@
 ---
-title: "Fleek Leak 03"
+title: 'Fleek Leak 03'
 date: 2023-02-16
-desc: "Issue number three of the Fleek Leak is landing ⚡, with updates on custom domains and our SDK."
-thumbnail: "./leak3.png"
-image: "./leak3.png"
-cannonical: "https://blog.fleek.co/posts/fleek-leak-03/"
+desc: 'Issue number three of the Fleek Leak is landing ⚡, with updates on custom domains and our SDK.'
+thumbnail: './leak3.png'
+image: './leak3.png'
+cannonical: 'https://blog.fleek.co/posts/fleek-leak-03/'
 ---
 
 Issue number three of the Fleek Leak is landing ⚡, coming back after back-to-back release weeks!
@@ -15,11 +15,11 @@ A few weeks later we’re counting **sites deployed with Fleek in the hundreds**
 
 This weeks we focused on expanding our current services with added logic (Deployments), and setting the stage for our next releases:
 
-* Yet another services (Custom Domains)
-* Deploy System and Enhancements
-* The road to our SDK release
+- Yet another services (Custom Domains)
+- Deploy System and Enhancements
+- The road to our SDK release
 
-***
+---
 
 ## Deploy System: Making Our Deploy Flow Smarter
 
@@ -31,7 +31,7 @@ Today, you are able to deploy a site to IPFS and get a site’s hash. Simple, an
 
 This unlocks dozens of possibilities when it comes to deployment management. Knowing past historic deployments, **we’ll be able to easily enable deployment rollbacks,** or previews for non-live iterations.
 
-***
+---
 
 ## Custom Domains: The Power of Event Tracking.
 
@@ -43,7 +43,7 @@ Yes, at a glance, the Custom Domains feature will enable you to **map a site’s
 
 But, aside from the file/CID mapping to CDN zone that Fleek handles in the background, **events shine in how your custom domains continue to work.** Upon each new deployment for a given site, the custom domains service will **detect that your site received an update and will automatically update the CDN pullzone** to represent the latest version of your site!
 
-***
+---
 
 ## Fleek SDK: Authentication & Decoupling & Browser Support
 
@@ -53,13 +53,13 @@ The first, is the update of the SDK’s structure to allow for **other methods o
 
 The second is **the decoupling of certain** packages utilized on the SDK that were not compatible with a browser environment. We isolated said packages (mostly node-js oriented), refactored our IPFS service so that on browsers we don’t rely on incomplete packages, and bundled browser-compatible versions where needed.
 
-![](https://storage.fleek.ooo/27a60cdd-37d3-480c-ae88-3ad4ca886b13-bucket/imgs/gif-sdk-test.gif) 
+![](https://storage.fleek.ooo/27a60cdd-37d3-480c-ae88-3ad4ca886b13-bucket/imgs/gif-sdk-test.gif)
 
-*With the SDK you can build things like.. An IPFS storage web app! (the above is a PoC).*
+_With the SDK you can build things like.. An IPFS storage web app! (the above is a PoC)._
 
 With those two pieces above, and many more in the back, **we can allow developers to safely integrate the SDK and use it in browser-based environments.** Want to build an NFT marketplace that mints and stores the file on IPFS? Or a web3 chat and host shared files on IPFS? You got it. **See the gif above for an alpha storage app we built during testing.**
 
-***
+---
 
 We continue to see our bet on Fleek’s new architecture flourish! We work and move in layers: First, building with our services (sites, storage, IPFS, custom domains, etc..), then creating GraphQL APIs to interact with them, which we integrate and expose through the SDK which is leveraged currently by the CLI, to finally use them to build and power… Our App’s UI. Fleek’s circle of life ⚡.
 

@@ -1,10 +1,10 @@
 ---
-title: "Integrating The Graph with NFAs: Our Experience Deploying a Subgraph."
+title: 'Integrating The Graph with NFAs: Our Experience Deploying a Subgraph.'
 date: 2023-02-12
-desc: "Maximizing flexibility and freedom in NFA data retrieval with The Graph."
-thumbnail: "./graph-nfas.png"
-image: "./graph-nfas.png"
-cannonical: "https://blog.fleek.xyz/post/thegraph-and-nfas-deploying-subgraphs/"
+desc: 'Maximizing flexibility and freedom in NFA data retrieval with The Graph.'
+thumbnail: './graph-nfas.png'
+image: './graph-nfas.png'
+cannonical: 'https://blog.fleek.xyz/post/thegraph-and-nfas-deploying-subgraphs/'
 ---
 
 In an effort to supercharge our Non-Fungible Apps (NFAs), we’ve begun to integrate different web3 native protocols into the stack – **starting with subgraphs (open APIs) on** [**The Graph**](https://thegraph.com/). This is our first implementation of The Graph, and while we’re still very much in the early phase, we wanted to share our experience & implementation, as well as provide the web3 community with an up-to-date guide on using The Graph in 2023.
@@ -15,7 +15,7 @@ From a developer perspective, creating and implementing an alternative to The Gr
 
 We’ve made this initial implementation [open-source on our GitHub](https://github.com/fleekxyz/non-fungible-apps), and we’re open to any and all feedback ⚡
 
-***
+---
 
 ## What is The Graph?
 
@@ -25,7 +25,7 @@ The Graph is a much-needed **decentralized protocol for querying and indexing da
 
 In our case, we're using subgraphs to index and query data from our NFA contracts. For more information on The Graph, check out [the protocol’s website](http://thegraph.com/) and [documentation](https://thegraph.com/docs)!
 
-***
+---
 
 ## Our Experience Deploying a Subgraph in 2023
 
@@ -37,7 +37,7 @@ We’ve configured our subgraph to **detect when specific events happen with our
 
 This could be information like specific token holders, blocks, transactions, or whatever else is needed to supercharge your applications.
 
-***
+---
 
 ## Deploying a Subgraph: A Guide
 
@@ -47,7 +47,7 @@ After you have a live contract, you can use the following commands to bootstrap 
 
     # If you want to use yarn:
     $ yarn global add @graphprotocol/graph-cli
-    
+
     # If you want to use npm:
     $ npm install -g @graphprotocol/graph-cli
 
@@ -79,9 +79,9 @@ Tip: We used the Polygon testnet mumbai for our initial integration. We develope
 
 If a change is needed in the subgraph, you should update the schema.graphql and subgraph.yaml files to match the changes in the contract.
 
-* To update the contract address, you need to change the address in the networks.json and subgraph.yaml files.
-* To update entities and handlers, you must update the schema.graphql file and add or remove events in the subgraph.yaml file's dataSources.mapping.eventHandlers.
-* To regenerate the TS files, run yarn codegen or npm run codegen.
+- To update the contract address, you need to change the address in the networks.json and subgraph.yaml files.
+- To update entities and handlers, you must update the schema.graphql file and add or remove events in the subgraph.yaml file's dataSources.mapping.eventHandlers.
+- To regenerate the TS files, run yarn codegen or npm run codegen.
 
 If you need new handlers, you can update the ./src/fleek-nfa.ts file and add functions to handle the new events.
 
@@ -89,7 +89,7 @@ Tip: The command \`graph build\` builds and generates files removing the need to
 
 After completing all of these steps, and re-running the command mentioned in the \`Deploying a Subgraph\` section, you should have successfully deployed a subgraph on The Graph’s hosted service!
 
-***
+---
 
 ## Fleek 🤝The Graph
 

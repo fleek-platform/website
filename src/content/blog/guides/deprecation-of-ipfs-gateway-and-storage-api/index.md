@@ -1,19 +1,19 @@
 ---
-title: "Deprecation of IPFS Gateway and Storage API URL on Fleek.co"
+title: 'Deprecation of IPFS Gateway and Storage API URL on Fleek.co'
 date: 2023-01-09
-desc: "We’re starting to take actions to deprecate the legacy Fleek platform (Fleek.co), starting with our IPFS Gateway + Storage API domains."
-thumbnail: "./depricatingdomains.png"
-image: "./depricatingdomains.png"
-cannonical: "https://blog.fleek.xyz/post/deprecation-of-ipfs-gateway-and-storage-api/"
-author: 
-  - "Fleek"
+desc: 'We’re starting to take actions to deprecate the legacy Fleek platform (Fleek.co), starting with our IPFS Gateway + Storage API domains.'
+thumbnail: './depricatingdomains.png'
+image: './depricatingdomains.png'
+cannonical: 'https://blog.fleek.xyz/post/deprecation-of-ipfs-gateway-and-storage-api/'
+author:
+  - 'Fleek'
 ---
 
-*[Updated as of January the 9th:]* *We set the date back to allow more users to migrate to custom domains, and will roll out new rules on the 16th of January to prevent .html, .css, .js files from being served by the storage API. Sites hosted normally will remain unaffected. Read more below.*
+_[Updated as of January the 9th:]_ _We set the date back to allow more users to migrate to custom domains, and will roll out new rules on the 16th of January to prevent .html, .css, .js files from being served by the storage API. Sites hosted normally will remain unaffected. Read more below._
 
 We’re taking some of the initial actions towards our end goal of removing Fleek domains as a potential point of failure by starting to deprecate some of the current domains used on the Fleek.co platform. The areas being affected are Fleek’s public IPFS gateway ([https://ipfs.fleek.co](https://ipfs.fleek.co/)) and our storage API domains ([https://storageapi.fleek.co](https://storageapi.fleek.co/) and [https://storageapi.fleek.](https://storageapi.fleek./)one).
 
-For users of both of those services, breaking changes are coming and your actions will be required during January, 2023, for the IPFS gateway and our Storage APIs (we set back the date to allow users time to migrate). Please read on if this applies to you. 
+For users of both of those services, breaking changes are coming and your actions will be required during January, 2023, for the IPFS gateway and our Storage APIs (we set back the date to allow users time to migrate). Please read on if this applies to you.
 
 Why the deprecations? The quick and short of it is we’re building a new Fleek platform in which one of our goals is to increase decentralization and censorship resistance by removing our own domains as central points of failures. Read through this post, take action on any changes we’re making, and at the end we’ll drop some knowledge so you can get caught up on our vision for the Fleek of the future.
 
@@ -78,7 +78,7 @@ If you’ve got any questions, concerns, or need any assistance surrounding this
 
 - For more resources visit [our LinkTree](https://linktr.ee/fleek).
 
-*Published 14 Dec 2022*
+_Published 14 Dec 2022_
 
 - [Fleek.co](https://blog.fleek.co/tag/fleek-co/)
 - [Storage API](https://blog.fleek.co/tag/storage-api/)

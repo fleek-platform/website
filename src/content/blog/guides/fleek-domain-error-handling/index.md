@@ -1,10 +1,10 @@
 ---
 title: "Exploring Fleek's New Domain States Process for Seamless Domain Creation"
 date: 2023-05-16
-desc: "Dive into the various error states you may encounter in the Fleek.xyz CLI beta domain creation process!"
-thumbnail: "./cli-beta-error-states.png"
-image: "./cli-beta-error-states.png"
-cannonical: ""
+desc: 'Dive into the various error states you may encounter in the Fleek.xyz CLI beta domain creation process!'
+thumbnail: './cli-beta-error-states.png'
+image: './cli-beta-error-states.png'
+cannonical: ''
 ---
 
 Through the Fleek.xyz beta, we’ve introduced a new domain states process to improve and streamline the flow of associating domains to Fleek-deployed sites for our users.
@@ -39,7 +39,7 @@ After the validations for the hostname have been successfully completed, users a
 
 Users can access their Content Acceleration Zone through the URL provided to them.
 
-If this process fails, the entire domain creation process will also fail, alerting the user of a ```CDN Pull-zone Creation Failure```.
+If this process fails, the entire domain creation process will also fail, alerting the user of a `CDN Pull-zone Creation Failure`.
 
 ## Configuring Domain Settings
 

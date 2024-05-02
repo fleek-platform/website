@@ -1,12 +1,12 @@
 ---
-title: "Fleek v0.0.4 Release Notes: ENS Integration, Deployment Details, File Upload Size Limit Increase, and more"
+title: 'Fleek v0.0.4 Release Notes: ENS Integration, Deployment Details, File Upload Size Limit Increase, and more'
 date: 2024-01-22
-desc: "Get the latest on the changes coming to the Fleek Alpha with v0.0.4, including ENS Integration, Deployment Details, File Upload Size Limit and more!"
-thumbnail: "./fleekreleasenotes06.jpg"
-image: "./fleekreleasenotes06.jpg"
-cannonical: ""
-author: 
-  - "Fleek"
+desc: 'Get the latest on the changes coming to the Fleek Alpha with v0.0.4, including ENS Integration, Deployment Details, File Upload Size Limit and more!'
+thumbnail: './fleekreleasenotes06.jpg'
+image: './fleekreleasenotes06.jpg'
+cannonical: ''
+author:
+  - 'Fleek'
 ---
 
 What’s up Fleek Freaks?

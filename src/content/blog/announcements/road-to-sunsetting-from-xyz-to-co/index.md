@@ -1,10 +1,10 @@
 ---
-title: "Road to Sunsetting: From Fleek.co to Fleek.xyz"
+title: 'Road to Sunsetting: From Fleek.co to Fleek.xyz'
 date: 2023-04-18
-desc: "As we continue developing the new Fleek Platform we wanted to share more information about what the process of shutting down our legacy Fleek.co platform will look like."
-thumbnail: "./sunsetting-update-one.png"
-image: "./sunsetting-update-one.png"
-cannonical: ""
+desc: 'As we continue developing the new Fleek Platform we wanted to share more information about what the process of shutting down our legacy Fleek.co platform will look like.'
+thumbnail: './sunsetting-update-one.png'
+image: './sunsetting-update-one.png'
+cannonical: ''
 ---
 
 [At the end of last year](https://blog.fleek.xyz/post/introducing-fleek-network-and-fleek-xyz/), we brought many updates to the world of Fleek! Among those updates, our plan to build a new Fleek ([fleek.xyz](http://fleek.xyz/)) with a new fully event-based architecture that is completely modular and extensible. A new foundation upon which Fleek **could grow to offer any folder of infrastructure and development services, out of the constraints of the current platform**.
@@ -16,6 +16,7 @@ We’ve separated the road towards sunsetting the old platform in different sequ
 ---
 
 ## Phase 1: Reaching Feature Parity.
+
 Before we flip the switch, and begin the sunsetting of the Fleek.co platform and site, there are three important milestones that fleek.xyz must reach to welcome all users over:
 
 ### Site Deployments, IPFS Storage, and Custom Domains (Current)
@@ -32,14 +33,14 @@ During this phase, we will be collecting feedback actively on the platform, and 
 
 While we collect feedback and optimize the UI flows we will be focusing on finishing the features that are needed to complete the feature parity, out of all the missing pieces these are the two key ones:
 
-* **Git connection**: Connecting with GitHub tools to grant access to the platform to download and perform deployments directly from a repository.
-* **Managed**: Right now the build before the upload is being done on the users' end in Fleek.xyz's beta. With this feature Fleek will collect the source code and run the build on our infrastructure controlling all the process, as is the same in Fleek.co.
+- **Git connection**: Connecting with GitHub tools to grant access to the platform to download and perform deployments directly from a repository.
+- **Managed**: Right now the build before the upload is being done on the users' end in Fleek.xyz's beta. With this feature Fleek will collect the source code and run the build on our infrastructure controlling all the process, as is the same in Fleek.co.
 
 ---
 
 ## Phase 2: The Release of Fleek.xyz V1 & Sunsetting Kickoff
 
-Once feature parity is achieved we will be releasing to the public what will be known as Fleek Platform V1, the first stable version that will run in parallel with the old platform for a period of time. 
+Once feature parity is achieved we will be releasing to the public what will be known as Fleek Platform V1, the first stable version that will run in parallel with the old platform for a period of time.
 
 At this phase, we will be stopping signups on Fleek.co and offering all the user's migration tools to request to move all their relevant data to Fleek.xyz. **All of this migration will be automatic, but done upon the user’s manual request during this phase**.
 
@@ -64,9 +65,10 @@ After a prudent time of co-existence between the platforms, and when the goals o
 **A**: No. The new platform is a direct replacement of the old Fleek, all users, their projects, sites, and storage, and accounts will migrate over fully.
 
 ### Will Fleek.co stop its services?
+
 **A**: Yes, but not now or immedietely. Once V1 of the new platform releases, people won’t be able to create new accounts on Fleek.co. However, existing users will be able to use the legacy service and choose to migrate over for an extended period of time. Only then will we flip the switch.
 
-----
+---
 
 ## Trust the following ⚡
 

@@ -1,12 +1,12 @@
 ---
-title: "Build3rs Stack: WeaveDB"
+title: 'Build3rs Stack: WeaveDB'
 date: 2023-06-06
-desc: "Explore WeaveDB, the NoSQL database providing decentralized and scalable data storage to web3 apps with a familiar web2 experience"
-thumbnail: "./weavedb.jpg"
-image: "./weavedb.jpg"
-cannonical: ""
-author: 
-  - "Fleek"
+desc: 'Explore WeaveDB, the NoSQL database providing decentralized and scalable data storage to web3 apps with a familiar web2 experience'
+thumbnail: './weavedb.jpg'
+image: './weavedb.jpg'
+cannonical: ''
+author:
+  - 'Fleek'
 ---
 
 Welcome to the Build3rs Stack, our web3 infrastructure overview series! This week we’ll explore [WeaveDB](https://weavedb.dev/)- **a NoSQL Database bringing web2 UX and scalability capabilities to web3 apps.**
@@ -21,7 +21,7 @@ In brief, WeaveDB is a decentralized NoSQL database built atop Arweave and Warp 
 
 WeaveDB is a noSQL database platform leveraging the Arweave ecosystem, allowing decentralized applications to transition from centralized databases to a horizontal and scalable model. WeaveDB has a similar syntax and hierarchy to its centralized alternative, Google's Firestore, but **with the addition of web3 native smart contracts**.
 
-WeaveDB enables developers to build efficient and complex decentralized applications that require quick access to data, scalability, and a web2 user experience for databases. 
+WeaveDB enables developers to build efficient and complex decentralized applications that require quick access to data, scalability, and a web2 user experience for databases.
 
 **How is this done?** WeaveDB encapsulates the database as a Warp SmartWeave contract, which in turn leverages Arweave as a consensus layer. In summary, it is comprised of 3 layers:
 
@@ -29,7 +29,7 @@ WeaveDB enables developers to build efficient and complex decentralized applicat
 - **Storage Layer**: Used for consensus inside that smart contract through a paradigm called [SCP (Storage-based Consensus/Computation Paradigm)](https://mirror.xyz/0xDc19464589c1cfdD10AEdcC1d09336622b282652/KCYNKCIhFvTZ1DmD7IpXr3p8di31ecC283HgMDqasmU). WeaveDB (more specifically Warp) uses Arweave because of its immutability: if input and output states are permanent, the calculations can be deterministic, and computation -which is the demanding part in terms of cost and scalability- can be performed off-chain.
 - **Computation Layer**: Occurs on the client side or on a series of decentralized nodes provided by Warp. They send transactions to the smart contract and receive its states to perform computation by a process of lazy evaluation.
 
-This all enables WeaveDB to dramatically reduce query times for databases, comparable to web2 staples like Firestone. **And, as the computation is performed off-chain, the gas costs are much lower than a database that lives inside the chain** (and can be absorbed by dapp developers, not transferred to their users). 
+This all enables WeaveDB to dramatically reduce query times for databases, comparable to web2 staples like Firestone. **And, as the computation is performed off-chain, the gas costs are much lower than a database that lives inside the chain** (and can be absorbed by dapp developers, not transferred to their users).
 
 In practice, this opens the doors for the development of new dapps like social networks, blogs, forums, productivity software, and many other applications that were not possible in the current web3 environment.
 
@@ -59,7 +59,7 @@ WeaveDB can be used to set up a [custom task manager](https://docs.weavedb.dev/e
 
 ### Cross-Chain NFT Relayer
 
-By default, WeaveDB can be configured to authenticate users with crypto accounts across blockchains. In a similar vein, users can spin up a [cross-chain NFT validator](https://docs.weavedb.dev/examples/relayer-nft), leveraging WeaveDB’s relayer feature, to authenticate the ownership of NFTs from any blockchain. The query data can be modified with custom access controls, allowing users to control the query rules of the collection. 
+By default, WeaveDB can be configured to authenticate users with crypto accounts across blockchains. In a similar vein, users can spin up a [cross-chain NFT validator](https://docs.weavedb.dev/examples/relayer-nft), leveraging WeaveDB’s relayer feature, to authenticate the ownership of NFTs from any blockchain. The query data can be modified with custom access controls, allowing users to control the query rules of the collection.
 
 ### Mirror.xyz Article Bookmarking
 
@@ -67,11 +67,11 @@ With WeaveDB, users can make an article bookmarking app where users can bookmark
 
 The database is set up with three collections:
 
-**Bookmarks**: Stores user bookmarks, each of which has `article_id`, `date`, and `user_address` as properties. 
+**Bookmarks**: Stores user bookmarks, each of which has `article_id`, `date`, and `user_address` as properties.
 
 **Mirror**: Used to store articles that were saved from Mirror
 
-**Conf**: Used for organization and bookkeeping. 
+**Conf**: Used for organization and bookkeeping.
 
 Access control rules can also be set up for these collections. For instance, only the user who sets a record can delete it in the bookmarks collection. Periodic calculations of bookmark counts are also done to show trending articles! Check out this [step-by-step guide](https://docs.weavedb.dev/examples/bookmarks) for more details.
 

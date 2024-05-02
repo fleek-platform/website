@@ -1,11 +1,11 @@
 ---
-title: "How to deploy a Next.js app onto IPFS using Fleek"
+title: 'How to deploy a Next.js app onto IPFS using Fleek'
 date: 2021-05-30
-desc: "We’ll create a Next.js app and deploy it on Fleek. This whole process It should take 10 minutes."
-thumbnail: "./next1.png"
-image: "./next1.png"
-cannonical: ""
-author: "Fleek"
+desc: 'We’ll create a Next.js app and deploy it on Fleek. This whole process It should take 10 minutes.'
+thumbnail: './next1.png'
+image: './next1.png'
+cannonical: ''
+author: 'Fleek'
 ---
 
 ## **Overview**
@@ -54,14 +54,14 @@ Let’s create some pages: Create a folder called pages Inside pages, create `i
 import Link from "next/link";
 
 export default function Index() {
-  return (
-    <div>
-      <h1> Index </h1>
-      <Link href="/about">
-        <a> About </a>
-      </Link>
-    </div>
-  );
+return (
+<div>
+<h1> Index </h1>
+<Link href="/about">
+<a> About </a>
+</Link>
+</div>
+);
 }`
 
 and `about.js`

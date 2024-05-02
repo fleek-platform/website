@@ -1,10 +1,10 @@
 ---
-title: "Create and Deploy a React Application to IPFS in Under Ten Minutes"
+title: 'Create and Deploy a React Application to IPFS in Under Ten Minutes'
 date: 2020-03-16
-desc: "A React application can be bootstrapped in a matter of minutes with create-react-app. Fleek allows apps to be deployed to IPFS in a matter of minutes."
-thumbnail: "./reactimageupdate.png"
-image: "./reactimageupdate.png"
-cannonical: ""
+desc: 'A React application can be bootstrapped in a matter of minutes with create-react-app. Fleek allows apps to be deployed to IPFS in a matter of minutes.'
+thumbnail: './reactimageupdate.png'
+image: './reactimageupdate.png'
+cannonical: ''
 ---
 
 A React application can be bootstrapped in a matter of minutes with create-react-app. Fleek allows apps to be deployed to IPFS in a matter of minutes. These two go together like peanut butter and jelly, allowing for development and deployment to be complete in a flash.
@@ -30,7 +30,6 @@ Go to [http://localhost:3000](http://localhost:3000/) in your browser and you 
 Now, it’s time to develop the app if you wish to do so, or simply use the default application. For this tutorial, I made some slight modifications to the default react app.
 
 ![](./react3.png)
-
 
 Finally, we need to make a slight modification to the package.json file by adding the field `homepage: '.'`.
 
@@ -80,13 +79,11 @@ Upon first signing up on Fleek, we are asked to add a new site.
 
 ![](./react4.png)
 
-
 Next, we input additional information such as the repo branch, the build commands, and the build directory. Luckily for us, the default values will work perfectly so there is no need to change anything. Clicking the “Deploy Site” button at the bottom will commence the deployment.
 
 Note: The default docker image is `fleek/create-react-app` which runs the latest node.js version (13 as of this writing). If you have an app requiring another version, you can specify it in the docker tag. EG: For node 10, `fleek/create-react-app:node-10`
 
 ![](./react5.png)
-
 
 The deployment is in progress! In a few minutes, we’ll have access to our deployed app. The deploy log at the bottom of the page tracks the progress of the deployment.
 

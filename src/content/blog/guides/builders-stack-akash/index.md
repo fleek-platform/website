@@ -1,17 +1,17 @@
 ---
-title: "Build3rs Stack: Akash"
+title: 'Build3rs Stack: Akash'
 date: 2023-02-24
-desc: "The builders guide to Akash Network, the most important features, applied use-cases, and why it’s important to understand what you can build with it as a web3 developer."
-thumbnail: "./akash-builders-stack.png"
-image: "./akash-builders-stack.png"
-cannonical: ""
+desc: 'The builders guide to Akash Network, the most important features, applied use-cases, and why it’s important to understand what you can build with it as a web3 developer.'
+thumbnail: './akash-builders-stack.png'
+image: './akash-builders-stack.png'
+cannonical: ''
 ---
 
 Welcome to the Build3rs Stack, our web3 infrastructure overview series! In this piece we will talk in depth about **the [Akash Network](https://akash.network/), its most important features, applied use-cases**, and why it’s important to understand what you can build with it as a web3 developer.
 
 In a nutshell, Akash is an open, decentralized network where people can **buy and sell computing resources (like storage or computing power)**. The main purpose of Akash is to provide a decentralized, user-owned, alternative to the traditional web2 cloud, which makes it the perfect choice for web3 developers who don’t want their dApp’s to rely on web2 cloud providers.
 
-***
+---
 
 ## TL;DR: What is Akash Network and How Does it Work?
 
@@ -23,23 +23,23 @@ You can **host any containerized application, run on Akash’s decentralized net
 
 One important aspect of Akash is that **anyone can become a cloud provider**. Anyone can sell their excess bandwidth on the Akash blockchain-based marketplace to maximize their output of unused resources. The network also strives for interoperability with major existing cloud infrastructure and cloud-based apps, making it a viable partner for major cloud service providers.
 
-***
+---
 
 ## Akash in Features: Computing and Hosting.
 
 Akash’s features directly correlate with what you might imagine from traditional web providers. It provides **leasable decentralized infrastructure** so that you can host any application, computing, or server-type of operation on web3 cloud.
 
-* Execute on-demand cloud computation.
-* Hosting cloud-native applications / docker containers.
-* Ephemeral and permanent storage.
+- Execute on-demand cloud computation.
+- Hosting cloud-native applications / docker containers.
+- Ephemeral and permanent storage.
 
 Since **you can run any cloud-native application**, the folder of use-cases with Akash is massive. From hosting a website served from Akash or a game’s server, to running a service that executes a computing operation for you (e.g. Server-side rendering!). Storage usually is ephemeral on Akash, depending on the needs of the app, but as of a recent update, Akash can [store permanently](https://akash.network/blog/akash-network-unlocks-persistent-storage-through-mainnet-3-upgrade/) for the length of the lease of the resources.
 
-***
+---
 
 ## How can you use it as a builder? Applied use-cases.
 
-Let’s see more in depth some real use-cases with examples using Akash’s features to understand the value of the network and when you can use it. 
+Let’s see more in depth some real use-cases with examples using Akash’s features to understand the value of the network and when you can use it.
 
 **Hosting Nodes - (e.g. [IPFS](https://github.com/akash-network/awesome-akash/tree/master/ipfs))**
 
@@ -55,7 +55,7 @@ Or deploy a server hosting your frontend for DApps or simple websites! Here is a
 
 You can also check out the repository [Awesome Akash](https://github.com/akash-network/awesome-akash) with a list of all the deployment examples to keep understanding with real applied use-cases.
 
-***
+---
 
 ## Getting Started with Akash Network
 
@@ -69,15 +69,15 @@ There are many ways to get started with Akash, whether you build and deploy your
 
 First of all, it’s important to take a look at the [development official documentation](https://docs.akash.network/) to understand the basics and get started. Then, explore **how to make your first deployment** to the network:
 
-* [Learn everything about setting up a Stack Definition Language (SDL)](https://docs.akash.network/readme/stack-definition-language)
-* [Guide to run the CLI](https://docs.akash.network/guides/cli/detailed-steps) - start with the setup environment.
-* [Deploy with Cloudmos](https://cloudmos.io/cloud-deploy) - deploy any container/SDL to Akash with Cloudmos. 
-* [Create your first deployment](https://docs.akash.network/guides/cli/detailed-steps/part-7.-create-your-deployment) - guide to how to deploy with Akash.
-* [SDK javascript](https://github.com/akash-network/akashjs) - JS library to interact with Akash Network.
-* [See all available integrations with Akash](https://docs.akash.network/deploy)
-* [Core Community Groups ](https://akash.network/community/core-groups/cg-list/)- Community groups working on standards related to Akash.
+- [Learn everything about setting up a Stack Definition Language (SDL)](https://docs.akash.network/readme/stack-definition-language)
+- [Guide to run the CLI](https://docs.akash.network/guides/cli/detailed-steps) - start with the setup environment.
+- [Deploy with Cloudmos](https://cloudmos.io/cloud-deploy) - deploy any container/SDL to Akash with Cloudmos.
+- [Create your first deployment](https://docs.akash.network/guides/cli/detailed-steps/part-7.-create-your-deployment) - guide to how to deploy with Akash.
+- [SDK javascript](https://github.com/akash-network/akashjs) - JS library to interact with Akash Network.
+- [See all available integrations with Akash](https://docs.akash.network/deploy)
+- [Core Community Groups ](https://akash.network/community/core-groups/cg-list/)- Community groups working on standards related to Akash.
 
-***
+---
 
 ## Wrapping it up ⚡
 

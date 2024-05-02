@@ -1,25 +1,25 @@
 ---
-title: "Fleek v0.6.0: ENS Domains Release"
+title: 'Fleek v0.6.0: ENS Domains Release'
 date: 2023-07-25
-desc: "Discover the Fleek v0.6.0 beta, introducing a straightforward way to connect your ENS Domains to Fleek-deployed sites via our CLI & SDK."
-thumbnail: "./v060thumbnail.jpg"
-image: "./v060thumbnail.jpg"
-cannonical: ""
-author: 
-  - "Fleek"
+desc: 'Discover the Fleek v0.6.0 beta, introducing a straightforward way to connect your ENS Domains to Fleek-deployed sites via our CLI & SDK.'
+thumbnail: './v060thumbnail.jpg'
+image: './v060thumbnail.jpg'
+cannonical: ''
+author:
+  - 'Fleek'
 ---
 
-Today we’ve brought one of Fleek.co’s all-time user-favorite features to the Fleek.xyz beta: **Connect your ENS Domains to your Fleek-deployed sites directly through the Fleek CLI & SDK**. 
+Today we’ve brought one of Fleek.co’s all-time user-favorite features to the Fleek.xyz beta: **Connect your ENS Domains to your Fleek-deployed sites directly through the Fleek CLI & SDK**.
 
-Just like on the old platform, point Fleek to your ENS, approve, and we’ll handle the rest, as our backend will set an IPNS record once, and update the IPFS content hash associated to it on each deployment to always keep your ENS site up-to-speed. 
+Just like on the old platform, point Fleek to your ENS, approve, and we’ll handle the rest, as our backend will set an IPNS record once, and update the IPFS content hash associated to it on each deployment to always keep your ENS site up-to-speed.
 
-In a future release, we will also enable the use of IPFS directly with ENS (for those who might prefer not to use IPNS). As a reminder, the main reason for IPNS is to avoid gas fees associated with updating the IPFS hash on-chain every deployment. But as ENS L2/off-chain support matures and gas fees reduce, we feel more projects might prefer to use the IPFS hash directly, as it removes a point of centralization (IPNS keys). So we will give users both options.  
+In a future release, we will also enable the use of IPFS directly with ENS (for those who might prefer not to use IPNS). As a reminder, the main reason for IPNS is to avoid gas fees associated with updating the IPFS hash on-chain every deployment. But as ENS L2/off-chain support matures and gas fees reduce, we feel more projects might prefer to use the IPFS hash directly, as it removes a point of centralization (IPNS keys). So we will give users both options.
 
 For a step-by-step guide on starting with ENS Domains, check out our [docs](https://docs.fleek.xyz/docs/Domains/ens/) ⚡
 
 Let’s get into some details:
 
-----
+---
 
 ## ENS Domains: Link To Your Fleek-Deployed Sites
 

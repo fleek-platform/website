@@ -1,12 +1,12 @@
 ---
-title: "Build3rs Stack: Radicle"
+title: 'Build3rs Stack: Radicle'
 date: 2023-04-28
 desc: "The builder's guide to Radicle- the decentralized code collaboration platform! Learn how to integrate the P2P code collab network in your web3 builds."
-thumbnail: "./radicle-image.png"
-image: "./radicle-image.png"
-cannonical: ""
-author: 
-  - "Abru Zucchi"
+thumbnail: './radicle-image.png'
+image: './radicle-image.png'
+cannonical: ''
+author:
+  - 'Abru Zucchi'
 ---
 
 Welcome to the Build3rs Stack, Fleek’s **web3 infrastructure overview series**. This week we will take a look at Radicle - A P2P network for code! We will talk in depth about its main features, resources, and all the necessary information you need to start using it.
@@ -16,8 +16,8 @@ In brief, Radicle is a decentralized, **peer-to-peer (P2P) code collaboration pl
 ---
 
 ## TL;DR: What is Radicle?
-![](./radicle-main.png)
 
+![](./radicle-main.png)
 
 Radicle is a solution for **decentralized code collaboration** that empowers developers to work together in a self-governed, and censorship-resistant environment. It’s integrated with Git, and a distributed data structure called a "content-addressed Merkle DAG,"  enabling secure and efficient sharing of data among peers making it easier for developers to adopt!
 
@@ -61,7 +61,7 @@ An open-source software project with contributors from around the world could us
 
 DAOs, which are organizations governed by code and community consensus, could use Radicle to manage their code repositories and governance rules. By creating a decentralized, self-governed environment for code collaboration, Radicle could facilitate the transparent development and maintenance of DAOs' smart contracts and decision-making processes.
 
-----
+---
 
 ## Getting Started with Radicle
 
@@ -71,11 +71,12 @@ DAOs, which are organizations governed by code and community consensus, could us
 - [Radicle Community](https://radicle.zulipchat.com/)
 - [Try it out!](https://radicle.xyz/#try)
 
-Or you can easily start to use Radicle running the following command: 	
+Or you can easily start to use Radicle running the following command:
 
 ```
 sh <(curl -sSf [https://radicle.xyz/install](https://radicle.xyz/install))
 ```
+
 ---
 
 We hope this guide has given you the necessary information and tools to start using Radicle! Make sure to follow [Radicle](https://twitter.com/radicle) [](https://twitter.com/litprotocol)for further updates and developments.

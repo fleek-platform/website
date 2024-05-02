@@ -1,12 +1,12 @@
 ---
-title: "Embracing Decentralized Storage for V1 of Fleek.xyz"
+title: 'Embracing Decentralized Storage for V1 of Fleek.xyz'
 date: 2023-07-11
 desc: "Explore Fleek's transition from centralized IPFS storage nodes to decentralized storage with Arweave, Filecoin and Bundlr enhancing data resiliency and user control."
-thumbnail: "./cent.jpg"
-image: "./cent.jpg"
-cannonical: ""
-author: 
-  - "Fleek"
+thumbnail: './cent.jpg'
+image: './cent.jpg'
+cannonical: ''
+author:
+  - 'Fleek'
 ---
 
 The other week we gave [an update on Fleek.xyz’s roadmap/launch timeline](https://blog.fleek.xyz/post/fleek-platform-update/) and shared some alpha on a cool change coming to the new platform: **moving from a centralized IPFS setup (Digital Ocean + Cloudflare) to a decentralized IPFS setup (Filecoin/Arweave + Fleek Network).**
@@ -33,13 +33,13 @@ The best part is that this setup keeps everything 100% IPFS compatible, meaning 
 
 ### How Does This Enable Better Pricing Without Sacrificing Performance?
 
-Today all ‘pinning providers’ are essentially running IPFS nodes on centralized cloud platforms like AWS, Digital Ocean, etc. and then accelerating those nodes with Cloudflare or another CDN. Therefore they must pass along those storage/bandwidth costs (plus a premium) to sustainably provide IPFS pinning services to their customers. However centralized cloud platform prices are quite high to begin with, and comparatively decentralized storage protocols typically offer [significantly cheaper storage](https://file.app/). 
+Today all ‘pinning providers’ are essentially running IPFS nodes on centralized cloud platforms like AWS, Digital Ocean, etc. and then accelerating those nodes with Cloudflare or another CDN. Therefore they must pass along those storage/bandwidth costs (plus a premium) to sustainably provide IPFS pinning services to their customers. However centralized cloud platform prices are quite high to begin with, and comparatively decentralized storage protocols typically offer [significantly cheaper storage](https://file.app/).
 
 So by switching our IPFS storage layer to decentralized storage protocols, we can offer customers significantly lower rates for storage, while continuing to use a CDN (Fleek Network) to ensure performant and cost-effective retrieval/delivery of the content.
 
 ### Why Don’t All IPFS Users/Pinning Providers Use Decentralized Storage?
 
-Today, decentralized storage protocols (Filecoin, Arweave, etc.) don’t speak “IPFS”. So, if you want to use decentralized storage protocols with IPFS, you essentially need to store the content twice: once on the storage layer, and again at the IPFS layer. The two layers don’t talk, so if the file isn’t on IPFS, you would need to write custom logic to know that it exists on another storage network and to go check for it. So the short answer is, *it really wasn’t feasible to do so before*.
+Today, decentralized storage protocols (Filecoin, Arweave, etc.) don’t speak “IPFS”. So, if you want to use decentralized storage protocols with IPFS, you essentially need to store the content twice: once on the storage layer, and again at the IPFS layer. The two layers don’t talk, so if the file isn’t on IPFS, you would need to write custom logic to know that it exists on another storage network and to go check for it. So the short answer is, _it really wasn’t feasible to do so before_.
 
 But once Fleek Network is live, for the first time it will provide an opportunity to connect IPFS to all the file and data storage protocols/layers, and so we will hopefully see other pinning providers and users of IPFS switch to this setup. It will provides real benefits over the current setup/usage of IPFS in terms of **cost, performance, storage/availability guarantees, and censorship resistance/decentralization.**
 
@@ -55,6 +55,6 @@ The upgrade to decentralized storage will come with the full Fleek.xyz platform 
 
 ---
 
-That’s just a quick look at one of the exciting upgrades coming to the new Fleek.xyz platform launching in August. 
+That’s just a quick look at one of the exciting upgrades coming to the new Fleek.xyz platform launching in August.
 
 For more info on the rollout of Fleek.xyz, check out our [Platform Timeline and Milestones Update blog](https://blog.fleek.xyz/post/fleek-platform-update/). If you want to jam more on decentralized storage join our [Discord](https://discord.gg/fleek) community and link up with our team!

@@ -1,12 +1,12 @@
 ---
-title: "Fleek v0.0.3 Release Notes: Project, Site, and Gateway Delete Options, QoL Improvements"
+title: 'Fleek v0.0.3 Release Notes: Project, Site, and Gateway Delete Options, QoL Improvements'
 date: 2023-11-09
-desc: "Dive into the changes coming with Fleek Alpha v0.0.3, including Project, Site, and Gateway Delete Options."
-thumbnail: "./fleekreleasenotes05.png"
-image: "./fleekreleasenotes05.png"
-cannonical: ""
-author: 
-  - "Fleek"
+desc: 'Dive into the changes coming with Fleek Alpha v0.0.3, including Project, Site, and Gateway Delete Options.'
+thumbnail: './fleekreleasenotes05.png'
+image: './fleekreleasenotes05.png'
+cannonical: ''
+author:
+  - 'Fleek'
 ---
 
 It's been about two weeks, meaning it’s time for another bi-weekly update to the Fleek.xyz Alpha 🤙
@@ -23,7 +23,7 @@ Let’s get into the changes coming to the Fleek.xyz alpha with v0.0.3:
 
 A heavily requested feature is here– quickly and easily delete any Project, Site, or Gateway directly in the Fleek.xyz UI. **When deleting any of the above, the user must go through a few confirmations to verify the removal of things like Domains, IPNS records, or anything else associated with the project**.
 
-***IMPORTANT: Deleting a Project, Site, or Gateway is not reversible! Make sure you understand all warnings before progressing.***
+**_IMPORTANT: Deleting a Project, Site, or Gateway is not reversible! Make sure you understand all warnings before progressing._**
 
 ### Project Delete
 
@@ -48,8 +48,7 @@ When deleting a site, go to the site overview and click the `Delete Site` option
 
 For Private Gateways, you’ll be prompted to **remove the gateway and all domains associated with it**:
 
-![](./delete-gateway.gif)
----
+## ![](./delete-gateway.gif)
 
 ## Other Fixes and Improvements
 
@@ -71,4 +70,3 @@ That’s all for this week! This is a smaller QoL update to bring a heavily requ
 Follow along with the release of the Fleek.xyz platform on [X](https://twitter.com/fleekxyz) and join the community of testers in our [Discord](http://discord.gg/fleek) server!
 
 See you again in about two weeks for the next update 🤙
-

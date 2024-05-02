@@ -1,28 +1,28 @@
 ---
-title: "An Overview of Fleek.xyz’s Architecture"
+title: 'An Overview of Fleek.xyz’s Architecture'
 date: 2022-12-05
-desc: "New architecture who dis? Here’s a high level overview of how our new platform was designed & why it unlocks total freedom, flexibility, and extensibility for web3 developers."
-thumbnail: "./Fleek-XYZ-Architecture.png"
-image: "./Fleek-XYZ-Architecture.png"
-cannonical: "https://blog.fleek.xyz/post/fleek-xyz-architecture-overview/"
+desc: 'New architecture who dis? Here’s a high level overview of how our new platform was designed & why it unlocks total freedom, flexibility, and extensibility for web3 developers.'
+thumbnail: './Fleek-XYZ-Architecture.png'
+image: './Fleek-XYZ-Architecture.png'
+cannonical: 'https://blog.fleek.xyz/post/fleek-xyz-architecture-overview/'
 ---
 
 TL;DR
 
-* The new fleek.xyz is extensible, enabling external contributors to build and surface new services and features leveraging any underlying infra/protocols.
-* Building services is made simple thanks to the new fleek.xyz architecture centered around 4 key building blocks: CLI, SDK, open API, and UI
-* All Fleek.xyz services will be independent of each other, where one or many of the building blocks can be leveraged, and developers can pick and choose which services they want and discard the rest.
-* Interested? [Sign up to be one of our beta testers](https://fleek.xyz).
+- The new fleek.xyz is extensible, enabling external contributors to build and surface new services and features leveraging any underlying infra/protocols.
+- Building services is made simple thanks to the new fleek.xyz architecture centered around 4 key building blocks: CLI, SDK, open API, and UI
+- All Fleek.xyz services will be independent of each other, where one or many of the building blocks can be leveraged, and developers can pick and choose which services they want and discard the rest.
+- Interested? [Sign up to be one of our beta testers](https://fleek.xyz).
 
-***
+---
 
 In case you’ve missed it, [we’ve just announced our Series A led by Polychain](https://blog.fleek.co/posts/introducing-fleek-network-and-fleek-xyz). One of the reasons we’ve raised is to build Fleek.xyz, a next-gen development platform for web3, and the successor to our current Fleek.co platform.
 
-In an effort to build more in public, this blog is part one of a two part series that will outline the what, why, and how of Fleek.xyz development. Part one, this blog, is a dive into **what is the new Fleek.xyz architecture and why it unlocks total freedom, flexibility, and extensibility** for web3 developers. 
+In an effort to build more in public, this blog is part one of a two part series that will outline the what, why, and how of Fleek.xyz development. Part one, this blog, is a dive into **what is the new Fleek.xyz architecture and why it unlocks total freedom, flexibility, and extensibility** for web3 developers.
 
 Part two will be released next week, outlining how we are already actively making strides to get there.
 
-***
+---
 
 ## A New Way of Doing Things
 
@@ -34,7 +34,7 @@ Each building block gives you access to all of the Fleek services, just in diffe
 
 When new services/protocols become available (maybe Akash or Arweave 👀), they will bubble up from CLI, to SDK and API, then finally landing on the UI. Along the way, each new feature will go through a public beta where some of [our power users](https://discord.gg/fleek) will get the chance to provide valuable feedback.
 
-***
+---
 
 ## Peeling Back the Layers
 
@@ -46,7 +46,7 @@ Going one level deeper, we have Fleek services. Each service is independent of e
 
 For developers building with Fleek, independent services gives maximum freedom of expression by allowing devs to **pick and choose exactly what they want to build with and discard the rest**. Only looking to manage your IPNS records with Fleek but don’t need hosting or storage? Go for it. No strings attached.
 
-***
+---
 
 ## What This Means for Web3 Devs
 
@@ -58,7 +58,7 @@ Later on, this means giving **developers and protocols themselves the freedom to
 
 Lastly, this update means that we’ll be able to ship to you faster. Expect supercharged development cycles in public. There will be plenty of room for beta testers to get involved and help to shape how our tools look. If this sounds like you, [let us know](https://discord.gg/fleek)!
 
-***
+---
 
 That’s all we’ve got for you today. Building in public ftw!
 

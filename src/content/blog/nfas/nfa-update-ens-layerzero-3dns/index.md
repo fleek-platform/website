@@ -1,12 +1,12 @@
 ---
-title: "NFA Update: ENS, LayerZero, 3DNS"
+title: 'NFA Update: ENS, LayerZero, 3DNS'
 date: 2023-08-29
-desc: "An update on the new NFA release timeline, and a look at our updated ENS, LayerZero, and 3DNS-based design"
-thumbnail: "./nfa-update-aug-29-thumb.png"
-image: "./nfa-update-aug-29-thumb.png"
-cannonical: ""
-author: 
-  - "Fleek"
+desc: 'An update on the new NFA release timeline, and a look at our updated ENS, LayerZero, and 3DNS-based design'
+thumbnail: './nfa-update-aug-29-thumb.png'
+image: './nfa-update-aug-29-thumb.png'
+cannonical: ''
+author:
+  - 'Fleek'
 ---
 
 We have some good news and bad news for y’all in relation to the release of [Non-Fungible Applications (NFAs)](https://github.com/fleekxyz/non-fungible-apps). First, the bad news: As we gear up for the Fleek platform Alpha, rolling out over the next week, we've made a decision to delay the launch of NFAs slightly. Why? **We didn’t feel that the last iteration of NFAs was going to deliver good enough value for app developers and end users, and we believe there's a better path forward.**
@@ -35,7 +35,6 @@ Our revamped strategy is super simple:
 
 ---
 
-
 ## Why The Switch to ENS?
 
 Using ENS is a no-brainer because:
@@ -46,8 +45,6 @@ Using ENS is a no-brainer because:
 4. It simplifies the NFA architecture and helps eliminate certain aspects of it, such as verification of ENS owners (bc now the ENS name NFT is the owner, so it’s auto-verified)
 
 **How**: We're using ENS name NFTs as the master NFAs, saving each NFA’s build metadata and modules in the corresponding ENS name as text records that point to IPFS/IPNS hashes, just like we do for the IPFS sites themselves today.
-
-
 
 ## Why LayerZero?
 
@@ -72,6 +69,7 @@ Bringing in LayerZero for the NFA prints takes things to another (omnichain) lev
 **How**: 3DNS, compatible with Internet Corporation for Assigned Names and Numbers ([ICANN](https://www.icann.org/)), will operate as the on-chain name server. This will bring ENS-type benefits to DNS names, while still providing the traditional DNS benefits (ICANN compatible, works natively in all browsers, etc.).
 
 ---
+
 ## [Bonus] Can PWA’s Fit In With NFA’s?
 
 Yes definitely. With [friend.tech](http://friend.tech/) and the current issues plaguing web3 apps in traditional app stores (ex. Apple), the recent resurgence in PWA’s is definitely worth paying attention to. And we think there could be a lot of synergies between PWA’s and NFA’s. Any PWA could be an NFA, and any NFA could become a PWA. You could now potentially imagine a future where there is a decentralized, permissionless app store (which could be built on top of the NFA collection), where you could discover and mint/install ‘apps’ on your phone home screen or in a wallet, but where the app is hosted/loaded on-chain and accessed with no central operator. Def a lot to still explore and figure out, but the future looks bright (and decentralized) 🤙.

@@ -1,15 +1,15 @@
 ---
-title: "Introducing NFA’s: Non-Fungible Apps"
+title: 'Introducing NFA’s: Non-Fungible Apps'
 date: 2022-12-22
-desc: "Today, we’re proposing Non-Fungible Apps (NFAs) -  A new approach for on-chain tokenization of apps that will help unlock better decentralization, censorship resistance, and community ownership for Web3 frontends."
-thumbnail: "./fleekxyz-nfa-thumb.png"
-image: "./fleekxyz-nfa-thumb.png"
-cannonical: "https://blog.fleek.xyz/post/introducing-nfas-non-fungible-apps/"
+desc: 'Today, we’re proposing Non-Fungible Apps (NFAs) -  A new approach for on-chain tokenization of apps that will help unlock better decentralization, censorship resistance, and community ownership for Web3 frontends.'
+thumbnail: './fleekxyz-nfa-thumb.png'
+image: './fleekxyz-nfa-thumb.png'
+cannonical: 'https://blog.fleek.xyz/post/introducing-nfas-non-fungible-apps/'
 ---
 
 ##### Non-Fungible Apps (NFA) – The concept is quite simple; take everything that makes your web3 app run and orchestrate it through a smart contract for increased transparency, decentralization, and censorship resistance. The NFA owns everything and controls everything. When you transfer your NFA, you’re transferring your _entire_ app.
 
-***
+---
 
 ## What are NFAs?
 
@@ -19,7 +19,7 @@ But that’s not all, in the endgame we’ve got in mind, **NFAs will handle eve
 
 Similar to ENS, NFAs are not as much about the new primitive as much as they are about the supporting ecosystem that brings novelty and usefulness to the new primitive.
 
-***
+---
 
 ## Why NFAs?
 
@@ -33,7 +33,7 @@ NFAs will help to solve this issue by allowing **smart contracts to trustlessly 
 
 Here’s where things also get kinda cool. Minting your app as an NFA means that **transferring the NFA actually means transferring the app**. So in the future you could see all the same cool stuff people are doing with NFT’s, and now do it with NFA’s. Buy/sell them, DAO/community own them, take out loans against the app (or its cash flow), etc. Imagine something like Flippa which already allows buying/selling of Shopify stores and Amazon businesses, but way cooler, transparent, and trustless.
 
-***
+---
 
 ### Web3 Apps Need Better Censorship Resistance & Accessibility
 
@@ -55,7 +55,7 @@ To be fair, up until recently it has been quite hard for a DAO/smart contract to
 
 To say the least, we’re really excited for NFAs owned by DAOs.
 
-***
+---
 
 ## NFAs in Fleek.xyz
 
@@ -67,7 +67,7 @@ From Fleek’s POV, **NFAs eventually become almost like the backend for the Fle
 
 That future vision gets us about as close to true decentralized hosting (and Fleek platform decentralization) as we can imagine for right now. And yes, the goal is eventually the **Fleek.xyz platform itself will be an NFA**. 🔥
 
-***
+---
 
 ## NFAs V0 & Beyond
 
@@ -77,13 +77,13 @@ Feedback from the web3 community is critical at this early stage. While we under
 
 Going beyond V0, we also touched on some key features of NFAs in this blog that we will continue to develop and share with the community, including:
 
-* **An EIP submission**
-* **A technical overview of the NFA standard**
-* **A deep dive into the community hosting features & how it will enable users to mint their own “prints” of apps for maximum accessibility.**
+- **An EIP submission**
+- **A technical overview of the NFA standard**
+- **A deep dive into the community hosting features & how it will enable users to mint their own “prints” of apps for maximum accessibility.**
 
 For more information about the NFAs implementation’s roadmap, also check out [the NFA Github wiki](https://github.com/fleekxyz/non-fungible-apps/wiki)!
 
-***
+---
 
 As you can tell, we’re super stoked about NFAs! Today we first presented what NFAs are and why they’re a game changer for decentralization, censorship resistance, and community ownership of web3 apps.
 
@@ -91,4 +91,4 @@ If you’re passionate about decentralizing apps, please checkout our initial [N
 
 Lastly, if you’ve got any questions, ideas, or just want to jam with our team, hop into [our Discord](https://discord.gg/fleek). ⚡️
 
-* For more resources visit [our LinkTree](https://linktr.ee/fleek).
+- For more resources visit [our LinkTree](https://linktr.ee/fleek).

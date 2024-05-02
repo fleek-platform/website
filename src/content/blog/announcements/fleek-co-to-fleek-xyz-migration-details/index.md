@@ -1,11 +1,11 @@
 ---
-title: "Fleek.co to Fleek.xyz– Migration Preparation Details"
+title: 'Fleek.co to Fleek.xyz– Migration Preparation Details'
 date: 2023-12-08
-desc: "Information to get you ready for Fleek.co sunsetting targeted for the middle/end of Q1 2024."
-thumbnail: "./migrationprepthumb.jpg"
-image: "./migrationprepthumb.jpg"
-cannonical: ""
-author: "Fleek"
+desc: 'Information to get you ready for Fleek.co sunsetting targeted for the middle/end of Q1 2024.'
+thumbnail: './migrationprepthumb.jpg'
+image: './migrationprepthumb.jpg'
+cannonical: ''
+author: 'Fleek'
 ---
 
 As we get ready for an exciting 2024, all the Fleek Freaks out there should take note of a significant change on the horizon: **We'll be sunsetting Fleek.co & fully migrating to Fleek.xyz towards the middle/end of Q1 2024.** This transition marks more than just a domain change– it’s a significant move towards a more robust, resilient, and web3-aligned platform.

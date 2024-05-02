@@ -1,14 +1,15 @@
 ---
-title: "Fleek v0.0.1 Release Notes: Custom URL Slugs, Validation Improvements"
+title: 'Fleek v0.0.1 Release Notes: Custom URL Slugs, Validation Improvements'
 date: 2023-10-12
-desc: "Get the details on the latest changes coming to the Fleek.xyz platform, including Custom URL slugs, Validation Improvements, and more"
-thumbnail: "./release-notes-oct-12-thumb.png"
-image: "./release-notes-oct-12-thumb.png"
-cannonical: ""
-author: 
-  - "Fleek"
+desc: 'Get the details on the latest changes coming to the Fleek.xyz platform, including Custom URL slugs, Validation Improvements, and more'
+thumbnail: './release-notes-oct-12-thumb.png'
+image: './release-notes-oct-12-thumb.png'
+cannonical: ''
+author:
+  - 'Fleek'
 ---
-We’re back with another Alpha update, this time with a focus on laying down the foundation for an even more reliable platform and some new incoming features.  Plus, if you’ve been hanging out on our alpha waitlist, we’ve got some good news: **you’ll be approved tomorrow**– keep an eye on your email for onboarding instructions!
+
+We’re back with another Alpha update, this time with a focus on laying down the foundation for an even more reliable platform and some new incoming features. Plus, if you’ve been hanging out on our alpha waitlist, we’ve got some good news: **you’ll be approved tomorrow**– keep an eye on your email for onboarding instructions!
 
 If this is the first you’re hearing of the alpha, don’t worry our [application form is still open](https://fleekxyz.typeform.com/alpha-access), and we’ll approve the next batch of users with the next release.
 

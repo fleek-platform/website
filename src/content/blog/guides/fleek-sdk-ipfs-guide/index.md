@@ -1,12 +1,12 @@
 ---
-title: "How to Use Fleek SDK to Pin Files on IPFS: A Step-by-Step Integration Guide for Developers"
+title: 'How to Use Fleek SDK to Pin Files on IPFS: A Step-by-Step Integration Guide for Developers'
 date: 2024-03-22
-desc: "How to build an app that can pin files to IPFS in minutes using the Fleek SDK."
-thumbnail: "./ipfsguide.png"
-image: "./ipfsguide.png"
-cannonical: ""
-author: 
-  - "Olayinka Oshidipe"
+desc: 'How to build an app that can pin files to IPFS in minutes using the Fleek SDK.'
+thumbnail: './ipfsguide.png'
+image: './ipfsguide.png'
+cannonical: ''
+author:
+  - 'Olayinka Oshidipe'
 ---
 
 How to build an app that can pin files to IPFS in minutes using the Fleek SDK.
@@ -30,7 +30,7 @@ Let’s walk through accessing these benefits by building a basic NodeJs app tha
 - **[Fleek SDK](https://docs.fleek.xyz/docs/SDK)**
 - Account on [Fleek.xyz](https://app.fleek.xyz)
 - NodeJs 18+
-    - Head to the [Node Official Website](https://nodejs.org/en) for help getting started with NodeJs
+  - Head to the [Node Official Website](https://nodejs.org/en) for help getting started with NodeJs
 
 After creating or logging into your account on [Fleek.xyz](https://app.fleek.xyz), follow these steps to get started with the Fleek SDK:
 
@@ -63,9 +63,10 @@ npm install -D typescript tsx @types/node dotenv
 ```
 
 - Create a tsconfig.json file with the following configuration:
+
 ```json
 {
-    "compilerOptions": {
+  "compilerOptions": {
     "module": "esnext",
     "allowJs": true,
     "checkJs": true,
@@ -77,7 +78,7 @@ npm install -D typescript tsx @types/node dotenv
     "strict": true,
     "moduleResolution": "node",
     "esModuleInterop": true
-    }
+  }
 }
 ```
 
@@ -103,7 +104,7 @@ fleek projects create
 
 You’ll be prompted to assign a name to your project, once done, you’ll get:
 
-```Success! New projects created on Fleek```
+`Success! New projects created on Fleek`
 
 While still on your terminal, run:
 
@@ -134,10 +135,10 @@ dotenv.config();
 const pat = process.env.PAT || '';
 const project_id = process.env.PROJECT_ID || '';
 const patService = new PersonalAccessTokenService({
-    personalAccessToken: pat,
-    projectId: project_id,
-})
-const fleekSdk = new FleekSdk({ accessTokenService: patService })
+  personalAccessToken: pat,
+  projectId: project_id,
+});
+const fleekSdk = new FleekSdk({ accessTokenService: patService });
 ```
 
 6. **Upload a File to IPFS**
@@ -145,15 +146,15 @@ const fleekSdk = new FleekSdk({ accessTokenService: patService })
 After you’ve set up your PAT with the SDK, you should be all set to start uploading files to IPFS through your new NodeJS app:
 
 - Define an asynchronous function to upload a file to IPFS:
-    - Typescript:
+  - Typescript:
 
 ```typescript
 async function uploadFileToIPFS(filename: string, content: Buffer) {
-    const result = await fleekSdk.ipfs().add({
-        path: filename,
-        content: content
-    });
-    return result;
+  const result = await fleekSdk.ipfs().add({
+    path: filename,
+    content: content,
+  });
+  return result;
 }
 ```
 
@@ -161,24 +162,25 @@ async function uploadFileToIPFS(filename: string, content: Buffer) {
 
 ```javascript
 async function uploadFileToIPFS(filename, content) {
-    const result = await fleekSdk.ipfs().add({
-        path: filename,
-        content: content
-    });
-    return result;
+  const result = await fleekSdk.ipfs().add({
+    path: filename,
+    content: content,
+  });
+  return result;
 }
 ```
+
 - Run the upload function with your desired file:
 
 ```javascript
 const fileContent = fs.readFileSync('ss.png'); //reads file from root dir
 uploadFileToIPFS('ss.png', fileContent)
-    .then(result => {
-        console.log('File uploaded to IPFS:', result);
-    })
-    .catch(error => {
-        console.error('Error uploading file to IPFS:', error);
-    });
+  .then((result) => {
+    console.log('File uploaded to IPFS:', result);
+  })
+  .catch((error) => {
+    console.error('Error uploading file to IPFS:', error);
+  });
 ```
 
 - Full index.ts code:
@@ -218,7 +220,7 @@ async function uploadFileToIPFS(filename: string, content: Buffer) {
         process.exit();
 
 });
-   
+
 ```
 
 - Run:
@@ -231,7 +233,7 @@ npx tsx index.ts
 
 ```
 File uploaded to IPFS: {
-    cid: 
+    cid:
 CID (bafkreicosqi7xwleml3sdrojtitgxq2n52vvw5zeo67nwfnshycenuzmjy),
     size: 81833,
     path: 'fleek.jpg'
@@ -239,6 +241,7 @@ CID (bafkreicosqi7xwleml3sdrojtitgxq2n52vvw5zeo67nwfnshycenuzmjy),
 }
 IPFS URL: https://cf-ipfs.io/bafkreicosqi7xwleml3sdrojtitgxq2n52vvw5zeo67nwfnshycenuzmjy
 ```
+
 ---
 
 And just like that you’re done! You can use this NodeJS app to easily pin, manage, and access your files stored on IPFS using the listed CID.

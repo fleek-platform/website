@@ -1,10 +1,10 @@
 ---
-title: "Build a dApp with Fleek’s Ethereum Boilerplate, and Host it on IPFS."
+title: 'Build a dApp with Fleek’s Ethereum Boilerplate, and Host it on IPFS.'
 date: 2023-02-17
-desc: "Build an Ethereum dApp end-to-end with a fully open-source boilerplate with no binding dependencies, and a next.js frontend."
-thumbnail: "./os-ethereum-2.png"
-image: "./os-ethereum-2.png"
-cannonical: "https://blog.fleek.xyz/post/ethereum-boilerplate-ipfs-nextjs/"
+desc: 'Build an Ethereum dApp end-to-end with a fully open-source boilerplate with no binding dependencies, and a next.js frontend.'
+thumbnail: './os-ethereum-2.png'
+image: './os-ethereum-2.png'
+cannonical: 'https://blog.fleek.xyz/post/ethereum-boilerplate-ipfs-nextjs/'
 ---
 
 Juan here from the DevRel team! dApps are gaining popularity due to their decentralized nature, which provides enhanced security and transparency to users. However, **developing a dApp from scratch can be a challenging task**.
@@ -23,14 +23,14 @@ That's why I created the [ethereum-boilerplate](https://github.com/fleekxyz/ethe
 6. [Moving into Production](#moving-into-production)
 7. [Deploying to Fleek!](#deploying-the-frontend-to-fleek)
 
-***
+---
 
 ## Getting Started with the Ethereum Boilerplate
 
 To get started with the ethereum-boilerplate, simply **clone the repository and install the dependencies** by running `pnpm install`. Then, start the project using `pnpm dev`. It's that simple!
 
     TL;DR - clone, install, run!
-    
+
     git clone https://github.com/fleekxyz/ethereum-boilerplate
     pnpm install
     pnpm dev
@@ -39,16 +39,16 @@ To get started with the ethereum-boilerplate, simply **clone the repository and 
 
 This ethereum-boilerplate utilizes the following stack:
 
-* [Hardhat](https://hardhat.org/) for setting up the Ethereum development environment
-* [Next.js](https://nextjs.org/) for building the frontend application
-* [TypeScript](https://www.typescriptlang.org/) for type safety and error checking
-* [wagmi](https://wagmi.sh/) for communicating with deployed contracts using React hooks
-* [RainbowKit](https://www.rainbowkit.com/) for wallet integration and authentication
-* [Tailwind](https://tailwindcss.com/) for easy and efficient styling
+- [Hardhat](https://hardhat.org/) for setting up the Ethereum development environment
+- [Next.js](https://nextjs.org/) for building the frontend application
+- [TypeScript](https://www.typescriptlang.org/) for type safety and error checking
+- [wagmi](https://wagmi.sh/) for communicating with deployed contracts using React hooks
+- [RainbowKit](https://www.rainbowkit.com/) for wallet integration and authentication
+- [Tailwind](https://tailwindcss.com/) for easy and efficient styling
 
 Additionally, the boilerplate includes a **suggested deployment strategy** using Alchemy for deploying smart contracts and Fleek CLI for deploying the front end using IPFS. This allows for a fully decentralized application, and it can be replaced by your preferred flow.
 
-***
+---
 
 ## The Smart Contract
 
@@ -64,7 +64,7 @@ You can see the implementation of the Token contract at contracts/Token.sol, and
 
 ![Ethereum transfer example interface](https://storage.fleek.ooo/27a60cdd-37d3-480c-ae88-3ad4ca886b13-bucket/imgs/ethereum-frontend-nextjs.png)
 
-*A simple frontend base with Rainbowkit-enabled authentication and a transfer test.*
+_A simple frontend base with Rainbowkit-enabled authentication and a transfer test._
 
 The ethereum-boilerplate **includes a Next.js application inside the frontend folder**, with minimal configuration, that utilizes **TypeScript**, **wagmi hooks** for communicating with the deployed contract, **RainbowKit** for wallet integration, and **tailwind** for styling.
 
@@ -74,7 +74,7 @@ A cool piece is that if you need to access your **contract's ABI or address, you
 
 ![contracts.json code sample](https://storage.fleek.ooo/27a60cdd-37d3-480c-ae88-3ad4ca886b13-bucket/imgs/abi-code.png)
 
-***
+---
 
 ## Customizing the Boilerplate
 
@@ -91,7 +91,7 @@ In the tasks folder, **you can create tasks that will be run by hardhat**. You c
 You’ll also need to add the task to the `hardhat.config.ts` like this:
 
     import faucet from "./tasks/faucet";
-    
+
     task("faucet", "Add funds to selected address")
     	.addPositionalParam("receiver", "The Address that will receive them")
         .setAction(async (args, { ethers }) => {
@@ -105,13 +105,13 @@ You can now run the faucet task on localhost by running the following command:
 
 **Now let’s move on to the Frontend located inside the frontend folder**. As explained in the previous section, it uses NextJs as the framework of choice. You can check [Nextjs documentation](https://nextjs.org/docs/getting-started) for further details.
 
-**Inside pages/_app.tsx you can check the configuration for wagmi and RainbowKit**. You should also check the Dapp component, located inside the components folder. This component contains the default business logic to implement a simple transfer. You can use it as a reference for understanding how the useSendTransaction and usePrepareSendTransaction wagmi hooks work, making it super easy to interact with your contracts. You can check wagmi’s documentation [here](https://wagmi.sh/).
+**Inside pages/\_app.tsx you can check the configuration for wagmi and RainbowKit**. You should also check the Dapp component, located inside the components folder. This component contains the default business logic to implement a simple transfer. You can use it as a reference for understanding how the useSendTransaction and usePrepareSendTransaction wagmi hooks work, making it super easy to interact with your contracts. You can check wagmi’s documentation [here](https://wagmi.sh/).
 
 For **handling the wallet connection, I added** **RainbowKit’s ConnectButton** component inside the `NavBar.tsx file`
 
 And that’s it! By following these steps, you should understand the boilerplate’s architecture and which files can be modified to start developing your new project.
 
-***
+---
 
 ## Moving Into Production
 
@@ -122,7 +122,7 @@ In this case, we will use the Goerli test network as an example. To get started,
 Once you have your API key, add it to your hardhat.config.ts file like this:
 
     const { ALCHEMY_API_KEY, PRIVATE_KEY } = process.env;
-    
+
     const config: HardhatUserConfig = {
       solidity: "0.8.4",
       defaultNetwork: "hardhat",
@@ -164,11 +164,11 @@ And create a new site
 When you start the process, you will be prompted to **create a new site** or use an existing one.
 
      > fleek sites init
-     
+
      WARN! Fleek CLI is in beta phase, use it under your own responsibility
-    
+
     ? Choose one of the existing sites or create a new one. ›
-    
+
     ❯ Create a new site
 
 Let's start by creating a new one and **inputting a name** for the site.
@@ -190,12 +190,12 @@ You can now **deploy your site to IPFS** by running `fleek sites deploy`:
 
      > fleek sites deploy
      WARN! Fleek CLI is in beta phase, use it under your own responsibility
-    
+
     > Success! Deployed! IPFS CID: QmQ88SAK9shZ7NUFTPJDcS9zuMmU7tDPbC9e9j5264Yfj4
 
 If you are interested in other features like **continuous integration**, you can check this guide on deploying to fleek using GitHub Actions [here](https://docs.fleek.xyz/docs/CLI/sites#continuous-integration-ci).
 
-***
+---
 
 Done! With this boilerplate, you can develop a dApp fully and deploy its frontend onto IPFS, all from a single unified repository. We’ll continue to iterate through this boilerplate to add options in the future, so feel free to hop into our [Discord](https://discord.gg/fleek) for requests or open an [issue/PR](https://github.com/fleekxyz/ethereum-boilerplate) on the repo itself!
 
