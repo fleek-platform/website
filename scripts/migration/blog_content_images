@@ -49,8 +49,7 @@ find "$target_path" -type f \( -name "*.md" -o -name "*.mdx" \) | while read -r 
 
 	target_dir=$(dirname "$file")
 
-	image_paths=$(grep -o '!\[.*\]\(.*\)' "$file" | sed -E 's/!\[.*\]\((.*)\)/\1/')
-	image_paths=$(echo "$image_paths" | grep -v '^http://\|^https://')
+	image_paths=$(grep -oE '\./images/[^]]*.([pP]ng|[jJ]pe?g|[gG]if|webp)' "$file")
 
     if [[ -z "$image_paths" ]]; then
 		echo "🦖 Skip! Images not found in $file"
@@ -58,7 +57,8 @@ find "$target_path" -type f \( -name "*.md" -o -name "*.mdx" \) | while read -r 
         continue
     fi
 
-    while IFS= read -r image_path; do
+	for image_path in $image_paths; do
+		echo "image_path -> $image_path"
 	    origin_content_img_path="$image_path"
         image_path=$(echo "$image_path" | sed 's|^\./||')
 
@@ -85,7 +85,7 @@ find "$target_path" -type f \( -name "*.md" -o -name "*.mdx" \) | while read -r 
 		fi
 		
 		echo
-    done <<< "$image_paths"
+    done
 
 	echo
 	echo
