@@ -13,9 +13,9 @@ const collection = 'references';
 
 // TODO: load title from settings
 const pageTitle = 'References';
-const allPosts: CollectionEntry<'references'>[] = (await getCollection('references')).sort(
-  (a, b) => b.data.date.valueOf() - a.data.date.valueOf()
-);
+const allPosts: CollectionEntry<'references'>[] = (
+  await getCollection('references')
+).sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf());
 ---
 
 <Layout title="Fleek | Build Lightning Fast Web3 Apps">

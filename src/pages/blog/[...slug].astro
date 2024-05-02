@@ -27,8 +27,7 @@ const githubEditUrlPathname = generateGitHubEditLink({
   <article class="blog">
     <h1>{entry.data.title}</h1>
     {
-      entry.data?.image?.src
-      && (
+      entry.data?.image?.src && (
         <p>
           <img src={entry.data.image.src} alt={entry.data.title} />
         </p>

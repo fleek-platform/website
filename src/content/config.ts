@@ -18,7 +18,7 @@ const schema = ({ image }: { image: ImageFunction }) =>
     title: z.string(),
     image: image().optional(),
     thumbnail: image().optional(),
-    date: z.date().optional(),
+    date: z.date(),
     desc: z.string().optional(),
     author: z.union([z.string(), z.array(z.string())]).optional(),
     order: z.number().optional(),
