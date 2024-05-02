@@ -1,94 +1,49 @@
 import { z, defineCollection } from 'astro:content';
+import type { ImageFunction } from 'astro:content';
 
-// TODO: Make generic since most types are similar
 // TODO: remove optionals
+const schema = ({ image }: {
+  image: ImageFunction;
+}) =>
+ z.object({
+    title: z.string(),
+    image: image().optional(),
+    thumbnail: image().optional(),
+    date: z.date().optional(),
+    desc: z.string().optional(),
+    author: z.union([z.string(), z.array(z.string())]).optional(),
+    order: z.number().optional(),
+    tags: z.array(z.string()).optional(),
+ });
+
 const docsCollection = defineCollection({
   type: 'content',
-  schema: ({ image }) =>
-    z.object({
-      title: z.string(),
-      pubDate: z.date().optional(),
-      description: z.string().optional(),
-      author: z.union([z.string(), z.array(z.string())]).optional(),
-      image: image().optional(),
-      order: z.number().optional(),
-      tags: z.array(z.string()).optional(),
-    }),
+  schema,
 });
 
-// TODO: remove optionals
 const blogCollection = defineCollection({
   type: 'content',
-  schema: ({ image }) =>
-    z.object({
-      title: z.string(),
-      image: image(),
-      thumbnail: image(),
-      date: z.date().optional(),
-      desc: z.string().optional(),
-      author: z.union([z.string(), z.array(z.string())]).optional(),
-      order: z.number().optional(),
-      tags: z.array(z.string()).optional(),
-    }),
+  schema,
 });
 
 const guidesCollection = defineCollection({
   type: 'content',
-  schema: ({ image }) =>
-    z.object({
-      title: z.string(),
-      image: image(),
-      thumbnail: image(),
-      date: z.date().optional(),
-      desc: z.string().optional(),
-      author: z.union([z.string(), z.array(z.string())]).optional(),
-      order: z.number().optional(),
-      tags: z.array(z.string()).optional(),
-    }),
+  schema,
 });
 
 const templatesCollection = defineCollection({
   type: 'content',
-  schema: ({ image }) =>
-    z.object({
-      title: z.string(),
-      image: image(),
-      thumbnail: image(),
-      date: z.date().optional(),
-      desc: z.string().optional(),
-      author: z.union([z.string(), z.array(z.string())]).optional(),
-      order: z.number().optional(),
-      tags: z.array(z.string()).optional(),
-    }),
+  schema,
 });
 
 const referencesCollection = defineCollection({
   type: 'content',
-  schema: ({ image }) =>
-    z.object({
-      title: z.string(),
-      image: image().optional(),
-      thumbnail: image().optional(),
-      date: z.date().optional(),
-      desc: z.string().optional(),
-      author: z.string().optional(),
-      order: z.number().optional(),
-      tags: z.array(z.string()).optional(),
-    }),
+  schema,
 });
 
 const legalCollection = defineCollection({
   type: 'content',
-  schema: ({ image }) =>
-    z.object({
-      title: z.string(),
-      image: image().optional(),
-      thumbnail: image().optional(),
-      date: z.date().optional(),
-      desc: z.string().optional(),
-      author: z.string().optional(),
-      order: z.number().optional(),
-    }),
+  schema,
 });
 
 // Export a single `collections` object to register your collection(s)
