@@ -10,7 +10,7 @@ const docsCollection = defineCollection({
       pubDate: z.date().optional(),
       description: z.string().optional(),
       author: z.union([z.string(), z.array(z.string())]).optional(),
-      image: image(),
+      image: image().optional(),
       order: z.number().optional(),
       tags: z.array(z.string()).optional(),
     }),
