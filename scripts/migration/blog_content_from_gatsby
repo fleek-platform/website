@@ -1,0 +1,64 @@
+#!/bin/bash
+
+# Instructions
+# To execute the script pass the parameter arguments for origin and target paths, e.g. ../gatsby-blog/src/posts/post and ./src/content/blog
+if [[ "$#" -ne 2 ]]; then
+    echo "👹 Oops! Missing origin and target paths! Please do $0 <origin_path> <target_path>"
+    exit 1
+fi
+
+origin_path="$1"
+target_path="$2"
+
+mkdir -p "$target_path"
+
+if [[ ! "$3" == 'write' ]]; then
+  echo "🤖 Dry-run mode"
+else
+  echo "🤖 Blog migration process in write-run mode"
+  while read -rp "❓Are you sure you want to continue (yes/no)? " answer; do
+    if [[ "$answer" == [nN] || "$answer" == [nN][oO] ]]; then
+	  echo "🦖 Exited the blog content migration process"
+	  exit 1
+    elif [[ "$answer" == [yY] || "$answer" == [yY][eE][sS] ]]; then
+      echo "🙏 The migration process will now start, be patient..."
+	  sleep 3
+      break;
+    fi
+	
+    echo  "💩 Uh-oh! We expect a yes or no answer. Try again...\n"
+  done;
+fi
+
+# Traverse the origin path and copy markdown files
+find "$origin_path" -type f \( -name "*.md" -o -name "*.mdx" \) | while read -r file; do
+    category=$(grep -m 1 '^category:' "$file" | sed -e 's/^category: //' -e 's/["'\'']//g' | tr '[:upper:]' '[:lower:]' | tr -d '[:punct:]' | tr ' ' '-')
+	
+    filename=$(basename "$file" | sed -e "s|\.md$||" -e "s|\.mdx$||")
+
+    target_dir="$target_path/$category/$filename"
+
+	if [[ ! "$3" == 'write' ]]; then
+	  echo "🤖 Dry-run mode"
+	  echo
+	  echo "- Category -> $category"
+	  echo "- Filename -> $filename"
+	  echo "- Target dir -> $target_dir"
+	  echo
+	  echo "Would write to $target_dir/index.md"
+	  echo
+	else
+      if ! mkdir -p "$target_dir"; then
+	    echo "👹 Oops! Failed to create $target_dir for some reason..."
+		exit 1;
+	  fi
+
+      if ! cp "$file" "$target_dir/index.md"; then
+	    echo "⚠️ WANRING! Failed to copy $file to $target_dir/index.md"
+	  fi
+
+	  echo "✅ Copied $file to $target_dir/index.md"
+	fi
+done
+
+echo "👍 Migration process completed."
