@@ -623,7 +623,7 @@ Learn more [here](https://github.com/JonasKruckenberg/imagetools/)
 
 ## ⛵️ Migration
 
-### 🤖 Migrate Gatsby Content
+### Migrate Gatsby Content
 
 This section provides detailed instructions on how to execute the script for migrating markdown files from one location to another. The script is designed to organize markdown files into a structured directory based on their category, extracted from the file content.
 
