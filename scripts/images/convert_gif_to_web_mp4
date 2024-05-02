@@ -1,0 +1,50 @@
+#!/bin/bash
+
+if [ "$#" -ne 1 ]; then
+    echo "Usage: $0 <target_directory>"
+    exit 1
+fi
+
+if [[ "$#" -ne 1 && ! "$2" == 'write' ]]; then
+    echo "👹 Oops! Missing origin and target paths! Please do $0 <target_path>"
+    exit 1
+fi
+
+target_dir="$1"
+
+if [[ ! "$2" == 'write' ]]; then
+  echo "🤖 Dry-run mode"
+else
+  echo "🤖 Gif to Mp4 process in write-run mode"
+  while read -rp "❓Are you sure you want to continue (yes/no)? " answer; do
+    if [[ "$answer" == [nN] || "$answer" == [nN][oO] ]]; then
+	  echo "🦖 Exited the Gif to Mp4 process"
+	  exit 1
+    elif [[ "$answer" == [yY] || "$answer" == [yY][eE][sS] ]]; then
+      echo "🙏 The Gift to Mp4 will now start, be patient..."
+	  sleep 3
+      break;
+    fi
+	
+    echo  "💩 Uh-oh! We expect a yes or no answer. Try again..."
+  done;
+fi
+
+find "$target_dir" -type f -name "*.gif" | while read -r gif; do
+    dir=$(dirname "$gif")
+    base_name=$(basename "$gif" .gif)
+    
+    output="$dir/$base_name.mp4"
+    
+	if [[ ! "$2" == 'write' ]]; then
+		echo "🫡 Should convert $gif -> $output"
+	else
+	    if ! ffmpeg -i "$gif" -vf "fps=24,scale=480:-1:flags=lanczos" -c:v libx264 -preset slow -crf 22 -pix_fmt yuv420p -movflags +faststart "$output"; then
+			echo "👹 Oops! Failed to convert $gif -> $output"
+		else
+			echo "✅ Converted $gif to $output"
+		fi
+	fi    
+done
+
+echo "👍 Gif to Mp4 process completed."
