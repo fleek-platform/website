@@ -31,7 +31,7 @@ This repository contains the source code and assets for the Fleek.xyz website, w
 - [Development](#-development)
     - [Search server](#-search-server)
     - [Images (optimization)](#-images-optimization)
-- [Migration](#%EF%B8%8Fmigration)
+- [Migration](#-migration)
     - [Migrate Gatsby content](#migrate-gatsby-content)
 
 # Setup
@@ -621,7 +621,7 @@ const html = `<picture>
 
 Learn more [here](https://github.com/JonasKruckenberg/imagetools/)
 
-## ⛵️ Migration
+## 🤖 Migration
 
 ### Migrate Gatsby Content
 
