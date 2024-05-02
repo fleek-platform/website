@@ -1,10 +1,8 @@
 ---
 title: "The Build3rs Stack: Progressive Web Apps (PWAs)"
-category: "Guides"
-date: "2023-10-10 09:00:00"
+date: 2023-10-10
 desc: "Learn about Progressive Web Apps (PWAs)– what they are, why you should consider turning your app into one, and some best practices in building with PWAs."
 thumbnail: "./images/general/pwa-thumb.jpg"
-alt: "builders stack PWAs"
 image: "./images/general/pwa-thumb.jpg"
 cannonical: ""
 author: 

@@ -1,10 +1,8 @@
 ---
 title: "The Fleek Node SDK Beta Has Released!"
-category: "Announcements"
-date: "2023-03-24 10:00:00"
+date: 2023-03-24
 desc: "The Node SDK is now live, integrate Fleek’s services into Node.js applications or environments!"
 thumbnail: "./images/general/nodejsrelease.png"
-alt: "NODE JS SDK RELEASE"
 image: "./images/general/nodejsrelease.png"
 cannonical: ""
 ---

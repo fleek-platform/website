@@ -1,10 +1,8 @@
 ---
 title: "Build3rs Stack: Huddle01"
-category: "Guides"
-date: "2023-08-26 09:00:00"
+date: 2023-08-26
 desc: "The builder's guide to Huddle01- the decentralized communication protocol, network, and app bringing video, audio, streaming, and more to any web3 protocol."
 thumbnail: "./images/general/huddle01thumb.jpg"
-alt: "builders stack Huddle01"
 image: "./images/general/huddle01thumb.jpg"
 cannonical: ""
 author: 

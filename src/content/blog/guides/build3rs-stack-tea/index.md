@@ -1,10 +1,8 @@
 ---
 title: "Build3rs Stack: Tea.xyz"
-category: "Guides"
-date: "2023-07-03 09:00:00"
+date: 2023-07-03
 desc: "The builder's guide to Tea, a web3 package manager that adds automation, developer environments and a little bit of magic to software development."
 thumbnail: "./images/general/teaxyz-thumbnil.jpg"
-alt: "builders stack tea"
 image: "./images/general/teaxyz-thumbnil.jpg"
 cannonical: ""
 author: 

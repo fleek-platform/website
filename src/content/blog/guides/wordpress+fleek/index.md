@@ -1,10 +1,8 @@
 ---
 title: "How to Deploy a Wordpress Website onto IPFS."
-category: "Guides"
-date: "2023-02-12 10:00:00"
+date: 2023-02-12
 desc: "In this tutorial, we will show you how simple it is to export a Wordpress site, host it on IPFS and share it with the world."
 thumbnail: "./images/general/wordfinal1.jpg"
-alt: "the graph nfas"
 image: "./images/general/wordfinal1.jpg"
 cannonical: 
 ---

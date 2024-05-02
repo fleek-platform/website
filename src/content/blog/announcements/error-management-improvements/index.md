@@ -1,10 +1,8 @@
 ---
 title: "Improved CLI Error Handling Update"
-category: "Announcements"
-date: "2023-04-25 09:00:00"
+date: 2023-04-25
 desc: "The Fleek.xyz beta receives an update focused on sturdyness and security. Dive in!"
 thumbnail: "./images/general/cli-error-handling.png"
-alt: "Fleek Error Handling Enhancements & More"
 image: "./images/general/cli-error-handling.png"
 cannonical: ""
 ---

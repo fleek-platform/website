@@ -1,6 +1,5 @@
 ---
 title: 'Fleek v0.0.4 Release Notes: ENS Integration, Deployment Details, File Upload Size Limit Increase, and more'
-category: 'Announcements'
 date: 2024-01-22
 desc: 'Get the latest on the changes coming to the Fleek Alpha with v0.0.4, including ENS Integration, Deployment Details, File Upload Size Limit and more!'
 thumbnail: './fleekreleasenotes06.jpg'

@@ -1,10 +1,8 @@
 ---
 title: "Fleek.xyz, the Closed Alpha Release"
-category: "Announcements"
-date: "2023-08-31 09:00:00"
+date: 2023-08-31
 desc: "We are opening Fleek’s new app early for testers, to prepare for the full V1 release. Get whitelisted, and give us your feedback."
 thumbnail: "./images/general/alpha-thumb.png"
-alt: "Fleek.xyz closed alpha release"
 image: "./images/general/alpha-thumb.png"
 cannonical: ""
 author: "Fleek"

@@ -1,10 +1,8 @@
 ---
 title: "Astro + Fleek Starter Kit: Getting Started Guide"
-category: "Templates"
-date: "2023-04-27 09:00:00"
+date: 2023-04-27
 desc: "Quickly and easily spin up a static site & deploy it to IPFS with our new Astro template!"
 thumbnail: "./images/general/astro.png"
-alt: ""
 image: "./images/general/astro.png"
 cannonical: ""
 author: "Juan Angarita"

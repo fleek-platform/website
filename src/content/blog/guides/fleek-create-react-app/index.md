@@ -1,10 +1,8 @@
 ---
 title: "Create and Deploy a React Application to IPFS in Under Ten Minutes"
-category: "Guides"
-date: "2020-03-16 09:00:00"
+date: 2020-03-16
 desc: "A React application can be bootstrapped in a matter of minutes with create-react-app. Fleek allows apps to be deployed to IPFS in a matter of minutes."
 thumbnail: "./images/general/reactimageupdate.png"
-alt: "Create and Deploy a React App"
 image: "./images/general/reactimageupdate.png"
 cannonical: ""
 ---

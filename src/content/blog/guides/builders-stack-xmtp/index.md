@@ -1,10 +1,8 @@
 ---
 title: "Build3rs Stack: XMTP"
-category: "Guides"
-date: "2023-08-16 09:00:00"
+date: 2023-08-16
 desc: "The builder's guide to XMTP- the decentralized protocol providing encrypted, interoperable messaging capabilities to users, wallets, and apps"
 thumbnail: "./images/general/xmtp_thumbnail.jpg"
-alt: "builders stack XMTP"
 image: "./images/general/xmtp_thumbnail.jpg"
 cannonical: ""
 author: 

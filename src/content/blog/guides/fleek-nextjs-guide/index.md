@@ -1,10 +1,8 @@
 ---
 title: "How To Deploy A Next.js App To Fleek.xyz: A Step-by-Step Guide for Developers"
-category: "Guides"
-date: "2024-04-03 08:00:00"
+date: 2024-04-03
 desc: "How to deploy a static Next.js app using the Fleek CLI."
 thumbnail: "./images/general/nextjsguide.png"
-alt: "How to deploy a static Next.js app using the Fleek CLI"
 image: "./images/general/nextjsguide.png"
 cannonical: ""
 author: 

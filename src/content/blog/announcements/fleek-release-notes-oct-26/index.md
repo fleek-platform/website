@@ -1,10 +1,8 @@
 ---
 title: "Fleek v0.0.2 Release Notes: Primary Domains, Lens Template, Faster Upload Speeds"
-category: "Announcements"
-date: "2023-10-26 08:00:00"
+date: 2023-10-26
 desc: "Get the latest on the changes coming to the Fleek Alpha with v0.0.2, including Primary Domains, Lens Template, Improved Upload Speeds, and more!"
 thumbnail: "./images/general/fleekreleasenotes04.png"
-alt: "Fleek Release Notes v0.0.2"
 image: "./images/general/fleekreleasenotes04.png"
 cannonical: ""
 author: 

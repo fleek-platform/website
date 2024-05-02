@@ -1,10 +1,8 @@
 ---
 title: "Fleek Leak 01"
-category: "Announcements"
-date: "2023-01-12 10:00:00"
+date: 2023-01-12
 desc: "Progress update incoming ⚡️ Over the last few weeks we’ve been jamming on our CLI beta (Jan 18th), adding compute to Fleek, and an NFAs MVP. Let’s dive into why & what you can expect!"
 thumbnail: "./images/general/fleek-leak-01.png"
-alt: "fleek leak 01"
 image: "./images/general/fleek-leak-01.png"
 cannonical: "https://blog.fleek.xyz/post/fleek-leak-01/"
 ---

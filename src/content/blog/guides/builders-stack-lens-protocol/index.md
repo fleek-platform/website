@@ -1,10 +1,8 @@
 ---
 title: "Build3rs Stack: Lens Protocol"
-category: "Guides"
-date: "2023-04-07 07:00:00"
+date: 2023-04-07
 desc: "The builders guide to Lens Protocol, the decentralized and composable social graph."
 thumbnail: "./images/general/lens-builders.png"
-alt: "Build3rs Stack: Lens Protocol"
 image: "./images/general/lens-builders.png"
 cannonical: ""
 ---

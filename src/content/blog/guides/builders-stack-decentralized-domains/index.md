@@ -1,10 +1,8 @@
 ---
 title: "Build3rs Stack: Decentralized Domains with ENS, HNS, and Unstoppable Domains."
-category: "Guides"
-date: "2023-04-21 07:00:00"
+date: 2023-04-21
 desc: "The builders guide to decentralized domains, including ENS, HNS, and Unstoppable Domains!"
 thumbnail: "./images/general/web3-domains.png"
-alt: "Build3rs Stack: Decentralized Domains with ENS, HNS, and Unstoppable Domains."
 image: "./images/general/web3-domains.png"
 cannonical: ""
 ---

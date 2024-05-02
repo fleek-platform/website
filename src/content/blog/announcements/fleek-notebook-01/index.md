@@ -1,10 +1,8 @@
 ---
 title: "Fleek Release Notes 01: Alpha Release, New Documentation, New CLI/SDK Version"
-category: "Announcements"
-date: "2023-09-16 08:00:00"
+date: 2023-09-16
 desc: "Take a dive into the first Fleek Release Notes- a knitty-gritty, regular release notes covering Features, Fixes, and Improvements"
 thumbnail: "./images/general/Fleekreleasenotes01.png"
-alt: "Fleek Release Notes 01"
 image: "./images/general/Fleekreleasenotes01.png"
 cannonical: ""
 author: 

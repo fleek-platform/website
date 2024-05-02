@@ -1,10 +1,8 @@
 ---
 title: "The Custom Domains Service Arrives to the CLI Beta!"
-category: "Announcements"
-date: "2023-03-16 09:00:00"
+date: 2023-03-16
 desc: "The Domains Service is now live, map any DNS domain to your Fleek-deployed sites with this new feature on the CLI."
 thumbnail: "./images/general/dns-fleek.png"
-alt: "Fleek Custom DNS Domains"
 image: "./images/general/dns-fleek.png"
 cannonical: ""
 ---

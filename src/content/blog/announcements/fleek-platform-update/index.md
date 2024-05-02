@@ -1,10 +1,8 @@
 ---
 title: "Fleek.xyz Platform Update"
-category: "Announcements"
-date: "2023-06-30 08:00:00"
+date: 2023-06-30
 desc: "Get the latest on our summer plans for the incoming Fleek.xyz launch, from NFAs, to Fleek.co Sunsetting, new features, and more!"
 thumbnail: "./images/general/fp-update.png"
-alt: "Fleek.xyz platform updates"
 image: "./images/general/fp-update.png"
 cannonical: ""
 author: "Fleek"

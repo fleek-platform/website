@@ -1,10 +1,8 @@
 ---
 title: "Build3rs Stack: IPFS"
-category: "Guides"
-date: "2023-03-04 10:00:00"
+date: 2023-03-04
 desc: "The builder's guide to IPFS: how to use it in your project's Web3 infra-stack, and what you can achieve with it."
 thumbnail: "./images/general/ipfs-net.png"
-alt: "builders stack ipfs"
 image: "./images/general/ipfs-net.png"
 cannonical: ""
 ---

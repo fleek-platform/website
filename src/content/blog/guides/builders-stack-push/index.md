@@ -1,10 +1,8 @@
 ---
 title: "Build3rs Stack: Push Protocol"
-category: "Guides"
-date: "2023-03-23 10:00:00"
+date: 2023-03-23
 desc: "The builder's guide to Push Protocol, the web3 communication protocol: how to use it in your project's Web3 infra-stack, and what you can achieve with it."
 thumbnail: "./images/general/push.png"
-alt: "builders stack push"
 image: "./images/general/push.png"
 cannonical: ""
 ---

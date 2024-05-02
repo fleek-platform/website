@@ -1,10 +1,8 @@
 ---
 title: "Build3rs Stack: Lit Protocol"
-category: "Guides"
-date: "2023-04-14 10:00:00"
+date: 2023-04-14
 desc: "The builders guide to Lit Protocol, the most important features, applied use-cases, and why it’s important to understand what you can build with it as a web3 developer."
 thumbnail: "./images/general/lit-protocol.png"
-alt: "builders stack lit"
 image: "./images/general/lit-protocol.png"
 cannonical: ""
 ---

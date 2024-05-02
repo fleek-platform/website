@@ -1,10 +1,8 @@
 ---
 title: "Exploring the Upgrades in Managed Deployments on Fleek.xyz ⚡"
-category: "Announcements"
-date: "2023-06-09 08:00:00"
+date: 2023-06-09
 desc: "We're taking the managed deployments feature you know and love from Fleek.co, and supercharging it to better fit developer needs!"
 thumbnail: "./images/general/manageddeploymentsxyzco.jpg"
-alt: "managed deployment improvements Fleek.xyz"
 image: "./images/general/manageddeploymentsxyzco.jpg"
 cannonical: ""
 author: 

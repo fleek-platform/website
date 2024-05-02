@@ -1,10 +1,8 @@
 ---
 title: "Build3rs Stack: Radicle"
-category: "Guides"
-date: "2023-04-28 09:00:00"
+date: 2023-04-28
 desc: "The builder's guide to Radicle- the decentralized code collaboration platform! Learn how to integrate the P2P code collab network in your web3 builds."
 thumbnail: "./images/general/radicle-image.png"
-alt: "builders stack radicle"
 image: "./images/general/radicle-image.png"
 cannonical: ""
 author: 

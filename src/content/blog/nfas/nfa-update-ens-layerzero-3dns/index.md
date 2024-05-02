@@ -1,10 +1,8 @@
 ---
 title: "NFA Update: ENS, LayerZero, 3DNS"
-category: "NFAs"
-date: "2023-08-29 09:00:00"
+date: 2023-08-29
 desc: "An update on the new NFA release timeline, and a look at our updated ENS, LayerZero, and 3DNS-based design"
 thumbnail: "./images/general/nfa-update-aug-29-thumb.png"
-alt: "NFA update: ENS, LayerZero, 3DNS"
 image: "./images/general/nfa-update-aug-29-thumb.png"
 cannonical: ""
 author: 

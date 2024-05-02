@@ -1,10 +1,8 @@
 ---
 title: "How to Use Fleek SDK to Pin Files on IPFS: A Step-by-Step Integration Guide for Developers"
-category: "Guides"
-date: "2024-03-22 08:00:00"
+date: 2024-03-22
 desc: "How to build an app that can pin files to IPFS in minutes using the Fleek SDK."
 thumbnail: "./images/general/ipfsguide.png"
-alt: "Fleek SDK IPFS Guide"
 image: "./images/general/ipfsguide.png"
 cannonical: ""
 author: 

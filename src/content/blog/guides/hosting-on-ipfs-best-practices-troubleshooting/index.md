@@ -1,10 +1,8 @@
 ---
 title: "Best Practices for Building IPFS-hosted Websites"
-category: "Guides"
-date: "2023-02-23 11:00:00"
+date: 2023-02-23
 desc: " However, there are still some differences and best practices to keep in mind when deploying an IPFS website so that you can ensure your website is working correctly at all times."
 thumbnail: "./images/general/best-practices-ipfs.png"
-alt: "IPFS Hosting, best practices"
 image: "./images/general/best-practices-ipfs.png"
 ---
 

@@ -1,10 +1,8 @@
 ---
 title: "Build3rs Stack: Nym"
-category: "Guides"
-date: "2023-09-26 09:00:00"
+date: 2023-09-26
 desc: "The builders guide to Nym, a privacy platform enabling anonymous network traffic"
 thumbnail: "./images/general/nymthumb.jpg"
-alt: "builders stack Nym"
 image: "./images/general/nymthumb.jpg"
 cannonical: ""
 author: 

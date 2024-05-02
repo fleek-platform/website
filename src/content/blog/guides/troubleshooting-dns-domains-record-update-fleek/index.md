@@ -1,10 +1,8 @@
 ---
 title: "Troubleshooting Custom DNS Domains & DNS Configuration Upgrades"
-category: "Guides"
-date: "2020-01-09 10:00:00"
+date: 2020-01-09
 desc: "Are you having issues when updating your DNS configuration, or setting up your DNS records for your sites on Fleek? Here are some tips."
 thumbnail: "./images/general/Home-Meta-Banner-Pic.png"
-alt: "Troubleshooting Custom DNS Domains"
 image: "./images/general/Home-Meta-Banner-Pic.png"
 
 ---

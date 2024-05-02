@@ -1,10 +1,8 @@
 ---
 title: "Fleek Release Notes 02: UI Fixes & Improvements, Dark Mode as Default"
-category: "Announcements"
-date: "2023-09-22 08:00:00"
+date: 2023-09-22
 desc: "Explore the range of fixes and improvements made to the Fleek.xyz alpha this week in the latest Fleek Release Notes."
 thumbnail: "./images/general/fleekreleasenotes02.png"
-alt: "Fleek Release Notes 02"
 image: "./images/general/fleekreleasenotes02.png"
 cannonical: ""
 author: 

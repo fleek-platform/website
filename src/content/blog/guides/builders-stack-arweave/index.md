@@ -1,10 +1,8 @@
 ---
 title: "Build3rs Stack: Arweave"
-category: "Guides"
-date: "2023-02-16 10:00:00"
+date: 2023-02-16
 desc: "The builder's guide to Arweave: where it fits in your project's Web3 infra-stack, and what you can achieve with it."
 thumbnail: "./images/general/arweave-builderstack-2.png"
-alt: "builders stack arweave"
 image: "./images/general/arweave-builderstack-2.png"
 cannonical: "https://blog.fleek.xyz/post/builders-stack-arweave/"
 ---

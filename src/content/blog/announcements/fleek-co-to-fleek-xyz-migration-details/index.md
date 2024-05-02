@@ -1,10 +1,8 @@
 ---
 title: "Fleek.co to Fleek.xyz– Migration Preparation Details"
-category: "Announcements"
-date: "2023-12-08 08:00:00"
+date: 2023-12-08
 desc: "Information to get you ready for Fleek.co sunsetting targeted for the middle/end of Q1 2024."
 thumbnail: "./images/general/migrationprepthumb.jpg"
-alt: "Fleek.co to Fleek.xyz– Migration Preparation Details"
 image: "./images/general/migrationprepthumb.jpg"
 cannonical: ""
 author: "Fleek"

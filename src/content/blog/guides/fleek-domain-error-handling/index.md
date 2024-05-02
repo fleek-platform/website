@@ -1,10 +1,8 @@
 ---
 title: "Exploring Fleek's New Domain States Process for Seamless Domain Creation"
-category: "Guides"
-date: "2023-05-16 09:00:00"
+date: 2023-05-16
 desc: "Dive into the various error states you may encounter in the Fleek.xyz CLI beta domain creation process!"
 thumbnail: "./images/general/cli-beta-error-states.png"
-alt: "cli beta domain error states"
 image: "./images/general/cli-beta-error-states.png"
 cannonical: ""
 ---

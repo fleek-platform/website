@@ -1,10 +1,8 @@
 ---
 title: "Build3rs Stack: The Graph"
-category: "Guides"
-date: "2023-03-10 10:00:00"
+date: 2023-03-10
 desc: "The builders guide to The Graph, an indexing and querying protocol for decentralized networks, applications, and data!"
 thumbnail: "./images/general/graphupd.png"
-alt: "builders stack the graph"
 image: "./images/general/graphupd.png"
 cannonical: ""
 ---

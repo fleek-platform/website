@@ -1,10 +1,8 @@
 ---
 title: "Build3rs Stack: WeaveDB"
-category: "Guides"
-date: "2023-06-06 09:00:00"
+date: 2023-06-06
 desc: "Explore WeaveDB, the NoSQL database providing decentralized and scalable data storage to web3 apps with a familiar web2 experience"
 thumbnail: "./images/general/weavedb.jpg"
-alt: "Build3rs Stack: WeaveDB"
 image: "./images/general/weavedb.jpg"
 cannonical: ""
 author: 

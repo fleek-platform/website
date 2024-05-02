@@ -1,10 +1,8 @@
 ---
 title: "Build3rs Stack: Livepeer"
-category: "Guides"
-date: "2023-03-17 10:00:00"
+date: 2023-03-17
 desc: "The builders guide to Livepeer, with an overview of this streaming and transcoding protocol, its applied use-cases, and why it’s important to understand what you can build with it as a web3 developer."
 thumbnail: "./images/general/livepeer.png"
-alt: "builders stack livepeer"
 image: "./images/general/livepeer.png"
 cannonical: ""
 ---

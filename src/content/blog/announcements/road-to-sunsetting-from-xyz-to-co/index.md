@@ -1,10 +1,8 @@
 ---
 title: "Road to Sunsetting: From Fleek.co to Fleek.xyz"
-category: "Announcements"
-date: "2023-04-18 10:00:00"
+date: 2023-04-18
 desc: "As we continue developing the new Fleek Platform we wanted to share more information about what the process of shutting down our legacy Fleek.co platform will look like."
 thumbnail: "./images/general/sunsetting-update-one.png"
-alt: "The Sunsetting of Fleek.co"
 image: "./images/general/sunsetting-update-one.png"
 cannonical: ""
 ---

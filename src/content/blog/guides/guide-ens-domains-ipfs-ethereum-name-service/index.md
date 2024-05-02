@@ -1,10 +1,8 @@
 ---
 title: "A Guide to ENS Domains + IPFS (Ethereum Name Service)"
-category: "Guides"
-date: "2020-04-27 09:00:00"
+date: 2020-04-27
 desc: "Learn how to register your first ENS domain and use it to host a decentralized IPFS website in Fleek!"
 thumbnail: "./images/general/ens1.jpg"
-alt: ""
 image: "./images/general/ens1.jpg"
 cannonical: ""
 ---

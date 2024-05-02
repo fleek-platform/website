@@ -1,10 +1,8 @@
 ---
 title: "Are you a Fleek.co user and want to test the Fleek.xyz Alpha?"
-category: "Guides"
-date: "2023-08-31 09:00:00"
+date: 2023-08-31
 desc: "For Fleek.co users: All the answers to the most pressing FAQ about the Fleek.xyz alpha release and eventual migration."
 thumbnail: "./images/general/alphafaq-thumb.png"
-alt: "Fleek.co to Fleek.xyz FAQ"
 image: "./images/general/alphafaq-thumb.png"
 cannonical: ""
 author: "Fleek"

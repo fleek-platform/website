@@ -1,10 +1,8 @@
 ---
 title: "Deprecation of IPFS Gateway and Storage API URL on Fleek.co"
-category: "Guides"
-date: "2023-01-09 10:00:00"
+date: 2023-01-09
 desc: "We’re starting to take actions to deprecate the legacy Fleek platform (Fleek.co), starting with our IPFS Gateway + Storage API domains."
 thumbnail: "./images/general/depricatingdomains.png"
-alt: "depricating domains"
 image: "./images/general/depricatingdomains.png"
 cannonical: "https://blog.fleek.xyz/post/deprecation-of-ipfs-gateway-and-storage-api/"
 author: 

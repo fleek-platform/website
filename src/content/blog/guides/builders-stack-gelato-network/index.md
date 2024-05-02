@@ -1,10 +1,8 @@
 ---
 title: "Build3rs Stack: Gelato Network"
-category: "Guides"
-date: "2023-05-05 09:00:00"
+date: 2023-05-05
 desc: "The builder's guide to Gelato Network- the decentralized & automated smart contract execution network"
 thumbnail: "./images/general/gelato-main.png"
-alt: "builders stack gelato network"
 image: "./images/general/gelato-main.png"
 cannonical: ""
 author: 

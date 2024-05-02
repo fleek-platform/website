@@ -1,10 +1,8 @@
 ---
 title: "How to deploy a Next.js app onto IPFS using Fleek"
-category: "Guides"
-date: "2021-05-30 08:00:00"
+date: 2021-05-30
 desc: "We’ll create a Next.js app and deploy it on Fleek. This whole process It should take 10 minutes."
 thumbnail: "./images/general/next1.png"
-alt: "Deploying a Next.js app on Fleek"
 image: "./images/general/next1.png"
 cannonical: ""
 author: "Fleek"

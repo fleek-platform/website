@@ -1,10 +1,8 @@
 ---
 title: "Fleek v0.0.1 Release Notes: Custom URL Slugs, Validation Improvements"
-category: "Announcements"
-date: "2023-10-12 08:00:00"
+date: 2023-10-12
 desc: "Get the details on the latest changes coming to the Fleek.xyz platform, including Custom URL slugs, Validation Improvements, and more"
 thumbnail: "./images/general/release-notes-oct-12-thumb.png"
-alt: "Fleek Release Notes v0.0.1"
 image: "./images/general/release-notes-oct-12-thumb.png"
 cannonical: ""
 author: 

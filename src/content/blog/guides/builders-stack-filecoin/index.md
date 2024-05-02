@@ -1,10 +1,8 @@
 ---
 title: "Build3rs Stack: Filecoin and FVM"
-category: "Guides"
-date: "2023-03-31 07:00:00"
+date: 2023-03-31
 desc: "The builders guide to Filecoin, the decentralized file storage network and the Filecoin Virtual Machine!"
 thumbnail: "./images/general/fil-fvm.png"
-alt: "Build3rs Stack: Filecoin"
 image: "./images/general/fil-fvm.png"
 cannonical: ""
 ---

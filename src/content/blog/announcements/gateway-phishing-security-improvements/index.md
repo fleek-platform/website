@@ -1,10 +1,8 @@
 ---
 title: "Improving Gateway Protection Against Phishing Effects"
-category: "Announcements"
-date: "2023-04-24 10:00:00"
+date: 2023-04-24
 desc: "Explore the steps we're taking towards ensuring our gateways to sites and content hosted on Fleek are protected towards phishing effects!"
 thumbnail: "./images/general/gateway-improvements-thumbnail.jpg"
-alt: "Improved Gateway Security"
 image: "./images/general/gateway-improvements-thumbnail.jpg"
 cannonical: ""
 ---

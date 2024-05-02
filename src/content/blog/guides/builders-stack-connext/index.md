@@ -1,10 +1,8 @@
 ---
 title: "Build3rs Stack: Connext"
-category: "Guides"
-date: "2023-09-13 09:00:00"
+date: 2023-09-13
 desc: "The builder's guide to Connext-  the cross-chain protocol for secure data and fund transfer"
 thumbnail: "./images/general/connext-thumb.jpg"
-alt: "builders stack Connext"
 image: "./images/general/connext-thumb.jpg"
 cannonical: ""
 author: 

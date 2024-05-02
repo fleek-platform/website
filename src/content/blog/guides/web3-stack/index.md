@@ -1,10 +1,8 @@
 ---
 title: "The Web3 Developer Stack"
-category: "Guides"
-date: "2023-04-19 09:00:00"
+date: 2023-04-19
 desc: "Check out this guide on the most useful protocols, products, and tools available to web3 developers today!"
 thumbnail: "./images/general/web3stackmain.png"
-alt: ""
 image: "./images/general/web3stackmain.png"
 cannonical: ""
 author:

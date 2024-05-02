@@ -1,10 +1,8 @@
 ---
 title: "Fleek v0.6.0: ENS Domains Release"
-category: "Announcements"
-date: "2023-07-25 07:00:00"
+date: 2023-07-25
 desc: "Discover the Fleek v0.6.0 beta, introducing a straightforward way to connect your ENS Domains to Fleek-deployed sites via our CLI & SDK."
 thumbnail: "./images/general/v060thumbnail.jpg"
-alt: "Fleek beta ENS domains release"
 image: "./images/general/v060thumbnail.jpg"
 cannonical: ""
 author: 

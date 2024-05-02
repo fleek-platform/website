@@ -1,10 +1,8 @@
 ---
 title: "Non-Fungible Apps (NFAs): EIP Interfaces & Development Progress"
-category: "NFAs"
-date: "2023-03-20 10:00:00"
+date: 2023-03-20
 desc: "An update on the development progress of NFAs, progress on our EIP Discussion, refined minting UI, and more!"
 thumbnail: "./images/general/main-nfa-biw.jpg"
-alt: "NFA update EIP interfaces"
 image: "./images/general/main-nfa-biw.jpg"
 cannonical: ""
 ---

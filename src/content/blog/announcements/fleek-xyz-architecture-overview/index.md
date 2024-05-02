@@ -1,10 +1,8 @@
 ---
 title: "An Overview of Fleek.xyz’s Architecture"
-category: "Announcements"
-date: "2022-12-05 11:00:00"
+date: 2022-12-05
 desc: "New architecture who dis? Here’s a high level overview of how our new platform was designed & why it unlocks total freedom, flexibility, and extensibility for web3 developers."
 thumbnail: "./images/general/Fleek-XYZ-Architecture.png"
-alt: "fleek architecture overview"
 image: "./images/general/Fleek-XYZ-Architecture.png"
 cannonical: "https://blog.fleek.xyz/post/fleek-xyz-architecture-overview/"
 ---

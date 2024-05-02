@@ -1,10 +1,8 @@
 ---
 title: "Build3rs Stack: Subsquid"
-category: "Guides"
-date: "2023-05-12 09:00:00"
+date: 2023-05-12
 desc: "The builder's guide to Subsquid, which removes the need for RPC access while extracting, filtering, and decoding large amounts of on-chain data"
 thumbnail: "./images/general/subsquidthumbnail.png"
-alt: "builders stack subsquid"
 image: "./images/general/subsquidthumbnail.png"
 cannonical: ""
 author: 

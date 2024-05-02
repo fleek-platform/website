@@ -1,10 +1,8 @@
 ---
 title: "Fixing Fleek IPFS Resolve Errors with _redirects"
-category: "Guides"
-date: "2023-05-18 09:00:00"
+date: 2023-05-18
 desc: "Sharing some pro tips on how to fix IPFS links that aren't properly resolving"
 thumbnail: "./images/general/ipfs-resolving.png"
-alt: "resolving tips on IPFS"
 image: "./images/general/ipfs-resolving.png"
 ---
 
