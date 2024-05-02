@@ -1,7 +1,18 @@
 import { z, defineCollection } from 'astro:content';
 import type { ImageFunction } from 'astro:content';
 
-// TODO: remove optionals
+type CollectionType = "content" | "data" | undefined;
+
+const createCollection = <T extends z.ZodSchema<any>>(
+ type: CollectionType,
+ additionalFields: T
+) => {
+ return defineCollection({
+    type,
+    schema: ({ image }) => schema({ image }).and(additionalFields),
+ });
+}
+
 const schema = ({ image }: {
   image: ImageFunction;
 }) =>
@@ -16,35 +27,17 @@ const schema = ({ image }: {
     tags: z.array(z.string()).optional(),
  });
 
-const docsCollection = defineCollection({
-  type: 'content',
-  schema,
-});
+const docsCollection = createCollection('content', z.object({}));
 
-const blogCollection = defineCollection({
-  type: 'content',
-  schema,
-});
+const blogCollection = createCollection('content', z.object({}));
 
-const guidesCollection = defineCollection({
-  type: 'content',
-  schema,
-});
+const guidesCollection = createCollection('content', z.object({}));
 
-const templatesCollection = defineCollection({
-  type: 'content',
-  schema,
-});
+const templatesCollection = createCollection('content', z.object({}));
 
-const referencesCollection = defineCollection({
-  type: 'content',
-  schema,
-});
+const referencesCollection = createCollection('content', z.object({}));
 
-const legalCollection = defineCollection({
-  type: 'content',
-  schema,
-});
+const legalCollection = createCollection('content', z.object({}));
 
 // Export a single `collections` object to register your collection(s)
 export const collections = {
