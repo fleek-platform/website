@@ -2,8 +2,8 @@
 title: "Deploying to IPFS with Fleek Templates: Step-by-Step Guide"
 date: 2023-06-14
 desc: "Learn how to effortlessly deploy your web3 projects to IPFS using Fleek's ready-to-use templates and boilerplates. Follow our step-by-step guide."
-thumbnail: "./images/general/fleek-templates-thumbnail.jpg"
-image: "./images/general/fleek-templates-thumbnail.jpg"
+thumbnail: "./fleek-templates-thumbnail.jpg"
+image: "./fleek-templates-thumbnail.jpg"
 cannonical: ""
 author: "Fleek"
 ---
@@ -35,16 +35,16 @@ All templates are available on GitHub and you can kickstart your project by simp
 
 After choosing and cloning the repo, it's time to install the necessary dependencies, which will be stated at the root of your project. You can use NPM, PNPM, or Yarn to install the dependencies.
 
-![](./images/general/STEP1.gif)
+![](./STEP1.gif)
 
 To start the deployment & customization process locally, users should run `pnpm run dev`
 
-![](./images/general/STEP3.gif)
+![](./STEP3.gif)
 
 ### Step 2: Run & Customize Your Project
 With the dependencies installed, and your developer environment initialized, you're now set to run your project. To initialize your site, you'll need to run `fleek sites init`. At this point in the CLI, you will be prompted to input a name, directory location, and build command.
 
-![](./images/general/STEP2.gif)
+![](./STEP2.gif)
 
 You can customize the build command directly through the CLI. **To take your template to the next level, you can use a file editor and modify the desired files to customize your site**!
 
@@ -59,7 +59,7 @@ This is the part where some people get a little lost, so let’s break it down. 
 
 The CLI takes over from here, uploading the corresponding files and deploying your site to IPFS with a little magic in a few minutes. You will typically get an output like this:
 
-![](./images/general/templates-deploy.png)
+![](./templates-deploy.png)
 
 Paste the URL into your browser and check out your brand new, IPFS-hosted site!
 

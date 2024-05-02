@@ -2,8 +2,8 @@
 title: "Introducing Fleek Network & Fleek.xyz ⚡️"
 date: 2022-11-30
 desc: "We just closed a $25M Series A to build Fleek Network, a decentralized CDN, and Fleek.xyz, the web3 dev platform of the future."
-thumbnail: "./images/nextra-template/xyz-release.png"
-image: "./images/nextra-template/xyz-release.png"
+thumbnail: "./xyz-release.png"
+image: "./xyz-release.png"
 cannonical: "https://blog.fleek.xyz/post/introducing-fleek-network-and-fleek-xyz/"
 author: "Fleek"
 ---

@@ -2,8 +2,8 @@
 title: "Build a dApp with Fleek’s Ethereum Boilerplate, and Host it on IPFS."
 date: 2023-02-17
 desc: "Build an Ethereum dApp end-to-end with a fully open-source boilerplate with no binding dependencies, and a next.js frontend."
-thumbnail: "./images/general/os-ethereum-2.png"
-image: "./images/general/os-ethereum-2.png"
+thumbnail: "./os-ethereum-2.png"
+image: "./os-ethereum-2.png"
 cannonical: "https://blog.fleek.xyz/post/ethereum-boilerplate-ipfs-nextjs/"
 ---
 

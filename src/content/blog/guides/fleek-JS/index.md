@@ -2,8 +2,8 @@
 title: "How to deploy a Next.js app onto IPFS using Fleek"
 date: 2021-05-30
 desc: "We’ll create a Next.js app and deploy it on Fleek. This whole process It should take 10 minutes."
-thumbnail: "./images/general/next1.png"
-image: "./images/general/next1.png"
+thumbnail: "./next1.png"
+image: "./next1.png"
 cannonical: ""
 author: "Fleek"
 ---
@@ -21,13 +21,13 @@ Tools:
 ### **Step 1: Set Up a Repo on Github**
 
 Create an empty repository and clone it.
-![](./images/general/Next2.png)
+![](./Next2.png)
 
 Create a Next.js app using:
 
 `$ mkdir nextjs && cd nextjs` `$ npm init --y' '$ npm install next react react-dom`
 
-![](./images/general/Next3.png)
+![](./Next3.png)
 
 Open `package.json` and add in the following scripts
 
@@ -38,7 +38,7 @@ Open `package.json` and add in the following scripts
     "export": "next export"  
 }`
 
-![](./images/general/Next3.png)
+![](./Next3.png)
 
 Create a `next.config.js` file in the root directory
 
@@ -46,7 +46,7 @@ Create a `next.config.js` file in the root directory
   exportTrailingSlash: true,
 };`
 
-![](./images/general/Next4.png)
+![](./Next4.png)
 
 Let’s create some pages: Create a folder called pages Inside pages, create `index.js`
 
@@ -77,15 +77,15 @@ export default function About() {
 
 It should look something like this
 
-![](./images/general/Next5.png)
+![](./Next5.png)
 
 To test, run `npm run dev` and visit localhost:3000
 
-![](./images/general/Next6.png)
+![](./Next6.png)
 
 git add, commit, push
 
-![](./images/general/Next7.png)
+![](./Next7.png)
 
 ### **Step 2: Set Up Fleek**
 
@@ -93,23 +93,23 @@ Sign into https://app.fleek.co/
 
 Sign in with Github
 
-![](./images/general/Next8.png)
+![](./Next8.png)
 
 Add New Site
 
-![](./images/general/Next9.png)
+![](./Next9.png)
 
 Connect with Github.
 
-![](./images/general/Next10.png)
+![](./Next10.png)
 
 Pick your Next.js repository.
 
-![](./images/general/Next11.png)
+![](./Next11.png)
 
 To create a new site:
 
-![](./images/general/Next12.png)
+![](./Next12.png)
 
 Build command: `npm install && npm run build && npm run export`
 

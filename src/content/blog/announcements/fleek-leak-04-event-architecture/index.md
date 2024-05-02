@@ -2,8 +2,8 @@
 title: "Fleek Leak 04: Diving into Our Event-driven Architecture"
 date: 2023-03-09
 desc: "In this Fleek Leak, we take a look at our new event-driven architecture, and how it enables Fleek's long term expansibility."
-thumbnail: "./images/general/fleekleakfour.png"
-image: "./images/general/fleekleakfour.png"
+thumbnail: "./fleekleakfour.png"
+image: "./fleekleakfour.png"
 ---
 
 Time for another Fleek Leak! This week we are giving our usual approach a little bit of color and a spin! Other than our usual updates, **Fleek Leaks we will start including thematic dives– technical implementations and architecture design choices** of Fleek.xyz!

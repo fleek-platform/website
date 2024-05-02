@@ -2,8 +2,8 @@
 title: "NFAs: ENS Link and Access Points"
 date: 2023-03-30
 desc: "Take a dive into the latest from the NFA team, including looks at our ENS integration and Access Point creation"
-thumbnail: "./images/general/nfa-ens.jpg"
-image: "./images/general/nfa-ens.jpg"
+thumbnail: "./nfa-ens.jpg"
+image: "./nfa-ens.jpg"
 cannonical: ""
 ---
 

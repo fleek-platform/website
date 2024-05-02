@@ -2,8 +2,8 @@
 title: "Troubleshooting Custom DNS Domains & DNS Configuration Upgrades"
 date: 2020-01-09
 desc: "Are you having issues when updating your DNS configuration, or setting up your DNS records for your sites on Fleek? Here are some tips."
-thumbnail: "./images/general/Home-Meta-Banner-Pic.png"
-image: "./images/general/Home-Meta-Banner-Pic.png"
+thumbnail: "./Home-Meta-Banner-Pic.png"
+image: "./Home-Meta-Banner-Pic.png"
 
 ---
 Whether you are adding your custom DNS domain for the first time, or upgrading your previous configuration to Fleek’s [recent BunnyCDN upgrade](https://blog.fleek.co/posts/troubleshooting-dns-domains-record-update-fleek), here are the **most common questions/issues you might encounter** and the answers to them:

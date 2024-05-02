@@ -2,8 +2,8 @@
 title: "NFT Metadata: Storage & Formatting Best Practices"
 date: 2023-03-02
 desc: "In this guide, we go over the basic aspects of NFT metadata, the standards to follow, and some of the available options you have as a developer to store them on decentralized web3 protocols"
-thumbnail: "./images/general/nft-metadata-ipfs.png"
-image: "./images/general/nft-metadata-ipfs.png"
+thumbnail: "./nft-metadata-ipfs.png"
+image: "./nft-metadata-ipfs.png"
 cannonical: ""
 ---
 

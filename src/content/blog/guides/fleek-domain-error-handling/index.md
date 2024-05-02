@@ -2,8 +2,8 @@
 title: "Exploring Fleek's New Domain States Process for Seamless Domain Creation"
 date: 2023-05-16
 desc: "Dive into the various error states you may encounter in the Fleek.xyz CLI beta domain creation process!"
-thumbnail: "./images/general/cli-beta-error-states.png"
-image: "./images/general/cli-beta-error-states.png"
+thumbnail: "./cli-beta-error-states.png"
+image: "./cli-beta-error-states.png"
 cannonical: ""
 ---
 
@@ -11,7 +11,7 @@ Through the Fleek.xyz beta, we’ve introduced a new domain states process to im
 
 Originally, users would receive a traditional error stack trace when encountering errors across the CLI and SDK betas, which isn’t as easy to decode! [Recently](https://blog.fleek.xyz/post/error-management-improvements/), we made some changes to our error-handling system to make these errors more user-friendly:
 
-![](./images/general/error-handling-updated.jpeg)
+![](./error-handling-updated.jpeg)
 
 In this blog post, we'll dive into the details of this new approach, discussing each step in depth to understand what happens when a domain is added to your site through the Fleek CLI beta, and the errors you may encounter in each step of the process! Let's get started:
 
@@ -25,11 +25,11 @@ Each domain provided by users needs to be unique, so Fleek's backend will then p
 
 If the hostname has already been registered, users will be returned:
 
-![](./images/general/host-name-registered.png)
+![](./host-name-registered.png)
 
 If the hostname has already been added to the project, users will see:
 
-![](./images/general/host-proj-reg.png)
+![](./host-proj-reg.png)
 
 After retrying with a unique hostname, users will be prompted to the next step.
 
@@ -51,7 +51,7 @@ The system will then run a verification check to ensure that the records are set
 
 **Unsuccessfully Verified:** The user remains in the verification phase and can rerun the configuration verifications until they are successful. Keep in mind, verification may still fail even if the configuration has been appropriately configured per DNS replication. If Verification fails, users will be returned an error:
 
-![](./images/general/dns-config-settings-ray.png)
+![](./dns-config-settings-ray.png)
 
 ---
 

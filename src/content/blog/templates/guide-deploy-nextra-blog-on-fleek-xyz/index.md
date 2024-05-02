@@ -2,8 +2,8 @@
 title: "Building and Deploying a Nextra Blog with Fleek"
 date: 2023-02-02
 desc: "Learn how to deploy a Nextra blog app using the Fleek.xyz Sites Deployment service on the CLI Beta!"
-thumbnail: "./images/general/nextra-blog-2.png"
-image: "./images/general/nextra-blog-2.png"
+thumbnail: "./nextra-blog-2.png"
+image: "./nextra-blog-2.png"
 cannonical: "https://blog.fleek.xyz/post/guide-deploy-nextra-blog-on-fleek-xyz/"
 ---
 

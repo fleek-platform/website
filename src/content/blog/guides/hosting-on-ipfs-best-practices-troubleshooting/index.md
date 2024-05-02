@@ -2,8 +2,8 @@
 title: "Best Practices for Building IPFS-hosted Websites"
 date: 2023-02-23
 desc: " However, there are still some differences and best practices to keep in mind when deploying an IPFS website so that you can ensure your website is working correctly at all times."
-thumbnail: "./images/general/best-practices-ipfs.png"
-image: "./images/general/best-practices-ipfs.png"
+thumbnail: "./best-practices-ipfs.png"
+image: "./best-practices-ipfs.png"
 ---
 
 IPFS-hosted websites are gaining popularity as a way to host your site. Although the technology is still early, there's been some significant progress and it's an exciting to see fully fledged applications and sites performantly living on this technology.

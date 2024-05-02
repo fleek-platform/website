@@ -2,8 +2,8 @@
 title: "Improving Gateway Protection Against Phishing Effects"
 date: 2023-04-24
 desc: "Explore the steps we're taking towards ensuring our gateways to sites and content hosted on Fleek are protected towards phishing effects!"
-thumbnail: "./images/general/gateway-improvements-thumbnail.jpg"
-image: "./images/general/gateway-improvements-thumbnail.jpg"
+thumbnail: "./gateway-improvements-thumbnail.jpg"
+image: "./gateway-improvements-thumbnail.jpg"
 cannonical: ""
 ---
 
@@ -17,7 +17,7 @@ One of those aspects… **Improving protection towards phishing effects for our 
 
 For a long-time, Fleek.co was one of the main public IPFS gateways available. These gateway were not only used by Fleek users, to view the sites and files they hosted on Fleek via HTTPS, but by the general public to access any file on IPFS performantly. 
 
-![](./images/general/gateways-before.png)
+![](./gateways-before.png)
 
 These gateways were:
 
@@ -37,7 +37,7 @@ Content takedowns requirements or malicious content handling **were handled at F
 
 ## Our Gateways, Now:
 
-![](./images/general/gateways-after.png)
+![](./gateways-after.png)
 
 As we move to Fleek.xyz, we are building our gateways model to be private and user-specific, with a clear separation of scope to reduce all possibilities of risk, especially with phishing content.
 

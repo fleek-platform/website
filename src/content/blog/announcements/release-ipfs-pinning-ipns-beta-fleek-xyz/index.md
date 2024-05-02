@@ -2,8 +2,8 @@
 title: "The CLI Beta is Live, with IPFS Pinning & IPNS."
 date: 2023-01-17
 desc: "Fleek.xyz’s first beta release is live with the new CLI, including the IPFS Pinning and IPNS Mapping services."
-thumbnail: "./images/general/fleek-wide.png"
-image: "./images/general/fleek-wide.png"
+thumbnail: "./fleek-wide.png"
+image: "./fleek-wide.png"
 cannonical: "https://blog.fleek.xyz/post/release-ipfs-pinning-ipns-beta-fleek-xyz/"
 ---
 

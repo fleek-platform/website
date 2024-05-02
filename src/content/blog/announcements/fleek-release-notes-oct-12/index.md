@@ -2,8 +2,8 @@
 title: "Fleek v0.0.1 Release Notes: Custom URL Slugs, Validation Improvements"
 date: 2023-10-12
 desc: "Get the details on the latest changes coming to the Fleek.xyz platform, including Custom URL slugs, Validation Improvements, and more"
-thumbnail: "./images/general/release-notes-oct-12-thumb.png"
-image: "./images/general/release-notes-oct-12-thumb.png"
+thumbnail: "./release-notes-oct-12-thumb.png"
+image: "./release-notes-oct-12-thumb.png"
 cannonical: ""
 author: 
   - "Fleek"
@@ -22,7 +22,7 @@ Let’s get into the changes coming to the Fleek.xyz alpha with v0.0.1:
 
 The randomly generated on-fleek.app URL slugs will default to a combination of words but now, if you want something a little more personalized, you can change it to whatever available slug you want:
 
-![](./images/general/slug-change-prd.gif)
+![](./slug-change-prd.gif)
 
 ---
 

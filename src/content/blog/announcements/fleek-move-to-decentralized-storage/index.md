@@ -2,8 +2,8 @@
 title: "Embracing Decentralized Storage for V1 of Fleek.xyz"
 date: 2023-07-11
 desc: "Explore Fleek's transition from centralized IPFS storage nodes to decentralized storage with Arweave, Filecoin and Bundlr enhancing data resiliency and user control."
-thumbnail: "./images/general/cent.jpg"
-image: "./images/general/cent.jpg"
+thumbnail: "./cent.jpg"
+image: "./cent.jpg"
 cannonical: ""
 author: 
   - "Fleek"
@@ -25,7 +25,7 @@ We accomplish this by separating the file storage layer of IPFS from the content
 
 As mentioned above, by separating the content addressing/routing layer of IPFS from the storage layer built into IPFS, we are now able to store IPFS content on any storage layer without losing the content addressing/routing benefits that people love about IPFS.
 
-![](./images/general/IMG-fn-ca.png)
+![](./IMG-fn-ca.png)
 
 The new setup uses decentralized storage networks (Filecoin, Arweave, etc.) as the storage layer, and Fleek Network as the IPFS content addressing/routing layer. Fleek Network maps an IPFS CID to all files/data on the network’s storage layers, and keeps a mapping of the CID to Origin in perpetuity. In the beginning, while Fleek Network is working its way to mainnet and beyond, we will also store and utilize an off-chain copy of the mapping.
 

@@ -2,8 +2,8 @@
 title: "Build3rs Stack: Akash"
 date: 2023-02-24
 desc: "The builders guide to Akash Network, the most important features, applied use-cases, and why it’s important to understand what you can build with it as a web3 developer."
-thumbnail: "./images/general/akash-builders-stack.png"
-image: "./images/general/akash-builders-stack.png"
+thumbnail: "./akash-builders-stack.png"
+image: "./akash-builders-stack.png"
 cannonical: ""
 ---
 

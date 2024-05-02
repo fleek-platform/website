@@ -2,8 +2,8 @@
 title: "Fleek v0.0.3 Release Notes: Project, Site, and Gateway Delete Options, QoL Improvements"
 date: 2023-11-09
 desc: "Dive into the changes coming with Fleek Alpha v0.0.3, including Project, Site, and Gateway Delete Options."
-thumbnail: "./images/general/fleekreleasenotes05.png"
-image: "./images/general/fleekreleasenotes05.png"
+thumbnail: "./fleekreleasenotes05.png"
+image: "./fleekreleasenotes05.png"
 cannonical: ""
 author: 
   - "Fleek"
@@ -36,19 +36,19 @@ To delete a Project, head to the project dashboard, where you’ll need to ackno
 - Domains linked to Private Gateways
 - Files Stored
 
-![](./images/general/project-delete.gif)
+![](./project-delete.gif)
 
 ### Site Delete
 
 When deleting a site, go to the site overview and click the `Delete Site` option on the general settings page. Deleting your site means the removal of all associated resources and means content for that site will no longer be served, **including the domains and IPNS record linked to it**.
 
-![](./images/general/site-delete-updated.gif)
+![](./site-delete-updated.gif)
 
 ### Gateway Delete
 
 For Private Gateways, you’ll be prompted to **remove the gateway and all domains associated with it**:
 
-![](./images/general/delete-gateway.gif)
+![](./delete-gateway.gif)
 ---
 
 ## Other Fixes and Improvements

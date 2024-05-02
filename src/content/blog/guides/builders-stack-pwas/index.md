@@ -2,8 +2,8 @@
 title: "The Build3rs Stack: Progressive Web Apps (PWAs)"
 date: 2023-10-10
 desc: "Learn about Progressive Web Apps (PWAs)– what they are, why you should consider turning your app into one, and some best practices in building with PWAs."
-thumbnail: "./images/general/pwa-thumb.jpg"
-image: "./images/general/pwa-thumb.jpg"
+thumbnail: "./pwa-thumb.jpg"
+image: "./pwa-thumb.jpg"
 cannonical: ""
 author: 
   - "Fleek"
@@ -27,7 +27,7 @@ Let’s get into some more details about PWAs:
 
 ## What are Progressive Web Apps (PWAs)?
 
-![](./images/general/pwa-download.gif)
+![](./pwa-download.gif)
 
 **Progressive Web Apps are built using modern APIs to deliver near native-level reach, reliability, and capabilities across all devices**. They are a blend of the best elements of desktop-web and mobile apps, offering the accessibility and versatility of web-based applications with the user-centric, intuitive, and accessible experience of mobile apps. Additionally, the ability to avoid certain centralized app store restrictions (think high fees on Apple Store transactions) has made a lot of web3 companies turn to PWAs as a way to become available on mobile user’s devices.
 
@@ -42,7 +42,7 @@ Let’s get into some more details about PWAs:
 
 ### PWA in Features: Merging Desktop and Mobile Experiences
 
-![](./images/general/PWA-Perks.png)
+![](./PWA-Perks.png)
 
 For a more in-depth overview of PWA capabilities, and links to APIs to get started with them today, check out [this article](https://web.dev/learn/pwa/capabilities/) from web.dev.
 

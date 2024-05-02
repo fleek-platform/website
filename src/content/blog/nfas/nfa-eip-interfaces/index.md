@@ -2,8 +2,8 @@
 title: "Non-Fungible Apps (NFAs): EIP Interfaces & Development Progress"
 date: 2023-03-20
 desc: "An update on the development progress of NFAs, progress on our EIP Discussion, refined minting UI, and more!"
-thumbnail: "./images/general/main-nfa-biw.jpg"
-image: "./images/general/main-nfa-biw.jpg"
+thumbnail: "./main-nfa-biw.jpg"
+image: "./main-nfa-biw.jpg"
 cannonical: ""
 ---
 
@@ -65,7 +65,7 @@ As work on NFAs progresses, we have updated our timelines and milestones:
 * **April-May**: This period will be dedicated to audits and testing.
 * **May-June**: We'll conduct final audits and polish our project before the official release.
 
-![](./images/general/nfa-roadmap-mar-20.png)
+![](./nfa-roadmap-mar-20.png)
 
 ***
 

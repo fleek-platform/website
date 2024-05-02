@@ -2,8 +2,8 @@
 title: "Build3rs Stack: Filecoin and FVM"
 date: 2023-03-31
 desc: "The builders guide to Filecoin, the decentralized file storage network and the Filecoin Virtual Machine!"
-thumbnail: "./images/general/fil-fvm.png"
-image: "./images/general/fil-fvm.png"
+thumbnail: "./fil-fvm.png"
+image: "./fil-fvm.png"
 cannonical: ""
 ---
 
@@ -19,7 +19,7 @@ Let's take a look at both!
 
 ## TL;DR: What is Filecoin?
 
-![](./images/general/Filecoin.png)
+![](./Filecoin.png)
 
 Filecoin is a decentralized, **peer-to-peer storage network that combines cryptographic guarantees and economic incentives to ensure reliable and long-term storage of files**. 
 
@@ -46,7 +46,7 @@ To ensure data reliability and network integrity, Filecoin employs two unique co
 
 ## FVM - The Filecoin Virtual Machine
 
-![](./images/general/filecoinvirtualmachine.png)
+![](./filecoinvirtualmachine.png)
 
 FVM is a **runtime environment designed for smart contract execution**, known as actors, on the Filecoin network. It allows developers to create innovative use cases: including data access control, data DAOs (decentralized autonomous organizations), perpetual storage, collateral leasing, and Ethereum-compatible fungible and non-fungible tokens. 
 

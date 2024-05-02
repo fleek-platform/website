@@ -2,8 +2,8 @@
 title: "The Web3 Developer Stack"
 date: 2023-04-19
 desc: "Check out this guide on the most useful protocols, products, and tools available to web3 developers today!"
-thumbnail: "./images/general/web3stackmain.png"
-image: "./images/general/web3stackmain.png"
+thumbnail: "./web3stackmain.png"
+image: "./web3stackmain.png"
 cannonical: ""
 author:
   - "Abru Zucchi"
@@ -20,7 +20,7 @@ As a developer working in this space it’s hard to figure out which of the thou
 
 The approach taken is geared towards builders looking to implement features like file storage, smart contracts, databases, apis, and website hosting. We’ll outline the protocols and tools that enable you to build applications today, and try to highlight some of the areas that are still not mature enough to be considered for real-world usage.
 
-[![](./images/general/web3stack2023-2.png)](https://storage.fleek.ooo/27a60cdd-37d3-480c-ae88-3ad4ca886b13-bucket/imgs/web3stack2023-2.png)
+[![](./web3stack2023-2.png)](https://storage.fleek.ooo/27a60cdd-37d3-480c-ae88-3ad4ca886b13-bucket/imgs/web3stack2023-2.png)
 
 ------
 ## Blockchains

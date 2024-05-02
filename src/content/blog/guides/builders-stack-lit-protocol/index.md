@@ -2,8 +2,8 @@
 title: "Build3rs Stack: Lit Protocol"
 date: 2023-04-14
 desc: "The builders guide to Lit Protocol, the most important features, applied use-cases, and why it’s important to understand what you can build with it as a web3 developer."
-thumbnail: "./images/general/lit-protocol.png"
-image: "./images/general/lit-protocol.png"
+thumbnail: "./lit-protocol.png"
+image: "./lit-protocol.png"
 cannonical: ""
 ---
 
@@ -15,7 +15,7 @@ In a nutshell, **[Lit Protocol](https://litprotocol.com/) is a distributed key m
 
 ## TL;DR: What is Lit Protocol?
 
-![](./images/general/lit-mid.png)
+![](./lit-mid.png)
 
 Lit Protocol is a versatile network designed for managing keys and ensuring secure data transactions. It works with any EVM Chain, Solana and Cosmos. This blockchain-agnostic nature enables seamless data transactions, encryption, and access control across different networks. 
 

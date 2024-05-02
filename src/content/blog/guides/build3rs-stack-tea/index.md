@@ -2,8 +2,8 @@
 title: "Build3rs Stack: Tea.xyz"
 date: 2023-07-03
 desc: "The builder's guide to Tea, a web3 package manager that adds automation, developer environments and a little bit of magic to software development."
-thumbnail: "./images/general/teaxyz-thumbnil.jpg"
-image: "./images/general/teaxyz-thumbnil.jpg"
+thumbnail: "./teaxyz-thumbnil.jpg"
+image: "./teaxyz-thumbnil.jpg"
 cannonical: ""
 author: 
   - "Fleek"
@@ -40,7 +40,7 @@ We’re using “magic” in quotes not only because it’s not literal magic, b
 
 Therefore, when running any library or script, Tea will automatically deploy to look for the necessary packages or dependencies. If you don’t have them, then Tea installs them encapsulated in ~/.tea, to be able to retrieve them later. Packages are never installed in PATH, and aren’t accessible from the rest of the system.
 
-![](./images/general/tea-magic.png)
+![](./tea-magic.png)
 
 As “magic” can be too much –or too automated– for some users, it can be deactivated when installing Tea.
 
@@ -50,7 +50,7 @@ Tea can automatically determine the tools a project directory needs based on the
 
 To make matters more interesting, Tea can parse and read YAML front matter: if you need specific versions of dependencies, you can create a markdown table encapsulated in YAML front matter in your readme.md file with the versions of the packages you need.
 
-![](./images/general/tea-markdown.png)
+![](./tea-markdown.png)
 
 ---
 
@@ -58,13 +58,13 @@ To make matters more interesting, Tea can parse and read YAML front matter: if y
 
 *Have you ever heard of “the Nebraska problem”?* This theory, [coined by Randall Munroe from xkcd](https://xkcd.com/2347/), states that huge parts of our modern digital infrastructure are supported by a library created and sacredly maintained “by a random person in Nebraska” who usually does it for personal reasons [or a belief in the open-source philosophy](http://www.catb.org/~esr/writings/cathedral-bazaar/).
 
-![](./images/general/nebraska-problem.png)
+![](./nebraska-problem.png)
 
 These libraries are all around our web infrastructure, **and their developers are rarely compensated for their job.**
 
 How is Tea going to change that? Moving the package registry on-chain, and essentially **creating a protocol** –tea token included– to enable a reward platform for developers: package maintainers would publish their releases to a decentralized registry powered by a fault-tolerant blockchain. This means automatic & secure indirect compensation to developers by creators, users and peer reviewers in the developer world by means of the tea token (or, [as the whitepaper describes it](https://tea.xyz/tea.white-paper.pdf), “steeping tea”).
 
-![](./images/general/tea-rewards.png)
+![](./tea-rewards.png)
 
 The protocol side of Tea **is still in an early stage of development**, but we hope it gets the push it needs to bring life and a sustainable compensation model to thousands of developers of libraries and dependencies that are so seldom rewarded.
 

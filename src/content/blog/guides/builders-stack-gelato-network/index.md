@@ -2,8 +2,8 @@
 title: "Build3rs Stack: Gelato Network"
 date: 2023-05-05
 desc: "The builder's guide to Gelato Network- the decentralized & automated smart contract execution network"
-thumbnail: "./images/general/gelato-main.png"
-image: "./images/general/gelato-main.png"
+thumbnail: "./gelato-main.png"
+image: "./gelato-main.png"
 cannonical: ""
 author: 
   - "Abru Zucchi"
@@ -17,7 +17,7 @@ We will talk in depth about its main features, resources, and all the necessary 
 
 ## TL;DR: What is Gelato Network?
 
-![](./images/general/gelato-filler.png)
+![](./gelato-filler.png)
 
 Gelato Network is a decentralized web3 backend protocol designed to automate the execution of smart contracts. It’s EVM compatible and allows developers to create and deploy automated applications, services, and tools without the need to build and manage custom infrastructure.
 

@@ -2,8 +2,8 @@
 title: "Fleek Leak 03"
 date: 2023-02-16
 desc: "Issue number three of the Fleek Leak is landing ⚡, with updates on custom domains and our SDK."
-thumbnail: "./images/general/leak3.png"
-image: "./images/general/leak3.png"
+thumbnail: "./leak3.png"
+image: "./leak3.png"
 cannonical: "https://blog.fleek.co/posts/fleek-leak-03/"
 ---
 

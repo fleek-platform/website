@@ -2,8 +2,8 @@
 title: "Fixing Fleek IPFS Resolve Errors with _redirects"
 date: 2023-05-18
 desc: "Sharing some pro tips on how to fix IPFS links that aren't properly resolving"
-thumbnail: "./images/general/ipfs-resolving.png"
-image: "./images/general/ipfs-resolving.png"
+thumbnail: "./ipfs-resolving.png"
+image: "./ipfs-resolving.png"
 ---
 
 Gonza here from the Fleek Customer Support team! Being a power user of the Fleek platform, I've helped deploy multiple user's sites that suffer from the same issue: 
@@ -31,7 +31,7 @@ module.exports = nextConfig
 
 Now let’s try to add a subpage `/about` to our site. At first glance the site seems to be correctly deployed and the routes work as intended.
 
-![About page](./images/general/next-about-page.png)
+![About page](./next-about-page.png)
 
 We can now initialize our site in Fleek CLI by running `fleek sites init` and deploy it by running `fleek sites deploy`.  You can test it at [https://base-nextjs.angarita.dev/](https://base-nextjs.angarita.dev/)
 
@@ -79,11 +79,11 @@ We would get this pesky IPFS error again. So how do we ensure that our site will
 
 This feature enables support for redirects, single-page-applications, custom 404 pages and moving to IPFS-backed hosting without breaking existing links. It is very easy to implement, we only need to **add a file called _redirects to the public folder of our project.** You can read more about the implementation cases [here](https://docs.ipfs.tech/how-to/websites-on-ipfs/redirects-and-custom-404s/#evaluation), As an example let’s redirect all invalid links to our index page with a `301` HTTP code:
 
-![redirects file config](./images/general/redirects-301.png)
+![redirects file config](./redirects-301.png)
 
 Once we update our site with this change, we can now access [https://redirects-next.angarita.dev/broken](https://redirects-next.angarita.dev/) and instead of seeing an intimidating IPFS error message, we will see our home screen. You can customize your `_redirects` file to redirect any broken links to a custom 404 page instead of your homepage:
 
-![redirects file config alt](./images/general/redirects-401.png)
+![redirects file config alt](./redirects-401.png)
 
 As you can see, a wide array of possibilites open up with simple IPFS _redirects support. In this blog, we've covered multiple options to ensure proper link resolution on your IPFS site. How you handle your site's pages and links is now completely up to you!
 

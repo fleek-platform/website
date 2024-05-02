@@ -2,8 +2,8 @@
 title: "Build3rs Stack: Nym"
 date: 2023-09-26
 desc: "The builders guide to Nym, a privacy platform enabling anonymous network traffic"
-thumbnail: "./images/general/nymthumb.jpg"
-image: "./images/general/nymthumb.jpg"
+thumbnail: "./nymthumb.jpg"
+image: "./nymthumb.jpg"
 cannonical: ""
 author: 
   - "Fleek"
@@ -19,7 +19,7 @@ Let’s get into how you can leverage Nym in your Web3 builds:
 
 ## TLDR; What is NYM?
 
-![](./images/general/nymmeta.jpg)
+![](./nymmeta.jpg)
 
 Nym provides network-level privacy-preserving software for end users and developers. Along with protection against sophisticated end-to-end attackers, Nym also solves a major problem facing developers today: traffic patterns are visible to anyone observing or monitoring a network. Nym solves this, routing traffic through a decentralized *[mixnet](https://nymtech.net/docs/architecture/traffic-flow.html)*.
 
@@ -64,7 +64,7 @@ These validators issue anonymous credentials that have “threshold issuance,”
 
 [NymConnect](https://nymtech.net/download/nymconnect) acts as a versatile interface for connecting to applications in the Nym Mixnet. The coolest thing about NymConnect is that it can enhance the privacy for any app that can run [SOCKS5](https://www.ibm.com/docs/en/secure-proxy/6.0.2?topic=scenarios-socks5-configuration), including Telegram, Electrum, and Blockstream Green.
 
-![](./images/general/nymconnect.png)
+![](./nymconnect.png)
 
 ### Mixnet
 
@@ -83,7 +83,7 @@ The Mixnet is crucial for the flow of anonymous traffic within the network, maki
 
 A great example of building with Nym is [Pastenym](https://pastenym.ch/#/)– an anonymous messaging service, that allows users to send end-to-end encrypted texts wallet-to-wallet. Users can choose to have the message burnt after reading, expire after a set amount of time, have it stored on IPFS, or have it not encrypted at all.
 
-![](./images/general/pastenym.png)
+![](./pastenym.png)
 
 Anonymous e-cash payments or self-sovereign identities are also possible with Nym, using a zk-nym scheme to enable private financial transactions or prove you’re a certain age without revealing your birthdate/personal information.
 

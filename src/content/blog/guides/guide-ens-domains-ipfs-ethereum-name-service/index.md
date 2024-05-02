@@ -2,8 +2,8 @@
 title: "A Guide to ENS Domains + IPFS (Ethereum Name Service)"
 date: 2020-04-27
 desc: "Learn how to register your first ENS domain and use it to host a decentralized IPFS website in Fleek!"
-thumbnail: "./images/general/ens1.jpg"
-image: "./images/general/ens1.jpg"
+thumbnail: "./ens1.jpg"
+image: "./ens1.jpg"
 cannonical: ""
 ---
 
@@ -30,7 +30,7 @@ Let’s do an overview of what ENS domains are, why they are important, and how 
 
 ## **What is the Ethereum Name Service (ENS)?**
 
-![](./images/general/ens2.png)
+![](./ens2.png)
 
 ENS is an open source, distributed, and community-owned naming system that resides in the Ethereum blockchain. It was developed at the Ethereum Foundation in early 2017, proposed and created originally by the developer Nick Johnson and Alex Van de Sande.
 
@@ -81,19 +81,19 @@ Let’s go over the registration process.
 
 ### **1. Go to the [ENS domain application](https://app.ens.domains/).**
 
-![](./images/general/ens3.jpg)
+![](./ens3.jpg)
 
 To register your first ENS domain, visit the [Ethereum Name Service app](https://app.ens.domains/) and search for an address/name you want to register and is available. At the moment, you can register domains that are a minimum of 3 characters long (no maximum limit), and you can include emojis.
 
 ### **2. Connect to the Main Network.**
 
-![](./images/general/ens4.gif)
+![](./ens4.gif)
 
 To pay for the registration fee of your ENS domain, and declare your ownership for it, you will have to connect to the Mainnet using one of the offered integrations (MetaMask, WalletConnect, Portis, Torus, Authereum, MEW wallet). We’ll use [MetaMask](https://metamask.io/) for this example.
 
 ### **3. Define Registration Period and Confirm**
 
-![](./images/general/ens6.png)
+![](./ens6.png)
 
 Choose for how long you will want to rent that domain, and verify the final ETH fee to pay. Once you’re good to go, hit “Request to Register” and a transaction will begin. It takes about one minute to verify because during that period the platform is verifying no one else already tried or is trying to acquire the same domain.
 
@@ -101,7 +101,7 @@ If everything is good, your wallet will pop up to execute the final transaction,
 
 ### **4. Review Details and Setup Renewal Reminder**
 
-![](./images/general/ens7.jpg)
+![](./ens7.jpg)
 
 Once your transaction is successful, you will see a page similar to the one above (using the ens.eth domain as an example). Let’s go over the details on this page.
 
@@ -119,7 +119,7 @@ Each time you modify a record, there is a ETH gas transaction to be paid. Usuall
 
 ### **5. Configure Subdomains for your ENS Domain**
 
-![](./images/general/ens8.jpg)
+![](./ens8.jpg)
 
 If you navigate to the third tap in your newly acquired ENS domain, you’ll see that you can easily configure new subdomains for any of your website/product needs.
 
@@ -135,7 +135,7 @@ Alternatively you can see this [IPFS guide](https://docs.ipfs.io/how-to/website
 
 ### **1. Host Your Site on IPFS Using Fleek + Github**
 
-![](./images/general/ens9.jpg)
+![](./ens9.jpg)
 
 You can sign up for [Fleek’s free Basic](https://docs.fleek.co/hosting/site-deployment/) plan to get your first ENS+IPFS website up for this test. Before you begin, you will need to have your test site on a Github repository. You can use many popular frameworks, like Gatsby, Wordpress, NextJS, React, Hugo, Angular, etc. We have specific guides for [each of these](https://docs.fleek.co/tutorials/hosting/) frameworks to help prepare your site.
 
@@ -145,11 +145,11 @@ Fleek can auto detect the required build parameters from the inputted framework,
 
 ### **2. Add an ENS Domain to Your IPFS Site.**
 
-![](./images/general/ens10.jpg)
+![](./ens10.jpg)
 
 Once your deployment is successfully finished, you will see your website’s detail and configuration page. Navigate to the **Settings → Domain Management** tab, where you will find the ENS setup flow waiting for you.
 
-![](./images/general/ens11.gif)
+![](./ens11.gif)
 
 First, **specify the ENS domain** you want to use as your IPFS sites’ address.
 

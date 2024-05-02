@@ -2,8 +2,8 @@
 title: "Road to Sunsetting: From Fleek.co to Fleek.xyz"
 date: 2023-04-18
 desc: "As we continue developing the new Fleek Platform we wanted to share more information about what the process of shutting down our legacy Fleek.co platform will look like."
-thumbnail: "./images/general/sunsetting-update-one.png"
-image: "./images/general/sunsetting-update-one.png"
+thumbnail: "./sunsetting-update-one.png"
+image: "./sunsetting-update-one.png"
 cannonical: ""
 ---
 
@@ -47,7 +47,7 @@ At this phase, we will be stopping signups on Fleek.co and offering all the user
 
 ## Phase 3: Fleek.co Rides into the Sunset & Pending Users are Automatically Migrated
 
-![](./images/general/ride-into-sunset.gif)
+![](./ride-into-sunset.gif)
 
 After a prudent time of co-existence between the platforms, and when the goals of these processes are met, we will be shutting down Fleek.co and **automatically migrate the missing users that didn't request it in the previous phase**.
 

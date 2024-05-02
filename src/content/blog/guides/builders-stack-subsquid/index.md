@@ -2,8 +2,8 @@
 title: "Build3rs Stack: Subsquid"
 date: 2023-05-12
 desc: "The builder's guide to Subsquid, which removes the need for RPC access while extracting, filtering, and decoding large amounts of on-chain data"
-thumbnail: "./images/general/subsquidthumbnail.png"
-image: "./images/general/subsquidthumbnail.png"
+thumbnail: "./subsquidthumbnail.png"
+image: "./subsquidthumbnail.png"
 cannonical: ""
 author: 
   - "Fleek"
@@ -16,7 +16,7 @@ With Subsquid, developers can build and deploy custom GraphQL APIs and ETLs for
 ---
 
 ## TL;DR: What is Subsquid?
-![](./images/general/subsquid.jpg)
+![](./subsquid.jpg)
 
 Subsquid is a versatile service that allows developers to **extract, filter, and decode on-chain data without the need for RPC access**. It can be used for both real-time and analytic use cases, including as a flexible backend for decentralized applications, a data pipeline for preparing and loading on-chain data for analysis, and a customizable data source for dashboards and monitoring.
 

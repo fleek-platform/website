@@ -2,8 +2,8 @@
 title: "Build3rs Stack: Push Protocol"
 date: 2023-03-23
 desc: "The builder's guide to Push Protocol, the web3 communication protocol: how to use it in your project's Web3 infra-stack, and what you can achieve with it."
-thumbnail: "./images/general/push.png"
-image: "./images/general/push.png"
+thumbnail: "./push.png"
+image: "./push.png"
 cannonical: ""
 ---
 
@@ -17,7 +17,7 @@ Let's dive in!
 
 ## TL;DR: What is Push Protocol?
 
-![](./images/general/push-brief-image.jpeg)
+![](./push-brief-image.jpeg)
 
 Push Protocol is an open source and decentralized protocol for communication in web3 that provides **off-chain messages in a gasless, and protocol-agnostic way**, allowing apps to communicate with users, or have wallet addresses message each other!
 
@@ -53,7 +53,7 @@ To understand how the architecture of the protocol is composed and how the data/
 
 ## Push Protocol in Features: Push Notifications, and Push Chat Messaging.
 
-![](./images/general/push-chat.webp)
+![](./push-chat.webp)
 
 As a decentralized communication system, Push Protocol can be the backbone of your project's communication stack. From alerting and messaging to event updates, you can build, manage, and deliver notifications for your decentralized application end-to-end using Push Protocol, so let’s explore some of these features!
 
@@ -69,7 +69,7 @@ Push started with notifications, and evolved to offer Push Chat as well! Enablin
 
 ## How can you use Push Protocol as a Builder: Applied Use-Cases.
 
-![](./images/general/Push_Ecosystem_2023.png)
+![](./Push_Ecosystem_2023.png)
 
 To understand what you can build with Push Protocol in your web3 app, let’s explore some applications that use the protocol with applied use-cases!
 

@@ -2,8 +2,8 @@
 title: "Build3rs Stack: Connext"
 date: 2023-09-13
 desc: "The builder's guide to Connext-  the cross-chain protocol for secure data and fund transfer"
-thumbnail: "./images/general/connext-thumb.jpg"
-image: "./images/general/connext-thumb.jpg"
+thumbnail: "./connext-thumb.jpg"
+image: "./connext-thumb.jpg"
 cannonical: ""
 author: 
   - "Fleek"
@@ -17,7 +17,7 @@ Developers can use Connext to build cross chain web3 apps that interact with mul
 
 ## TLDR; What is Connext and how does it work?
 
-![](./images/general/connext-under-the-hood.png)
+![](./connext-under-the-hood.png)
 
 The Connext team is aiming to solve fragmented experiences for web3 apps that need to access different chains for interoperable DeFi.
 
@@ -59,7 +59,7 @@ In the Connext ecosystem, a variety of contracts handle interactions like xcalls
 
 ## Transaction Lifecycle
 
-![](./images/general/connext-origin-destination.png)
+![](./connext-origin-destination.png)
 
 There are two paths a message can take from the "Origin" chain to the "Destination" domain: Fast or Slow.
 

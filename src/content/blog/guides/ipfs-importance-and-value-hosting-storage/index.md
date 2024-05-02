@@ -2,8 +2,8 @@
 title: "Discover IPFS: How it's Ushering in a New Approach to Decentralized Internet & Storage"
 date: 2023-05-24
 desc: "Explore the benefits and applications of InterPlanetary File System (IPFS) technology for decentralized content addressing, storage, and hosting, and learn how to get started with IPFS through Fleek!"
-thumbnail: "./images/general/exploring-ipfs.png"
-image: "./images/general/exploring-ipfs.pngg"
+thumbnail: "./exploring-ipfs.png"
+image: "./exploring-ipfs.png"
 cannonical: ""
 author: "Fleek"
 ---

@@ -2,8 +2,8 @@
 title: "Build3rs Stack: WeaveDB"
 date: 2023-06-06
 desc: "Explore WeaveDB, the NoSQL database providing decentralized and scalable data storage to web3 apps with a familiar web2 experience"
-thumbnail: "./images/general/weavedb.jpg"
-image: "./images/general/weavedb.jpg"
+thumbnail: "./weavedb.jpg"
+image: "./weavedb.jpg"
 cannonical: ""
 author: 
   - "Fleek"
@@ -17,7 +17,7 @@ In brief, WeaveDB is a decentralized NoSQL database built atop Arweave and Warp 
 
 ## TLDR;
 
-![](./images/general/weavedb-graphic.png)
+![](./weavedb-graphic.png)
 
 WeaveDB is a noSQL database platform leveraging the Arweave ecosystem, allowing decentralized applications to transition from centralized databases to a horizontal and scalable model. WeaveDB has a similar syntax and hierarchy to its centralized alternative, Google's Firestore, but **with the addition of web3 native smart contracts**.
 

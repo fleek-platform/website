@@ -2,8 +2,8 @@
 title: "Build3rs Stack: Huddle01"
 date: 2023-08-26
 desc: "The builder's guide to Huddle01- the decentralized communication protocol, network, and app bringing video, audio, streaming, and more to any web3 protocol."
-thumbnail: "./images/general/huddle01thumb.jpg"
-image: "./images/general/huddle01thumb.jpg"
+thumbnail: "./huddle01thumb.jpg"
+image: "./huddle01thumb.jpg"
 cannonical: ""
 author: 
   - "Fleek"
@@ -15,11 +15,11 @@ Welcome back to the Build3rs Stack, a series where our team shares insights on d
 
 ## TLDR; What is Huddle01 and how does it work?
 
-![](./images/general/huddle-pic-updated.png)
+![](./huddle-pic-updated.png)
 
 Huddle01 is a protocol and network that implements principles of decentralization (p2p and trustless) and privacy to deliver real-time communication between browsers.
 
-![](./images/general/huddle-diagram-1.png)
+![](./huddle-diagram-1.png)
 
 Huddle01 is working to provide what the team calls dRTC Protocol (decentralized real-time communication protocol), a secure and decentralized alternative to real-time communication via WebRTC. WebRTC is an open framework for the web that enables Real-Time Communications (RTC) capabilities in the browser.
 
@@ -31,7 +31,7 @@ The Session Description Protocol (SDP) is a standardized format used to describe
 
 In the dRTC network, SDP info is relayed between nodes for establishing connections. Nodes act as intermediaries, maintaining temporary connections during SDP exchange, ensuring privacy between peers. Decentralized protocols like LibP2P and IPFS enable secure, trustless SDP exchange.
 
-![](./images/general/huddle-diagram-2.png)
+![](./huddle-diagram-2.png)
 
 ## Node Components
 

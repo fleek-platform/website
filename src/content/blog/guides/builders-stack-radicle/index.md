@@ -2,8 +2,8 @@
 title: "Build3rs Stack: Radicle"
 date: 2023-04-28
 desc: "The builder's guide to Radicle- the decentralized code collaboration platform! Learn how to integrate the P2P code collab network in your web3 builds."
-thumbnail: "./images/general/radicle-image.png"
-image: "./images/general/radicle-image.png"
+thumbnail: "./radicle-image.png"
+image: "./radicle-image.png"
 cannonical: ""
 author: 
   - "Abru Zucchi"
@@ -16,7 +16,7 @@ In brief, Radicle is a decentralized, **peer-to-peer (P2P) code collaboration pl
 ---
 
 ## TL;DR: What is Radicle?
-![](./images/general/radicle-main.png)
+![](./radicle-main.png)
 
 
 Radicle is a solution for **decentralized code collaboration** that empowers developers to work together in a self-governed, and censorship-resistant environment. It’s integrated with Git, and a distributed data structure called a "content-addressed Merkle DAG,"  enabling secure and efficient sharing of data among peers making it easier for developers to adopt!

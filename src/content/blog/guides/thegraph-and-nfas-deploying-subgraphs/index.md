@@ -2,8 +2,8 @@
 title: "Integrating The Graph with NFAs: Our Experience Deploying a Subgraph."
 date: 2023-02-12
 desc: "Maximizing flexibility and freedom in NFA data retrieval with The Graph."
-thumbnail: "./images/general/graph-nfas.png"
-image: "./images/general/graph-nfas.png"
+thumbnail: "./graph-nfas.png"
+image: "./graph-nfas.png"
 cannonical: "https://blog.fleek.xyz/post/thegraph-and-nfas-deploying-subgraphs/"
 ---
 

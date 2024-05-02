@@ -2,8 +2,8 @@
 title: "Build3rs Stack: The Graph"
 date: 2023-03-10
 desc: "The builders guide to The Graph, an indexing and querying protocol for decentralized networks, applications, and data!"
-thumbnail: "./images/general/graphupd.png"
-image: "./images/general/graphupd.png"
+thumbnail: "./graphupd.png"
+image: "./graphupd.png"
 cannonical: ""
 ---
 
@@ -18,7 +18,7 @@ We have a lot to cover, let’s dive in!
 
 ## TL;DR: What is The Graph?
 
-![](./images/general/thegraph.png)
+![](./thegraph.png)
 
 With the explosion of blockchain networks and other decentralized data sources, web3 developers need a way to easily access and query this data. The Graph provides a solution to this problem via a **decentralized network of indexers that serve these queries, the web3 way**.
 

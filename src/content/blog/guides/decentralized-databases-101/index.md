@@ -2,8 +2,8 @@
 title: "Decentralized Databases 101: An Overview of the Available Options."
 date: 2023-03-11
 desc: "Three popular decentralized databases that have gained attention in recent years are Tableland (currently in open beta with a production launch set for 2023), Ceramic's ComposeDB (which recently entered `Beta` status), and Polybase."
-thumbnail: "./images/general/ddbs.png"
-image: "./images/general/ddbs.png"
+thumbnail: "./ddbs.png"
+image: "./ddbs.png"
 ---
 
 With the rise of blockchain technology and the need for decentralized systems, decentralized databases have become popular for storing and managing data.

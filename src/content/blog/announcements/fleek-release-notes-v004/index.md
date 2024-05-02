@@ -2,8 +2,8 @@
 title: "Fleek v0.0.4 Release Notes: ENS Integration, Deployment Details, File Upload Size Limit Increase, and more"
 date: 2024-01-22
 desc: "Get the latest on the changes coming to the Fleek Alpha with v0.0.4, including ENS Integration, Deployment Details, File Upload Size Limit and more!"
-thumbnail: "./images/general/fleekreleasenotes06.jpg"
-image: "./images/general/fleekreleasenotes06.jpg"
+thumbnail: "./fleekreleasenotes06.jpg"
+image: "./fleekreleasenotes06.jpg"
 cannonical: ""
 author: 
   - "Fleek"
@@ -25,7 +25,7 @@ A major step in the direction towards the sunsetting of Fleek.co is reaching fea
 
 **An improvement on the Fleek.co iteration that users are familiar with, this version allows users to set the content hash for their domains without leaving the Fleek platform, as well as now handle subnames and name unwrapping in-app**. It’s quick, easy, and allows you to use your ENS domains for any of your builds on Fleek:
 
-![Set ENS name as Domain](./images/general/ens_automatic_setup.gif)
+![Set ENS name as Domain](./ens_automatic_setup.gif)
 
 ## Deployment Details Page
 
@@ -43,7 +43,7 @@ If you didn't sign up for the Fleek.xyz alpha with a wallet, linking yours is su
 
 Oh, and with v0.0.4, we’ve added the ability to do it the other way around too! If you signed up with a wallet address, you can now link your email address to your profile in your Account Settings.
 
-![Log-In Connection](./images/general/Log-in-connections.png)
+![Log-In Connection](./Log-in-connections.png)
 
 ---
 

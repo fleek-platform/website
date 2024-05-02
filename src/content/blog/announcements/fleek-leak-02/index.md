@@ -2,8 +2,8 @@
 title: "Fleek Leak 02"
 date: 2023-01-25
 desc: "Time for a development update ⚡️ Over the last few weeks we’ve been jamming on our CLI beta (Jan 18th), adding compute to Fleek, and an NFAs MVP. Let’s dive into why & what you can expect!"
-thumbnail: "./images/general/leak2.png"
-image: "./images/general/leak2.png"
+thumbnail: "./leak2.png"
+image: "./leak2.png"
 cannonical: "https://blog.fleek.xyz/post/fleek-leak-02/"
 ---
 

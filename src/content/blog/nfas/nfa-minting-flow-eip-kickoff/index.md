@@ -2,8 +2,8 @@
 title: "Non-Fungible Apps (NFAs): Minting & EIP Kickoff"
 date: 2023-03-03
 desc: "Since our last NFA update, the team has finished Sprints 1, 2, and 3, is laying the foundation for our EIP proposal, and sharing the first demo of our minting flow experience for NFAs."
-thumbnail: "./images/general/nfa-mint.png"
-image: "./images/general/nfa-mint.png"
+thumbnail: "./nfa-mint.png"
+image: "./nfa-mint.png"
 cannonical: ""
 ---
 
@@ -17,7 +17,7 @@ cannonical: ""
 
 ***
 
-![](./images/general/nfa-eip-github.png)
+![](./nfa-eip-github.png)
 
 Standardization, in the form of an **[Ethereum Improvement Proposal submission (EIP)](https://eips.ethereum.org/) and ERCs, is a major milestone for NFAs**. First and foremost though, we want to focus on building a useful new standard to web3, and aim for opening up the debate early to gather feedback from the ecosystem, and reach a widely-agreed on consensus on:
 
@@ -62,7 +62,7 @@ It’s that easy ⚡. Through the ConnectKit integration we did in Sprint 3, we 
 
 In our last NFA development [update](https://blog.fleek.xyz/post/nfa-community-hosting/), we were about halfway through Sprint 1– we’re now wrapping up [sprint 3](https://github.com/fleekxyz/non-fungible-apps/releases/tag/v0.0.3) and have lots to get you caught up on.
 
-![](./images/general/roadmap-march.png)
+![](./roadmap-march.png)
 
 We’ve not only made upgrades across the entire stack over the last two sprints, but we’ve also made some **fundamental (but exciting) changes to our architecture.**
 

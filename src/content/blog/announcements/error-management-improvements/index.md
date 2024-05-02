@@ -2,8 +2,8 @@
 title: "Improved CLI Error Handling Update"
 date: 2023-04-25
 desc: "The Fleek.xyz beta receives an update focused on sturdyness and security. Dive in!"
-thumbnail: "./images/general/cli-error-handling.png"
-image: "./images/general/cli-error-handling.png"
+thumbnail: "./cli-error-handling.png"
+image: "./cli-error-handling.png"
 cannonical: ""
 ---
 
@@ -28,7 +28,7 @@ Now, **our error-handling system is much more efficient and digestible, propagat
 
 * Error messages now contain everything the user needs to know, streamlining customer service by solving problems at their root cause.
 
-![](./images/general/error-beforeafter.png)
+![](./error-beforeafter.png)
 
 ---
 
@@ -43,7 +43,7 @@ We’re leveraging our event-driven architecture to enhance how we update domain
 * BunnyCDN Pullzone Creation Failure:
     * Domain Creating Fail State: Occurs when a Bunnycdn pull zone for a user's domain fails to be created.
 
-![](./images/general/error-handling-updated.jpeg)
+![](./error-handling-updated.jpeg)
 
 **These events are handled asynchronously** for a more efficient and reliable process.  For more information on events, check out the Fleek Leak blog post about our [event-driven architecture](https://blog.fleek.xyz/post/fleek-leak-04-event-architecture/)!
 

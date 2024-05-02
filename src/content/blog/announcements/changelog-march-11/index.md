@@ -2,8 +2,8 @@
 title: "Fleek.xyz Changelog - March 11th, 2024: Automatic Phishing Detection, Application Credentials, Image Improvements"
 date: 2024-03-11
 desc: "An overview of all the latest changes to the Fleek.xyz Open Beta, including new phishing detection measures, in-app application credential creation, and image handling improvements"
-thumbnail: "./images/general/fleekchangelog01mar11.png"
-image: "./images/general/fleekchangelog01mar11.png"
+thumbnail: "./fleekchangelog01mar11.png"
+image: "./fleekchangelog01mar11.png"
 cannonical: ""
 author: 
   - "Fleek"
@@ -47,7 +47,7 @@ We’ve also now added the ability to create application credentials directly wi
 
 Anyone can now interact with the SDK directly from a client in a secure way, through whitelisted domains, allowing only those with the application credentials to access the specified domains. Creating and managing Application Credentials can be done in the `Application Credentials` tab within the settings of your Fleek project:
 
-![](./images/general/Appcreds.gif)
+![](./Appcreds.gif)
 
 ---
 

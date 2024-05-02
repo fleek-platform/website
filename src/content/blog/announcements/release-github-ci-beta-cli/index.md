@@ -2,8 +2,8 @@
 title: "Github Actions CI/CD Support on the CLI Beta"
 date: 2023-02-08
 desc: "Configure a Github action for your repository that automatically builds and deploy your Fleek site to IPFS upon each commit."
-thumbnail: "./images/general/ci-cd-2.png"
-image: "./images/general/ci-cd-2.png"
+thumbnail: "./ci-cd-2.png"
+image: "./ci-cd-2.png"
 cannonical: "https://blog.fleek.xyz/post/release-github-ci-beta-cli/"
 ---
 

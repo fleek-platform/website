@@ -2,8 +2,8 @@
 title: "How To Deploy A Next.js App To Fleek.xyz: A Step-by-Step Guide for Developers"
 date: 2024-04-03
 desc: "How to deploy a static Next.js app using the Fleek CLI."
-thumbnail: "./images/general/nextjsguide.png"
-image: "./images/general/nextjsguide.png"
+thumbnail: "./nextjsguide.png"
+image: "./nextjsguide.png"
 cannonical: ""
 author: 
   - "Olayinka Oshidipe"
@@ -76,7 +76,7 @@ This line of code will create a new folder called `out` for when we build our Ne
 
 Next, run the `npm run build` command. This will compile our NextJs project, and produce the corresponding html code into a folder called `out`. 
 
-![](./images/general/out.png)
+![](./out.png)
 
 Once we’ve successfully built our app, we can start the deployment process.
 
@@ -90,13 +90,13 @@ The first thing we’ll need to do is create a Fleek account: head over to http:
 
 > 💡 Feel free to skip this step if you already have an account on Fleek.xyz!
 
-![](./images/general/welcome.png)
+![](./welcome.png)
 
 You’ll be prompted to create an account with your wallet or an email address. For the sake of this tutorial, we’ll be making an account using our MetaMask account. 
 
 Click on the `Metamask` option from the wallet list and you’ll be presented with a **sign-in** request in your browser extension. This is to verify ownership of your account.
 
-![](./images/general/metamask.png)
+![](./metamask.png)
 
 Once you click on the **Sign-In** button, you’ll be redirected to the Fleek Dashboard. 
 
@@ -120,7 +120,7 @@ fleek login
 
 Click on the link displayed to log into your Fleek account. You should see a **Success! Logged in.**
 
-![](./images/general/successloggedin.png)
+![](./successloggedin.png)
 
 ### Configurations
 
@@ -134,7 +134,7 @@ fleek sites init
 
 You’ll get a few prompts, populate them as you wish:
 
-![](./images/general/warnings.png)
+![](./warnings.png)
 
 - *Type the name of your site*: › `[site-name]`
     - If there’s an existing site already with this name, it may ask if you want to link to this site. Please note that when you do this, you will overwrite everything on the previous site. Ensure that this is the outcome you desire, otherwise, select **N** and create a new site.
@@ -149,7 +149,7 @@ You should see:
 
 And a `fleek.config.js` file should appear in your root dir.
 
-![](./images/general/rootdir.png)
+![](./rootdir.png)
 
 ### Deployment
 
@@ -175,15 +175,15 @@ Congratulations! Your site has been successfully deployed!
 
 Now head over to the dashboard http://app.fleek.xyz, and ensure you are on the right project (open the drop-down menu on the top left of the homepage and select the current project).
 
-![](./images/general/projectscliguide.png)
+![](./projectscliguide.png)
 
 Click on `Sites`. Here, you should see your deployed site. If you’ve deployed more than one site into this project, they’ll all show up here:
 
-![](./images/general/nextjsdemoprojects.png)
+![](./nextjsdemoprojects.png)
 
 Click on your **deployed** site. You should be **brought** to this page:
 
-![](./images/general/deploymentpage.png)
+![](./deploymentpage.png)
 
 Click on the URL (For this example it’s https://scrawny-lock-most.on-fleek.app/ but yours will be different) and it’ll take you to your fully functional static NextJs blog! 
 
