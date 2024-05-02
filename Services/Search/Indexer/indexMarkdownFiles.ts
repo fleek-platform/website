@@ -11,10 +11,13 @@ import type { Index, Config } from 'meilisearch';
 
 const contentBasePath = 'src/content';
 
+// TODO: This can be inferred based on content name
+// there shouldn't be need to declare
 export enum ContentDirByName {
   'blog' = `${contentBasePath}/blog`,
   'docs' = `${contentBasePath}/docs`,
   'guides' = `${contentBasePath}/guides`,
+  'references' = `${contentBasePath}/references`,
 };
 
 export type ContentName = keyof typeof ContentDirByName;
