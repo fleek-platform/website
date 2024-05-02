@@ -1,9 +1,5 @@
 import { z, defineCollection } from 'astro:content';
 
-enum Category {
-  Announcements = 'Announcements',
-}
-
 // TODO: remove optionals
 const docsCollection = defineCollection({
   type: 'content',
