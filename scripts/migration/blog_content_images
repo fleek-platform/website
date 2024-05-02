@@ -15,7 +15,7 @@ mkdir -p "$target_path"
 if [[ ! "$3" == 'write' ]]; then
   echo "🤖 Dry-run mode"
 else
-  echo "🤖 Blog migration process in write-run mode"
+  echo "🤖 Blog image migration copy process in write-run mode"
   while read -rp "❓Are you sure you want to continue (yes/no)? " answer; do
     if [[ "$answer" == [nN] || "$answer" == [nN][oO] ]]; then
 	  echo "🦖 Exited the blog content migration process"
@@ -59,9 +59,11 @@ find "$target_path" -type f \( -name "*.md" -o -name "*.mdx" \) | while read -r 
     fi
 
     while IFS= read -r image_path; do
+	    origin_content_img_path="$image_path"
         image_path=$(echo "$image_path" | sed 's|^\./||')
 
         image_file_name=$(basename "$image_path")
+		target_content_img_path="./$image_file_name"
 
         origin_img_path="$origin_path/$image_path"
 
@@ -69,6 +71,7 @@ find "$target_path" -type f \( -name "*.md" -o -name "*.mdx" \) | while read -r 
 
 		if [[ ! "$3" == "write" ]]; then
 			echo "🫡 Should copy $origin_img_path -> $target_img_path"
+			echo "🫡 Should replace $origin_content_img_path -> $target_content_img_path"
 		else
 		    if ! cp "$origin_img_path" "$target_img_path"; then
 				echo "👹 Oops! Failed to copy $origin_img_path to $target_img_path"
@@ -76,8 +79,8 @@ find "$target_path" -type f \( -name "*.md" -o -name "*.mdx" \) | while read -r 
 				echo "✅ Copied the images declared in $file from $origin_img_path to $target_dir"
 			fi
 		fi
-		
-        if ! sed $sed_inplace_edit "s|$image_path|$image_file_name|g" "$file" | head -n 5; then
+ 
+        if ! sed $sed_inplace_edit "s|$origin_content_img_path|$target_content_img_path|g" "$file" | head -n 5; then
 			echo "👹 Oops! Failed to replace image path to local content directory"
 		fi
 		
