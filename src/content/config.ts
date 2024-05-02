@@ -1,22 +1,20 @@
 import { z, defineCollection } from 'astro:content';
 import type { ImageFunction } from 'astro:content';
 
-type CollectionType = "content" | "data" | undefined;
+type CollectionType = 'content' | 'data' | undefined;
 
 const createCollection = <T extends z.ZodSchema<any>>(
- type: CollectionType,
- additionalFields: T
+  type: CollectionType,
+  additionalFields: T,
 ) => {
- return defineCollection({
+  return defineCollection({
     type,
     schema: ({ image }) => schema({ image }).and(additionalFields),
- });
-}
+  });
+};
 
-const schema = ({ image }: {
-  image: ImageFunction;
-}) =>
- z.object({
+const schema = ({ image }: { image: ImageFunction }) =>
+  z.object({
     title: z.string(),
     image: image().optional(),
     thumbnail: image().optional(),
@@ -25,7 +23,7 @@ const schema = ({ image }: {
     author: z.union([z.string(), z.array(z.string())]).optional(),
     order: z.number().optional(),
     tags: z.array(z.string()).optional(),
- });
+  });
 
 const docsCollection = createCollection('content', z.object({}));
 
