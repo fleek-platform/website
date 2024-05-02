@@ -79,11 +79,8 @@ find "$target_path" -type f \( -name "*.md" -o -name "*.mdx" \) | while read -r 
 				echo "✅ Copied the images declared in $file from $origin_img_path to $target_dir"
 			fi
 		fi
-
-		escaped_origin_content_img_path=$(echo "$origin_content_img_path" | sed 's/[]\/$*.^|[]/\\&/g')
-		escaped_target_content_img_path=$(echo "$target_content_img_path" | sed 's/[]\/$*.^|[]/\\&/g')
  
-        if ! sed "${sed_inplace_edit[@]}" "s|$escaped_origin_content_img_path|$escaped_target_content_img_path|g" "$file" | head -n 5; then
+        if ! sed "${sed_inplace_edit[@]}" "s|$origin_content_img_path|$target_content_img_path|g" "$file" | head -n 5; then
 			echo "👹 Oops! Failed to replace image path to local content directory"
 		fi
 		
