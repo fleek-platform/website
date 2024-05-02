@@ -1,10 +1,5 @@
 #!/bin/bash
 
-if [ "$#" -ne 1 ]; then
-    echo "Usage: $0 <target_directory>"
-    exit 1
-fi
-
 if [[ "$#" -ne 1 && ! "$2" == 'write' ]]; then
     echo "👹 Oops! Missing origin and target paths! Please do $0 <target_path>"
     exit 1
@@ -21,7 +16,7 @@ else
 	  echo "🦖 Exited the Gif to Mp4 process"
 	  exit 1
     elif [[ "$answer" == [yY] || "$answer" == [yY][eE][sS] ]]; then
-      echo "🙏 The Gift to Mp4 will now start, be patient..."
+      echo "🙏 The Gif to Mp4 will now start, be patient..."
 	  sleep 3
       break;
     fi
@@ -33,19 +28,25 @@ fi
 find "$target_dir" -type f -name "*.gif" | while read -r gif; do
 	echo "[File] $gif"
 
-    dir=$(dirname "$gif")
-    base_name=$(basename "$gif" .gif)
-    
-    output="$dir/$base_name.mp4"
-    
+	dir=$(dirname "$gif")
+	base_name=$(basename "$gif" .gif)
+
+	output="$dir/$base_name.mp4"
+
 	if [[ ! "$2" == 'write' ]]; then
 		echo "🫡 Should convert $gif -> $output"
 	else
-	    if ! ffmpeg -i "$gif" -vf "fps=24,scale=480:-1:flags=lanczos" -c:v libx264 -preset slow -crf 22 -pix_fmt yuv420p -movflags +faststart "$output"; then
-			echo "👹 Oops! Failed to convert $gif -> $output"
+		if [[ -f "$gif" ]] && [[ -f "$output" ]]; then
+			if rm -f "$gif"; then
+				echo "✅ Deleted $gif"
+			fi
 		else
-			echo "✅ Converted $gif to $output"
-		fi
+		  if ! ffmpeg -i "$gif" -vf "fps=24,scale=480:-1:flags=lanczos" -c:v libx264 -preset slow -crf 22 -pix_fmt yuv420p -movflags +faststart "$output"; then
+				echo "👹 Oops! Failed to convert $gif -> $output"
+			else
+				echo "✅ Converted $gif to $output"
+			fi		
+		fi	
 	fi
 
 	echo
