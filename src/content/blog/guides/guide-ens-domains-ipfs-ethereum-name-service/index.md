@@ -86,7 +86,10 @@ To register your first ENS domain, visit the [Ethereum Name Service app](https:
 
 ### **2. Connect to the Main Network.**
 
-![](./ens4.gif)
+<video width="100%" height="auto" autoplay loop>
+ <source src="./ens4.mp4" type="video/mp4">
+ Your browser does not support the video tag.
+</video>
 
 To pay for the registration fee of your ENS domain, and declare your ownership for it, you will have to connect to the Mainnet using one of the offered integrations (MetaMask, WalletConnect, Portis, Torus, Authereum, MEW wallet). We’ll use [MetaMask](https://metamask.io/) for this example.
 
@@ -148,7 +151,10 @@ Fleek can auto detect the required build parameters from the inputted framework,
 
 Once your deployment is successfully finished, you will see your website’s detail and configuration page. Navigate to the **Settings → Domain Management** tab, where you will find the ENS setup flow waiting for you.
 
-![](./ens11.gif)
+<video width="100%" height="auto" autoplay loop>
+ <source src="./ens11.mp4" type="video/mp4">
+ Your browser does not support the video tag.
+</video>
 
 First, **specify the ENS domain** you want to use as your IPFS sites’ address.
 

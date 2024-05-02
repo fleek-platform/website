@@ -37,17 +37,26 @@ All templates are available on GitHub and you can kickstart your project by simp
 
 After choosing and cloning the repo, it's time to install the necessary dependencies, which will be stated at the root of your project. You can use NPM, PNPM, or Yarn to install the dependencies.
 
-![](./STEP1.gif)
+<video width="100%" height="auto" autoplay loop>
+ <source src="./STEP1.mp4" type="video/mp4">
+ Your browser does not support the video tag.
+</video>
 
 To start the deployment & customization process locally, users should run `pnpm run dev`
 
-![](./STEP3.gif)
+<video width="100%" height="auto" autoplay loop>
+ <source src="./STEP3.mp4" type="video/mp4">
+ Your browser does not support the video tag.
+</video>
 
 ### Step 2: Run & Customize Your Project
 
 With the dependencies installed, and your developer environment initialized, you're now set to run your project. To initialize your site, you'll need to run `fleek sites init`. At this point in the CLI, you will be prompted to input a name, directory location, and build command.
 
-![](./STEP2.gif)
+<video width="100%" height="auto" autoplay loop>
+ <source src="./STEP2.mp4" type="video/mp4">
+ Your browser does not support the video tag.
+</video>
 
 You can customize the build command directly through the CLI. **To take your template to the next level, you can use a file editor and modify the desired files to customize your site**!
 

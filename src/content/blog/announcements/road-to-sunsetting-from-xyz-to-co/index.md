@@ -48,7 +48,10 @@ At this phase, we will be stopping signups on Fleek.co and offering all the user
 
 ## Phase 3: Fleek.co Rides into the Sunset & Pending Users are Automatically Migrated
 
-![](./ride-into-sunset.gif)
+<video width="100%" height="auto" autoplay loop>
+ <source src="./ride-into-sunset.mp4" type="video/mp4">
+ Your browser does not support the video tag.
+</video>
 
 After a prudent time of co-existence between the platforms, and when the goals of these processes are met, we will be shutting down Fleek.co and **automatically migrate the missing users that didn't request it in the previous phase**.
 
