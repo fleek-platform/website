@@ -31,7 +31,6 @@ const blogCollection = defineCollection({
       title: z.string(),
       image: image(),
       thumbnail: image(),
-      category: z.nativeEnum(Category),
       date: z.date().optional(),
       desc: z.string().optional(),
       author: z.string().optional(),
