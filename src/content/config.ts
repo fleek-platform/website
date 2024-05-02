@@ -1,22 +1,19 @@
 import { z, defineCollection } from 'astro:content';
 
+// TODO: Make generic since most types are similar
 // TODO: remove optionals
 const docsCollection = defineCollection({
   type: 'content',
-  schema: z.object({
-    title: z.string(),
-    pubDate: z.date().optional(),
-    description: z.string().optional(),
-    author: z.string().optional(),
-    image: z
-      .object({
-        url: z.string(),
-        alt: z.string(),
-      })
-      .optional(),
-    order: z.number().optional(),
-    tags: z.array(z.string()).optional(),
-  }),
+  schema: ({ image }) =>
+    z.object({
+      title: z.string(),
+      pubDate: z.date().optional(),
+      description: z.string().optional(),
+      author: z.union([z.string(), z.array(z.string())]).optional(),
+      image: image(),
+      order: z.number().optional(),
+      tags: z.array(z.string()).optional(),
+    }),
 });
 
 // TODO: remove optionals
@@ -44,7 +41,7 @@ const guidesCollection = defineCollection({
       thumbnail: image(),
       date: z.date().optional(),
       desc: z.string().optional(),
-      author: z.string().optional(),
+      author: z.union([z.string(), z.array(z.string())]).optional(),
       order: z.number().optional(),
       tags: z.array(z.string()).optional(),
     }),
@@ -59,7 +56,7 @@ const templatesCollection = defineCollection({
       thumbnail: image(),
       date: z.date().optional(),
       desc: z.string().optional(),
-      author: z.string().optional(),
+      author: z.union([z.string(), z.array(z.string())]).optional(),
       order: z.number().optional(),
       tags: z.array(z.string()).optional(),
     }),
