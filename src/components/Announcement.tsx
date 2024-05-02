@@ -2,9 +2,10 @@ import { useEffect, useState } from 'react';
 import Container from '@components/Container';
 import Text from '@components/Text';
 import Marquee from 'react-fast-marquee';
+import settings from '@base/settings.json';
 
 const announcement =
-  "⚡ We've updated our milestones and roadmap for Fleek.xyz's V1, with new features and timelines! Read more here. ⚡";
+  `⚡ ${settings.site.annoucement.message} ⚡`;
 
 const Announcement: React.FC = () => {
   const [mount, setMount] = useState(false);
@@ -16,10 +17,9 @@ const Announcement: React.FC = () => {
 
   return (
     <a
-      href="https://blog.fleek.xyz/post/fleek-platform-update/"
-      target="_blank"
+      href={settings.site.annoucement.url}
       rel="noopener noreferrer"
-      className="mb-16"
+      className="mb-16 transition opacity-100 hover:opacity-80"
     >
       <Container>
         <div className="my-8 overflow-hidden rounded-16 bg-ui-fleek-black px-16 py-8">

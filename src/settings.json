@@ -19,6 +19,10 @@
       "fleekNetworkWebsiteUrl": "https://fleek.network",
       "discordFleekCommunityUrl": "https://discord.gg/fleek",
       "supportExternalUrl": "https://support.fleek.xyz"
+    },
+    "annoucement": {
+      "message": "We've updated our milestones and roadmap for Fleek.xyz's V1, with new features and timelines! Read more here.",
+      "url": "/blog/fleek-platform-update"
     }
   },
   "docs": {
