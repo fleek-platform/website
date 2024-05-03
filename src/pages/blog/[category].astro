@@ -10,16 +10,16 @@ import type { CollectionEntry } from 'astro:content';
 
 export async function getStaticPaths() {
   const blogCats = await listSubDirectories({
-    path: './src/content/blog'
+    path: './src/content/blog',
   });
-  const params = blogCats.map(category => ({
+  const params = blogCats.map((category) => ({
     params: {
-      category
-    }
+      category,
+    },
   }));
 
   return [...params];
-};
+}
 
 const indexNameBlog = import.meta.env.PUBLIC_MEILISEARCH_INDEX_BLOG;
 
@@ -29,18 +29,14 @@ const collection = 'blog';
 
 // TODO: load title from settings
 const pageTitle = 'Blog';
-const allPosts: CollectionEntry<'blog'>[] = (await getCollection('blog', ({ slug }) => slug.split('/')[0] === category)).sort(
-  (a, b) => b.data.date.valueOf() - a.data.date.valueOf(),
-);
+const allPosts: CollectionEntry<'blog'>[] = (
+  await getCollection('blog', ({ slug }) => slug.split('/')[0] === category)
+).sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf());
 ---
 
 <Layout title="Fleek | Build Lightning Fast Web3 Apps">
   <main class="container min-h-container">
-    <BlogHeader
-      title="Blog"
-      indexName={indexNameBlog}
-      category={category}
-    />
+    <BlogHeader title="Blog" indexName={indexNameBlog} category={category} />
     <BlogPosts allPosts={allPosts} collection={collection} />
   </main>
 </Layout>
