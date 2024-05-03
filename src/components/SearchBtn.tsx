@@ -13,11 +13,7 @@ import type { Hit as AlgoliaHit } from 'instantsearch.js';
 import type { Dispatch, SetStateAction } from 'react';
 
 const MagnifyingGlassSVG = () => (
-  <svg
-    xmlns="http://www.w3.org/2000/svg"
-    fill="none"
-    viewBox="0 0 24 24"
-  >
+  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
     <path
       strokeLinecap="round"
       strokeLinejoin="round"

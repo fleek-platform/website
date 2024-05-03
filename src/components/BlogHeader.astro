@@ -18,7 +18,7 @@ const { title, indexName, category } = Astro.props;
 <div
   class="mx-64 flex items-center justify-between pt-32 font-plex-sans text-32 font-bold"
 >
-  <div class="flex gap-40 align-center">
+  <div class="align-center flex gap-40">
     <h1>{title}</h1>
     <div class="align-center flex flex-col gap-10 md:flex-row">
       <div class="group relative md:hidden">
@@ -42,7 +42,7 @@ const { title, indexName, category } = Astro.props;
           }
         </ul>
       </div>
-      <div class="hidden md:flex gap-10">
+      <div class="hidden gap-10 md:flex">
         {
           categories.map((catName) => (
             <a
