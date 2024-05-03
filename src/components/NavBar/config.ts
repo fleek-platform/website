@@ -1,3 +1,5 @@
+import settings from '@base/settings.json';
+
 import type { MenuSettingsItem } from './index';
 
 const supportUrlDefault = 'https://support.fleek.xyz';
@@ -58,11 +60,11 @@ export const NavBarDefault: MenuSettingsItem[] = [
           items: [
             {
               label: 'GitHub',
-              url: 'TODO:AddGithubUrl',
+              url: settings.github.xyzWebsiteRepositoryUrl,
             },
             {
               label: 'Templates',
-              url: 'TODO:AddTemplatesUrl',
+              url: '/templates',
             },
           ],
         },
@@ -72,15 +74,15 @@ export const NavBarDefault: MenuSettingsItem[] = [
         items: [
           {
             label: 'Fleek Network',
-            url: 'TODO:AddFNUrl',
+            url: settings.site.resources.fleekNetworkWebsiteUrl,
           },
           {
             label: 'Arweave',
-            url: 'TODO:AddArweaveURL',
+            url: settings.site.resources.arweaveUrl,
           },
           {
             label: 'IPFS',
-            url: 'TODO:AddIPFSUrl',
+            url: settings.site.resources.ipfsUrl,
           },
         ],
       },

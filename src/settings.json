@@ -18,7 +18,9 @@
       "reportAbuseUrl": "https://support.fleek.xyz/hc/en-us/requests/new?ticket_form_id=16807535390093",
       "fleekNetworkWebsiteUrl": "https://fleek.network",
       "discordFleekCommunityUrl": "https://discord.gg/fleek",
-      "supportExternalUrl": "https://support.fleek.xyz"
+      "supportExternalUrl": "https://support.fleek.xyz",
+      "arweaveUrl": "https://www.arweave.org",
+      "ipfsUrl": "https://ipfs.tech/"
     },
     "annoucement": {
       "message": "We've updated our milestones and roadmap for Fleek.xyz's V1, with new features and timelines! Read more here.",
@@ -132,7 +134,8 @@
     ]
   },
   "github": {
-    "editUrl": "https://github.com/fleekxyz/fleekxyz-website/edit"
+    "editUrl": "https://github.com/fleekxyz/fleekxyz-website/edit",
+    "xyzWebsiteRepositoryUrl": "https://github.com/fleekxyz/fleekxyz-website"
   },
   "homepage": {
     "chainAgnostic": {
