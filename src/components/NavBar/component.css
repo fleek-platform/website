@@ -26,7 +26,7 @@
   }
 
   .nav-button-launch {
-    @apply ml-auto hidden lg:block transition hover:opacity-80 hover:scale-105;
+    @apply ml-auto hidden transition hover:scale-105 hover:opacity-80 lg:block;
   }
 
   .nav-menu {
