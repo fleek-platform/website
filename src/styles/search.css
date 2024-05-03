@@ -14,6 +14,23 @@
         }
       }
     }
+
+    .desktop {
+      @apply hidden md:flex;
+    }
+
+    .mobile {
+      @apply md:hidden;
+
+      .icon-container {
+        @apply left-0 flex items-center py-10;
+
+        svg {
+          @apply h-20 w-20;
+          stroke: #aaa;
+        }
+      }
+    }
   }
 
   #search-input {
@@ -52,6 +69,7 @@
       @apply p-10 text-16 font-light text-neutral-400;
     }
   }
+
 
   .modal-open {
     @apply fixed inset-0 z-50 flex justify-center bg-black bg-opacity-50;

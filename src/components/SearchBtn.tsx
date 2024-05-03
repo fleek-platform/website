@@ -12,6 +12,21 @@ import {
 import type { Hit as AlgoliaHit } from 'instantsearch.js';
 import type { Dispatch, SetStateAction } from 'react';
 
+const MagnifyingGlassSVG = () => (
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    fill="none"
+    viewBox="0 0 24 24"
+  >
+    <path
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      strokeWidth="2"
+      d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
+    />
+  </svg>
+);
+
 const { apiKey, host } = (() => {
   const apiKey = import.meta.env.PUBLIC_MEILISEARCH_DOCUMENTS_CLIENT_API_KEY;
   const host = import.meta.env.PUBLIC_MEILISEARCH_HOST;
@@ -152,7 +167,7 @@ export default ({ indexName }: Props) => {
 
   return (
     <div className="search-btn">
-      <div className="input-container" onClick={onSearchFocus}>
+      <div className="input-container desktop" onClick={onSearchFocus}>
         <input
           className="search-input"
           type="text"
@@ -160,18 +175,12 @@ export default ({ indexName }: Props) => {
           readOnly={true}
         />
         <div className="icon-container">
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            fill="none"
-            viewBox="0 0 24 24"
-          >
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              strokeWidth="2"
-              d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
-            />
-          </svg>
+          <MagnifyingGlassSVG />
+        </div>
+      </div>
+      <div className="mobile" onClick={onSearchFocus}>
+        <div className="icon-container">
+          <MagnifyingGlassSVG />
         </div>
       </div>
       {openModal && (
