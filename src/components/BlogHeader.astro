@@ -30,7 +30,7 @@ const isBlogRoot = Astro.url.pathname.startsWith('/blog');
             viewBox="0 0 256 256"
             class="white rotate-90"
           >
-            <g fill="#fff" strokeMiterlimit="10" strokeWidth="1">
+            <g fill="#fff" stroke-miterlimit="10" stroke-width="1">
               <path
                 d="M15.205 90a2 2 0 01-2-2V55.115a2 2 0 014 0V88a2 2 0 01-2 2zM74.795 59.357a2 2 0 01-2-2V2a2 2 0 014 0v55.357a2 2 0 01-2 2zM45 90a2 2 0 01-2-2V27.922a2 2 0 014 0V88a2 2 0 01-2 2z"
                 transform="matrix(2.81 0 0 2.81 1.407 1.407)"></path>
@@ -47,35 +47,35 @@ const isBlogRoot = Astro.url.pathname.startsWith('/blog');
           class="absolute top-50 block hidden rounded-8 bg-ui-fleek-black p-20 px-10 group-hover:block"
         >
           {
-            isBlogRoot &&
-              categories.map((catName) => (
-                <li>
-                  <a
-                    class="block rounded-8 bg-ui-fleek-black px-16 py-8 font-plex-sans text-16 font-light capitalize transition duration-200 ease-in-out hover:bg-ui-mid-grey hover:text-ui-fleek-black"
-                    href={`/blog/${catName !== ROOT ? catName : ''}`}
-                  >
-                    {catName}
-                  </a>
-                </li>
-              ))
+            isBlogRoot
+            && categories.map((catName) => (
+              <li>
+                <a
+                  class="block rounded-8 bg-ui-fleek-black px-16 py-8 font-plex-sans text-16 font-light capitalize transition duration-200 ease-in-out hover:bg-ui-mid-grey hover:text-ui-fleek-black"
+                  href={`/blog/${catName !== ROOT ? catName : ''}`}
+                >
+                  {catName}
+                </a>
+              </li>
+            ))
           }
         </ul>
       </div>
       <div class="hidden gap-10 md:flex">
         {
-          isBlogRoot &&
-            categories.map((catName) => (
-              <a
-                class={clsx(
-                  'block self-center rounded-8 bg-ui-fleek-black px-16 py-8 font-plex-sans text-16 font-light capitalize transition duration-200 ease-in-out hover:bg-ui-mid-grey hover:text-ui-fleek-black',
-                  (catName === category || (catName == ROOT && !category)) &&
-                    'bg-ui-mid-grey text-ui-fleek-black',
-                )}
-                href={`/blog/${catName !== ROOT ? catName : ''}`}
-              >
-                {catName}
-              </a>
-            ))
+          isBlogRoot
+          && categories.map((catName) => (
+            <a
+              class={clsx(
+                'block self-center rounded-8 bg-ui-fleek-black px-16 py-8 font-plex-sans text-16 font-light capitalize transition duration-200 ease-in-out hover:bg-ui-mid-grey hover:text-ui-fleek-black',
+                (catName === category || (catName == ROOT && !category)) &&
+                  'bg-ui-mid-grey text-ui-fleek-black',
+              )}
+              href={`/blog/${catName !== ROOT ? catName : ''}`}
+            >
+              {catName}
+            </a>
+          ))
         }
       </div>
     </div>
