@@ -18,23 +18,46 @@ const { title, indexName, category } = Astro.props;
 <div
   class="mx-64 flex items-center justify-between pt-32 font-plex-sans text-32 font-bold"
 >
-  <div class="align-center flex gap-40">
+  <div class="flex gap-40 align-center">
     <h1>{title}</h1>
-    <div class="align-center flex gap-10">
-      {
-        categories.map((catName) => (
-          <a
-            class={clsx(
-              'block self-center rounded-8 bg-ui-fleek-black px-16 py-8 font-plex-sans text-16 font-light capitalize transition duration-200 ease-in-out hover:bg-ui-mid-grey hover:text-ui-fleek-black',
-              (catName === category || (catName == ROOT && !category)) &&
-                'bg-ui-mid-grey text-ui-fleek-black',
-            )}
-            href={`/blog/${catName !== ROOT ? catName : ''}`}
-          >
-            {catName}
-          </a>
-        ))
-      }
+    <div class="align-center flex flex-col gap-10 md:flex-row">
+      <div class="group relative md:hidden">
+        <button
+          class="rounded-8 font-plex-sans text-16 font-light capitalize transition ease-in-out"
+        >
+          Menu
+        </button>
+        <ul class="absolute top-50 hidden group-hover:block">
+          {
+            categories.map((catName) => (
+              <li>
+                <a
+                  class="block rounded-8 bg-ui-fleek-black px-16 py-8 font-plex-sans text-16 font-light capitalize transition duration-200 ease-in-out hover:bg-ui-mid-grey hover:text-ui-fleek-black"
+                  href={`/blog/${catName !== ROOT ? catName : ''}`}
+                >
+                  {catName}
+                </a>
+              </li>
+            ))
+          }
+        </ul>
+      </div>
+      <div class="hidden md:flex gap-10">
+        {
+          categories.map((catName) => (
+            <a
+              class={clsx(
+                'block self-center rounded-8 bg-ui-fleek-black px-16 py-8 font-plex-sans text-16 font-light capitalize transition duration-200 ease-in-out hover:bg-ui-mid-grey hover:text-ui-fleek-black',
+                (catName === category || (catName == ROOT && !category)) &&
+                  'bg-ui-mid-grey text-ui-fleek-black',
+              )}
+              href={`/blog/${catName !== ROOT ? catName : ''}`}
+            >
+              {catName}
+            </a>
+          ))
+        }
+      </div>
     </div>
   </div>
   <div class="relative flex h-48 items-center">
