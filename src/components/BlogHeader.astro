@@ -4,15 +4,14 @@ import clsx from 'clsx';
 import { listSubDirectories } from '@utils/paths';
 
 const ROOT = 'all';
-
-let categories = await listSubDirectories({
+const { title, indexName, category } = Astro.props;
+const categories = await listSubDirectories({
   path: './src/content/blog',
 });
-
 categories.push(ROOT);
 categories.sort();
 
-const { title, indexName, category } = Astro.props;
+const isBlogRoot = Astro.url.pathname.startsWith('/blog');
 ---
 
 <div
@@ -48,7 +47,8 @@ const { title, indexName, category } = Astro.props;
           class="absolute top-50 block hidden rounded-8 bg-ui-fleek-black p-20 px-10 group-hover:block"
         >
           {
-            categories.map((catName) => (
+            isBlogRoot
+            && categories.map((catName) => (
               <li>
                 <a
                   class="block rounded-8 bg-ui-fleek-black px-16 py-8 font-plex-sans text-16 font-light capitalize transition duration-200 ease-in-out hover:bg-ui-mid-grey hover:text-ui-fleek-black"
@@ -63,7 +63,8 @@ const { title, indexName, category } = Astro.props;
       </div>
       <div class="hidden gap-10 md:flex">
         {
-          categories.map((catName) => (
+          isBlogRoot
+          && categories.map((catName) => (
             <a
               class={clsx(
                 'block self-center rounded-8 bg-ui-fleek-black px-16 py-8 font-plex-sans text-16 font-light capitalize transition duration-200 ease-in-out hover:bg-ui-mid-grey hover:text-ui-fleek-black',
