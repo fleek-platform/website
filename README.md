@@ -13,6 +13,7 @@ This repository contains the source code and assets for the Fleek.xyz website, w
     - [Requirements](#%EF%B8%8F-requirements)
     - [Install](#-install)
     - [Develop](#%EF%B8%8Fdevelop)
+      - [EnvVars](#env-vars)
     - [Build](#%EF%B8%8F-build)
     - [Preview (locally)](#-preview-locally)
     - [Preview (staging)](#-preview-staging)
@@ -60,6 +61,8 @@ Start a local HTTP server for development work. It supports hot-reload and you'l
 ```
 npm run dev
 ```
+
+### Env vars
 
 In case you'll be interacting with services, you'll require to have setup the environment variables.
 
