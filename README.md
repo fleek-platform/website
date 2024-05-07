@@ -61,6 +61,21 @@ Start a local HTTP server for development work. It supports hot-reload and you'l
 npm run dev
 ```
 
+In case you'll be interacting with services, you'll require to have setup the environment variables.
+
+Create a local file named `.env` and declare the following
+
+```
+PUBLIC_MEILISEARCH_HOST=localhost:7700
+PUBLIC_MEILISEARCH_INDEX_BLOG="fleekxyz_website_blog"
+PUBLIC_MEILISEARCH_INDEX_DOCS="fleekxyz_website_docs"
+PUBLIC_MEILISEARCH_INDEX_GUIDES="fleekxyz_website_guides"
+PUBLIC_MEILISEARCH_INDEX_REFERENCES="fleekxyz_website_references"
+PRIVATE_MEILISEARCH_MASTER_KEY=***
+PRIVATE_MEILISEARCH_DOCUMENTS_ADMIN_API_KEY=***
+PUBLIC_MEILISEARCH_DOCUMENTS_CLIENT_API_KEY=***
+```
+
 ## 🏗️ Build
 
 Run the build command to create the distribution version. The files will be saved in the `/dist` directory by default.
