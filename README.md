@@ -39,12 +39,12 @@ This repository contains the source code and assets for the Fleek.xyz website, w
 
 ## ⚙️ Requirements
 
-- Nodejs
+- Nodejs + Bun
 - NPM, Yarn or PNPM
 - Some experience with CLI
 - Docker (Optionally, if you want to run search server locally)
 
-Learn how to install Nodejs in your operating system by following the instructions [here](https://nodejs.org/en/download/package-manager/).
+Learn how to install Nodejs in your operating system by following the instructions [here](https://nodejs.org/en/download/package-manager/) and Bun [here](https://bun.sh/docs/installation).
 
 ## 🤖 Install
 
