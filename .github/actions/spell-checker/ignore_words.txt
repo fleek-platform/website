@@ -25,3 +25,9 @@ pullzone
 pullzones
 dev
 devs
+DNS
+DNSLink
+Cloudflare
+Ethereum
+Metamask
+TLD
