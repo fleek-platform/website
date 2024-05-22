@@ -164,7 +164,7 @@ If you remove all the custom domains from a site, the content of the storage wil
 
 DNSLink allows the mapping of a domain name to an IPFS hash. Setting up DNSLink will allow you to use a domain name to access the latest version of your site through IPFS.
 
-For example, accessing https://ipfs.io/ipns/docs.ipfs.tech will point to the most recent IPFS hash of the Fleek homepage. The utility of this feature comes from having an unchanging link pointing to the most recent IPFS hash, which changes with each new build.
+The utility of this feature comes from having an unchanging link pointing to the most recent IPFS hash, which changes with each new build.
 
 The [IPFS documentation](https://docs.ipfs.tech/concepts/dnslink/) provides a detailed explanation of DNSLink and its utility.
 
