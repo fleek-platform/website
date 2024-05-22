@@ -5,7 +5,8 @@ ipfs
 ci
 cd
 cdn
-changelong
+changelog
+changelogs
 cli
 ddos
 js
@@ -16,3 +17,11 @@ userbase
 vue
 walkthrough
 xyz
+UI
+SDK
+mp4
+blocklist
+pullzone
+pullzones
+dev
+devs
