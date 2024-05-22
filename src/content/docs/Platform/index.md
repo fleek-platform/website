@@ -2,7 +2,44 @@
 order: 1
 title: Overview
 date: 2023-01-10
-description: todo platform
+description: A description of Fleek, an edge-optimized cloud platform
 ---
 
-Fleek is an edge optimized cloud platform. Fleek makes it easy to build lightning fast apps.
+Fleek is an edge-optimized cloud platform where users can prepare, host and deploy Web sites and applications. It enables developers to build fast, performant apps.
+
+**What can I use Fleek for?**
+The platform allows you to build, deploy, and scale apps regardless of the framework or library you used to output HTML. Most modern JS frameworks, such as React-based Gatsby, Go-based Hugo or Vue.js-powered VuePress are supported. Whether you’re interested in publishing a simple blog or creating a production Web app that serves a large userbase, Fleek’s tools allow you to go live effortlessly.
+
+**For existing Web applications**
+If you already have a Web application you’re managing through another platform, Fleek also enables a frictionless migration process. All that you need to do in order to begin using Fleek in this way is to link to your existing repository and follow our guide.
+
+Once your site or app is live, the Fleek platform also provides you with tools to ensure you (and your users) are happy with the site’s performance. We understand how damaging to the user experience slow loading times can be, and take several measures to optimize performance, including:
+
+- Using Fleek Edge to run your application from 1,000+ locations globally, ensuring content is served with low latency from the source best suited to each user.
+- Enabling DDoS protection to eliminate down time due to targeted attacks
+- Offering monitoring and alerting services so any downtime can be quickly diagnosed
+
+**How can I manage my application outside of the platform?**
+Fleek also offers users optionality around how you manage your application. Updates you push to your repository are automatically deployed through Fleek once your repository is linked, and the triggers behind this can be controlled on a granular level through your Fleek settings. If you prefer using a CLI or a custom interface that leverages our SDK, you can read more about those tools here:
+
+- Read more about the Fleek CLI [here](/docs/cli/)
+- Read more about the Fleek SDK [here](/docs/sdk)
+
+**Collaboration**
+If you wish to collaborate with others in your organization on the management of your application, Fleek also supports a variety of collaborative features designed to smooth over joint management of an account. It’s easy to introduce team members who are already active on your repository to Fleek. You can assign individual permissions to users you invite, share deployment previews with others in your organization, test builds and more. Larger teams may benefit from our Enterprise plan. You can review our pricing [here](/pricing).
+
+**Using Fleek**
+Speed is critical to our offerings at Fleek, and a focus on speed has informed not only the tools we expose for use externally with your Web apps but also within our own user experience. You can learn more about features within the platform by reading the pages that follow this one in our documentation or following one of our [tutorials - TODO: ADD REAL LINK](/guides) for a guided walkthrough.
+
+- To get started, create an account [here - TODO: ADD REAL LINK](https://fleek.xyz/signup)
+
+We recognize that the speed and performance of your Web application is also tied to the speed of your development process, and with that in mind have sought to make the platform as intuitive as possible. It is paramount that you feel comfortable using Fleek so that you can ship the latest version of your Web application without encountering unexpected hurdles.
+
+**On-chain services**
+You may not have previously used decentralized services before in conjunction with your projects, and are not required to use one. In the event that your app may benefit from leveraging one, though, we offer the best of on-chain storage, compute and decentralized CDN services through the platform.
+
+**Need help getting started?**
+Not sure what to build? Our platform offers you several boilerplate templates of apps you can deploy, or you can check out our Getting Started guide:
+
+- Browse our [Template Gallery - TODO: ADD REAL LINK](https://fleek.xyz/templates)
+- Read our [Getting Started guide - TODO: ADD REAL LINK](https://fleek.xyz/docs/gettingstarted)
