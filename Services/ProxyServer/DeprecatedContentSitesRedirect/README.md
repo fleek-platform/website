@@ -2,6 +2,12 @@
 
 The following is the Nginx proxy server nginx.conf that forwards requests from docs.fleek.xyz or blog.fleek.xyz to the fleek.xyz new site with a 301 Permanent redirect.
 
+## Requirements
+
+- Nginx >= 1.23.3
+
+To learn more about Nginx read it [here](https://nginx.org/en/docs)
+
 ## Usage
 
 1) Open the Nginx configuration file that is typically  located at `/etc/nginx/nginx.conf` or within the `/etc/nginx/sites-available` directory
