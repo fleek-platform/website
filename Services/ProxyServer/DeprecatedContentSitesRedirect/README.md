@@ -21,3 +21,7 @@ To learn more about Nginx read it [here](https://nginx.org/en/docs)
 5) Reload Nginx by running `sudo systemctl reload nginx` or `sudo service nginx reload`
 
 6) Test that requests are successfully forwarded under a test domain, e.g. you'll have to modify the nginx.conf to apply the test domain
+
+Ref:
+- Nginx location match tester
+  https://nginx.viraptor.info
