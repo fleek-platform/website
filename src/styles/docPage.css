@@ -104,4 +104,9 @@
       @apply w-full;
     }
   }
+
+  [data-menu-item="cli"],
+  [data-menu-item="sdk"] {
+    text-transform: uppercase;
+  }
 }
