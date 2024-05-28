@@ -52,4 +52,4 @@ export const generateSlug = (input: string): string => {
   normalized = normalized.replace(/[^a-z0-9\-]/gi, '');
   normalized = normalized.trim();
   return normalized;
-}
+};

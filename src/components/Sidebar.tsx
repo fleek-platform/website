@@ -75,7 +75,9 @@ const SidebarMenu: FC<Props> = ({ data, pathname }) => {
                     className={`inline-block w-full font-plex-sans text-16 capitalize leading-loose text-ui-light-grey transition duration-150 hover:opacity-100 ${isActiveSlug(item.slug) && isActiveCategory(item.category) ? activeItemStyle : 'opacity-80'}`}
                     href={`/docs/${item.slug}`}
                   >
-                    <span data-menu-item={`${generateSlug(item.slug)}`}>{item.title}</span>
+                    <span data-menu-item={`${generateSlug(item.slug)}`}>
+                      {item.title}
+                    </span>
                   </a>
 
                   <span className="shrink-0 opacity-60 transition duration-300 hover:opacity-100 group-open:rotate-90 group-open:opacity-100">
@@ -102,7 +104,9 @@ const SidebarMenu: FC<Props> = ({ data, pathname }) => {
                         href={`/docs/${item.category}/${!sItem.index ? sItem.slug : ''}`}
                         className={`rounded-lg inline-block w-full py-2 font-plex-sans text-16 leading-loose transition duration-150 hover:opacity-100 ${isActiveCategory(item.category) && isActiveSlug(sItem.slug) ? 'font-bold opacity-100' : 'opacity-80'}`}
                       >
-                        <span data-menu-item={`${generateSlug(sItem.title)}`}>{sItem.title}</span>
+                        <span data-menu-item={`${generateSlug(sItem.title)}`}>
+                          {sItem.title}
+                        </span>
                       </a>
                     </li>
                   ))}

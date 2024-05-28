@@ -105,8 +105,8 @@
     }
   }
 
-  [data-menu-item="cli"],
-  [data-menu-item="sdk"] {
+  [data-menu-item='cli'],
+  [data-menu-item='sdk'] {
     text-transform: uppercase;
   }
 }
