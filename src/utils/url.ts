@@ -46,3 +46,10 @@ export const generateGitHubEditLink = ({
 
   return `${collection}/${id}`;
 };
+
+export const generateSlug = (input: string): string => {
+  let normalized = input.toLowerCase().replace(/\s+/g, '-');
+  normalized = normalized.replace(/[^a-z0-9\-]/gi, '');
+  normalized = normalized.trim();
+  return normalized;
+};

@@ -11,131 +11,124 @@ tags:
   - Fleek
 ---
 
-### Introduction
+# Domains
 
-In this documentation, we will guide you through the process of setting up a custom domain for your Fleek site. With a custom domain, you can create a unique web address for your site that reflects your brand or organization.
+With Fleek Domains, you can create a custom web address for your site that reflects your brand or organization.
 
-To get started, you'll need a custom domain. Once you have that, you can follow our step-by-step guide to configure your domain and connect it to your Fleek site.
+To get started, you should have a domain name registered and access to the DNS Settings. Once ready, you'll have the ability to add, list and manually very a domain on Fleek Domains.
 
-We'll cover the following topics:
+## Add a custom domain
 
-- Adding a domain to Fleek
-- Listing your current domains
-- Manually Verifying your domain
+To add your domain using the Fleek Platform CLI, use the domains create command. It'll start a process to add, set up and verify a domain.
 
-### Add a custom domain
+```sh
+fleek domains create
+```
 
-The first step is to add a domain. To do this, you will need a project and a site to configure it on. Once you have these, you can choose from the different interfaces available to set up the domain.
+The first step is to select the site you want to assign the custom domain. Since the Fleek Platform allows you to customize domains for Sites or Gateways used for other means such as storage, you have to select "Site".
 
-To add your domain using the command-line interface (CLI), use the `domains create` method. This will trigger a wizard to add, set up, and verify your domain.
+```sh
+? Select the domain name purpose: ›
+❯   Site
+    Private Gateway
+```
 
-The first step is to select the site you want to add the domain to. You can choose from the list of sites you have access to.
+Then, you have to choose the site to add the domain.
 
-```shellscript filename="Adding a Domain" copy
+```sh
 > fleek domains create
-WARN! Fleek CLI is in beta, use it at your own discretion
 ✔ Choose site to add domain to › fleek-demos-blog-2
 ```
 
-Once you have selected the site, you will be prompted to enter the domain you want to add.
+After selecting the site, you'll be asked to input the custom domain address. Ensure this is the domain you own or have DNS control over.
 
-```shellscript filename="Adding a Domain" copy
-> fleek domains create
-WARN! Fleek CLI is in beta, use it at your own discretion
-✔ Choose site to add domain to › fleek-demos-blog-2
+```sh
 ✔ Enter domain name (eg. example.com) … fleekdemos.online
-> Success! Domain "fleekdemos.online" successfully added.
+✅ Success! The domain "fleekdemos.online" was successfully added.
 ```
 
-Now that the domain is created you will need to set up the correct DNS records to make sure that your domain points to the CDN pull zone. The CLI will provide you with the DNS records you need to add to your domain.
+Now that the domain is set up, you'll have to arrange the correct DNS records to verify your domain directs to the CDN pull zone. The CLI will provide you with the DNS records required to add to your domain.
 
-```shellscript filename="Adding a Domain" copy
+```sh
 > fleek domains create
-WARN! Fleek CLI is in beta, use it at your own discretion
-✔ Choose site to add domain to › fleek-demos-blog-2
-✔ Enter domain name (eg. example.com) … fleekdemos.online
-> Success! Domain "fleekdemos.online" successfully added.
 > Update DNS records for "fleekdemos.online":
 > CNAME @ <your pullzone>
+```
+
+Once you've set up your DNS records, you should validate them. To start this process, press any key in the CLI. This will activate a verification procedure to ensure the DNS records are properly configured.
+
+```sh
 > Press any key as soon as you configure your domain provider for verification.
+✅ Success! The domain "fleekdemos.online" was verified.
 ```
 
-If you need help configuring your DNS records, you can find more information in our [DNS records guide](/guides/dns-records).
+That's it! Once DNS propagation is complete, your domain will be ready to use.
 
-Once you have confured your DNS records, you can verify your domain. To do this, you will need to press any key in the CLI. This will trigger a verification process that will check if the DNS records are correctly configured.
+## List domains
 
-```shellscript filename="Adding a Domain" copy
-> fleek domains create
-WARN! Fleek CLI is in beta, use it at your own discretion
-✔ Choose site to add domain to › fleek-demos-blog-2
-✔ Enter domain name (eg. example.com) … fleekdemos.online
-> Success! Domain "fleekdemos.online" successfully added.
-> Update DNS records for "fleekdemos.online":
-> CNAME @ <your pullzone>
-> Press any key as soon as you configure your domain provider for verification.
-> Success! Domain "fleekdemos.online" was verified.
+You can always list the domains you have added to your site. To do this, use the domains **list** command. This will list all the domains you've added to your site and show the status of each.
+
+```sh
+fleek domains list
 ```
 
-That is it! Once the DNS propagation is complete, your domain will be ready to use.
+It'll output a table containing the list details.
 
-### List domains
-
-At any moment you can list the domains you have added to your site.
-
-To do this, you can use the `domains list` method. This will list all the domains you have added to your site and the status of each.
-
-```shellscript filename="Listing Domains" copy
-> fleek domains list
-WARN! Fleek CLI is in beta, use it at your own discretion
-Hostname           Created At                 Verified
-------------------------------------------------------
-fleekdemos.online  2023-03-01T09:43:09.698Z  ✔
+```sh
+Hostname             Created At                   Verified
+----------------------------------------------------------
+fleekdemos.online    2023-03-01T09:43:09.698Z     ✅
 ```
 
-### Domain details
+## Domain details
 
-You can check the detils for the configuration of your domain at any moment, this can help if you are changing DSN provider for example.
+You can check the details for the configuration of your domain at any moment, this can help if you are changing DSN provider for example.
 
-To do this, you can use the `domains details` method where you need to pass the domain name as a parameter. We use the domain name as an identifier for the domain to avoid using internal IDs.
+```sh
+fleek domains detail fleekdemos.online
+```
 
-:::info
+To do this, you can use the domains details command. We use the domain name as an identifier for the domain to avoid using internal IDs.
 
-This command might prompt you to select a listed domain.
-
-:::
-
-```shellscript filename="Listing Domains" copy
-> fleek domains detail fleekdemos.online
-WARN! Fleek CLI is in beta, use it at your own discretion
+```sh
 Hostname           CreatedAt                 Verified
 -----------------------------------------------------
-fleekdemos.online  2023-03-01T09:43:09.698Z  ✔
+fleekdemos.online  2023-03-01T09:43:09.698Z  ✅
+
 > Configure your domain provider according to following table:
 Type   Name      Value
 ----------------------------------------------------
 CNAME  hostname  <your pullzone>
 ```
 
-### Manual verification
+## Manual verification
 
-If during the setup process you couldn't verify your domain, you can do it manually.
+If you encounter difficulties verifying your domain during the setup process, you can do so manually.
 
-To do this, you can use the `domains verify` method. This will list the domains available for verification and you can select the one you want to verify.
-
-```shellscript filename="Listing Domains" copy
-> fleek domains verify fleekdemos.online
-WARN! Fleek CLI is in beta, use it at your own discretion
-✔ Choose a domain you want to verify › fleekdemos.online
-> Success! Domain "fleekdemos.online" was verified.
+```sh
+fleek domains verify fleekdemos.online
 ```
 
-### Delete a domain
+To proceed, use the domains verify method. This will display the domains available for verification, allowing you to choose the one you wish to verify.
 
-To do this, you can use the `domains delete` method. This will prompt the wizzerd for domains deletion.
+```sh
+✔ Choose a domain you want to verify › fleekdemos.online
 
-```shellscript filename="Listing Domains" copy
-> fleek domains delete
-WARN! Fleek CLI is in beta, use it at your own discretion
+✅ Success! The domain "fleekdemos.online" was verified.
+```
+
+## Delete a domain
+
+To delete domains, you can run the domains delete command. This will prompt the wizard for confirmation before deleting the domains.
+
+```sh
+fleek domains delete
+```
+
+You should expect to receive a confirmation message.
+
+```sh
 ✔ Enter domain name (eg. example.com) … fleekdemo.online
-> Success! Domain "fleekdemo.online " successfully removed.
+
+✅ Success! The domain "fleekdemo.online " was deleted.
 ```
