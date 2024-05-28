@@ -13,63 +13,54 @@ tags:
 
 # Gateways
 
+A gateway is a service offered by the Fleek Platform that enables you to deliver your content to your users via a custom domain. This means you can serve your content through a domain like **https://mydomain.com** rather than **https://ipfs.io/ipfs/<hash>**.
+
+Gateways are private since they only permit files pinned in the user account to be served. By allowing you to set up a custom domain, it adds an additional branding opportunity and control of your app business.
+
 ## Creating a private gateway
 
 To create a private gateway you will need to have a Fleek project and a custom domain. Currently we are making mandatory that each private gateway has at least one custom domain associated with it to avoid abuse.
 
 To create a gateway using the CLI you will need to run the following command:
 
-```shellscript filename="Creating a Gateway" copy
-> fleek gateways create
-✔ Enter private gateway name (eg. first): … my-first-gateway
-> Success! Private gateway "my-first-gateway" successfully created.
+```sh
+fleek gateways create
 ```
 
-The next step will be to configure the custom domain for your gateway.
+Then, you have to follow the wizard:
 
-```shellscript filename="Configuring the custom domain" copy
-> fleek gateways create
+```sh
 ✔ Enter private gateway name (eg. first): … my-first-gateway
-✔ Enter domain name (eg. example.com): … ipfs.my-gateway.online
-> Success! Domain "ipfs.my-gateway.online" successfully created.
+✅ Success! The private gateway "my-first-gateway" was created.
 ```
 
-Now that the domain is created you will need to set up the correct DNS records to make sure that your domain points to the CDN pull zone. The CLI will provide you with the DNS records you need to add to your domain.
+Next, you'll have to set up the correct DNS Recorsd to make sure that your domain points to the CDN pull zone. Should be very familiar with custom [domain](/docs/domains) configuration.
 
-```shellscript filename="Setting up the DNS records" copy
-> fleek gateways creat
-✔ Enter private gateway name (eg. first): … my-first-gateway
-✔ Enter domain name (eg. example.com): … ipfs.my-gateway.online
-> Success! Domain "ipfs.my-gateway.online" successfully created.
+The CLI will provide you with the DNS records you need to add to your domain DNS settings.
+
+```sh
 > Update DNS records for "ipfs.my-gateway.online":
 > CNAME @ <your-pullzone-id>.fleekcdn.xyz
-> Press any key as soon as you configure your domain provider for verification.
 ```
 
-If you need help configuring your DNS records, you can find more information in our [DNS records guide](/guides/dns-records).
+Once you've set up your DNS records, you should validate them. To start this process, press any key in the CLI. This will activate a verification procedure to ensure the DNS records are properly configured.
 
-Once you have confured your DNS records, you can verify your domain. To do this, you will need to press any key in the CLI. This will trigger a verification process that will check if the DNS records are correctly configured.
-
-```shellscript filename="Finish" copy
-> fleek gateways create
-✔ Enter private gateway name (eg. first): … my-first-gateway
-✔ Enter domain name (eg. example.com): … ipfs.my-gateway.online
-> Success! Domain "ipfs.my-gateway.online" successfully created.
-> Update DNS records for "ipfs.my-gateway.online":
-> CNAME @ <your-pullzone-id>.fleekcdn.xyz
+```sh
 > Press any key as soon as you configure your domain provider for verification.
-> Success! Domain "ipfs.my-gateway.online" was verified.
+✅ Success! The Domain "ipfs.my-gateway.online" was verified.
 ```
 
-Now that your domain is verified, you can start using it to serve your content. The content will no appear under `ipfs.my-gateway.online/ipfs/<cid>`
+Now that your domain is verified, you can start using it to serve your content. For example, Fleek Storage content will now appear under **ipfs.my-gateway.online/ipfs/<cid>**.
 
-## Exploring the private gateway settings
+## Gateway Settings
 
-At any moment you can access the private gateway settings by running the following command:
+To access the Gateway settings, use the **gateways detail** command.
 
-```shellscript filename="Gateway settings" copy
-> fleek gateways detail
-WARN! Fleek CLI is in beta, use it at your own discretion
+```sh
+fleek gateways detail
+```
+
+```sh
 ✔ Choose existing private gateway: › beefy-clever-autumn
 
 ID                         Slug                 Name                    Created At
@@ -84,20 +75,36 @@ cljqwfv790002lc08g6nmf8e0  beefy-clever-autumn  my-first-gateway  2023-07-06T08:
 
 To add a domain to an existing gateway you will need to run the following command:
 
-```shellscript filename="Adding a custom domain" copy
-> fleek domains create
+```sh
+fleek domains create
 ```
 
-And you need to select the private gateway option and then select the gateway you want to add the domain to and then follow the wizard like in the creation.
+Next, you'll have to select the private gateway option, the gateway you want to assign it to, and respond to the wizard prompts.
 
-```shellscript filename="Adding a custom domain" copy
-> fleek domains create
+```sh
 ✔ Choose what do you want domain create for: › Private gateway
 ✔ Choose existing private gateway: › my-first-gateway
 ✔ Enter domain name (eg. example.com): … my-new-domain-ipfs.my-gateway.online
+```
+
+The maining process should be familiar to the previous steps.
+
+1. Creates the domain
+
+```sh
 > Success! Domain "my-new-domain-ipfs.my-gateway.online" successfully created.
+```
+
+2. Requests for the DNS record settings update
+
+```sh
 > Update DNS records for "my-new-domain-ipfs.my-gateway.online":
 > CNAME @ <your-pullzone-id>.fleekcdn.xyz
 > Press any key as soon as you configure your domain provider for verification.
+```
+
+3. Once verified, provides a confirmation message
+
+```sh
 > Success! Domain "my-new-domain-ipfs.my-gateway.online" was verified.
 ```
