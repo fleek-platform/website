@@ -31,3 +31,6 @@ Cloudflare
 Ethereum
 Metamask
 TLD
+TOTP
+2fa
+Authy
