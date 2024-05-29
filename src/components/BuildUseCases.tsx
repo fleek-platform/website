@@ -1,76 +1,52 @@
 import CardsWithDottedLinesBackground from '@components/CardsWithDottedLinesBackground';
 
+import type { RoundedType } from '@components/PageSection';
+
+interface Props {
+  rounded?: RoundedType;
+}
 // TODO: Should the card declaration be in the settings?
-const BuildUseCases = () => (
+const BuildUseCases: React.FC<Props> = (props) => (
   <CardsWithDottedLinesBackground
-    headline="Get building with these examples."
+    rounded={props.rounded}
+    headline="Start with Templates"
     cta={{
       url: 'https://app.fleek.xyz/templates/',
-      text: 'see all templates',
+      text: 'Browse templates',
     }}
     cardSections={[
-      {
-        title: 'Use-Cases',
-        cards: [
-          {
-            title: 'Web3 App',
-            description: 'Start with a pre-set WAGMI EVM app boilerplate.',
-            icon: { src: '/svg/web3-app-icon.svg', alt: 'Web3 App' },
-            cta: {
-              url: 'https://github.com/fleekxyz/evm-starter-kit',
-              text: 'try it',
-            },
-          },
-          {
-            title: 'Nextra Blog',
-            description:
-              'Deploy a Nextra static blog ready to start publishing.',
-            icon: { src: '/svg/nfas-icon.svg', alt: 'Nextra blog' },
-            cta: {
-              url: 'https://github.com/fleekxyz/fleek-demos-blog',
-              text: 'try it',
-            },
-          },
-          {
-            title: 'Lens App',
-            description: 'Start a new Lens-integrated social frontend.',
-            icon: { src: '/svg/lens-icon.svg', alt: 'Lens App' },
-            cta: {
-              url: 'https://app.fleek.xyz/templates/clo7b9d0a0001ei0owl3w09bd/',
-              text: 'try it',
-            },
-          },
-        ],
-      },
       {
         title: 'Frameworks',
         cards: [
           {
-            title: 'Next.js',
-            description: 'Work on an IPFS-ready Next.js starter-kit.',
-            icon: { src: '/svg/next-icon.svg', alt: 'NextJs App' },
+            title: 'Next.js Template',
+            description: 'Use the React started kit to get the best look.',
+            icon: { src: '/svg/react-icon.svg', alt: 'Web3 App' },
             cta: {
               url: 'https://github.com/fleekxyz/nextjs-template',
               text: 'try it',
             },
+            image: '/svg/nextjs-template.svg',
           },
           {
-            title: 'React App',
-            description: 'Deploy a quick Create React App on Fleek.',
-            icon: { src: '/svg/react-icon.svg', alt: 'React App' },
+            title: 'React Template',
+            description: 'Use the React started kit to get the best look.',
+            icon: { src: '/svg/react-icon.svg', alt: 'NextJs App' },
             cta: {
               url: 'https://github.com/fleekxyz/react-template',
               text: 'try it',
             },
+            image: '/svg/react-template.svg',
           },
           {
-            title: 'Astro',
-            description: 'Build on a speed-optimized Astro boilerplate.',
-            icon: { src: '/svg/astro-icon.svg', alt: 'Astro App' },
+            title: 'Astro Template',
+            description: 'Use the React started kit to get the best look.',
+            icon: { src: '/svg/react-icon.svg', alt: 'React App' },
             cta: {
               url: 'https://github.com/fleekxyz/astro-template',
               text: 'try it',
             },
+            image: '/svg/astro-template.svg',
           },
         ],
       },

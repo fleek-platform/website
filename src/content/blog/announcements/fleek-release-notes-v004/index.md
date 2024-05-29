@@ -69,7 +69,7 @@ And that’s what’s changed in this v0.0.4 update of the Fleek.xyz alpha. We�
 
 We have more updates coming to the new Fleek.xyz platform in the near future, including community-submitted templates. Stay tuned ⚡
 
-Follow along with all of the coming releases on [X](https://twitter.com/fleekxyz) and join the community of testers in our [Discord](http://discord.gg/fleek) server.
+Follow along with all of the coming releases on [X](https://twitter.com/fleek) and join the community of testers in our [Discord](http://discord.gg/fleek) server.
 
 If you want to try any of the new features we’re debuting with this update and you aren’t a part of the alpha yet, fill out this [Typeform](https://fleekxyz.typeform.com/alpha-access) and we’ll get you onboarded.
 

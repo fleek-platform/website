@@ -1,4 +1,4 @@
-import settings from '@base/settings.json';
+
 
 import type { MenuSettingsItem } from './index';
 
@@ -31,151 +31,233 @@ const supportUrlDefault = 'https://support.fleek.xyz';
 //
 export const NavBarDefault: MenuSettingsItem[] = [
   {
-    label: 'Product',
-    subMenu: {
-      main: [
-        {
-          label: 'Features',
-          items: [
-            {
-              label: 'Hosting',
-              url: '/hosting',
-            },
-            {
-              label: 'Storage',
-              url: '/storage',
-            },
-            {
-              label: 'Domains',
-              url: '/domains',
-            },
-            {
-              label: 'Gateways',
-              url: '/gateways',
-            },
-          ],
-        },
-        {
-          label: 'Resources',
-          items: [
-            {
-              label: 'GitHub',
-              url: settings.github.xyzWebsiteRepositoryUrl,
-            },
-            {
-              label: 'Templates',
-              url: '/templates',
-            },
-          ],
-        },
-      ],
-      side: {
-        label: 'Protocols',
-        items: [
-          {
-            label: 'Fleek Network',
-            url: settings.site.resources.fleekNetworkWebsiteUrl,
-          },
-          {
-            label: 'Arweave',
-            url: settings.site.resources.arweaveUrl,
-          },
-          {
-            label: 'IPFS',
-            url: settings.site.resources.ipfsUrl,
-          },
-        ],
+    label: 'PRODUCTS ',
+    subMenu: [
+      {
+        label: 'Platform',
+        url: '/docs/platform',
+        description: 'Build and Deploy easily.',
+        icon: '/svg/navbar-platform-icon.svg',
       },
-      ctas: [
-        {
-          label: 'Benchmarks',
-          url: 'TODO:BencharmksUrl',
-        },
-        {
-          label: 'Comparison',
-          url: 'TODO:ComparisonUrl',
-        },
-      ],
-    },
+      {
+        label: 'Infrastructure',
+        url: '/docs/infrastructure',
+        description: 'The power of Fleek.',
+        icon: '/svg/infra-navbar-icon.svg',
+      },
+      {
+        label: 'CLI/SDK',
+        url: '/docs/cli',
+        description: 'Integrate or build locally.',
+        icon: '/svg/cli-navbar-icon.svg',
+      },
+      {
+        label: 'Templates',
+        url: '/templates',
+        description: 'Use pre-built apps.',
+        icon: '/svg/templates-navbar-icon.svg',
+      },
+    ],
+    // main: [
+    //   {
+    //     label: 'Features',
+    //     items: [
+    //       {
+    //         label: 'Hosting',
+    //         url: '/hosting',
+    //       },
+    //       {
+    //         label: 'Storage',
+    //         url: '/storage',
+    //       },
+    //       {
+    //         label: 'Domains',
+    //         url: '/domains',
+    //       },
+    //       {
+    //         label: 'Gateways',
+    //         url: '/gateways',
+    //       },
+    //     ],
+    //   },
+    //   {
+    //     label: 'Resources',
+    //     items: [
+    //       {
+    //         label: 'GitHub',
+    //         url: 'TODO:AddGithubUrl',
+    //       },
+    //       {
+    //         label: 'Templates',
+    //         url: 'TODO:AddTemplatesUrl',
+    //       },
+    //     ],
+    //   },
+    // ],
+    // side: {
+    //   label: 'Protocols',
+    //   items: [
+    //     {
+    //       label: 'Fleek Network',
+    //       url: 'TODO:AddFNUrl',
+    //     },
+    //     {
+    //       label: 'Arweave',
+    //       url: 'TODO:AddArweaveURL',
+    //     },
+    //     {
+    //       label: 'IPFS',
+    //       url: 'TODO:AddIPFSUrl',
+    //     },
+    //   ],
+    // },
+    // ctas: [
+    //   {
+    //     label: 'Benchmarks',
+    //     url: 'TODO:BencharmksUrl',
+    //   },
+    //   {
+    //     label: 'Comparison',
+    //     url: 'TODO:ComparisonUrl',
+    //   },
+    // ],
   },
   {
-    label: 'Blog',
-    url: '/blog',
+    label: 'DEVELOPERS',
+    subMenu: [
+      {
+        label: 'Status',
+        url: 'https://fleek.statuspage.io/',
+        description: 'Uptime monitoring.',
+        icon: '/svg/status-navbar-icon.svg',
+      },
+      {
+        label: 'Guides',
+        url: '/guides',
+        description: 'Learn to use Fleek.',
+        icon: '/svg/guides-navbar-icon.svg',
+      },
+      {
+        label: 'Github',
+        url: 'https://github.com/fleekxyz',
+        description: 'Our repositories',
+        icon: '/svg/github-navbar-icon.svg',
+      },
+      {
+        label: 'Support',
+        url: 'supportUrlDefault',
+        description: 'Knowledge panel.',
+        icon: '/svg/support-navbar-icon.svg',
+      },
+    ],
   },
   {
-    label: 'Docs',
+    label: 'RESOURCES',
+    subMenu: [
+      {
+        label: 'Blog',
+        url: '/blog',
+        description: 'Read our announcements.',
+        icon: '/svg/blog-navbar-icon.svg',
+      },
+      {
+        label: 'Media Kit',
+        url: 'https://www.notion.so/fleek/Fleek-Brand-Kit-9a2bcf7eb40740a9b7e951fc951b478a',
+        description: 'Our branding guidelines.',
+        icon: '/svg/media-navbar-icon.svg',
+      },
+      {
+        label: 'Careers',
+        url: 'https://app.fleek.xyz',
+        description: 'Work with us.',
+        icon: '/svg/careers-navbar-icon.svg',
+      },
+      {
+        label: 'Community',
+        url: 'https://discord.gg/fleek',
+        description: 'Get involved with others.',
+        icon: '/svg/community-navbar-icon.svg',
+      },
+    ],
+  },
+  // {
+  //   label: 'BLOG',
+  //   url: '/blog',
+  // },
+  {
+    label: 'DOCS',
     url: '/docs',
-    subMenu: {
-      main: [
-        {
-          label: 'Documentation',
-          items: [
-            {
-              label: 'Home',
-              url: '/docs',
-            },
-            {
-              label: 'Platform',
-              url: '/docs/platform',
-            },
-            {
-              label: 'Infrastructure',
-              url: '/docs/infrastructure',
-            },
-            {
-              label: 'CLI',
-              url: '/docs/cli',
-            },
-            {
-              label: 'SDK',
-              url: '/docs/sdk',
-            },
-          ],
-        },
-        {
-          label: 'Resources',
-          items: [
-            {
-              label: 'Guides',
-              url: '/guides',
-            },
-            {
-              label: 'References',
-              url: '/references',
-            },
-            {
-              label: 'Templates',
-              url: '/docs/templates',
-            },
-          ],
-        },
-      ],
-      side: {
-        label: 'Changelog',
-        items: [
-          {
-            label: 'CLI',
-            url: 'https://github.com/FleekHQ/fleek/blob/master/packages/cli/CHANGELOG.md?TODO-MOVE-TO-OS-REPO',
-            openInNewTab: true,
-          },
-          {
-            label: 'SDK',
-            url: 'https://github.com/FleekHQ/fleek/blob/master/packages/sdk/CHANGELOG.md?TODO-MOVE-TO-OS-REPO',
-            openInNewTab: true,
-          },
-        ],
-      },
-      ctas: [
-        {
-          label: 'Support',
-          url: supportUrlDefault,
-          openInNewTab: true,
-        },
-      ],
-    },
+    // subMenu: {
+    //   main: [
+    //     {
+    //       label: 'Documentation',
+    //       items: [
+    //         {
+    //           label: 'Home',
+    //           url: '/docs',
+    //         },
+    //         {
+    //           label: 'Platform',
+    //           url: '/docs/platform',
+    //         },
+    //         {
+    //           label: 'Infrastructure',
+    //           url: '/docs/infrastructure',
+    //         },
+    //         {
+    //           label: 'CLI',
+    //           url: '/docs/cli',
+    //         },
+    //         {
+    //           label: 'SDK',
+    //           url: '/docs/sdk',
+    //         },
+    //       ],
+    //     },
+    //     {
+    //       label: 'Resources',
+    //       items: [
+    //         {
+    //           label: 'Guides',
+    //           url: '/guides',
+    //         },
+    //         {
+    //           label: 'References',
+    //           url: '/references',
+    //         },
+    //         {
+    //           label: 'Templates',
+    //           url: '/docs/templates',
+    //         },
+    //       ],
+    //     },
+    //   ],
+    //   side: {
+    //     label: 'Changelog',
+    //     items: [
+    //       {
+    //         label: 'CLI',
+    //         url: 'https://github.com/FleekHQ/fleek/blob/master/packages/cli/CHANGELOG.md?TODO-MOVE-TO-OS-REPO',
+    //         openInNewTab: true,
+    //       },
+    //       {
+    //         label: 'SDK',
+    //         url: 'https://github.com/FleekHQ/fleek/blob/master/packages/sdk/CHANGELOG.md?TODO-MOVE-TO-OS-REPO',
+    //         openInNewTab: true,
+    //       },
+    //     ],
+    //   },
+    //   ctas: [
+    //     {
+    //       label: 'Support',
+    //       url: supportUrlDefault,
+    //       openInNewTab: true,
+    //     },
+    //   ],
+    // },
   },
   {
-    label: 'Pricing',
+    label: 'PRICING',
     url: '/pricing',
   },
 ];
@@ -190,12 +272,8 @@ export const NavBarDocs: MenuSettingsItem[] = [
     url: '/guides',
   },
   {
-    label: 'references',
-    url: '/references',
-  },
-  {
-    label: 'Templates',
-    url: '/templates',
+    label: 'Changelog',
+    url: '/changelog',
   },
   {
     label: 'Support',

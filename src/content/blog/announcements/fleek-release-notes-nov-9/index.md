@@ -76,6 +76,6 @@ For a full list of changes coming with v0.0.3, check out our [docs](https://docs
 
 That’s all for this week! This is a smaller QoL update to bring a heavily requested feature and clean up a little behind the scenes as we prepare for the **next major feature addition– Template Submissions** ⚡
 
-Follow along with the release of the Fleek.xyz platform on [X](https://twitter.com/fleekxyz) and join the community of testers in our [Discord](http://discord.gg/fleek) server!
+Follow along with the release of the Fleek.xyz platform on [X](https://twitter.com/fleek) and join the community of testers in our [Discord](http://discord.gg/fleek) server!
 
 See you again in about two weeks for the next update 🤙

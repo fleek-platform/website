@@ -41,7 +41,7 @@
     @apply flex h-40;
 
     input {
-      @apply h-full rounded-8 border-2 pl-40 font-sans text-18 font-light leading-18 outline-0 focus:border-blue-500;
+      @apply h-full rounded-8 border-2 pl-40 pt-2 font-sans text-14 font-light leading-18 outline-0 focus:border-blue-500;
     }
 
     .icon-container {
@@ -58,7 +58,7 @@
     @apply relative h-auto;
 
     > input {
-      @apply flex w-full rounded-8 border-0 bg-black p-10 indent-8 text-16 font-light outline-0;
+      @apply flex w-full rounded-8 border-0 bg-gray-dark-4 p-10 indent-8 text-16 font-light outline-0;
     }
 
     button {
@@ -75,7 +75,7 @@
   }
 
   .modal-user-box {
-    @apply z-100 m-20 mt-40 h-480 w-640 rounded-8 bg-ui-fleek-black p-6 shadow-lg;
+    @apply z-100 m-20 mt-40 h-480 w-640 rounded-8 bg-gray-dark-2 p-6 shadow-lg;
   }
 
   .modal-custom-search-container {

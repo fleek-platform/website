@@ -4,7 +4,6 @@ import Marquee from 'react-fast-marquee';
 import Container from '@components/Container';
 import GridLayout from '@components/GridLayout';
 import PageSection from '@components/PageSection';
-import CardWrapper from '@components/CardWrapper';
 // TODO: needs correct replacement, check original intent
 // import ExportedImage from "next-image-export-optimizer";
 import TextGlowHoverEffect from '@components/TextGlowHoverEffect';
@@ -13,12 +12,6 @@ import { down, up } from '@utils/screens';
 
 interface Card {
   bannerImage: string;
-  title: string | JSX.Element;
-  icon: string;
-  domain: string;
-  cta: {
-    url: string;
-  };
 }
 
 interface Props {
@@ -28,71 +21,51 @@ interface Props {
 
 const Card: React.FC<{ card: Card }> = ({ card }) => {
   return (
-    <CardWrapper key={card.domain} noInnerPadding>
-      <div className="aspect-h-1 aspect-w-2 relative overflow-hidden rounded-tl-12 rounded-tr-12 lg:w-240">
-        <img
-          src={card.bannerImage}
-          alt={card.domain}
-          className="object-cover"
-        />
-      </div>
-      <div className="p-16">
-        <div className="mb-16 flex items-center gap-8">
-          <div className="relative h-32 w-32">
-            <img
-              className="h-32 object-contain"
-              src={card.icon}
-              alt={`${card.title} icon`}
-            />
-          </div>
-          <div className="typo-caption-m text-ui-white">{card.title}</div>
-        </div>
-        <div className="typo-caption-s">{card.domain}</div>
-      </div>
-    </CardWrapper>
+    <div className=" relative flex h-100 justify-center  overflow-hidden rounded-16 bg-gray-dark-3 p-20 lg:h-200 lg:w-240 lg:p-36">
+      <img src={card.bannerImage} alt={'Framework Image'} className="" />
+    </div>
   );
 };
 
 const LoopingCardSlider: React.FC<Props> = (props) => {
   return (
     <Container>
-      <PageSection className="overflow-hidden">
-        <div className="pb-80 pt-64 lg:pb-48 lg:pt-80">
+      <PageSection className="overflow-hidden rounded-48">
+        <div className="py-64 lg:py-48">
           <GridLayout>
-            <div className="col-span-12 col-start-3 text-center">
+            <div className="col-span-12 col-start-3 text-center lg:hidden">
               <TextGlowHoverEffect style="h5" align="center">
                 <h3 className="typo-h5 text-ui-white">{props.headline}</h3>
               </TextGlowHoverEffect>
             </div>
           </GridLayout>
-          <div className="hidden lg:block">
+          <div className="hidden items-center lg:flex">
             <Marquee pauseOnHover speed={35}>
-              <div className="mr-16 flex gap-16 py-48">
+              <div className="mr-16 flex gap-16 ">
                 {props.cards.concat(props.cards).map((card, index) => (
-                  <a href={card.cta.url} target="_blank" key={index}>
-                    <Card card={card} />
-                  </a>
+                  <Card card={card} />
                 ))}
               </div>
             </Marquee>
+
+            <div className="col-span-12 col-start-3 basis-1/4 px-32 text-right">
+              {/* <TextGlowHoverEffect style="h5" align="center"> */}
+              <h3 className="typo-h5 text-ui-white">{props.headline}</h3>
+              {/* </TextGlowHoverEffect> */}
+            </div>
           </div>
-          <div className="mt-46 px-16 lg:hidden">
+          <div className="min-h-130 mt-46 px-16 lg:hidden">
             <Swiper
-              slidesPerView={'auto'}
+              slidesPerView={1.75}
               centeredSlides={true}
               centeredSlidesBounds={true}
               spaceBetween={16}
               className="overflow-x-visible"
+              autoplay
             >
               {props.cards.map((card, index) => (
-                <SwiperSlide className="w-4/5 md:w-1/2" key={index}>
-                  <a
-                    href={card.cta.url}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    <Card card={card} />
-                  </a>
+                <SwiperSlide className="w-4/5 md:w-1/2 " key={index}>
+                  <Card card={card} />
                 </SwiperSlide>
               ))}
             </Swiper>

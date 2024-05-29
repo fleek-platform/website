@@ -112,6 +112,6 @@ Creating the default react app and deploying it to IPFS takes less than 10 minut
 **[Create-React-App](https://reactjs.org/docs/create-a-new-react-app.html)**
 
 - Join our [Community Chat](https://discord.com/invite/fleek)
-- Follow us on [Twitter](https://twitter.com/fleekxyz)
+- Follow us on [Twitter](https://twitter.com/fleek)
 - Check out our [Tech Docs](https://docs.fleek.xyz/)
 - Contact us at support@fleek.xyz

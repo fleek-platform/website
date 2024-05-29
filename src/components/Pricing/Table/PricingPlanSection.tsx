@@ -12,6 +12,7 @@ export type PricingPlanSectionProps = {
     icon: StaticImageData;
     title: string;
     features: Record<string, string>;
+    overage: string[];
   };
   planFeatures: FeaturePricing;
 };
@@ -34,6 +35,7 @@ const PricingPlanSection = ({
             key={index}
             header={section.features[featureKey]}
             pricing={planFeatures[featureKey]}
+            overage={section.overage[index]}
           />
         ))
       )}

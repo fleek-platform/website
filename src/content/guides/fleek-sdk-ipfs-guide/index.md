@@ -252,4 +252,4 @@ You can see a finished example of our NodeJS app through this [Github repo](http
 
 Learn more about the possible function types, more examples and use cases for the Fleek SDK in our [docs](https://docs.fleek.xyz/docs/SDK/ipfs) 🤙
 
-If you have any questions about using the Fleek SDK or any of the possible use cases reach out on [X](https://twitter.com/fleekxyz) or in our [Discord](https://discord.gg/fleek) server ⚡
+If you have any questions about using the Fleek SDK or any of the possible use cases reach out on [X](https://twitter.com/fleek) or in our [Discord](https://discord.gg/fleek) server ⚡

@@ -72,7 +72,7 @@ const SidebarMenu: FC<Props> = ({ data, pathname }) => {
               >
                 <summary className="rounded-lg hover hover flex cursor-pointer items-center justify-between py-2">
                   <a
-                    className={`inline-block w-full font-plex-sans text-16 capitalize leading-loose text-ui-light-grey transition duration-150 hover:opacity-100 ${isActiveSlug(item.slug) && isActiveCategory(item.category) ? activeItemStyle : 'opacity-80'}`}
+                    className={`inline-block w-full font-plex-sans text-16 capitalize leading-loose text-gray-dark-11 transition duration-150 hover:opacity-100 ${isActiveSlug(item.slug) && isActiveCategory(item.category) ? activeItemStyle : 'opacity-80'}`}
                     href={`/docs/${item.slug}`}
                   >
                     <span data-menu-item={`${generateSlug(item.slug)}`}>

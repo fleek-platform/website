@@ -4,20 +4,19 @@ type StaticImageData = string;
 // Features
 export type FeaturePricing = { sharedPricing?: string } & Record<
   string,
-  string | number
+  string | number | boolean
 >;
 
 // Sections
-export type SectionKey =
-  | 'storage'
-  | 'hosting'
-  | 'bandwidth'
-  | 'compute'
-  | 'features'
-  | 'support';
+export type SectionKey = 'application' | 'hosting' | 'storage' | 'functions';
 export type SectionFeatures = Record<
   SectionKey,
-  { icon: StaticImageData; title: string; features: Record<string, string> }
+  {
+    icon: StaticImageData;
+    title: string;
+    features: Record<string, string>;
+    overage: string[];
+  }
 >;
 
 // Plans
@@ -31,8 +30,10 @@ export type PlanHeader = {
     href: string;
     className?: string;
   };
+  btnBg?: string;
+  fontColor?: string;
 };
-export type PlanSection = Record<string, string | number>;
+export type PlanSection = Record<string, string | number | boolean>;
 export type PlanKeys = 'wagmi' | 'pro' | 'enterprise';
 export type Plan = {
   features: Record<SectionKey, PlanSection>;

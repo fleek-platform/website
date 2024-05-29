@@ -6,18 +6,31 @@ const {
   reportAbuseUrl,
   fleekNetworkWebsiteUrl,
   discordFleekCommunityUrl,
+  statusURl,
 } = settings.site.resources;
 
 export default {
-  company: [
+  developers: [
     {
-      text: 'Careers',
-      url: careersUrl,
+      text: 'Status',
+      url: statusURl,
       target: '_blank',
       rel: 'noopener noreferrer',
     },
     {
-      text: 'Contact Us',
+      text: 'Github',
+      url: 'https://github.com/fleekxyz',
+      target: '_blank',
+      rel: 'noopener noreferrer',
+    },
+    {
+      text: 'Guides',
+      url: '/guides',
+      target: '_blank',
+      rel: 'noopener noreferrer',
+    },
+    {
+      text: 'Support',
       url: supportExternalUrl,
       target: '_blank',
       rel: 'noopener noreferrer',
@@ -29,7 +42,7 @@ export default {
       url: '/legal/terms-of-service',
     },
     {
-      text: 'Privacy Policy',
+      text: 'Privacy Policies',
       url: '/legal/privacy-policy',
     },
     {
@@ -38,55 +51,49 @@ export default {
       target: '_blank',
       rel: 'noopener noreferrer',
     },
-  ],
-  product: [
     {
-      text: 'Hosting',
-      url: '/hosting',
-    },
-    {
-      text: 'Storage',
-      url: '/storage',
-    },
-    {
-      text: 'Domains',
-      url: '/domains',
-    },
-    {
-      text: 'Gateways',
-      url: '/gateways',
-    },
-    {
-      text: 'Fleek Network',
-      url: fleekNetworkWebsiteUrl,
+      text: 'Contact Us',
+      url: reportAbuseUrl,
       target: '_blank',
       rel: 'noopener noreferrer',
     },
   ],
-  resources: [
+  product: [
     {
-      text: 'Pricing',
-      url: '/pricing',
+      text: 'Platform',
+      url: '/docs/platform',
     },
     {
-      text: 'Documentation',
+      text: 'Infrastructure',
+      url: '/docs/infrastructure',
+    },
+    {
+      text: 'CLI/SDK',
+      url: '/docs/cli',
+    },
+    {
+      text: 'Templates',
+      url: '/templates',
+    },
+  ],
+  resources: [
+    {
+      text: 'Blog',
+      url: '/blog',
+    },
+    {
+      text: 'Media Kit',
       url: '/docs',
+    },
+    {
+      text: 'Careers',
+      url: careersUrl,
     },
     {
       text: 'Community',
       url: discordFleekCommunityUrl,
       target: '_blank',
       rel: 'noopener noreferrer',
-    },
-    {
-      text: 'Support',
-      url: supportExternalUrl,
-      target: '_blank',
-      rel: 'noopener noreferrer',
-    },
-    {
-      text: 'Blog',
-      url: '/blog',
     },
   ],
 };

@@ -1,10 +1,5 @@
 import ImageWithCopy from '@components/ImageWithCopy';
-import RainbowHeart from '@components/RaibowHeart';
-// @ts-ignore
-import imgHostingOnFleek from '@images/hosting-on-fleek.png?w=664&format=webp';
-
 import type { RoundedType } from '@components/PageSection';
-
 interface Props {
   rounded?: RoundedType;
 }
@@ -13,20 +8,16 @@ const HostingOnFleek: React.FC<Props> = ({ rounded }) => (
   <ImageWithCopy
     kicker="hosting"
     floatingImageEffect
-    className="pb-64 pt-24 xl:py-40"
-    headline={
-      <>
-        Web3 devs <RainbowHeart /> hosting on Fleek
-      </>
-    }
-    copy="All you need is a repo or a template to get your app live in under a minute. Comes with built in CI/CD, IPFS content addressing, decentralized storage (Filecoin/Arweave) and CDN/Edge (Fleek Network soon™)."
+    className="pb-64 pt-64 xl:py-40"
+    headline={<>Plus the Best of Onchain</>}
+    copy="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse eu libero ac nunc mollis accumsan at non purus."
     cta={{ url: 'https://app.fleek.xyz/', text: 'try it out' }}
     rounded={rounded}
   >
-    <div className="flex w-full">
+    <div className="flex w-full mix-blend-screen">
       <img
-        className="max-w-[280px] object-contain mix-blend-screen md:max-w-[550px] xl:max-w-[663px]"
-        src={imgHostingOnFleek}
+        className="max-w-[280px] mix-blend-screen md:max-w-[550px] xl:max-w-[500px]"
+        src={'/svg/storage-landing.svg'}
         alt="Hosting on Fleek"
       />
     </div>

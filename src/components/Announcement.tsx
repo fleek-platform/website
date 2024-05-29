@@ -21,7 +21,7 @@ const Announcement: React.FC = () => {
       className="mb-16 opacity-100 transition hover:opacity-80"
     >
       <Container>
-        <div className="my-8 overflow-hidden rounded-16 bg-ui-fleek-black px-16 py-8">
+        <div className="my-8 overflow-hidden rounded-16 border border-gray-dark-6 bg-ui-mid-black px-16 py-8">
           <div className="overflow-hidden">
             <Text className="whitespace-nowrap text-center lg:hidden" style="m">
               {mount && (
@@ -30,7 +30,11 @@ const Announcement: React.FC = () => {
                 </Marquee>
               )}
             </Text>
-            <Text as="p" className="hidden text-center lg:block" style="m">
+            <Text
+              as="p"
+              className="hidden text-center text-gray-dark-12 lg:block"
+              style="m"
+            >
               {announcement}
             </Text>
           </div>

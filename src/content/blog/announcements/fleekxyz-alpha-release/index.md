@@ -69,4 +69,4 @@ Remember, **what you're seeing now is just the closed alpha of Fleek.xyz**. If y
 
 If you’re as excited for the release of v1 of Fleek.xyz as we are, **[apply to become an alpha tester and get hands-on with the new platform](https://fleekxyz.typeform.com/alpha-access)**. We’re looking forward to seeing feedback from the community, and we’ll see you soon with the open testing period of the platform ⚡
 
-Follow along with the release of Fleek.xyz [here](https://twitter.com/fleekxyz)!
+Follow along with the release of Fleek.xyz [here](https://twitter.com/fleek)!

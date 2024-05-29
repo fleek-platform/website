@@ -130,6 +130,6 @@ That’s all for now! This guide should give you a good overview of Progressive 
 
 For guides on integrating web3 infrastructure into your PWA builds, check out our Build3rs Stack series.
 
-Make sure to follow us on [X](https://twitter.com/fleekxyz) for the release of the next entry into this series, and hop in our [Discord](http://discord.gg/fleek) server to join the conversation ⚡
+Make sure to follow us on [X](https://twitter.com/fleek) for the release of the next entry into this series, and hop in our [Discord](http://discord.gg/fleek) server to join the conversation ⚡
 
 For more, check out our [Linktree](https://linktr.ee/fleek).

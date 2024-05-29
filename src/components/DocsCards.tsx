@@ -57,11 +57,11 @@ const BlackFeatureCards: React.FC<BlackFeatureCardsProps> = ({
                 />
                 <Text
                   style="h5"
-                  className="max-w-[250px] whitespace-pre-wrap text-ui-light-grey"
+                  className="max-w-[250px] whitespace-pre-wrap text-gray-dark-12"
                 >
                   {feature.title}
                 </Text>
-                <Text style="m" className="text-ui-light-grey">
+                <Text style="m" className="text-gray-dark-11">
                   {feature.description}
                 </Text>
               </div>

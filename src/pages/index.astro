@@ -1,40 +1,31 @@
 ---
 import Layout from '@layouts/Page.astro';
-import HomepageHero from '@components/HomepageHero';
 import GlobeWithFloatingCards from '@components/GlobeWithFloatingCards';
-import CardsWithDottedLinesBackground from '@components/CardsWithDottedLinesBackground';
+import DeployOnFleek from '@components/DeployOnFleek';
 import HostingOnFleek from '@components/HostingOnFleek';
-import LoopingCardSlider from '@components/LoopingCardSlider';
-import IconsCollectionWithHeadline from '@components/IconsCollectionWithHeadline';
-import ChainAgnostic from '@components/ChainAgnostic';
-import CopyWithImageSwap from '@components/CopyWithImageSwap';
-import NSManagement from '@components/NSManagement';
-import CountdownAnimation from '@components/CountdownAnimation';
+import ImpressUsers from '@components/ImpressUsers';
 import JoinOurFriends from '@components/JoinOurFriends';
 import BuildUseCases from '@components/BuildUseCases';
+import ExplainerBlocks from '@components/ExplainerBlocks';
+import SeamlessUI from '@components/SeamlessUI';
+import BestOnchain from '@components/BestOnchain';
+import PricingLanding from '@components/PricingLanding';
+import ReadyToLive from '@components/ReadyToLive';
 ---
 
 <Layout title="Fleek | Build Lightning Fast Web3 Apps">
   <div class="mb-40 flex flex-col gap-24 lg:gap-32">
-    <HomepageHero client:load />
     <GlobeWithFloatingCards client:load />
-    <div class="flex flex-col gap-8 lg:gap-16">
-      <HostingOnFleek client:load rounded="top-big-bottom-small" />
-      <JoinOurFriends client:only="react" />
-      <BuildUseCases client:load />
-      <ChainAgnostic client:load />
-      <CopyWithImageSwap
-        client:load
-        kicker="Storage"
-        headline="IPFS, Arweave, Filecoin, OH MY."
-        copy="Multiple storage layer options. All with IPFS content addressing/routing built in. In just 3 lines of code."
-        cta={{
-          text: 'learn more',
-          url: 'https://fleek.xyz/storage/',
-        }}
-      />
-    </div>
-    <NSManagement client:load cta="Learn More" />
-    <CountdownAnimation client:load />
+    <JoinOurFriends client:only="react" />
+    <DeployOnFleek client:load rounded="all-big" />
+    <ImpressUsers client:load rounded="all-big" />
+    <ExplainerBlocks index={1} header="Enjoy the (Developer) Experience" />
+    <SeamlessUI client:load rounded="all-big" />
+    <BuildUseCases client:load rounded="all-big" />
+    <!-- <HostingOnFleek client:load rounded="all-big" /> -->
+    <ExplainerBlocks index={2} header="We've Got You Covered" />
+    <BestOnchain rounded="all-big" />
+    <PricingLanding client:load rounded="all-big" />
+    <ReadyToLive client:load rounded="all-big" />
   </div>
 </Layout>

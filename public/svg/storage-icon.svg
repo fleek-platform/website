@@ -9,11 +9,11 @@
 </g>
 <defs>
 <linearGradient id="paint0_linear_53_1393" x1="32" y1="32" x2="-5.25345" y2="8.23528" gradientUnits="userSpaceOnUse">
-<stop offset="0.0727574" stop-color="#FFE702"/>
-<stop offset="0.333333" stop-color="#FF3DCF"/>
-<stop offset="0.661458" stop-color="#14BCDF"/>
-<stop offset="0.854167" stop-color="#49F0A1"/>
-<stop offset="1" stop-color="#49E34B"/>
+<stop offset="0.0727574" stop-color="#FFE629"/>
+<stop offset="0.333333" stop-color="#FFE629"/>
+<stop offset="0.661458" stop-color="#FFE629"/>
+<stop offset="0.854167" stop-color="#FFE629"/>
+<stop offset="1" stop-color="#FFE629"/>
 </linearGradient>
 </defs>
 </svg>

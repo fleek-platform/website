@@ -73,7 +73,7 @@ This alpha of Fleek.xyz is a place to experience the new UI and to explore the n
 
 - There’s a lot to tinker inside the Fleek.xyz alpha, so _go to town_! Deploy a site, upload files, test custom domains, and try the new features!
 - Treat this alpha like any other non-stable release: good for testing and feedback, but be mindful with possible issues, bugs and downtime.
-- **Have more questions?** **Found something weird?** The team has their ears on the ground to collect feedback, but you’re more than welcome to follow and comment on all of our channels, such as [X](https://twitter.com/fleekxyz) & [Discord](https://discord.gg/fleek).
+- **Have more questions?** **Found something weird?** The team has their ears on the ground to collect feedback, but you’re more than welcome to follow and comment on all of our channels, such as [X](https://twitter.com/fleek) & [Discord](https://discord.gg/fleek).
 
 And finally: **thanks for helping us test, it’s invaluable!** The Version 1 of Fleek.xyz will follow soon enough, so pay attention to our social channels for more information on that release.
 

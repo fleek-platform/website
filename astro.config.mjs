@@ -42,7 +42,8 @@ export default defineConfig({
     plugins: [imagetools()]
   },
   integrations: [tailwind({
-    nesting: true
+    nesting: true,
+    applyBaseStyles: false
   }), react({
     experimentalReactChildren: true
   }), sitemap(), mdx()],

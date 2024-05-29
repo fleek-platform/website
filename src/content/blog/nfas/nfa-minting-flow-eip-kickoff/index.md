@@ -106,6 +106,6 @@ As an open-source project, we believe it's important to have forums and avenues 
 
 And start making contributions! We’re excited to see the debate spark up in our EIP discussions.
 
-If you would like to be involved with the product development side, just reach out on [Twitter](https://twitter.com/fleekxyz) or [Discord](https://discord.gg/fleek) and we can add you to our Shortcut project. We can’t wait to start seeing more community members get involved with what we’re building in NFAs!
+If you would like to be involved with the product development side, just reach out on [Twitter](https://twitter.com/fleek) or [Discord](https://discord.gg/fleek) and we can add you to our Shortcut project. We can’t wait to start seeing more community members get involved with what we’re building in NFAs!
 
 For more resources visit our [LinkTree](https://linktr.ee/fleek).
