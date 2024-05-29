@@ -64,7 +64,7 @@ That’s all we’ve got for you today. Building in public ftw!
 
 Part two of this series on the _how_ of Fleek.xyz development is coming soon, including how we structure teams around services and _how_ new services are created.
 
-In the meantime, join [our discord](https://discord.gg/fleek), follow [our twitter](https://twitter.com/fleekxyz), and sign up for [our beta waitlist](https://fleek.xyz)!
+In the meantime, join [our discord](https://discord.gg/fleek), follow [our twitter](https://twitter.com/fleek), and sign up for [our beta waitlist](https://fleek.xyz)!
 
 **.. oh, and we’re building a decentralized content & application delivery network called** [**Fleek Network**](https://fleek.network)**. Go check it out, it will play a key role in Fleek’s story in 2023 and beyond.**
 

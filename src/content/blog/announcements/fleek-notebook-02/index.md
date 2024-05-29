@@ -77,7 +77,7 @@ While on the UI/user-facing front our updates end with the above, we have also b
 
 That’s all for this time! Just a small update to smooth out a few issues spotted by our first groups of testers. We’ll be back with Fleek Release Notes 03 after another week in the lab 🤙
 
-Follow along with the release of the Fleek.xyz platform on [X](https://twitter.com/fleekxyz) and join the community of testers in our [Discord server](http://discord.gg/fleek)!
+Follow along with the release of the Fleek.xyz platform on [X](https://twitter.com/fleek) and join the community of testers in our [Discord server](http://discord.gg/fleek)!
 
 See you soon ⚡
 

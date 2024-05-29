@@ -18,7 +18,14 @@ const TableDesktop = () => (
   >
     <thead>
       <tr>
-        <th className="w-[20%]" />
+        <th className="w-[20%]">
+          <div className=" flex h-full w-full flex-col gap-16  rounded-tl-12  border-1 border-b-0 border-ui-mid-grey  px-20 py-20 lg:max-w-[345px]">
+            <h3 className="typo-m-normal text-left">Plan Breakdown</h3>
+            <p className="typo-s text-left">
+              Explore the different plans we have and how they compare.
+            </p>
+          </div>
+        </th>
         {Object.values(PRICING_PLANS).map(({ header }, idx) => (
           <th key={`${idx}-${header.title}-th`} className="w-1/4">
             <TableHeader {...header} />
@@ -26,9 +33,12 @@ const TableDesktop = () => (
         ))}
       </tr>
     </thead>
-    <tbody>
+    <tbody className="rounded-b-12">
       {Object.entries(PLAN_SECTIONS).map(
-        ([section, { title, features: sectionFeatures, icon }], index) => (
+        (
+          [section, { title, features: sectionFeatures, icon, overage }],
+          index,
+        ) => (
           <Fragment key={index}>
             <tr>
               <td colSpan={4}>
@@ -36,7 +46,7 @@ const TableDesktop = () => (
                   icon={icon}
                   title={title}
                   className={clsx('justify-center border-1', {
-                    'rounded-tl-12': !index,
+                    '': !index,
                   })}
                 />
               </td>
@@ -46,7 +56,12 @@ const TableDesktop = () => (
                 <tr key={index}>
                   <td>
                     <TableCell className="text-center">
-                      {featureTitle}{' '}
+                      <div className="text-left font-plex-sans text-14 font-medium text-gray-dark-12">
+                        {featureTitle}{' '}
+                      </div>
+                      <div className="text-left font-plex-sans text-12 font-normal text-gray-dark-11">
+                        {overage[index]}
+                      </div>
                     </TableCell>
                   </td>
                   {availablePlans.map((plan) => {
@@ -71,8 +86,12 @@ const TableDesktop = () => (
                     }
                     return (
                       <td key={plan}>
-                        <TableCell className="justify-center">
-                          {planFeatures[feature]}
+                        <TableCell className="justify-start">
+                          {planFeatures[feature] !== true ? (
+                            planFeatures[feature]
+                          ) : (
+                            <img src="/svg/check.svg" alt="available" />
+                          )}
                         </TableCell>
                       </td>
                     );

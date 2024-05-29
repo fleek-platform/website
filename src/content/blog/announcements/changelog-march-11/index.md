@@ -85,6 +85,6 @@ That’s a wrap for February, folks!
 
 The team has been heads down rolling out new improvements to make the Fleek.xyz experience smoother and more secure for all end-users, as well as some behind-the-scenes work on cool new features to debut soon.
 
-Got feedback or need some help navigating the new updates? Chat with the team and join the conversation in our [Discord](https://discord.gg/fleek) community. Also, follow along with all the new updates coming to the Fleek.xyz platform on [X](https://twitter.com/fleekxyz)!
+Got feedback or need some help navigating the new updates? Chat with the team and join the conversation in our [Discord](https://discord.gg/fleek) community. Also, follow along with all the new updates coming to the Fleek.xyz platform on [X](https://twitter.com/fleek)!
 
 See you in the next changelog Fleek Freaks ⚡

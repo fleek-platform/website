@@ -24,6 +24,7 @@ type TextStyle =
   | 'btn-xs'
   | 'btn-s'
   | 'btn-l'
+  | 'btn-l-mid'
   | 'nav-m'
   | 'nav-item';
 
@@ -35,9 +36,9 @@ interface Props {
 }
 
 const textStyles: Record<TextStyle, string> = {
-  h1: 'font-sans text-40 font-medium leading-[100%] lg:text-[12rem] lg:tracking-[-0.357rem]',
-  h2: 'font-sans text-40 font-medium leading-[100%] lg:text-[9.5rem] lg:tracking-[-0.261rem]',
-  h3: 'font-sans text-40 font-medium leading-[100%] lg:text-[7.6rem] lg:tracking-[-0.196rem]',
+  h1: 'font-sans text-40 font-medium leading-[100%] lg:text-[12rem]',
+  h2: 'font-sans text-40 font-medium leading-[100%] lg:text-[9.5rem]',
+  h3: 'font-sans text-40 font-medium leading-[100%] lg:text-[7.6rem]',
   h4: 'font-sans text-39 font-medium leading-[100%] lg:text-[6.1rem]',
   h5: 'font-sans text-20 md:text-25 2xl:text-39 font-medium leading-[100%]',
   xl: 'text-16 font-plex-sans font-normal leading-[150%] lg:text-25',
@@ -65,7 +66,9 @@ const textStyles: Record<TextStyle, string> = {
   'btn-s':
     'font-plex-sans text-13 font-normal leading-[150%] tracking-[0.096rem] uppercase',
   'btn-l':
-    'font-plex-sans text-16 font-medium leading-[150%] tracking-[0.192rem] uppercase',
+    'font-plex-sans lg:text-16 font-medium leading-[150%] tracking-[0.192rem] uppercase',
+  'btn-l-mid':
+    'font-plex-sans lg:text-14 font-medium leading-[150%] tracking-[0.192rem]',
 };
 
 const Text: React.FC<React.PropsWithChildren<Props>> = ({

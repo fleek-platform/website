@@ -64,7 +64,7 @@ That’s all for this update! See you all in ~2 weeks for the next batch of impr
 
 Remember: if you applied to become an alpha tester since our last release notes, check your email for onboarding instructions coming in the next day. If you haven’t applied– [the form is still open](https://fleekxyz.typeform.com/alpha-access)!
 
-Follow along with the release of the Fleek.xyz platform on [X](https://twitter.com/fleekxyz) and join the community of testers in our [Discord](http://discord.gg/fleek) server!
+Follow along with the release of the Fleek.xyz platform on [X](https://twitter.com/fleek) and join the community of testers in our [Discord](http://discord.gg/fleek) server!
 
 See you soon ⚡
 

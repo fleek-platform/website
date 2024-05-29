@@ -8,7 +8,7 @@ export enum Target {
 }
 
 interface Props {
-  href: string;
+  href?: string;
   className?: string;
   target?: Target;
 }

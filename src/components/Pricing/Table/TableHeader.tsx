@@ -1,5 +1,6 @@
 import Text from '@components/Text';
 import clsx from 'clsx';
+import PricingButton from '@components/PricingButton';
 
 import type { PlanHeader } from './types';
 
@@ -9,29 +10,24 @@ const TableHeader = ({
   subtitle,
   description,
   cta,
+  btnBg,
+  fontColor,
 }: PlanHeader) => (
-  <div className="flex h-full w-full flex-col items-center justify-between gap-16 rounded-t-28 border-1 border-b-0 border-ui-dark-grey bg-ui-black px-10 py-20 lg:max-w-[342px]">
-    <Text style="h5" className={titleClassName}>
-      {title}
-    </Text>
-    <Text style="xl" className="text-white">
-      {subtitle}
-    </Text>
-    <Text
-      style="s"
-      className="whitespace-pre-wrap text-center text-ui-light-grey"
-    >
-      {description}
-    </Text>
+  <div
+    className={`flex h-full w-full flex-col items-center justify-between gap-16  border-1 border-b-0 ${title == 'Enterprise' ? 'rounded-tr-12' : ''}  border-ui-mid-grey  px-20 py-20 lg:max-w-[345px]`}
+  >
+    <div className=" w-full ">
+      <h3 className="typo-m-normal text-left">{title}</h3>
+    </div>
     <a
       href={cta.href}
-      className={clsx('bg-opacity-4 rounded-13 bg-ui-white p-1', cta.className)}
       target="_blank"
       rel="noopener noreferrer"
+      className="w-full"
     >
-      <button className="flex items-center justify-center rounded-12 bg-ui-black px-32 py-16">
-        <Text style="btn-s">{cta.text}</Text>
-      </button>
+      <PricingButton bg={btnBg} fontColor={fontColor}>
+        <p className="typo-s capitalize">{cta.text}</p>
+      </PricingButton>
     </a>
   </div>
 );

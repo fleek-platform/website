@@ -4,66 +4,57 @@ import clsx from 'clsx';
 import type { Plan, PlanKeys, SectionFeatures } from './types';
 
 export const PLAN_SECTIONS: SectionFeatures = {
-  storage: {
-    icon: '/svg/storage-icon.svg',
-    title: 'Storage',
-    features: {
-      ipfs: 'IPFS',
-      filecoin: 'Filecoin',
-      arweave: 'Arweave',
-    },
-  },
-  hosting: {
-    icon: '/svg/hosting-icon.svg',
-    title: 'Hosting',
-    features: {
-      sites: 'Sites',
-      names: 'Names (DNS/ENS)',
-      buildMinutes4Ram: 'Build Minutes\n(4GB RAM)',
-      freeSSL: 'Free SSL',
-      customSSL: 'Custom SSL',
-    },
-  },
-  bandwidth: {
-    icon: '/svg/hosting-icon.svg',
-    title: 'Bandwidth',
-    features: {
-      bandwidth: 'Bandwidth',
-      privateGateways: 'Private Gateways',
-    },
-  },
-  compute: {
-    icon: '/svg/compute-icon.svg',
-    title: 'Compute',
-    features: {
-      edgeFunctions: 'Edge functions',
-    },
-  },
-  features: {
-    icon: '/svg/support-icon.svg',
-    title: 'Features',
+  application: {
+    icon: '/svg/applicationIconPricing.svg',
+    title: 'Application',
     features: {
       projects: 'Projects',
-      users: 'Users',
-      gitConnection: 'Git Connection',
-      ddosProtection: 'DDoS Protection',
-      ensSupport: 'ENS Support',
-      dnsSupport: 'DNS Support',
-      ipnsSupport: 'IPNS Support',
-      cdn: 'CDN',
-      anycastDNS: 'Anycast DNS',
-      loadBalancing: 'Load Balancing',
-      automaticCacheRefresh: 'Automatic Cache Refreshes',
+      teamMembers: 'Team Members',
+      sites: 'Sites',
+      analytics: 'Analytics',
+      sdk: 'SDK Integrations',
+      customerSupport: 'Customer Support',
     },
+    overage: ['$1.00 per extra', '$19.00 per extra', '$5.00 per extra'],
   },
-  support: {
-    icon: '/svg/support-icon.svg',
-    title: 'Support',
+  hosting: {
+    icon: '/svg/hostingIconPricing.svg',
+    title: 'Hosting',
     features: {
-      knowledgeBase: 'Knowledge Base',
-      supportHub: 'Support hub',
-      premiumSupport: 'Premium support',
+      bandwidth: 'Bandwidth',
+      buildTier: 'Build Tier',
+      conBuild: 'Concurrent Builds',
+      buildMin: 'Build Minutes',
+      customDomain: 'Custom Domains',
+      fleekDomain: 'Fleek Domains',
     },
+    overage: [
+      '$0.05 per extra/GB',
+      '',
+      '',
+      '$0.001 per extra/min',
+      '$5.00 per extra',
+    ],
+  },
+  storage: {
+    icon: '/svg/storageIconPricing.svg',
+    title: 'Storage',
+    features: {
+      storage: 'Storage',
+      privGateways: 'Private Gateways',
+    },
+    overage: ['$0.04 per extra/GB', '$5.00 per extra'],
+  },
+  functions: {
+    icon: '/svg/functionIconPricing.svg',
+    title: 'Functions',
+    features: {
+      fleekFunctions: 'Fleek Functions',
+      FleekFunctionTier: 'Fleek Functions Tier',
+      FunctionsRuntimeHours: 'Function Runtime Hours',
+      FunctionsReq: 'Function Request',
+    },
+    overage: [],
   },
 };
 
@@ -71,139 +62,118 @@ export const PRICING_PLANS: Record<PlanKeys, Plan> = {
   wagmi: {
     features: {
       storage: {
-        sharedPricing: '⚡️\n($5 in free usage credits each month)',
+        storage: '5GB',
+        privGateways: '1',
       },
       hosting: {
-        sites: 3,
-        names: 2,
-        buildMinutes4Ram: '⚡️',
-        freeSSL: '✅',
-        customSSL: '🚫',
+        bandwidth: '50GB',
+        buildTier: 'Basic',
+        conBuild: '2',
+        buildMin: '500',
+        customDomain: '1',
+        fleekDomain: 'No',
       },
-      bandwidth: {
-        bandwidth: '⚡️',
-        privateGateways: 1,
+      functions: {
+        fleekFunctions: '1',
+        FleekFunctionTier: 'Basic',
+        FunctionsRuntimeHours: '100',
+        FunctionsReq: '500,000',
       },
-      compute: {
-        edgeFunctions: 'Soon',
-      },
-      features: {
-        projects: 1,
-        users: 'Unlimited',
-        gitConnection: '✅',
-        ddosProtection: '✅',
-        ensSupport: '✅',
-        dnsSupport: '✅',
-        ipnsSupport: '✅',
-        cdn: '✅',
-        anycastDNS: '✅',
-        loadBalancing: '✅',
-        automaticCacheRefresh: '✅',
-      },
-      support: {
-        knowledgeBase: '✅',
-        supportHub: '✅',
-        premiumSupport: '🚫',
+      application: {
+        projects: '1',
+        teamMembers: '1',
+        sites: '3',
+        analytics: true,
+        sdk: true,
+        customerSupport: 'Basic',
       },
     },
     header: {
-      title: 'WAGMI',
+      title: 'Free Plan',
       titleClassName: clsx('bg-clip-text', styles.wagmiHeader),
       subtitle: '$0',
       description:
         'For those just starting.\n⚡ Up to $5 in free usage every month. ⚡',
       cta: {
-        text: 'Sign up',
+        text: ' Start with Free',
         href: 'https://app.fleek.xyz/',
         className: styles.wagmiCTA,
       },
+      btnBg: 'bg-ui-green',
+      fontColor: 'text-ui-faded-green',
     },
   },
   pro: {
     features: {
       storage: {
-        ipfs: 'Free',
-        filecoin: '$0.07 per GB',
-        arweave: '~$4 per GB',
+        storage: '200GB',
+        privGateways: '2',
       },
       hosting: {
-        sites: 'Unlimited',
-        names: 'Unlimited',
-        buildMinutes4Ram: '$0.07 per minute',
-        freeSSL: '✅',
-        customSSL: '✅',
+        bandwidth: '200GB',
+        buildTier: 'Basic + Intermediate',
+        conBuild: '5',
+        buildMin: '2000',
+        customDomain: '3',
+        fleekDomain: '1',
       },
-      bandwidth: {
-        bandwidth: '$0.07 per GB',
-        privateGateways: 'Unlimited',
+      functions: {
+        fleekFunctions: '5',
+        FleekFunctionTier: 'Basic + Intermediate',
+        FunctionsRuntimeHours: '500',
+        FunctionsReq: '1,000,00',
       },
-      compute: {
-        edgeFunctions: 'Soon',
-      },
-      features: {
-        projects: 'Unlimited',
-        users: 'Unlimited',
-        gitConnection: '✅',
-        ddosProtection: '✅',
-        ensSupport: '✅',
-        dnsSupport: '✅',
-        ipnsSupport: '✅',
-        cdn: '✅',
-        anycastDNS: '✅',
-        loadBalancing: '✅',
-        automaticCacheRefresh: '✅',
-      },
-      support: {
-        knowledgeBase: '✅',
-        supportHub: '✅',
-        premiumSupport: '🚫',
+      application: {
+        projects: '5',
+        teamMembers: '1',
+        sites: '10',
+        analytics: true,
+        sdk: true,
+        customerSupport: 'Intermediate',
       },
     },
     header: {
-      title: 'Pro',
+      title: 'Pro Plan',
       titleClassName: clsx('bg-clip-text', styles.proHeader),
       subtitle: 'Usage based pricing',
       description:
         'Pricing that scales with your project. Free $5 included monthly. #WAGMI',
       cta: {
-        text: 'Coming soon',
+        text: 'Go Fast with Pro',
         href: '/pricing/',
         className: styles.proCTA,
       },
+      btnBg: 'bg-yellow-dark-4',
     },
   },
   enterprise: {
     // TODO: make custom
     features: {
       storage: {
-        sharedPricing: 'CUSTOM',
+        storage: 'Custom',
+        privGateways: 'Custom',
       },
       hosting: {
-        sharedPricing: 'CUSTOM',
+        bandwidth: 'Custom',
+        buildTier: 'Custom',
+        conBuild: 'Custom',
+        buildMin: 'Custom',
+        customDomain: 'Custom',
+        fleekDomain: 'Custom',
       },
-      bandwidth: {
-        sharedPricing: 'CUSTOM',
+      functions: {
+        fleekFunctions: 'Custom',
+        FleekFunctionTier: 'Custom',
+        FunctionsRuntimeHours: 'Custom',
+        FunctionsReq: 'Custom',
       },
-      compute: {
-        sharedPricing: 'Soon',
-      },
-      features: {
-        projects: 'Unlimited',
-        users: 'Unlimited',
-        gitConnection: '✅',
-        ddosProtection: '✅',
-        ensSupport: '✅',
-        dnsSupport: '✅',
-        ipnsSupport: '✅',
-        cdn: '✅',
-        anycastDNS: '✅',
-        loadBalancing: '✅',
-        automaticCacheRefresh: '✅',
-      },
-      support: {
-        knowledgeBase: '✅',
-        supportHub: '✅',
-        premiumSupport: '✅',
+      application: {
+        projects: 'Custom',
+        teamMembers: 'Custom',
+        sites: 'Custom',
+        analytics: true,
+        sdk: true,
+        customerSupport: 'Enterprise',
       },
     },
     header: {
@@ -212,10 +182,11 @@ export const PRICING_PLANS: Record<PlanKeys, Plan> = {
       subtitle: 'Custom',
       description: 'Need high volume or custom requirements? Reach out.',
       cta: {
-        text: 'Contact us',
+        text: 'Contact Sales',
         href: 'https://support.fleek.xyz/hc/en-us/requests/new?ticket_form_id=18990660014477',
         className: styles.enterpriseCTA,
       },
+      btnBg: 'bg-gray-dark-4',
     },
   },
 };

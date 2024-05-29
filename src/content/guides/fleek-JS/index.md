@@ -142,6 +142,6 @@ Fleek will automatically redeploy your website whenever you make changes to GitH
 
 - [Sign up](https://app.fleek.xyz/) to try yourself
 - Join our [Community Chat](https://discord.com/invite/fleek)
-- Follow us on [Twitter](https://twitter.com/Fleekxyz)
+- Follow us on [Twitter](https://twitter.com/fleek)
 - Check out our [Tech Docs](https://docs.fleek.xyz/)
 - Contact us at support@fleek.xyz

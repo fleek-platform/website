@@ -21,7 +21,7 @@ const PageSection: React.FC<React.PropsWithChildren<Props>> = ({
       {children}
       <div
         className={clsx(
-          'absolute left-0 top-0 -z-2 h-full w-full bg-fleek-gradient backdrop-blur-[1px]',
+          'absolute left-0 top-0 -z-2 h-full w-full bg-gray-dark-1',
           {
             'rounded-24 lg:rounded-48': rounded === 'all-big',
             'rounded-8': rounded === 'all-small',

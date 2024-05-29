@@ -2,10 +2,10 @@
 
 @layer components {
   .nav-container {
-    @apply relative z-10 mb-16 flex select-none items-center gap-33 py-16 pl-16 lg:px-28;
+    @apply relative z-10 mb-16 flex select-none items-center justify-between gap-33 py-16 pl-16 lg:px-28;
 
     nav {
-      @apply hidden items-center gap-0 pl-0 leading-10 lg:flex;
+      @apply hidden items-center gap-0 pl-0 leading-10 xl:flex;
     }
 
     .nav-drop-down-container {
@@ -22,11 +22,11 @@
   }
 
   .nav-button {
-    @apply ml-auto w-42 px-16 font-plex-sans text-25 leading-[150%] text-ui-white lg:hidden;
+    @apply ml-auto w-48 px-16 font-plex-sans text-25 leading-[150%] text-ui-white xl:hidden;
   }
 
   .nav-button-launch {
-    @apply ml-auto hidden transition hover:scale-105 hover:opacity-80 lg:block;
+    /* @apply hover:opacity-80; */
   }
 
   .nav-menu {
@@ -34,7 +34,7 @@
   }
 
   .nav-menu-open {
-    @apply pointer-events-auto opacity-100;
+    @apply pointer-events-auto flex justify-around opacity-100;
   }
 
   .nav-menu-closed {
@@ -50,7 +50,7 @@
   }
 
   .nav-menu-mobile {
-    @apply flex flex-grow flex-col items-center justify-center overflow-y-scroll;
+    @apply flex  flex-col items-center justify-center overflow-y-scroll;
 
     .nav-menu-item {
       @apply relative w-full text-18;
@@ -104,7 +104,7 @@
   }
 
   .nav-sub-menu-container {
-    @apply absolute top-full hidden hidden h-auto w-[45vw] min-w-[600px] cursor-default gap-40 border-1 border-white bg-black group-hover:block;
+    @apply absolute top-full hidden h-auto w-[30vw] min-w-[600px] cursor-default gap-40 rounded-12 border-1 border-ui-mid-grey bg-[#222222cd] backdrop-blur-xl  group-hover:block;
 
     &.minimal {
       @apply w-[32vw] min-w-[400px];
@@ -132,7 +132,7 @@
   }
 
   .nav-sub-menu-nav-cols {
-    @apply grid grid-cols-2 gap-50 p-36;
+    @apply grid grid-cols-2 gap-20 p-20;
   }
 
   .nav-sub-menu-cta-items {

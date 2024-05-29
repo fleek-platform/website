@@ -80,4 +80,4 @@ And that’s about all for this update! We just wanted to be transparent on why 
 
 If you have any questions about NFAs, the new ENS-oriented approach with LayerZero + 3DNS, or anything else related to the new Fleek platform, our team is always open to chat in our [Discord](http://discord.gg/fleek) server.
 
-Follow along with the release of the new Fleek.xyz platform [here](https://twitter.com/fleekxyz)!
+Follow along with the release of the new Fleek.xyz platform [here](https://twitter.com/fleek)!

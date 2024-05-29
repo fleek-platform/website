@@ -4,13 +4,18 @@ import { useState, useEffect } from 'react';
 import clsx from 'clsx';
 import { useMediaQuery } from '@hooks/useMediaQuery';
 import { up } from '@utils/screens';
-
+import ButtonYellowOutline from '@components/ButtonYellowOutline';
 import Container from '@components/Container';
 import Text from '@components/Text';
 import ButtonRainbowOutlined from '@components/ButtonRainbowOutlined';
+import { FaTwitter } from 'react-icons/fa';
+import { FaDiscord } from 'react-icons/fa';
+
 import { isActivePath } from '@utils/url';
 
 import { NavBarDefault, NavBarDocs } from './config';
+
+import { RxCaretDown } from 'react-icons/rx';
 
 export type NavProps = Record<'pathname', string>;
 export type NavSubMenuCtaProps = Omit<MenuSettingsItem, 'subMenu'>;
@@ -18,44 +23,42 @@ export type NavSubMenuNavColProps = {
   label: string;
   items: NavSubMenuNavColItem[];
 };
-export type NavSubMenuNavColItem = Omit<MenuSettingsItem, 'subMenu'>;
-export type NavSubMenuProps = {
-  main: {
-    label: string;
-    items: NavSubMenuNavColItem[];
-  }[];
-  side?: {
-    label: string;
-    items: NavSubMenuNavColItem[];
-  };
-  ctas?: NavSubMenuCtaProps[];
-};
+
 export type MenuSettingsItem = {
-  label: string;
-  subMenu?: NavSubMenuProps;
+  label?: string;
+  subMenu?: NavSubMenuProps[];
   url?: string;
+  description?: string;
+  icon?: string;
   openInNewTab?: boolean;
 };
+export type NavSubMenuNavColItem = Omit<MenuSettingsItem, 'subMenu'>;
 
-const NavSubMenuNavCol = ({ label, items }: NavSubMenuNavColProps) => {
+export type NavSubMenuProps = {
+  label: string;
+  url: string;
+  description: string;
+  icon: string;
+};
+
+const NavSubMenuNavCol = ({
+  label,
+  url,
+  description,
+  icon,
+}: NavSubMenuNavColItem) => {
   return (
-    <div className="nav-sub-menu-nav-col">
-      <div className="nav-sub-menu-nav-col-title">{label}</div>
-      <ul className="nav-sub-menu-nav-col-list">
-        {items.map(({ label, url, openInNewTab }, index) => (
-          <li key={`${index}-${label}`} className="">
-            <Link
-              href={url || ''}
-              target={openInNewTab ? Target.Blank : Target.Self}
-            >
-              <Text style="nav-item" className="nav-text-item">
-                {label}
-              </Text>
-            </Link>
-          </li>
-        ))}
-      </ul>
-    </div>
+    <Link href={url}>
+      <div className="flex items-center gap-12 rounded-12 p-12 hover:bg-[#111111]">
+        <div>
+          <img src={icon} />
+        </div>
+        <div>
+          <div className=" typo-m-strong text-gray-dark-12">{label}</div>
+          <div className="typo-s text-gray-dark-11">{description}</div>
+        </div>
+      </div>
+    </Link>
   );
 };
 
@@ -65,40 +68,25 @@ const NavSubMenuCta = ({ label, url }: NavSubMenuCtaProps) => (
   </a>
 );
 
-const NavSubMenu = ({ main, side, ctas }: NavSubMenuProps) => {
+const NavSubMenu = ({ subMenu }: MenuSettingsItem) => {
   return (
-    <div
-      className={`nav-sub-menu-container ${!side || main.length < 2 ? 'minimal' : ''}`}
-    >
+    <div className={`nav-sub-menu-container `}>
+      {/* <div
+      className={`nav-sub-menu-container ${!side || subMenu.length < 2 ? 'minimal' : ''}`}
+    > */}
       <div className="nav-sub-menu-wrap">
         <div className="nav-sub-menu-main-col">
-          <div
-            className={`nav-sub-menu-nav-cols ${!side || main.length < 2 ? 'hidden' : ''}`}
-          >
-            {main.map(({ label, items }, index) => (
+          <div className={`nav-sub-menu-nav-cols `}>
+            {subMenu?.map(({ label, url, description, icon }, index) => (
               <NavSubMenuNavCol
                 key={`${index}-${label}`}
                 label={label}
-                items={items}
+                url={url}
+                description={description}
+                icon={icon}
               />
             ))}
           </div>
-          <div className={`nav-sub-menu-cta-items ${!ctas ? 'hidden' : ''}`}>
-            {ctas?.map(({ label, url }, index) => (
-              <div
-                key={`${index}-${label}`}
-                className="nav-sub-menu-cta-items-col"
-              >
-                <NavSubMenuCta label={label} url={url} />
-              </div>
-            ))}
-          </div>
-        </div>
-        <div className={`nav-sub-menu-side-container ${!side ? 'hidden' : ''}`}>
-          {(side && (
-            <NavSubMenuNavCol label={side.label} items={side.items} />
-          )) ||
-            ''}
         </div>
       </div>
     </div>
@@ -139,67 +127,107 @@ const Nav = ({ pathname }: NavProps) => {
   return (
     <Container>
       <div className="nav-container">
-        <Link href="/" className="pb-8">
-          <img src="/svg/fleek-logo.svg" alt="fleek logo" />
-        </Link>
-        <nav>
-          {menuItems.map((navItem, index) =>
-            navItem.subMenu ? (
-              <div
-                key={index}
-                className="nav-link nav-drop-down-container group"
-              >
-                <Link
-                  href={navItem.url || ''}
-                  target={navItem.openInNewTab ? Target.Blank : Target.Self}
-                  key={navItem.url}
-                  className={
-                    isActivePath({ pathname, lookup: navItem.url || '' })
-                      ? 'font-bold'
-                      : 'nav-text-item'
-                  }
+        <div className="flex items-center">
+          <Link href="/" className="flex-shrink-0 ">
+            <img
+              className="w-full"
+              src="/svg/fleek-logo.svg"
+              alt="fleek logo"
+            />
+          </Link>
+          <nav className="ml-26 mt-3">
+            {menuItems.map((navItem, index) =>
+              navItem.subMenu ? (
+                <div
+                  key={index}
+                  className="nav-link nav-drop-down-container group"
                 >
-                  <Text style="nav-m" className="nav-text-item  capitalize">
-                    {navItem.label}
-                  </Text>
-                </Link>
-                <NavSubMenu
-                  main={navItem.subMenu.main}
-                  side={navItem.subMenu.side}
-                  ctas={navItem.subMenu.ctas}
-                />
-              </div>
-            ) : (
-              <div key={index} className="nav-link py-20">
-                <Link
-                  href={navItem.url || ''}
-                  target={navItem.openInNewTab ? Target.Blank : Target.Self}
-                  key={navItem.url}
-                  className={
-                    isActivePath({ pathname, lookup: navItem.url || '' })
-                      ? 'font-bold'
-                      : 'nav-text-item'
-                  }
-                >
-                  <Text style="nav-m" className="capitalize">
-                    {navItem.label}
-                  </Text>
-                </Link>
-              </div>
-            ),
-          )}
-        </nav>
-        <button onClick={() => setIsOpen(true)} className="nav-button">
-          +
-        </button>
-        <div className="nav-button-launch">
-          <a
-            href="https://app.fleek.xyz/"
-            target="_blank"
-            rel="noopener noreferrer"
+                  <Link
+                    href={navItem.url}
+                    target={navItem.openInNewTab ? Target.Blank : Target.Self}
+                    key={navItem.url}
+                    className={
+                      isActivePath({ pathname, lookup: navItem.url || '' })
+                        ? 'font-bold'
+                        : 'nav-text-item'
+                    }
+                  >
+                    <Text
+                      style="nav-m"
+                      className="nav-text-item  flex capitalize "
+                    >
+                      {navItem.label} <RxCaretDown className="mt-3" />
+                    </Text>
+                  </Link>
+                  <NavSubMenu subMenu={navItem.subMenu} />
+                </div>
+              ) : (
+                <div key={index} className="nav-link py-20">
+                  <Link
+                    href={navItem.url}
+                    target={navItem.openInNewTab ? Target.Blank : Target.Self}
+                    key={navItem.url}
+                    className={
+                      isActivePath({ pathname, lookup: navItem.url || '' })
+                        ? 'font-bold'
+                        : 'nav-text-item'
+                    }
+                  >
+                    <Text style="nav-m" className="capitalize">
+                      {navItem.label}
+                    </Text>
+                  </Link>
+                </div>
+              ),
+            )}
+          </nav>
+        </div>
+
+        <div className="flex items-center gap-10 ">
+          <div className="nav-button-launch hidden pr-10 lg:inline-block">
+            <a
+              href="https://twitter.com/fleek"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <FaTwitter fontSize={25} className="text-gray-dark-8" />
+            </a>
+          </div>
+          <div className="nav-button-launch hidden pr-10 lg:inline-block">
+            <a
+              href="https://discord.gg/fleek"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <FaDiscord fontSize={25} className="text-gray-dark-8" />
+            </a>
+          </div>
+          <div className="nav-button-launch hidden lg:inline-block">
+            <a
+              href="https://app.fleek.xyz/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <ButtonYellowOutline>LOG IN</ButtonYellowOutline>
+            </a>
+          </div>
+          <div className="nav-button-launch">
+            <a
+              href="https://app.fleek.xyz/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <ButtonYellowOutline color="yellow">
+                GET STARTED
+              </ButtonYellowOutline>
+            </a>
+          </div>
+          <button
+            onClick={() => setIsOpen(true)}
+            className="mx-10 font-plex-sans text-32 leading-[150%] text-ui-white xl:hidden"
           >
-            <ButtonRainbowOutlined>Launch App</ButtonRainbowOutlined>
-          </a>
+            +
+          </button>
         </div>
       </div>
       <div
@@ -230,7 +258,7 @@ const Nav = ({ pathname }: NavProps) => {
                           <span className="ml-4 inline-block w-8">+</span>
                         )}
                       </Text>
-                      {navItem.subMenu?.main.map(({ label, items }, index) => (
+                      {navItem?.subMenu.map(({ label }, index) => (
                         <div
                           key={`${index}-${label}`}
                           className="nav-menu-mobile-sub-menu-container"
@@ -241,37 +269,8 @@ const Nav = ({ pathname }: NavProps) => {
                           >
                             {label}
                           </Text>
-                          <ul className="nav-menu-mobile-sub-menu">
-                            {items.map(
-                              ({ label, url, openInNewTab }, index) => (
-                                <li key={index}>
-                                  <Link
-                                    href={url || ''}
-                                    target={
-                                      openInNewTab ? Target.Blank : Target.Self
-                                    }
-                                  >
-                                    <Text style="nav-item">{label}</Text>
-                                  </Link>
-                                </li>
-                              ),
-                            )}
-                          </ul>
                         </div>
                       ))}
-                      {navItem.subMenu?.ctas && (
-                        <div className="nav-sub-menu-ctas-mobile">
-                          {navItem.subMenu?.ctas.map(
-                            ({ label, url }, index) => (
-                              <NavSubMenuCta
-                                key={`${index}-${label}`}
-                                label={label}
-                                url={url}
-                              />
-                            ),
-                          )}
-                        </div>
-                      )}
                     </>
                   ) : (
                     <Link
@@ -295,6 +294,26 @@ const Nav = ({ pathname }: NavProps) => {
           >
             <ButtonRainbowOutlined>Launch App</ButtonRainbowOutlined>
           </a>
+        </div>
+        <div className="flex justify-center pt-12">
+          <div className="nav-button-launch pr-10 ">
+            <a
+              href="https://twitter.com/fleek"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <FaTwitter fontSize={25} className="text-gray-dark-8" />
+            </a>
+          </div>
+          <div className="nav-button-launch pr-10 ">
+            <a
+              href="https://discord.gg/fleek"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <FaDiscord fontSize={25} className="text-gray-dark-8" />
+            </a>
+          </div>
         </div>
       </div>
     </Container>

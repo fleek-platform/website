@@ -20,7 +20,8 @@
       "discordFleekCommunityUrl": "https://discord.gg/fleek",
       "supportExternalUrl": "https://support.fleek.xyz",
       "arweaveUrl": "https://www.arweave.org",
-      "ipfsUrl": "https://ipfs.tech/"
+      "ipfsUrl": "https://ipfs.tech/",
+      "statusURl": "https://fleek.statuspage.io/"
     },
     "annoucement": {
       "message": "We've updated our milestones and roadmap for Fleek.xyz's V1, with new features and timelines! Read more here.",
@@ -39,11 +40,11 @@
           "order": 2
         },
         {
-          "category": "Cli",
+          "category": "CLI",
           "order": 3
         },
         {
-          "category": "Sdk",
+          "category": "SDK",
           "order": 4
         }
       ]

@@ -4,11 +4,11 @@ import plugin from "tailwindcss/plugin";
 export default plugin(({ addComponents }) => {
  addComponents({
     ".typo-h1": {
-      "@apply font-sans text-[12rem] font-medium leading-[100%] tracking-[-0.357rem]":
+      "@apply font-sans text-[12rem] font-medium leading-[100%]":
         {},
     },
     ".typo-h2": {
-      "@apply font-sans text-[9.5rem] font-medium leading-[100%] tracking-[-0.261rem]":
+      "@apply font-sans text-[9rem] font-medium leading-[100%]":
         {},
     },
     ".typo-h4": {
@@ -23,8 +23,14 @@ export default plugin(({ addComponents }) => {
     ".typo-xl": {
       "@apply font-plex-sans text-25 font-normal leading-[150%]": {},
     },
+    ".typo-xl-bold": {
+      "@apply font-plex-sans text-25 font-bold leading-[150%]": {},
+    },
     ".typo-m": {
       "@apply font-plex-sans text-16 leading-[150%]": {},
+    },
+    ".typo-m-normal": {
+      "@apply font-plex-sans text-16 font-normal leading-[150%] text-gray-dark-12": {},
     },
     ".typo-m-strong": {
       "@apply font-plex-sans text-16 font-medium leading-[150%]": {},

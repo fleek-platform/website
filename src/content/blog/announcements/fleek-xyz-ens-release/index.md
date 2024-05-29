@@ -39,4 +39,4 @@ Stay tuned for more feature releases as we get closer and closer to the full rel
 
 Also, check out our release from last week for a guide on setting up a custom domain for your private IPFS storage gateway ⚡
 
-If you want to jam with the team on anything we’ve mentioned here, hop in our [Discord](https://discord.gg/Fleek) or reach out on [Twitter](https://twitter.com/fleekxyz).
+If you want to jam with the team on anything we’ve mentioned here, hop in our [Discord](https://discord.gg/Fleek) or reach out on [Twitter](https://twitter.com/fleek).

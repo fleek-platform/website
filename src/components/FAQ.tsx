@@ -44,7 +44,7 @@ const FAQ = () => (
         <div className="col-span-14 col-start-2 flex flex-col lg:col-span-8">
           {pricing.faq.map(({ question, answer }) => (
             <Dropdown key={question} title={question}>
-              <Text className="text-ui-light-grey">{answer}</Text>
+              <Text className="text-gray-dark-11">{answer}</Text>
             </Dropdown>
           ))}
         </div>

@@ -129,6 +129,6 @@ P.s. All communications with our community will now also come from our new fleek
 - Visit the [Fleek Network Website](https://fleek.network).
 - Visit the [Fleek.xyz Website](https://fleek.xyz).
 - Join [our Discord](https://discord.gg/fleek).
-- Follow [Fleek.xyz on Twitter](https://twitter.com/fleekxyz).
+- Follow [Fleek.xyz on Twitter](https://twitter.com/fleek).
 - Follow [Fleek Network on Twitter](https://twitter.com/fleek_net).
 - Subscribe to [our Youtube](https://www.youtube.com/FleekHQ).

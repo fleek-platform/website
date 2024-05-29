@@ -1,10 +1,11 @@
-import ButtonOutlined from '@components/ButtonOutlined';
 import Container from '@components/Container';
 import GridLayout from '@components/GridLayout';
 import PageSection from '@components/PageSection';
 import TemplateAppCard from '@components/TemplateAppCard';
 import TextGlowHoverEffect from './TextGlowHoverEffect';
 import Link, { Target } from '@components/Link';
+import type { RoundedType } from '@components/PageSection';
+import ButtonGray from './ButtonGray';
 
 interface Card {
   title: string;
@@ -17,6 +18,7 @@ interface Card {
     url: string;
     text: string;
   };
+  image: string;
 }
 
 interface CardSection {
@@ -32,59 +34,58 @@ interface Props {
     url: string;
     text: string;
   };
+  rounded?: RoundedType;
 }
 
 const CardsWithDottedLinesBackground: React.FC<Props> = (props) => (
   <Container>
-    <PageSection>
-      <GridLayout className="py-64 lg:py-50">
+    <PageSection rounded={props.rounded}>
+      <GridLayout className="overflow-hidden py-64 lg:py-50">
         <div className="col-span-16 flex flex-col gap-48 lg:col-span-12 lg:col-start-3">
           <div className="flex flex-col gap-24 text-center">
-            <TextGlowHoverEffect style="h4" align="center">
-              <h2 className="typo-h5 text-ui-white lg:typo-h4">
-                {props.headline}
-              </h2>
-            </TextGlowHoverEffect>
+            <h2 className="typo-h5 text-gray-dark-12 lg:typo-h4">
+              {props.headline}
+            </h2>
             {props.copy && <p className="typo-l">{props.copy}</p>}
           </div>
           <div className="relative">
             <img
-              src="/svg/elliptical-squiggle-bg.svg"
+              src="/images/circles.png"
               alt="bg-squiggle"
-              className="absolute bottom-0 left-0 right-0 top-0 -z-1 m-auto hidden w-full lg:block"
+              className="absolute  -top-44 bottom-0 left-0 right-0 -z-1 m-auto hidden w-full scale-125 lg:block"
             />
             <img
               src="/svg/elliptical-squiggle-bg-mobile.svg"
               alt="bg-squiggle"
               className="absolute left-0 top-0 -z-1 m-auto h-full w-full lg:hidden"
             />
-            <div className="flex flex-col gap-30 lg:m-auto lg:w-fit lg:items-center">
+            <div className="flex flex-col gap-8 lg:m-auto lg:w-fit lg:items-center">
               {props.cardSections.map((section) => (
                 <div
                   key={section.title}
                   className="flex flex-col gap-16 lg:gap-8"
                 >
-                  <div className="typo-xl text-center text-ui-white lg:text-left lg:text-ui-light-grey">
-                    {section.title}
-                  </div>
-                  <div className="flex flex-col gap-8 lg:grid lg:grid-cols-3 lg:gap-x-10">
-                    {section.cards.map(({ title, description, icon, cta }) => (
-                      <Link href={cta.url} key={title} target={Target.Blank}>
-                        <TemplateAppCard
-                          key={title}
-                          title={title}
-                          description={description}
-                          icon={icon}
-                        />
-                      </Link>
-                    ))}
+                  <div className="flex flex-col gap-8 lg:grid lg:grid-cols-3 lg:gap-30 lg:gap-x-24">
+                    {section.cards.map(
+                      ({ title, description, icon, cta, image }) => (
+                        <Link href={cta.url} key={title} target={Target.Blank}>
+                          <TemplateAppCard
+                            key={title}
+                            title={title}
+                            description={description}
+                            icon={icon}
+                            image={image}
+                          />
+                        </Link>
+                      ),
+                    )}
                   </div>
                 </div>
               ))}
               {props.cta && (
-                <div className="self-center lg:self-end">
+                <div className="mt-12 self-center">
                   <Link href={props.cta.url} target={Target.Blank}>
-                    <ButtonOutlined>{props.cta.text}</ButtonOutlined>
+                    <ButtonGray>{props.cta.text}</ButtonGray>
                   </Link>
                 </div>
               )}

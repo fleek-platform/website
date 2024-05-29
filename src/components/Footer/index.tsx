@@ -6,11 +6,11 @@ import StatusBar from '@components/StatusBar';
 import Link, { Target } from '@components/Link';
 import config from './config';
 
-const { company, legal, product, resources } = config;
+const { product, developers, legal, resources } = config;
 
 const Footer = () => {
   return (
-    <footer className="bg-ui-fleek-black pb-40 pt-80 text-ui-light-grey">
+    <footer className="bg-gray-dark-1 pb-40 pt-80 text-gray-dark-11">
       <Container>
         <GridLayout>
           <div className="col-span-16 mb-24 flex flex-col md:col-span-3 md:mb-0">
@@ -25,7 +25,7 @@ const Footer = () => {
               as="p"
               className="mb-16 max-w-[14rem] md:max-w-none"
             >
-              Build lightning fast web3 apps on the edge.
+              The lightning fast onchain cloud.
             </Text>
             <div className="mb-16 flex gap-16">
               <a
@@ -36,7 +36,7 @@ const Footer = () => {
                 <IconSocial icon="github" />
               </a>
               <a
-                href="https://twitter.com/fleekxyz/"
+                href="https://twitter.com/fleek/"
                 rel="noopener noreferrer"
                 target="_blank"
               >
@@ -57,6 +57,37 @@ const Footer = () => {
           <div className="col-span-16 md:col-span-12 md:col-start-5">
             <div className="grid grid-flow-dense grid-cols-12 flex-col gap-x-16 gap-y-24 md:grid md:gap-y-0">
               <div className="col-span-6 flex flex-col gap-12 md:col-span-3 md:gap-16">
+                <Text style="caption-m">Product</Text>
+                <ul className="flex flex-col gap-10 md:gap-8">
+                  {product.map((item, index) => (
+                    <li className="flex justify-start" key={index}>
+                      <Link href={item.url} target={Target.Blank}>
+                        <Text style="caption-text">{item.text}</Text>
+                      </Link>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+              <div className="col-span-6 flex flex-col gap-12 md:col-span-3 md:gap-16">
+                <Text style="caption-m">Developers</Text>
+                <ul className="flex flex-col gap-10 md:gap-8">
+                  {developers.map((item, index) => (
+                    <li className="flex justify-start" key={index}>
+                      <Link
+                        href={item.url}
+                        target={
+                          item.target?.toLowerCase() == '_blank'
+                            ? Target.Blank
+                            : Target.Self
+                        }
+                      >
+                        <Text style="caption-text">{item.text}</Text>
+                      </Link>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+              <div className="col-span-6 flex flex-col gap-12 md:col-span-3 md:gap-16">
                 <Text style="caption-m">Resources</Text>
                 <ul className="flex flex-col gap-10 md:gap-8">
                   {resources.map((item, index) => (
@@ -65,44 +96,6 @@ const Footer = () => {
                         href={item.url}
                         target={
                           item.target?.toLowerCase() === '_blank'
-                            ? Target.Blank
-                            : Target.Self
-                        }
-                      >
-                        <Text style="caption-text">{item.text}</Text>
-                      </Link>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-              <div className="col-span-6 flex flex-col gap-12 md:col-span-3 md:gap-16">
-                <Text style="caption-m">Product</Text>
-                <ul className="flex flex-col gap-10 md:gap-8">
-                  {product.map((item, index) => (
-                    <li className="flex justify-start" key={index}>
-                      <Link
-                        href={item.url}
-                        target={
-                          item.target?.toLowerCase() == '_blank'
-                            ? Target.Blank
-                            : Target.Self
-                        }
-                      >
-                        <Text style="caption-text">{item.text}</Text>
-                      </Link>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-              <div className="col-span-6 flex flex-col gap-12 md:col-span-3 md:gap-16">
-                <Text style="caption-m">Company</Text>
-                <ul className="flex flex-col gap-10 md:gap-8">
-                  {company.map((item, index) => (
-                    <li className="flex justify-start" key={index}>
-                      <Link
-                        href={item.url}
-                        target={
-                          item.target?.toLowerCase() == '_blank'
                             ? Target.Blank
                             : Target.Self
                         }
