@@ -137,7 +137,7 @@ fleek functions deploy --name print-hello-world --path *./function.js
 
 ## After running this command, use the provided URL to make a request to the Fleek Function
 
-After running the `deploy` command from the last step, if your deployment is successful, you’ll see a message notifying you that ‘you can create a new function invocation by making a request to the following URL`, a URL that will look like `https://<slug>.functions.<env>.on-fleek.app` and will be unique to this Fleek Function.
+After running the `deploy` command from the last step, if your deployment is successful, you'll see a message notifying you that you can create a new function invocation by making a request to the following URL, a URL that will look like `https://<slug>.functions.<env>.on-fleek.app` and will be unique to this Fleek Function.
 
 You can then visit the URL or make a request to the URL in order to run your Fleek Function.
 
@@ -228,7 +228,7 @@ fleek function update --functionName prints-hello-world --slug my-project
 
 At times you may wish to deactivate a Fleek Function that is no longer relevant to your project, most likely because you will not be using a particular function in your code where you were previously and its inclusion in the list of printed Fleek Functions for the project becomes a source of confusion. You aren’t interested in deleting the Fleek Function outright, however, because it may be useful in the future.
 
-To _deactivate_ such a Fleek Function, you can run the command below, replacing <fleek_function_name> with the name of the Fleek Function you’re deactivating.
+To _deactivate_ such a Fleek Function, you can run the command below, replacing <fleek_function_name></fleek_function_name> with the name of the Fleek Function you’re deactivating.
 
 ```js
 fleek functions update --functionName <fleek_function_name> --status INACTIVE

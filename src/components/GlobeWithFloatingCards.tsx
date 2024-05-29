@@ -11,11 +11,10 @@ const GlobeWithFloatingCards = () => {
         <div className="overflow-hidden py-48 lg:pb-56 lg:pt-60">
           <GridLayout>
             <div className="col-span-16 mb-32 flex flex-col gap-16 text-center lg:col-span-12 lg:col-start-3 lg:mb-64 lg:gap-24">
- 
               <h2 className="typo-h5 text-ui-white lg:typo-h2">
                 Build Lightning Fast
               </h2>
-  
+
               <p className="typo-m text-[#B4B4B4] lg:typo-l">
                 Fleek is an edge-optimized cloud platform. Effortlessly build,
                 ship and <br />

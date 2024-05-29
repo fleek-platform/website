@@ -1,5 +1,3 @@
-
-
 import type { MenuSettingsItem } from './index';
 
 const supportUrlDefault = 'https://support.fleek.xyz';
