@@ -65,20 +65,26 @@ These files will be updated when the certificate renews.
 Certbot has set up a scheduled task to automatically renew this certificate in the background.
 ```
 
-6) Declare the SSL Certificates for each domain blog and docs.
+6) Copy the NGINX configuration
+
+You're required to setup the Nginx configuration and related includes such as the shared directory files to the server. By default these should be placed in /etc/nginx.
+
+Make any customizations as required.
+
+7) Declare the SSL Certificates for each domain blog and docs.
 
 ```sh
 ssl_certificate /etc/letsencrypt/live/<URL>/fullchain.pem;
 ssl_certificate_key  /etc/letsencrypt/live/<URL>/privkey.pem;
 ```
 
-7) Test
+8) Test
 
 ```sh
 nginx -t
 ```
 
-7) Restart the nginx service
+9) Restart the nginx service
 
 ```sh
 systemctl reload nginx
