@@ -50,33 +50,39 @@ Generate the certificates by following the prompts to complete the SSL setup use
 certbot --nginx \
   --standalone \
   -d blog.fleek.xyz \
-  -d docs.fleek.xyz
+  -d docs.fleek.xyz \
+  -d <TEST-URL>
 ```
 
-Expect a response similar to the following for each domain blog and docs:
+Expect a response similar to the following for each domain blog and docs.
 
 ```sh
 Successfully received certificate.
-Certificate is saved at: /etc/letsencrypt/live/blog.fleek.xyz/fullchain.pem
-Key is saved at:         /etc/letsencrypt/live/blog.fleek.xyz/privkey.pem
+Certificate is saved at: /etc/letsencrypt/live/<URL>/fullchain.pem
+Key is saved at:         /etc/letsencrypt/live/<URL>/privkey.pem
 This certificate expires on 2024-08-25.
 These files will be updated when the certificate renews.
 Certbot has set up a scheduled task to automatically renew this certificate in the background.
 ```
 
-6) Declare the SSL Certificates
+6) Declare the SSL Certificates for each domain blog and docs.
 
 ```sh
-ssl_certificate /etc/letsencrypt/live/nginx-ubuntu-redirect-proxy.flkservices.io/fullchain.pem;
-ssl_certificate_key  /etc/letsencrypt/live/nginx-ubuntu-redirect-proxy.flkservices.io/privkey.pem;
+ssl_certificate /etc/letsencrypt/live/<URL>/fullchain.pem;
+ssl_certificate_key  /etc/letsencrypt/live/<URL>/privkey.pem;
+```
+
+7) Test
+
+```sh
+nginx -t
 ```
 
 7) Restart the nginx service
 
 ```sh
-systemctl start nginx
+systemctl reload nginx
 ```
-
 
 ## Usage
 
