@@ -47,7 +47,10 @@
           "category": "SDK",
           "order": 4
         }
-      ]
+      ],
+      "customTitlesByDirectoryName": {
+        "migrating_from_fleek_dot_co": "Migrating from Fleek dot co"
+      }
     }
   },
   "pricing": {

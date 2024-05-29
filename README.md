@@ -25,6 +25,7 @@ This repository contains the source code and assets for the Fleek.xyz website, w
         - [Create a Pull request](#-create-a-pull-request)
     - [Docs](#-docs)
         - [Sidebar menu item ordering](#-sidebar-menu-item-ordering)
+        - [Override category title](#-override-category-title)
     - [Spell checker](#-spell-checker)
     - [Admonitions](#-admonitions)
     - [Navigation bar](#-navigation-bar)
@@ -235,6 +236,52 @@ Here's an example where we order the categories accounts, projects and storage b
 ```
 
 💡 In the example above, the categories are the "directory", while Content documents (.md files) have a numerical **order** value that is also computed when ordering the sidebar items. For example, the **src/content/docs/index.md** is the landing page document, while **src/content/Accounts** is a directory that has one or more markdown documents.
+
+## 📠 Override Category Title
+
+You can override the docs sidebar titles, but it's not recommended due to the way the content automation process generates the final URLs, etc. We should prefer convention over configuration!
+
+Suppose that you have the directory names:
+
+```sh
+├── CLI
+│   ├── Applications
+│   └── verify-domain.png
+├── My-Menu-Item
+│   ├── index.mdx
+│   └── Sites
+└── index.mdx
+```
+
+Let's say that you'd like to override the name "My-Menu-Item" to "Custom name".
+
+You'd have to locate `docs -> customTitlesByDirectoryName` field in the `src/settings.json` file and declare a new property name and the value, e.g. "My-Menu-Item" and "Custom Name" as follows:
+
+```json
+"docs": {
+  "menu": {
+    "customTitlesByDirectoryName": {
+      "My-Menu-Item": "Custom name"
+    }
+  }
+}
+```
+
+This is not recommended because the final URL will contain the original directory name, e.g. https://fleek.xyz/docs/my-menu-item instead of https://fleek.xyz/docs/custom-name.
+
+Considering the normalization conventions of the directory names, it'd be much preferred to rename the original directory to "custom_name".
+
+```sh
+├── CLI
+│   ├── Applications
+│   └── verify-domain.png
+├── Custom_name
+│   ├── index.mdx
+│   └── Sites
+└── index.mdx
+```
+
+💡 Bear in mind that underscores (_) are replaced by white-space when humanized by default. The dashes are kept to comply with terms or names, e.g. "pre-release".
 
 ## 🥷 Create a Pull request
 
