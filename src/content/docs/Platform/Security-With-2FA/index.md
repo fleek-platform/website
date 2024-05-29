@@ -27,7 +27,7 @@ A TOTP (Time-Based One-Time Password) application automatically generates an aut
 1. Download a TOTP app of your choice to your phone or desktop.
 2. In the upper-right corner of any page, click your profile photo, then click **Account Settings**.
 
-{TODO Add image}
+![](./account-settings.png)
 
 3. In the left sidebar on the Settings page, click **Two-Factor Authentication**.
 4. In the "Two-factor authentication" section of the page, click **Enable Two-factor Authentication**.
@@ -35,17 +35,21 @@ A TOTP (Time-Based One-Time Password) application automatically generates an aut
    - Scan the QR code with your mobile device's app. After scanning, the app displays a six-digit code that you can enter on Fleek.
    - If you can't scan the QR code, click **setup key** to see a code, the TOTP secret, that you can manually enter in your TOTP app instead.
 
-{TODO Add image}
+![](./setup-auth.png)
 
 6. The TOTP application saves your account on Fleek and generates a new authentication code every few seconds. On Fleek, type the code into the field under "Verify Code."
 7. The "Continue" button becomes active, when clicked on it takes you to a second step to get your recovery codes.
 8. Under "Download your recovery codes", click the **Download** button to download your recovery codes to your device. Save them to a secure location because your recovery codes can help you get back into your account if you lose access.
 
-{TODO Add image}
+:::note
+These are fake recovery codes for illustrative purposes only.
+:::
+
+![](./recovery-codes.png)
 
 9. After saving your two-factor recovery codes, click **I saved my codes** to enable two-factor authentication for your account.
 
-{TODO Add image}
+![](./save-recovery-codes.png)
 
 ## Managing Two-Factor Authentication
 
@@ -53,7 +57,7 @@ There may be cases where you lose access to your TOTP app or lose the key due to
 
 1. In the "Manage Two-factor Authentication" section, you will see a rectangular bar that has an **Active** button and an ellipsis to the right of it. Click on the ellipsis.
 
-{TODO Add image}
+![](./manage-2fa.png)
 
 2. When the ellipsis is clicked on a modal appears with the following options:
 
@@ -62,11 +66,15 @@ There may be cases where you lose access to your TOTP app or lose the key due to
 
 3. "Generate New Key" links back to [Step 5 here](#configuring-two-factor-authentication) and it helps generate the six digit code you enter on Fleek from your TOTP app.
 
-{TODO Add image}
+![](./edit-auth-app.png)
 
 4. "Regenerate Recovery Codes" links back to [Step 8 here](#configuring-two-factor-authentication) to generate new recovery codes for you to download.
 
-{TODO Add image}
+:::note
+These are fake recovery codes for illustrative purposes only.
+:::
+
+![](./regenerate-recovery-code.png)
 
 :::info
 With the new codes generated for your Two-Factor Authentication setup following the steps above, the old codes will be disabled instantly and will not work in future attempts.
@@ -76,11 +84,11 @@ With the new codes generated for your Two-Factor Authentication setup following 
 
 In the "Two-factor Settings" section, you can enable Two-Factor Authentication to take effect whenever certain activities are performed within your account.
 
-{TODO Add image}
+![](./two-factor-settings.png)
 
 They are disabled by default, but you can click on the **Edit Settings** button to toggle to the edit state so you choose which ones to enable.
 
-{TODO Add image}
+![](./edit-two-factor-settings.png)
 
 There are three activities currently for which you can setup Two-Factor Authentication:
 
@@ -90,4 +98,12 @@ There are three activities currently for which you can setup Two-Factor Authenti
 
 Whenever any of the actions are about to be performed within your account, a modal pops up asking for the six-digit code in your TOTP app that you added to your Fleek account. An alternative option is to use the recovery codes you downloaded from [setting up your Two-Factor Authentication](#configuring-two-factor-authentication).
 
-{TODO Add image}
+![](./two-factor-confirmation.png)
+
+## Disable Two-Factor Authentication Settings
+
+In the "Two-Factor Settings section", you can disable Two-Factor Authentication by clicking the **Disable Two-Factor Authentication button**. This action will open a modal window asking for confirmation with two options: **Cancel** and **Disable**.
+
+![](./disable-2fa.png)
+
+If you decide to disable Two-factor Authentication, you go back to having a default information page with the "Enable Two-factor Authentication" button.
