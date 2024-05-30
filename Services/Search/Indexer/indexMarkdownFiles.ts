@@ -147,8 +147,6 @@ export default async ({
         .use(html)
         .process(content)).toString();
 
-      console.log('[debug] content', content);
-
       const url = generateUrlPath({ filePath });
 
       try {
