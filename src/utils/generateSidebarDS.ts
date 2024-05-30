@@ -1,4 +1,5 @@
 import type { CollectionEntry } from 'astro:content';
+import settings from '@base/settings.json';
 
 type Doc = CollectionEntry<'docs'>;
 type DocWithCategory = Doc['data'] & {
@@ -47,6 +48,23 @@ const normalizeCategoryName = (input: string) => {
 type UserOrderItem = {
   category: string;
   order: number;
+};
+
+const hasCustomTitlesByDirectoryNameOverride = ({
+  slug,
+  title,
+}: {
+  slug: string;
+  title: string;
+}) => {
+  const customTitlesByDirectoryName: Record<string, string> =
+    settings.docs.menu.customTitlesByDirectoryName;
+
+  if (slug in customTitlesByDirectoryName) {
+    return customTitlesByDirectoryName[slug];
+  }
+
+  return title;
 };
 
 export const generateSidebarDSByUserOrder = (
@@ -181,10 +199,16 @@ const transformData = (
       category,
       slug: category,
       order: userOrderLookupTable ? userOrderLookupTable[category] : idx,
-      title: normalizeCategoryName(category),
+      title: hasCustomTitlesByDirectoryNameOverride({
+        title: normalizeCategoryName(category),
+        slug: category,
+      }),
       list: sortedItems.map((item) => ({
         slug: item.slug,
-        title: item.title,
+        title: hasCustomTitlesByDirectoryNameOverride({
+          title: item.title,
+          slug: item.slug,
+        }),
         index: item.index,
       })),
     };

@@ -35,6 +35,7 @@ specifiers:
   react-dom: ^18.2.0
   react-fast-marquee: ^1.6.4
   react-hot-toast: ^2.4.1
+  react-icons: ^5.2.0
   react-instantsearch: ^7.7.2
   react-tooltip: ^5.26.3
   rehype-pretty-code: ^0.13.1
@@ -73,6 +74,7 @@ dependencies:
   react-dom: 18.3.1_react@18.3.1
   react-fast-marquee: 1.6.4_nnrd3gsncyragczmpvfhocinkq
   react-hot-toast: 2.4.1_nnrd3gsncyragczmpvfhocinkq
+  react-icons: 5.2.1_react@18.3.1
   react-instantsearch: 7.9.0_nnrd3gsncyragczmpvfhocinkq
   react-tooltip: 5.26.4_nnrd3gsncyragczmpvfhocinkq
   rehype-pretty-code: 0.13.2
@@ -5642,6 +5644,14 @@ packages:
       react-dom: 18.3.1_react@18.3.1
     transitivePeerDependencies:
       - csstype
+    dev: false
+
+  /react-icons/5.2.1_react@18.3.1:
+    resolution: {integrity: sha512-zdbW5GstTzXaVKvGSyTaBalt7HSfuK5ovrzlpyiWHAFXndXTdd/1hdDHI4xBM1Mn7YriT6aqESucFl9kEXzrdw==}
+    peerDependencies:
+      react: '*'
+    dependencies:
+      react: 18.3.1
     dev: false
 
   /react-instantsearch-core/7.9.0_react@18.3.1:
