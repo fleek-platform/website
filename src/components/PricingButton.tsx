@@ -14,7 +14,7 @@ const PricingButton: React.FC<React.PropsWithChildren<Props>> = (props) => {
     >
       <Text
         as="span"
-        style="btn-l-mid"
+        style="btn-l"
         className={`${props.bg == 'bg-yellow-dark-4' ? 'text-yellow-dark-11' : 'text-gray-dark-11'}  ${props.className} ${props.fontColor}`}
       >
         {props.children}

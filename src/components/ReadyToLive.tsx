@@ -22,7 +22,7 @@ const ReadyToLive: React.FC<Props> = ({ rounded }) => {
               className="flex items-center justify-center gap-12 "
             >
               <div>
-                <img src="/svg/bolt-white.svg" />
+                <img src="/svg/bolt-yellow.svg" />
               </div>
               <div>Get started</div>
             </ButtonYellow>

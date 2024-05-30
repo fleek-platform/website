@@ -50,6 +50,9 @@ const PricingLanding: React.FC<Formatting> = ({ rounded }) => {
                   cta={item.cta}
                   cost={item.cost}
                   border={item.border}
+                  coloredBtn={true}
+                  btnBg={item.btnBg}
+                  fontColor={item.fontColor}
                 />
               );
             })}

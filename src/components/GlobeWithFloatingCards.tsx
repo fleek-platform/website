@@ -32,20 +32,16 @@ const GlobeWithFloatingCards = () => {
                       className="flex items-center justify-center gap-12 "
                     >
                       <div>
-                        <img src="/svg/bolt-white.svg" />
+                        <img src="/svg/bolt-yellow.svg" />
                       </div>
-                      <div>TRY IT NOW</div>
+                      <div>Try it Now</div>
                     </ButtonYellow>
                   </a>
                 </div>
                 <div className="typo-btn-l">
-                  <a
-                    href="https://app.fleek.xyz/"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
+                  <a href="/docs" target="_blank" rel="noopener noreferrer">
                     <ButtonGray className="flex items-center justify-center gap-12 px-10 ">
-                      <div>GET A DEMO</div>
+                      <div>View Docs</div>
                     </ButtonGray>
                   </a>
                 </div>
