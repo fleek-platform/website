@@ -134,10 +134,6 @@ export default async ({
      
       const fileContent = fs.readFileSync(filePath, 'utf-8');
 
-      const processedContent = await remark()
-        .use(html)
-        .process(fileContent);
-
       const parsed = await remark()
         .use(remarkFrontmatter)
         .use(remarkParseFrontmatter)
@@ -145,7 +141,13 @@ export default async ({
 
       const { title, category, date, desc } = parsed.data.frontmatter as Record<string, string>;
 
-      const content = processedContent.toString();
+      const re = /---[\s\S]*?---/g;
+      let content = fileContent.replace(re, '');
+      content = (await remark()
+        .use(html)
+        .process(content)).toString();
+
+      console.log('[debug] content', content);
 
       const url = generateUrlPath({ filePath });
 
