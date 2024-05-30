@@ -53,47 +53,16 @@ type HitProps = {
 };
 
 const Hit = ({ hit }: HitProps) => {
-  const { results } = useInstantSearch();
-
-  const { value } = hit._highlightResult?.content as { value: string };
-
-  const parser = new DOMParser();
-  const doc = parser.parseFromString(value, 'text/html');
-  const data = doc.body.textContent || '';
-
-  const text = stripHtmlAndEntities(data);
-
+  // TODO: Disabled the extended text match
+  // in favour of titles for the initial version.
+  // It should bring back the text/query matching.
+  // See file commmit history
   return (
     <a key={hit.id} href={hit.url}>
-      <span>{!results.query ? hit.title : text}</span>
+      <span>{hit.title}</span>
     </a>
   );
 };
-
-function stripHtmlAndEntities(htmlString: string) {
-  const strippedOfTags = htmlString.replace(/<[^>]*>/g, '');
-  const decodedString = strippedOfTags.replace(
-    /&([a-z]+);/g,
-    (match, entity) => {
-      switch (entity) {
-        case 'lt':
-          return '<';
-        case 'gt':
-          return '>';
-        case 'amp':
-          return '&';
-        case 'quot':
-          return '"';
-        case 'apos':
-          return "'";
-        default:
-          return match;
-      }
-    },
-  );
-
-  return decodedString;
-}
 
 const CustomSearchBox = ({
   setOpenModal,
