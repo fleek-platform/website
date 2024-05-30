@@ -1,5 +1,5 @@
 ---
-order: 2
+order: 5
 title: Migrating from Fleek.co
 date: 2023-01-10
 description: A guide to migrating from Fleek.co
