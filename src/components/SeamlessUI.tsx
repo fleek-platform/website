@@ -89,8 +89,13 @@ const SeamlessUI: React.FC<Props & OptionalProps> = ({ rounded }) => {
           >
             <img
               src="/images/fleek-app.png"
-              className="z-0 right-[2%] top-[75%] mr-12  translate-y-1/4 -skew-x-2 skew-y-3 scale-[1.35] transform-gpu  lg:absolute lg:mr-0 lg:block  lg:-translate-x-3/4 lg:-translate-y-[95%]  lg:scale-[3.30] lg:scale-y-[3.6]"
-              width={280}
+              className="z-0 right-[10%] top-[80%] mr-12 hidden translate-y-1/4 scale-[1.35] transform-gpu lg:absolute lg:mr-0 lg:block lg:-translate-x-3/4 lg:-translate-y-[95%] lg:scale-[3.30]"
+              width={200}
+            />
+            <img
+              src="/images/fleek-app-mobile.png"
+              className="translate-y-[30%] scale-150 lg:hidden"
+              width={200}
             />
           </div>
           <div className="col-span-16 flex basis-7/12 flex-col items-center justify-center lg:col-span-8 lg:items-start">

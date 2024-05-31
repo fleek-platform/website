@@ -65,7 +65,10 @@ const Hit = ({ hit }: HitProps) => {
 
   return (
     <a key={hit.id} href={hit.url}>
-      <span>{!results.query ? hit.title : text}</span>
+      <div className="result-item-box">
+        <span className="font-semi-bold block pb-10">★ {hit.title}</span>
+        <span>{results.query && <span>{text}</span>}</span>
+      </div>
     </a>
   );
 };

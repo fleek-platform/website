@@ -33,7 +33,7 @@ const StatusBar: React.FC = () => {
 
   return (
     <a
-      href="https://fleek.statuspage.io"
+      href="https://status.fleek.xyz/"
       target="_blank"
       rel="noopener noreferrer"
     >

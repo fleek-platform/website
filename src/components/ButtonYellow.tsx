@@ -8,12 +8,12 @@ interface Props {
 const ButtonYellow: React.FC<React.PropsWithChildren<Props>> = (props) => {
   return (
     <button
-      className={`${props.border} inline-block rounded-12 border border-yellow-dark-9 px-32 py-16 hover:border-yellow-dark-12`}
+      className={`${props.border} inline-block rounded-12 bg-yellow-dark-4 px-32 py-16 hover:bg-yellow-dark-5`}
     >
       <Text
         as="span"
         style="btn-l"
-        className={`text-gray-dark-12 ${props.className}`}
+        className={`text-yellow-dark-11 ${props.className}`}
       >
         {props.children}
       </Text>

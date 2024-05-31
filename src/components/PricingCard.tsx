@@ -60,7 +60,7 @@ const PricingCard: React.FC<Props> = (props) => {
         </div>
         {props.coloredBtn ? (
           <PricingButton bg={props.btnBg} fontColor={props.fontColor}>
-            <p className="typo-s capitalize">{props.cta}</p>
+            <p className="typo-btn-cap">{props.cta}</p>
           </PricingButton>
         ) : (
           <ButtonGray

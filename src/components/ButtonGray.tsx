@@ -8,7 +8,7 @@ interface Props {
 const ButtonGray: React.FC<React.PropsWithChildren<Props>> = (props) => {
   return (
     <button
-      className={`${props.border} inline-block rounded-12 border border-gray-dark-7 px-32 py-16 ${props.border == 'border-yellow' ? 'hover:border-yellow-dark-12' : 'hover:border-gray-dark-8'}  `}
+      className={`${props.border} inline-block rounded-12 bg-gray-dark-4 px-32 py-16 hover:bg-gray-dark-5`}
     >
       <Text
         as="span"

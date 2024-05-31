@@ -51,7 +51,7 @@ export const NavBarDefault: MenuSettingsItem[] = [
       },
       {
         label: 'Templates',
-        url: '/templates',
+        url: 'https://app.fleek.xyz/templates',
         description: 'Use pre-built apps.',
         icon: '/svg/templates-navbar-icon.svg',
       },
@@ -125,7 +125,7 @@ export const NavBarDefault: MenuSettingsItem[] = [
     subMenu: [
       {
         label: 'Status',
-        url: 'https://fleek.statuspage.io/',
+        url: 'https://status.fleek.xyz/',
         description: 'Uptime monitoring.',
         icon: '/svg/status-navbar-icon.svg',
       },
