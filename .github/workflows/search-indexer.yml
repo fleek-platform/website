@@ -1,7 +1,7 @@
 name: 🚜 Search (Indexer)
 on:
   push:
-    branches: [ main ]
+    branches: [ 'main', 'chore/delete-indexes' ]
 
 jobs:
   meilisearch:
@@ -14,6 +14,13 @@ jobs:
 
       - name: Install Dependencies
         run: npm ci
+
+      - name: Delete indexes
+        run: |
+          npm run search:delete_indexes
+        env:
+          PRIVATE_MEILISEARCH_DOCUMENTS_ADMIN_API_KEY: ${{ secrets.PRIVATE_MEILISEARCH_DOCUMENTS_ADMIN_API_KEY}}
+          PUBLIC_MEILISEARCH_HOST: ${{ vars.PUBLIC_MEILISEARCH_HOST }}
 
       - name: Blog Indexation
         run: |
