@@ -15,21 +15,6 @@ if (!apiKey || !host) {
   process.exit(1);
 }
 
-const sleep = (timeout: number) => {
-  return new Promise((resolve) => {
-    setTimeout(() => resolve(true), timeout);
-  });
-}
-
-async function waitForTask(client: MeiliSearch, id: number) {
-  while (true) {
-    const status = await client.getTask(id);
-    if (status.error) throw new Error(status.error.message);
-    if (status.status !== 'processing') break;
-    await sleep(1000);
-  }
-}
-
 const client = new MeiliSearch({
   host,
   apiKey,
@@ -41,8 +26,11 @@ const deleteIndex = async ({
   indexName: string;
 }) => {
   try {
-    const task = await client.deleteIndex(indexName);
-    await waitForTask(client, task.taskUid);       
+    const hasDelete = await client.deleteIndexIfExists(indexName);
+
+    if (!hasDelete) {
+      console.log(`🤡 Index ${indexName} doesn't exist!`);
+    }
     
     console.log(`✅ Deleted index ${indexName}`);
   } catch (e) {
