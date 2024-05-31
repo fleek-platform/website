@@ -19,7 +19,7 @@ const DocsHero = ({ title, description }: Props) => (
         <div className="mt-12 flex justify-center gap-16">
           <div className="typo-btn-l">
             <a
-              href="https://app.fleek.xyz/"
+              href="/docs/Platform"
               target="_blank"
               rel="noopener noreferrer"
             >
@@ -30,7 +30,7 @@ const DocsHero = ({ title, description }: Props) => (
           </div>
           <div className="typo-btn-l">
             <a
-              href="https://app.fleek.xyz/"
+              href="/docs/CLI"
               target="_blank"
               rel="noopener noreferrer"
             >

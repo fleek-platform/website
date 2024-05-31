@@ -49,7 +49,7 @@
         }
       ],
       "customTitlesByDirectoryName": {
-        "migrating_from_fleek_dot_co": "Migrating from Fleek.co"
+        "fleek_dot_co_migration": "Fleek.co Migration"
       }
     }
   },

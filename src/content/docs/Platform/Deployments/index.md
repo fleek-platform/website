@@ -12,11 +12,13 @@ tags:
   - Fleek
 ---
 
-![](./managed-ui.png)
+# Deployments on Fleek
 
-Deploying a site using Fleek pipeline is a simple process. You can connect your code repository to Fleek and we will take care of the build and deploy process. This allows you to focus on your code and not worry about the infrastructure.
+Deploying a site using Fleek's pipeline is a simple process. You can connect your code repository to Fleek and we will take care of the build and deploy process. This allows you to focus on your code and not worry about the infrastructure.
 
 This is a multistep process that will require you to connect your code repository, configure your build settings, and deploy your site.
+
+![](./managed-ui.png)
 
 ## Connect your code repository
 
@@ -44,7 +46,7 @@ This are the build parameters you can configure:
 - `Docker image`: The name of the docker image on docker hub in which your site will be built, defaults to node:slim. Fleek provides images for many popular frameworks, but you can use any that suits your project.
 - `Environment variables`: The values of your environment variables. It is here for example that you might set your environment as production
 
-## After Creating the site
+## After creating the site
 
 Once your site is created we will trigger the initial deployment. This process can take a few minutes depending on the size of your site. Once the deployment is completed you will be able to see the site url and the status of the deployment.
 
@@ -58,17 +60,17 @@ In case a deployment failes you can retry it directly from the deployments page.
 
 Once the deployment is completed you will be able to configure your custom domain. To do this, go to the settings page and click on the domains tab. In this page you will be able to add your custom domain and configure it to use your site.
 
-You can follow a guide on how to configure your custom domain [here](/docs/Domains/custom-domains).
+You can follow a guide on how to configure your custom domain [here](/guides/troubleshooting-dns-domains-record-update-fleek).
 
 ### Configure your ENS domain
 
 You can also configure your ENS domain. To do this, go to the settings page and click on the domains tab. In this page you will be able to add your ENS domain and configure it to use your site.
 
-You can follow a guide on how to configure your ENS domain [here](/docs/Domains/ens).
+You can follow a guide on how to configure your ENS domain [here](/guides/guide-ens-domains-ipfs-ethereum-name-service).
 
 ## Concurrent Deployments
 
-Currently Fleek support one deployment at a time. This means that if you trigger a new deployment while another one is running, the new deployment will be queued and will start once the current deployment is completed. Possibilities of concurrent deployments will come soon with the new billing plans.
+Currently Fleek supports one deployment at a time. This means that if you trigger a new deployment while another one is running, the new deployment will be queued and will start once the current deployment is completed. Possibilities of concurrent deployments will come soon with the new billing plans.
 
 ## Purging Cache
 
@@ -87,28 +89,26 @@ To delete a site, go to the site overview and click on the settings icon. In the
 - All the domains
 - All the IPNS keys
 
+Deleting a site will remove all the deployments and domains associated with the site. This action cannot be undone.
+
 ![](./delete-site.png)
 
-:::info
-Deleting a site will remove all the deployments and domains associated with the site. This action cannot be undone.
-:::
-
-## Setting up a self managed deployment
+## Setting up a self-managed deployment
 
 To set up a self managed deployment you need to create a site and choose the option to manage the deployment via the Fleek CLI at the bottom of the git provider screen.
 
 To set up the site you will need to add some information about your site:
 
-- Framework: The framework used to build your site. EG: Gatsby, Hugo, etc.
-- Build command: The commands to execute to build the site. EG: npm install && npm run build
-- Publish directory: The name of the directory containing the index.html file of your site after it has been built
+- `Framework`: The framework used to build your site. EG: Gatsby, Hugo, etc.
+- `Build command`: The commands to execute to build the site. EG: npm install && npm run build
+- `Publish directory`: The name of the directory containing the index.html file of your site after it has been built
 
 With this you will be redirected to the site overview page where you will find two different files that you need to add to your repository:
 
-- Fleek.json: This file contains the configuration of your site.
-- GHA workflow: This file contains the configuration of the Github Action workflow that will trigger the deploy process.
+- `Fleek.json`: This file contains the configuration of your site.
+- `GHA workflow`: This file contains the configuration of the Github Action workflow that will trigger the deploy process.
 
-Though the Fleek.json file is mandatory you can decide not to use the Github Action workflow and trigger the deploy process in your own way.
+Though the Fleek.json file is mandatory, you can elect not to use the Github Action workflow and trigger the deploy process in your own way.
 
 ## Deploying your site
 

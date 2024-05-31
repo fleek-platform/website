@@ -12,14 +12,14 @@ tags:
   - Fleek
 ---
 
-![](./domains-ui.png)
+# Domains on Fleek
 
-# Introduction
-
-Fleek allows you to set up domains for your sites that allow you to provide a better experience to your users. In this section we will go through the following topics:
+Fleek allows you to set up domains for your sites that enable you to provide a better experience to your users. In this section we will go through the following topics:
 
 - Configuring a custom DNS domain.
 - Configuring an ENS domain.
+
+![](./domains-ui.png)
 
 ## ENS
 
@@ -46,7 +46,7 @@ When the ENS domain is added you will be prompted with a modal to select your pr
 - **Automatic**: This will require you to sign a transaction directly from the Fleek application.
 - **Manual**: This will allow you to manually set the ENS content hash record directly from the ENS application.
 
-:::note
+:::info
 
 We recommend using the automatic method as it is the easiest and fastest way to set up your ENS domain as it support Top level names and subnames automatically.
 
@@ -57,6 +57,7 @@ We recommend using the automatic method as it is the easiest and fastest way to 
 :::info
 
 IMPORTANT: To set up your ENS using the automatic integration you need to have the wallet that owns the ENS linked to the Fleek application.
+
 :::
 
 ![Automatic-ENS](./ens-automatic.png)
@@ -158,6 +159,7 @@ To delete a custom domain, you can on the three dots icon in the custom domains 
 :::info
 
 If you remove all the custom domains from a site, the content of the storage will still be available through the `<site-slug>.on-fleek.app` domain that you can find in your site overview.
+
 :::
 
 ## DNS Link

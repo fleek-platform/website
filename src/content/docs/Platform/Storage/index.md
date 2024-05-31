@@ -2,7 +2,7 @@
 order: 4
 title: Storage
 date: 2023-01-10
-description: Dive into Fleek's decentralized storage service. Offering support for IPFS, Arweave, and Filecoin, Fleek ensures high availability and performance..
+description: Dive into Fleek's decentralized storage service. Offering support for IPFS, Arweave, and Filecoin, Fleek ensures high availability and performance.
 keywords: [services, documentation, getting started]
 tags:
   - Edge Platform
@@ -12,11 +12,15 @@ tags:
   - Fleek
 ---
 
+# Storage on Fleek
+
+Fleek offers a storage service that you can use to store your files in a decentralized way.
+
 ![](./storage-ui.png)
 
-# Introduction
+## Introduction
 
-In Fleek we offer a storage service that you can use to store your files in a decentralized way. We support the following protocols:
+We support the following protocols:
 
 - IPFS
 - Arweave

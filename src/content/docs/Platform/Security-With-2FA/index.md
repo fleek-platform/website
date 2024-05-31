@@ -1,6 +1,6 @@
 ---
 order: 8
-title: Security With 2FA
+title: Security with 2FA
 date: 2024-05-28
 description: Dive into Two-Factor Authentication (2FA) setup for your account on the Fleek Platform.
 keywords: [documentation, 2fa, 'two factor authentication', security]
@@ -10,7 +10,7 @@ tags:
   - Fleek
 ---
 
-# About Two-Factor Authentication
+# Two-Factor Authentication (2FA) on Fleek
 
 :::info
 Two-Factor Authentication is intended to help you protect the access and control of actions within your Fleek Platform account. You may not necessarily see it enabled during the login flow.
