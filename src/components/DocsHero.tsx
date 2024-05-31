@@ -19,18 +19,18 @@ const DocsHero = ({ title, description }: Props) => (
         <div className="mt-12 flex justify-center gap-16">
           <div className="typo-btn-l">
             <a
-              href="/docs/Platform"
+              href="/docs/platform"
               target="_blank"
               rel="noopener noreferrer"
             >
               <ButtonYellow>
-                <div>Learn the Platform</div>
+                <div>More platform info</div>
               </ButtonYellow>
             </a>
           </div>
           <div className="typo-btn-l">
             <a
-              href="/docs/CLI"
+              href="/docs/cli"
               target="_blank"
               rel="noopener noreferrer"
             >
