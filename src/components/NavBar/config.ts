@@ -154,7 +154,7 @@ export const NavBarDefault: MenuSettingsItem[] = [
     subMenu: [
       {
         label: 'Documentation',
-        url: 'supportUrlDefault',
+        url: '/docs',
         description: 'Knowledge panel',
         icon: '/svg/blog-navbar-icon.svg',
       },
