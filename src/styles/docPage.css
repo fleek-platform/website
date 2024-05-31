@@ -10,7 +10,7 @@
     h2,
     h3,
     h4 {
-      @apply py-10 font-plex-sans font-bold leading-30 lg:leading-40;
+      @apply py-10 font-plex-sans font-bold capitalize leading-30 lg:leading-40;
     }
 
     h1 {
@@ -33,7 +33,7 @@
     }
 
     a {
-      @apply text-blue-500;
+      @apply text-yellow;
     }
 
     ul {

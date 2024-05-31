@@ -34,25 +34,25 @@ export const NavBarDefault: MenuSettingsItem[] = [
       {
         label: 'Platform',
         url: '/docs/platform',
-        description: 'Build and Deploy easily.',
+        description: 'Build and deploy easily',
         icon: '/svg/navbar-platform-icon.svg',
       },
       {
         label: 'Infrastructure',
         url: '/docs/infrastructure',
-        description: 'The power of Fleek.',
+        description: 'The power of Fleek',
         icon: '/svg/infra-navbar-icon.svg',
       },
       {
         label: 'CLI/SDK',
         url: '/docs/cli',
-        description: 'Integrate or build locally.',
+        description: 'Integrate or build locally',
         icon: '/svg/cli-navbar-icon.svg',
       },
       {
         label: 'Templates',
         url: 'https://app.fleek.xyz/templates',
-        description: 'Use pre-built apps.',
+        description: 'Use pre-built apps',
         icon: '/svg/templates-navbar-icon.svg',
       },
     ],
@@ -124,16 +124,10 @@ export const NavBarDefault: MenuSettingsItem[] = [
     label: 'DEVELOPERS',
     subMenu: [
       {
-        label: 'Status',
-        url: 'https://status.fleek.xyz/',
-        description: 'Uptime monitoring.',
-        icon: '/svg/status-navbar-icon.svg',
-      },
-      {
-        label: 'Guides',
-        url: '/guides',
-        description: 'Learn to use Fleek.',
-        icon: '/svg/guides-navbar-icon.svg',
+        label: 'Fleek Network',
+        url: 'https://fleek.network',
+        description: 'Edge-optimized infrastructure',
+        icon: '/svg/infra-navbar-icon.svg',
       },
       {
         label: 'Github',
@@ -142,10 +136,16 @@ export const NavBarDefault: MenuSettingsItem[] = [
         icon: '/svg/github-navbar-icon.svg',
       },
       {
-        label: 'Support',
-        url: 'supportUrlDefault',
-        description: 'Knowledge panel.',
-        icon: '/svg/support-navbar-icon.svg',
+        label: 'Changelog',
+        url: '/blog/changelog',
+        description: 'Latest developments',
+        icon: '/svg/blog-navbar-icon.svg',
+      },
+      {
+        label: 'Status',
+        url: 'https://status.fleek.xyz/',
+        description: 'Uptime monitoring',
+        icon: '/svg/status-navbar-icon.svg',
       },
     ],
   },
@@ -153,11 +153,24 @@ export const NavBarDefault: MenuSettingsItem[] = [
     label: 'RESOURCES',
     subMenu: [
       {
-        label: 'Blog',
-        url: '/blog',
-        description: 'Read our announcements.',
+        label: 'Documentation',
+        url: 'supportUrlDefault',
+        description: 'Knowledge panel',
         icon: '/svg/blog-navbar-icon.svg',
       },
+      {
+        label: 'Support Center',
+        url: supportUrlDefault,
+        openInNewTab: true,
+        description: 'Get help',
+        icon: '/svg/community-navbar-icon.svg',
+      },
+      // {
+      //   label: 'Careers',
+      //   url: 'https://app.fleek.xyz',
+      //   description: 'Work with us',
+      //   icon: '/svg/careers-navbar-icon.svg',
+      // },
       {
         label: 'Media Kit',
         url: 'https://www.notion.so/fleek/Fleek-Brand-Kit-9a2bcf7eb40740a9b7e951fc951b478a',
@@ -165,17 +178,17 @@ export const NavBarDefault: MenuSettingsItem[] = [
         icon: '/svg/media-navbar-icon.svg',
       },
       {
-        label: 'Careers',
-        url: 'https://app.fleek.xyz',
-        description: 'Work with us.',
-        icon: '/svg/careers-navbar-icon.svg',
+        label: 'Guides',
+        url: '/guides',
+        description: 'Learn to use Fleek',
+        icon: '/svg/guides-navbar-icon.svg',
       },
-      {
-        label: 'Community',
-        url: 'https://discord.gg/fleek',
-        description: 'Get involved with others.',
-        icon: '/svg/community-navbar-icon.svg',
-      },
+      // {
+      //   label: 'Community',
+      //   url: 'https://discord.gg/fleek',
+      //   description: 'Get involved with others',
+      //   icon: '/svg/community-navbar-icon.svg',
+      // },
     ],
   },
   // {
@@ -183,8 +196,9 @@ export const NavBarDefault: MenuSettingsItem[] = [
   //   url: '/blog',
   // },
   {
-    label: 'DOCS',
-    url: '/docs',
+    label: 'BLOG',
+    url: '/blog',
+
     // subMenu: {
     //   main: [
     //     {

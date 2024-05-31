@@ -11,10 +11,10 @@
   ],
   "overrides": [
     {
-      "files": "*.astro",
+      "files": ["*.astro", "DocsHero.jsx"],
       "options": {
-        "parser": "astro",
-      },
-    },
-  ],
+        "parser": "astro"
+      }
+    }
+  ]
 }
