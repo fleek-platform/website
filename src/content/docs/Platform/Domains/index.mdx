@@ -14,12 +14,11 @@ tags:
 
 # Domains on Fleek
 
-Fleek allows you to set up domains for your sites that enable you to provide a better experience to your users. In this section we will go through the following topics:
-
-- Configuring a custom DNS domain.
-- Configuring an ENS domain.
+Fleek allows you to set up domains for your sites that enable you to provide a better experience to your users.
 
 ![](./domains-ui.png)
+
+<div className="my-12 bg-gray-dark-6 p-[1px]" />
 
 ## ENS
 
@@ -27,7 +26,7 @@ Fleek allows you to set up domains for your sites that enable you to provide a b
 
 For example, an IPFS content hash or IPNS record from a site you uploaded with Fleek, to have that name.eth resolve to that content (much like any DNS domain maps to an html file!). For example, [Eth Limo](https://ens.eth.limo/).
 
-### ENS Name Resolving
+### ENS name resolving
 
 Given ENS names and their resolving live on Ethereum, for a user to resolve/visit an ENS domain they will need to have a compatible provider/browser installed that is able to resolve them. Using the MetaMask browser extension is one option, as it resolves .eth domains. An alternative is using a public gateway such as ETH Limo!
 
@@ -54,9 +53,9 @@ We recommend using the automatic method as it is the easiest and fastest way to 
 
 ### Automatic ENS configuration
 
-:::info
+:::warn
 
-IMPORTANT: To set up your ENS using the automatic integration you need to have the wallet that owns the ENS linked to the Fleek application.
+To set up your ENS using the automatic integration you need to have the wallet that owns the ENS linked to the Fleek application.
 
 :::
 
@@ -89,7 +88,7 @@ To configure the ENS record using the manual configuration, you need to follow t
 7. We will run a verification thta the content hash was setted up correctly and if everything is ok, you will see the ENS domain marked as verified.
 8. Once set up, the site can be accessed via any ENS gateway, such as ETH.limo, by appending '.limo' to the ENS record.
 
-### Manually Adding an ENS Subname
+### Manually adding an ENS subname
 
 Normally, trying to add an ENS subdomain or Subname of ENS V3 can trigger an errors due to controller settings in ENS. To ensure you can easily add any ENS subdomain to any Fleek site you want, go to the ENS app at https://app.ens.domains / yourname and:
 
@@ -140,7 +139,7 @@ When setting up a sub domain in your DNS provider make sure you add only the sub
 
 After you configure your DNS provider, you have to trigger the validation process. To do this, click on the **Ok, I have add it** button in the custom domains table. This will trigger the validation process and you will see the status of the domain change to `validating`. Once the validation process is completed, you will see the status of the domain change to `Active`.
 
-## Primary Domains
+## Primary domains
 
 ![](./primary-domain.png)
 
@@ -162,7 +161,7 @@ If you remove all the custom domains from a site, the content of the storage wil
 
 :::
 
-## DNS Link
+## DNSLink
 
 DNSLink allows the mapping of a domain name to an IPFS hash. Setting up DNSLink will allow you to use a domain name to access the latest version of your site through IPFS.
 
