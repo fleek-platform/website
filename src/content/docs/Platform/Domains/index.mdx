@@ -16,7 +16,7 @@ tags:
 
 Fleek allows you to set up domains for your sites that enable you to provide a better experience to your users.
 
-![](./domains-ui.png)
+![](./overview.svg)
 
 <div className="my-12 bg-gray-dark-6 p-[1px]" />
 
@@ -26,11 +26,11 @@ Fleek allows you to set up domains for your sites that enable you to provide a b
 
 For example, an IPFS content hash or IPNS record from a site you uploaded with Fleek, to have that name.eth resolve to that content (much like any DNS domain maps to an html file!). For example, [Eth Limo](https://ens.eth.limo/).
 
-### ENS name resolving
+### ENS name resolution
 
-Given ENS names and their resolving live on Ethereum, for a user to resolve/visit an ENS domain they will need to have a compatible provider/browser installed that is able to resolve them. Using the MetaMask browser extension is one option, as it resolves .eth domains. An alternative is using a public gateway such as ETH Limo!
+Because ENS names resolve live on Ethereum, for a user to resolve/visit an ENS domain they will need to have a compatible provider/browser installed that is able to resolve them. Using the MetaMask browser extension is one option, as it resolves .eth domains. An alternative is using a public gateway such as ETH Limo!
 
-Which by appending .limo at the end of your ENS simply resolves it via HTTPS.
+By appending .limo at the end of your ENS, it simply resolves via HTTPS.
 
 ### Adding an ENS domain
 
@@ -38,7 +38,7 @@ To add an ENS domain to your site, first you need to have a site created. If you
 
 Once you have a site created, go to the site overview and click on the settings icon. In the settings page, click on the **Domains** tab. You will see a list of all the ENS you have added to the site. To add a new ENS domain, type it into the input available in the ENS domains section and after we run some validations (mainly checking that the domain is valid and is not added to another site) you will be able to add it by clicking the **Add ENS Domain** button.
 
-![Add-ENS](./ens-add.png)
+![Add-ENS](./ens.svg)
 
 When the ENS domain is added you will be prompted with a modal to select your preffered method for setting up the ENS content hash record. You can choose between:
 
@@ -59,7 +59,7 @@ To set up your ENS using the automatic integration you need to have the wallet t
 
 :::
 
-![Automatic-ENS](./ens-automatic.png)
+![Automatic-ENS](./ens-setup.svg)
 
 To configure your ENS using the automatic integration, you need to follow these steps:
 
@@ -71,7 +71,7 @@ To configure your ENS using the automatic integration, you need to follow these 
 
 ### Manual ENS configuration
 
-![Manual-ENS](./ens-manual.png)
+![Manual-ENS](./ens-content-hash.svg)
 
 The manual option is suitable for users who do not have access to the wallet owning the ENS or prefer to manage updates independently.
 
@@ -129,7 +129,7 @@ Once you have a site created, go to the site overview and click on the settings 
 
 When the custom domain is added you will see a new row in the custom domains table with the domain you added and the status of the domain in `creating`. During this process we are creating a pull zone for your site and configuring it to use the custom domain you added. This process can take up to 5 minutes. Once the pull zone is created you will be prompted the information you need to configure your DNS provider.
 
-![](./verify-domain.png)
+![Custom-Domain](./cname.svg)
 
 :::info
 
@@ -141,7 +141,7 @@ After you configure your DNS provider, you have to trigger the validation proces
 
 ## Primary domains
 
-![](./primary-domain.png)
+![Manage-Domain](./manage-domains.svg)
 
 When you have correctly set up your first domain it will be marked with the tag of `Primary`. The `Primary` domain is the main domain for a site and it will be used inside of the platform for every action that is related to a site as source of truth. For example, when you deploy a site, the domain that will be used in the `view site` button will be the `Primary` domain.
 
@@ -151,7 +151,7 @@ At any point, as long as you have another `Active` domain seted up for the site 
 
 ## Deleting a custom domain
 
-![](./primary-domain-delete.png)
+![Delete-Domain](./delete-domain.svg)
 
 To delete a custom domain, you can on the three dots icon in the custom domains table and select the delete option. This will remove the custom domain from your site and will no longer serving the content of your site. In the case that you are deleting a `primary` domain, as part of the delete process if you have another `active` domains, you will have to select a new `primary` domain.
 
@@ -175,10 +175,10 @@ To set up DNSLink for your site, first you need to have a custom domain linked t
 
 Once you have a domain linked, you can click the three dots on the right side of the domain and select the **Set DNSLink** option. You will be prompted with a modal with the information you need to add in your custom domain to set up DNSLink.
 
-![DNSLink Modal](./dnslink-modal.png)
+![DNSLink-Modal](./dnslink.svg)
 
 Once you have added the DNSLink information to your domain, you will need to wait for the changes to propagate. This process can take up to 24 hours, but it usually takes less time.
 
 A grey chip with the text DNS Link next to the domain will indicate the successful integration of DNSLink. At that point you can check your domain on any IPFS gateway like `ipfs.io/ipns/yourdomain.com` to see the latest version of your site.
 
-![DNSLink Confirmation](./dnslink-confirmation.png)
+![DNSLink-Confirmation](./manage-dnslink.svg)

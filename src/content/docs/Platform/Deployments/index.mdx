@@ -18,7 +18,7 @@ Deploying a site using Fleek's pipeline is a simple process. You can connect you
 
 This is a multistep process that will require you to connect your code repository, configure your build settings, and deploy your site.
 
-![](./managed-ui.png)
+![](./select-repo.svg)
 
 <div className="my-12 bg-gray-dark-6 p-[1px]" />
 
@@ -38,7 +38,7 @@ Fleek will automatically recognize the framework, build commands and publish dir
 
 In the advance settings you can also configure the environment variables you want to use in your build process.
 
-### Build Parameters
+### Build parameters
 
 This are the build parameters you can configure:
 
@@ -56,7 +56,7 @@ Once your site is created we will trigger the initial deployment. This process c
 
 You can monitor the deployment process by clicking on the deployments tab in the site overview. You will find the list of all the deployments for your site and the status of each deployment. By clicking on the deployment you will be able to see the logs of the deployment process.
 
-In case a deployment failes you can retry it directly from the deployments page.
+In the event a deployment fails, you can retry it directly from the deployments page.
 
 ### Configure your custom domain
 
@@ -70,13 +70,13 @@ You can also configure your ENS domain. To do this, go to the settings page and 
 
 You can follow a guide on how to configure your ENS domain [here](/guides/guide-ens-domains-ipfs-ethereum-name-service).
 
-## Concurrent Deployments
+## Concurrent deployments
 
 Currently Fleek supports one deployment at a time. This means that if you trigger a new deployment while another one is running, the new deployment will be queued and will start once the current deployment is completed. Possibilities of concurrent deployments will come soon with the new billing plans.
 
-## Purging Cache
+## Purging the cache
 
-![](./purge-cache.png)
+![](./purge.svg)
 
 If your website is not reflecting the latest changes, you might have a cache-refresh issue. A previous cache layer might be being held by the CDN, and therefore you’re seeing the website from the cache layer, not the most updated version.
 
@@ -84,7 +84,7 @@ Fortunately, purging the cache manually fixes this! and you can do it right from
 
 Under the hosting section in Fleek, find the affected site, and visit the Settings. In the general tab you will find the section for purging the cache. It only takes clicking the button and the process will be triggered.
 
-## Deleting a Site
+## Deleting a site
 
 To delete a site, go to the site overview and click on the settings icon. In the general settings page, click on the **Delete Site** button. This will remove the site from your account and will no longer serve your site's content. You will be asked to confirm the removal of all associated resources within the site. Ensure you check the box to the right to acknowledge this action before proceeding for:
 
@@ -93,7 +93,7 @@ To delete a site, go to the site overview and click on the settings icon. In the
 
 Deleting a site will remove all the deployments and domains associated with the site. This action cannot be undone.
 
-![](./delete-site.png)
+![](./delete.svg)
 
 ## Setting up a self-managed deployment
 
