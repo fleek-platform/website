@@ -32,6 +32,7 @@ This repository contains the source code and assets for the Fleek.xyz website, w
         - [Configuration](#-configuration)
 - [Development](#-development)
     - [Search server](#-search-server)
+    - [Delete Indexes](#delete-indexes)
     - [Images (optimization)](#-images-optimization)
 - [Migration](#-migration)
     - [Migrate Gatsby content](#migrate-gatsby-content)
@@ -627,6 +628,14 @@ curl \
   -H 'Content-Type: application/json' \
   -H 'Authorization: Bearer <API_KEY>' \
   --data-binary '{ "q": "<SEARCH_QUERY>" }'
+```
+
+### Delete Indexes
+
+Delete Index data by running the command:
+
+```sh
+npm run search:delete_indexes
 ```
 
 ## 📸 Images (Optimization)
