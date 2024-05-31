@@ -1,7 +1,7 @@
 name: 🚜 Search (Indexer)
 on:
   push:
-    branches: [ 'main', 'chore/delete-indexes' ]
+    branches: [ 'main' ]
 
 jobs:
   meilisearch:
