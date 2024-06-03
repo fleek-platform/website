@@ -2,6 +2,7 @@
 import SearchBtn from '@components/SearchBtn';
 import clsx from 'clsx';
 import { listSubDirectories } from '@utils/paths';
+import { customFilterByDirectoryName } from '@utils/menu';
 
 const ROOT = 'all';
 const { title, indexName, category } = Astro.props;
@@ -73,7 +74,9 @@ const isBlogRoot = Astro.url.pathname.startsWith('/blog');
                 )}
                 href={`/blog/${catName !== ROOT ? catName : ''}`}
               >
-                {catName}
+                {customFilterByDirectoryName({
+                  name: catName,
+                })}
               </a>
             ))
         }
