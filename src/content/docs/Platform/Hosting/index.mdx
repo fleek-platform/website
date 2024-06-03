@@ -16,23 +16,23 @@ import ButtonGray from '@components/ButtonGray';
 
 # Hosting on Fleek
 
-The hosting services in Fleek allow users to easily upload, maintain, store and serve static sites. Our goal is to provide a user-friendly platform that can help developers streamline their use of infrastructure.
+Fleek's hosting services allow users to easily upload, maintain, store and serve static sites. Our goal is to provide a user-friendly platform that can help developers streamline their use of infrastructure.
 
 <div className="my-12 bg-gray-dark-6 p-[1px]" />
 
-## Fleek-Managed Deployments
+## Fleek-managed deployments
 
 In managed deployments you will be able to connect your code repository to Fleek and we will take care of the build and deploy process. This allows you to focus on your code and not worry about the infrastructure.
 
 This is a multi-step process that will require you to connect your code repository, configure your build settings, and deploy your site.
 
-### Start Hosting
+### Start hosting
 
 The first step is to navigate to the "Sites" tab and click the "Add New" button, choosing the "Deploy my site" option.
 
 ![](./docs-start-hosting.svg)
 
-### Select your Repository
+### Select your repository
 
 After choosing the "Deploy my site" option, you will be prompted to select the Git Provider where your code is located (Currently only GitHub).
 
@@ -42,7 +42,7 @@ In this process, you will need to authorize Fleek to access your repository. Onc
 
 ![](./docs-select-repo.svg)
 
-### Configure your Build Settings
+### Configure your build settings
 
 Fleek will automatically name your site after the repository, auto-detect the framework, publish a directory and set up a build command for your site. You are able to select the branch you want to deploy from as well.
 
@@ -50,29 +50,29 @@ In the advanced settings, you can also configure the docker image, base director
 
 ![](./docs-configure-site.svg)
 
-### Deploy Your Site
+### Deploy your site
 
 Once your build settings are configured, you can click "Deploy Site," where we will trigger the initial deployment. This process can take a few minutes depending on the size of your site. Once the deployment is complete, you will be able to see the site URL and the status of the deployment.
 
 <div className="my-12 bg-gray-dark-6 p-[1px]" />
 
-## Self-Managed Deployments
+## Self-managed deployments
 
 In self-managed deployments, you can configure your site with your code repository. This allows you to trigger a deploy manually or connect it to your CI pipeline.
 
-### First Steps
+### First steps
 
 Similar to managed deployments, navigate to the “Sites” tab and click the “Add New” button, choosing the “Deploy my site” option.
 
 ![](./docs-start-hosting.svg)
 
-### Select Self Deployment
+### Select self-deployment
 
 To set up a self-managed deployment, choose the "Click here" option at the bottom of the git provider screen.
 
 ![](./docs-select-self-managed.svg)
 
-### Set Up Your Site
+### Set up your site
 
 To set up your site, you will need to add some information about it:
 
@@ -86,7 +86,7 @@ Once your site settings are configured, you can click “Deploy Site,” where y
 
 ![](./docs-configure-self.svg)
 
-### Add Files to Codebase
+### Add files to codebase
 
 Within the Site Overview page, you can follow the steps to add files to your codebase:
 
@@ -97,24 +97,12 @@ Though the Fleek.json file is mandatory, you can decide not to use the Github Ac
 
 ![](./docs-self-steps.svg)
 
-### Deploy a Self-Managed Site
+### Deploy a self-managed site
 
 Once all the files have been added to your codebase, you will be able to deploy the site using the Fleek CLI.
 
 <div className="my-12 bg-gray-dark-6 p-[1px]" />
 
-## Monitor Deployments
+## Monitor deployments
 
 You can monitor the deployment process by clicking on the 'Deploys' tab when viewing a particular project. You will find the list of all the deployments for your site and the status of each deployment. By clicking on a particular deployment, you will be able to see the logs of the deployment process.
-
-<div className="typo-btn-l mb-32">
-  <a
-    href="https://app.fleek.xyz/projects"
-    target="_blank"
-    rel="noopener noreferrer"
-  >
-    <ButtonGray className="flex items-center justify-center gap-12">
-      <div>View my projects</div>
-    </ButtonGray>
-  </a>
-</div>
