@@ -20,7 +20,7 @@ const Pricing = () => {
               Try for free and only pay for what you use. Transparent, simple
               and flexible.{' '}
             </Text>
-            <div className="mb-24 mt-44 flex flex-col justify-center gap-20 lg:flex-row">
+            <div className="mb-24 mt-44 flex flex-col justify-between gap-20 lg:flex-row">
               {PricingInfo.map((item, index) => {
                 return (
                   <PricingCard
@@ -34,6 +34,7 @@ const Pricing = () => {
                     coloredBtn={true}
                     btnBg={item.btnBg}
                     fontColor={item.fontColor}
+                    hoverBtnBg={item.hoverBtnBg}
                   />
                 );
               })}

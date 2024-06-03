@@ -4,6 +4,7 @@ import BlogPageLayout from '../../layouts/BlogPage.astro';
 import { getEntry } from 'astro:content';
 import GithubEditLink from '@components/GitHubEditLink.astro';
 import { generateGitHubEditLink } from '@utils/url';
+import ButtonGray from '@components/ButtonGray';
 
 export async function getStaticPaths() {
   const docsEntries = await getCollection('blog');
@@ -12,6 +13,8 @@ export async function getStaticPaths() {
     props: { entry },
   }));
 }
+
+const back = () => {};
 
 const { entry } = Astro.props;
 const { Content } = await entry.render();
@@ -25,6 +28,11 @@ const githubEditUrlPathname = generateGitHubEditLink({
 
 <BlogPageLayout title={entry.data.title}>
   <article class="blog">
+    <div class="mb-10 w-fit" onclick="history.back()">
+      <ButtonGray className="flex items-center justify-center gap-12 px-5">
+        <div class="typo-s">Back</div>
+      </ButtonGray>
+    </div>
     <h1>{entry.data.title}</h1>
     {
       entry.data?.image?.src && (

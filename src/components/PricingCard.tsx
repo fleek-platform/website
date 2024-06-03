@@ -11,6 +11,7 @@ export type Props = {
   cta?: string;
   coloredBtn?: boolean;
   btnBg?: string;
+  hoverBtnBg?: string;
   fontColor?: string;
 };
 
@@ -24,7 +25,7 @@ const PricingCard: React.FC<Props> = (props) => {
             }
           `}
       </style>
-      <div className="flex flex-col gap-12 rounded-16 border border-gray-dark-6 bg-gray-dark-2 p-20">
+      <div className="flex w-full flex-col gap-12 rounded-16 border border-gray-dark-6 bg-gray-dark-2 p-20">
         <div>
           <h3 className="typo-xl-bold text-left text-gray-dark-12">
             {props.title}
@@ -59,7 +60,11 @@ const PricingCard: React.FC<Props> = (props) => {
           </ul>
         </div>
         {props.coloredBtn ? (
-          <PricingButton bg={props.btnBg} fontColor={props.fontColor}>
+          <PricingButton
+            bg={props.btnBg}
+            fontColor={props.fontColor}
+            hoverBtnBg={props.hoverBtnBg}
+          >
             <p className="typo-btn-cap">{props.cta}</p>
           </PricingButton>
         ) : (

@@ -66,7 +66,7 @@ const textStyles: Record<TextStyle, string> = {
   'btn-s':
     'font-plex-sans text-13 font-normal leading-[150%] tracking-[0.096rem] uppercase',
   'btn-l':
-    'font-plex-sans lg:text-16 font-medium leading-[150%] tracking-[0.192rem] uppercase',
+    'font-plex-sans lg:text-16 font-medium leading-[150%] tracking-[0.192rem] capitalize',
   'btn-l-mid':
     'font-plex-sans lg:text-14 font-medium leading-[150%] tracking-[0.192rem]',
 };
