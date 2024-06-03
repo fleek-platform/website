@@ -5,6 +5,7 @@ import IconSocial from '@components/IconSocial';
 import StatusBar from '@components/StatusBar';
 import Link, { Target } from '@components/Link';
 import config from './config';
+import { FaXTwitter } from 'react-icons/fa6';
 
 const { product, developers, legal, resources } = config;
 
@@ -40,7 +41,7 @@ const Footer = () => {
                 rel="noopener noreferrer"
                 target="_blank"
               >
-                <IconSocial icon="twitter" />
+                <FaXTwitter fontSize={19} className="mt-2 text-gray-dark-8" />
               </a>
               <a
                 href="https://discord.gg/fleek"
