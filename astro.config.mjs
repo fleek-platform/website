@@ -54,5 +54,8 @@ export default defineConfig({
       // Might have overrides in src/styles/commonArticle.css
       theme: 'min-dark'
     }
-  }
+  },
+  redirects: {
+    '/changelog': '/blog/announcements',
+  },
 });

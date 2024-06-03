@@ -67,9 +67,9 @@ const isBlogRoot = Astro.url.pathname.startsWith('/blog');
             categories.map((catName) => (
               <a
                 class={clsx(
-                  'block self-center rounded-8 bg-ui-fleek-black px-16 py-8 font-plex-sans text-16 font-light capitalize transition duration-200 ease-in-out hover:bg-ui-mid-grey hover:text-ui-fleek-black',
+                  'block self-center rounded-8 bg-gray-dark-4 px-16 py-8 font-plex-sans text-16 font-light capitalize transition duration-200 ease-in-out hover:bg-yellow-dark-4 hover:text-yellow',
                   (catName === category || (catName == ROOT && !category)) &&
-                    'bg-ui-mid-grey text-ui-fleek-black',
+                    'bg-yellow-dark-4 text-yellow',
                 )}
                 href={`/blog/${catName !== ROOT ? catName : ''}`}
               >

@@ -10,14 +10,15 @@
     h2,
     h3,
     h4 {
-      @apply py-10 font-plex-sans font-bold leading-30 lg:leading-40;
+      @apply py-10 font-plex-sans font-bold capitalize leading-30 lg:leading-40;
     }
 
     h1 {
       @apply text-38 text-gray-dark-12;
     }
 
-    h2 {
+    h2,
+    h3 {
       @apply text-32 text-gray-dark-12;
     }
 
@@ -33,7 +34,7 @@
     }
 
     a {
-      @apply text-blue-500;
+      @apply text-yellow hover:underline;
     }
 
     ul {
@@ -101,7 +102,7 @@
   .docs-search-container {
     @apply z-100 pb-20 pr-8;
     .search-input {
-      @apply w-full border-gray-dark-7 bg-gray-dark-1;
+      @apply w-full border-gray-dark-7 bg-gray-dark-1 focus:border focus:border-gray-dark-7;
     }
   }
 

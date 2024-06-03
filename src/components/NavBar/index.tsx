@@ -8,7 +8,7 @@ import ButtonYellowOutline from '@components/ButtonYellowOutline';
 import Container from '@components/Container';
 import Text from '@components/Text';
 import ButtonRainbowOutlined from '@components/ButtonRainbowOutlined';
-import { FaTwitter } from 'react-icons/fa';
+import { FaXTwitter } from 'react-icons/fa6';
 import { FaDiscord } from 'react-icons/fa';
 
 import { isActivePath } from '@utils/url';
@@ -39,6 +39,7 @@ export type NavSubMenuProps = {
   url: string;
   description: string;
   icon: string;
+  openInNewTab?: boolean;
 };
 
 const NavSubMenuNavCol = ({
@@ -116,13 +117,13 @@ const Nav = ({ pathname }: NavProps) => {
     '/support',
   ];
 
-  const menuItems = (() => {
-    if (docsPaths.some((path) => pathname.startsWith(path))) {
-      return NavBarDocs;
-    }
+  // const menuItems = (() => {
+  //   if (docsPaths.some((path) => pathname.startsWith(path))) {
+  //     return NavBarDocs;
+  //   }
 
-    return NavBarDefault;
-  })();
+  //   return NavBarDefault;
+  // })();
 
   return (
     <Container>
@@ -136,7 +137,7 @@ const Nav = ({ pathname }: NavProps) => {
             />
           </Link>
           <nav className="ml-26 mt-3">
-            {menuItems.map((navItem, index) =>
+            {NavBarDefault.map((navItem, index) =>
               navItem.subMenu ? (
                 <div
                   key={index}
@@ -190,7 +191,10 @@ const Nav = ({ pathname }: NavProps) => {
               target="_blank"
               rel="noopener noreferrer"
             >
-              <FaTwitter fontSize={25} className="text-gray-dark-8" />
+              <FaXTwitter
+                fontSize={25}
+                className="text-gray-dark-8 hover:text-yellow"
+              />
             </a>
           </div>
           <div className="nav-button-launch hidden pr-10 lg:inline-block">
@@ -199,7 +203,10 @@ const Nav = ({ pathname }: NavProps) => {
               target="_blank"
               rel="noopener noreferrer"
             >
-              <FaDiscord fontSize={25} className="text-gray-dark-8" />
+              <FaDiscord
+                fontSize={25}
+                className="text-gray-dark-8 hover:text-yellow"
+              />
             </a>
           </div>
           <div className="nav-button-launch hidden lg:inline-block">
@@ -248,7 +255,7 @@ const Nav = ({ pathname }: NavProps) => {
         <div className="nav-menu-mobile">
           <nav>
             <div className={clsx('mb-24 flex flex-col items-center gap-16')}>
-              {menuItems.map((navItem, index) => (
+              {NavBarDefault.map((navItem, index) => (
                 <div key={index} className="nav-menu-item group">
                   {navItem.subMenu ? (
                     <>
@@ -302,7 +309,7 @@ const Nav = ({ pathname }: NavProps) => {
               target="_blank"
               rel="noopener noreferrer"
             >
-              <FaTwitter fontSize={25} className="text-gray-dark-8" />
+              <FaXTwitter fontSize={25} className="text-gray-dark-8" />
             </a>
           </div>
           <div className="nav-button-launch pr-10 ">

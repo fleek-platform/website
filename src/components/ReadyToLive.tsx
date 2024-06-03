@@ -3,6 +3,7 @@ import Container from './Container';
 import PageSection from './PageSection';
 import ButtonYellow from './ButtonYellow';
 import type { RoundedType } from '@components/PageSection';
+import Link from './Link';
 
 interface Props {
   rounded?: RoundedType;
@@ -17,15 +18,17 @@ const ReadyToLive: React.FC<Props> = ({ rounded }) => {
             Are you on Fleek yet?
           </h2>
           <div className="mt-32 flex justify-center">
-            <ButtonYellow
-              border="border-yellow"
-              className="flex items-center justify-center gap-12 "
-            >
-              <div>
-                <img src="/svg/bolt-yellow.svg" />
-              </div>
-              <div>Get started</div>
-            </ButtonYellow>
+            <Link href="https://app.fleek.xyz">
+              <ButtonYellow
+                border="border-yellow"
+                className="flex items-center justify-center gap-12 "
+              >
+                <div>
+                  <img src="/svg/bolt-yellow.svg" />
+                </div>
+                <div>Get started</div>
+              </ButtonYellow>
+            </Link>
           </div>
         </div>
       </PageSection>

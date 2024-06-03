@@ -32,6 +32,11 @@
     "search:index_guides_prod_debug": "npm run search:index_warn && npx dotenvx run -f .env.production -- npm run search:index_guides",
     "search:index_references_prod_debug": "npm run search:index_warn && npx dotenvx run -f .env.production -- npm run search:index_references",
     "search:index_warn": "echo \"⚠️ For debugging production indexation based on local .env.production file!\" && sleep 3",
+    "search:delete_indexes": "npm run search:delete_index_blog && npm run search:delete_index_docs && npm run search:delete_index_guides && npm run search:delete_index_references",
+    "search:delete_index_blog": "./Services/Search/Indexer/indexDelete.ts \"fleekxyz_website_blog\"",
+    "search:delete_index_docs": "./Services/Search/Indexer/indexDelete.ts \"fleekxyz_website_docs\"",
+    "search:delete_index_guides": "./Services/Search/Indexer/indexDelete.ts \"fleekxyz_website_guides\"",
+    "search:delete_index_references": "./Services/Search/Indexer/indexDelete.ts \"fleekxyz_website_references\"",
     "clear": "npm run clear:meili_data",
     "clear:meili_data": "rm -rf meili_data",
     "prepare": "husky"

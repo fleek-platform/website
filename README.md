@@ -6,7 +6,6 @@
 
 This repository contains the source code and assets for the Fleek.xyz website, which is built using the [Astro.js framework](https://astro.build) for enhanced performance and speed. The project leverages Tailwind CSS for styling, providing a modern and responsive design, and TypeScript for type safety and scalability, ensuring a robust and maintainable codebase.
 
-
 ## 📒 Content
 
 - [Setup](#setup)
@@ -32,6 +31,7 @@ This repository contains the source code and assets for the Fleek.xyz website, w
         - [Configuration](#-configuration)
 - [Development](#-development)
     - [Search server](#-search-server)
+    - [Delete Indexes](#💣-delete-indexes)
     - [Images (optimization)](#-images-optimization)
 - [Migration](#-migration)
     - [Migrate Gatsby content](#migrate-gatsby-content)
@@ -104,7 +104,7 @@ npm run preview
 
 ## 👀 Preview staging
 
-You can preview the develop branch version by visiting the preview [here](https://rapping-jelly-echoing.on-fleek.app).
+You can preview the develop branch version by visiting the preview [here](https://fleek-xyz-staging.on-fleek.app).
 
 ## 🎀 Code Formatter
 
@@ -627,6 +627,14 @@ curl \
   -H 'Content-Type: application/json' \
   -H 'Authorization: Bearer <API_KEY>' \
   --data-binary '{ "q": "<SEARCH_QUERY>" }'
+```
+
+### 💣 Delete Indexes
+
+Delete Index data by running the command:
+
+```sh
+npm run search:delete_indexes
 ```
 
 ## 📸 Images (Optimization)

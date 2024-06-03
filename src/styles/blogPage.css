@@ -10,11 +10,11 @@
     h2,
     h3,
     h4 {
-      @apply py-10 font-plex-sans font-bold leading-normal;
+      @apply py-10 font-plex-sans font-bold leading-normal text-gray-dark-12;
     }
 
     h1 {
-      @apply text-38;
+      @apply text-38 text-gray-dark-12;
     }
 
     h2 {
@@ -33,7 +33,7 @@
     }
 
     a {
-      @apply text-blue-500;
+      @apply text-yellow;
     }
 
     ul {
@@ -46,6 +46,20 @@
 
     hr {
       @apply my-32 border-t-1 border-t-gray-800 bg-transparent;
+    }
+
+    table,
+    td {
+      @apply mb-24 border p-10;
+      a {
+        @apply text-yellow;
+      }
+      th {
+        @apply border bg-gray-dark-4 p-10 text-ui-white;
+      }
+      tr:nth-child(2n) {
+        @apply border bg-gray-dark-4;
+      }
     }
   }
 }

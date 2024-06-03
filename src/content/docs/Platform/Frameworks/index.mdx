@@ -5,13 +5,17 @@ date: 2023-01-10
 description: An overview of the frameworks that the Fleek platform supports.
 ---
 
+# Frameworks on Fleek
+
 As you begin building on Fleek, you may be curious which types of projects you can build and any limitations that the use of our platform imposes. We aim to be a one-size-fits-all platform for a wide swath of use cases, and with that in mind have designed the platform to accommodate a variety of frameworks without requiring a cumbersome setup.
 
-# Which frameworks does Fleek support?
+<div className="my-12 bg-gray-dark-6 p-[1px]" />
+
+## Which frameworks does Fleek support?
 
 Fleek supports a variety of frameworks and libraries for building sites and applications. It is largely framework-agnostic, though applications that leverage more popular frameworks can be auto-detected and configured with appropriate build settings, whereas applications built using less popular frameworks require some minimal configuration on the user's part.
 
-## Popular frameworks
+### Popular frameworks
 
 Some of the more popular frameworks Fleek supports include:
 
@@ -27,19 +31,19 @@ Some of the more popular frameworks Fleek supports include:
 - Gridsome
 - Svelte + Sapper
 
-## Auto-detected frameworks
+### Auto-detected frameworks
 
 For the most popular frameworks bulleted above along with several other less popular frameworks, we can perform auto-detection to automatically apply the correct build settings. We will find the correct Docker image from our [Dockerhub organization](https://hub.docker.com/u/fleek) depending on the detected framework and offer support for additional frameworks through custom Docker images users create.
 
-## Other frameworks: npm package dependencies
+### Other frameworks: npm package dependencies
 
-The frameworks we can auto-detect are a small subset of those we support, however. _Any_ framework which is a dependency for an npm package will be supported, since we apply a Node-based Docker image by default when none are selected.
+The frameworks we can auto-detect are a small subset of those we support, however. _Any_ framework that is a dependency for an npm package will be supported, since we apply a Node-based Docker image by default when none are selected.
 
-## Additional framework support through custom Docker images
+### Additional framework support through custom Docker images
 
 If you’re using a framework which is neither auto-detected by Fleek nor an npm dependency, that does not preclude you from using it for a project on Fleek, since you can always create your own Docker image to build the app. In this way, we can support nearly any framework that outputs HTML.
 
-## Beyond frameworks: what types of applications can be built on Fleek?
+### Beyond frameworks: what types of applications can be built on Fleek?
 
 Fleek’s own platform is deployed on Fleek and is an excellent example of the type of enterprise-level product you can deploy using our tools.
 
@@ -47,6 +51,6 @@ This includes not only the docs you are reading now, but the landing page, blog 
 
 If you want to deploy a dynamic site with a complex front-end, rest assured that Fleek will not impose any onerous requirements or restrictions. We aim to be a one-size-fits-all platform.
 
-# Using framework templates to get started
+## Using framework templates to get started
 
-If you're ready to start building with Fleek and have a favored framework in mind, we offer several templates for popular frameworks that make it easy to deploy an application to Fleek of those respective types. You can browse our template library here [TODO: Add link or expanded reference to templates with a button or image]
+If you're ready to start building with Fleek and have a favored framework in mind, we offer several templates for popular frameworks that make it easy to deploy an application to Fleek of those respective types. You can browse our templates [here](/templates)
