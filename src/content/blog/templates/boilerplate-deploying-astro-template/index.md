@@ -4,7 +4,6 @@ date: 2023-04-27
 desc: 'Quickly and easily spin up a static site & deploy it to IPFS with our new Astro template!'
 thumbnail: './astro.png'
 image: './astro.png'
-cannonical: ''
 author: 'Juan Angarita'
 ---
 

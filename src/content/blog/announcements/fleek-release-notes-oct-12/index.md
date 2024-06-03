@@ -4,7 +4,6 @@ date: 2023-10-12
 desc: 'Get the details on the latest changes coming to the Fleek.xyz platform, including Custom URL slugs, Validation Improvements, and more'
 thumbnail: './release-notes-oct-12-thumb.png'
 image: './release-notes-oct-12-thumb.png'
-cannonical: ''
 author:
   - 'Fleek'
 ---

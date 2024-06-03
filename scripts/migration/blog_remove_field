@@ -1,0 +1,25 @@
+#!/bin/bash
+
+# TODO: Add support for any field as arg
+# Default remove "cannonical"
+
+if [[ "$#" -ne 2 ]]; then
+    echo "👹 Oops! Missing target paths! Please do $0 <target_path><fieldname>"
+    exit 1
+fi
+
+target_dir="$1"
+fieldname="$2"
+
+find "$target_dir" -type f \( -iname "*.md" -o -iname "*.mdx" \) | while read -r FILE; do
+    if [ -f "$FILE" ]; then
+        ORIG_CONTENT=$(cat "$FILE")
+        
+        NEW_CONTENT=$(echo "$ORIG_CONTENT" | sed "/^$fieldname:/d")
+        
+        echo "$NEW_CONTENT" > "$FILE"
+    fi
+done
+
+echo "👍 Remove field process completed."
+

@@ -4,7 +4,6 @@ date: 2023-09-16
 desc: 'Take a dive into the first Fleek Release Notes- a knitty-gritty, regular release notes covering Features, Fixes, and Improvements'
 thumbnail: './Fleekreleasenotes01.png'
 image: './Fleekreleasenotes01.png'
-cannonical: ''
 author:
   - 'Fleek'
 ---

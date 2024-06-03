@@ -4,7 +4,6 @@ date: 2022-12-22
 desc: 'Today, we’re proposing Non-Fungible Apps (NFAs) -  A new approach for on-chain tokenization of apps that will help unlock better decentralization, censorship resistance, and community ownership for Web3 frontends.'
 thumbnail: './fleekxyz-nfa-thumb.png'
 image: './fleekxyz-nfa-thumb.png'
-cannonical: 'https://blog.fleek.xyz/post/introducing-nfas-non-fungible-apps/'
 ---
 
 ##### Non-Fungible Apps (NFA) – The concept is quite simple; take everything that makes your web3 app run and orchestrate it through a smart contract for increased transparency, decentralization, and censorship resistance. The NFA owns everything and controls everything. When you transfer your NFA, you’re transferring your _entire_ app.

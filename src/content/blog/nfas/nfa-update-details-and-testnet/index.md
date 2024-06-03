@@ -4,7 +4,6 @@ date: 2023-05-04
 desc: 'Get caught up on our Non-Fungible Application development progress, with highlights on the new Details Page, Verification Integrations, and MVP Release Scoping!'
 thumbnail: './nfa-update-details-page.jpeg'
 image: './nfa-update-details-page.jpeg'
-cannonical: 'https://blog.fleek.xyz/post/nfa-update-details-and-testnet/'
 author:
   - 'Fleek'
 ---

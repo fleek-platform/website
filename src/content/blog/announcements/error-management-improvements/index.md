@@ -4,7 +4,6 @@ date: 2023-04-25
 desc: 'The Fleek.xyz beta receives an update focused on sturdyness and security. Dive in!'
 thumbnail: './cli-error-handling.png'
 image: './cli-error-handling.png'
-cannonical: ''
 ---
 
 Let’s walk you through the latest enhancements we’ve made, **specifically in our error management, leveraging events to manage domain states, and our new private IPFS gateway**.
