@@ -16,3 +16,27 @@ export const listSubDirectories = async ({
     return [];
   }
 };
+
+export const getPathSubDirsSorted = async ({
+  path,
+  extend,
+}: {
+  path: string;
+  extend?: string[];
+}) => {
+  let ds = await listSubDirectories({
+    path,
+  });
+
+  if (Array.isArray(extend)) {
+    ds = [
+      ...ds,
+      ...extend,
+    ]    
+  }
+
+  ds.map(item => item.toLowerCase());
+  ds.sort((a, b) => a.localeCompare(b));
+
+  return ds;
+}

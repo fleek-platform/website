@@ -107,7 +107,7 @@
   }
 
   .docs-search-container {
-    @apply z-100 pb-20 pr-8;
+    @apply pb-20 pr-8;
     .search-input {
       @apply w-full border-gray-dark-7 bg-gray-dark-1 focus:border focus:border-gray-dark-7;
     }
