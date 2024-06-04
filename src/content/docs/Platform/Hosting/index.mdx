@@ -22,7 +22,7 @@ Fleek's hosting services allow users to easily upload, maintain, store and serve
 
 ## Fleek-managed deployments
 
-In managed deployments you will be able to connect your code repository to Fleek and we will take care of the build and deploy process. This allows you to focus on your code and not worry about the infrastructure.
+In managed deployments, you will be able to connect your code repository to Fleek and we will take care of the build and deploy process. This allows you to focus on your code and not worry about the infrastructure.
 
 This is a multi-step process that will require you to connect your code repository, configure your build settings, and deploy your site.
 
@@ -62,7 +62,7 @@ In self-managed deployments, you can configure your site with your code reposito
 
 ### First steps
 
-Similar to managed deployments, navigate to the “Sites” tab and click the “Add New” button, choosing the “Deploy my site” option.
+As with managed deployments, navigate to the “Sites” tab and click the “Add New” button, choosing the “Deploy my site” option.
 
 ![](./docs-start-hosting.svg)
 
@@ -82,13 +82,13 @@ To set up your site, you will need to add some information about it:
 - **Build command**: The commands to execute to build the site, e.g. npm install && npm run build.
 - **Base directory**: The directory where Fleek checks for dependency management files, e.g. package.json
 
-Once your site settings are configured, you can click “Deploy Site,” where you will be redirected to the site overview page. Here you will find two different files that you need to add to your repository. More information is provided in the next step.
+Once your site settings are configured, you can click “Deploy Site,” where you will be redirected to the Site Overview page. Here you will find two different files that you need to add to your repository. More information is provided in the next step.
 
 ![](./docs-configure-self.svg)
 
 ### Add files to codebase
 
-Within the Site Overview page, you can follow the steps to add files to your codebase:
+Within the Site Overview page, follow the steps to add these files to your codebase:
 
 - Fleek.json: This file contains the configuration of your site.
 - GHA workflow: This file contains the configuration of the Github Action workflow that will trigger the deploy process.
@@ -99,7 +99,7 @@ Though the Fleek.json file is mandatory, you can decide not to use the Github Ac
 
 ### Deploy a self-managed site
 
-Once all the files have been added to your codebase, you will be able to deploy the site using the Fleek CLI.
+Once all of the files have been added to your codebase, you will be able to deploy the site using the Fleek CLI.
 
 <div className="my-12 bg-gray-dark-6 p-[1px]" />
 
