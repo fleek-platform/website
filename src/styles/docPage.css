@@ -17,9 +17,12 @@
       @apply text-38 text-gray-dark-12;
     }
 
-    h2,
-    h3 {
+    h2 {
       @apply text-32 text-gray-dark-12;
+    }
+
+    h3 {
+      @apply text-24 text-gray-dark-12;
     }
 
     p > img {
