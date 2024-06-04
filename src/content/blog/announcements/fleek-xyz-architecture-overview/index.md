@@ -4,7 +4,6 @@ date: 2022-12-05
 desc: 'New architecture who dis? Here’s a high level overview of how our new platform was designed & why it unlocks total freedom, flexibility, and extensibility for web3 developers.'
 thumbnail: './Fleek-XYZ-Architecture.png'
 image: './Fleek-XYZ-Architecture.png'
-cannonical: 'https://blog.fleek.xyz/post/fleek-xyz-architecture-overview/'
 ---
 
 TL;DR

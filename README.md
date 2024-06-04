@@ -43,9 +43,9 @@ This repository contains the source code and assets for the Fleek.xyz website, w
 - Nodejs + Bun
 - NPM, Yarn or PNPM
 - Some experience with CLI
-- Docker (Optionally, if you want to run search server locally)
+- Docker (optionally, if you want to run search server locally)
 
-Learn how to install Nodejs in your operating system by following the instructions [here](https://nodejs.org/en/download/package-manager/) and Bun [here](https://bun.sh/docs/installation).
+Learn how to install NodeJS in your operating system by following the instructions [here](https://nodejs.org/en/download/package-manager/) and Bun [here](https://bun.sh/docs/installation).
 
 ## 🤖 Install
 
@@ -57,15 +57,15 @@ npm install
 
 ## 👷‍♀️Develop
 
-Start a local HTTP server for development work. It supports hot-reload and you'll be able to see your edits everytime you save the files:
+Start a local HTTP server for development work. It supports hot-reload, so you'll be able to see your edits each time you save a file:
 
 ```
 npm run dev
 ```
 
-### Env vars
+### Environment variables
 
-In case you'll be interacting with services, you'll require to have setup the environment variables.
+If you'll be interacting with services, you'll need to set up the environment variables.
 
 Create a local file named `.env` and declare the following
 
@@ -94,7 +94,7 @@ Tweak environment settings (src/settings.json), such as the site URL. Declare th
 
 ## 🙈 Preview locally
 
-You can preview the distribution build locally by starting the preview HTTP server
+You can preview the distribution build locally by starting the preview HTTP server:
 
 ```
 npm run preview
@@ -331,7 +331,7 @@ Click in the "Create branch docs/my-new-branch from develop".
 
 #### 4) Create a directory for the post content files
 
-To create a new directory in a repository click “create a new file.” Type your new directory's name in the area where you would write the file name, and at the end of the file name type a "/" to initilize it as a direcvtory. After this you can create a new file in the directory.
+To create a new directory in a repository click “create a new file.” Type your new directory's name in the area where you would write the file name, and at the end of the file name type a "/" to initialize it as a directory. After this you can create a new file in the directory.
 
 ![Create directory](public/images/repo/create-new-directory.png?202404161826)
 
@@ -386,7 +386,7 @@ Learn more by reading the [New post](#new-post) section.
 
 #### 10) Commit your changes
 
-Everytime there's a new change, you can commit it. It'll store the changes in the repository branch you have created.
+Every time there's a new change, you can commit it. It'll store the changes in the repository branch you have created.
 
 #### 11) Once happy create a pull request
 
@@ -396,7 +396,7 @@ Use the second drop box to select the branch name you have just created for your
 
 ![Use compare to create a new pull request](public/images/repo/use-compare-to-create-pull-request.png?202404161849)
 
-Press the "Create pull request" and fill up the following filds by providing a title for your pull request and a description.
+Press the "Create pull request" and fill up the following fields by providing a title for your pull request and a description.
 
 To complete select "Create pull request".
 
@@ -406,7 +406,7 @@ To complete select "Create pull request".
 
 A spell checker will verify the markdown (.md, .mdx) file content for any typos. The spell checker is an automated process that is active during the pull request (PR).
 
-Find the spell checker amongst other checks, under the checks component at the very bottom of the conversation tab, in the Github pull request (PR) dashboard. To learn more about the spell check process, open "details".
+Find the spell checker among other checks, under the checks component at the very bottom of the conversation tab, in the Github pull request (PR) dashboard. To learn more about the spell check process, open "details".
 
 It should be similar to the following:
 
@@ -597,7 +597,7 @@ curl \
 
 ### Indexer
 
-The Indexer's job refered to as indexation is the process of organizing and storing data in a structured manner to facilitate efficient search and retrieval.
+The Indexer's job referred to as indexation is the process of organizing and storing data in a structured manner to facilitate efficient search and retrieval.
 
 ### Put markdown content (Development)
 

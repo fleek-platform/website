@@ -4,7 +4,6 @@ date: 2023-08-31
 desc: 'We are opening Fleek’s new app early for testers, to prepare for the full V1 release. Get whitelisted, and give us your feedback.'
 thumbnail: './alpha-thumb.png'
 image: './alpha-thumb.png'
-cannonical: ''
 author: 'Fleek'
 ---
 

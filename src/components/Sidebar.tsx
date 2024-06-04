@@ -55,7 +55,7 @@ const SidebarMenu: FC<Props> = ({ data, pathname }) => {
             <li key={`${idx}-${item.slug}`}>
               <a
                 href={`/docs/${item.slug}`}
-                className={`rounded-lg block w-full py-2 font-plex-sans text-16 capitalize leading-loose opacity-80 transition duration-150 hover:opacity-100 ${isActiveSlug(item.slug) ? activeItemStyle : ''}`}
+                className={`rounded-lg block w-full py-2 font-plex-sans text-16  leading-loose opacity-80 transition duration-150 hover:opacity-100 ${isActiveSlug(item.slug) ? activeItemStyle : ''}`}
               >
                 {item.title}
               </a>

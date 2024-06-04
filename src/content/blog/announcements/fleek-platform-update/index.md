@@ -4,7 +4,6 @@ date: 2023-06-30
 desc: 'Get the latest on our summer plans for the incoming Fleek.xyz launch, from NFAs, to Fleek.co Sunsetting, new features, and more!'
 thumbnail: './fp-update.png'
 image: './fp-update.png'
-cannonical: ''
 author: 'Fleek'
 ---
 

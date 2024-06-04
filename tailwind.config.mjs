@@ -58,6 +58,7 @@ export default {
         "ui-faded-black": "#1F1F1F",
         "ui-green": "#113123",
         "ui-faded-green": "#4CC38A",
+        "ui-light-green": "#133929",
         "ui-faded-gray": "#ECEDEE",
 
         "gray-dark-1": "#111111",

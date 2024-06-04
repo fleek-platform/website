@@ -4,7 +4,6 @@ date: 2023-10-26
 desc: 'Get the latest on the changes coming to the Fleek Alpha with v0.0.2, including Primary Domains, Lens Template, Improved Upload Speeds, and more!'
 thumbnail: './fleekreleasenotes04.png'
 image: './fleekreleasenotes04.png'
-cannonical: ''
 author:
   - 'Fleek'
 ---

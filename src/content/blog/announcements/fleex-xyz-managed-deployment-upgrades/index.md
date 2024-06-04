@@ -4,7 +4,6 @@ date: 2023-06-09
 desc: "We're taking the managed deployments feature you know and love from Fleek.co, and supercharging it to better fit developer needs!"
 thumbnail: './manageddeploymentsxyzco.jpg'
 image: './manageddeploymentsxyzco.jpg'
-cannonical: ''
 author:
   - 'Fleek'
 ---

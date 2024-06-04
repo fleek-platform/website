@@ -100,6 +100,7 @@ export const PRICING_PLANS: Record<PlanKeys, Plan> = {
         className: styles.wagmiCTA,
       },
       btnBg: 'bg-ui-green',
+      hoverBtnBg: 'hover:bg-ui-light-green',
       fontColor: 'text-ui-faded-green',
     },
   },
@@ -144,6 +145,7 @@ export const PRICING_PLANS: Record<PlanKeys, Plan> = {
         className: styles.proCTA,
       },
       btnBg: 'bg-yellow-dark-4',
+      hoverBtnBg: 'hover:bg-yellow-dark-5',
     },
   },
   enterprise: {
@@ -165,7 +167,7 @@ export const PRICING_PLANS: Record<PlanKeys, Plan> = {
         fleekFunctions: 'Custom',
         FleekFunctionTier: 'Custom',
         FunctionsRuntimeHours: 'Custom',
-        FunctionsReq: 'Custom',
+        FunctionsReq: 'Custom ',
       },
       application: {
         projects: 'Custom',
@@ -187,6 +189,7 @@ export const PRICING_PLANS: Record<PlanKeys, Plan> = {
         className: styles.enterpriseCTA,
       },
       btnBg: 'bg-gray-dark-4',
+      hoverBtnBg: 'hover:bg-gray-dark-5',
     },
   },
 };

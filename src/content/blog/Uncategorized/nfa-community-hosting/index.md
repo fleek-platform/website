@@ -4,7 +4,6 @@ date: 2023-01-20
 desc: 'Update incoming! We’re working on an initial implementation of Non-Fungible Applications (NFAs) that focuses on decentralizing the access points to community owned web3 apps.'
 thumbnail: './community-hosting-thumb.png'
 image: './community-hosting-thumb.png'
-cannonical: 'https://blog.fleek.xyz/post/nfa-community-hosting/'
 ---
 
 **TL;DR**

@@ -12,12 +12,12 @@ const availablePlans = Object.keys(PRICING_PLANS);
 
 const TableDesktop = () => (
   <table
-    className="hidden w-full border-collapse lg:table"
+    className="hidden w-full border-collapse lg:table lg:rounded-br-12"
     cellSpacing={0}
     cellPadding={0}
   >
     <thead>
-      <tr>
+      <tr className="border-b-1 border-ui-mid-grey">
         <th className="w-[20%]">
           <div className=" flex h-full w-full flex-col gap-16  rounded-tl-12  border-1 border-b-0 border-ui-mid-grey  px-20 py-20 lg:max-w-[345px]">
             <h3 className="typo-m-normal text-left">Plan Breakdown</h3>
@@ -45,7 +45,7 @@ const TableDesktop = () => (
                 <TableSubheader
                   icon={icon}
                   title={title}
-                  className={clsx('justify-center border-1', {
+                  className={clsx('border-collapse justify-center border-1', {
                     '': !index,
                   })}
                 />
@@ -53,9 +53,11 @@ const TableDesktop = () => (
             </tr>
             {Object.entries(sectionFeatures).map(
               ([feature, featureTitle], index) => (
-                <tr key={index}>
+                <tr key={index} className="rounded-12">
                   <td>
-                    <TableCell className="text-center">
+                    <TableCell
+                      className={`text-center ${featureTitle === 'Function Request' ? 'rounded-bl-12' : ''}`}
+                    >
                       <div className="text-left font-plex-sans text-14 font-medium text-gray-dark-12">
                         {featureTitle}{' '}
                       </div>
@@ -86,7 +88,9 @@ const TableDesktop = () => (
                     }
                     return (
                       <td key={plan}>
-                        <TableCell className="justify-start">
+                        <TableCell
+                          className={`justify-start ${planFeatures[feature] === 'Custom ' ? 'rounded-br-12' : ''}`}
+                        >
                           {planFeatures[feature] !== true ? (
                             planFeatures[feature]
                           ) : (

@@ -87,7 +87,7 @@ const { title } = Astro.props;
         width="0"
         style={{ display: 'none', visibility: 'hidden' }}></iframe>
     </noscript>
-    <Announcement client:load />
+    <!-- Remove comment if announcement active <Announcement client:load /> -->
     <Nav client:load pathname={Astro.url.pathname} />
     <slot />
     <Footer client:load />

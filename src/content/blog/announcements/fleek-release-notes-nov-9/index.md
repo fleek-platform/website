@@ -4,7 +4,6 @@ date: 2023-11-09
 desc: 'Dive into the changes coming with Fleek Alpha v0.0.3, including Project, Site, and Gateway Delete Options.'
 thumbnail: './fleekreleasenotes05.png'
 image: './fleekreleasenotes05.png'
-cannonical: ''
 author:
   - 'Fleek'
 ---

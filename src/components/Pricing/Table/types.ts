@@ -32,6 +32,7 @@ export type PlanHeader = {
   };
   btnBg?: string;
   fontColor?: string;
+  hoverBtnBg?: string;
 };
 export type PlanSection = Record<string, string | number | boolean>;
 export type PlanKeys = 'wagmi' | 'pro' | 'enterprise';

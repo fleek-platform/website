@@ -53,6 +53,11 @@
       }
     }
   },
+  "blog": {
+    "customFilterByDirectoryName": {
+      "nfas": "NFAs"
+    }
+  },
   "pricing": {
     "faq": [
       {

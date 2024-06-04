@@ -4,7 +4,6 @@ date: 2023-09-22
 desc: 'Explore the range of fixes and improvements made to the Fleek.xyz alpha this week in the latest Fleek Release Notes.'
 thumbnail: './fleekreleasenotes02.png'
 image: './fleekreleasenotes02.png'
-cannonical: ''
 author:
   - 'Fleek'
 ---

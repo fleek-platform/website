@@ -4,7 +4,6 @@ date: 2023-03-20
 desc: 'An update on the development progress of NFAs, progress on our EIP Discussion, refined minting UI, and more!'
 thumbnail: './main-nfa-biw.jpg'
 image: './main-nfa-biw.jpg'
-cannonical: ''
 ---
 
 ## TLDR;

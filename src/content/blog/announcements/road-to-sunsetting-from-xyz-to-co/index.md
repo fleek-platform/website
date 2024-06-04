@@ -4,7 +4,6 @@ date: 2023-04-18
 desc: 'As we continue developing the new Fleek Platform we wanted to share more information about what the process of shutting down our legacy Fleek.co platform will look like.'
 thumbnail: './sunsetting-update-one.png'
 image: './sunsetting-update-one.png'
-cannonical: ''
 ---
 
 [At the end of last year](https://blog.fleek.xyz/post/introducing-fleek-network-and-fleek-xyz/), we brought many updates to the world of Fleek! Among those updates, our plan to build a new Fleek ([fleek.xyz](http://fleek.xyz/)) with a new fully event-based architecture that is completely modular and extensible. A new foundation upon which Fleek **could grow to offer any folder of infrastructure and development services, out of the constraints of the current platform**.

@@ -4,7 +4,6 @@ date: 2023-02-16
 desc: 'Issue number three of the Fleek Leak is landing ⚡, with updates on custom domains and our SDK.'
 thumbnail: './leak3.png'
 image: './leak3.png'
-cannonical: 'https://blog.fleek.co/posts/fleek-leak-03/'
 ---
 
 Issue number three of the Fleek Leak is landing ⚡, coming back after back-to-back release weeks!

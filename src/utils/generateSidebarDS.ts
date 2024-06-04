@@ -1,5 +1,5 @@
 import type { CollectionEntry } from 'astro:content';
-import settings from '@base/settings.json';
+import { hasCustomTitlesByDirectoryNameOverride } from '@utils/menu';
 
 type Doc = CollectionEntry<'docs'>;
 type DocWithCategory = Doc['data'] & {
@@ -48,23 +48,6 @@ const normalizeCategoryName = (input: string) => {
 type UserOrderItem = {
   category: string;
   order: number;
-};
-
-const hasCustomTitlesByDirectoryNameOverride = ({
-  slug,
-  title,
-}: {
-  slug: string;
-  title: string;
-}) => {
-  const customTitlesByDirectoryName: Record<string, string> =
-    settings.docs.menu.customTitlesByDirectoryName;
-
-  if (slug in customTitlesByDirectoryName) {
-    return customTitlesByDirectoryName[slug];
-  }
-
-  return title;
 };
 
 export const generateSidebarDSByUserOrder = (
