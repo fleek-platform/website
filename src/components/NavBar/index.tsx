@@ -215,7 +215,7 @@ const Nav = ({ pathname }: NavProps) => {
               target="_blank"
               rel="noopener noreferrer"
             >
-              <ButtonYellowOutline>Log In</ButtonYellowOutline>
+              <ButtonYellowOutline>Log in</ButtonYellowOutline>
             </a>
           </div>
           <div className="nav-button-launch">
@@ -225,7 +225,7 @@ const Nav = ({ pathname }: NavProps) => {
               rel="noopener noreferrer"
             >
               <ButtonYellowOutline color="yellow">
-                Get Started
+                Get started
               </ButtonYellowOutline>
             </a>
           </div>

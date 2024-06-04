@@ -11,16 +11,16 @@ type Props = {
 const DocsHero = ({ title, description }: Props) => (
   <div className="docs-hero-container">
     <PageSection className="overflow-hidden bg-black" rounded="all-big">
-      <div className="items-center px-64 pb-48 pt-24 text-center">
+      <div className="pb-34">
         <Text style="h2" className="typo-h5 text-gray-dark-12 md:typo-h2">
           <h1>{title}</h1>
         </Text>
-        <p className="typo-s md:typo-l">{description}</p>
-        <div className="mt-12 flex justify-center gap-16">
+        <p className="md:typo-l">{description}</p>
+        <div className="mt-12 flex gap-16">
           <div className="typo-btn-l">
             <a href="/docs/platform">
               <ButtonYellow>
-                <div>More platform info</div>
+                <div>Learn the platform</div>
               </ButtonYellow>
             </a>
           </div>

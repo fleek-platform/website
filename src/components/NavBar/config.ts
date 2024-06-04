@@ -132,19 +132,19 @@ export const NavBarDefault: MenuSettingsItem[] = [
       {
         label: 'Github',
         url: 'https://github.com/fleekxyz',
-        description: 'Our repositories',
+        description: 'Our code repositories',
         icon: '/svg/github-navbar-icon.svg',
       },
       {
         label: 'Changelog',
         url: '/blog/changelog',
-        description: 'Latest developments',
+        description: 'Our latest developments',
         icon: '/svg/blog-navbar-icon.svg',
       },
       {
         label: 'Status',
         url: 'https://status.fleek.xyz/',
-        description: 'Uptime monitoring',
+        description: 'Status uptime monitoring',
         icon: '/svg/status-navbar-icon.svg',
       },
     ],
@@ -155,7 +155,7 @@ export const NavBarDefault: MenuSettingsItem[] = [
       {
         label: 'Documentation',
         url: '/docs',
-        description: 'Knowledge panel',
+        description: 'Learn about Fleek',
         icon: '/svg/blog-navbar-icon.svg',
       },
       {
@@ -180,7 +180,7 @@ export const NavBarDefault: MenuSettingsItem[] = [
       {
         label: 'Guides',
         url: '/guides',
-        description: 'Learn to use Fleek',
+        description: 'Tips and tricks',
         icon: '/svg/guides-navbar-icon.svg',
       },
       // {

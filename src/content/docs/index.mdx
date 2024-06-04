@@ -5,20 +5,60 @@ date: 2023-01-10
 description: Welcome to the documentation for the beta of Fleek.xyz. Whether you are an expert or an absolute beginner, you'll find your answers here.
 ---
 
-import DocsHero from '@components/DocsHero';
 import DocsCards from '@components/DocsCards';
 import ButtonGray from '@components/ButtonGray';
+import ButtonYellow from '@components/ButtonYellow';
 import DocsTitledCards from '@components/DocsTitledCards';
 
-<DocsHero
-  client:load
-  title="Fleek Documentation"
-  description="Kickstart your Fleek journey with our documentation, detailed guides and references. Browse our platform resources for a deep dive into our features."
-/>
+![](./docs-hero-fleek.svg)
+
+# Fleek documentation
+
+Kickstart your Fleek journey with our documentation, detailed guides and references. Browse our platform resources for a deep dive into our features.
+
+<div className="justify-left mt-12 flex gap-16">
+  <div className="typo-btn-l mb-32">
+    <a href="/docs/platform">
+      <ButtonYellow className="flex items-center justify-center gap-12">
+        <div>Learn the platform</div>
+      </ButtonYellow>
+    </a>
+  </div>
+
+  <div className="typo-btn-l mb-32">
+    <a href="/docs/cli">
+      <ButtonGray className="flex items-center justify-center gap-12">
+        <div>Use the CLI</div>
+      </ButtonGray>
+    </a>
+  </div>
+</div>
 
 <div className="my-12 bg-gray-dark-6 p-[1px]" />
 
-## Deploy a Template
+## Get started
+
+Below are a few resources to help you get started with Fleek. Whether you're new to the platform or looking to dive deeper into our features, these sections below will help you navigate through the feature of Fleek.
+
+<div className="my-12 bg-gray-dark-6 p-[1px]" />
+
+### Host an app
+
+Fleek’s hosting services allow users to easily upload, maintain, store and serve static sites.
+
+#### Use an existing repo
+
+Your existing project can be any web project that outputs static HTML content (such as a website that contains HTML, CSS, and JavaScript). When you use any of Fleek’s supported frameworks, we'll automatically detect and set the optimal build and deployment configurations for your framework.
+
+<div className="typo-btn-l mb-32">
+  <a href="/docs/platform/hosting">
+    <ButtonGray className="flex items-center justify-center gap-12">
+      <div>View hosting</div>
+    </ButtonGray>
+  </a>
+</div>
+
+#### Use a template
 
 Choose from simple frameworks to comprehensive starter kits. These templates provide a solid foundation, allowing for flexibility and easy adaptation as your project develops. Explore the options available to streamline your development process.
 
@@ -29,21 +69,49 @@ Choose from simple frameworks to comprehensive starter kits. These templates pro
     rel="noopener noreferrer"
   >
     <ButtonGray className="flex items-center justify-center gap-12">
-      <div>View Templates</div>
+      <div>View templates</div>
     </ButtonGray>
   </a>
 </div>
 
 <div className="my-12 bg-gray-dark-6 p-[1px]" />
 
-## Start with Guides
+### Store Files
+
+Upload files and folders to receive a hash from IPFS, Filecoin, and Arweave, providing a unique, secure, and verifiable identifier for your digital content. This service allows you to easily track and access your files on these decentralized storage platforms, ensuring data integrity and permanence.
+
+<div className="typo-btn-l mb-32">
+  <a href="/docs/platform/storage">
+    <ButtonGray className="flex items-center justify-center gap-12">
+      <div>View storage</div>
+    </ButtonGray>
+  </a>
+</div>
+
+<div className="my-12 bg-gray-dark-6 p-[1px]" />
+
+### Create functions
+
+These functions allow users to build cost-effective, low-overhead infrastructure for their applications while also enabling lightning-fast performance.
+
+<div className="typo-btn-l mb-32">
+  <a href="/docs/platform/fleek-functions">
+    <ButtonGray className="flex items-center justify-center gap-12">
+      <div>View functions</div>
+    </ButtonGray>
+  </a>
+</div>
+
+<div className="my-12 bg-gray-dark-6 p-[1px]" />
+
+## Read our guides
 
 In this section, you'll find helpful guides designed to assist you with the most commonly-encountered tasks on Fleek. For a deeper understanding and more extensive information, our Documentation is available to provide further insights and support.
 
 <div className="typo-btn-l mb-32">
   <a href="/guides" target="_blank" rel="noopener noreferrer">
     <ButtonGray className="flex items-center justify-center gap-12">
-      <div>View Guides</div>
+      <div>View guides</div>
     </ButtonGray>
   </a>
 </div>
@@ -58,7 +126,7 @@ Join our community and stay updated with the latest news, features, and insights
   <div className="typo-btn-l mb-32">
     <a href="https://x.com/fleek" target="_blank" rel="noopener noreferrer">
       <ButtonGray className="flex items-center justify-center gap-12">
-        <div>Follow Us on X</div>
+        <div>Follow us on X</div>
       </ButtonGray>
     </a>
   </div>
