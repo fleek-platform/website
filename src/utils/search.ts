@@ -8,8 +8,8 @@ const zIndex = 'z-100';
 export const onSearchBtnEnterDefaultCallback = () => {
   const el = document.querySelector(searchParentElementName);
   el?.classList.add(zIndex);
-}
+};
 export const onSearchBtnLeaveDefaultCallback = () => {
   const el = document.querySelector(searchParentElementName);
   el?.classList.remove(zIndex);
-}
+};
