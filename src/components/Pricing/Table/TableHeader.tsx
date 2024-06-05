@@ -27,7 +27,7 @@ const TableHeader = ({
       className="w-full"
     >
       <PricingButton bg={btnBg} fontColor={fontColor} hoverBtnBg={hoverBtnBg}>
-        <p className="typo-s capitalize">{cta.text}</p>
+        <p>{cta.text}</p>
       </PricingButton>
     </a>
   </div>
