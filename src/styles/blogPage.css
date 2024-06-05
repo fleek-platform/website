@@ -61,19 +61,5 @@
         @apply border bg-gray-dark-4;
       }
     }
-
-    table,
-    td {
-      @apply mb-24 border p-10;
-      a {
-        @apply text-yellow;
-      }
-      th {
-        @apply border bg-gray-dark-4 p-10 text-ui-white;
-      }
-      tr:nth-child(2n) {
-        @apply border bg-gray-dark-4;
-      }
-    }
   }
 }
