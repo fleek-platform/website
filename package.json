@@ -81,6 +81,7 @@
     "@types/node": "^20.12.4",
     "@types/react-instantsearch-dom": "^6.12.7",
     "bun": "^1.1.4",
+    "clsx": "^2.1.1",
     "husky": "^9.0.11",
     "meilisearch": "^0.38.0",
     "prettier": "^3.2.5",
