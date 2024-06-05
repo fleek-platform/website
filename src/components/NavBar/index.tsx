@@ -265,17 +265,33 @@ const Nav = ({ pathname }: NavProps) => {
                           <span className="ml-4 inline-block w-8">+</span>
                         )}
                       </Text>
-                      {navItem?.subMenu.map(({ label }, index) => (
+                      {navItem?.subMenu.map(({ label, url }, index) => (
                         <div
                           key={`${index}-${label}`}
                           className="nav-menu-mobile-sub-menu-container"
                         >
-                          <Text
-                            className="nav-menu-mobile-sub-menu-label"
-                            style="nav-m"
+                          <Link
+                            href={url}
+                            target={
+                              navItem.openInNewTab ? Target.Blank : Target.Self
+                            }
+                            key={navItem.url}
+                            className={
+                              isActivePath({
+                                pathname,
+                                lookup: navItem.url || '',
+                              })
+                                ? 'font-bold'
+                                : 'nav-text-item'
+                            }
                           >
-                            {label}
-                          </Text>
+                            <Text
+                              className="nav-menu-mobile-sub-menu-label"
+                              style="nav-m"
+                            >
+                              {label}
+                            </Text>
+                          </Link>
                         </div>
                       ))}
                     </>
