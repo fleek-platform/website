@@ -5,11 +5,21 @@ import BaseHtml from '@layouts/BaseHtml.astro';
 
 import type { MarkdownHeading } from 'astro';
 
-const { title } = Astro.props;
+const data = Astro.props;
+
+const { title, description, image, slug } = Astro.props;
 const currentPage = Astro.url.pathname;
 ---
 
-<BaseHtml title={title}>
+<BaseHtml
+  title={title}
+  ogMeta={{
+    title,
+    description,
+    image,
+    slug,
+  }}
+>
   <main class="container min-h-container">
     <slot />
   </main>

@@ -4,15 +4,27 @@ import BaseHtml from '@layouts/BaseHtml.astro';
 import Announcement from '@components/Announcement';
 import Nav from '@components/NavBar';
 import Footer from '@components/Footer';
+import settings from '@base/settings.json';
 
 interface Props {
   title: string;
 }
 
 const { title } = Astro.props;
+const description = settings.site.metadata.description;
+const image = '';
+const slug = '';
 ---
 
-<BaseHtml title={title}>
+<BaseHtml
+  title={title}
+  ogMeta={{
+    title,
+    description,
+    image,
+    slug,
+  }}
+>
   <main>
     <slot />
   </main>
