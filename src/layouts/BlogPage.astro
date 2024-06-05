@@ -8,13 +8,6 @@ import type { MarkdownHeading } from 'astro';
 const data = Astro.props;
 
 const { title, description, image, slug } = Astro.props;
-console.log('[debug] BlogPage', {
-  title,
-  description,
-  image,
-  slug,
-  astroProps: Astro.props,
-});
 const currentPage = Astro.url.pathname;
 ---
 
