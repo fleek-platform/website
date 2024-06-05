@@ -1,17 +1,31 @@
 ---
 import '@styles/globals.css';
 import Announcement from '@components/Announcement';
-import GeneralPageLayout from './GeneralPageLayout.astro';
+import Nav from '@components/NavBar';
+import Footer from '@components/Footer';
+import settings from '@base/settings.json';
+import BaseHtml from './BaseHtml.astro';
 
 interface Props {
   title: string;
 }
 
 const { title } = Astro.props;
+const description = settings.site.metadata.description;
+const image = '';
+const slug = '';
 ---
 
-<GeneralPageLayout title={title}>
+<BaseHtml
+  title={title}
+  ogMeta={{
+    title,
+    description,
+    image,
+    slug,
+  }}
+>
   <main>
     <slot />
   </main>
-</GeneralPageLayout>
+</BaseHtml>

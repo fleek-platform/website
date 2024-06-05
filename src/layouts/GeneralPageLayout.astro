@@ -2,15 +2,27 @@
 import Nav from '@components/NavBar';
 import BaseHtml from './BaseHtml.astro';
 import Footer from '@components/Footer';
+import settings from '@base/settings.json';
 
 interface Props {
   title: string;
 }
 
 const { title } = Astro.props;
+const description = settings.site.metadata.description;
+const image = '';
+const slug = '';
 ---
 
-<BaseHtml title={title}>
+<BaseHtml
+  title={title}
+  ogMeta={{
+    title,
+    description,
+    image,
+    slug,
+  }}
+>
   <Nav client:load pathname={Astro.url.pathname} />
   <slot />
   <Footer client:load />

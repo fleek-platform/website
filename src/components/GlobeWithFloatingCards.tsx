@@ -39,7 +39,7 @@ const GlobeWithFloatingCards = () => {
                   </a>
                 </div>
                 <div className="typo-btn-l">
-                  <a href="/docs" target="_blank" rel="noopener noreferrer">
+                  <a href="/docs" rel="noopener noreferrer">
                     <ButtonGray className="flex items-center justify-center gap-12 px-10 ">
                       <div>View Docs</div>
                     </ButtonGray>

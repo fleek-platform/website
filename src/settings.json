@@ -1,13 +1,13 @@
 {
   "site": {
     "production": {
-      "url": "https://rapping-jelly-echoing.on-fleek.app"
+      "url": "https://fleek.xyz"
     },
     "staging": {
-      "url": "https://rapping-jelly-echoing.on-fleek.app"
+      "url": "https://fleek-xyz-staging.on-fleek.app"
     },
     "development": {
-      "url": "https://rapping-jelly-echoing.on-fleek.app"
+      "url": "https://fleek-xyz-staging.on-fleek.app"
     },
     "metadata": {
       "title": "Fleek | Build lightning-fast apps",
@@ -21,7 +21,8 @@
       "supportExternalUrl": "https://support.fleek.xyz",
       "arweaveUrl": "https://www.arweave.org",
       "ipfsUrl": "https://ipfs.tech/",
-      "statusURl": "https://status.fleek.xyz/"
+      "statusURl": "https://status.fleek.xyz/",
+      "fleekTwitterUrl": "https://twitter.com/fleek"
     },
     "annoucement": {
       "message": "We've updated our milestones and roadmap for Fleek.xyz's V1, with new features and timelines! Read more here.",
