@@ -8,9 +8,18 @@ import settings from '@base/settings.json';
 
 interface Props {
   title: string;
+  ogMeta: {
+    title: string;
+    description: string;
+    image: string;
+    slug: string;
+  }
 }
 
-const { title } = Astro.props;
+const {
+  title,
+  ogMeta,
+} = Astro.props;
 ---
 
 <!doctype html>
@@ -50,32 +59,31 @@ const { title } = Astro.props;
       crossorigin
     />
     <meta name="generator" content={Astro.generator} />
-    <title>{settings.site.metadata.title}</title>
     <!-- HTML Meta Tags -->
     <title>{settings.site.metadata.title}</title>
     <meta name="description" content={settings.site.metadata.description} />
     <!-- Facebook Meta Tags -->
-    <meta property="og:url" content="TODO:NAV->URL" />
+    <meta property="og:url" content={`${getSiteUrl()}/${ogMeta.slug}`} />
     <meta property="og:type" content="website" />
-    <meta property="og:title" content={settings.site.metadata.title} />
+    <meta property="og:title" content={ogMeta.title || settings.site.metadata.title} />
     <meta
       property="og:description"
-      content={settings.site.metadata.description}
+      content={ogMeta.description || settings.site.metadata.description}
     />
-    <meta property="og:image" content="TODO:NAV->Poster" />
+    <meta property="og:image" content={ogMeta.image} />
     <!-- Twitter Meta Tags -->
-    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:card" content={ogMeta.image} />
     <meta property="twitter:domain" content={getSiteUrl()} />
-    <meta property="twitter:url" content="TODO:NAV->URL" />
+    <meta property="twitter:url" content={settings.site.resources.fleekTwitterUrl} />
     <meta
       name="twitter:title"
-      content="Fleek | Build Lightning Fast Web3 Apps"
+      content={ogMeta.title}
     />
     <meta
       name="twitter:description"
-      content={settings.site.metadata.description}
+      content={ogMeta.description}
     />
-    <meta name="twitter:image" content="TODO:NAV->Poster" />
+    <meta name="twitter:image" content={ogMeta.image} />
   </head>
   <body
     class="--font-plex-sans --font-plex-mono --font-sans bg-mesh min-h-full bg-black font-sans text-gray-dark-11 selection:bg-yellow-dark-9 selection:text-black"

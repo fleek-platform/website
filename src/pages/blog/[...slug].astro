@@ -24,9 +24,15 @@ const githubEditUrlPathname = generateGitHubEditLink({
   collection,
   id,
 });
+console.log('[debug] Astro.props: ', Astro.props);
 ---
 
-<BlogPageLayout title={entry.data.title}>
+<BlogPageLayout
+  title={entry.data.title}
+  description={entry.data.desc}
+  image={entry.data.image.src}
+  slug={slug}
+>
   <article class="blog">
     <div class="mb-10 w-fit" onclick="history.back()">
       <ButtonGray className="flex items-center justify-center gap-12 px-5">
