@@ -1,9 +1,7 @@
 ---
 import '@styles/globals.css';
-import BaseHtml from '@layouts/BaseHtml.astro';
 import Announcement from '@components/Announcement';
-import Nav from '@components/NavBar';
-import Footer from '@components/Footer';
+import GeneralPageLayout from './GeneralPageLayout.astro';
 
 interface Props {
   title: string;
@@ -12,8 +10,8 @@ interface Props {
 const { title } = Astro.props;
 ---
 
-<BaseHtml title={title}>
+<GeneralPageLayout title={title}>
   <main>
     <slot />
   </main>
-</BaseHtml>
+</GeneralPageLayout>

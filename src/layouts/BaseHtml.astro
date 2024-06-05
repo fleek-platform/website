@@ -1,8 +1,6 @@
 ---
 import '@styles/globals.css';
 import Announcement from '@components/Announcement';
-import Nav from '@components/NavBar';
-import Footer from '@components/Footer';
 import { getSiteUrl } from '@utils/url';
 import settings from '@base/settings.json';
 
@@ -88,9 +86,8 @@ const { title } = Astro.props;
         style={{ display: 'none', visibility: 'hidden' }}></iframe>
     </noscript>
     <!-- Remove comment if announcement active <Announcement client:load /> -->
-    <Nav client:load pathname={Astro.url.pathname} />
+
     <slot />
-    <Footer client:load />
 
     <!-- TODO: enable after initial setup, or prevent from loading on DEV -->
     <!-- <script id="gtm-script" strategy="beforeInteractive"> -->

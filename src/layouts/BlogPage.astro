@@ -1,16 +1,15 @@
 ---
 import '@styles/globals.css';
 import '@styles/blogPage.css';
-import BaseHtml from '@layouts/BaseHtml.astro';
 
 import type { MarkdownHeading } from 'astro';
+import GeneralPageLayout from './GeneralPageLayout.astro';
 
 const { title } = Astro.props;
-const currentPage = Astro.url.pathname;
 ---
 
-<BaseHtml title={title}>
+<GeneralPageLayout title={title}>
   <main class="container min-h-container">
     <slot />
   </main>
-</BaseHtml>
+</GeneralPageLayout>

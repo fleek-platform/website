@@ -1,0 +1,11 @@
+@tailwind components;
+
+@layer components {
+  .support {
+    @apply box-border min-h-screen pb-128 font-sans text-[1.5rem] text-[#ECEDEE];
+  }
+}
+
+.input-container:focus-within > div > svg {
+  color: rgba(58, 158, 255, 1);
+}
