@@ -50,7 +50,7 @@ const {
 })();
 
 const data = await getEntry(collection, id);
-
+console.log('[debug] data', data);
 if (!data || !data?.id || !data?.collection) {
   throw Error('Oops! Unexpected response data');
 }
