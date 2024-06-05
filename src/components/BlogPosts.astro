@@ -25,19 +25,19 @@ type AllPosts = {
   {
     allPosts.map((post: AllPosts) => (
       <a href={`/${collection}/${post.slug}`}>
-        <article class="  h-full cursor-pointer overflow-hidden rounded-8 bg-ui-fleek-black shadow transition hover:scale-105">
+        <article class="h-full cursor-pointer overflow-hidden rounded-8 border border-gray-dark-7 bg-gray-dark-2 shadow transition hover:border-gray-dark-8">
           {post.data?.image && (
             <Image
-              class="h-[180px] w-full object-cover"
+              class="h-[220px] w-full object-cover"
               src={post.data.image}
               alt=""
             />
           )}
           <div class="p-32">
-            <span class="font-plex-sans text-16 font-light text-ui-mid-grey">
+            <span class="font-plex-sans text-16 font-light text-gray-dark-12">
               {post.data.category}
             </span>
-            <h3 class="font-plex-sans text-24 font-medium leading-tight">
+            <h3 class="font-plex-sans text-24 font-medium leading-tight text-gray-dark-12">
               {post.data.title}
             </h3>
           </div>
