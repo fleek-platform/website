@@ -63,27 +63,27 @@ const {
     <title>{settings.site.metadata.title}</title>
     <meta name="description" content={settings.site.metadata.description} />
     <!-- Facebook Meta Tags -->
-    <meta property="og:url" content={`${getSiteUrl()}/${ogMeta.slug}`} />
+    <meta property="og:url" content={`${getSiteUrl()}/${ogMeta?.slug || ''}`} />
     <meta property="og:type" content="website" />
-    <meta property="og:title" content={ogMeta.title || settings.site.metadata.title} />
+    <meta property="og:title" content={ogMeta?.title || settings.site.metadata.title} />
     <meta
       property="og:description"
-      content={ogMeta.description || settings.site.metadata.description}
+      content={ogMeta?.description || settings.site.metadata.description}
     />
-    <meta property="og:image" content={ogMeta.image} />
+    <meta property="og:image" content={ogMeta?.image} />
     <!-- Twitter Meta Tags -->
-    <meta name="twitter:card" content={ogMeta.image} />
+    <meta name="twitter:card" content={ogMeta?.image} />
     <meta property="twitter:domain" content={getSiteUrl()} />
-    <meta property="twitter:url" content={settings.site.resources.fleekTwitterUrl} />
+    <meta property="twitter:url" content={`${getSiteUrl()}/${ogMeta?.slug}`} />
     <meta
       name="twitter:title"
-      content={ogMeta.title}
+      content={ogMeta?.title || settings.site.metadata.title}
     />
     <meta
       name="twitter:description"
-      content={ogMeta.description}
+      content={ogMeta?.description || settings.site.metadata.description}
     />
-    <meta name="twitter:image" content={ogMeta.image} />
+    <meta name="twitter:image" content={ogMeta?.image} />
   </head>
   <body
     class="--font-plex-sans --font-plex-mono --font-sans bg-mesh min-h-full bg-black font-sans text-gray-dark-11 selection:bg-yellow-dark-9 selection:text-black"

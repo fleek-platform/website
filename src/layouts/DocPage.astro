@@ -50,7 +50,7 @@ const {
 })();
 
 const data = await getEntry(collection, id);
-console.log('[debug] data', data);
+
 if (!data || !data?.id || !data?.collection) {
   throw Error('Oops! Unexpected response data');
 }
@@ -68,9 +68,21 @@ const indexNameDocs = import.meta.env.PUBLIC_MEILISEARCH_INDEX_DOCS;
 
 // TODO: Fails after prod build
 const isHome = Astro.url.pathname === '/docs';
+
+const description = data?.description;
+const slug = `docs/${data.slug}`;
+const image = data?.image;
 ---
 
-<BaseHtml title={title}>
+<BaseHtml
+  title={title}
+  ogMeta={{
+    title,
+    description,
+    image,
+    slug,
+  }}
+>
   <main class="container min-h-container">
     <div class={`grid grid-cols-[1fr] gap-4 md:grid-cols-[1fr,4fr,1fr]`}>
       <aside data-name="doc-sidebar" class="w-300 relative pl-32">
