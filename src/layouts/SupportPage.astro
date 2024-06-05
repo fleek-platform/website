@@ -2,15 +2,13 @@
 import '@styles/supportPage.css';
 
 import BaseHtml from './BaseHtml.astro';
-import NavBar from '@components/Support/NavBar';
-import settings from '@base/settings.json';
-import Footer from '@components/Support/Footer';
+
 interface Props {
   title: string;
 }
 
 const { title } = Astro.props;
-const description = settings.site.metadata.description;
+const description = '';
 const image = '';
 const slug = '';
 ---
@@ -24,7 +22,5 @@ const slug = '';
     slug,
   }}
 >
-  <NavBar client:load />
   <slot />
-  <Footer client:load />
 </BaseHtml>

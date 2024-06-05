@@ -3,6 +3,8 @@ import '@styles/globals.css';
 import Announcement from '@components/Announcement';
 import { getSiteUrl } from '@utils/url';
 import settings from '@base/settings.json';
+import Nav from '@components/NavBar';
+import Footer from '@components/Footer';
 
 interface Props {
   title: string;
@@ -95,7 +97,9 @@ const { title, ogMeta } = Astro.props;
     </noscript>
     <!-- Remove comment if announcement active <Announcement client:load /> -->
 
+    <Nav client:load pathname={Astro.url.pathname} />
     <slot />
+    <Footer client:load />
 
     <!-- TODO: enable after initial setup, or prevent from loading on DEV -->
     <!-- <script id="gtm-script" strategy="beforeInteractive"> -->

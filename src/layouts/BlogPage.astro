@@ -3,13 +3,25 @@ import '@styles/globals.css';
 import '@styles/blogPage.css';
 
 import type { MarkdownHeading } from 'astro';
-import GeneralPageLayout from './GeneralPageLayout.astro';
+
+import BaseHtml from './BaseHtml.astro';
 
 const { title } = Astro.props;
+const description = '';
+const slug = ``;
+const image = '';
 ---
 
-<GeneralPageLayout title={title}>
+<BaseHtml
+  title={title}
+  ogMeta={{
+    title,
+    description,
+    image,
+    slug,
+  }}
+>
   <main class="container min-h-container">
     <slot />
   </main>
-</GeneralPageLayout>
+</BaseHtml>

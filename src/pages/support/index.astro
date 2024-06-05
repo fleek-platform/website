@@ -1,10 +1,14 @@
 ---
 import Layout from '@layouts/SupportPage.astro';
 import HomePageHero from '@components/Support/HomePageHero';
+import CategoryCards from '@components/Support/CategoryCards';
+import FeaturedArticles from '@components/Support/FeaturedArticles';
 ---
 
 <Layout title="Fleek Support">
-  <main class="support">
-    <HomePageHero client:load />
+  <main class="support container">
+    <HomePageHero />
+    <CategoryCards client:load />
+    <FeaturedArticles />
   </main>
 </Layout>
