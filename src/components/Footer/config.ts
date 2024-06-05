@@ -19,7 +19,7 @@ export default {
     },
     {
       text: 'Github',
-      url: 'https://github.com/fleekxyz',
+      url: 'https://github.com/fleek-platform',
       target: '_blank',
       rel: 'noopener noreferrer',
     },

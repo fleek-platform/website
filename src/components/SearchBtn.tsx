@@ -11,6 +11,10 @@ import {
 
 import type { Hit as AlgoliaHit } from 'instantsearch.js';
 import type { Dispatch, SetStateAction } from 'react';
+import {
+  onSearchBtnEnterDefaultCallback,
+  onSearchBtnLeaveDefaultCallback,
+} from '@utils/search';
 
 const MagnifyingGlassSVG = () => (
   <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
@@ -144,9 +148,20 @@ const CustomSearchBox = ({
 
 type Props = {
   indexName: string;
+  onEnter?: () => void;
+  onLeave?: () => void;
 };
 
-export default ({ indexName }: Props) => {
+export default ({
+  indexName,
+  // Warn: Astro components are built server side, thus can’t pass
+  // client side functions as a prop inside of a ".astro" files
+  // we'd have to pass the function inside of a react component
+  // so we pass defaults functions to at least be the closest to
+  // separation of concerns
+  onEnter = onSearchBtnEnterDefaultCallback,
+  onLeave = onSearchBtnLeaveDefaultCallback,
+}: Props) => {
   const [openModal, setOpenModal] = useState(false);
 
   useEffect(() => {
@@ -163,6 +178,16 @@ export default ({ indexName }: Props) => {
       setOpenModal(false);
     }
   };
+
+  useEffect(() => {
+    if (openModal && typeof onEnter === 'function') {
+      onEnter();
+    }
+
+    if (!openModal && typeof onLeave === 'function') {
+      onLeave();
+    }
+  }, [openModal]);
 
   return (
     <div className="search-btn">

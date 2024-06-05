@@ -131,7 +131,7 @@ export const NavBarDefault: MenuSettingsItem[] = [
       },
       {
         label: 'Github',
-        url: 'https://github.com/fleekxyz',
+        url: 'https://github.com/fleek-platform',
         description: 'Our code repositories',
         icon: '/svg/github-navbar-icon.svg',
       },

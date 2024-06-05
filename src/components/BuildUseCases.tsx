@@ -23,7 +23,7 @@ const BuildUseCases: React.FC<Props> = (props) => (
             description: 'Use the React started kit to get the best look.',
             icon: { src: '/svg/react-icon.svg', alt: 'Web3 App' },
             cta: {
-              url: 'https://github.com/fleekxyz/nextjs-template',
+              url: 'https://app.fleek.xyz/templates/clmf71ycb0004lb08mubafjnj/',
               text: 'try it',
             },
             image: '/svg/nextjs-template.svg',
@@ -33,7 +33,7 @@ const BuildUseCases: React.FC<Props> = (props) => (
             description: 'Use the React started kit to get the best look.',
             icon: { src: '/svg/react-icon.svg', alt: 'NextJs App' },
             cta: {
-              url: 'https://github.com/fleekxyz/react-template',
+              url: 'https://app.fleek.xyz/templates/clmf7apqf0007l808mo2f6937/',
               text: 'try it',
             },
             image: '/svg/react-template.svg',
@@ -43,7 +43,7 @@ const BuildUseCases: React.FC<Props> = (props) => (
             description: 'Use the React started kit to get the best look.',
             icon: { src: '/svg/react-icon.svg', alt: 'React App' },
             cta: {
-              url: 'https://github.com/fleekxyz/astro-template',
+              url: 'https://app.fleek.xyz/templates/clmf7io4a0009ic08ya3sjwyj/',
               text: 'try it',
             },
             image: '/svg/astro-template.svg',

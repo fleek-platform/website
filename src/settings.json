@@ -10,8 +10,8 @@
       "url": "https://rapping-jelly-echoing.on-fleek.app"
     },
     "metadata": {
-      "title": "Fleek | Build Lightning Fast Web3 Apps",
-      "description": "Seamlessly build Web3 apps and services that are edge-optimized for performance. Decentralized hosting, storage, gateways and more."
+      "title": "Fleek | Build lightning-fast apps",
+      "description": "Seamlessly build apps and services that are edge-optimized for performance. Decentralized hosting, storage, gateways and more."
     },
     "resources": {
       "careersUrl": "https://wellfound.com/company/fleekhq",
@@ -54,27 +54,25 @@
     }
   },
   "blog": {
-    "customFilterByDirectoryName": {
-      "nfas": "NFAs"
-    }
+    "customFilterByDirectoryName": {}
   },
   "pricing": {
     "faq": [
       {
-        "question": "Can I change my payment method anytime?",
-        "answer": "Yes. You can switch from crypto to credit card payments, and any credit top-up model anytime."
+        "question": "Can I change my payment method at any time?",
+        "answer": "Yes. You can switch from crypto to credit card payments and any credit top-up model anytime."
       },
       {
-        "question": "If I am in a paid/pro plan, do I still get the free monthly credits?",
-        "answer": "Yes! All users each month receive $5 worth of credits for free, regardless of their account type."
+        "question": "If I am in a paid/pro plan, will I still receive the free monthly credits?",
+        "answer": "Yes, every user receives $5 of credits for free each month, regardless of their account type."
       },
       {
-        "question": "What happens if I ran out of credits? Are accounts suspended?",
-        "answer": "You will be notified before and after you run out of credits, and we will only suspend your plan after a notice period, all data is saved and easy to restore."
+        "question": "What happens if I run out of credits? Will my account be suspended?",
+        "answer": "You will be notified before and after you run out of credits, and we will only suspend your plan after a notice period. All of your data will be saved and can be easily restored."
       },
       {
-        "question": "What happens if I want to cancel?",
-        "answer": "You can stop adding credits, or delete your account, anytime without restrictions."
+        "question": "What if I want to cancel my account?",
+        "answer": "You can stop adding credits or delete your account at any time without restrictions."
       }
     ]
   },
@@ -143,8 +141,8 @@
     ]
   },
   "github": {
-    "editUrl": "https://github.com/fleekxyz/fleekxyz-website/edit",
-    "xyzWebsiteRepositoryUrl": "https://github.com/fleekxyz/fleekxyz-website"
+    "editUrl": "https://github.com/fleek-platform/fleekxyz-website/edit",
+    "xyzWebsiteRepositoryUrl": "https://github.com/fleek-platform/fleekxyz-website"
   },
   "homepage": {
     "chainAgnostic": {
