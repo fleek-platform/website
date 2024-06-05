@@ -20,11 +20,11 @@
     h2 {
       @apply text-32 text-gray-dark-12;
     }
-    
+
     h3 {
       @apply text-26 text-gray-dark-12;
     }
-    
+
     h4 {
       @apply font-medium text-gray-dark-12;
     }
