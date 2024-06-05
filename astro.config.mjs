@@ -7,6 +7,7 @@ import sitemap from "@astrojs/sitemap";
 import settings from "./src/settings.json";
 import { imagetools } from 'vite-imagetools';
 import mdx from "@astrojs/mdx";
+
 const configRemarkCalloutDirectives = {
   callouts: {
     note: {
