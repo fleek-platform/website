@@ -181,7 +181,7 @@ export default ({
 
   useEffect(() => {
     if (openModal && typeof onEnter === 'function') {
-      onEnter(); 
+      onEnter();
     }
 
     if (!openModal && typeof onLeave === 'function') {

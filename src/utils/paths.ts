@@ -29,14 +29,11 @@ export const getPathSubDirsSorted = async ({
   });
 
   if (Array.isArray(extend)) {
-    ds = [
-      ...ds,
-      ...extend,
-    ]    
+    ds = [...ds, ...extend];
   }
 
-  ds.map(item => item.toLowerCase());
+  ds.map((item) => item.toLowerCase());
   ds.sort((a, b) => a.localeCompare(b));
 
   return ds;
-}
+};
