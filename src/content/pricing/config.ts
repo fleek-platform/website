@@ -3,7 +3,7 @@ import type { Props } from '../../components/PricingCard';
 export const PricingInfo: Props[] = [
   {
     title: 'Free Plan',
-    description: 'Our most popular plan for hobby developers.',
+    description: 'For those just starting out. Get on Fleek today, on us.',
     cost: 0,
     features: [
       'Deploy in Seconds',
@@ -19,7 +19,7 @@ export const PricingInfo: Props[] = [
   },
   {
     title: 'Pro Plan',
-    description: 'Our most popular plan for hobby developers.',
+    description: 'Our most popular option for teams and growing projects.',
     cost: 19,
     features: [
       'Everything in Free Plan',
@@ -36,7 +36,7 @@ export const PricingInfo: Props[] = [
   },
   {
     title: 'Enterprise Plan',
-    description: 'Our most popular plan for hobby developers.',
+    description: 'Have a big project or custom needs? We've got you.',
     cost: 'Custom ',
     features: [
       'Everything in Pro',
