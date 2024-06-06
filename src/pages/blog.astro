@@ -3,6 +3,7 @@ import Layout from '@layouts/BlogPage.astro';
 import { getCollection } from 'astro:content';
 import BlogPosts from '@components/BlogPosts.astro';
 import BlogHeader from '@components/BlogHeader.astro';
+import settings from '@base/settings.json';
 
 import type { CollectionEntry } from 'astro:content';
 
@@ -17,7 +18,7 @@ const allPosts: CollectionEntry<'blog'>[] = (await getCollection('blog')).sort(
 );
 ---
 
-<Layout title="Fleek | Build Lightning Fast Web3 Apps">
+<Layout title={settings.metadata.title}>
   <main class="container min-h-container">
     <BlogHeader title="Blog" indexName={indexNameBlog} />
     <BlogPosts allPosts={allPosts} collection={collection} />

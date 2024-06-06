@@ -4,9 +4,10 @@ import PricingModule from '@components/Pricing';
 import FAQ from '@components/FAQ';
 import PayMethods from '@components/PayMethods';
 import LiveOnTheEdge from '@components/LiveOnTheEdge';
+import settings from '@base/settings.json';
 ---
 
-<Layout title="Fleek | Build Lightning Fast Web3 Apps">
+<Layout title={settings.metadata.title}>
   <main class="flex flex-col gap-16 pb-64">
     <PricingModule client:load />
   </main>

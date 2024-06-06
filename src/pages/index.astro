@@ -11,9 +11,10 @@ import SeamlessUI from '@components/SeamlessUI';
 import BestOnchain from '@components/BestOnchain';
 import PricingLanding from '@components/PricingLanding';
 import ReadyToLive from '@components/ReadyToLive';
+import settings from '@base/settings.json';
 ---
 
-<Layout title="Fleek | Build Lightning Fast Web3 Apps">
+<Layout title={settings.metadata.title}>
   <div class="mb-40 flex flex-col gap-24 lg:gap-32">
     <GlobeWithFloatingCards client:load />
     <JoinOurFriends client:only="react" />
