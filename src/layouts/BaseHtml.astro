@@ -78,7 +78,7 @@ const baseUrl = getSiteUrl();
     <!-- Twitter Meta Tags -->
     <meta
       name="twitter:card"
-      content={`${baseUrl}${ogMeta?.title}` || settings.site.metadata.title}
+      content={ogMeta?.title || settings.site.metadata.title}
     />
     <meta property="twitter:domain" content={baseUrl} />
     <meta property="twitter:url" content={`${baseUrl}/${ogMeta?.slug}`} />
