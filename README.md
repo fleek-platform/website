@@ -1,4 +1,4 @@
-![](public/images/repo/repo-banner.png?202404161720)
+![Fleek-GitHub-Banner](https://github.com/fleek-platform/website/assets/55561695/0474f0f0-e49b-4a84-8085-37e32e783b8f)
 
 # ⚡️Fleek.xyz Website
 
