@@ -54,6 +54,7 @@ const PricingLanding: React.FC<Formatting> = ({ rounded }) => {
                   btnBg={item.btnBg}
                   fontColor={item.fontColor}
                   hoverBtnBg={item.hoverBtnBg}
+                  url={item.url}
                 />
               );
             })}

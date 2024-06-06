@@ -127,7 +127,7 @@ const Modal: React.FC<Prop> = (props) => {
             <GoCheckCircleFill className="text-yellow" />
             You are Subscribed
             <div
-              onClick={() => setShow(false)}
+              onClick={() => isOpen.set(!$isCartOpen)}
               className="typo-btn-l-mid w-full cursor-pointer rounded-16 bg-yellow-dark-4 px-32 py-16 text-yellow hover:bg-yellow-dark-5"
             >
               Close
