@@ -47,7 +47,8 @@ apt install certbot python3-certbot-nginx
 Generate the certificates by following the prompts to complete the SSL setup use the team admin email address during registration.
   
 ```sh
-certbot --nginx \
+certbot certonly \
+  --nginx \
   --standalone \
   -d blog.fleek.xyz \
   -d docs.fleek.xyz \
