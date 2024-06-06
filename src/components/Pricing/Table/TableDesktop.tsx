@@ -19,7 +19,7 @@ const TableDesktop = () => (
     <thead>
       <tr className="border-b-1 border-ui-mid-grey">
         <th className="w-[20%]">
-          <div className=" flex h-full w-full flex-col gap-16  rounded-tl-12  border-1 border-b-0 border-ui-mid-grey  px-20 py-20 lg:max-w-[345px]">
+          <div className=" flex h-full w-full flex-col gap-16  rounded-tl-12  border-1 border-b-0 border-ui-mid-grey bg-gray-dark-1  px-20 py-20 lg:max-w-[345px]">
             <h3 className="typo-m-normal text-left">Plan Breakdown</h3>
             <p className="typo-s text-left">
               Explore the different plans we have and how they compare.
@@ -91,10 +91,19 @@ const TableDesktop = () => (
                         <TableCell
                           className={`justify-start ${planFeatures[feature] === 'Custom ' ? 'rounded-br-12' : ''}`}
                         >
-                          {planFeatures[feature] !== true ? (
-                            planFeatures[feature]
+                          {planFeatures[feature] !== true &&
+                          planFeatures[feature] !== false
+                            ? planFeatures[feature]
+                            : ''}
+                          {planFeatures[feature] === false ? (
+                            <img src="/images/deny.png" alt="available" />
                           ) : (
-                            <img src="/svg/check.svg" alt="available" />
+                            ''
+                          )}
+                          {planFeatures[feature] === true ? (
+                            <img src="/images/check.png" alt="available" />
+                          ) : (
+                            ''
                           )}
                         </TableCell>
                       </td>

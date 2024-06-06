@@ -35,6 +35,7 @@ const Pricing = () => {
                     btnBg={item.btnBg}
                     fontColor={item.fontColor}
                     hoverBtnBg={item.hoverBtnBg}
+                    url={item.url}
                   />
                 );
               })}

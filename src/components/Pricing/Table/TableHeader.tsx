@@ -13,7 +13,7 @@ const TableHeader = ({
   hoverBtnBg,
 }: PlanHeader) => (
   <div
-    className={`flex h-full w-full flex-col items-center justify-between gap-16 border-r-1 border-t-1  ${title == 'Enterprise' ? 'rounded-tr-12' : ''}  border-ui-mid-grey  px-20 py-20 lg:max-w-[345px]`}
+    className={`flex h-full w-full flex-col items-center justify-between gap-16 border-r-1 border-t-1  ${title == 'Enterprise' ? 'rounded-tr-12' : ''}  border-ui-mid-grey bg-gray-dark-1  px-20 py-20 lg:max-w-[345px]`}
   >
     <div className=" w-full ">
       <h3 className="typo-m-normal text-left">{title}</h3>

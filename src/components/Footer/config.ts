@@ -14,8 +14,8 @@ export default {
   fleekPlatformOrgUrl,
   developers: [
     {
-      text: 'Status',
-      url: statusURl,
+      text: 'Fleek Network',
+      url: 'https://fleek.network/',
       target: '_blank',
       rel: 'noopener noreferrer',
     },
@@ -26,14 +26,14 @@ export default {
       rel: 'noopener noreferrer',
     },
     {
-      text: 'Guides',
-      url: '/guides',
+      text: 'Changelog',
+      url: '/blog/changelog',
       target: '_blank',
       rel: 'noopener noreferrer',
     },
     {
-      text: 'Support',
-      url: supportExternalUrl,
+      text: 'Status',
+      url: statusURl,
       target: '_blank',
       rel: 'noopener noreferrer',
     },
@@ -84,6 +84,10 @@ export default {
     {
       text: 'Blog',
       url: '/blog',
+    },
+    {
+      text: 'Docs',
+      url: '/docs',
     },
     {
       text: 'Media Kit',

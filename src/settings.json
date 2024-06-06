@@ -26,8 +26,8 @@
       "fleekTwitterUrl": "https://twitter.com/fleek"
     },
     "annoucement": {
-      "message": "We've updated our milestones and roadmap for Fleek.xyz's V1, with new features and timelines! Read more here.",
-      "url": "/blog/fleek-platform-update"
+      "message": "Introducing Fleek Functions: lightning-fast edge functions built on Fleek Network’s onchain cloud infrastructure. Read more here.",
+      "url": "/blog/announcements/introducing-fleek-functions"
     }
   },
   "docs": {

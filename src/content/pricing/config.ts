@@ -15,6 +15,7 @@ export const PricingInfo: Props[] = [
     btnBg: 'bg-ui-green',
     hoverBtnBg: 'hover:bg-ui-light-green',
     fontColor: 'text-ui-faded-green',
+    url: 'https://app.fleek.xyz',
   },
   {
     title: 'Pro Plan',
@@ -31,6 +32,7 @@ export const PricingInfo: Props[] = [
     btnBg: 'bg-yellow-dark-4',
     hoverBtnBg: 'hover:bg-yellow-dark-5',
     fontColor: 'text-ui-faded-green',
+    url: 'mailto:business@fleek.xyz',
   },
   {
     title: 'Enterprise Plan',
@@ -46,5 +48,6 @@ export const PricingInfo: Props[] = [
     btnBg: 'bg-gray-dark-4',
     hoverBtnBg: 'hover:bg-gray-dark-5',
     fontColor: 'text-gray-dark-11',
+    url: 'mailto:business@fleek.xyz',
   },
 ];
