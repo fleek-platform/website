@@ -70,9 +70,15 @@ const { title, ogMeta } = Astro.props;
       property="og:description"
       content={ogMeta?.description || settings.site.metadata.description}
     />
-    <meta property="og:image" content={ogMeta?.image || settings.site.metadata.image} />
+    <meta
+      property="og:image"
+      content={ogMeta?.image || settings.site.metadata.image}
+    />
     <!-- Twitter Meta Tags -->
-    <meta name="twitter:card" content={ogMeta?.image || settings.site.metadata.image} />
+    <meta
+      name="twitter:card"
+      content={ogMeta?.image || settings.site.metadata.image}
+    />
     <meta property="twitter:domain" content={getSiteUrl()} />
     <meta property="twitter:url" content={`${getSiteUrl()}/${ogMeta?.slug}`} />
     <meta
@@ -83,17 +89,25 @@ const { title, ogMeta } = Astro.props;
       name="twitter:description"
       content={ogMeta?.description || settings.site.metadata.description}
     />
-    <meta name="twitter:image" content={ogMeta?.image || settings.site.metadata.image} />
+    <meta
+      name="twitter:image"
+      content={ogMeta?.image || settings.site.metadata.image}
+    />
 
     <!-- Google Tag Manager -->
-    <script is:inline src="/lib/gtm.js"/>
+    <script is:inline src="/lib/gtm.js"></script>
   </head>
   <body
     class="--font-plex-sans --font-plex-mono --font-sans bg-mesh min-h-full bg-black font-sans text-gray-dark-11 selection:bg-yellow-dark-9 selection:text-black"
   >
     <!-- Google Tag Manager (noscript) -->
-    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PXXZG4Z"
-    height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    <noscript
+      ><iframe
+        src="https://www.googletagmanager.com/ns.html?id=GTM-PXXZG4Z"
+        height="0"
+        width="0"
+        style="display:none;visibility:hidden"></iframe></noscript
+    >
     <!-- End Google Tag Manager (noscript) -->
     <noscript>
       <iframe
