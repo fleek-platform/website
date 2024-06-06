@@ -51,7 +51,7 @@ Learn how to install NodeJS in your operating system by following the instructio
 
 Install the project dependencies in your local environment.
 
-```
+```sh
 npm install
 ```
 
