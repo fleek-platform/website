@@ -17,11 +17,9 @@ const TableRow = ({ header, pricing, overage }: TableRowProps) => (
       </span>
     </TableCell>
     <TableCell className="whitespace-wrap w-2/3 justify-center text-center lg:w-full">
-      {pricing !== true ? (
-        pricing
-      ) : (
-        <img src="/svg/check.svg" alt="available" />
-      )}
+      {pricing !== true && pricing !== false ? pricing : ''}
+      {pricing === false ? <img src="/images/deny.png" alt="available" /> : ''}
+      {pricing === true ? <img src="/images/check.png" alt="available" /> : ''}
     </TableCell>
   </div>
 );

@@ -101,5 +101,5 @@ Ready to get started with Fleek Functions and explore the cost and performance i
 Here is also a full list of links and resources to help you get started:
 
 - [Fleek Functions Tutorial](/docs/cli/functions)
-- [Fleek Function Platform Docs](/docs/platform/fleek-functions)
+- [Fleek Functions Platform Docs](/docs/platform/fleek-functions)
 - [Fleek Function Early Performance Test](https://blog.fleek.network/post/fleek-network-testnet-phase-3-results/)

@@ -8,7 +8,13 @@ export type FeaturePricing = { sharedPricing?: string } & Record<
 >;
 
 // Sections
-export type SectionKey = 'application' | 'hosting' | 'storage' | 'functions';
+export type SectionKey =
+  | 'compute'
+  | 'bandwidth'
+  | 'hosting'
+  | 'storage'
+  | 'platform'
+  | 'onchainFeatures';
 export type SectionFeatures = Record<
   SectionKey,
   {

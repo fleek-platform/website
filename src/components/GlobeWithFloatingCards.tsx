@@ -86,7 +86,7 @@ const GlobeWithFloatingCards: React.FC<Prop> = (props) => {
                     height={450}
                     src="/svg/video-bg.svg"
                     alt="Fleek"
-                    className="absolute left-1/2 top-1/2 z-2 hidden -translate-x-1/2 -translate-y-1/2 scale-[1.55] transform-gpu  bg-[#1c1c1c] lg:block"
+                    className="absolute left-1/2 top-1/2 z-2 hidden -translate-x-1/2 -translate-y-1/2 scale-[1.55] transform-gpu rounded-12  bg-[#1c1c1c] lg:block"
                   />
                 </div>
                 <iframe

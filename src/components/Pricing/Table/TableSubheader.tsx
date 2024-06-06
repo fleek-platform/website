@@ -15,7 +15,7 @@ type TableSubheaderProps = PropsWithChildren & {
 const TableSubheader = ({ icon, title, className }: TableSubheaderProps) => (
   <div
     className={clsx(
-      'flex h-52 w-full border-collapse items-center justify-between border-ui-mid-grey bg-gray-dark-1 p-12',
+      'flex h-52 w-full border-collapse items-center justify-between border-ui-mid-grey bg-gray-dark-2 p-12',
       className,
     )}
   >
