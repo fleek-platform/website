@@ -4,12 +4,14 @@ const {
   careersUrl,
   supportExternalUrl,
   reportAbuseUrl,
-  fleekNetworkWebsiteUrl,
   discordFleekCommunityUrl,
   statusURl,
 } = settings.site.resources;
 
+const { fleekPlatformOrgUrl } = settings.github;
+
 export default {
+  fleekPlatformOrgUrl,
   developers: [
     {
       text: 'Status',
@@ -73,7 +75,9 @@ export default {
     },
     {
       text: 'Templates',
-      url: '/templates',
+      url: 'https://app.fleek.xyz/templates',
+      target: '_blank',
+      rel: 'noopener noreferrer',
     },
   ],
   resources: [
@@ -83,17 +87,13 @@ export default {
     },
     {
       text: 'Media Kit',
-      url: '/docs',
+      url: 'https://fleek.notion.site/Fleek-Brand-Kit-9a2bcf7eb40740a9b7e951fc951b478a',
+      target: '_blank',
+      rel: 'noopener noreferrer',
     },
     {
       text: 'Careers',
       url: careersUrl,
-    },
-    {
-      text: 'Community',
-      url: discordFleekCommunityUrl,
-      target: '_blank',
-      rel: 'noopener noreferrer',
     },
   ],
 };

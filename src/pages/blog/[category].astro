@@ -5,6 +5,7 @@ import { getCollection } from 'astro:content';
 import BlogPosts from '@components/BlogPosts.astro';
 import BlogHeader from '@components/BlogHeader.astro';
 import { listSubDirectories } from '@utils/paths';
+import settings from '@base/settings.json';
 
 import type { CollectionEntry } from 'astro:content';
 
@@ -34,7 +35,7 @@ const allPosts: CollectionEntry<'blog'>[] = (
 ).sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf());
 ---
 
-<Layout title="Fleek | Build Lightning Fast Web3 Apps">
+<Layout title={settings.site.metadata.title}>
   <main class="container min-h-container">
     <BlogHeader title="Blog" indexName={indexNameBlog} category={category} />
     <BlogPosts allPosts={allPosts} collection={collection} />

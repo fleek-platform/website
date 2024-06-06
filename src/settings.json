@@ -10,8 +10,9 @@
       "url": "https://fleek-xyz-staging.on-fleek.app"
     },
     "metadata": {
-      "title": "Fleek | Build lightning-fast apps",
-      "description": "Seamlessly build apps and services that are edge-optimized for performance. Decentralized hosting, storage, gateways and more."
+      "title": "Fleek | Build Lightning Fast Apps",
+      "description": "Fleek is an edge-optimized cloud platform. Effortlessly build, ship and scale highly performant apps. Try for free and deploy an app in 5 minutes.",
+      "image": "/images/fleek-meta.png?202406061658"
     },
     "resources": {
       "careersUrl": "https://wellfound.com/company/fleekhq",
@@ -25,8 +26,8 @@
       "fleekTwitterUrl": "https://twitter.com/fleek"
     },
     "annoucement": {
-      "message": "We've updated our milestones and roadmap for Fleek.xyz's V1, with new features and timelines! Read more here.",
-      "url": "/blog/fleek-platform-update"
+      "message": "Introducing Fleek Functions: lightning-fast edge functions built on Fleek Network’s onchain cloud infrastructure. Read more here.",
+      "url": "/blog/announcements/introducing-fleek-functions"
     }
   },
   "docs": {
@@ -142,8 +143,9 @@
     ]
   },
   "github": {
-    "editUrl": "https://github.com/fleek-platform/fleekxyz-website/edit",
-    "xyzWebsiteRepositoryUrl": "https://github.com/fleek-platform/fleekxyz-website"
+    "fleekPlatformOrgUrl": "https://github.com/fleek-platform",
+    "editUrl": "https://github.com/fleek-platform/website/edit",
+    "xyzWebsiteRepositoryUrl": "https://github.com/fleek-platform/website"
   },
   "homepage": {
     "chainAgnostic": {

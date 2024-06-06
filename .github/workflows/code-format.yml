@@ -8,7 +8,7 @@ on:
  pull_request:
 
 jobs:
- prettier:
+ code-format:
     runs-on: ubuntu-latest
     defaults:
       run:

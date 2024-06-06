@@ -3,14 +3,25 @@ import PageSection from '@components/PageSection';
 import GridLayout from '@components/GridLayout';
 import ButtonGray from './ButtonGray';
 import ButtonYellow from './ButtonYellow';
+import React, { useState } from 'react';
+import type { WritableAtom } from 'nanostores';
+import { useStore } from '@nanostores/react';
+import { isOpen } from '@base/store';
 
-const GlobeWithFloatingCards = () => {
+type Prop = {
+  isOpen: WritableAtom<boolean>;
+};
+
+const GlobeWithFloatingCards: React.FC<Prop> = (props) => {
+  const $isCartOpen = useStore(isOpen);
+
+  const [showPlayer, setShowPlayer] = useState(false);
   return (
     <Container>
       <PageSection rounded="all-big">
         <div className="overflow-hidden py-48 lg:pb-56 lg:pt-60">
           <GridLayout>
-            <div className="col-span-16 mb-32 flex flex-col gap-16 text-center lg:col-span-12 lg:col-start-3 lg:mb-64 lg:gap-24">
+            <div className="col-span-16 mb-32 flex flex-col gap-16 text-center lg:col-span-12 lg:col-start-3 lg:mb-14 lg:gap-24">
               <h2 className="typo-h5 text-ui-white lg:typo-h2">
                 Build Lightning Fast
               </h2>
@@ -38,12 +49,13 @@ const GlobeWithFloatingCards = () => {
                     </ButtonYellow>
                   </a>
                 </div>
-                <div className="typo-btn-l">
-                  <a href="/docs" rel="noopener noreferrer">
-                    <ButtonGray className="flex items-center justify-center gap-12 px-10 ">
-                      <div>View Docs</div>
-                    </ButtonGray>
-                  </a>
+                <div
+                  className="typo-btn-l"
+                  onClick={() => isOpen.set(!$isCartOpen)}
+                >
+                  <ButtonGray className="flex items-center justify-center gap-12 px-10 ">
+                    <div>Stay Updated</div>
+                  </ButtonGray>
                 </div>
               </div>
             </div>
@@ -59,13 +71,30 @@ const GlobeWithFloatingCards = () => {
                   alt="bg-squiggle"
                   className="absolute left-0 top-0 -z-1 m-auto h-full w-full lg:hidden"
                 />
-                <div className="mx-auto  hidden h-[62rem] w-[110rem] rounded-12 border-2 border-ui-mid-grey  bg-[#1c1c1c]  lg:block  "></div>
+                <div className="relative mx-auto hidden h-[62rem] w-[110rem] rounded-12  lg:block  "></div>
+                <div
+                  className={`${showPlayer ? 'hidden' : ''} cursor-pointer`}
+                  onClick={() => setShowPlayer(true)}
+                >
+                  <img
+                    src="/svg/player.svg"
+                    alt="Fleek"
+                    className="absolute left-1/2 top-1/2 z-3 hidden -translate-x-1/2 -translate-y-1/2  transform-gpu  bg-[#1c1c1c] lg:block"
+                  />
+                  <img
+                    width={525}
+                    height={450}
+                    src="/svg/video-bg.svg"
+                    alt="Fleek"
+                    className="absolute left-1/2 top-1/2 z-2 hidden -translate-x-1/2 -translate-y-1/2 scale-[1.55] transform-gpu  bg-[#1c1c1c] lg:block"
+                  />
+                </div>
                 <iframe
-                  width={725}
-                  height={400}
-                  src="https://www.youtube.com/embed/I7n7JFhUKeA?autoplay=1&loop=1&playlist=I7n7JFhUKeA&modestbranding=1&showinfo=0&controls=1&mute=1"
+                  width={525}
+                  height={310}
+                  src={` ${showPlayer ? 'https://www.youtube.com/embed/I7n7JFhUKeA?autoplay=1&loop=1&playlist=I7n7JFhUKeA&modestbranding=1&showinfo=0&controls=1&mute=1' : 'https://www.youtube.com/embed/I7n7JFhUKeA'}`}
                   title="Fleek Edge-Optimize Cloud Platform"
-                  className="z-0 absolute left-1/2 top-1/2 hidden -translate-x-1/2 -translate-y-1/2 scale-150 transform-gpu mix-blend-screen  lg:block"
+                  className="z-0 absolute left-1/2 top-1/2 hidden -translate-x-1/2 -translate-y-1/2 scale-150 transform-gpu  rounded-12 border-2  border-ui-mid-grey bg-[#1c1c1c] lg:block"
                   allow="autoplay"
                   frameBorder="0"
                 ></iframe>

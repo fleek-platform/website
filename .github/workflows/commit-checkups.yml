@@ -8,7 +8,7 @@ on:
  pull_request:
 
 jobs:
- commit_checkups:
+ commit-checkups:
     runs-on: ubuntu-latest
     defaults:
       run:

@@ -11,11 +11,16 @@ import SeamlessUI from '@components/SeamlessUI';
 import BestOnchain from '@components/BestOnchain';
 import PricingLanding from '@components/PricingLanding';
 import ReadyToLive from '@components/ReadyToLive';
+import Modal from '@components/Modal';
+import { isOpen } from '@base/store';
+import settings from '@base/settings.json';
 ---
 
-<Layout title="Fleek | Build Lightning Fast Web3 Apps">
+<Modal isOpen={isOpen} client:only />
+
+<Layout title={settings.site.metadata.title}>
   <div class="mb-40 flex flex-col gap-24 lg:gap-32">
-    <GlobeWithFloatingCards client:load />
+    <GlobeWithFloatingCards isOpen={isOpen} client:load />
     <JoinOurFriends client:only="react" />
     <DeployOnFleek client:load rounded="all-big" />
     <ImpressUsers client:load rounded="all-big" />

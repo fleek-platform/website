@@ -1,5 +1,3 @@
-import Text from '@components/Text';
-import clsx from 'clsx';
 import PricingButton from '@components/PricingButton';
 
 import type { PlanHeader } from './types';

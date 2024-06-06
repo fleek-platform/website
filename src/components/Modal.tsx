@@ -1,0 +1,142 @@
+import ButtonYellow from './ButtonYellow';
+import { IoMdCloseCircle } from 'react-icons/io';
+import { MdEmail } from 'react-icons/md';
+import React, { useState, useEffect } from 'react';
+import { PiWarningCircleFill } from 'react-icons/pi';
+import { useStore } from '@nanostores/react';
+import { GoCheckCircleFill } from 'react-icons/go';
+import type { WritableAtom } from 'nanostores';
+import { isOpen } from '@base/store';
+
+type Prop = {
+  isOpen: WritableAtom<boolean>;
+};
+
+const Modal: React.FC<Prop> = (props) => {
+  const [show, setShow] = useState(false);
+  const $isCartOpen = useStore(isOpen);
+  const [userInput, setUserInput] = useState('');
+  const [thankyou, setThankyou] = useState(false);
+  const regex = /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/;
+
+  useEffect(() => {
+    setShow(!show);
+  }, [props.isOpen]);
+
+  const onSubmit = async (e: React.SyntheticEvent<HTMLFormElement>) => {
+    e.preventDefault();
+
+    try {
+      const data = new FormData(e.currentTarget);
+      console.log(userInput);
+      const response = await fetch('https://fleek.activehosted.com/proc.php', {
+        method: 'POST',
+        body: data,
+        mode: 'no-cors',
+      }).then(() => setThankyou(true));
+    } catch (error) {
+      console.log('Request failed', error);
+    }
+  };
+
+  return (
+    <div
+      id="modal"
+      className={`fixed ${$isCartOpen ? ' scale-100 duration-300 ease-in-out' : 'scale-0 duration-300 ease-in-out '} z-50 h-[800vh] w-full bg-[#0000004a] backdrop-blur`}
+    >
+      <div className="typo-l ml-[5%] mt-[55%] w-[90%] rounded-48 border border-yellow bg-gray-dark-1 p-24 text-gray-dark-12  lg:typo-h5 lg:ml-[32%] lg:mt-[22%] lg:w-[40%] lg:p-40 lg:px-64">
+        {!thankyou ? (
+          <div className="">
+            <form
+              method="POST"
+              action="https://fleek.activehosted.com/proc.php"
+              id="_form_37_"
+              onSubmit={onSubmit}
+            >
+              <input type="hidden" name="u" value="37" />
+              <input type="hidden" name="f" value="37" />
+              <input type="hidden" name="s" />
+              <input type="hidden" name="c" value="0" />
+              <input type="hidden" name="m" value="0" />
+              <input type="hidden" name="act" value="sub" />
+              <input type="hidden" name="v" value="2" />
+              <input
+                type="hidden"
+                name="or"
+                value="3276439fca5998241fe698dd1f85f114"
+              />
+              <div className="_form-content flex flex-col gap-20">
+                <div className="_form_element _x22990483 _full_width _clear">
+                  <div className="_form-title flex items-center justify-between">
+                    Stay Updated
+                    <div
+                      id="closer"
+                      className="hover:cursor-pointer"
+                      onClick={() => isOpen.set(!$isCartOpen)}
+                    >
+                      <IoMdCloseCircle className=" rounded-full bg-black text-gray-dark-11" />
+                    </div>
+                  </div>
+                </div>
+                <div className="_form_element _x72172051 _full_width _clear">
+                  <div className=" typo-m font-normal text-gray-dark-11 lg:typo-l">
+                    Stay up to speed with all the development!
+                  </div>
+                </div>
+                <div className="_form_element _x60461427 _full_width ">
+                  <div className="_field-wrapper typo-m flex w-full items-center gap-8 rounded-16 border border-gray-dark-7 bg-transparent pl-16 font-normal focus:border-yellow">
+                    <MdEmail className="text-20 text-gray-dark-8" />
+                    <input
+                      type="text"
+                      id="email"
+                      name="email"
+                      placeholder="Email Address"
+                      className="w-full border-0 bg-transparent p-16 pl-0 focus:border-none"
+                      required
+                      onChange={(e) => setUserInput(e.target.value)}
+                    />
+                  </div>
+                  {userInput == '' || regex.test(userInput) ? null : (
+                    <p className="typo-btn-xxs mt-5 flex items-center gap-5 text-rose-400">
+                      {' '}
+                      <PiWarningCircleFill />
+                      Email Format Incorrect
+                    </p>
+                  )}
+                </div>
+                <div className="_button-wrapper _full_width">
+                  {regex.test(userInput) ? (
+                    <button
+                      id="_form_37_submit"
+                      className="_submit typo-btn-l-mid w-full rounded-16 bg-yellow-dark-4 px-32 py-16 text-yellow hover:bg-yellow-dark-5"
+                      type="submit"
+                    >
+                      Subscribe to Updates
+                    </button>
+                  ) : (
+                    <div className="_submit typo-btn-l-mid w-full cursor-not-allowed rounded-16 bg-yellow-dark-4 px-32 py-16 text-center text-yellow opacity-50">
+                      Subscribe to Updates
+                    </div>
+                  )}
+                </div>
+              </div>
+            </form>
+          </div>
+        ) : (
+          <div className="_form-title flex flex-col items-center justify-center gap-25 p-10 text-center lg:gap-40">
+            <GoCheckCircleFill className="text-yellow" />
+            You are Subscribed
+            <div
+              onClick={() => setShow(false)}
+              className="typo-btn-l-mid w-full cursor-pointer rounded-16 bg-yellow-dark-4 px-32 py-16 text-yellow hover:bg-yellow-dark-5"
+            >
+              Close
+            </div>
+          </div>
+        )}
+      </div>
+    </div>
+  );
+};
+
+export default Modal;

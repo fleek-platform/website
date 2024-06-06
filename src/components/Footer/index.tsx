@@ -7,7 +7,7 @@ import Link, { Target } from '@components/Link';
 import config from './config';
 import { FaXTwitter } from 'react-icons/fa6';
 
-const { product, developers, legal, resources } = config;
+const { product, developers, legal, resources, fleekPlatformOrgUrl } = config;
 
 const Footer = () => {
   return (
@@ -30,7 +30,7 @@ const Footer = () => {
             </Text>
             <div className="mb-16 flex gap-16">
               <a
-                href="https://github.com/fleekxyz"
+                href={fleekPlatformOrgUrl}
                 rel="noopener noreferrer"
                 target="_blank"
               >

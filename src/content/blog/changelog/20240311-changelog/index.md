@@ -1,17 +1,17 @@
 ---
-title: 'Fleek.xyz Changelog - March 11th, 2024: Automatic Phishing Detection, Application Credentials, Image Improvements'
+title: 'Fleek Changelog - March 11th, 2024: Automatic Phishing Detection, Application Credentials, Image Improvements'
 date: 2024-03-11
-desc: 'An overview of all the latest changes to the Fleek.xyz Open Beta, including new phishing detection measures, in-app application credential creation, and image handling improvements'
+desc: 'An overview of all the latest changes to the Fleek Open Beta, including new phishing detection measures, in-app application credential creation, and image handling improvements'
 thumbnail: './fleekchangelog01mar11.png'
 image: './fleekchangelog01mar11.png'
 author: 'Fleek'
 ---
 
-We're back with a new update to the Fleek.xyz platform, this time packed with new features and enhancements rolled out throughout February, aiming to streamline your development process and improve the security of all projects deployed on Fleek for end users.
+We're back with a new update to the Fleek platform, this time packed with new features and enhancements rolled out throughout February, aiming to streamline your development process and improve the security of all projects deployed on Fleek for end users.
 
 In this recap, we’ll cover the new phishing protection mechanisms, refined application credentials management, and improved image handling improvements that were rolled out to the Fleek platform last month ⚡
 
-Or, you can just try all the new features yourself on [Fleek.xyz](https://fleek.xyz/) **which is now in Open Beta**– anyone can now create an account and start trying the new platform, no whitelist required 🤙
+Or, you can just try all the new features yourself on [Fleek](https://fleek.xyz/) **which is now in Open Beta**– anyone can now create an account and start trying the new platform, no whitelist required 🤙
 
 Let’s get into what the devs were cookin’ throughout February:
 
@@ -23,7 +23,7 @@ The main focus for the dev team this month was the implementation of a new proce
 
 Sites flagged for phishing are automatically removed, alongside the associated user account and all related resources. In cases where a site's status is ambiguous, we conduct a manual review and maintain a list for such instances internally. In the manual review process, we work with a group of trustee sources to whom we delegate the review to determine if the site is phishing.
 
-Anyone flagged for deploying a phishing site on Fleek.xyz will find themselves on a blocklist to prevent individuals associated with phishing activities from registering or signing into the platform in the future. Users who believe their site was mistakenly flagged can reach out to our Support team for assistance and manual review.
+Anyone flagged for deploying a phishing site on Fleek will find themselves on a blocklist to prevent individuals associated with phishing activities from registering or signing into the platform in the future. Users who believe their site was mistakenly flagged can reach out to our Support team for assistance and manual review.
 
 To track the success of all of our new phishing protection efforts, we’ve added a few new metrics to our tracking system. This now includes the number of phishing sites:
 
@@ -31,9 +31,9 @@ To track the success of all of our new phishing protection efforts, we’ve adde
 - Manually detected
 - Deleted for phishing (manually and automatically)
 
-As well as the penetration rate, or the ratio of manually deleted sites against the total sites that make it through the automatic phishing detection. This data-driven approach enables us to continually refine our detection strategies, ensuring Fleek.xyz remains a secure platform for both developers and users of sites deployed on Fleek.
+As well as the penetration rate, or the ratio of manually deleted sites against the total sites that make it through the automatic phishing detection. This data-driven approach enables us to continually refine our detection strategies, ensuring Fleek remains a secure platform for both developers and users of sites deployed on Fleek.
 
-Alongside the new automatic phishing detection tools, we’ve also added an edge rule to all pullzones on Fleek.xyz restricting access to just its custom domain. This will reduce potential phishing entry points, as sites with pullzones can no longer be accessed via the pullzone URL (i.e. fleekcdn.xyz).
+Alongside the new automatic phishing detection tools, we’ve also added an edge rule to all pullzones on Fleek restricting access to just its custom domain. This will reduce potential phishing entry points, as sites with pullzones can no longer be accessed via the pullzone URL (i.e. fleekcdn.xyz).
 
 Our goal with this update is to proactively eliminate both the deployment of phishing sites and the users who create them on Fleek. We’ll keep you updated on the success of the new phishing detection efforts in future changelogs 🤙
 
@@ -41,7 +41,7 @@ Our goal with this update is to proactively eliminate both the deployment of phi
 
 ## Application Credentials
 
-We’ve also now added the ability to create application credentials directly within the Fleek.xyz UI.
+We’ve also now added the ability to create application credentials directly within the Fleek UI.
 
 Anyone can now interact with the SDK directly from a client in a secure way, through whitelisted domains, allowing only those with the application credentials to access the specified domains. Creating and managing Application Credentials can be done in the `Application Credentials` tab within the settings of your Fleek project:
 
@@ -77,14 +77,14 @@ Also included in this release:
 - Fixed bug where modal was not appearing after creating a domain for a PGW
 - ENS modal now displays the content hash in smaller screen resolutions.
 
-For more details on all the new features, bug fixes, and improvements made in this release, check out our [docs](https://docs.fleek.xyz/docs)!
+For more details on all the new features, bug fixes, and improvements made in this release, check out our [docs](https://docs.Fleek/docs)!
 
 ---
 
 That’s a wrap for February, folks!
 
-The team has been heads down rolling out new improvements to make the Fleek.xyz experience smoother and more secure for all end-users, as well as some behind-the-scenes work on cool new features to debut soon.
+The team has been heads down rolling out new improvements to make the Fleek experience smoother and more secure for all end-users, as well as some behind-the-scenes work on cool new features to debut soon.
 
-Got feedback or need some help navigating the new updates? Chat with the team and join the conversation in our [Discord](https://discord.gg/fleek) community. Also, follow along with all the new updates coming to the Fleek.xyz platform on [X](https://twitter.com/fleek)!
+Got feedback or need some help navigating the new updates? Chat with the team and join the conversation in our [Discord](https://discord.gg/fleek) community. Also, follow along with all the new updates coming to the Fleek platform on [X](https://twitter.com/fleek)!
 
 See you in the next changelog Fleek Freaks ⚡

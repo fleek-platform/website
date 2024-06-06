@@ -12,6 +12,8 @@ tags:
   - Fleek
 ---
 
+import PermissionsTable from '@components/Permissions/PermissionsTable';
+
 # Projects on Fleek
 
 All platform usage will be tied to a project, so it is mandatory to have a project selected. Any user can create a project, and access can be granted to any user by providing an email address. An account can be the owner of one or more projects and, at the same time, can belong to projects owned by other accounts.
@@ -70,6 +72,12 @@ Invitations are a way to grant access to a another user to one of your projects.
 To invite a new user into your project, go to the project's 'Settings' page and select the 'Teams' tab. There you will find a list of members in the project and a button to generate a link to invite a new user.
 
 This is a unique link that will grant project access to a single user. Once the user has used the link to access the project, the link will be invalidated and a new link will need to be generated to invite a new user. This link is not tied to the authentication method used to access the project, so the user can choose to use their wallet or e-mail account to access the project.
+
+### Permissions
+
+The Fleek platform uses a role-based system for managing permissions. Certain features are only accessible to users with specific roles. For a detailed breakdown of these permissions, see the table provided below.
+
+<PermissionsTable />
 
 ## Application Credentials
 
