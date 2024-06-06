@@ -3,6 +3,7 @@ import Layout from '@layouts/SupportPage.astro';
 import HomePageHero from '@components/Support/HomePageHero';
 import CategoryCards from '@components/Support/CategoryCards';
 import FeaturedArticles from '@components/Support/FeaturedArticles';
+import UsefulVideos from '@components/Support/UsefulVideos';
 ---
 
 <Layout title="Fleek Support">
@@ -10,5 +11,6 @@ import FeaturedArticles from '@components/Support/FeaturedArticles';
     <HomePageHero />
     <CategoryCards client:load />
     <FeaturedArticles />
+    <UsefulVideos client:load />
   </main>
 </Layout>

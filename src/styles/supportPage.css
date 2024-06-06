@@ -9,3 +9,26 @@
 .input-container:focus-within > div > svg {
   color: rgba(58, 158, 255, 1);
 }
+
+.swiper {
+  width: 100% !important;
+  height: 100% !important;
+}
+
+.swiper-button-prev,
+.swiper-button-next {
+  top: 35% !important;
+  color: white !important;
+  background-color: #369eff !important;
+  padding: 50px 20px !important;
+  border-radius: 8px !important;
+}
+
+.swiper-button-prev::after,
+.swiper-button-next::after {
+  font-size: 15px !important;
+}
+
+.swiper-button-disabled {
+  display: none !important;
+}

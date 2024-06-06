@@ -1,4 +1,11 @@
 import { FaFileAlt } from 'react-icons/fa';
+import { singleArticleCardItems } from './config';
+
+export type SingleArticleCardProps = {
+  title: string;
+  description: string;
+  link?: string;
+};
 
 function FeaturedArticles() {
   return (
@@ -7,19 +14,17 @@ function FeaturedArticles() {
         <h2 className="text-[2rem] font-semibold">Featured Articles</h2>
       </div>
       <div>
-        <SingleArticleCard />
-        <SingleArticleCard />
-        <SingleArticleCard />
-        <SingleArticleCard />
-        <SingleArticleCard />
+        {singleArticleCardItems.map((cardItem) => (
+          <SingleArticleCard {...cardItem} />
+        ))}
       </div>
     </div>
   );
 }
 
-function SingleArticleCard() {
+function SingleArticleCard({ title, description }: SingleArticleCardProps) {
   return (
-    <article>
+    <article className="mb-[12px]">
       <div className="flex gap-[10px]">
         <img
           className="h-[20px] flex-shrink"
@@ -29,16 +34,13 @@ function SingleArticleCard() {
 
         <div className="flex-1">
           <a
-            href="google.com"
-            className="text-[1.4rem] font-semibold text-[#9BA1A6] hover:text-[#2294ff] hover:underline"
+            href="#"
+            className="text-[1.5rem] font-semibold text-[#9BA1A6] hover:text-[#2294ff] hover:underline"
           >
-            Node engine errors
+            {title}
           </a>
           <small className="my-[1rem] block text-[1.4rem] text-[#9BA1A6]">
-            If you are getting node engine mismatch errors, don't worry. It only
-            means the docker image you selected does not have the required node
-            version. However, you can use any docker image published on
-            dockerhub, you don't need to use the ones we provide if...
+            {description}
           </small>
         </div>
       </div>

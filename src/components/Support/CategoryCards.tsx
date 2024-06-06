@@ -12,11 +12,7 @@ function CategoryCards() {
       <ul className="flex w-full py-[5rem]">
         {categoryCardItems.map((item) => (
           <li className="w-full">
-            <CategoryCard
-              title={item.title}
-              image={item.image}
-              link={item.link}
-            />
+            <CategoryCard {...item} />
           </li>
         ))}
       </ul>
