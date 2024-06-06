@@ -143,8 +143,8 @@
     ]
   },
   "github": {
-    "editUrl": "https://github.com/fleek-platform/fleekxyz-website/edit",
-    "xyzWebsiteRepositoryUrl": "https://github.com/fleek-platform/fleekxyz-website"
+    "editUrl": "https://github.com/fleek-platform/website/edit",
+    "xyzWebsiteRepositoryUrl": "https://github.com/fleek-platform/website"
   },
   "homepage": {
     "chainAgnostic": {
