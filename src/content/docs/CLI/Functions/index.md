@@ -207,6 +207,62 @@ Afterwards, we could interface with our Fleek Function via the URL:
 https://my-unique-slug.functions.stg.on-fleek-test.app
 ```
 
+## Using private data with Fleek Functions
+
+You can make use of environment variables through any combination of the following:
+
+- Those set within your CLI
+- Those imported from a separate file
+- Those exported into your local environment
+
+### Environment variables set within your CLI
+
+You can pass `-e` or `--env` flags to the CLI in order to set simple, non-array environment variables from within the CLI. For example, the following code would set VAR1 as 'foo' and VAR2 as 'bar' for use within your Fleek Function.
+
+```js
+fleek functions deploy --name print-hello-world --path *./function.js --env VAR1='foo' --env VAR2='bar'
+```
+
+### Environment variables imported from a separate file
+
+Additionally, you can pass a `--env-file` flag to the CLI, followed by a file location relative to the current directory, in order to load environment variables from a file. This file should represent variables using a key value pair syntax.
+
+```js
+# This is a comment
+PORT=3000 # This is also a comment
+NAME="Some value"
+MULTI_LINE="THIS IS
+A MULTILINE"
+```
+
+In the example below, the user's environment variables are located in an `env.list` file.
+
+```js
+fleek functions deploy --name print-hello-world --path *./function.js --env-file ./env.list
+```
+
+### Environment variables exported to your local environment
+
+Lastly, you can use variables exported to your local environment.
+
+If you have exported a variable to your environment with export VAR1='foo'and export VAR2='bar', e.g., you can run:
+
+```js
+fleek functions deploy --name print-hello-world --path *./function.js --env VAR1 --env VAR2
+```
+
+## Making Fleek Functions public
+
+If you are interested in making your Fleek Function publicly accessible, add the `--ipfs` flag to your deployment command in order to deploy the Fleek Function code publicly on IPFS, a decentralized storage protocol:
+
+```js
+fleek functions deploy --name print-hello-world --path *./function.js --ipfs
+```
+
+:::warn
+Making your Fleek Function publicly accessible will expose all of your code associated with the function including any environment variables, which are bundled into your code. Ensure you are not inadvertently exposing data you are interested in keeping private.
+:::
+
 ### Deactive Functions
 
 To _deactivate_ such a Fleek Function, you can run the command below, replacing <fleek_function_name> with the name of the Fleek Function you’re deactivating.
