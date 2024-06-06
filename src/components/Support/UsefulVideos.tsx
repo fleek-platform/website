@@ -5,42 +5,52 @@ import 'swiper/css';
 import 'swiper/css/navigation';
 
 import { Navigation } from 'swiper/modules';
+import { youtubeEmbedVideos } from './config';
+
+export type YoutubeEmbedVideoProps = {
+  id: string;
+  src: string;
+};
 
 function UsefulVideos() {
   return (
-    <div className="mx-auto mt-[20px] max-w-[768px]">
+    <div className="mx-auto mt-[20px] w-[85%] max-w-[768px]  lg:w-full">
       <div>
-        <h2 className="my-[1rem] text-[2rem] font-semibold">Useful Videos</h2>
+        <h2 className="my-[1rem] text-[1.5rem] font-semibold xl:text-[2rem]">
+          Useful Videos
+        </h2>
       </div>
       <div className="relative h-full">
         <Swiper
-          spaceBetween={20}
-          slidesPerView={2}
+          spaceBetween={10}
+          slidesPerView={1}
           navigation={true}
           modules={[Navigation]}
           className="mySwiper"
+          breakpoints={{
+            1024: {
+              slidesPerView: 2,
+              spaceBetween: 20,
+            },
+          }}
         >
-          <SwiperSlide className="w-10%">
-            <VideoCard />
-          </SwiperSlide>
-          <SwiperSlide>
-            <VideoCard />
-          </SwiperSlide>
-          <SwiperSlide>
-            <VideoCard />
-          </SwiperSlide>
+          {youtubeEmbedVideos.map((youtubeVideo) => (
+            <SwiperSlide>
+              <VideoCard {...youtubeVideo} />
+            </SwiperSlide>
+          ))}
         </Swiper>
       </div>
     </div>
   );
 }
 
-function VideoCard() {
+function VideoCard({ id, src }: YoutubeEmbedVideoProps) {
   return (
-    <div className="w-full">
+    <div className="xl:w-full">
       <iframe
-        className="relative z-20"
-        id="ZR6hoLODDvI"
+        className=" relative z-20 h-[200px] w-full md:h-[260px] lg:h-[200px]"
+        id={id}
         frameBorder="0"
         allowFullScreen
         height={200}
@@ -48,7 +58,7 @@ function VideoCard() {
         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
         referrerPolicy="strict-origin-when-cross-origin"
         title="YouTube video player"
-        src="https://www.youtube.com/embed/ZR6hoLODDvI?enablejsapi=1&amp;origin=https%3A%2F%2Fsupport.fleek.xyz&amp;widgetid=2"
+        src={src}
       ></iframe>
     </div>
   );

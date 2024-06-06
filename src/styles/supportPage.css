@@ -17,10 +17,10 @@
 
 .swiper-button-prev,
 .swiper-button-next {
-  top: 35% !important;
+  top: 50% !important;
   color: white !important;
   background-color: #369eff !important;
-  padding: 50px 20px !important;
+  padding: 30px 20px !important;
   border-radius: 8px !important;
 }
 
@@ -31,4 +31,12 @@
 
 .swiper-button-disabled {
   display: none !important;
+}
+
+@media (min-width: 1280px) {
+  .swiper-button-prev,
+  .swiper-button-next {
+    top: 35% !important;
+    padding: 50px 20px !important;
+  }
 }

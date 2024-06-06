@@ -43,3 +43,19 @@ export const singleArticleCardItems = [
       'With our ready out-of-the-box templates & boilerplates, and the new Fleek CLI, deploying your first project to IPFS with becomes a lightning-fast process. Turn building apps from the group up into a three-step process: Fork, Customize, and Deploy on Fl...',
   },
 ];
+
+export const youtubeEmbedVideos = [
+  {
+    id: 'AZhvyHAoFfo',
+    src: 'https://www.youtube.com/embed/AZhvyHAoFfo?enablejsapi=1&origin=https%3A%2F%2Fsupport.fleek.xyz&widgetid=1',
+  },
+
+  {
+    id: 'ZR6hoLODDvI',
+    src: 'https://www.youtube.com/embed/ZR6hoLODDvI?enablejsapi=1&amp;origin=https%3A%2F%2Fsupport.fleek.xyz&amp;widgetid=2',
+  },
+  {
+    id: '2OzwtDH7K0A',
+    src: 'https://www.youtube.com/embed/2OzwtDH7K0A?enablejsapi=1&origin=https%3A%2F%2Fsupport.fleek.xyz&widgetid=3',
+  },
+];
