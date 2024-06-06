@@ -16,7 +16,7 @@ const GlobeWithFloatingCards: React.FC<Prop> = (props) => {
   const $isCartOpen = useStore(isOpen);
 
   const [showPlayer, setShowPlayer] = useState(false);
-  const [hoverEffect, setHoverEffect] = useState(false); // New hover state
+  const [hoverEffect, setHoverEffect] = useState(false);
 
   return (
     <Container>
