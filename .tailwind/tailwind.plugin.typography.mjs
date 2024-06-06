@@ -73,12 +73,20 @@ export default plugin(({ addComponents }) => {
       "@apply font-plex-sans text-13 font-normal uppercase leading-[150%] tracking-[0.032rem]":
         {},
     },
+    ".typo-btn-xxs": {
+      "@apply font-plex-sans text-13 font-thin leading-[150%] tracking-[0.032rem]":
+        {},
+    },
     ".typo-btn-s": {
       "@apply font-plex-sans text-13 font-normal uppercase leading-[150%] tracking-[0.096rem]":
         {},
     },
     ".typo-btn-l": {
       "@apply font-plex-sans text-16 font-medium uppercase leading-[150%] tracking-[0.192rem]":
+        {},
+    },
+    ".typo-btn-l-mid": {
+      "@apply font-plex-sans text-16 font-medium leading-[150%] tracking-[0.192rem]":
         {},
     },
  });
