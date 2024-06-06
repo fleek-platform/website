@@ -4,12 +4,16 @@ const {
   careersUrl,
   supportExternalUrl,
   reportAbuseUrl,
-  fleekNetworkWebsiteUrl,
   discordFleekCommunityUrl,
   statusURl,
 } = settings.site.resources;
 
+const {
+  fleekPlatformOrgUrl,
+} = settings.github;
+
 export default {
+  fleekPlatformOrgUrl,
   developers: [
     {
       text: 'Status',
