@@ -18,7 +18,7 @@ const allPosts: CollectionEntry<'blog'>[] = (await getCollection('blog')).sort(
 );
 ---
 
-<Layout title={settings.metadata.title}>
+<Layout title={settings.site.metadata.title}>
   <main class="container min-h-container">
     <BlogHeader title="Blog" indexName={indexNameBlog} />
     <BlogPosts allPosts={allPosts} collection={collection} />

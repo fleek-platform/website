@@ -18,7 +18,7 @@ const allPosts: CollectionEntry<'references'>[] = (
 ).sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf());
 ---
 
-<Layout title={settings.metadata.title}>
+<Layout title={settings.site.metadata.title}>
   <main class="container min-h-container">
     <BlogHeader title="References" indexName={indexNameReferences} />
     <BlogPosts allPosts={allPosts} collection={collection} />

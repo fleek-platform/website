@@ -70,9 +70,9 @@ const { title, ogMeta } = Astro.props;
       property="og:description"
       content={ogMeta?.description || settings.site.metadata.description}
     />
-    <meta property="og:image" content={ogMeta?.image} />
+    <meta property="og:image" content={ogMeta?.image || settings.site.metadata.image} />
     <!-- Twitter Meta Tags -->
-    <meta name="twitter:card" content={ogMeta?.image} />
+    <meta name="twitter:card" content={ogMeta?.image || settings.site.metadata.image} />
     <meta property="twitter:domain" content={getSiteUrl()} />
     <meta property="twitter:url" content={`${getSiteUrl()}/${ogMeta?.slug}`} />
     <meta
@@ -83,7 +83,7 @@ const { title, ogMeta } = Astro.props;
       name="twitter:description"
       content={ogMeta?.description || settings.site.metadata.description}
     />
-    <meta name="twitter:image" content={ogMeta?.image} />
+    <meta name="twitter:image" content={ogMeta?.image || settings.site.metadata.image} />
 
     <!-- Google Tag Manager -->
     <script is:inline src="/lib/gtm.js"/>
