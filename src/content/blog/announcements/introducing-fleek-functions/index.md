@@ -9,11 +9,11 @@ author: 'Fleek'
 
 We are very excited to introduce a new product line for developers: Fleek Functions
 
-Fleek Functions are lightning fast, auto-scaling edge functions built on top of Fleek Network’s onchain cloud infrastructure.
+Fleek Functions are lightning-fast, auto-scaling edge functions built on top of Fleek Network’s onchain cloud infrastructure.
 
-In many scenarios, Fleek Functions should be a more performant, lower cost, lower overhead, and a more future-proof option for developers looking to execute server-side code. This holds true even when compared to current popular serverless alternatives such as Lambda functions, due to the unique attributes of the underlying infrastructure (Fleek Network) that provides better guarantees to developers compared to traditional cloud platforms.
+The end goal is that in many scenarios, Fleek Functions should be a more performant, lower cost, lower overhead, and a more future-proof option for developers looking to execute server-side code. This should eventually hold true even when compared to current popular serverless alternatives such as Lambda functions, due to the unique attributes of the underlying infrastructure (Fleek Network) that provides better guarantees to developers compared to traditional cloud platforms.
 
-Today we are releasing the alpha version of Fleek Functions, which run on a new testnet version of Fleek Network. Until functionality is finalized further, we do not recommend using Fleek Functions in production apps due to changes that may be made during this ongoing development period.
+Today we are releasing the alpha version of Fleek Functions, which run on a new testnet version of Fleek Network. Until functionality is finalized further, we do not recommend using Fleek Functions in production apps due to changes that may be made during this ongoing development period. We have a lot of improvements planned to the entire data flow, but they require more precise engineering efforts which will take more time, so releasing this alpha version now while we are still developing to get early usage and feedback felt like the best approach to achieve the long term goals of Fleek Functions.
 
 Now let’s dive straight into everything developers should know about Fleek Functions!
 
@@ -25,17 +25,17 @@ There are a few key benefits to consider when evaluating Fleek Functions for use
 
 ![](latencygraphic.png)
 
-> Results from previous Fleek Functions early performance test. See full results [here](https://blog.fleek.network/post/fleek-network-testnet-phase-3-results/).
+_Results from previous Fleek Functions early performance test. See full results [here](https://blog.fleek.network/post/fleek-network-testnet-phase-3-results/)_
 
-**Reduced Latency**: The primary advantage of using Fleek Functions over a service you may be familiar with such as AWS’s Lambda functions is the edge runtime environment, which reduces the latency of your function calls. By running Fleek Functions on Fleek Network’s edge-optimized onchain cloud infrastructure, which consists of a large number of geo-aware, globally distributed nodes, Fleek minimizes the response time of these functions.
+**Reduced latency**: The primary advantage of using Fleek Functions over a service you may be familiar with such as AWS’s Lambda functions is the edge runtime environment, which reduces the latency of your function calls. By running Fleek Functions on Fleek Network’s edge-optimized onchain cloud infrastructure, which consists of a large number of geo-aware, globally distributed nodes, Fleek minimizes the response time of these functions.
 
-**Reduced Overhead**: Because functions are only called on an as-needed basis and there are no servers to manage, Fleek Functions require far less overhead than other self-managed servers or rentals. They allow you to focus on your code, rather than on server infrastructure management.
+**Reduced overhead**: Because functions are only called on an as-needed basis and there are no servers to manage, Fleek Functions require far less overhead than other self-managed servers or rentals. They allow you to focus on your code, rather than on server infrastructure management.
 
-**Auto-Scaling**: Users who are in need of minimal resources during low-traffic periods or far more resources during traffic spikes can use precisely the volume of resources that they require, in an auto-scaling model that is maximally cost-effective.
+**Auto-scaling**: Users who are in need of minimal resources during low-traffic periods or far more resources during traffic spikes can use precisely the volume of resources that they require, in an auto-scaling model that is maximally cost-effective.
 
-**Reduced Costs:** While pricing is still being fully finalized (and therefore Fleek Functions are free to use for now), there are strong indications that Fleek Functions will be significantly cheaper than current popular serverless alternatives such as Lambda functions and Vercel Functions. Thanks to Fleek Network, pricing is also fully transparent and almost entirely usage based, so you don’t need to deal with any of the price gouging that comes with most traditional cloud platforms.
+**Reduced costs:** While pricing is still being fully finalized (and therefore Fleek Functions are free to use for now), there are strong indications that Fleek Functions will be significantly cheaper than current popular serverless alternatives such as Lambda functions and Vercel Functions. Thanks to Fleek Network, pricing is also fully transparent and almost entirely usage based, so you don’t need to deal with any of the price gouging that comes with most traditional cloud platforms.
 
-**Self-Sovereignty**: Using Fleek Functions means you get to remain self-sovereign, due to the permissionless, censorship resistant, and onchain nature of Fleek Network. With Fleek Functions, nobody can deplatform you or censor you or tamper with your code or data. You can finally say goodbye to all that corporate cloud platform nonsense.
+**Self-sovereignty**: Using Fleek Functions means you get to remain self-sovereign, due to the permissionless, censorship resistant, and onchain nature of Fleek Network. With Fleek Functions, nobody can deplatform you or censor you or tamper with your code or data. You can finally say goodbye to all that corporate cloud platform nonsense.
 
 ---
 
@@ -47,8 +47,8 @@ Put simply, you can call Fleek Functions from the front-end of your application 
 - Make routing requests
 - Implement server-side rendering (SSR) for your entire application
 - Build use cases like Next.js hosting
-- Do image optimization and resize images
-- Use them to replace any existing serverless, edge, or cloud functions you currently use in your stack
+- Perform image optimization and resize images
+- Replace any existing serverless, edge, or cloud functions you currently use in your stack
 
 And countless other things. There isn’t much you can’t build with serverless compute frameworks these days.
 
@@ -92,18 +92,14 @@ We look forward to seeing the Fleek Functions developers create and share in the
 
 As of today, Fleek Functions will move through the following phases:
 
-- **Alpha release**: Fleek Functions can be created and managed through the Fleek CLI and SDK, but cannot be accessed through the Fleek Platform UI. They are not recommended for production-grade applications.
-- **Beta release**: Following rigorous testing, we will move Fleek Functions to a beta state. We will still advise caution when integrating Fleek Functions into production applications at this stage, but they will be nearing their production release and thus will be less likely to change or produce unexpected side effects.
+- **Alpha release**: Fleek Functions can be created and managed through the Fleek CLI and SDK, but cannot be accessed through the Fleek Platform UI. They are not recommended for production-grade applications, and performance is not fully optimized the way it will be for production release.
+- **Beta release**: Following rigorous testing and several planned performance optimizations, we will move Fleek Functions to a beta state. We will still advise caution when integrating Fleek Functions into production applications at this stage, but they will be nearing their production release and thus will be less likely to change or produce unexpected side effects.
 - **Production release**: The Fleek Platform UI will support the creation and management of Fleek Functions. Fleek Functions will leave beta and be recommended for production applications. We will begin facilitating a community-created directory of open-source Fleek Functions.
 
 Ready to get started with Fleek Functions and explore the cost and performance improvements they can enable for your application? Follow the new guide in our docs.
 
 Here is also a full list of links and resources to help you get started:
 
-Fleek Function Docs:
-
-Fleek Function Tutorial:
-
-Fleek CLI:
-
-Fleek Function Early Performance Test:
+[Fleek Functions Tutorial](/docs/CLI/Fleek-Functions)
+[Fleek Function Platform Docs](/docs/Platform/Fleek-Functions)
+[Fleek Function Early Performance Test](https://blog.fleek.network/post/fleek-network-testnet-phase-3-results/)
