@@ -8,9 +8,7 @@ const {
   statusURl,
 } = settings.site.resources;
 
-const {
-  fleekPlatformOrgUrl,
-} = settings.github;
+const { fleekPlatformOrgUrl } = settings.github;
 
 export default {
   fleekPlatformOrgUrl,
