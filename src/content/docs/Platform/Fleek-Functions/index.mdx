@@ -205,7 +205,17 @@ fleek functions deploy --name print-hello-world --path *./function.js --env VAR1
 
 ### Environment variables imported from a separate file
 
-Additionally, you can pass a `--env-file` flag to the CLI, followed by a file location relative to the current directory, in order to load environment variables from a file. This file should represent variables using a `<variable>=value` syntax or <variable> (setting the value from the local environment), and should use `#` for comments. Lines beginning with `#` are considered line comments and are ignored, whereas a `#` appearing anywhere else in a line is considered a part of the variable value. In the example below, the user's environment variables are located in an `env.list` file.
+Additionally, you can pass a `--env-file` flag to the CLI, followed by a file location relative to the current directory, in order to load environment variables from a file. This file should represent variables using a key value pair syntax.
+
+```js
+# This is a comment
+PORT=3000 # This is also a comment
+NAME="Some value"
+MULTI_LINE="THIS IS
+A MULTILINE"
+```
+
+In the example below, the user's environment variables are located in an `env.list` file.
 
 ```js
 fleek functions deploy --name print-hello-world --path *./function.js --env-file ./env.list
@@ -228,9 +238,7 @@ fleek functions deploy --name print-hello-world --path *./function.js --ipfs
 ```
 
 :::warn
-
 Making your Fleek Function publicly accessible will expose all of your code associated with the function including any environment variables, which are bundled into your code. Ensure you are not inadvertently exposing data you are interested in keeping private.
-
 :::
 
 ## Updating existing Fleek Functions
