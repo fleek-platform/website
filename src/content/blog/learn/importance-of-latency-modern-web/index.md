@@ -1,6 +1,6 @@
 ---
 title: 'Latency is King: Why Speed is Critical for Building Apps + How to Speed Up Your App'
-date: '2024-06-06 07:00:00'
+date: 2024-06-06
 desc: 'A look at the importance of Latency on the modern web and tips on how to optimize your apps speed'
 thumbnail: './latencythumb.png'
 image: './latencythumb.png'

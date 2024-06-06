@@ -1,6 +1,6 @@
 ---
 title: 'Next.js: The Default Framework for App Development — What you need to know'
-date: '2024-05-10 08:00:00'
+date: 2024-05-10
 desc: 'Learn what Next.js is, understand why it’s ideal for development, and how it enhances both performance and user experience in applications.'
 thumbnail: './nextjsbasicsthumb.png'
 image: './nextjsbasicsthumb.png'
