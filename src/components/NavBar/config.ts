@@ -159,11 +159,10 @@ export const NavBarDefault: MenuSettingsItem[] = [
         icon: '/svg/blog-navbar-icon.svg',
       },
       {
-        label: 'Support Center',
-        url: supportUrlDefault,
-        openInNewTab: true,
-        description: 'Get help',
-        icon: '/svg/community-navbar-icon.svg',
+        label: 'Guides',
+        url: '/guides',
+        description: 'Tips and tricks',
+        icon: '/svg/guides-navbar-icon.svg',
       },
       // {
       //   label: 'Careers',
@@ -178,10 +177,11 @@ export const NavBarDefault: MenuSettingsItem[] = [
         icon: '/svg/media-navbar-icon.svg',
       },
       {
-        label: 'Guides',
-        url: '/guides',
-        description: 'Tips and tricks',
-        icon: '/svg/guides-navbar-icon.svg',
+        label: 'Support Center',
+        url: supportUrlDefault,
+        openInNewTab: true,
+        description: 'Get help',
+        icon: '/svg/community-navbar-icon.svg',
       },
       // {
       //   label: 'Community',
