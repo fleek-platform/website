@@ -21,19 +21,30 @@ These functions are often a more cost-effective, performant and scalable option 
 
 ## Why should I use Fleek Functions in my project?
 
-There are _three_ key benefits to consider when evaluating Fleek Functions for use within your application:
+There are a few key benefits to consider when evaluating Fleek Functions for use within your application:
 
-1. **Reduced latency:** The primary advantage of using Fleek Functions over a service you may be familiar with such as AWS’s Lambda functions is its decentralized edge runtime environment, which reduces the latency of your function calls. By running Fleek Functions over an edge-optimized Fleek Network that leverages a large number of geo-located nodes, Fleek minimizes the response time of these functions. And, as more nodes join the Fleek Network, the latency of Fleek Functions will decrease even further.
-2. **Reduced overhead:** Because functions are only called on an as-needed basis and there are no servers to manage, Fleek Functions require far less overhead than other self-managed servers or rentals. They allow you to focus on your code, rather than on server infrastructure management.
-3. **They auto-scale up and 'to zero':** Users who are in need of minimal resources during low-traffic periods or far more resources during traffic spikes can use precisely the volume of resources that they require, in an auto-scaling model that is maximally cost-effective.
+**Reduced latency**: The primary advantage of using Fleek Functions over a service you may be familiar with such as AWS’s Lambda functions is the edge runtime environment, which reduces the latency of your function calls. By running Fleek Functions on Fleek Network’s edge-optimized onchain cloud infrastructure, which consists of a large number of geo-aware, globally distributed nodes, Fleek minimizes the response time of these functions.
+
+**Reduced overhead**: Because functions are only called on an as-needed basis and there are no servers to manage, Fleek Functions require far less overhead than other self-managed servers or rentals. They allow you to focus on your code, rather than on server infrastructure management.
+
+**Auto-scaling**: Users who are in need of minimal resources during low-traffic periods or far more resources during traffic spikes can use precisely the volume of resources that they require, in an auto-scaling model that is maximally cost-effective.
+
+**Reduced costs**: While pricing is still being fully finalized (and therefore Fleek Functions are free to use for now), there are strong indications that Fleek Functions will be significantly cheaper than current popular serverless alternatives such as Lambda functions and Vercel Functions. Thanks to Fleek Network, pricing is also fully transparent and almost entirely usage based, so you don’t need to deal with any of the price gouging that comes with most traditional cloud platforms.
+
+**Self-sovereignty**: Using Fleek Functions means you get to remain self-sovereign, due to the permissionless, censorship resistant, and onchain nature of Fleek Network. With Fleek Functions, nobody can deplatform you or censor you or tamper with your code or data. You can finally say goodbye to all that corporate cloud platform nonsense.
 
 ## What can I do with Fleek Functions?
 
 Put simply, you can call Fleek Functions from the front-end of your application just as you would invoke any code that returns a response from a server. Among other things, you can use Fleek Functions to:
 
-- Implement server-side rendering (SSR) for your entire application
 - Call APIs to retrieve or populate data on the user interface
 - Make routing requests
+- Implement server-side rendering (SSR) for your entire application
+- Build use cases like Next.js hosting
+- Perform image optimization and resize images
+- Replace any existing serverless, edge, or cloud functions you currently use in your stack
+
+And countless other things. There isn’t much you can’t build with serverless compute frameworks these days.
 
 ## Do I need to use Fleek Functions for my Fleek project, or is Fleek able to support dynamic sites that do not use Fleek Functions?
 
