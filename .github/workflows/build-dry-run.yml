@@ -6,7 +6,7 @@ on:
     branches: [ develop ]
 
 jobs:
-  build:
+  build-dry-run:
     runs-on: ubuntu-latest
     env:
       PRIVATE_MEILISEARCH_DOCUMENTS_ADMIN_API_KEY: dry.run
