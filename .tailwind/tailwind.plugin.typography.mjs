@@ -66,7 +66,7 @@ export default plugin(({ addComponents }) => {
         {},
     },
     ".typo-btn-cap": {
-      "@apply font-plex-sans text-16 font-medium capitalize leading-[150%] tracking-[0.09rem]":
+      "@apply font-plex-sans text-16 font-normal capitalize leading-[150%] tracking-[0.0rem]":
         {},
     },
     ".typo-btn-xs": {
