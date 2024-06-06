@@ -36,7 +36,7 @@ export const PricingInfo: Props[] = [
   },
   {
     title: 'Enterprise Plan',
-    description: "Have a big project or custom needs? We've got you.",
+    description: "Have a big project or custom needs? We\'ve got you.",
     cost: 'Custom ',
     features: [
       'Everything in Pro Plan',
