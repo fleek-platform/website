@@ -33,7 +33,7 @@ const Announcement: React.FC = () => {
             <Text
               as="p"
               className="hidden text-center text-gray-dark-12 lg:block"
-              style="m"
+              style="m-mid"
             >
               {announcement}
             </Text>
