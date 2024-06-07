@@ -22,6 +22,7 @@ This repository contains the source code and assets for the Fleek.xyz website, w
     - [Blog](#-blog)
         - [New post](#new-post)
         - [Create a Pull request](#-create-a-pull-request)
+        - [Release to production](#release-to-production)
     - [Docs](#-docs)
         - [Sidebar menu item ordering](#-sidebar-menu-item-ordering)
         - [Override category title](#-override-category-title)
@@ -401,6 +402,18 @@ Press the "Create pull request" and fill up the following fields by providing a 
 To complete select "Create pull request".
 
 ![Pull request form](public/images/repo/pull-request-form.png?202404161849)
+
+## Release to Production
+
+To release to Production you have to create a new PR, name it something meaningfull such as "chore/my-release-day" and target the branch "main".
+
+1) Visit [https://github.com/fleek-platform/website/pulls](https://github.com/fleek-platform/website/pulls)
+2) Open "New pull request"
+3) Name the PR in a meaningfull manner, e.g. don't create a PR develop -> main, you should chore/my-release-day -> main
+
+Make sure that all checkups are green!
+
+Once approved and merged into "main", it should be deployed after successfull build and deploy.
 
 ## 🧐 Spell checker (Grammar)
 

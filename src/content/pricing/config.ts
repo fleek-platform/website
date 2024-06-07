@@ -23,7 +23,7 @@ export const PricingInfo: Props[] = [
     cost: 19,
     features: [
       'Everything in Free Plan',
-      'Additional build tiers and site analytics',
+      'Additional build tiers, site analytics',
       'Fleek domains',
       'Intermediate support',
     ],
