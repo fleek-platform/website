@@ -11,7 +11,7 @@ function CategoryCards() {
     <div className="mx-auto   w-[85%] max-w-[768px] lg:w-full">
       <ul className="flex w-full flex-col gap-[1.5rem] py-[5rem] md:flex-row lg:gap-[0]">
         {categoryCardItems.map((item) => (
-          <li className="w-full">
+          <li key={item.id} className="w-full">
             <CategoryCard {...item} />
           </li>
         ))}

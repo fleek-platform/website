@@ -17,14 +17,18 @@ function FeaturedArticles() {
       </div>
       <div>
         {singleArticleCardItems.map((cardItem) => (
-          <SingleArticleCard {...cardItem} />
+          <SingleArticleCard key={cardItem.id} {...cardItem} />
         ))}
       </div>
     </div>
   );
 }
 
-function SingleArticleCard({ title, description }: SingleArticleCardProps) {
+function SingleArticleCard({
+  title,
+  description,
+  link,
+}: SingleArticleCardProps) {
   return (
     <article className="mb-[12px]">
       <div className="flex gap-[7px] xl:gap-[10px]">
@@ -36,7 +40,7 @@ function SingleArticleCard({ title, description }: SingleArticleCardProps) {
 
         <div className="flex-1">
           <a
-            href="#"
+            href={link || '#'}
             className="text-[1.3rem] font-semibold text-[#9BA1A6] hover:text-[#2294ff] hover:underline xl:text-[1.5rem]"
           >
             {title}

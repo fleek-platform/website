@@ -35,7 +35,7 @@ function UsefulVideos() {
           }}
         >
           {youtubeEmbedVideos.map((youtubeVideo) => (
-            <SwiperSlide>
+            <SwiperSlide key={youtubeVideo.id}>
               <VideoCard {...youtubeVideo} />
             </SwiperSlide>
           ))}
@@ -51,7 +51,6 @@ function VideoCard({ id, src }: YoutubeEmbedVideoProps) {
       <iframe
         className=" relative z-20 h-[200px] w-full md:h-[260px] lg:h-[200px]"
         id={id}
-        frameBorder="0"
         allowFullScreen
         height={200}
         width={350}

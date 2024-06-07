@@ -17,6 +17,8 @@ type AllPosts = {
     category: string;
   };
 };
+
+const excludeLeadingSlash = ['troubleshooting'];
 ---
 
 <div
@@ -24,7 +26,9 @@ type AllPosts = {
 >
   {
     allPosts.map((post: AllPosts) => (
-      <a href={`/${collection}/${post.slug}`}>
+      <a
+        href={`${excludeLeadingSlash.includes(collection) ? '' : '/'}${collection}/${post.slug}`}
+      >
         <article class="h-full cursor-pointer overflow-hidden rounded-8 border border-gray-dark-7 bg-gray-dark-2 shadow transition hover:border-gray-dark-8">
           {post.data?.image && (
             <Image
