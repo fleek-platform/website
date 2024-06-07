@@ -4,7 +4,7 @@ import Text from '@components/Text';
 import Marquee from 'react-fast-marquee';
 import settings from '@base/settings.json';
 
-const announcement = `⚡ ${settings.site.annoucement.message} ⚡`;
+const announcement = `⚡ ${settings.site.annoucement.message} ⚡`; //character limit: 130
 
 const Announcement: React.FC = () => {
   const [mount, setMount] = useState(false);
