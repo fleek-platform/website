@@ -20,14 +20,14 @@ export default {
       rel: 'noopener noreferrer',
     },
     {
-      text: 'Github',
-      url: 'https://github.com/fleek-platform',
+      text: 'Changelog',
+      url: '/blog/changelog',
       target: '_blank',
       rel: 'noopener noreferrer',
     },
     {
-      text: 'Changelog',
-      url: '/blog/changelog',
+      text: 'Github',
+      url: 'https://github.com/fleek-platform',
       target: '_blank',
       rel: 'noopener noreferrer',
     },
@@ -38,7 +38,21 @@ export default {
       rel: 'noopener noreferrer',
     },
   ],
-  legal: [
+  company: [
+    {
+      text: 'Blog',
+      url: '/blog',
+    },
+    {
+      text: 'Pricing',
+      url: 'https://wellfound.com/company/fleekhq/',
+      target: '_blank',
+      rel: 'noopener noreferrer',
+    },
+    {
+      text: 'Careers',
+      url: '/pricing',
+    },
     {
       text: 'Terms of Service',
       url: '/legal/terms-of-service',
@@ -46,12 +60,6 @@ export default {
     {
       text: 'Privacy Policies',
       url: '/legal/privacy-policy',
-    },
-    {
-      text: 'Report Abuse',
-      url: reportAbuseUrl,
-      target: '_blank',
-      rel: 'noopener noreferrer',
     },
     {
       text: 'Contact Us',
@@ -82,11 +90,7 @@ export default {
   ],
   resources: [
     {
-      text: 'Blog',
-      url: '/blog',
-    },
-    {
-      text: 'Docs',
+      text: 'Documentation',
       url: '/docs',
     },
     {
@@ -96,8 +100,20 @@ export default {
       rel: 'noopener noreferrer',
     },
     {
-      text: 'Careers',
-      url: careersUrl,
+      text: 'Guides',
+      url: '/guides',
+    },
+    {
+      text: 'Support',
+      url: 'https://support.fleek.xyz/hc/en-us',
+      target: '_blank',
+      rel: 'noopener noreferrer',
+    },
+    {
+      text: 'Report Abuse',
+      url: 'https://support.fleek.xyz/hc/en-us/requests/new?ticket_form_id=16807535390093',
+      target: '_blank',
+      rel: 'noopener noreferrer',
     },
   ],
 };
