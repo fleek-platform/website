@@ -4,6 +4,12 @@ on:
   workflow_dispatch:
   push:
     branches: [ develop ]
+  pull_request_target:
+    types:
+      - opened
+      - reopened
+      - edited
+      - synchronize
 
 jobs:
   build-dry-run:
