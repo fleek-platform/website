@@ -6,12 +6,20 @@ import { customFilterByDirectoryName } from '@utils/menu';
 
 const ROOT = 'all';
 const { title, indexName, category } = Astro.props;
+
 const categories = await getPathSubDirsSorted({
-  path: './src/content/blog',
+  path: `./src/content/${title.toLowerCase()}`,
   extend: [ROOT],
 });
 
-const isBlogRoot = Astro.url.pathname.startsWith('/blog');
+const lowerTitle = title.toLowerCase();
+const categoryRequiredPages = ['blog', 'troubleshooting', 'billing'];
+const isSupportOrBlogRoot =
+  categoryRequiredPages.includes(lowerTitle) &&
+  Astro.url.pathname.includes(`/${lowerTitle}`);
+
+const categoryBaseLink =
+  lowerTitle === 'blog' ? `/${lowerTitle}` : `/support/${lowerTitle}`;
 ---
 
 <div
@@ -47,12 +55,12 @@ const isBlogRoot = Astro.url.pathname.startsWith('/blog');
           class="absolute top-50 block hidden rounded-8 bg-ui-fleek-black p-20 px-10 group-hover:block"
         >
           {
-            isBlogRoot &&
+            isSupportOrBlogRoot &&
               categories.map((catName) => (
                 <li>
                   <a
                     class="block rounded-8 bg-ui-fleek-black px-16 py-8 font-plex-sans text-16 font-light capitalize transition duration-200 ease-in-out hover:bg-ui-mid-grey hover:text-ui-fleek-black"
-                    href={`/blog/${catName !== ROOT ? catName : ''}`}
+                    href={`${categoryBaseLink}/${catName !== ROOT ? catName : ''}`}
                   >
                     {catName}
                   </a>
@@ -63,7 +71,7 @@ const isBlogRoot = Astro.url.pathname.startsWith('/blog');
       </div>
       <div class="hidden gap-10 md:flex">
         {
-          isBlogRoot &&
+          isSupportOrBlogRoot &&
             categories.map((catName) => (
               <a
                 class={clsx(
@@ -71,7 +79,7 @@ const isBlogRoot = Astro.url.pathname.startsWith('/blog');
                   (catName === category || (catName == ROOT && !category)) &&
                     'bg-yellow-dark-4 text-yellow',
                 )}
-                href={`/blog/${catName !== ROOT ? catName : ''}`}
+                href={`${categoryBaseLink}/${catName !== ROOT ? catName : ''}`}
               >
                 {customFilterByDirectoryName({
                   name: catName,

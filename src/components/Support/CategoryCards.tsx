@@ -24,6 +24,7 @@ function CategoryCard({ link, image, title }: CategoryCardsProps) {
   return (
     <a
       href={link}
+      target="_blank"
       className="block h-full w-full rounded-[8px] border-[1px] border-[#313538] py-[17px] transition-all duration-[150ms] ease-out hover:-translate-y-[1rem] hover:border-white md:w-[85%]"
     >
       <div className="flex flex-col items-center gap-[6px]">

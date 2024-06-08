@@ -10,10 +10,10 @@ import settings from '@base/settings.json';
 import type { CollectionEntry } from 'astro:content';
 
 export async function getStaticPaths() {
-  const troubleshootingCats = await listSubDirectories({
-    path: './src/content/troubleshooting',
+  const billingCats = await listSubDirectories({
+    path: './src/content/billing',
   });
-  const params = troubleshootingCats.map((category) => ({
+  const params = billingCats.map((category) => ({
     params: {
       category,
     },
@@ -22,28 +22,24 @@ export async function getStaticPaths() {
   return [...params];
 }
 
-const indexNameTroubleshooting = import.meta.env
-  .PUBLIC_MEILISEARCH_INDEX_SUPPORT;
+const indexNameBilling = import.meta.env.PUBLIC_MEILISEARCH_INDEX_SUPPORT;
 
 const { category } = Astro.params;
 
-const collection = 'troubleshooting';
+const collection = 'billing';
 
 // TODO: load title from settings
-const pageTitle = 'Troubleshooting';
-const allPosts: CollectionEntry<'troubleshooting'>[] = (
-  await getCollection(
-    'troubleshooting',
-    ({ slug }) => slug.split('/')[0] === category,
-  )
+const pageTitle = 'Billing';
+const allPosts: CollectionEntry<'billing'>[] = (
+  await getCollection('billing', ({ slug }) => slug.split('/')[0] === category)
 ).sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf());
 ---
 
 <Layout title={settings.site.metadata.title}>
   <main class="container min-h-container">
     <BlogHeader
-      title="Troubleshooting"
-      indexName={indexNameTroubleshooting}
+      title="Billing"
+      indexName={indexNameBilling}
       category={category}
     />
     <BlogPosts allPosts={allPosts} collection={collection} />

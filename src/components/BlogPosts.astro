@@ -18,7 +18,7 @@ type AllPosts = {
   };
 };
 
-const excludeLeadingSlash = ['troubleshooting'];
+const supportLinks = ['troubleshooting', 'billing'];
 ---
 
 <div
@@ -27,7 +27,7 @@ const excludeLeadingSlash = ['troubleshooting'];
   {
     allPosts.map((post: AllPosts) => (
       <a
-        href={`${excludeLeadingSlash.includes(collection) ? '' : '/'}${collection}/${post.slug}`}
+        href={`${supportLinks.includes(collection) ? '/support/' : '/'}${collection}/${post.slug}`}
       >
         <article class="h-full cursor-pointer overflow-hidden rounded-8 border border-gray-dark-7 bg-gray-dark-2 shadow transition hover:border-gray-dark-8">
           {post.data?.image && (

@@ -1,0 +1,26 @@
+---
+import Layout from '@layouts/BlogPage.astro';
+import { getCollection } from 'astro:content';
+import BlogPosts from '@components/BlogPosts.astro';
+import BlogHeader from '@components/BlogHeader.astro';
+import settings from '@base/settings.json';
+
+import type { CollectionEntry } from 'astro:content';
+
+const indexNameBlog = import.meta.env.PUBLIC_MEILISEARCH_INDEX_SUPPORT;
+
+const collection = 'billing';
+
+// TODO: load title from settings
+const pageTitle = 'billing';
+const allPosts: CollectionEntry<'billing'>[] = (
+  await getCollection('billing')
+).sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf());
+---
+
+<Layout title={settings.site.metadata.title}>
+  <main class="container min-h-container">
+    <BlogHeader title="Billing" indexName={indexNameBlog} />
+    <BlogPosts allPosts={allPosts} collection={collection} />
+  </main>
+</Layout>
