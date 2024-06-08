@@ -101,7 +101,7 @@ const ImpressUsers: React.FC<Props & OptionalProps> = ({ rounded }) => {
             </h1>
 
             <p className="typo-m text-center text-gray-dark-11 lg:typo-l lg:text-start">
-              Your app needs to load fast, otherwise you'll lose customers.
+              Your app needs to load fast, otherwise you'll <a href="https://fleek.xyz/blog/learn/importance-of-latency-modern-web/">lose customers</a>.
               Fleek runs your app in 100+ edge locations to ensure fast loading
               worldwide.
             </p>
