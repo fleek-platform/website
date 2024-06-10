@@ -38,6 +38,8 @@ jobs:
               output=$(hunspell -l -d en_US -p .github/actions/spell-checker/ignore_words.txt "$normalizedFile")
               typos_count=$(echo "$output" | wc -l)
 
+              rm "$normalizedFile"
+
               if [[ -n "$output" ]]; then
                 echo "🤓 Found the following typos in $file"
                 echo
