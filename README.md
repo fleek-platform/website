@@ -727,9 +727,9 @@ Example usage:
 
 ## Custom data
 
-Custom data is available by querying static data that is generated on build time. The data is provided by an integration process, placed in as an integration hook in the `astro.config.mjs`. These integrations are custom functions (hooks) that are declared in the `/integrations` directory.
+Custom data is available as static data. The data is provided by an integration process, placed in as an integration hook in the main configuration file. These integrations are custom functions (hooks) that are declared in the `/integrations` directory.
 
-The custom data is static, as the project is fully static (it means that the data is computed ahead of time and not dynamically on runtime) can be utilized by external applications, such as the Fleek Platform application dashboard that gets the latest blog posts.
+Note that the custom data is static, as the project is fully static (it means that the data is computed ahead of time and not dynamically on runtime), but can be utilized by external applications as any other endpoint. For example, the Fleek Platform application dashboard requires the latest blog posts data.
 
 ### Get latest posts
 
