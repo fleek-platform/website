@@ -28,8 +28,8 @@ interface ParsedMarkdown {
   };
 }
 
-const sortByDateDesc = (dataObjects: BlogPost[]): BlogPost[] => {
-  return dataObjects.sort((a, b) => {
+const sortByDateDesc = (posts: BlogPost[]): BlogPost[] => {
+  return posts.sort((a, b) => {
     const timestampA = new Date(a.date).getTime();
     const timestampB = new Date(b.date).getTime();
     return timestampB > timestampA
