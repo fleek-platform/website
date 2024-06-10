@@ -36,6 +36,7 @@ envvars
 ethereum
 eu
 fleek
+fleek's
 fleekchangelog01mar11
 fleekreleasenotes06
 fleekxyz
