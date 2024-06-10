@@ -105,9 +105,9 @@ const ImpressUsers: React.FC<Props & OptionalProps> = ({ rounded }) => {
               Your app needs to load fast, otherwise you'll{' '}
               <a
                 href="https://fleek.xyz/blog/learn/importance-of-latency-modern-web/"
-                className="decoration-yellow hover:underline"
+                className=" text-yellow"
               >
-                lose customers <GrShare className="mb-5 inline text-yellow" />.
+                lose customers <GrShare className="mb-5 inline " />.
               </a>{' '}
               <br />
               Fleek runs your app in 100+ edge locations to ensure fast loading
