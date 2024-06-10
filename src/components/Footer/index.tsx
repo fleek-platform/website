@@ -7,7 +7,7 @@ import Link, { Target } from '@components/Link';
 import config from './config';
 import { FaXTwitter } from 'react-icons/fa6';
 
-const { product, developers, legal, resources, fleekPlatformOrgUrl } = config;
+const { product, developers, company, resources, fleekPlatformOrgUrl } = config;
 
 const Footer = () => {
   return (
@@ -108,9 +108,9 @@ const Footer = () => {
                 </ul>
               </div>
               <div className="col-span-6 flex flex-col gap-12 md:col-span-3 md:gap-16">
-                <Text style="caption-m">Legal</Text>
+                <Text style="caption-m">Company</Text>
                 <ul className="flex flex-col gap-10 md:gap-8">
-                  {legal.map((item, index) => (
+                  {company.map((item, index) => (
                     <li className="flex justify-start" key={index}>
                       <Link
                         href={item.url}
