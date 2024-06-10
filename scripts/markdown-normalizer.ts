@@ -19,7 +19,7 @@ const re2 = /```[\s\S]*?```/g;
 const re3 = /\[.*?\]\(.*?\)/g;
 
 try {
-  let content = fileContent
+  const content = fileContent
     .replace(re1, '')
     .replace(re2, '')
     .replace(re3, '')
