@@ -36,6 +36,8 @@ This repository contains the source code and assets for the Fleek.xyz website, w
     - [Images (optimization)](#-images-optimization)
 - [Migration](#-migration)
     - [Migrate Gatsby content](#migrate-gatsby-content)
+- [Custom data](#custom-data)
+    - [Get latest posts](#get-latest-posts)
 
 # Setup
 
@@ -722,3 +724,44 @@ Example usage:
   ../gatsby-blog/src/posts/post \
   ./src/content/blog
 ```
+
+## Custom data
+
+Custom data is available by querying static data generated during build time. The data is provided by an integration process, placed in as an integration hook in the `astro.config.mjs`.
+
+The custom data can be utilized by external applications, such as the Fleek Platform application dashboard that gets the latest blog posts.
+
+### Get latest posts
+
+Make a HTTP GET request to the path `/custom-data/latestBlogPosts.json` for the target environment, e.g. production as `https://fleek.xyz`.
+
+In the example we make a HTTP GET request and [parse](https://developer.mozilla.org/en-US/docs/Web/API/Response/json) the body text as JSON data.
+
+```js
+const res = await fetch('https://fleek.xyz/custom-data/latestBlogPosts.json');
+const json = await res.json();
+
+console.log(json);
+```
+
+You'd get a list to iterate over as the following:
+
+```sh
+{
+  data: [
+    {
+      date: "1972-01-01",
+      path: "/blog/my-category/my-blog-post-1",
+      title: "My title 1"
+    },
+    {
+      date: "1972-01-02",
+      path: "/blog/my-category/my-blog-post-2",
+      title: "My title 2"
+    },
+    ...
+  ]
+}
+```
+
+Everytime a new release build is published, the static JSON data should be updated.
