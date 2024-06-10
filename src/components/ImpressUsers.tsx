@@ -107,9 +107,9 @@ const ImpressUsers: React.FC<Props & OptionalProps> = ({ rounded }) => {
                 href="https://fleek.xyz/blog/learn/importance-of-latency-modern-web/"
                 className=" text-yellow"
               >
-                lose customers <GrShare className="mb-5 inline " />.
-              </a>{' '}
-              <br />
+                lose customers <GrShare className="mb-5 inline " />
+              </a>
+              . <br />
               Fleek runs your app in 100+ edge locations to ensure fast loading
               worldwide.
             </p>
