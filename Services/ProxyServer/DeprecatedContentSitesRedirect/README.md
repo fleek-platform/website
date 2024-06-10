@@ -45,14 +45,14 @@ apt install certbot python3-certbot-nginx
 5) Generate the certificates
 
 Generate the certificates by following the prompts to complete the SSL setup use the team admin email address during registration.
+
+Run the command for each domain.
   
 ```sh
 certbot certonly \
   --nginx \
   --standalone \
-  -d blog.fleek.xyz \
-  -d docs.fleek.xyz \
-  -d <TEST-URL>
+  -d <DOMAIN>
 ```
 
 Expect a response similar to the following for each domain blog and docs.
@@ -89,6 +89,67 @@ nginx -t
 
 ```sh
 systemctl reload nginx
+```
+
+10) Verify
+
+Run the openssl command for the domain.
+
+```sh
+openssl s_client -connect <DOMAIN>:443 -servername <DOMAIN>
+```
+
+You should find.
+
+```sh
+-----END CERTIFICATE-----
+subject=CN=<DOMAIN>
+issuer=C=US, O=Let's Encrypt, CN=R11
+---
+```
+
+## Enable njs module
+
+The original URL are case-sensitive and we'd like to normalize it as lowercase. For that we can use the njs module to allow us to compute with javascript.
+
+Edit the nginx.conf file and load the module outside the http block.
+
+```sh
+load_module modules/ngx_http_js_module.so;
+
+http {
+  ...
+}
+```
+
+Include the path where the njs script is going to be located, import the script and set the utility variable.
+
+```sh
+js_path "/etc/nginx/njs/";
+js_import utils from lowercase.js;
+js_set $lc utils.lowercase;
+```
+
+Create the directory njs
+
+```sh
+mkdir /etc/nginx/njs
+```
+
+Create the script file
+
+```sh
+touch /etc/nginx/njs/lowercase.js
+```
+
+Open the file and put the content
+
+```sh
+function lowercase(r) {
+    var originalValue = r.uri.split(/^\/(docs|post)(.*)$/)[2];
+    var lowercased = originalValue.toLowerCase();
+    return lowercased;
+}
 ```
 
 ## Usage
