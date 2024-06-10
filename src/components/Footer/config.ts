@@ -4,8 +4,10 @@ const {
   careersUrl,
   supportExternalUrl,
   reportAbuseUrl,
-  discordFleekCommunityUrl,
   statusURl,
+  mediaKit,
+  fleekNetworkWebsiteUrl,
+  templatesUrl,
 } = settings.site.resources;
 
 const { fleekPlatformOrgUrl } = settings.github;
@@ -15,7 +17,7 @@ export default {
   developers: [
     {
       text: 'Fleek Network',
-      url: 'https://fleek.network/',
+      url: fleekNetworkWebsiteUrl,
       target: '_blank',
       rel: 'noopener noreferrer',
     },
@@ -27,7 +29,7 @@ export default {
     },
     {
       text: 'Github',
-      url: 'https://github.com/fleek-platform',
+      url: fleekPlatformOrgUrl,
       target: '_blank',
       rel: 'noopener noreferrer',
     },
@@ -45,13 +47,13 @@ export default {
     },
     {
       text: 'Pricing',
-      url: 'https://wellfound.com/company/fleekhq/',
-      target: '_blank',
-      rel: 'noopener noreferrer',
+      url: '/pricing',
     },
     {
       text: 'Careers',
-      url: '/pricing',
+      url: careersUrl,
+      target: '_blank',
+      rel: 'noopener noreferrer',
     },
     {
       text: 'Terms of Service',
@@ -83,7 +85,7 @@ export default {
     },
     {
       text: 'Templates',
-      url: 'https://app.fleek.xyz/templates',
+      url: templatesUrl,
       target: '_blank',
       rel: 'noopener noreferrer',
     },
@@ -95,7 +97,7 @@ export default {
     },
     {
       text: 'Media Kit',
-      url: 'https://fleek.notion.site/Fleek-Brand-Kit-9a2bcf7eb40740a9b7e951fc951b478a',
+      url: mediaKit,
       target: '_blank',
       rel: 'noopener noreferrer',
     },
@@ -105,13 +107,13 @@ export default {
     },
     {
       text: 'Support',
-      url: 'https://support.fleek.xyz/hc/en-us',
+      url: supportExternalUrl,
       target: '_blank',
       rel: 'noopener noreferrer',
     },
     {
       text: 'Report Abuse',
-      url: 'https://support.fleek.xyz/hc/en-us/requests/new?ticket_form_id=16807535390093',
+      url: reportAbuseUrl,
       target: '_blank',
       rel: 'noopener noreferrer',
     },
