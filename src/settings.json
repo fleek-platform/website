@@ -19,11 +19,13 @@
       "reportAbuseUrl": "https://support.fleek.xyz/hc/en-us/requests/new?ticket_form_id=16807535390093",
       "fleekNetworkWebsiteUrl": "https://fleek.network",
       "discordFleekCommunityUrl": "https://discord.gg/fleek",
-      "supportExternalUrl": "https://support.fleek.xyz",
+      "supportExternalUrl": "https://support.fleek.xyz/hc/en-us",
       "arweaveUrl": "https://www.arweave.org",
       "ipfsUrl": "https://ipfs.tech/",
       "statusURl": "https://status.fleek.xyz/",
-      "fleekTwitterUrl": "https://twitter.com/fleek"
+      "fleekTwitterUrl": "https://twitter.com/fleek",
+      "mediaKit": "https://fleek.notion.site/Fleek-Brand-Kit-9a2bcf7eb40740a9b7e951fc951b478a",
+      "templatesUrl": "https://app.fleek.xyz/templates"
     },
     "annoucement": {
       "message": "Introducing Fleek Functions: lightning-fast edge functions built on Fleek Network’s onchain cloud infrastructure. Read more here.",
