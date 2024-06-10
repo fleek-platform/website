@@ -14,8 +14,6 @@ export async function getStaticPaths() {
   }));
 }
 
-const back = () => {};
-
 const { entry } = Astro.props;
 const { Content } = await entry.render();
 const { collection, id, slug } = entry;
@@ -33,7 +31,7 @@ const githubEditUrlPathname = generateGitHubEditLink({
   slug={slug}
 >
   <article class="blog">
-    <div class="mb-10 w-fit" onclick="history.back()">
+    <div class="mb-10 w-fit" id="goBackButton">
       <ButtonGray className="flex items-center justify-center gap-12 px-5">
         <div>Go Back</div>
       </ButtonGray>
@@ -50,3 +48,13 @@ const githubEditUrlPathname = generateGitHubEditLink({
     <GithubEditLink pathname={githubEditUrlPathname} />
   </article>
 </BlogPageLayout>
+
+<script>
+  document.getElementById('goBackButton')?.addEventListener('click', () => {
+    if (history.length > 2) {
+      history.back();
+    } else {
+      window.location.href = '/blog';
+    }
+  });
+</script>
