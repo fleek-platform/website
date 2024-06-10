@@ -31,7 +31,11 @@ jobs:
             echo
             
             for file in $diff; do
-              output=$(hunspell -l -d en_US -p .github/actions/spell-checker/ignore_words.txt "$file")
+              normalizedFile=$(mktemp)
+
+              ./scripts/markdown-normalizer.ts "$file" > "$normalizedFile"
+            
+              output=$(hunspell -l -d en_US -p .github/actions/spell-checker/ignore_words.txt "$normalizedFile")
               typos_count=$(echo "$output" | wc -l)
 
               if [[ -n "$output" ]]; then
