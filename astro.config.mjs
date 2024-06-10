@@ -7,6 +7,7 @@ import sitemap from "@astrojs/sitemap";
 import settings from "./src/settings.json";
 import { imagetools } from 'vite-imagetools';
 import mdx from "@astrojs/mdx";
+
 const configRemarkCalloutDirectives = {
   callouts: {
     note: {
@@ -32,8 +33,10 @@ const configRemarkCalloutDirectives = {
   }
 };
 
-// Environment mode
-const env = import.meta.env.MODE || 'staging';
+// Environment
+const env = import.meta.env.PROD
+  ? 'production'
+  : 'staging';
 
 // https://astro.build/config
 export default defineConfig({
