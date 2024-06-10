@@ -44,12 +44,19 @@ export default defineConfig({
   vite: {
     plugins: [imagetools()]
   },
-  integrations: [tailwind({
-    nesting: true,
-    applyBaseStyles: false
-  }), react({
-    experimentalReactChildren: true
-  }), sitemap(), mdx()],
+  integrations: [
+    tailwind({
+      nesting: true,
+      applyBaseStyles: false
+    }),
+    react({
+      experimentalReactChildren: true
+    }),
+    sitemap({
+      lastmod: new Date(),
+    }),
+    mdx(),
+  ],
   markdown: {
     remarkPlugins: [remarkDirective, [remarkCalloutDirectives, configRemarkCalloutDirectives]],
     shikiConfig: {
