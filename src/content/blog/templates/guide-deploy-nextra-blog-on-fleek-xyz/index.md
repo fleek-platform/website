@@ -6,7 +6,7 @@ thumbnail: './nextra-blog-2.png'
 image: './nextra-blog-2.png'
 ---
 
-Hi everyone! [Juan](https://twitter.com/juanbeencoding) from DevRel here, presenting one of our example apps for deploying onto Fleek with its [CLI Beta](https://fleek.xyz/docs/). I'll be showcasing a blog template built on Nextra, which you can also find on our public [Templates repository](https://github.com/fleekxyz/templates).
+Hi everyone! [Juan](https://twitter.com/juanbeencoding) from DevRel here, presenting one of our example apps for deploying onto Fleek with its [CLI Beta](https://fleek.xyz/docs/cli). I'll be showcasing a blog template built on Nextra, which you can also find on our public [Fleek Tools collection](https://github.com/fleek-tools).
 
 **What's this template?** A ready to go static blog, which you can use as the home for your articles, and guides. Here's the [repository](https://github.com/fleekxyz/fleek-demos-blog/tree/e801af0673254a10fd9f04d2e8a75db4f259e7d4) for it.
 
