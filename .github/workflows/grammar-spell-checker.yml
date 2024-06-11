@@ -48,7 +48,7 @@ jobs:
             
               hunspell -l -d en_US -p "$ignore_words_path" "$normalizedFile" > "$potentional_mispellings_path"
 
-              output=$(grep -v -f "$ignore_words_path" "$potentional_mispellings_path" | awk NF)
+              output=$(grep -v -f "$ignore_words_path" "$potentional_mispellings_path" | awk NF | sed 's/\n$//')
               typos_count=$(echo "$output" | wc -w)
 
               rm "$normalizedFile"
