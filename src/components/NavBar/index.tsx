@@ -13,7 +13,7 @@ import { FaDiscord } from 'react-icons/fa';
 
 import { isActivePath } from '@utils/url';
 
-import { NavBarDefault, NavBarDocs } from './config';
+import { NavBarDefault } from './config';
 
 import { RxCaretDown } from 'react-icons/rx';
 
@@ -55,7 +55,7 @@ const NavSubMenuNavCol = ({
           <img src={icon} />
         </div>
         <div>
-          <div className=" typo-m-strong text-gray-dark-12">{label}</div>
+          <div className="typo-m-strong text-gray-dark-12">{label}</div>
           <div className="typo-s text-gray-dark-11">{description}</div>
         </div>
       </div>
@@ -63,18 +63,9 @@ const NavSubMenuNavCol = ({
   );
 };
 
-const NavSubMenuCta = ({ label, url }: NavSubMenuCtaProps) => (
-  <a href={url} className="nav-sub-menu-cta">
-    <span>{label}</span>
-  </a>
-);
-
 const NavSubMenu = ({ subMenu }: MenuSettingsItem) => {
   return (
     <div className={`nav-sub-menu-container `}>
-      {/* <div
-      className={`nav-sub-menu-container ${!side || subMenu.length < 2 ? 'minimal' : ''}`}
-    > */}
       <div className="nav-sub-menu-wrap">
         <div className="nav-sub-menu-main-col">
           <div className={`nav-sub-menu-nav-cols `}>
@@ -108,22 +99,6 @@ const Nav = ({ pathname }: NavProps) => {
       setIsOpen(false);
     }
   }, [isLg]);
-
-  const docsPaths = [
-    '/docs',
-    '/guides',
-    '/references',
-    '/templates',
-    '/support',
-  ];
-
-  // const menuItems = (() => {
-  //   if (docsPaths.some((path) => pathname.startsWith(path))) {
-  //     return NavBarDocs;
-  //   }
-
-  //   return NavBarDefault;
-  // })();
 
   return (
     <Container>
@@ -185,7 +160,7 @@ const Nav = ({ pathname }: NavProps) => {
         </div>
 
         <div className="flex items-center gap-10 ">
-          <div className="nav-button-launch hidden pr-10 lg:inline-block">
+          <div className="nav-button-launch hidden pr-10 md:inline-block">
             <a
               href="https://twitter.com/fleek"
               target="_blank"
@@ -197,7 +172,7 @@ const Nav = ({ pathname }: NavProps) => {
               />
             </a>
           </div>
-          <div className="nav-button-launch hidden pr-10 lg:inline-block">
+          <div className="nav-button-launch hidden pr-10 md:inline-block">
             <a
               href="https://discord.gg/fleek"
               target="_blank"
@@ -209,7 +184,7 @@ const Nav = ({ pathname }: NavProps) => {
               />
             </a>
           </div>
-          <div className="nav-button-launch hidden lg:inline-block">
+          <div className="nav-button-launch hidden md:inline-block">
             <a
               href="https://app.fleek.xyz/"
               target="_blank"
@@ -231,7 +206,7 @@ const Nav = ({ pathname }: NavProps) => {
           </div>
           <button
             onClick={() => setIsOpen(true)}
-            className="mx-10 font-plex-sans text-32 leading-[150%] text-ui-white xl:hidden"
+            className="mx-10 font-plex-sans text-28 leading-[150%] text-ui-white xl:hidden"
           >
             +
           </button>
