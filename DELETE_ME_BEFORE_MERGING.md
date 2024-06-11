@@ -14,4 +14,4 @@ Some description [link](www.somewhere-that-doesnt-exist.com.ie). Ok?
 
 Actively typing some typos for the pleasure of typing errors as erorrs.
 
-What if this doesn't make any sense?
+What if this doesn't make any sense? Can't! We'll! Let's! What if don`t or don't?
