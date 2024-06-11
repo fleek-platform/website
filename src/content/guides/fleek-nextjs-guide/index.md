@@ -198,6 +198,6 @@ See you in the next guide 🤙
 
 ## Resources:
 
-- Understanding Projects: https://docs.fleek.xyz/docs/Projects
-- Sites: https://docs.fleek.xyz/docs/Sites
-- Fleek CLI: https://docs.fleek.xyz/docs/CLI
+- Understanding Projects: https://fleek.xyz/docs/platform/projects/
+- Sites: https://fleek.xyz/docs/cli/sites/
+- Fleek CLI: https://fleek.xyz/docs/cli/

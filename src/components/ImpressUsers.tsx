@@ -5,6 +5,7 @@ import PageSection from '@components/PageSection';
 import GridLayout from '@components/GridLayout';
 import Button from '@components/Button';
 import TextGlowHoverEffect from '@components/TextGlowHoverEffect';
+import { GrShare } from 'react-icons/gr';
 
 import type { RoundedType } from '@components/PageSection';
 import Link, { Target } from '@components/Link';
@@ -101,7 +102,14 @@ const ImpressUsers: React.FC<Props & OptionalProps> = ({ rounded }) => {
             </h1>
 
             <p className="typo-m text-center text-gray-dark-11 lg:typo-l lg:text-start">
-              Your app needs to load fast, otherwise you'll lose customers.
+              Your app needs to load fast, otherwise you'll{' '}
+              <a
+                href="https://fleek.xyz/blog/learn/importance-of-latency-modern-web/"
+                className=" text-yellow"
+              >
+                lose customers <GrShare className="mb-5 inline " />
+              </a>
+              . <br />
               Fleek runs your app in 100+ edge locations to ensure fast loading
               worldwide.
             </p>
