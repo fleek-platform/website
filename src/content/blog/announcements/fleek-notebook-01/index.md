@@ -34,7 +34,7 @@ So, without further ado, let’s get into it ⚡
 In the new Fleek, we have introduced Projects, a way to organize your sites, files, and else. This alpha release allows you to:
 
 - [Create a new project](https://app.fleek.xyz/)
-- [Invite other users to your projects](https://app.fleek.xyz/)
+- [Invite other users to your projects](https://fleek.xyz/docs/platform/projects/#inviting-a-new-user)
 
 ### Sites
 
