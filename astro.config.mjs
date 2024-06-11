@@ -7,6 +7,8 @@ import sitemap from "@astrojs/sitemap";
 import settings from "./src/settings.json";
 import { imagetools } from 'vite-imagetools';
 import mdx from "@astrojs/mdx";
+import { getLatestBlogPosts } from './integrations';
+
 const configRemarkCalloutDirectives = {
   callouts: {
     note: {
@@ -32,8 +34,10 @@ const configRemarkCalloutDirectives = {
   }
 };
 
-// Environment mode
-const env = import.meta.env.MODE || 'staging';
+// Environment
+const env = import.meta.env.PROD
+  ? 'production'
+  : 'staging';
 
 // https://astro.build/config
 export default defineConfig({
@@ -41,12 +45,22 @@ export default defineConfig({
   vite: {
     plugins: [imagetools()]
   },
-  integrations: [tailwind({
-    nesting: true,
-    applyBaseStyles: false
-  }), react({
-    experimentalReactChildren: true
-  }), sitemap(), mdx()],
+  integrations: [
+    tailwind({
+      nesting: true,
+      applyBaseStyles: false
+    }),
+    react({
+      experimentalReactChildren: true
+    }),
+    sitemap({
+      lastmod: new Date(),
+    }),
+    mdx(),
+    getLatestBlogPosts({
+      targetDir: './src/content/blog'
+    }),
+  ],
   markdown: {
     remarkPlugins: [remarkDirective, [remarkCalloutDirectives, configRemarkCalloutDirectives]],
     shikiConfig: {

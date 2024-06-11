@@ -89,7 +89,7 @@ const SeamlessUI: React.FC<Props & OptionalProps> = ({ rounded }) => {
           >
             <img
               src="/images/fleek-app.png"
-              className="z-0 right-[10%] top-[80%] mr-12 hidden translate-y-1/4 scale-[1.35] transform-gpu lg:absolute lg:mr-0 lg:block lg:-translate-x-3/4 lg:-translate-y-[95%] lg:scale-[3.30]"
+              className="z-0 right-[10%] top-[80%] mr-12 hidden flex-shrink-0 translate-y-1/4 scale-[1.35] transform-gpu lg:absolute lg:right-[1%] lg:mr-0 lg:block lg:-translate-x-3/4 lg:-translate-y-[95%] lg:scale-[2.30] xl:right-[10%] xl:scale-[3.30]"
               width={200}
             />
             <img
@@ -98,7 +98,7 @@ const SeamlessUI: React.FC<Props & OptionalProps> = ({ rounded }) => {
               width={200}
             />
           </div>
-          <div className="col-span-16 flex basis-7/12 flex-col items-center justify-center lg:col-span-8 lg:items-start">
+          <div className="relative col-span-16 flex basis-7/12 flex-col items-center justify-center lg:col-span-8 lg:items-start">
             <h1 className="typo-h5 mb-24 text-center text-gray-dark-12 lg:typo-h4 lg:text-start">
               All Your Tools,
               <br />

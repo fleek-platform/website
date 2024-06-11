@@ -102,4 +102,4 @@ Here is also a full list of links and resources to help you get started:
 
 - [Fleek Functions Tutorial](/docs/cli/functions)
 - [Fleek Functions Platform Docs](/docs/platform/fleek-functions)
-- [Fleek Function Early Performance Test](https://blog.fleek.network/post/fleek-network-testnet-phase-3-results/)
+- [Fleek Functions Early Performance Test](https://blog.fleek.network/post/fleek-network-testnet-phase-3-results/)

@@ -4,7 +4,7 @@ import Text from '@components/Text';
 import Marquee from 'react-fast-marquee';
 import settings from '@base/settings.json';
 
-const announcement = `⚡ ${settings.site.annoucement.message} ⚡`;
+const announcement = `⚡ ${settings.site.annoucement.message} ⚡`; //character limit: 130
 
 const Announcement: React.FC = () => {
   const [mount, setMount] = useState(false);
@@ -33,7 +33,7 @@ const Announcement: React.FC = () => {
             <Text
               as="p"
               className="hidden text-center text-gray-dark-12 lg:block"
-              style="m"
+              style="m-mid"
             >
               {announcement}
             </Text>
