@@ -51,6 +51,8 @@ jobs:
               output=$(grep -v -f "$ignore_words_path" "$potentional_mispellings_path" | awk NF)
               typos_count=$(echo "$output" | wc -w | xargs)
 
+              echo "[debug] typos count: $typos_count"
+
               rm "$normalizedFile"
               rm "$potentional_mispellings_path"
 
