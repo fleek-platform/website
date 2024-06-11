@@ -16,12 +16,8 @@ on:
         type: string
   # TODO: remove its only used to display the workflow during PR
   # for testing
-  pull_request_target:
-    types:
-      - opened
-      - reopened
-      - edited
-      - synchronize
+  push:
+    branches: [ chore/release-by-commit-hash-as-gh-action ]
 
 jobs:
   merge-by-develop-hash:
