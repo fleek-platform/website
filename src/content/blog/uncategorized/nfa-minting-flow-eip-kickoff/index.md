@@ -59,7 +59,7 @@ It’s that easy ⚡. Through the ConnectKit integration we did in Sprint 3, we 
 
 ## NFA Check-in: Roadmap and Development Progress
 
-In our last NFA development [update](https://blog.fleek.xyz/post/nfa-community-hosting/), we were about halfway through Sprint 1– we’re now wrapping up [sprint 3](https://github.com/fleekxyz/non-fungible-apps/releases/tag/v0.0.3) and have lots to get you caught up on.
+In our last NFA development [update](https://fleek.xyz/blog/uncategorized/nfa-community-hosting/), we were about halfway through Sprint 1– we’re now wrapping up [sprint 3](https://github.com/fleekxyz/non-fungible-apps/releases/tag/v0.0.3) and have lots to get you caught up on.
 
 ![](./roadmap-march.png)
 
@@ -88,7 +88,7 @@ Through Sprints 2-3 the team put a focus on getting our contracts features added
 - Community access points
 - ENS Integration
 
-For more information on community hosting through access points, check out our [last NFA update](https://blog.fleek.co/posts/nfa-community-hosting)– or contribute to the conversation yourself in our [GitHub](https://github.com/fleekxyz/non-fungible-apps)!
+For more information on community hosting through access points, check out our [last NFA update](https://fleek.xyz/blog/uncategorized/nfa-community-hosting/)– or contribute to the conversation yourself in our [GitHub](https://github.com/fleekxyz/non-fungible-apps)!
 
 ---
 
