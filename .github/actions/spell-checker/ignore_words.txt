@@ -46,6 +46,8 @@ gatsby
 github
 hostname
 html
+http
+https
 img
 imgfleeklogo
 imgFleekLogo

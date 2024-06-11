@@ -32,6 +32,8 @@ jobs:
         run: |
           base_branch=${{ github.base_ref }}
           diff=$(git diff --name-only origin/$base_branch | grep -E '\.mdx?$' || true)
+          ignore_words_path=".github/actions/spell-checker/ignore_words.txt"
+          potentional_mispellings_path=$(mktemp)
 
           if [[ -n "$diff" ]]; then
             echo "🧐 Going to spell check the following files:"
@@ -43,10 +45,13 @@ jobs:
 
               ./scripts/markdown-normalizer.ts "$file" > "$normalizedFile"
             
-              output=$(hunspell -l -d en_US -p .github/actions/spell-checker/ignore_words.txt "$normalizedFile")
+              hunspell -l -d en_US -p "$ignore_words_path" "$normalizedFile" > "$potentional_mispellings_path"
+
+              output=$(grep -v -f "$ignore_words_path" "$potentional_mispellings_path")
               typos_count=$(echo "$output" | wc -l)
 
               rm "$normalizedFile"
+              rm "$potentional_mispellings_path"
 
               if [[ -n "$output" ]]; then
                 echo "🤓 Found the following typos in $file"
