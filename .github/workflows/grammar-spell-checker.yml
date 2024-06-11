@@ -58,7 +58,7 @@ jobs:
                 echo
                 echo "$output"
                 echo
-                echo "👆 If there are false positives, help us improve by adding the word to the ignore list in the location .github/actions/spell-checker/ignore_words.txt, please!"
+                echo "👆 If there are false positives, help us improve by adding the word to the ignore list in the location .github/actions/spell-checker/ignore_words.txt, order alphabetically for better maintainability, please!"
               fi
 
               if [[ "$typos_count" -gt "$MAX_NUMBER_OF_TYPOS" ]]; then
