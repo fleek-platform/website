@@ -17,9 +17,9 @@ The highlight of the Fleek v0.4.0 release is a **substantial, application-disrup
 
 As outlined in the [pre-warning](https://blog.fleek.xyz/post/preparing-for-fleek-beta-v040/), users will just need to update the following to ensure their services continue to work as expected:
 
-**SDK**: Run the command `npm install @fleekxyz/sdk` on your project
+**SDK**: Run the command `npm install @fleek-platform/sdk` on your project
 
-**CLI**: Run the command `npm install @fleekzyx/cli` in the CLI
+**CLI**: Run the command `npm install @fleek-platform/cli` in the CLI
 
 **Previous versions of the Fleek beta will stop working with the debut of v0.4.0, so make sure to update your apps ASAP**. If you encounter any issues, open a ticket and chat with our support team in [Discord](https://discord.gg/fleek)!
 
