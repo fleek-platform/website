@@ -1,11 +1,14 @@
 import fs from 'fs';
-import path from 'path';
 import { remark } from 'remark';
 import html from 'remark-html';
 import remarkFrontmatter from 'remark-frontmatter';
 import remarkParseFrontmatter from 'remark-parse-frontmatter';
 import MeiliSearch from 'meilisearch';
-import { listFilesRecursively } from '../../../scripts/utils';
+import {
+  listFilesRecursively,
+  filterMdFiles,
+  generateUrlPath,
+} from '../../../scripts/utils';
 
 import type { Index, Config } from 'meilisearch';
 
@@ -37,13 +40,6 @@ async function waitForTask(client: MeiliSearch, id: number) {
   }
 }
 
-const filterMdFiles = (filePaths: string[]) => {
- return filePaths.filter(filePath => {
-    const extension = path.extname(filePath);
-    return extension === '.md' || extension === '.mdx';
- });
-}
-
 const toSlug = (name: string) => {
  let text = name.toLowerCase();
  text = text.replace(/[^a-z0-9\s]/g, '');
@@ -51,36 +47,6 @@ const toSlug = (name: string) => {
  text = text.trim();
 
  return text;
-}
-
-const generateUrlPath = ({
-  filePath,
-}: {
-  filePath: string;
-}) => {
-  const baseDir = 'src/content/';
-
-  if (!filePath.startsWith(baseDir)) {
-    throw new Error(`👹 Oops! Unexpected file path, as it should start with the base directory ${baseDir}. Is there a new feature that requires implementation updates?`);
-  }
-
-  const relativePath = filePath.substring(baseDir.length);
-
-  const parts = relativePath.split(path.sep);
-
-  const isIndexFile = parts[parts.length - 1].startsWith('index.');
-
-  if (isIndexFile) parts.pop();
-
-  // Note: Users may utilize the 'slug' field, which supersedes the default URL generation based on the filename.
-  // Warning: As of this writing, deeply nested files with custom slugs do not function correctly in Astro.
-  // For example, a file located at 'src/contents/docs/dir1/dir2/file-has-slug.md' may encounter issues.
-  // Due to this limitation, it's advisable not to use 'slug' in markdown files.
-  const url = `/${parts.join('/')}`;
-  const regex = /(.*\/)(.*)\.(md|mdx)$/;
-  const result = url.replace(regex, '$1').toLowerCase();
-
-  return result;
 }
 
 export default async ({
