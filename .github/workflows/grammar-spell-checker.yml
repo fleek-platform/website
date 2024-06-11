@@ -51,9 +51,10 @@ jobs:
               output=$(grep -v -f "$ignore_words_path" "$potentional_mispellings_path" | awk NF)
               typos_count=$(echo "$output" | wc -w)
 
-              debug=$(cat "$output" | sed 's/^[[:space:]]*//; s/[[:space:]]*$//' | tr '\n' ' ' | wc -w)
+              output=$(echo "$output" | sed 's/^[[:space:]]*//; s/[[:space:]]*$//' | tr '\n' ' ')
+              debug=$(echo "$output" | wc -w)
 
-              echo "[debug] debug $debug"
+              echo "[debug] $debug"
 
               rm "$normalizedFile"
               rm "$potentional_mispellings_path"
