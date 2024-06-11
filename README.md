@@ -608,7 +608,7 @@ By using OG meta tags, you can control how your website's links appear when shar
 
 ### Open Graph preview
 
-To discover how the site page's are preceived by social media platforms use a meta tag previewer.
+To discover how the site page's are perceived by social media platforms use a meta tag previewer.
 
 For example, let's say that you want to preview the Blog post for "Introducing Fleek Functions". You'd copy the URL [https://fleek.xyz/blog/announcements/introducing-fleek-functions](https://fleek.xyz/blog/announcements/introducing-fleek-functions) and paste it in the previewer address of your preference, e.g., [opengraph.xyz](https://www.opengraph.xyz).
 
