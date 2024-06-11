@@ -1,0 +1,1 @@
+export { getLatestBlogPosts } from './getLatestBlogPosts';

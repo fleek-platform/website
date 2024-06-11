@@ -123,4 +123,7 @@ users'
 functions'
 lodash
 repos
-users'
+users’
+development
+everytime
+develop
