@@ -16,7 +16,7 @@ tags:
 The Fleek Platform SDK helps you create mutable pointers to CIDs known as InterPlanetary Name System (IPNS) names. IPNS names can be thought of as links that can be updated over time, while retaining the verifiability of content addressing. In this case in particular, they are mostly used to represent IPFS files (through their hashes).
 
 :::warn
-If you're authenticating the Fleek Platform SDK with a Personal Access Token (PAT), you must provide a Project ID to the [PersonalAccessTokenService](/src/content/docs/SDK/index.md#personalaccesstokenservice).
+If you're authenticating the Fleek Platform SDK with a Personal Access Token (PAT), you must provide a Project ID to the [PersonalAccessTokenService](/docs/cli/pat/).
 :::
 
 ## Create an IPNS Record

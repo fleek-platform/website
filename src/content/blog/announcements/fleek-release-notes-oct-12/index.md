@@ -48,7 +48,7 @@ We’ve given our validation system a little tune-up in this update– now you�
 - Added new AR token balance monitors
 - Streamlined support process now no longer needs users to provide details on things like Private Gateways, Project Members, Filecoin & Arweave file info, and other project/site details, when reaching out for support
 
-That's not all though– head [here](https://docs.fleek.xyz/release-notes/release-notes-0.0.1) for a full list of the 50+ other changes and improvements coming to the Fleek.xyz Alpha with this release.
+That's not all though– head [here](https://fleek.xyz/blog/announcements/fleek-notebook-01/) for a full list of the 50+ other changes and improvements coming to the Fleek.xyz Alpha with this release.
 
 ---
 
@@ -72,6 +72,5 @@ See you soon ⚡
 ## Useful links ⚡
 
 - [Alpha submissions for Fleek are still open](https://fleekxyz.typeform.com/alpha-access)
-- [Read our documentation in full](https://docs.fleek.xyz/)
-- [Bookmark the release notes so you don’t miss a single thing](https://docs.fleek.xyz/release-notes)
-- [Test how fast files upload on our website](https://fleek.xyz/storage/)
+- [Read our documentation in full](https://fleek.xyz/docs/)
+- [Bookmark the changelog so you don’t miss a single thing](https://fleek.xyz/blog/changelog/)

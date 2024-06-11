@@ -34,7 +34,7 @@ Then, you have to follow the wizard:
 ✅ Success! The private gateway "my-first-gateway" was created.
 ```
 
-Next, you'll have to set up the correct DNS Recorsd to make sure that your domain points to the CDN pull zone. Should be very familiar with custom [domain](/docs/domains) configuration.
+Next, you'll have to set up the correct DNS Records to make sure that your domain points to the CDN pull zone. Should be very familiar with custom [domain](docs/cli/domains/) configuration.
 
 The CLI will provide you with the DNS records you need to add to your domain DNS settings.
 

@@ -30,6 +30,9 @@ This repository contains the source code and assets for the Fleek.xyz website, w
     - [Admonitions](#-admonitions)
     - [Navigation bar](#-navigation-bar)
         - [Configuration](#-configuration)
+    - [Metadata](#metadata)
+        - [Open Graph preview](#open-graph-preview)
+        - [Troubleshooting open graph](#troubleshooting-open-graph)
 - [Development](#-development)
     - [Search server](#-search-server)
     - [Delete Indexes](#💣-delete-indexes)
@@ -468,7 +471,7 @@ Each menu item is represented by an object with the following properties:
 
 - label: A string that defines the text displayed for the menu item.
 - url: A string that specifies the URL to navigate to when the menu item is clicked.
-- openInNewTab (optional): A boolean value (true or false) that determines whether the link should open in a new browser tab.
+- open in new tab (optional): A boolean value (true or false) that determines whether the link should open in a new browser tab.
 
 Example of a basic menu item:
 
@@ -561,6 +564,57 @@ Example of a CTA configuration:
 
 When configuring your menu, ensure that the structure and properties of your objects match the guidelines provided. This will help maintain consistency and ensure that your menu is displayed correctly. Remember, the appearance of your menu is limited by the styles or components you use, so adjust your configuration or business logic accordingly.
 
+## Metadata
+
+Metadata is important for search engines, social media platforms, and others to understand the content and purpose of a page.
+
+The main location for the metadata is in the head element of the main base layout for our pages. At time of writing, is located as `BaseHtml.astro` in the `src/layouts`:
+
+```sh
+src/layouts
+├── ...
+└── BaseHtml.astro
+```
+
+You'll find the elements in the HEAD section of the HTML document. For example:
+
+```html
+...
+
+<head>
+    ...
+    
+    <meta property="og:url" content={`${baseUrl}/${ogMeta?.slug || ''}`} />
+    <meta property="og:type" content="website" />
+    <meta
+      property="og:title"
+      content={ogMeta?.title || settings.site.metadata.title}
+    />
+    
+    ...
+    
+    <meta
+      name="twitter:title"
+      content={ogMeta?.title || settings.site.metadata.title}
+    />
+    
+    ...
+</head>
+```
+
+One of the key components of HTML metadata is the Open Graph meta tags originally created by Facebook to enable them to become rich objects in a social graph.
+
+By using Open Graph meta tags, you can control how your website's links appear when shared on social media platforms such as Facebook, Twitter, LinkedIn, and others.
+
+### Open Graph preview
+
+To discover how the site page's are perceived by social media platforms use a meta tag previewer.
+
+For example, let's say that you want to preview the Blog post for "Introducing Fleek Functions". You'd copy the URL [https://fleek.xyz/blog/announcements/introducing-fleek-functions](https://fleek.xyz/blog/announcements/introducing-fleek-functions) and paste it in the previewer address of your preference, e.g., [opengraph.xyz](https://www.opengraph.xyz).
+
+### Troubleshooting open graph
+
+It's important to note that if you encounter issues with Open Graph meta tags not displaying correctly on a platform, the first step should be to utilize a validator tool, similar to the one provided in the URL above. This is because our system automatically provides the metadata content, but discrepancies may arise if certain requirements are overlooked by the platform, e.g., persistent cache. Additionally, if a specific URL encounters problems due to previous issues, you can circumvent caching by appending a query parameter to the end of the URL. For example, modifying [https://fleek.xyz/blog/announcements/introducing-fleek-functions](https://fleek.xyz/blog/announcements/introducing-fleek-functions) to [https://fleek.xyz/blog/announcements/introducing-fleek-functions?202406101836](https://fleek.xyz/blog/announcements/introducing-fleek-functions?202406101836). This method is recommended as a preliminary troubleshooting step to identify the source of the problem.
 
 # 👷‍♀️Development
 
@@ -683,7 +737,7 @@ The import name convention is camel-case and to use the prefix img, e.g. imgMyIm
 import imgFleekLogo from "@images/globe-with-bolt.jpg?w=480&h=480&format=webp";
 ```
 
-Place the image in the <img> src field:
+Place the image in the source field:
 
 ```html
 <img src={imgFleekLogo} alt="Image text replacement" />

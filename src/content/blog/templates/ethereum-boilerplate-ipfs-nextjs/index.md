@@ -150,7 +150,7 @@ Now to deploy the Frontend, we’ll use Fleek CLI, which allows us to deploy to 
 
 You’ll need to install the CLI as a global package by running the following command:
 
-    npm install -g @fleekxyz/cli
+    npm install -g @fleek-platform/cli
 
 Then, let’s move into the frontend project `cd frontend` and create a new Project:
 

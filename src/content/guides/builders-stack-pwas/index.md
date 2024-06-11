@@ -72,7 +72,7 @@ Messaging apps like [WhatsApp](https://www.whatsapp.com/) and [Telegram](https:/
 
 ### Web3 Applications: PWAs + NFAs
 
-Integrating PWAs with [Non-Fungible Apps (NFAs)](https://blog.fleek.xyz/post/nfa-update-ens-layerzero-3dns/) could lead to the development of truly decentralized and easy-to-distribute apps, functioning like traditional applications but without the limitations of centralized app stores. This integration offers a decentralized, on-chain alternative, enabling apps to be loaded and accessed on-chain, free from centralized intermediaries.
+Integrating PWAs with [Non-Fungible Apps (NFAs)](https://fleek.xyz/blog/uncategorized/nfa-update-ens-layerzero-3dns/) could lead to the development of truly decentralized and easy-to-distribute apps, functioning like traditional applications but without the limitations of centralized app stores. This integration offers a decentralized, on-chain alternative, enabling apps to be loaded and accessed on-chain, free from centralized intermediaries.
 
 This means we can create a more open and user-friendly way to build and use apps. This approach can help web3 apps, which often struggle to get into centralized app stores, by providing a decentralized way to reach their users. Any PWA will be able to be made into a PWA, and any PWA will have the ability to be made into an NFA, allowing persistent on-chain access and installability for any application that wants it.
 
