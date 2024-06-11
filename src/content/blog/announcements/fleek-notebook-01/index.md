@@ -71,7 +71,7 @@ In the alpha we also introduced several settings pages where you can test more a
 
 Our CLI & SDK packages have been updated to v0.7.0 as well. [both have improvements described here]
 
-You can find the CLI release [here](https://www.npmjs.com/package/@fleekxyz/cli), and the SDK release [here](https://www.npmjs.com/package/@fleekxyz/sdk).
+You can find the CLI release [here](https://www.npmjs.com/package/@fleek-platform/cli), and the SDK release [here](https://www.npmjs.com/package/@fleek-platform/sdk).
 
 And this closes the first update from our team going into our closed Alpha. Expect all features from above to be expanded as we collect feedback and build around it.
 
