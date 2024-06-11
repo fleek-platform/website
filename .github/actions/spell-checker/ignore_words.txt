@@ -95,10 +95,13 @@ fmt
 functional-programming
 gatsby
 gdpr
+github
 geo
 grafana
 graphql
 gui
+linkedin
+linkedin's
 hacker
 hackers
 hacking
@@ -110,6 +113,8 @@ hexadecimal
 html
 http
 https
+hostname
+hostnames
 hyper-v
 iam
 ide
@@ -335,6 +340,7 @@ userbase
 username
 uuid
 validation
+validator
 value
 var
 variable
