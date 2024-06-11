@@ -23,7 +23,7 @@ We're opening the app for users to test it and provide feedback during this clos
 
 1. **Apply**: Apply [Here](https://fleekxyz.typeform.com/alpha-access)
 2. **Hold: The team will approve your submission and notify you in our [Discord Server's](https://discord.gg/fleek) #Whitelisted channel!**
-3. **Learn**: Check out our [documentation](https://docs.fleek.xyz) early to get prepared.
+3. **Learn**: Check out our [documentation](https://fleek.xyz/docs/) early to get prepared.
 4. **Test**: Once approved, sign up to the [platform](https://fleek.xyz/) and tell us what you think on Discord.
 
 **It’s important to note:** that you can apply with an email, or a wallet, and you need to sign up with the same wallet once approved.
@@ -57,8 +57,6 @@ A newcomer to the platform, templates! Kick-start your new decentralized app wit
 ## A Note to Fleek.co Users
 
 Fleek.co users might be wondering about what will happen to their projects when we make the transition from Fleek.co to Fleek.xyz. **Don’t worry– nothing is changing right now. Simple migration tools and guides will come a little later down the road in September to help you onboard**. In the meantime, apply to become a tester and get an early preview of the new and improved platform.
-
-[Read this FAQ for more details on testing the new app as a Fleek.co user!l](https://blog.fleek.xyz/post/fleekco-users-and-alpha-fleekxyz/) 🤙
 
 ---
 

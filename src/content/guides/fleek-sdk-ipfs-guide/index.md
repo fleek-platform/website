@@ -57,7 +57,7 @@ npm init --yes
 - Run this command to Install the necessary packages:
 
 ```
-npm install @fleekxyz/sdk
+npm install @fleek-platform/sdk
 
 npm install -D typescript tsx @types/node dotenv
 ```
@@ -124,7 +124,7 @@ With your PAT and `PROJECT_ID` successfully generated and imported into your .en
 
 ```javascript
 import fs from 'fs';
-import { FleekSdk, PersonalAccessTokenService } from '@fleekxyz/sdk';
+import { FleekSdk, PersonalAccessTokenService } from '@fleek-platform/sdk';
 import dotenv from 'dotenv';
 dotenv.config();
 ```
@@ -187,7 +187,7 @@ uploadFileToIPFS('ss.png', fileContent)
 
 ```javascript
 import fs from 'fs';
-import { FleekSdk, PersonalAccessTokenService } from '@fleekxyz/sdk';
+import { FleekSdk, PersonalAccessTokenService } from '@fleek-platform/sdk';
 import dotenv from 'dotenv';
 dotenv.config();
 

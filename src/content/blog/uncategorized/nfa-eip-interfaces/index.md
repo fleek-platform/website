@@ -17,7 +17,7 @@ image: './main-nfa-biw.jpg'
 
 ## EIP Discussion: Interfaces & Call for Community Input
 
-In our [last update](https://blog.fleek.xyz/post/nfa-minting-flow-eip-kickoff/), we opened a discussion to build our EIP skeleton. Now, we’re furthering this initiative and we believe that community input is invaluable for the development and success of non-fungible applications as a standard at this point. We encourage you to participate in the discussion and share your insights [here](https://github.com/fleekxyz/non-fungible-apps/discussions/158)!
+In our [last update](https://fleek.xyz/blog/uncategorized/nfa-minting-flow-eip-kickoff/), we opened a discussion to build our EIP skeleton. Now, we’re furthering this initiative and we believe that community input is invaluable for the development and success of non-fungible applications as a standard at this point. We encourage you to participate in the discussion and share your insights [here](https://github.com/fleekxyz/non-fungible-apps/discussions/158)!
 
 To continue with the EIP initiative, we plan to fork the EIP repository and update it with initial interfaces, effectively transforming the ongoing discussions into a tangible Proof of Concept (PoC). To achieve this, we have devised a three-phase approach:
 

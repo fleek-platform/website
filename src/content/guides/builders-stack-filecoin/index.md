@@ -86,7 +86,7 @@ Filecoin has a lot of features that make it different from other protocols, letâ
 
 To understand how Filecoin works and the value that it provides you, we need to know what the main real use-cases are with examples.
 
-**Decentralized Video Streaming & Transcoding (e.g: [Livepeer](https://blog.fleek.xyz/post/builders-stack-livepeer/))**
+**Decentralized Video Streaming & Transcoding (e.g: [Livepeer](https://fleek.xyz/guides/builders-stack-livepeer/))**
 
 By using Filecoin to store video data, users can leverage a protocol like Livepeer to source, transcode and stream the data. This reduces the risk of storage origin outages and allows for a safer storage of crucial video data.
 

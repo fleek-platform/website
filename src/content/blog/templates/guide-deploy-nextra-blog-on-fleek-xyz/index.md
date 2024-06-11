@@ -6,7 +6,7 @@ thumbnail: './nextra-blog-2.png'
 image: './nextra-blog-2.png'
 ---
 
-Hi everyone! [Juan](https://twitter.com/juanbeencoding) from DevRel here, presenting one of our example apps for deploying onto Fleek with its [CLI Beta](https://docs.fleek.xyz/). I'll be showcasing a blog template built on Nextra, which you can also find on our public [Templates repository](https://github.com/fleekxyz/templates).
+Hi everyone! [Juan](https://twitter.com/juanbeencoding) from DevRel here, presenting one of our example apps for deploying onto Fleek with its [CLI Beta](https://fleek.xyz/docs/cli). I'll be showcasing a blog template built on Nextra, which you can also find on our public [Fleek Tools collection](https://github.com/fleek-tools).
 
 **What's this template?** A ready to go static blog, which you can use as the home for your articles, and guides. Here's the [repository](https://github.com/fleekxyz/fleek-demos-blog/tree/e801af0673254a10fd9f04d2e8a75db4f259e7d4) for it.
 
@@ -36,7 +36,7 @@ Finally, after doing any front-end changes in this react boilerplate you would b
 
 ## Deploying to Fleek
 
-The first step to deploy a site using Fleek.xyz CLI is to stand in the project directory and **run fleek sites init command** to initialize your site. Remember that you need to have the Fleek CLI installed, be authenticated, and have created a project first ([here's how](https://docs.fleek.xyz/docs/CLI)).
+The first step to deploy a site using Fleek.xyz CLI is to stand in the project directory and **run fleek sites init command** to initialize your site. Remember that you need to have the Fleek CLI installed, be authenticated, and have created a project first ([here's how](https://fleek.xyz/docs/cli/)).
 
       > fleek sites init
 
@@ -71,7 +71,7 @@ Here's the site, via [Brave's IPFS gateway](https://bafybeif24hdo3zv3azf2wme7nzk
 
 ### Add an ENS Domain to Your Site
 
-The best way to see your site in fully glory is to map your new site to an ENS or DNS domain! [Here is a guide on how to use ENS with your Fleek site](https://docs.fleek.xyz/docs/Domains/ens).
+The best way to see your site in fully glory is to map your new site to an ENS or DNS domain! [Here is a guide on how to use ENS with your Fleek site](https://fleek.xyz/docs/cli/domains/).
 
 ---
 
