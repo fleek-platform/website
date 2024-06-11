@@ -201,6 +201,9 @@ project
 protocol
 proxy
 publickey
+public-key
+pub/sub
+pub-sub
 pullzone
 pullzones
 q1
