@@ -8,7 +8,7 @@ image: './cli-sites.png'
 
 The beta’s growing, and with new testers, new features are coming to the CLI! Today we are releasing the **Sites Deployments service** to the CLI for developers to start testing and [share their feedback](https://github.com/fleekxyz/fleekxyz-support) on.
 
-Step aside, it’s time to host some sites on IPFS! If you want a quick-start, visit our [updated docs](https://docs.fleek.xyz/) right away ⚡️
+Step aside, it’s time to host some sites on IPFS! If you want a quick-start, visit our [updated docs](https://fleek.xyz/docs/) right away ⚡️
 
 ---
 
@@ -16,7 +16,7 @@ Step aside, it’s time to host some sites on IPFS! If you want a quick-start, v
 
 ![Sites Deployment with Fleek promotional banner](https://storage.fleek.ooo/27a60cdd-37d3-480c-ae88-3ad4ca886b13-bucket/imgs/site-demo.png)
 
-The Sites services on Fleek will allow anyone to upload and easily maintain static sites, stored and served by Web3 protocols, starting with IPFS. Visit the [Sites documentation](https://docs.fleek.xyz/docs/Sites/) to learn how to get your first project live.
+The Sites services on Fleek will allow anyone to upload and easily maintain static sites, stored and served by Web3 protocols, starting with IPFS. Visit the [Sites documentation](https://fleek.xyz/docs/cli/sites/) to learn how to get your first project live.
 
     > fleek sites init
     ? Choose one of the existing sites or create a new one.
@@ -26,7 +26,7 @@ The flow? With one quick command, you can initialize and create a new site proje
 
 Any further changes you commit, can then be re-built and deployed for a new IPFS hash and on a following update you will be able to generate a Github action to automate the deployment. We will follow up with managed deployments on a future versions (where Fleek manages the build and deploy). Have feedback? [Let us know here.](https://github.com/fleekxyz/fleekxyz-support)
 
-As an example, we re-deployed our [a quick blog page with the CLI](https://mntis.eth.limo/), and mapped the IPFS hash to an ENS domain name, to make it accessible! Here’s [how to use ENS](https://docs.fleek.xyz/docs/Domains/ens) for that.
+As an example, we re-deployed our [a quick blog page with the CLI](https://mntis.eth.limo/), and mapped the IPFS hash to an ENS domain name, to make it accessible! Here’s [how to use ENS](https://fleek.xyz/docs/platform/domains/) for that.
 
 ## The Templates Repository.
 

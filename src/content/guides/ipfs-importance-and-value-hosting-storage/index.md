@@ -56,7 +56,7 @@ As we look to the future of the Internet, the importance and value of IPFS canno
 
 By enabling new ways of thinking about storage and data retrieval, IPFS has the potential to unlock a more decentralized and innovative future for the Internet. Embracing IPFS today means taking a step towards a more secure, efficient, and decentralized web tomorrow.
 
-For more resources on getting started with IPFS, check out our [Best Practices for Building IPFS-hosted Websites](https://blog.fleek.xyz/post/hosting-on-ipfs-best-practices-troubleshooting/)! Don’t forget to [follow us](https://linktr.ee/fleek) to stay up to date with everything we’re working on ⚡
+For more resources on getting started with IPFS, check out our [Best Practices for Building IPFS-hosted Websites](https://fleek.xyz/guides/hosting-on-ipfs-best-practices-troubleshooting/)! Don’t forget to [follow us](https://linktr.ee/fleek) to stay up to date with everything we’re working on ⚡
 
 ---
 
@@ -64,6 +64,6 @@ For more resources on getting started with IPFS, check out our [Best Practices f
 
 As a service built on top of IPFS, as well as other decentralized storage solutions, Fleek is a firm believer in the paradigm shift we’ve detailed above.
 
-If you want to get started with IPFS for the first time, you can with ease through the Fleek beta! Access IPFS storage and hosting through our [CLI](https://docs.fleek.xyz/docs/CLI/) or [Node.js SDK](https://docs.fleek.xyz/docs/SDK/), with a UI soon to come.
+If you want to get started with IPFS for the first time, you can with ease through the Fleek beta! Access IPFS storage and hosting through our [CLI](https://fleek.xyz/docs/cli/) or [Node.js SDK](https://fleek.xyz/docs/sdk/), with a UI soon to come.
 
-For in-depth instructions on getting started with IPFS check out our [docs](https://docs.fleek.xyz/docs/CLI/ipfs)!
+For in-depth instructions on getting started with IPFS check out our [docs](https://fleek.xyz/docs/sdk/ipfs/)!

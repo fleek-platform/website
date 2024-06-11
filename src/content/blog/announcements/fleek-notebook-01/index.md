@@ -33,8 +33,8 @@ So, without further ado, let’s get into it ⚡
 
 In the new Fleek, we have introduced Projects, a way to organize your sites, files, and else. This alpha release allows you to:
 
-- [Create a new project](https://docs.fleek.xyz/docs/Projects#creating-a-new-project)
-- [Invite other users to your projects](https://docs.fleek.xyz/docs/Projects/invites)
+- [Create a new project](https://fleek.xyz/docs/platform/projects/#creating-a-new-project)
+- [Invite other users to your projects](https://fleek.xyz/docs/platform/projects/#inviting-a-new-user)
 
 ### Sites
 
@@ -43,27 +43,27 @@ In the new Fleek, we have introduced Projects, a way to organize your sites, fil
 In this initial release, users can deploy/host apps via a managed deployment CI/CD in the app, or opt for the the CLI-based deployments(a.k.a. Self-Managed and built deployments). Users can:
 
 - [Deploy sites to IPFS storage by connecting their GitHub account](https://docs.fleek.xyz/docs/Sites/managed)
-- [Create sites to manage via the CLI](https://docs.fleek.xyz/docs/Sites/self-hosted#setting-up-a-self-managed-deployment)
-- [Deploy sites from templates created by the Fleek team and the community](https://docs.fleek.xyz/templates)
-- [Configure a custom domain on their sites via the UI](https://docs.fleek.xyz/docs/Domains/custom-domains)
-- [Configure ENS domains on their sites via the UI](https://docs.fleek.xyz/docs/Domains/ens#adding-an-ens-domain)
-- [Configure environment variables on their sites via the UI](https://docs.fleek.xyz/docs/Sites/managed#build-parameters)
-- [Configure build settings and deploy context for their sites](https://docs.fleek.xyz/docs/Sites/managed#configure-your-build-settings)
+- [Create sites to manage via the CLI](https://fleek.xyz/docs/cli/sites/)
+- [Deploy sites from templates created by the Fleek team and the community](https://fleek.xyz/docs/platform/)
+- [Configure a custom domain on their sites via the UI](https://fleek.xyz/docs/platform/domains/)
+- [Configure ENS domains on their sites via the UI](https://fleek.xyz/docs/platform/domains/)
+- [Configure environment variables on their sites via the UI](https://fleek.xyz/docs/platform/deployments/)
+- [Configure build settings and deploy context for their sites](https://fleek.xyz/docs/platform/deployments/)
 
 ### Storage
 
 The alpha release introduces the revamped decentralized storage feature, with file pinning, with Arweave/Filecoin storage options and general IPFS addressability for all files. Users are able to:
 
-- [Store files in their projects using IPFS, Filecoin and Arweave](https://docs.fleek.xyz/docs/Storage#add-a-file-or-directory)
-- [See the file’s IPFS/Arweave hash, or its Filecoin deal ID](https://docs.fleek.xyz/docs/Storage#content-addressing) (reminder: we use IPFS as the content addressing layer, no matter where the file is stored).
+- [Store files in their projects using IPFS, Filecoin and Arweave](https://fleek.xyz/docs/platform/storage/)
+- [See the file’s IPFS/Arweave hash, or its Filecoin deal ID](https://fleek.xyz/docs/platform/storage/) (reminder: we use IPFS as the content addressing layer, no matter where the file is stored).
 
 ### Settings
 
 In the alpha we also introduced several settings pages where you can test more advanced features, such as private gateways. Users are able to:
 
 - Set up avatars for their accounts, sites and projects.
-- [Configure via the UI private IPFS gateways to serve their content through them](https://docs.fleek.xyz/docs/Gateways#creating-a-private-gateway)
-- [Configure a custom domain on their private gateways to serve their content through them](https://docs.fleek.xyz/docs/Domains/custom-domains#adding-a-custom-domain)
+- [Configure via the UI private IPFS gateways to serve their content through them](https://fleek.xyz/docs/platform/gateways/)
+- [Configure a custom domain on their private gateways to serve their content through them](https://fleek.xyz/docs/platform/domains/)
 
 ---
 
@@ -80,8 +80,7 @@ And this closes the first update from our team going into our closed Alpha. Expe
 ## Useful Links
 
 - [Get a seat to test the alpha of Fleek](https://fleekxyz.typeform.com/alpha-access)
-- [Read our documentation in full](http://docs.fleek.xyz/)
-- [Bookmark that release notes so you don’t miss anything](https://docs.fleek.xyz/release-notes)
+- [Read our documentation in full](http://fleek.xyz/docs/)
 - [Check out that sweet new homepage](http://fleek.xyz/)
 
 See you soon! ⚡

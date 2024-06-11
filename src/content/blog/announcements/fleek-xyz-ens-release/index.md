@@ -14,7 +14,7 @@ Just like on the old platform, point Fleek to your ENS, approve, and we’ll han
 
 In a future release, we will also enable the use of IPFS directly with ENS (for those who might prefer not to use IPNS). As a reminder, the main reason for IPNS is to avoid gas fees associated with updating the IPFS hash on-chain every deployment. But as ENS L2/off-chain support matures and gas fees reduce, we feel more projects might prefer to use the IPFS hash directly, as it removes a point of centralization (IPNS keys). So we will give users both options.
 
-For a step-by-step guide on starting with ENS Domains, check out our [docs](https://docs.fleek.xyz/docs/Domains/ens/) ⚡
+For a step-by-step guide on starting with ENS Domains, check out our [docs](https://fleek.xyz/docs/platform/domains/) ⚡
 
 Let’s get into some details:
 
@@ -34,7 +34,7 @@ This brings ENS support in the Fleek.xyz Beta to parity with the current Fleek.c
 
 That’s all this week. Short and sweet 🤙
 
-Stay tuned for more feature releases as we get closer and closer to the full release of Fleek.xyz. For more information on our plans for the rollout of the new platform, give our [Timelines and Milestones blog](https://blog.fleek.xyz/post/fleek-platform-update/) a read!
+Stay tuned for more feature releases as we get closer and closer to the full release of Fleek.xyz. For more information on our plans for the rollout of the new platform, give our [Timelines and Milestones blog](https://fleek.xyz/blog/announcements/fleek-platform-update/) a read!
 
 Also, check out our release from last week for a guide on setting up a custom domain for your private IPFS storage gateway ⚡
 
