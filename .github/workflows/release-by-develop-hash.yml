@@ -14,10 +14,6 @@ on:
       agreement:
         description: 'By proceeding, the relevant commit hashes which encompass all commits below them in history will be merged into the main branch. Merging into the main branch should trigger a deployment to production. Please confirm you understand the above by typing: I understand and want to proceed!'
         type: string
-  # TODO: remove its only used to display the workflow during PR
-  # for testing
-  push:
-    branches: [ chore/release-by-commit-hash-as-gh-action ]
 
 jobs:
   merge-by-develop-hash:
