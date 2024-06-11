@@ -297,6 +297,7 @@ subscription
 sudo
 sunsetting
 svg
+src
 swift
 syslog
 systemctl
@@ -379,6 +380,7 @@ wsdl
 x509
 xml
 xss
+xyz
 yaml
 yml
 youtube
