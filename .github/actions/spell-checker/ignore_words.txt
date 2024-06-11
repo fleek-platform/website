@@ -45,12 +45,15 @@ config
 container
 containers
 cors
+cta
+cta's
 curl
 customtitlesbydirectoryname
 cvv
 cvs
 cvssscores
 csv
+css
 cyberattack
 cybercrime
 cybersecurity
