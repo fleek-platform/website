@@ -33,8 +33,10 @@ const configRemarkCalloutDirectives = {
   }
 };
 
-// Environment mode
-const env = import.meta.env.MODE || 'staging';
+// Environment
+const env = import.meta.env.PROD
+  ? 'production'
+  : 'staging';
 
 // https://astro.build/config
 export default defineConfig({
@@ -42,12 +44,19 @@ export default defineConfig({
   vite: {
     plugins: [imagetools()]
   },
-  integrations: [tailwind({
-    nesting: true,
-    applyBaseStyles: false
-  }), react({
-    experimentalReactChildren: true
-  }), sitemap(), mdx()],
+  integrations: [
+    tailwind({
+      nesting: true,
+      applyBaseStyles: false
+    }),
+    react({
+      experimentalReactChildren: true
+    }),
+    sitemap({
+      lastmod: new Date(),
+    }),
+    mdx(),
+  ],
   markdown: {
     remarkPlugins: [remarkDirective, [remarkCalloutDirectives, configRemarkCalloutDirectives]],
     shikiConfig: {

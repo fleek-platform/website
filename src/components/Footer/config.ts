@@ -4,8 +4,10 @@ const {
   careersUrl,
   supportExternalUrl,
   reportAbuseUrl,
-  discordFleekCommunityUrl,
   statusURl,
+  mediaKit,
+  fleekNetworkWebsiteUrl,
+  templatesUrl,
 } = settings.site.resources;
 
 const { fleekPlatformOrgUrl } = settings.github;
@@ -15,13 +17,7 @@ export default {
   developers: [
     {
       text: 'Fleek Network',
-      url: 'https://fleek.network/',
-      target: '_blank',
-      rel: 'noopener noreferrer',
-    },
-    {
-      text: 'Github',
-      url: 'https://github.com/fleek-platform',
+      url: fleekNetworkWebsiteUrl,
       target: '_blank',
       rel: 'noopener noreferrer',
     },
@@ -32,13 +28,33 @@ export default {
       rel: 'noopener noreferrer',
     },
     {
+      text: 'Github',
+      url: fleekPlatformOrgUrl,
+      target: '_blank',
+      rel: 'noopener noreferrer',
+    },
+    {
       text: 'Status',
       url: statusURl,
       target: '_blank',
       rel: 'noopener noreferrer',
     },
   ],
-  legal: [
+  company: [
+    {
+      text: 'Blog',
+      url: '/blog',
+    },
+    {
+      text: 'Pricing',
+      url: '/pricing',
+    },
+    {
+      text: 'Careers',
+      url: careersUrl,
+      target: '_blank',
+      rel: 'noopener noreferrer',
+    },
     {
       text: 'Terms of Service',
       url: '/legal/terms-of-service',
@@ -46,12 +62,6 @@ export default {
     {
       text: 'Privacy Policies',
       url: '/legal/privacy-policy',
-    },
-    {
-      text: 'Report Abuse',
-      url: reportAbuseUrl,
-      target: '_blank',
-      rel: 'noopener noreferrer',
     },
     {
       text: 'Contact Us',
@@ -75,29 +85,37 @@ export default {
     },
     {
       text: 'Templates',
-      url: 'https://app.fleek.xyz/templates',
+      url: templatesUrl,
       target: '_blank',
       rel: 'noopener noreferrer',
     },
   ],
   resources: [
     {
-      text: 'Blog',
-      url: '/blog',
-    },
-    {
-      text: 'Docs',
+      text: 'Documentation',
       url: '/docs',
     },
     {
       text: 'Media Kit',
-      url: 'https://fleek.notion.site/Fleek-Brand-Kit-9a2bcf7eb40740a9b7e951fc951b478a',
+      url: mediaKit,
       target: '_blank',
       rel: 'noopener noreferrer',
     },
     {
-      text: 'Careers',
-      url: careersUrl,
+      text: 'Guides',
+      url: '/guides',
+    },
+    {
+      text: 'Support',
+      url: supportExternalUrl,
+      target: '_blank',
+      rel: 'noopener noreferrer',
+    },
+    {
+      text: 'Report Abuse',
+      url: reportAbuseUrl,
+      target: '_blank',
+      rel: 'noopener noreferrer',
     },
   ],
 };
