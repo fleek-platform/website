@@ -471,7 +471,7 @@ Each menu item is represented by an object with the following properties:
 
 - label: A string that defines the text displayed for the menu item.
 - url: A string that specifies the URL to navigate to when the menu item is clicked.
-- openInNewTab (optional): A boolean value (true or false) that determines whether the link should open in a new browser tab.
+- open in new tab (optional): A boolean value (true or false) that determines whether the link should open in a new browser tab.
 
 Example of a basic menu item:
 
@@ -737,7 +737,7 @@ The import name convention is camel-case and to use the prefix img, e.g. imgMyIm
 import imgFleekLogo from "@images/globe-with-bolt.jpg?w=480&h=480&format=webp";
 ```
 
-Place the image in the <img> src field:
+Place the image in the source field:
 
 ```html
 <img src={imgFleekLogo} alt="Image text replacement" />
