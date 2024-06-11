@@ -410,15 +410,9 @@ To complete select "Create pull request".
 
 ## Release to Production
 
-To release to Production you have to create a new PR, name it something meaningful such as "chore/my-release-day" and target the branch "main".
+To release to production open the actions tab [here](https://github.com/fleek-platform/website/actions).
 
-1) Visit [https://github.com/fleek-platform/website/pulls](https://github.com/fleek-platform/website/pulls)
-2) Open "New pull request"
-3) Name the PR in a meaningful manner, e.g. don't create a PR develop -> main, you should chore/my-release-day -> main
-
-Make sure that all checkups are green!
-
-Once approved and merged into "main", it should be deployed after successful build and deploy.
+Select the "🚀 Release by develop hash" job in the left sidebar. Next, select the "Run workflow" drop-down and provide the required details.
 
 ## 🧐 Spell checker (Grammar)
 
