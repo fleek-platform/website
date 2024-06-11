@@ -602,9 +602,9 @@ You'll find the elements in the HEAD section of the HTML document. For example:
 </head>
 ```
 
-One of the key components of HTML metadata is the Open Graph (OG) meta tags originally created by Facebook to enable them to become rich objects in a social graph.
+One of the key components of HTML metadata is the Open Graph meta tags originally created by Facebook to enable them to become rich objects in a social graph.
 
-By using OG meta tags, you can control how your website's links appear when shared on social media platforms such as Facebook, Twitter, LinkedIn, and others.
+By using Open Graph meta tags, you can control how your website's links appear when shared on social media platforms such as Facebook, Twitter, LinkedIn, and others.
 
 ### Open Graph preview
 
