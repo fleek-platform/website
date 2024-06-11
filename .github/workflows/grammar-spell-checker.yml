@@ -29,6 +29,7 @@ jobs:
           hunspell -D
       
       - name: Spell check (Markdown)
+        shell: bash
         run: |
           base_branch=${{ github.base_ref }}
           diff=$(git diff --name-only origin/$base_branch | grep -E '\.mdx?$' || true)
