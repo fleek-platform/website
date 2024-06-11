@@ -88,6 +88,7 @@ env-vars
 ethereum
 everytime
 exploitation
+facebook
 fleek
 fleekxyz
 fmt
@@ -142,6 +143,7 @@ md
 md5
 mdx
 meilisearch
+meilisearch's
 memorystorage
 message
 metamask
