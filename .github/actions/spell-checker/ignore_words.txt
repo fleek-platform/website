@@ -82,6 +82,7 @@ email
 encryption
 endpoint
 endpoints
+env
 environment-variables
 envvars
 env-vars
