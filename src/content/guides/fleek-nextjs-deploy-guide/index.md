@@ -11,7 +11,7 @@ author:
 
 The Fleek.xyz platform empowers developers to build lightning-fast web apps, and services that are edge optimized for performance. In this detailed guide, you’ll learn how to deploy a **Next.js** web app using the Fleek.xyz UI and your site’s **GitHub repo**.
 
-> 💡 If you want to deploy your app without having to leave the command line, or without having to use Github, we have a guide that shows you how to deploy your Next.js app to Fleek directly via the [Fleek CLI](https://blog.fleek.xyz/post/fleek-nextjs-guide/).
+> 💡 If you want to deploy your app without having to leave the command line, or without having to use Github, we have a guide that shows you how to deploy your Next.js app to Fleek directly via the [Fleek CLI](https://fleek.xyz/guides/fleek-nextjs-guide/).
 
 ## What is Next.js?
 
@@ -125,6 +125,6 @@ Congratulations! You’ve successfully deployed your Next.js App on Fleek!
 
 ### Resources:
 
-- Understanding Projects: https://docs.fleek.xyz/docs/Projects
-- Sites: https://docs.fleek.xyz/docs/Sites
-- Fleek CLI: https://docs.fleek.xyz/docs/CLI
+- Understanding Projects: https://fleek.xyz/docs/platform/projects/
+- Sites: https://fleek.xyz/docs/cli/sites/
+- Fleek CLI: https://fleek.xyz/docs/cli/
