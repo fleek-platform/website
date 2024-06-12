@@ -32,7 +32,7 @@ What can you achieve? For example, you could build a desktop web3 game that **in
 
 Visit our new [SDK documentation](https://docs.fleek.xyz/docs/SDK/) page to learn how to install, integrate, and leverage Fleek via this interface. To get started run:
 
-    npm install -g @fleekxyz/sdk
+    npm install -g @fleek-platform/sdk
 
 To setup and authenticate your SDK you will need to create a Personal Access Token via the [Fleek CLI](https://docs.fleek.xyz/docs/SDK/#personal-access-token-service), as so:
 

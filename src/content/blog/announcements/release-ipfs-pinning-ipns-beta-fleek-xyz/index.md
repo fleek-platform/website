@@ -22,7 +22,7 @@ Join us as we go over what’s included in this first release. ⚡️
 
 Today we present the first of Fleek’s building blocks and interface: the Fleek CLI. Together with the Fleek SDK, Fleek API, and Fleek app UI, this command-line-interface will be one of the options for developers to use and integrate Fleek’s services.
 
-    npm install -g @fleekxyz/cli
+    npm install -g @fleek-platform/cli
     $ fleek login
     🔗 Opening browser on https://app.fleek.xyz/login.html?verificationSession=...
     🧑‍💻 Please login to continue
