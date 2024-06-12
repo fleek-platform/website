@@ -1,0 +1,83 @@
+name: 🚀 Release by develop hash
+
+on:
+  workflow_dispatch:
+    inputs:
+      commitHash:
+        description: 'Please supply a commit hash from the develop branch. You can find it in the commit history of develop branch, the first 6 characters are enough, e.g. c388cc. The release will encompass all contributions up to and including the specified head commit hash.'
+        required: true
+        type: string
+      dateSafeGuard:
+        description: 'Provide the current date in the format YYYY/MM/DD format.'
+        required: true
+        type: string
+      agreement:
+        description: 'By proceeding, the relevant commit hashes which encompass all commits below them in history will be merged into the main branch. Merging into the main branch should trigger a deployment to production. Please confirm you understand the above by typing: I understand and want to proceed!'
+        type: string
+
+jobs:
+  merge-by-develop-hash:
+    runs-on: ubuntu-latest
+    env:
+      # TODO: Change to `main`
+      # using temporary test for testing
+      RELEASE_BRANCH: "test"
+    steps:
+    - name: Date safe-guard verification
+      run: |
+        currDate=$(date +%Y/%m/%d)
+        
+        if [[ "$currDate" == "${{ inputs.dateSafeGuard }}" ]]; then
+          echo "✅ Date safe-guard is ok!"
+        else
+          echo "👹 Oops! The date provided ${currDate} doesn't correspond to ${{ inputs.date }}"
+
+          exit 1
+        fi
+
+    - name: Agreement verification
+      run: |
+        expectText="I understand and want to proceed!"
+
+        if [[ "${{ inputs.agreement }}" != "$expectText" ]]; then
+          echo "👹 Oops! To proceed you have to follow the agreement rule."
+
+          exit 1
+        fi
+
+        echo "✅ Agreement verified."
+
+    - name: Checkout main branch
+      uses: actions/checkout@v4
+      with:
+        ref: ${{ env.RELEASE_BRANCH }}
+
+    - name: Setup Git Config
+      run: |
+        git config --global user.email "action@github.com"
+        git config --global user.name "GitHub Action"
+
+    - name: Verify commit hash in Develop
+      id: check_commit_hash
+      run: |
+        git fetch origin develop
+        if ! git branch --contains "${{ github.event.inputs.commitHash }}" | grep -q develop > /dev/null; then
+          echo "👹 Oops! The commit hash wasn't found in the develop branch..."
+
+          exit 1
+        fi
+
+    - name: Merge into main
+      run: |
+        if ! git merge --ff-only ${{ github.event.inputs.commitHash }}; then
+          echo "👹 Oops! Failed to merge into main for some reason..."
+
+          exit 1
+        fi
+        
+        if ! git push origin "${{ env.RELEASE_BRANCH }}"; then
+          echo "👹 Oops! Failed to push changes to the $RELEASE_BRANCH branch for some reason..."
+
+          exit 1
+        fi
+
