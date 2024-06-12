@@ -120,7 +120,7 @@ Dodo is a decentralized trading platform that uses the [Proactive Market Maker (
 - [Subgraphs](https://docs.connext.network/resources/subgraphs)
   - [Creating an API Key Video Tutorial](https://www.youtube.com/watch?v=UrfIpm-Vlgs)
   - [Managing your API Keys and Settings](https://thegraph.com/docs/en/querying/managing-api-keys/)
-  - [Connext Network Explorer Page](https://thegraph.com/explorer/subgraph?id=DfD1tZSmDtjCGC2LeYEQbVzj9j8kNqKAQEsYL27Vg6Sw&view=Playground)
+  - [Connext Network Explorer Page](https://connextscan.io/)
   - [Connext Subgraph Implementation Repo](https://github.com/connext/monorepo/tree/56a166f3ecb50cc10356dd96c257e2e4d47f29e3/packages/deployments/subgraph/src/amarok-runtime-v0)
 - [Deployments](https://docs.connext.network/resources/deployments)
   - [Full List of Deployed Contracts](https://github.com/connext/monorepo/blob/main/packages/deployments/contracts/deployments.json)
