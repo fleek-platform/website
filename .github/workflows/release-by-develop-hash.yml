@@ -24,6 +24,7 @@ jobs:
       # TODO: Change to `main`
       # using temporary test for testing
       RELEASE_BRANCH: "test"
+      PREPARE_RELEASE_BRANCH: "prepare_release"
     steps:
     - name: Date safe-guard verification
       run: |
@@ -75,6 +76,17 @@ jobs:
           exit 1
         fi
 
+    - name: Create temporary release branch
+      run: |
+        if ! git checkout -b "${{ env.PREPARE_RELEASE_BRANCH }}" "${{ github.event.inputs.commitHash }}"; then
+          echo "👹 Oops! Failed to create the release preparation branch with name ${{ env.PREPARE_RELEASE_BRANCH }}. If the branch exists in the repository it's conflicting with the original intent for the goal of this step. You're advised to revise why the branch exists in the repository and do something about it, e.g. delete it or rename the target release branch name here."
+          
+          exit 1
+        fi
+
+        echo "✅ Created the release preparation branch with name ${{ env.PREPARE_RELEASE_BRANCH }} successfuly"
+
+
     - name: Merge into main
       run: |
         if ! git checkout "${{ env.RELEASE_BRANCH }}"; then
@@ -90,8 +102,17 @@ jobs:
         fi
         
         if ! git push origin "${{ env.RELEASE_BRANCH }}"; then
-          echo "👹 Oops! Failed to push changes to the $RELEASE_BRANCH branch for some reason..."
+          echo "👹 Oops! Failed to push changes to the ${{ env.RELEASE_BRANCH }} branch for some reason..."
 
           exit 1
         fi
 
+    - name: Delete temporary release branch
+      run: |
+        if ! git branch -D "${{ env.PREPARE_RELEASE_BRANCH }}"; then
+          echo "👹 Oops! Failed to delete the release preparation branch with name ${{ env.PREPARE_RELEASE_BRANCH }} for some reason. You are advised to look into why this happens as you may have to delete this manually, as the original intent is to use it temporarily per job run."
+
+          exit 1
+        fi
+
+        echo "✅ Deleted the release preparation branch with name ${{ env.PREPARE_RELEASE_BRANCH }} successfuly"
