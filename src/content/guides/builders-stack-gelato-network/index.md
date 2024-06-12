@@ -78,7 +78,7 @@ A great starting point for developers is the [official documentation](https://do
 - [Supported Networks](https://docs.gelato.network/developer-services/automate/supported-networks)
 - [Guides and Tutorials](https://docs.gelato.network/developer-services/automate/guides)
 - [Use Cases](https://www.gelato.network/#use-cases)
-- [Developer Resources](https://www.gelato.network/developers)
+- [Developer Resources](https://docs.gelato.network/introduction/what-is-gelato)
 
 ---
 
