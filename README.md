@@ -22,7 +22,7 @@ This repository contains the source code and assets for the Fleek.xyz website, w
     - [Blog](#-blog)
         - [New post](#new-post)
         - [Create a Pull request](#-create-a-pull-request)
-        - [Release to production](#release-to-production)
+        - [Release to production](#🚀-release-to-production)
     - [Docs](#-docs)
         - [Sidebar menu item ordering](#-sidebar-menu-item-ordering)
         - [Override category title](#-override-category-title)
@@ -408,7 +408,7 @@ To complete select "Create pull request".
 
 ![Pull request form](public/images/repo/pull-request-form.png?202404161849)
 
-## Release to Production
+## 🚀 Release to Production
 
 You can release to production following a linear strategy. This assumes that the convention "main" branch is of linear history and is a subset of the "develop" branch commit history. For example, the team is happy to have "develop" as where the latest version of the project exists, that "main" shouldn't diverge and only contain commits from "develop".
 
