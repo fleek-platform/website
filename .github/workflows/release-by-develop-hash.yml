@@ -60,7 +60,9 @@ jobs:
     - name: Verify commit hash in Develop
       id: check_commit_hash
       run: |
-        git fetch origin develop
+        git checkout develop
+        git pull origin develop
+
         if ! git branch --contains "${{ github.event.inputs.commitHash }}" | grep -q develop > /dev/null; then
           echo "👹 Oops! The commit hash wasn't found in the develop branch..."
 
@@ -69,6 +71,9 @@ jobs:
 
     - name: Merge into main
       run: |
+        git checkout "${{ env.RELEASE_BRANCH }}"
+        git pull origin "${{ env.RELEASE_BRANCH }}"
+
         if ! git merge --ff-only ${{ github.event.inputs.commitHash }}; then
           echo "👹 Oops! Failed to merge into main for some reason..."
 
