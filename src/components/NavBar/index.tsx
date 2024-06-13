@@ -11,6 +11,7 @@ import ButtonRainbowOutlined from '@components/ButtonRainbowOutlined';
 import { FaXTwitter } from 'react-icons/fa6';
 import { FaDiscord } from 'react-icons/fa';
 import { RxHamburgerMenu } from 'react-icons/rx';
+import { RxCross2 } from 'react-icons/rx';
 
 import { isActivePath } from '@utils/url';
 
@@ -250,7 +251,7 @@ const Nav = ({ pathname }: NavProps) => {
             onClick={() => setIsOpen(false)}
             className="nav-menu-close-button"
           >
-            -
+            <RxCross2 className="h-full rounded-8 bg-gray-dark-4 p-5 text-32 text-gray-dark-11" />
           </button>
         </div>
         <div className="nav-menu-mobile">

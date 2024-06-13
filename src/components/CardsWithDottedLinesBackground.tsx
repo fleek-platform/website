@@ -84,7 +84,7 @@ const CardsWithDottedLinesBackground: React.FC<Props> = (props) => (
                 </div>
               ))}
               {props.cta && (
-                <div className="mt-12 w-full self-center">
+                <div className="mt-12 w-full self-center lg:w-fit">
                   <Link href={props.cta.url} target={Target.Blank}>
                     <ButtonGray>
                       <Text>{props.cta.text}</Text>

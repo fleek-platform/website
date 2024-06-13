@@ -56,7 +56,7 @@ const Footer = () => {
             </div>
           </div>
           <div className="col-span-16 md:col-span-12 md:col-start-5">
-            <div className="grid grid-flow-dense grid-cols-1 flex-col gap-x-16 gap-y-24 md:grid md:gap-y-0">
+            <div className="grid grid-flow-dense grid-cols-1 flex-col gap-x-16 gap-y-24 md:grid md:gap-y-0 lg:grid-cols-12">
               <div className="col-span-6 flex flex-col gap-12 md:col-span-3 md:gap-16">
                 <Text style="caption-m">Product</Text>
                 <ul className="flex flex-col gap-10 md:gap-8">
