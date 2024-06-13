@@ -22,7 +22,7 @@ This repository contains the source code and assets for the Fleek.xyz website, w
     - [Blog](#-blog)
         - [New post](#new-post)
         - [Create a Pull request](#-create-a-pull-request)
-        - [Release to production](#release-to-production)
+        - [Release to production](#🚀-release-to-production)
     - [Docs](#-docs)
         - [Sidebar menu item ordering](#-sidebar-menu-item-ordering)
         - [Override category title](#-override-category-title)
@@ -408,17 +408,17 @@ To complete select "Create pull request".
 
 ![Pull request form](public/images/repo/pull-request-form.png?202404161849)
 
-## Release to Production
+## 🚀 Release to Production
 
-To release to Production you have to create a new PR, name it something meaningful such as "chore/my-release-day" and target the branch "main".
+You can release to production following a linear strategy. This assumes that the convention "main" branch is of linear history and is a subset of the "develop" branch commit history. For example, the team is happy to have "develop" as where the latest version of the project exists, that "main" shouldn't diverge and only contain commits from "develop".
 
-1) Visit [https://github.com/fleek-platform/website/pulls](https://github.com/fleek-platform/website/pulls)
-2) Open "New pull request"
-3) Name the PR in a meaningful manner, e.g. don't create a PR develop -> main, you should chore/my-release-day -> main
+Use-case examples:
+- The team has merged some feature branches into develop identified as commit hash "abc123" and want to release upto to the commit history hash "abc123" onto "main". By doing this they expect the build process to occur and deploy into the Fleek Platform
+- The team has merged several feature branches into develop identified as commit hashes "commitFeat1", "commitFeat2" and "commitFeat3" by this historical order. It's decided to release everything in commit history until "commitFeat1", but not "commitFeat2" and "commitFeat3". Although, it'd be wiser to keep the feature branches in pending state as "develop" should always be in a ready state for testing and release as the team may want to release some quick hotfixes, etc
 
-Make sure that all checkups are green!
+To release to production open the actions tab [here](https://github.com/fleek-platform/website/actions).
 
-Once approved and merged into "main", it should be deployed after successful build and deploy.
+Select the "🚀 Release by develop hash" job in the left sidebar. Next, select the "Run workflow" drop-down and provide the required details.
 
 ## 🧐 Spell checker (Grammar)
 
