@@ -1,3 +1,5 @@
+import type { OptionsType } from './form/Dropdown';
+
 export const categoryCardItems = [
   {
     id: '1',
@@ -73,45 +75,71 @@ export const youtubeEmbedVideos = [
   },
 ];
 
-export const categoryOptions = [
+export const categoryOptions: OptionsType[] = [
   {
     label: '-',
     value: '-',
+    formId: '-',
   },
   {
     label: 'Fleek.xyz Support',
     value: 'Fleek.xyz Support',
+    formId: 'xyz-form',
   },
   {
     label: 'Fleek.co Support',
     value: 'Fleek.co Support',
+    formId: 'co-form',
   },
   {
     label: 'Billing',
     value: 'Billing',
+    formId: 'billing-form',
   },
   {
     label: 'Crypto Payment',
     value: 'Crypto Payment',
+    formId: 'crypto-form',
   },
   {
     label: 'Partnerships & Collaborations',
     value: 'Partnerships & Collaborations',
+    formId: 'partnerships-form',
   },
   {
     label: 'Phishing and Abuse reports',
     value: 'Phishing and Abuse reports',
+    formId: 'phishing-form',
   },
   {
     label: 'Report Template',
     value: 'Report Template',
+    formId: 'template-form',
   },
   {
     label: 'Feedback & Feature Requests',
     value: 'Feedback & Feature Requests',
+    formId: 'feedback-form',
   },
   {
     label: 'Other',
     value: 'Other',
+    formId: 'other-form',
   },
 ];
+
+export const updateUrl = (formId: string, paramName: string) => {
+  const params = new URLSearchParams(window.location.search);
+
+  if (formId === '-') {
+    params.delete(paramName);
+  } else {
+    params.set(paramName, formId);
+  }
+
+  const newUrl = params.toString()
+    ? `${window.location.pathname}?${params.toString()}`
+    : window.location.pathname;
+
+  window.history.pushState({}, '', newUrl);
+};

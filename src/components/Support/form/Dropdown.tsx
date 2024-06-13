@@ -1,16 +1,17 @@
 import { useEffect, useRef, useState } from 'react';
 import { MdArrowDropDown } from 'react-icons/md';
 
-export type Options = {
+export type OptionsType = {
   label: string;
   value: string;
+  formId: string;
 };
 
 type DropdownProps = {
-  options: Options[];
+  options: OptionsType[];
   selectedValue: string;
   dropdownLabel: string;
-  onChange: (value: string) => void;
+  onChange: ({ value, id }: { value: string; id: string }) => void;
 };
 
 const Dropdown = ({
@@ -26,8 +27,14 @@ const Dropdown = ({
     setIsOpen(!isOpen);
   };
 
-  const handleSelect = (value: string) => {
-    onChange(value);
+  const handleSelect = ({ value, id }: { value: string; id: string }) => {
+    const selectedFormObject = {
+      value,
+      id,
+    };
+
+    onChange(selectedFormObject);
+
     setIsOpen(false);
   };
 
@@ -70,7 +77,9 @@ const Dropdown = ({
               <li
                 key={option.value}
                 className="cursor-pointer p-4 hover:bg-gray-700"
-                onClick={() => handleSelect(option.value)}
+                onClick={() =>
+                  handleSelect({ value: option.value, id: option.formId })
+                }
               >
                 {option.label}
               </li>
