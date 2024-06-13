@@ -10,6 +10,7 @@ import Text from '@components/Text';
 import ButtonRainbowOutlined from '@components/ButtonRainbowOutlined';
 import { FaXTwitter } from 'react-icons/fa6';
 import { FaDiscord } from 'react-icons/fa';
+import { RxHamburgerMenu } from 'react-icons/rx';
 
 import { isActivePath } from '@utils/url';
 
@@ -184,7 +185,7 @@ const Nav = ({ pathname }: NavProps) => {
           </nav>
         </div>
 
-        <div className="flex items-center gap-10 ">
+        <div className="flex items-center gap-1 lg:gap-10 ">
           <div className="nav-button-launch hidden pr-10 lg:inline-block">
             <a
               href="https://twitter.com/fleek"
@@ -231,9 +232,9 @@ const Nav = ({ pathname }: NavProps) => {
           </div>
           <button
             onClick={() => setIsOpen(true)}
-            className="mx-10 font-plex-sans text-32 leading-[150%] text-ui-white xl:hidden"
+            className=" mx-10 font-plex-sans text-28 leading-[150%] text-ui-white xl:hidden"
           >
-            +
+            <RxHamburgerMenu className="h-full rounded-8 bg-gray-dark-4 p-5 text-32 text-gray-dark-11" />
           </button>
         </div>
       </div>

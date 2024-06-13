@@ -3,6 +3,7 @@ import clsx from 'clsx';
 interface Props {
   className?: string;
   rounded?: RoundedType;
+  overflow?: string;
 }
 
 export type RoundedType =

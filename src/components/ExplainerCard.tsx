@@ -16,7 +16,7 @@ const ExplainerCard: React.FC<CardProp> = (props) => {
           <img src={props.icon} className="h-60" />
         </div>
         <div>
-          <h3 className="typo-xl-bold w-2/3 text-gray-dark-12 lg:typo-h5">
+          <h3 className="typo-xl w-2/3 text-gray-dark-12 lg:typo-h5">
             {props.title}
           </h3>
         </div>
