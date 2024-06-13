@@ -33,7 +33,7 @@ const GlobeWithFloatingCards: React.FC<Prop> = (props) => {
                 ship and <br />
                 scale highly performant apps.
               </p>
-              <div className="flex justify-center gap-16">
+              <div className="flex flex-col justify-center gap-16 sm:flex-row">
                 <div className="typo-btn-l">
                   <a
                     href="https://app.fleek.xyz/"
