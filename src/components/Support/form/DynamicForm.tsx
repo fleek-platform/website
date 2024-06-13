@@ -1,12 +1,52 @@
-import { useState } from 'react';
+import { useCallback, useEffect, useState } from 'react';
 import { categoryOptions, updateUrl } from '../config';
-import Dropdown from './Dropdown';
+
+import XYZForm from './XYZForm';
+import CoForm from './CoForm';
+import BillingForm from './BillingForm';
+import CryptoForm from './CryptoForm';
+import PartnershipsForm from './PartnershipsForm';
+import PhishingForm from './PhishingForm';
+import Dropdown from './ui/Dropdown';
+import TemplateForm from './TemplateForm';
+import FeedbackForm from './FeedbackForm';
+import OtherForm from './OtherForm';
+import DefaultForm from './DefaultForm';
 
 function DynamicForm() {
   const [selectedValue, setSelectedValue] = useState('');
-  const [formFields, setFormFields] = useState([]);
+  const [formId, setFormId] = useState('');
+  const showToolTip = formId.length > 0 && formId !== '-';
 
-  const handleDropdownchange = ({
+  const updateFormFromUrl = useCallback(() => {
+    const params = new URLSearchParams(window.location.search);
+    const ticketFormId = params.get('ticket_form_id');
+
+    if (ticketFormId) {
+      setFormId(ticketFormId);
+      const selectedOption = categoryOptions.find(
+        (option) => option.formId === ticketFormId,
+      );
+      if (selectedOption) {
+        setSelectedValue(selectedOption.value);
+      }
+    } else {
+      setFormId('');
+      setSelectedValue('');
+    }
+  }, []);
+
+  useEffect(() => {
+    updateFormFromUrl();
+
+    window.addEventListener('popstate', updateFormFromUrl);
+
+    return () => {
+      window.removeEventListener('popstate', updateFormFromUrl);
+    };
+  }, [updateFormFromUrl]);
+
+  const handleDropdownChange = ({
     value,
     id,
   }: {
@@ -15,29 +55,40 @@ function DynamicForm() {
   }) => {
     setSelectedValue(value);
     updateUrl(id, 'ticket_form_id');
+    setFormId(id);
   };
 
-  // const updateFormFields = (formId) => {
-  //   const fields = getFormFieldsByFormId(formId);
-  //   setFormFields(fields);
-  // };
+  const defaultOptions = {
+    options: categoryOptions,
+    selectedValue,
+    onChange: handleDropdownChange,
+    dropdownLabel: 'Please choose your issue below',
+  };
 
-  // const getFormFieldsByFormId = (formId) => {
-  //   switch (formId) {
-  //     case "15176707593613":
-  //       return [
-  //         { name: "field1", label: "Field 1", type: "text" },
-  //         { name: "field2", label: "Field 2", type: "text" },
-  //       ];
-  //     case "16568838089485":
-  //       return [
-  //         { name: "fieldA", label: "Field A", type: "text" },
-  //         { name: "fieldB", label: "Field B", type: "text" },
-  //       ];
-  //     default:
-  //       return [];
-  //   }
-  // };
+  const renderForm = () => {
+    switch (formId) {
+      case 'xyz-form':
+        return <XYZForm />;
+      case 'co-form':
+        return <CoForm />;
+      case 'billing-form':
+        return <BillingForm />;
+      case 'crypto-form':
+        return <CryptoForm />;
+      case 'partnerships-form':
+        return <PartnershipsForm />;
+      case 'phishing-form':
+        return <PhishingForm />;
+      case 'template-form':
+        return <TemplateForm />;
+      case 'feedback-form':
+        return <FeedbackForm />;
+      case 'other-form':
+        return <OtherForm />;
+      default:
+        return null;
+    }
+  };
 
   return (
     <div className="mx-auto w-[65%] max-w-[768px]">
@@ -46,22 +97,14 @@ function DynamicForm() {
           Submit a request
         </h1>
 
+        {showToolTip && <p>stuff</p>}
+
+        <div className="mt-[2rem]">
+          <Dropdown {...defaultOptions} />
+        </div>
+
         <div className="mt-[3rem]">
-          <form className="mb-[3rem]">
-            <Dropdown
-              options={categoryOptions}
-              selectedValue={selectedValue}
-              dropdownLabel={'Please choose your issue below'}
-              onChange={handleDropdownchange}
-            />
-            {/* {formFields.map((field) => (
-      <div>
-        <label for={field.name}>{field.label}:</label>
-        <input id={field.name} name={field.name} type={field.type} />
-      </div>
-    ))} */}
-            {/* <button type="submit">Submit</button> */}
-          </form>
+          <div className="mb-[3rem]">{renderForm()}</div>
         </div>
       </div>
     </div>

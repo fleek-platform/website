@@ -7,10 +7,10 @@ export type OptionsType = {
   formId: string;
 };
 
-type DropdownProps = {
+export type DropdownProps = {
   options: OptionsType[];
   selectedValue: string;
-  dropdownLabel: string;
+  dropdownLabel?: string;
   onChange: ({ value, id }: { value: string; id: string }) => void;
 };
 
@@ -76,7 +76,7 @@ const Dropdown = ({
             {options.map((option) => (
               <li
                 key={option.value}
-                className="cursor-pointer p-4 hover:bg-gray-700"
+                className="cursor-pointer px-[1.4rem] py-[.5rem] hover:bg-gray-700"
                 onClick={() =>
                   handleSelect({ value: option.value, id: option.formId })
                 }

@@ -1,4 +1,4 @@
-import type { OptionsType } from './form/Dropdown';
+import type { OptionsType } from './form/ui/Dropdown';
 
 export const categoryCardItems = [
   {
