@@ -72,3 +72,46 @@ export const youtubeEmbedVideos = [
     src: 'https://www.youtube.com/embed/2OzwtDH7K0A?enablejsapi=1&origin=https%3A%2F%2Fsupport.fleek.xyz&widgetid=3',
   },
 ];
+
+export const categoryOptions = [
+  {
+    label: '-',
+    value: '-',
+  },
+  {
+    label: 'Fleek.xyz Support',
+    value: 'Fleek.xyz Support',
+  },
+  {
+    label: 'Fleek.co Support',
+    value: 'Fleek.co Support',
+  },
+  {
+    label: 'Billing',
+    value: 'Billing',
+  },
+  {
+    label: 'Crypto Payment',
+    value: 'Crypto Payment',
+  },
+  {
+    label: 'Partnerships & Collaborations',
+    value: 'Partnerships & Collaborations',
+  },
+  {
+    label: 'Phishing and Abuse reports',
+    value: 'Phishing and Abuse reports',
+  },
+  {
+    label: 'Report Template',
+    value: 'Report Template',
+  },
+  {
+    label: 'Feedback & Feature Requests',
+    value: 'Feedback & Feature Requests',
+  },
+  {
+    label: 'Other',
+    value: 'Other',
+  },
+];

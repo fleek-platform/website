@@ -2,7 +2,6 @@ import settings from '@base/settings.json';
 
 const {
   careersUrl,
-  supportExternalUrl,
   reportAbuseUrl,
   statusURl,
   mediaKit,
@@ -107,8 +106,7 @@ export default {
     },
     {
       text: 'Support',
-      url: supportExternalUrl,
-      target: '_blank',
+      url: '/support',
       rel: 'noopener noreferrer',
     },
     {
