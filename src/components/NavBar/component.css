@@ -30,7 +30,7 @@
   }
 
   .nav-menu {
-    @apply fixed left-0 top-0 z-20 flex h-full w-full flex-col bg-ui-fleek-black pb-50 transition duration-300;
+    @apply fixed left-0 top-0 z-20 flex h-full w-full flex-col bg-black pb-50 transition duration-300;
   }
 
   .nav-menu-open {
@@ -53,7 +53,7 @@
     @apply flex  flex-col items-center justify-center overflow-y-scroll;
 
     .nav-menu-item {
-      @apply relative w-full text-18;
+      @apply relative w-full font-plex-sans   text-18;
     }
   }
 
@@ -68,7 +68,7 @@
   }
 
   .nav-menu-mobile-sub-menu-container {
-    @apply hidden w-full px-20 py-10 group-hover:block;
+    @apply hidden w-full px-20 py-10  group-hover:block;
   }
 
   .nav-sub-menu-ctas-mobile {
@@ -77,10 +77,6 @@
     .nav-sub-menu-cta {
       @apply block w-auto px-12 py-6;
     }
-  }
-
-  .nav-menu-mobile-sub-menu-label {
-    @apply text-12 font-bold;
   }
 
   .nav-menu-item {

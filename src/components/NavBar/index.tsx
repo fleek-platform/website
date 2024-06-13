@@ -18,6 +18,8 @@ import { isActivePath } from '@utils/url';
 import { NavBarDefault, NavBarDocs } from './config';
 
 import { RxCaretDown } from 'react-icons/rx';
+import ButtonYellow from '@components/ButtonYellow';
+import ButtonGray from '@components/ButtonGray';
 
 export type NavProps = Record<'pathname', string>;
 export type NavSubMenuCtaProps = Omit<MenuSettingsItem, 'subMenu'>;
@@ -254,20 +256,51 @@ const Nav = ({ pathname }: NavProps) => {
             <RxCross2 className="h-full rounded-8 bg-gray-dark-4 p-5 text-32 text-gray-dark-11" />
           </button>
         </div>
+        <div className="mx-15 flex flex-col justify-center gap-16">
+          <div className="typo-btn-l ">
+            <a
+              href="https://app.fleek.xyz/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="w-full"
+            >
+              <ButtonYellow
+                border="border-yellow"
+                className="flex items-center justify-center gap-12 "
+              >
+                <div>Get Started</div>
+              </ButtonYellow>
+            </a>
+          </div>
+          <div className="typo-btn-l">
+            <a
+              href="https://app.fleek.xyz/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="w-full"
+            >
+              <ButtonGray className="flex items-center justify-center gap-12 px-10 ">
+                <div>Log In</div>
+              </ButtonGray>
+            </a>
+          </div>
+        </div>
         <div className="nav-menu-mobile">
-          <nav>
-            <div className={clsx('mb-24 flex flex-col items-center gap-16')}>
+          <nav className="w-full">
+            <div
+              className={clsx('mb-24 flex w-full flex-col items-center gap-16')}
+            >
               {NavBarDefault.map((navItem, index) => (
-                <div key={index} className="nav-menu-item group">
+                <div key={index} className="nav-menu-item group w-full">
                   {navItem.subMenu ? (
                     <>
-                      <Text style="nav-m">
+                      <div className="nav-m mx-15 flex justify-between">
                         {navItem.label}
                         {navItem.subMenu && (
                           <span className="ml-4 inline-block w-8">+</span>
                         )}
-                      </Text>
-                      {navItem?.subMenu.map(({ label, url }, index) => (
+                      </div>
+                      {navItem?.subMenu.map(({ label, url, icon }, index) => (
                         <div
                           key={`${index}-${label}`}
                           className="nav-menu-mobile-sub-menu-container"
@@ -287,12 +320,10 @@ const Nav = ({ pathname }: NavProps) => {
                                 : 'nav-text-item'
                             }
                           >
-                            <Text
-                              className="nav-menu-mobile-sub-menu-label"
-                              style="nav-m"
-                            >
+                            <div className="nav-menu-mobile-sub-menu-label nav-m-mid flex items-center justify-start gap-8">
+                              <img src={icon} className="w-[6%]" />
                               {label}
-                            </Text>
+                            </div>
                           </Link>
                         </div>
                       ))}
@@ -303,7 +334,7 @@ const Nav = ({ pathname }: NavProps) => {
                       target={navItem.openInNewTab ? Target.Blank : Target.Self}
                       key={navItem.url}
                     >
-                      <Text style="nav-m">{navItem.label}</Text>
+                      <div className="nav-m mx-15">{navItem.label}</div>
                     </Link>
                   )}
                 </div>
@@ -311,23 +342,14 @@ const Nav = ({ pathname }: NavProps) => {
             </div>
           </nav>
         </div>
-        <div className="nav-menu-launch-app">
-          <a
-            href="https://app.fleek.xyz/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <ButtonRainbowOutlined>Launch App</ButtonRainbowOutlined>
-          </a>
-        </div>
-        <div className="flex justify-center pt-12">
+        <div className="mx-15 flex justify-start pt-12">
           <div className="nav-button-launch pr-10 ">
             <a
               href="https://twitter.com/fleek"
               target="_blank"
               rel="noopener noreferrer"
             >
-              <FaXTwitter fontSize={25} className="text-gray-dark-8" />
+              <FaXTwitter fontSize={23} className="text-gray-dark-8" />
             </a>
           </div>
           <div className="nav-button-launch pr-10 ">
