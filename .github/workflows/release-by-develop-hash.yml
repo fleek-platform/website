@@ -14,6 +14,8 @@ on:
       agreement:
         description: 'By proceeding, the relevant commit hashes which encompass all commits below them in history will be merged into the main branch. Merging into the main branch should trigger a deployment to production. Please confirm you understand the above by typing: I understand and want to proceed!'
         type: string
+permissions:
+  contents: write
 
 jobs:
   merge-by-develop-hash:
@@ -22,6 +24,7 @@ jobs:
       # TODO: Change to `main`
       # using temporary test for testing
       RELEASE_BRANCH: "test"
+      PREPARE_RELEASE_BRANCH: "prepare_release"
     steps:
     - name: Date safe-guard verification
       run: |
@@ -51,6 +54,7 @@ jobs:
       uses: actions/checkout@v4
       with:
         ref: ${{ env.RELEASE_BRANCH }}
+        fetch-depth: 0
 
     - name: Setup Git Config
       run: |
@@ -60,15 +64,37 @@ jobs:
     - name: Verify commit hash in Develop
       id: check_commit_hash
       run: |
-        git fetch origin develop
+        if ! git checkout develop; then
+          echo "👹 Oops! The develop branch wasn't found"
+          
+          exit 1
+        fi
+
         if ! git branch --contains "${{ github.event.inputs.commitHash }}" | grep -q develop > /dev/null; then
           echo "👹 Oops! The commit hash wasn't found in the develop branch..."
 
           exit 1
         fi
 
+    - name: Create temporary release branch
+      run: |
+        if ! git checkout -b "${{ env.PREPARE_RELEASE_BRANCH }}" "${{ github.event.inputs.commitHash }}"; then
+          echo "👹 Oops! Failed to create the release preparation branch with name ${{ env.PREPARE_RELEASE_BRANCH }}. If the branch exists in the repository it's conflicting with the original intent for the goal of this step. You're advised to revise why the branch exists in the repository and do something about it, e.g. delete it or rename the target release branch name here."
+          
+          exit 1
+        fi
+
+        echo "✅ Created the release preparation branch with name ${{ env.PREPARE_RELEASE_BRANCH }} successfuly"
+
+
     - name: Merge into main
       run: |
+        if ! git checkout "${{ env.RELEASE_BRANCH }}"; then
+          echo "👹 Oops! The develop branch wasn't found"
+          
+          exit 1
+        fi
+
         if ! git merge --ff-only ${{ github.event.inputs.commitHash }}; then
           echo "👹 Oops! Failed to merge into main for some reason..."
 
@@ -76,8 +102,17 @@ jobs:
         fi
         
         if ! git push origin "${{ env.RELEASE_BRANCH }}"; then
-          echo "👹 Oops! Failed to push changes to the $RELEASE_BRANCH branch for some reason..."
+          echo "👹 Oops! Failed to push changes to the ${{ env.RELEASE_BRANCH }} branch for some reason..."
 
           exit 1
         fi
 
+    - name: Delete temporary release branch
+      run: |
+        if ! git branch -D "${{ env.PREPARE_RELEASE_BRANCH }}"; then
+          echo "👹 Oops! Failed to delete the release preparation branch with name ${{ env.PREPARE_RELEASE_BRANCH }} for some reason. You are advised to look into why this happens as you may have to delete this manually, as the original intent is to use it temporarily per job run."
+
+          exit 1
+        fi
+
+        echo "✅ Deleted the release preparation branch with name ${{ env.PREPARE_RELEASE_BRANCH }} successfuly"
