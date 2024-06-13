@@ -60,19 +60,22 @@ const Dropdown = ({
         {dropdownLabel}
       </label>
       <div
-        className="relative cursor-pointer rounded-[6px] border border-[#313538] bg-[#111111] px-[1.1rem] py-[.7rem] focus:border focus:border-[#369eff]"
+        className={`relative cursor-pointer rounded-[6px]  border-[#313538] bg-[#111111] px-[1.1rem] py-[.7rem]  ${isOpen || 'border focus:border-[#369eff]'} `}
         onClick={handleIsOpen}
         tabIndex={1}
       >
-        <div className="flex items-center justify-between ">
-          <span className=" text-[1.5rem]">
-            {options.find((option) => option.value === selectedValue)?.label ||
-              '-'}
-          </span>
-          <MdArrowDropDown className="text-[#313538]" fontSize={24} />
-        </div>
+        {isOpen || (
+          <div className="flex items-center justify-between ">
+            <span className=" text-[1.6rem]">
+              {options.find((option) => option.value === selectedValue)
+                ?.label || '-'}
+            </span>
+            <MdArrowDropDown className="text-[#313538]" fontSize={24} />
+          </div>
+        )}
+
         {isOpen && (
-          <ul className="rounded-md absolute left-0 right-0 top-1/3 mt-2 max-h-[200px] overflow-scroll  bg-[#111111] text-[1.5rem]">
+          <ul className="rounded-md absolute left-0 right-0 top-0 mt-2 max-h-[200px] w-full  overflow-scroll bg-[#111111] text-[1.5rem]">
             {options.map((option) => (
               <li
                 key={option.value}

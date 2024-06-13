@@ -1,5 +1,6 @@
 import { useCallback, useEffect, useState } from 'react';
 import { categoryOptions, updateUrl } from '../config';
+import { IoIosInformationCircle } from 'react-icons/io';
 
 import XYZForm from './XYZForm';
 import CoForm from './CoForm';
@@ -11,7 +12,6 @@ import Dropdown from './ui/Dropdown';
 import TemplateForm from './TemplateForm';
 import FeedbackForm from './FeedbackForm';
 import OtherForm from './OtherForm';
-import DefaultForm from './DefaultForm';
 
 function DynamicForm() {
   const [selectedValue, setSelectedValue] = useState('');
@@ -97,9 +97,13 @@ function DynamicForm() {
           Submit a request
         </h1>
 
-        {showToolTip && <p>stuff</p>}
+        {showToolTip && (
+          <div className="mt-[6rem]">
+            <Tooltip />
+          </div>
+        )}
 
-        <div className="mt-[2rem]">
+        <div className="mt-[2.3rem]">
           <Dropdown {...defaultOptions} />
         </div>
 
@@ -107,6 +111,21 @@ function DynamicForm() {
           <div className="mb-[3rem]">{renderForm()}</div>
         </div>
       </div>
+    </div>
+  );
+}
+
+function Tooltip() {
+  return (
+    <div className="flex items-center gap-[10px] rounded-[0.5rem] border border-[#369eff] px-[1.5rem] py-[1.55rem]">
+      <div>
+        <IoIosInformationCircle fill="#61a5ff" fontSize={24} />
+      </div>
+
+      <p className="text-[1.47rem]">
+        Providing as much information as possible in your request will allow us
+        to help you faster
+      </p>
     </div>
   );
 }
