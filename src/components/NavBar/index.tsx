@@ -292,7 +292,7 @@ const Nav = ({ pathname }: NavProps) => {
                       <div className="nav-m mx-15 flex justify-between">
                         {navItem.label}
                         {navItem.subMenu && (
-                          <span className="ml-4 inline-block w-8">
+                          <span className="ml-4 inline-block w-8 transform transition-transform duration-100 group-hover:rotate-180">
                             <RxCaretDown className="mt-3" />
                           </span>
                         )}
