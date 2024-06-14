@@ -19,6 +19,7 @@
       "name": "@astrojs/ts-plugin"
     }],
     "module": "es2020",
-    "noErrorTruncation": true
+    "noErrorTruncation": true,
+    "strictNullChecks": true
   },
 }
