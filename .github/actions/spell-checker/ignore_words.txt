@@ -234,6 +234,8 @@ redis
 regex
 regular-expression
 release
+repo
+repos
 repository
 request
 reset
