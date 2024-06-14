@@ -10,7 +10,9 @@ interface AnnouncementProps {
   hasMargin?: boolean;
 }
 
-const Announcement = ({ hasMargin = true }: AnnouncementProps) => {
+const Announcement: React.FC<AnnouncementProps> = ({
+  hasMargin = true,
+}: AnnouncementProps) => {
   const [mount, setMount] = useState(false);
 
   useEffect(() => {
