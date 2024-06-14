@@ -34,12 +34,14 @@ const GlobeWithFloatingCards: React.FC<Prop> = (props) => {
                 ship and <br />
                 scale highly performant apps.
               </p>
+
               <p className="typo-m mx-40 text-[#B4B4B4] lg:typo-l lg:hidden">
                 Fleek is an edge-optimized cloud platform. Effortlessly build,
                 ship and scale highly performant apps.
               </p>
               <div className="flex flex-col justify-center gap-16 lg:flex-row">
                 <div className="typo-btn-l ">
+
                   <a
                     href="https://app.fleek.xyz/"
                     target="_blank"

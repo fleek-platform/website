@@ -7,7 +7,6 @@ import sitemap from "@astrojs/sitemap";
 import settings from "./src/settings.json";
 import { imagetools } from 'vite-imagetools';
 import mdx from "@astrojs/mdx";
-import { getLatestBlogPosts } from './integrations';
 
 const configRemarkCalloutDirectives = {
   callouts: {
@@ -57,9 +56,6 @@ export default defineConfig({
       lastmod: new Date(),
     }),
     mdx(),
-    getLatestBlogPosts({
-      targetDir: './src/content/blog'
-    }),
   ],
   markdown: {
     remarkPlugins: [remarkDirective, [remarkCalloutDirectives, configRemarkCalloutDirectives]],

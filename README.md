@@ -22,7 +22,7 @@ This repository contains the source code and assets for the Fleek.xyz website, w
     - [Blog](#-blog)
         - [New post](#new-post)
         - [Create a Pull request](#-create-a-pull-request)
-        - [Release to production](#release-to-production)
+        - [Release to production](#🚀-release-to-production)
     - [Docs](#-docs)
         - [Sidebar menu item ordering](#-sidebar-menu-item-ordering)
         - [Override category title](#-override-category-title)
@@ -408,17 +408,17 @@ To complete select "Create pull request".
 
 ![Pull request form](public/images/repo/pull-request-form.png?202404161849)
 
-## Release to Production
+## 🚀 Release to Production
 
-To release to Production you have to create a new PR, name it something meaningful such as "chore/my-release-day" and target the branch "main".
+You can release to production following a linear strategy. This assumes that the convention "main" branch is of linear history and is a subset of the "develop" branch commit history. For example, the team is happy to have "develop" as where the latest version of the project exists, that "main" shouldn't diverge and only contain commits from "develop".
 
-1) Visit [https://github.com/fleek-platform/website/pulls](https://github.com/fleek-platform/website/pulls)
-2) Open "New pull request"
-3) Name the PR in a meaningful manner, e.g. don't create a PR develop -> main, you should chore/my-release-day -> main
+Use-case examples:
+- The team has merged some feature branches into develop identified as commit hash "abc123" and want to release upto to the commit history hash "abc123" onto "main". By doing this they expect the build process to occur and deploy into the Fleek Platform
+- The team has merged several feature branches into develop identified as commit hashes "commitFeat1", "commitFeat2" and "commitFeat3" by this historical order. It's decided to release everything in commit history until "commitFeat1", but not "commitFeat2" and "commitFeat3". Although, it'd be wiser to keep the feature branches in pending state as "develop" should always be in a ready state for testing and release as the team may want to release some quick hotfixes, etc
 
-Make sure that all checkups are green!
+To release to production open the actions tab [here](https://github.com/fleek-platform/website/actions).
 
-Once approved and merged into "main", it should be deployed after successful build and deploy.
+Select the "🚀 Release by develop hash" job in the left sidebar. Next, select the "Run workflow" drop-down and provide the required details.
 
 ## 🧐 Spell checker (Grammar)
 
@@ -781,18 +781,18 @@ Example usage:
 
 ## Custom data
 
-Custom data is available as static data. The data is provided by an integration process, placed in as an integration hook in the main configuration file. These integrations are custom functions (hooks) that are declared in the `/integrations` directory.
+Custom data is available as static data. The data is provided by a static file endpoint, placed inside the `/api` directory.
 
 Note that the custom data is static, as the project is fully static (it means that the data is computed ahead of time and not dynamically on runtime), but can be utilized by external applications as any other endpoint. For example, the Fleek Platform application dashboard requires the latest blog posts data.
 
 ### Get latest posts
 
-Make a HTTP GET request to the path `/custom-data/latestBlogPosts.json` for the target environment, e.g. production as `https://fleek.xyz`.
+Make a HTTP GET request to the path `/api/latestBlogposts.json` for the target environment, e.g. production as `https://fleek.xyz`.
 
 In the example we make a HTTP GET request and [parse](https://developer.mozilla.org/en-US/docs/Web/API/Response/json) the body text as JSON data.
 
 ```js
-const res = await fetch('https://fleek.xyz/custom-data/latestBlogPosts.json');
+const res = await fetch('https://fleek.xyz/api/latestBlogPosts.json');
 const json = await res.json();
 
 console.log(json);
@@ -806,16 +806,20 @@ You'd get a list to iterate over as the following:
     {
       date: "1972-01-01",
       path: "/blog/my-category/my-blog-post-1",
-      title: "My title 1"
+      title: "My title 1",
+      description: "My description 1"
+      slug: "my-title-1"
     },
     {
       date: "1972-01-02",
       path: "/blog/my-category/my-blog-post-2",
       title: "My title 2"
+      description: "My description 2"
+      slug: "my-title-2"
     },
     ...
   ]
 }
 ```
 
-Everytime a new release build is published, the static JSON data should be updated.
+Everytime a build happens, the static JSON data should be updated.

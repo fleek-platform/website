@@ -15,7 +15,7 @@ import { RxCross2 } from 'react-icons/rx';
 
 import { isActivePath } from '@utils/url';
 
-import { NavBarDefault, NavBarDocs } from './config';
+import { NavBarDefault } from './config';
 
 import { RxCaretDown } from 'react-icons/rx';
 import ButtonYellow from '@components/ButtonYellow';
@@ -60,7 +60,7 @@ const NavSubMenuNavCol = ({
           <img src={icon} />
         </div>
         <div>
-          <div className=" typo-m-strong text-gray-dark-12">{label}</div>
+          <div className="typo-m-strong text-gray-dark-12">{label}</div>
           <div className="typo-s text-gray-dark-11">{description}</div>
         </div>
       </div>
@@ -68,18 +68,9 @@ const NavSubMenuNavCol = ({
   );
 };
 
-const NavSubMenuCta = ({ label, url }: NavSubMenuCtaProps) => (
-  <a href={url} className="nav-sub-menu-cta">
-    <span>{label}</span>
-  </a>
-);
-
 const NavSubMenu = ({ subMenu }: MenuSettingsItem) => {
   return (
     <div className={`nav-sub-menu-container `}>
-      {/* <div
-      className={`nav-sub-menu-container ${!side || subMenu.length < 2 ? 'minimal' : ''}`}
-    > */}
       <div className="nav-sub-menu-wrap">
         <div className="nav-sub-menu-main-col">
           <div className={`nav-sub-menu-nav-cols `}>
@@ -121,6 +112,7 @@ const Nav = ({ pathname }: NavProps) => {
       setIsOpen(false);
     }
   }, [isLg]);
+
 
   const docsPaths = [
     '/docs',
@@ -189,8 +181,10 @@ const Nav = ({ pathname }: NavProps) => {
           </nav>
         </div>
 
+
         <div className="flex items-center gap-1 lg:gap-10 ">
           <div className="nav-button-launch hidden pr-10 lg:inline-block">
+
             <a
               href="https://twitter.com/fleek"
               target="_blank"
@@ -202,7 +196,7 @@ const Nav = ({ pathname }: NavProps) => {
               />
             </a>
           </div>
-          <div className="nav-button-launch hidden pr-10 lg:inline-block">
+          <div className="nav-button-launch hidden pr-10 md:inline-block">
             <a
               href="https://discord.gg/fleek"
               target="_blank"
@@ -214,7 +208,7 @@ const Nav = ({ pathname }: NavProps) => {
               />
             </a>
           </div>
-          <div className="nav-button-launch hidden lg:inline-block">
+          <div className="nav-button-launch hidden md:inline-block">
             <a
               href="https://app.fleek.xyz/"
               target="_blank"
@@ -236,7 +230,9 @@ const Nav = ({ pathname }: NavProps) => {
           </div>
           <button
             onClick={() => setIsOpen(true)}
+
             className=" mx-10 font-plex-sans text-28 leading-[150%] text-ui-white xl:hidden"
+
           >
             <RxHamburgerMenu className="h-full rounded-8 bg-gray-dark-4 p-5 text-32 text-gray-dark-11" />
           </button>
