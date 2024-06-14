@@ -91,7 +91,7 @@ Once you’ve selected the repo(s) you would like to grant Fleek access to, clic
 
 💡 To grant Fleek access to a different repository, simply click on the ‘Adjust GitHub App Permission’ button below.
 
-The next step will be to click on the ‘Deploy’ button of the repository you would like to deploy to Fleek.
+The next step will be to click on the `Deploy` button of the repository you would like to deploy to Fleek.
 
 You’ll then be brought to this page:
 
