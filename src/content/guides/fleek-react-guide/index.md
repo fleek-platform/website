@@ -2,8 +2,8 @@
 title: 'How To Deploy A React App To Fleek: A Step-by-Step Guide for Developers'
 date: 2024-06-14
 desc: 'How to deploy a React app using the Fleek UI.'
-thumbnail: './reactguide.png'
-image: './reactguide.png'
+thumbnail: './ReactGuide.png'
+image: './ReactGuide.png'
 cannonical: ''
 author:
   - 'Olayinka Oshidipe'
