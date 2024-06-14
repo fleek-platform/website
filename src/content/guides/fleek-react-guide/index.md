@@ -31,7 +31,7 @@ Let’s go!
 
 ### Step 1: Fleek Account Creation
 
-The first thing we’ll need to do is create a Fleek account: head over to [http://app.fleek.xyz](http://app.fleek.xyz/), and click on the Create a Free Account button.
+The first thing we’ll need to do is create a Fleek account: head over to [http://app.fleek.xyz](http://app.fleek.xyz/), and click on the `Create a Free Account` button.
 
 💡 Feel free to skip this step if you already have an account on Fleek.xyz!
 
@@ -69,7 +69,7 @@ Head over to the [Fleek dashboard](http://app.fleek.xyz/), Create a new project,
 
 ![](./create.png)
 
-Click on the Add New button at the top right. Then click on Deploy my site
+Click on the `Add New` button at the top right. Then click on `Deploy my site`
 
 You’ll be brought to this page:
 
@@ -85,7 +85,7 @@ Choose the preferred account or organization. This will lead you to a page where
 
 ![](./selectrepos.png)
 
-Once you’ve selected the repo(s) you would like to grant Fleek access to, click Save. You should see this— the image below shows a list of repos Fleek has access to.
+Once you’ve selected the repo(s) you would like to grant Fleek access to, click `Save`. You should see this— the image below shows a list of repos Fleek has access to.
 
 ![](./step2.png)
 
@@ -99,15 +99,15 @@ You’ll then be brought to this page:
 
 A few things to note about this page.
 
-1. You can modify the Site Name to anything you want.
+1. You can modify the `Site Name` to anything you want.
 2. The framework is automatically detected by Fleek.
-3. The main branch is automatically selected. If you’d like to deploy code from a different branch, feel free to select that branch.
-4. The Publish Directory is also automatically determined by Fleek based on the **Default** publish directory by the framework. If you’ve made any modifications, change the name to reflect this.
-5. The Build Command is also automatically determined by Fleek. If this is different from yours, modifications can be made.
+3. The `main` branch is automatically selected. If you’d like to deploy code from a different branch, feel free to select that branch.
+4. The `Publish Directory` is also automatically determined by Fleek based on the **Default** publish directory by the framework. If you’ve made any modifications, change the name to reflect this.
+5. The `Build Command` is also automatically determined by Fleek. If this is different from yours, modifications can be made.
 
 ### Advanced Options
 
-When you click on the Show Advanced Options
+When you click on the `Show Advanced Options`
 
 ![](./advanced.png)
 
@@ -117,15 +117,15 @@ You can make modifications to things like:
 - The Base Directory
 - The Environmental Variables
 
-Once you are satisfied with the modifications you’ve made, simply click on the Deploy Site button to allow Fleek to begin the deployment process.
+Once you are satisfied with the modifications you’ve made, simply click on the `Deploy Site` button to allow Fleek to begin the deployment process.
 
 You will be automatically redirected to this page on the Fleek dashboard:
 
 ![](./deploying.png)
 
-The **Overview** page shows you the status of your site deployment, you can also monitor the status of your deployment by clicking on the **Deploys** tab. The **Audit** **Log** , **Analytics**, **Settings**, have helpful information about your deployment as well.
+The `Overview` page shows you the status of your site deployment, you can also monitor the status of your deployment by clicking on the `Deploys` tab. The `Audit Log` , `Analytics`, `Settings`, have helpful information about your deployment as well.
 
-Once your site has been successfully deployed, you should see a Site is live notification and your site’s URL.
+Once your site has been successfully deployed, you should see a `Site is live` notification and your site’s URL.
 
 ![](./deployed.png)
 
