@@ -105,8 +105,8 @@
     &.minimal {
       @apply w-[32vw] min-w-[400px];
 
-      .nav-sub-menu-main-col {
-      }
+      /* .nav-sub-menu-main-col {
+      } */
 
       .nav-sub-menu-side-container {
         width: 40%;
@@ -135,8 +135,8 @@
     @apply grid grid-cols-2 gap-50 p-36 pt-18;
   }
 
-  .nav-sub-menu-nav-col {
-  }
+  /* .nav-sub-menu-nav-col {
+  } */
 
   .nav-sub-menu-nav-col-title {
     @apply pb-20 font-sans font-sans text-12 uppercase text-gray-600 dark:text-gray-500;

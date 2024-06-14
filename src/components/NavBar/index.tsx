@@ -20,6 +20,7 @@ import { NavBarDefault, NavBarDocs } from './config';
 import { RxCaretDown } from 'react-icons/rx';
 import ButtonYellow from '@components/ButtonYellow';
 import ButtonGray from '@components/ButtonGray';
+import Announcement from '@components/Announcement';
 
 export type NavProps = Record<'pathname', string>;
 export type NavSubMenuCtaProps = Omit<MenuSettingsItem, 'subMenu'>;
@@ -233,12 +234,14 @@ const Nav = ({ pathname }: NavProps) => {
           </button>
         </div>
       </div>
+
       <div
         className={clsx('nav-menu', {
           'nav-menu-open': isOpen,
           'nav-menu-closed': !isOpen,
         })}
       >
+        <Announcement hasMargin={false} />
         <div className="nav-menu-logo">
           <img src="/svg/fleek-logo.svg" alt="fleek logo" />
           <button
@@ -322,6 +325,9 @@ const Nav = ({ pathname }: NavProps) => {
                                 {label}
                               </div>
                             </Link>
+                            {index === navItem.subMenu!.length - 1 && (
+                              <div className="mb-[8px] mt-[24px] h-[2px] bg-[#3A3A3A]"></div>
+                            )}
                           </div>
                         ))}
                       </div>
