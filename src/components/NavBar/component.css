@@ -34,7 +34,7 @@
   }
 
   .nav-menu-open {
-    @apply pointer-events-auto flex gap-[23px] opacity-100;
+    @apply pointer-events-auto flex gap-[1.438rem] opacity-100;
   }
 
   .nav-menu-closed {

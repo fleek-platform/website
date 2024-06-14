@@ -336,7 +336,7 @@ const Nav = ({ pathname }: NavProps) => {
                               </div>
                             </Link>
                             {index === navItem.subMenu!.length - 1 && (
-                              <div className="mb-[8px] mt-[24px] h-[2px] w-full bg-[#3A3A3A]"></div>
+                              <div className="mb-[0.5rem] mt-[1.5rem] h-[0.13rem] w-full bg-[#3A3A3A]"></div>
                             )}
                           </div>
                         ))}
