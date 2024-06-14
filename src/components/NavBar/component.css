@@ -30,11 +30,11 @@
   }
 
   .nav-menu {
-    @apply fixed left-0 top-0 z-20 flex h-full w-full flex-col bg-black pb-50 transition duration-300;
+    @apply fixed left-0 top-0 z-40 flex h-full w-full flex-col overflow-y-scroll bg-black pb-50 transition duration-300;
   }
 
   .nav-menu-open {
-    @apply pointer-events-auto flex justify-around opacity-100;
+    @apply pointer-events-auto flex gap-[23px] opacity-100;
   }
 
   .nav-menu-closed {
@@ -50,7 +50,7 @@
   }
 
   .nav-menu-mobile {
-    @apply flex  flex-col items-center justify-center overflow-y-scroll;
+    @apply flex  flex-col items-center justify-center;
 
     .nav-menu-item {
       @apply relative w-full font-plex-sans   text-18;

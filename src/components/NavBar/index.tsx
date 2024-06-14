@@ -102,6 +102,14 @@ const NavSubMenu = ({ subMenu }: MenuSettingsItem) => {
 const Nav = ({ pathname }: NavProps) => {
   const [isOpen, setIsOpen] = useState(false);
 
+  useEffect(() => {
+    if (isOpen) {
+      document.body.classList.add('body-no-scroll');
+    } else {
+      document.body.classList.remove('body-no-scroll');
+    }
+  }, [isOpen]);
+
   const isLg = useMediaQuery(up('lg'));
 
   useEffect(() => {
@@ -241,7 +249,10 @@ const Nav = ({ pathname }: NavProps) => {
           'nav-menu-closed': !isOpen,
         })}
       >
-        <Announcement hasMargin={false} />
+        <div className="py-8">
+          <Announcement hasMargin={false} />
+        </div>
+
         <div className="nav-menu-logo">
           <img src="/svg/fleek-logo.svg" alt="fleek logo" />
           <button
@@ -251,6 +262,7 @@ const Nav = ({ pathname }: NavProps) => {
             <RxCross2 className="h-full rounded-8 bg-gray-dark-4 p-5 text-32 text-gray-dark-11" />
           </button>
         </div>
+
         <div className="mx-15 flex flex-col justify-center gap-16">
           <div className="typo-btn-l ">
             <a
@@ -282,9 +294,7 @@ const Nav = ({ pathname }: NavProps) => {
         </div>
         <div className="nav-menu-mobile">
           <nav className="w-full">
-            <div
-              className={clsx('mb-24 flex w-full flex-col items-center gap-16')}
-            >
+            <div className={clsx('flex w-full flex-col items-center gap-16')}>
               {NavBarDefault.map((navItem, index) => (
                 <div key={index} className="nav-menu-item group w-full">
                   {navItem.subMenu ? (
@@ -292,8 +302,8 @@ const Nav = ({ pathname }: NavProps) => {
                       <div className="nav-m mx-15 flex justify-between">
                         {navItem.label}
                         {navItem.subMenu && (
-                          <span className="ml-4 inline-block w-8 transform transition-transform duration-100 group-hover:rotate-180">
-                            <RxCaretDown className="mt-3" />
+                          <span className="ml-4 inline-block w-8">
+                            <RxCaretDown className="mt-3 transform transition-transform duration-100 group-hover:rotate-180" />
                           </span>
                         )}
                       </div>
@@ -326,7 +336,7 @@ const Nav = ({ pathname }: NavProps) => {
                               </div>
                             </Link>
                             {index === navItem.subMenu!.length - 1 && (
-                              <div className="mb-[8px] mt-[24px] h-[2px] bg-[#3A3A3A]"></div>
+                              <div className="mb-[8px] mt-[24px] h-[2px] w-full bg-[#3A3A3A]"></div>
                             )}
                           </div>
                         ))}
