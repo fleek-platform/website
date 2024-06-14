@@ -121,14 +121,6 @@ const Nav = ({ pathname }: NavProps) => {
     '/support',
   ];
 
-  // const menuItems = (() => {
-  //   if (docsPaths.some((path) => pathname.startsWith(path))) {
-  //     return NavBarDocs;
-  //   }
-
-  //   return NavBarDefault;
-  // })();
-
   return (
     <Container>
       <div className="nav-container">
@@ -297,36 +289,42 @@ const Nav = ({ pathname }: NavProps) => {
                       <div className="nav-m mx-15 flex justify-between">
                         {navItem.label}
                         {navItem.subMenu && (
-                          <span className="ml-4 inline-block w-8">+</span>
+                          <span className="ml-4 inline-block w-8">
+                            <RxCaretDown className="mt-3" />
+                          </span>
                         )}
                       </div>
-                      {navItem?.subMenu.map(({ label, url, icon }, index) => (
-                        <div
-                          key={`${index}-${label}`}
-                          className="nav-menu-mobile-sub-menu-container"
-                        >
-                          <Link
-                            href={url}
-                            target={
-                              navItem.openInNewTab ? Target.Blank : Target.Self
-                            }
-                            key={navItem.url}
-                            className={
-                              isActivePath({
-                                pathname,
-                                lookup: navItem.url || '',
-                              })
-                                ? 'font-bold'
-                                : 'nav-text-item'
-                            }
+                      <div className=" ">
+                        {navItem?.subMenu.map(({ label, url, icon }, index) => (
+                          <div
+                            key={`${index}-${label}`}
+                            className="nav-menu-mobile-sub-menu-container relative"
                           >
-                            <div className="nav-menu-mobile-sub-menu-label nav-m-mid flex items-center justify-start gap-8">
-                              <img src={icon} className="w-[6%]" />
-                              {label}
-                            </div>
-                          </Link>
-                        </div>
-                      ))}
+                            <Link
+                              href={url}
+                              target={
+                                navItem.openInNewTab
+                                  ? Target.Blank
+                                  : Target.Self
+                              }
+                              key={navItem.url}
+                              className={
+                                isActivePath({
+                                  pathname,
+                                  lookup: navItem.url || '',
+                                })
+                                  ? 'font-bold'
+                                  : 'nav-text-item'
+                              }
+                            >
+                              <div className="nav-menu-mobile-sub-menu-label nav-m-mid flex items-center justify-start gap-8">
+                                <img src={icon} className="w-[6%]" />
+                                {label}
+                              </div>
+                            </Link>
+                          </div>
+                        ))}
+                      </div>
                     </>
                   ) : (
                     <Link
