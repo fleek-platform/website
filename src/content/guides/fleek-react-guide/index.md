@@ -4,7 +4,6 @@ date: 2024-06-14
 desc: 'How to deploy a React app using the Fleek UI.'
 thumbnail: './reactguide.png'
 image: './reactguide.png'
-cannonical: ''
 author:
   - 'Olayinka Oshidipe'
 ---
@@ -27,9 +26,9 @@ Let’s go!
 
 ---
 
-## Fleek Deployment
+## Fleek deployment
 
-### Step 1: Fleek Account Creation
+### Step 1: Fleek account creation
 
 The first thing we’ll need to do is create a Fleek account: head over to [http://app.fleek.xyz](http://app.fleek.xyz/), and click on the `Create a Free Account` button.
 
@@ -51,7 +50,7 @@ After the code is verified, you’ll be logged in and redirected to the Fleek Da
 
 ---
 
-## GitHub Account
+## GitHub account
 
 You’ll also need to head over to [GitHub](http://github.com/) to create an account.
 
@@ -61,7 +60,7 @@ https://github.com/fleekxyz/react-template
 
 Simply clone this repo onto your account, and we can move to the next step.
 
-## Deploying Site On Fleek
+## Deploying site on Fleek
 
 Once we have our repo cloned, the next step is the deployment!
 
@@ -105,7 +104,7 @@ A few things to note about this page.
 4. The `Publish Directory` is also automatically determined by Fleek based on the **Default** publish directory by the framework. If you’ve made any modifications, change the name to reflect this.
 5. The `Build Command` is also automatically determined by Fleek. If this is different from yours, modifications can be made.
 
-### Advanced Options
+### Advanced options
 
 When you click on the `Show Advanced Options`
 
@@ -131,7 +130,7 @@ Once your site has been successfully deployed, you should see a `Site is live` n
 
 Click on the URL (For this example it’s https://wailing-action-mammoth.on-fleek.app/ but yours will be different) and it’ll take you to your fully functional React App!
 
-**Congratulations! You’ve successfully deployed your react App onto Fleek!**
+**Congratulations! You’ve successfully deployed your React app onto Fleek!**
 
 ### Resources:
 
