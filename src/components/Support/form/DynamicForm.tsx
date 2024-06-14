@@ -91,7 +91,7 @@ function DynamicForm() {
   };
 
   return (
-    <div className="mx-auto w-[65%] max-w-[768px]">
+    <div className="mx-auto my-[35px] w-[65%] max-w-[768px]">
       <div className="rounded-[8px] border border-[#313538] px-[4rem] py-[3rem]">
         <h1 className="text-[4rem] font-medium text-[#ECEDEE]">
           Submit a request
@@ -103,11 +103,11 @@ function DynamicForm() {
           </div>
         )}
 
-        <div className="mt-[2.3rem]">
+        <div className="my-[1.8rem]">
           <Dropdown {...defaultOptions} />
         </div>
 
-        <div className="mt-[3rem]">
+        <div>
           <div className="mb-[3rem]">{renderForm()}</div>
         </div>
       </div>
