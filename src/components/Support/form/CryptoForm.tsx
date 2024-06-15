@@ -46,7 +46,7 @@ function CryptoForm() {
     [],
   );
 
-  const severityOptions = useMemo(
+  const planOptions = useMemo(
     () => ({
       options: selectedPlanItems,
       selectedValue: formValues.selectedPlan,
@@ -105,7 +105,7 @@ function CryptoForm() {
       </div>
 
       <div className="my-[1.8rem]">
-        <Dropdown {...severityOptions} />
+        <Dropdown {...planOptions} />
       </div>
 
       <div className="my-[1.8rem]">

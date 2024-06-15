@@ -198,3 +198,31 @@ export const selectedPlanItems: OptionsType[] = [
     id: 'enterprise',
   },
 ];
+
+export const productItems: OptionsType[] = [
+  {
+    label: '-',
+    value: '-',
+    id: '-',
+  },
+  {
+    label: 'Fleek.co',
+    value: 'Fleek.co',
+    id: 'fleek-co',
+  },
+  {
+    label: 'Fleek.xyz',
+    value: 'Fleek.xyz',
+    id: 'fleek-xyz',
+  },
+  {
+    label: 'Fleek Network',
+    value: 'Fleek-Network',
+    id: 'fleek-network',
+  },
+  {
+    label: 'NFAs',
+    value: 'NFAs',
+    id: 'nfas',
+  },
+];
