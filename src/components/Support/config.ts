@@ -79,62 +79,95 @@ export const categoryOptions: OptionsType[] = [
   {
     label: '-',
     value: '-',
-    formId: '-',
+    id: '-',
   },
   {
     label: 'Fleek.xyz Support',
     value: 'Fleek.xyz Support',
-    formId: 'xyz-form',
+    id: 'xyz-form',
   },
   {
     label: 'Fleek.co Support',
     value: 'Fleek.co Support',
-    formId: 'co-form',
+    id: 'co-form',
   },
   {
     label: 'Billing',
     value: 'Billing',
-    formId: 'billing-form',
+    id: 'billing-form',
   },
   {
     label: 'Crypto Payment',
     value: 'Crypto Payment',
-    formId: 'crypto-form',
+    id: 'crypto-form',
   },
   {
     label: 'Partnerships & Collaborations',
     value: 'Partnerships & Collaborations',
-    formId: 'partnerships-form',
+    id: 'partnerships-form',
   },
   {
     label: 'Phishing and Abuse reports',
     value: 'Phishing and Abuse reports',
-    formId: 'phishing-form',
+    id: 'phishing-form',
   },
   {
     label: 'Report Template',
     value: 'Report Template',
-    formId: 'template-form',
+    id: 'template-form',
   },
   {
     label: 'Feedback & Feature Requests',
     value: 'Feedback & Feature Requests',
-    formId: 'feedback-form',
+    id: 'feedback-form',
   },
   {
     label: 'Other',
     value: 'Other',
-    formId: 'other-form',
+    id: 'other-form',
   },
 ];
 
-export const updateUrl = (formId: string, paramName: string) => {
+export const severityItems: OptionsType[] = [
+  {
+    label: '-',
+    value: '-',
+    id: '-',
+  },
+  {
+    label: 'Urgent',
+    value: 'urgent',
+    id: 'urgent',
+  },
+  {
+    label: 'High',
+    value: 'high',
+    id: 'high',
+  },
+  {
+    label: 'Medium',
+    value: 'medium',
+    id: 'medium',
+  },
+  {
+    label: 'Normal',
+    value: 'normal',
+    id: 'normal',
+  },
+  {
+    label: 'Low',
+    value: 'low',
+    id: 'low',
+  },
+];
+
+export const updateUrl = (id: string, paramName: string) => {
   const params = new URLSearchParams(window.location.search);
 
-  if (formId === '-') {
+  if (id === '-') {
     params.delete(paramName);
   } else {
-    params.set(paramName, formId);
+    params.set(paramName, id);
   }
 
   const newUrl = params.toString()

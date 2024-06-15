@@ -25,7 +25,7 @@ function DynamicForm() {
     if (ticketFormId) {
       setFormId(ticketFormId);
       const selectedOption = categoryOptions.find(
-        (option) => option.formId === ticketFormId,
+        (option) => option.id === ticketFormId,
       );
       if (selectedOption) {
         setSelectedValue(selectedOption.value);

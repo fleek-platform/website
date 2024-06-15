@@ -3,12 +3,13 @@ import { SlPaperClip } from 'react-icons/sl';
 import { IoMdClose } from 'react-icons/io';
 
 interface InputProps {
-  type?: 'text' | 'file' | 'password';
+  type?: 'text' | 'file' | 'email';
   value?: string;
   onChange?: (value: string | FileList) => void;
   label?: string;
   name: string;
   isRequired: boolean;
+  bottomText?: string;
   [key: string]: any;
 }
 
@@ -18,6 +19,7 @@ const Input: React.FC<InputProps> = ({
   onChange,
   label = 'Name',
   isRequired,
+  bottomText,
   name,
   ...props
 }) => {
@@ -68,7 +70,7 @@ const Input: React.FC<InputProps> = ({
           {isRequired && <span className="text-[#FC8181]">*</span>}
           {!isRequired && <span>(Optional)</span>}
         </label>
-        <div className="relative w-full rounded-[6px] border border-[#313538] bg-[#11111] px-[1.1rem] py-[.8rem] text-center text-[1.6rem] focus-within:border-[#61a5ff] hover:border-[#718096]">
+        <div className="relative z-1 w-full rounded-[6px] border border-[#313538] bg-black px-[1.1rem] py-[.8rem] text-center text-[1.6rem] focus-within:border-[#61a5ff] hover:border-[#718096]">
           <input
             className="absolute right-0 top-0 h-full w-full cursor-pointer opacity-0"
             type="file"
@@ -121,7 +123,7 @@ const Input: React.FC<InputProps> = ({
         {!isRequired && <span>(Optional)</span>}
       </label>
       <input
-        className="w-full rounded-[6px] border border-[#313538] bg-[#111111] px-[1.1rem] py-[.7rem] text-[1.6rem]"
+        className="w-full rounded-[6px] border border-[#313538]  bg-[#111111] px-[1.1rem] py-[.7rem] text-[1.6rem] outline-none focus:border focus:border-[#369eff]"
         type={type}
         required
         id={`input-${name}`}
@@ -130,6 +132,11 @@ const Input: React.FC<InputProps> = ({
         onChange={handleChange}
         {...props}
       />
+      {bottomText && (
+        <span className="text-[1.4rem] font-medium text-[#718096]">
+          {bottomText}
+        </span>
+      )}
     </div>
   );
 };

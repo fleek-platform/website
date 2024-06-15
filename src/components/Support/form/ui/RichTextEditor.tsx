@@ -11,11 +11,10 @@ import type {
 interface EditorProps {
   name: string;
   onChange: (content: string) => void;
+  bottomText?: string;
 }
 
-type UploadBeforeReturnCustom = (UploadBeforeReturn & void) | boolean;
-
-const Editor: React.FC<EditorProps> = ({ name, onChange, ...props }) => {
+const Editor = ({ name, bottomText, onChange, ...props }: EditorProps) => {
   const options = {
     plugins: plugins,
     height: '250',
@@ -28,7 +27,7 @@ const Editor: React.FC<EditorProps> = ({ name, onChange, ...props }) => {
         'textStyle',
         'list',
         'link',
-        'image',
+        // 'image',
       ],
     ],
   };
@@ -37,35 +36,44 @@ const Editor: React.FC<EditorProps> = ({ name, onChange, ...props }) => {
     files: Array<File>,
     info: object,
     uploadHandler: UploadBeforeHandler,
-  ): UploadBeforeReturnCustom => {
-    console.log(files);
-    // const KEY = 'docs_upload_example_us_preset';
-    // const Data = new FormData();
-    // Data.append('file', files[0]);
-    // Data.append('upload_preset', KEY);
+  ): UploadBeforeReturn => {
+    const KEY = 'docs_upload_example_us_preset';
+    const Data = new FormData();
+    Data.append('file', files[0]);
+    Data.append('upload_preset', KEY);
 
-    // fetch('https://api.cloudinary.com/v1_1/demo/image/upload', {
-    //   method: 'POST',
-    //   body: Data,
-    // })
-    //   .then((response) => response.json())
-    //   .then((data) => {
-    //     const res = {
-    //       // The response must have a "result" array.
-    //       errorMessage: data?.message,
-    //       result: [
-    //         {
-    //           url: data.secure_url,
-    //           size: data.bytes, // Changed to bytes as file_size is not available
-    //           name: data.public_id,
-    //         },
-    //       ],
-    //     };
-    //     uploadHandler(res);
-    //   })
-    //   .catch((error) => {
-    //     console.log(error);
-    //   });
+    fetch('https://api.cloudinary.com/v1_1/demo/image/upload', {
+      method: 'POST',
+      body: Data,
+    })
+      .then((response) =>
+        response
+          .json()
+          .then((data) => ({ status: response.status, body: data })),
+      )
+      .then(({ status, body }) => {
+        if (status >= 200 && status < 300) {
+          const res = {
+            errorMessage: body?.message,
+            result: [
+              {
+                url: body.secure_url,
+                size: body.bytes, // Cloudinary uses 'bytes' for file size
+                name: body.public_id,
+              },
+            ],
+          };
+          uploadHandler(res);
+        } else {
+          throw new Error(body.message || 'Failed to upload image');
+        }
+      })
+      .catch((error) => {
+        console.error('Error uploading image:', error);
+      });
+
+    // Return false to prevent the default upload behavior
+    return false;
   };
 
   const handleImageUpload = (
@@ -84,17 +92,24 @@ const Editor: React.FC<EditorProps> = ({ name, onChange, ...props }) => {
   };
 
   return (
-    <SunEditor
-      {...props}
-      placeholder="Please type here..."
-      name={name}
-      setDefaultStyle="font-family: Arial; font-size: 16px;"
-      setOptions={options}
-      onImageUploadBefore={handleImageUploadBefore}
-      onImageUpload={handleImageUpload}
-      onImageUploadError={handleImageUploadError}
-      onChange={onChange}
-    />
+    <>
+      <SunEditor
+        {...props}
+        placeholder="Please type here..."
+        name={name}
+        setDefaultStyle="font-family: Arial; font-size: 16px;"
+        setOptions={options}
+        onImageUploadBefore={handleImageUploadBefore}
+        onImageUpload={handleImageUpload}
+        onImageUploadError={handleImageUploadError}
+        onChange={onChange}
+      />
+      {bottomText && (
+        <span className="text-[1.35rem] font-medium text-[#718096]">
+          {bottomText}
+        </span>
+      )}
+    </>
   );
 };
 

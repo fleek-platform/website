@@ -4,7 +4,7 @@ import { MdArrowDropDown } from 'react-icons/md';
 export type OptionsType = {
   label: string;
   value: string;
-  formId: string;
+  id: string;
 };
 
 export type DropdownProps = {
@@ -75,13 +75,13 @@ const Dropdown = ({
         )}
 
         {isOpen && (
-          <ul className="rounded-md absolute left-0 right-0 top-0 mt-2 max-h-[200px] w-full  overflow-scroll bg-[#111111] text-[1.5rem]">
+          <ul className="rounded-md absolute left-0 right-0 top-0 z-2 mt-2 max-h-[200px] w-full  overflow-scroll bg-[#111111] text-[1.5rem]">
             {options.map((option) => (
               <li
                 key={option.value}
                 className="cursor-pointer px-[1.4rem] py-[.5rem] hover:bg-gray-700"
                 onClick={() =>
-                  handleSelect({ value: option.value, id: option.formId })
+                  handleSelect({ value: option.value, id: option.id })
                 }
               >
                 {option.label}
