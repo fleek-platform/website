@@ -176,3 +176,25 @@ export const updateUrl = (id: string, paramName: string) => {
 
   window.history.pushState({}, '', newUrl);
 };
+export const selectedPlanItems: OptionsType[] = [
+  {
+    label: '-',
+    value: '-',
+    id: '-',
+  },
+  {
+    label: 'Pro',
+    value: 'pro',
+    id: 'pro',
+  },
+  {
+    label: 'Business',
+    value: 'business',
+    id: 'business',
+  },
+  {
+    label: 'Enterprise',
+    value: 'enterprise',
+    id: 'enterprise',
+  },
+];

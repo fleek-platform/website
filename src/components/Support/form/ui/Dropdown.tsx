@@ -10,6 +10,8 @@ export type OptionsType = {
 export type DropdownProps = {
   options: OptionsType[];
   selectedValue: string;
+  isRequired?: boolean;
+  bottomText?: string;
   dropdownLabel?: string;
   onChange: ({ value, id }: { value: string; id: string }) => void;
 };
@@ -17,7 +19,9 @@ export type DropdownProps = {
 const Dropdown = ({
   options,
   selectedValue,
+  isRequired,
   onChange,
+  bottomText,
   dropdownLabel,
 }: DropdownProps) => {
   const [isOpen, setIsOpen] = useState(false);
@@ -58,6 +62,7 @@ const Dropdown = ({
     <div ref={dropdownRef} className="relative flex flex-col gap-[6px] ">
       <label className="text-[1.4rem]" htmlFor="dropdown">
         {dropdownLabel}
+        {isRequired && <span className="text-[#FC8181]">*</span>}
       </label>
       <div
         className={`relative cursor-pointer rounded-[6px]  border-[#313538] bg-[#111111] px-[1.1rem] py-[.7rem]  ${isOpen || 'border focus:border-[#369eff]'} `}
@@ -65,17 +70,19 @@ const Dropdown = ({
         tabIndex={1}
       >
         {isOpen || (
-          <div className="flex items-center justify-between ">
-            <span className=" text-[1.6rem]">
-              {options.find((option) => option.value === selectedValue)
-                ?.label || '-'}
-            </span>
-            <MdArrowDropDown className="text-[#313538]" fontSize={24} />
-          </div>
+          <>
+            <div className="flex items-center justify-between ">
+              <span className=" text-[1.6rem]">
+                {options.find((option) => option.value === selectedValue)
+                  ?.label || '-'}
+              </span>
+              <MdArrowDropDown className="text-[#313538]" fontSize={24} />
+            </div>
+          </>
         )}
 
         {isOpen && (
-          <ul className="rounded-md absolute left-0 right-0 top-0 z-2 mt-2 max-h-[200px] w-full  overflow-scroll bg-[#111111] text-[1.5rem]">
+          <ul className="rounded-md absolute left-0 right-0 top-0 z-4 mt-2 max-h-[200px] w-full  overflow-scroll bg-[#111111] text-[1.5rem]">
             {options.map((option) => (
               <li
                 key={option.value}
@@ -90,6 +97,11 @@ const Dropdown = ({
           </ul>
         )}
       </div>
+      {bottomText && (
+        <span className="text-[1.4rem] font-medium text-[#718096]">
+          {bottomText}
+        </span>
+      )}
     </div>
   );
 };
