@@ -9,7 +9,7 @@ author:
   - 'Fleek'
 ---
 
-Welcome to the Build3rs Stack, Fleek’s web3 infrastructure overview series! This week we'll take a look at Tea— a web3 take on the package manager, the swiss army knife of modern web and app development, from the creator of Brew.
+Welcome to the Build3rs Stack, Fleek’s web3 infrastructure overview series! This week we'll take a look at Tea— a web3 take on the package manager, the Swiss Army knife of modern web and app development, from the creator of Brew.
 
 Tea was created with a promise in mind and heart: **to change how packages and dependencies are handled**, and how open-source developers are rewarded for their efforts to maintain them. _Let’s get a taste of that tea_ and look under the hood, to understand what makes this brew a delicious addition to your stack ☕
 
