@@ -63,7 +63,7 @@ const Input: React.FC<InputProps> = ({
     return (
       <div>
         <label
-          className="my-[.5rem] inline-block text-[1.4rem]"
+          className="my-[.6rem] inline-block text-[1.3rem] sm:text-[1.4rem]  xl:my-[1rem]"
           htmlFor={`input-${name}`}
         >
           {label}
@@ -115,7 +115,7 @@ const Input: React.FC<InputProps> = ({
   return (
     <div>
       <label
-        className="my-[.5rem] inline-block text-[1.4rem]"
+        className="my-[.6rem] inline-block text-[1.3rem] sm:text-[1.4rem]  xl:my-[1rem]"
         htmlFor={`input-${name}`}
       >
         {label}
@@ -123,7 +123,7 @@ const Input: React.FC<InputProps> = ({
         {!isRequired && <span>(Optional)</span>}
       </label>
       <input
-        className="w-full rounded-[6px] border border-[#313538]  bg-[#111111] px-[1.1rem] py-[.7rem] text-[1.6rem] outline-none focus:border focus:border-[#369eff]"
+        className="w-full rounded-[6px] border border-[#313538]  bg-[#111111] px-[1.1rem] py-[.7rem] text-[1.3rem] outline-none focus:border focus:border-[#369eff] md:text-[1.6rem]"
         type={type}
         required
         id={`input-${name}`}
@@ -133,7 +133,7 @@ const Input: React.FC<InputProps> = ({
         {...props}
       />
       {bottomText && (
-        <span className="text-[1.4rem] font-medium text-[#718096]">
+        <span className="my-[4px] text-[1.2rem] font-medium text-[#718096] md:text-[1.3rem] xl:my-[6px] xl:text-[1.4rem]">
           {bottomText}
         </span>
       )}

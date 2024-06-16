@@ -33,7 +33,7 @@ function TemplateForm() {
   );
   return (
     <form>
-      <div className="my-[1.8rem]">
+      <div className="my-[1.6rem] lg:my-[1.8rem]">
         <Input
           type="email"
           name="email"
@@ -43,7 +43,7 @@ function TemplateForm() {
           label="Your email address"
         />
       </div>
-      <div className="my-[1.8rem]">
+      <div className="my-[1.6rem] lg:my-[1.8rem]">
         <Input
           type="text"
           name="subject"
@@ -53,7 +53,7 @@ function TemplateForm() {
           label="Subject"
         />
       </div>
-      <div className="my-[1.8rem]">
+      <div className="my-[1.6rem] lg:my-[1.8rem]">
         <Input
           type="text"
           name="templateName"
@@ -64,7 +64,7 @@ function TemplateForm() {
         />
       </div>
 
-      <div className="my-[1.8rem]">
+      <div className="my-[1.6rem] lg:my-[1.8rem]">
         <Input
           type="text"
           name="templateURL"
@@ -74,8 +74,8 @@ function TemplateForm() {
           label="Template URL"
         />
       </div>
-      <div className="relative z-2 my-[1.8rem]">
-        <label className="my-[.5rem] inline-block text-[1.4rem]">
+      <div className="relative z-2 my-[1.6rem] lg:my-[1.8rem]">
+        <label className="my-[1rem] inline-block text-[1.3rem] sm:text-[1.4rem]">
           Description
           <span className="text-[#FC8181]">*</span>
         </label>

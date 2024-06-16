@@ -60,7 +60,10 @@ const Dropdown = ({
 
   return (
     <div ref={dropdownRef} className="relative flex flex-col gap-[6px] ">
-      <label className="text-[1.4rem]" htmlFor="dropdown">
+      <label
+        className="my-[.5rem] text-[1.3rem] sm:text-[1.4rem] xl:my-[.7rem]"
+        htmlFor="dropdown"
+      >
         {dropdownLabel}
         {isRequired && <span className="text-[#FC8181]">*</span>}
       </label>
@@ -72,7 +75,7 @@ const Dropdown = ({
         {isOpen || (
           <>
             <div className="flex items-center justify-between ">
-              <span className=" text-[1.6rem]">
+              <span className="text-[1.3rem] md:text-[1.5rem] xl:text-[1.6rem]">
                 {options.find((option) => option.value === selectedValue)
                   ?.label || '-'}
               </span>
@@ -82,7 +85,7 @@ const Dropdown = ({
         )}
 
         {isOpen && (
-          <ul className="rounded-md absolute left-0 right-0 top-0 z-4 mt-2 max-h-[200px] w-full  overflow-scroll bg-[#111111] text-[1.5rem]">
+          <ul className="rounded-md absolute left-0 right-0 top-0 z-10 mt-2 max-h-[250px] w-full  overflow-scroll bg-[#111111] text-[1.3rem] md:text-[1.5rem]">
             {options.map((option) => (
               <li
                 key={option.value}
@@ -98,7 +101,7 @@ const Dropdown = ({
         )}
       </div>
       {bottomText && (
-        <span className="text-[1.4rem] font-medium text-[#718096]">
+        <span className="text-[1.2rem] font-medium text-[#718096] md:text-[1.3rem] xl:text-[1.4rem]">
           {bottomText}
         </span>
       )}

@@ -33,7 +33,7 @@ function BillingForm() {
   );
   return (
     <form>
-      <div className="my-[1.8rem]">
+      <div className="my-[1.6rem] lg:my-[1.8rem]">
         <Input
           type="email"
           name="email"
@@ -44,7 +44,7 @@ function BillingForm() {
         />
       </div>
 
-      <div className="my-[1.8rem]">
+      <div className="my-[1.6rem] lg:my-[1.8rem]">
         <Input
           type="text"
           name="subject"
@@ -55,7 +55,7 @@ function BillingForm() {
         />
       </div>
 
-      <div className="my-[1.8rem]">
+      <div className="my-[1.6rem] lg:my-[1.8rem]">
         <Input
           type="email"
           name="billingEmail"
@@ -67,7 +67,7 @@ function BillingForm() {
         />
       </div>
 
-      <div className="my-[1.8rem]">
+      <div className="my-[1.6rem] lg:my-[1.8rem]">
         <Input
           type="text"
           name="teamId"
@@ -79,8 +79,8 @@ function BillingForm() {
         />
       </div>
 
-      <div className="my-[1.8rem]">
-        <label className="my-[.5rem] inline-block text-[1.4rem]">
+      <div className="my-[1.6rem] lg:my-[1.8rem]">
+        <label className="my-[1rem] inline-block text-[1.3rem] sm:text-[1.4rem]">
           Description
           <span className="text-[#FC8181]">*</span>
         </label>

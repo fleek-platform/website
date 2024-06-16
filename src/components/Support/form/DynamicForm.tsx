@@ -91,24 +91,24 @@ function DynamicForm() {
   };
 
   return (
-    <div className="mx-auto my-[35px] w-[65%] max-w-[768px]">
-      <div className="rounded-[8px] border border-[#313538] px-[4rem] py-[3rem]">
-        <h1 className="text-[4rem] font-medium text-[#ECEDEE]">
+    <div className="mx-auto my-[35px] w-[90%] max-w-[768px] lg:w-[70%] xl:w-[65%]">
+      <div className="rounded-[8px] border border-[#313538] px-[2.5rem] py-[3rem] md:px-[4rem]">
+        <h1 className="text-[3.2rem] font-medium text-[#ECEDEE] md:text-[3.5rem] xl:text-[4rem]">
           Submit a request
         </h1>
 
         {showToolTip && (
-          <div className="mt-[6rem]">
+          <div className="mt-[4rem] md:mt-[5rem] xl:mt-[6.5rem]">
             <Tooltip />
           </div>
         )}
 
-        <div className="my-[1.8rem]">
+        <div className="mb-[1.8rem] mt-[3rem]">
           <Dropdown {...defaultOptions} />
         </div>
 
         <div>
-          <div className="mb-[3rem]">{renderForm()}</div>
+          <div className="mb-[2rem] xl:mb-[3rem]">{renderForm()}</div>
         </div>
       </div>
     </div>
@@ -117,12 +117,16 @@ function DynamicForm() {
 
 function Tooltip() {
   return (
-    <div className="flex items-center gap-[10px] rounded-[0.5rem] border border-[#369eff] px-[1.5rem] py-[1.55rem]">
+    <div className="flex items-center gap-[6px] rounded-[0.5rem] border border-[#369eff] p-[1rem] lg:gap-[10px] lg:px-[1.3rem] lg:py-[1.4rem] xl:px-[1.5rem] xl:py-[1.55rem]">
       <div>
-        <IoIosInformationCircle fill="#61a5ff" fontSize={24} />
+        <IoIosInformationCircle
+          fill="#61a5ff"
+          fontSize={24}
+          className="lg:text-[2.3rem] xl:text-[2.5rem]"
+        />
       </div>
 
-      <p className="text-[1.47rem]">
+      <p className="text-[1rem] sm:text-[1.35rem] xl:text-[1.47rem]">
         Providing as much information as possible in your request will allow us
         to help you faster
       </p>

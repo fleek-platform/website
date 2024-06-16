@@ -1,12 +1,13 @@
 import React from 'react';
 import SunEditor, { buttonList } from 'suneditor-react';
 import 'suneditor/dist/css/suneditor.min.css';
-import plugins from 'suneditor/src/plugins';
+import plugins, { formatBlock } from 'suneditor/src/plugins';
 import type { UploadInfo } from 'suneditor-react/dist/types/upload';
 import type {
   UploadBeforeReturn,
   UploadBeforeHandler,
 } from 'suneditor-react/dist/types/upload';
+import type { FormatTagName } from 'suneditor/src/options';
 
 interface EditorProps {
   name: string;
@@ -18,6 +19,7 @@ const Editor = ({ name, bottomText, onChange, ...props }: EditorProps) => {
   const options = {
     plugins: plugins,
     height: '250',
+
     buttonList: [
       [
         'font',
@@ -30,6 +32,16 @@ const Editor = ({ name, bottomText, onChange, ...props }: EditorProps) => {
         // 'image',
       ],
     ],
+    formats: [
+      'p',
+      'div',
+      'h1',
+      'h2',
+      'h3',
+      'h4',
+      'h5',
+      'h6',
+    ] as FormatTagName[],
   };
 
   const handleImageUploadBefore = (
@@ -105,7 +117,7 @@ const Editor = ({ name, bottomText, onChange, ...props }: EditorProps) => {
         onChange={onChange}
       />
       {bottomText && (
-        <span className="text-[1.35rem] font-medium text-[#718096]">
+        <span className="my-[6px] inline-block text-[1.2rem] font-medium text-[#718096] md:text-[1.3rem] xl:text-[1.35rem]">
           {bottomText}
         </span>
       )}
