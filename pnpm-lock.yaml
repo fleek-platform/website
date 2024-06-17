@@ -12,6 +12,7 @@ specifiers:
   '@hono/zod-validator': ^0.2.1
   '@meilisearch/instant-meilisearch': ^0.17.0
   '@microflash/remark-callout-directives': ^4.1.0
+  '@nanostores/react': ^0.7.2
   '@tailwindcss/aspect-ratio': ^0.4.2
   '@types/bun': ^1.1.0
   '@types/lodash-es': ^4.17.12
@@ -26,9 +27,10 @@ specifiers:
   framer-motion: ^11.0.24
   hono: ^4.2.7
   husky: ^9.0.11
-  instantsearch.js: 4.67.0
+  instantsearch.js: ^4.67.0
   lodash-es: ^4.17.21
   meilisearch: ^0.38.0
+  nanostores: ^0.10.3
   pixi.js: ^7.2.4
   prettier: ^3.2.5
   prettier-plugin-astro: ^0.13.0
@@ -64,6 +66,7 @@ dependencies:
   '@fleekxyz/sdk': 0.7.3
   '@meilisearch/instant-meilisearch': 0.17.0
   '@microflash/remark-callout-directives': 4.1.0
+  '@nanostores/react': 0.7.2_ah427bqpvmyfldwzuckjdy5nlu
   '@tailwindcss/aspect-ratio': 0.4.2_tailwindcss@3.4.4
   '@types/react': 18.3.3
   '@types/react-dom': 18.3.0
@@ -71,6 +74,7 @@ dependencies:
   framer-motion: 11.2.10_nnrd3gsncyragczmpvfhocinkq
   hono: 4.4.3
   lodash-es: 4.17.21
+  nanostores: 0.10.3
   pixi.js: 7.4.2
   react: 18.3.1
   react-dom: 18.3.1_react@18.3.1
@@ -1549,6 +1553,17 @@ packages:
       unist-util-visit: 5.0.0
     transitivePeerDependencies:
       - supports-color
+    dev: false
+
+  /@nanostores/react/0.7.2_ah427bqpvmyfldwzuckjdy5nlu:
+    resolution: {integrity: sha512-e3OhHJFv3NMSFYDgREdlAQqkyBTHJM91s31kOZ4OvZwJKdFk5BLk0MLbh51EOGUz9QGX2aCHfy1RvweSi7fgwA==}
+    engines: {node: ^18.0.0 || >=20.0.0}
+    peerDependencies:
+      nanostores: ^0.9.0 || ^0.10.0
+      react: '>=18.0.0'
+    dependencies:
+      nanostores: 0.10.3
+      react: 18.3.1
     dev: false
 
   /@nodelib/fs.scandir/2.1.5:
@@ -5105,6 +5120,11 @@ packages:
     resolution: {integrity: sha512-eSRppjcPIatRIMC1U6UngP8XFcz8MQWGQdt1MTBQ7NaAmvXDfvNxbvWV3x2y6CdEUciCSsDHDQZbhYaB8QEo2g==}
     engines: {node: ^10 || ^12 || ^13.7 || ^14 || >=15.0.1}
     hasBin: true
+
+  /nanostores/0.10.3:
+    resolution: {integrity: sha512-Nii8O1XqmawqSCf9o2aWqVxhKRN01+iue9/VEd1TiJCr9VT5XxgPFbF1Edl1XN6pwJcZRsl8Ki+z01yb/T/C2g==}
+    engines: {node: ^18.0.0 || >=20.0.0}
+    dev: false
 
   /nlcst-to-string/3.1.1:
     resolution: {integrity: sha512-63mVyqaqt0cmn2VcI2aH6kxe1rLAmSROqHMA0i4qqg1tidkfExgpb0FGMikMCn86mw5dFtBtEANfmSSK7TjNHw==}
