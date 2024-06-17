@@ -28,14 +28,15 @@ const { category } = Astro.params;
 
 const collection = 'blog';
 
-// TODO: load title from settings
-const pageTitle = 'Blog';
 const allPosts: CollectionEntry<'blog'>[] = (
   await getCollection('blog', ({ slug }) => slug.split('/')[0] === category)
 ).sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf());
 ---
 
-<Layout title={settings.site.metadata.title}>
+<Layout
+  title={settings.site.metadata.blog.title}
+  description={settings.site.metadata.blog.description}
+>
   <main class="container min-h-container">
     <BlogHeader title="Blog" indexName={indexNameBlog} category={category} />
     <BlogPosts allPosts={allPosts} collection={collection} />
