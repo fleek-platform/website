@@ -12,6 +12,7 @@ import Dropdown from './ui/Dropdown';
 import TemplateForm from './TemplateForm';
 import FeedbackForm from './FeedbackForm';
 import OtherForm from './OtherForm';
+import CategoryCards from '../CategoryCards';
 
 function DynamicForm() {
   const [selectedValue, setSelectedValue] = useState('');

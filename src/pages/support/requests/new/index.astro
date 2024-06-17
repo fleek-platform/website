@@ -1,10 +1,12 @@
 ---
+import SupportFormMenu from '@components/Support/SupportFormMenu';
 import DynamicForm from '@components/Support/form/DynamicForm';
 import Layout from '@layouts/SupportPage.astro';
 ---
 
 <Layout title="Request Form">
   <main class="container mx-auto min-h-screen">
+    <SupportFormMenu client:load />
     <DynamicForm client:load />
   </main>
 </Layout>
