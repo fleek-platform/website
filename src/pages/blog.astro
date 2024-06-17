@@ -21,7 +21,10 @@ const allPosts: CollectionEntry<'blog'>[] = (await getCollection('blog')).sort(
   description={settings.site.metadata.blog.description}
 >
   <main class="container min-h-container">
-    <BlogHeader title={settings.site.metadata.blog.title} indexName={indexNameBlog} />
+    <BlogHeader
+      title={settings.site.metadata.blog.title}
+      indexName={indexNameBlog}
+    />
     <BlogPosts allPosts={allPosts} collection={collection} />
   </main>
 </Layout>

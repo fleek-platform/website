@@ -21,7 +21,10 @@ const allPosts: CollectionEntry<'references'>[] = (
   description={settings.site.metadata.references.description}
 >
   <main class="container min-h-container">
-    <BlogHeader title={settings.site.metadata.references.title} indexName={indexNameReferences} />
+    <BlogHeader
+      title={settings.site.metadata.references.title}
+      indexName={indexNameReferences}
+    />
     <BlogPosts allPosts={allPosts} collection={collection} />
   </main>
 </Layout>
