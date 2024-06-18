@@ -11,7 +11,7 @@ function SupportFormLinks() {
       <ul className="mb-[12px]">
         <li className="mb-[1rem]">
           <a
-            href={'requests/new?ticket_form_id=phishing-form'}
+            href={'/support/requests/new?ticket_form_id=phishing-form'}
             className="text-[1.3rem] font-semibold text-[#9BA1A6] hover:text-[#2294ff] hover:underline xl:text-[1.5rem]"
           >
             Report Site
@@ -19,7 +19,7 @@ function SupportFormLinks() {
         </li>
         <li className="">
           <a
-            href={'requests/new'}
+            href={'/support/requests/new'}
             className="text-[1.3rem] font-semibold text-[#9BA1A6] hover:text-[#2294ff] hover:underline xl:text-[1.5rem]"
           >
             Submit a request
