@@ -92,7 +92,7 @@ app.post(
   },
 );
 
-console.log(`Server listening in port ${PORT}...`);
+console.log(`🤖 Server listening in port ${PORT}...`);
 
 export default {
   port: PORT,

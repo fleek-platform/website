@@ -23,7 +23,12 @@ const githubEditUrlPathname = generateGitHubEditLink({
 });
 ---
 
-<BlogPageLayout title={entry.data.title}>
+<BlogPageLayout
+  title={entry.data.title}
+  description={entry.data?.desc}
+  image={entry.data?.image?.src}
+  slug={slug}
+>
   <article class="blog">
     <h1>{entry.data.title}</h1>
     {

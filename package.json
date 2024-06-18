@@ -37,6 +37,7 @@
     "search:delete_index_docs": "./Services/Search/Indexer/indexDelete.ts \"fleekxyz_website_docs\"",
     "search:delete_index_guides": "./Services/Search/Indexer/indexDelete.ts \"fleekxyz_website_guides\"",
     "search:delete_index_references": "./Services/Search/Indexer/indexDelete.ts \"fleekxyz_website_references\"",
+    "support:local_api": "npx bun ./Services/ZenDesk/api.ts",
     "clear": "npm run clear:meili_data",
     "clear:meili_data": "rm -rf meili_data",
     "prepare": "husky"

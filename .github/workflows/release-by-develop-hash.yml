@@ -21,9 +21,7 @@ jobs:
   merge-by-develop-hash:
     runs-on: ubuntu-latest
     env:
-      # TODO: Change to `main`
-      # using temporary test for testing
-      RELEASE_BRANCH: "test"
+      RELEASE_BRANCH: "main"
       PREPARE_RELEASE_BRANCH: "prepare_release"
     steps:
     - name: Date safe-guard verification
