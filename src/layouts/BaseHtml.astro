@@ -58,8 +58,11 @@ const baseUrl = getSiteUrl();
     />
     <meta name="generator" content={Astro.generator} />
     <!-- HTML Meta Tags -->
-    <title>{settings.site.metadata.title}</title>
-    <meta name="description" content={settings.site.metadata.description} />
+    <title>{ogMeta?.title || settings.site.metadata.title}</title>
+    <meta
+      name="description"
+      content={ogMeta?.description || settings.site.metadata.description}
+    />
     <!-- Facebook Meta Tags -->
     <meta property="og:url" content={`${baseUrl}/${ogMeta?.slug || ''}`} />
     <meta property="og:type" content="website" />
