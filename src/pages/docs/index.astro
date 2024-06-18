@@ -1,14 +1,16 @@
 ---
 import Layout from '@layouts/DocPage.astro';
 import { getEntry } from 'astro:content';
+import settings from '@base/settings.json';
 
 const entry = await getEntry('docs', 'index');
 
 const { Content, headings } = await entry.render();
-// TODO: Move title to settings
-const title = entry.data.title || 'Documentation';
+
+const title = entry.data.title || settings.site.metadata.docs.title;
+const description = entry.data.desc || settings.site.metadata.docs.description;
 ---
 
-<Layout title={title} headings={headings}>
+<Layout title={title} description={description} headings={headings}>
   <Content />
 </Layout>
