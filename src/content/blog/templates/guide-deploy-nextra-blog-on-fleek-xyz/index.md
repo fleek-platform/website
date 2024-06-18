@@ -2,8 +2,8 @@
 title: 'Building and Deploying a Nextra Blog with Fleek'
 date: 2023-02-02
 desc: 'Learn how to deploy a Nextra blog app using the Fleek.xyz Sites Deployment service on the CLI Beta!'
-thumbnail: './nextra-blog-2.png'
-image: './nextra-blog-2.png'
+thumbnail: './nextratemplate.png'
+image: './nextratemplate.png'
 ---
 
 Hi everyone! [Juan](https://twitter.com/juanbeencoding) from DevRel here, presenting one of our example apps for deploying onto Fleek with its [CLI Beta](https://fleek.xyz/docs/cli). I'll be showcasing a blog template built on Nextra, which you can also find on our public [Fleek Tools collection](https://github.com/fleek-tools).
