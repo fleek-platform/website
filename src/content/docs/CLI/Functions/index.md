@@ -178,7 +178,7 @@ After the deployment of a Fleek Function, you can edit the following properties:
 - Name: Modify the unique identifier term listed in the project
 - Slug: The alias utilized to access the specific function resource
 
-### Update the Name or Slug
+### Update the name or slug
 
 You might find it necessary to rename an existing Fleek Function, e.g. if the code it executes now diverges from its initial purpose or to improve clarity.
 
@@ -234,12 +234,6 @@ You can make use of environment variables through any combination of the followi
 - Those imported from a separate file
 - Those exported into your local environment
 
-:::warn
-
-Your Fleek Function are stored on IPFS. They are publicly accessible by default, and will expose all of your code associated with the function including any environment variables which are bundled into your code. Ensure you are not inadvertently exposing data you are interested in keeping private.
-
-:::
-
 ### Environment variables set within your CLI
 
 You can pass `-e` or `--env` flags to the CLI in order to set simple, non-array environment variables from within the CLI. For example, the following code would set VAR1 as 'foo' and VAR2 as 'bar' for use within your Fleek Function.
@@ -276,16 +270,15 @@ If you have exported a variable to your environment with export VAR1='foo'and ex
 fleek functions deploy --name print-hello-world --path *./function.js --env VAR1 --env VAR2
 ```
 
-## Making Fleek Functions private (🧪 Alpha)
+## Making Fleek Functions public
 
-If you are interested in making your Fleek Function code private, add the `--private` flag to your deployment command:
-
+If you are interested in making your Fleek Function publicly accessible, add the `--ipfs` flag to your deployment command in order to deploy the Fleek Function code publicly on IPFS, a decentralized storage protocol:
 ```js
-fleek functions deploy --name print-hello-world --path *./function.js --private
+fleek functions deploy --name print-hello-world --path *./function.js --ipfs
 ```
 
 :::warn
-This is an experimental feature, performance will be impacted. We are actively working on improving this experience to be on par with IPFS stored functions.
+Making your Fleek Function publicly accessible will expose all of your code associated with the function including any environment variables, which are bundled into your code. Ensure you are not inadvertently exposing data you are interested in keeping private.
 :::
 
 ## Deactivate Functions
