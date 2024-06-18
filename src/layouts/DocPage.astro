@@ -23,10 +23,11 @@ import BaseHtml from './BaseHtml.astro';
 
 type Props = {
   title: string;
+  description: string;
   headings: MarkdownHeading[];
 };
 
-const { title, headings } = Astro.props;
+const { title, description, headings } = Astro.props;
 const {
   collection,
   id,
@@ -69,7 +70,6 @@ const indexNameDocs = import.meta.env.PUBLIC_MEILISEARCH_INDEX_DOCS;
 // TODO: Fails after prod build
 const isHome = Astro.url.pathname === '/docs';
 
-const description = '';
 const slug = `docs/${data.slug}`;
 const image = '';
 ---

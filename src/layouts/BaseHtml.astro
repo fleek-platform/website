@@ -24,7 +24,6 @@ const baseUrl = getSiteUrl();
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta name="description" content={settings.site.metadata.description} />
     <meta name="viewport" content="width=device-width" />
     <link rel="icon" type="image/svg+xml" href="/favicon.ico" />
     <link rel="sitemap" href="/sitemap-index.xml" />
@@ -58,22 +57,27 @@ const baseUrl = getSiteUrl();
     />
     <meta name="generator" content={Astro.generator} />
     <!-- HTML Meta Tags -->
-    <title>{settings.site.metadata.title}</title>
-    <meta name="description" content={settings.site.metadata.description} />
+    <title>{ogMeta?.title || settings.site.metadata.default.title}</title>
+    <meta
+      name="description"
+      content={ogMeta?.description ||
+        settings.site.metadata.default.description}
+    />
     <!-- Facebook Meta Tags -->
     <meta property="og:url" content={`${baseUrl}/${ogMeta?.slug || ''}`} />
     <meta property="og:type" content="website" />
     <meta
       property="og:title"
-      content={ogMeta?.title || settings.site.metadata.title}
+      content={ogMeta?.title || settings.site.metadata.default.title}
     />
     <meta
       property="og:description"
-      content={ogMeta?.description || settings.site.metadata.description}
+      content={ogMeta?.description ||
+        settings.site.metadata.default.description}
     />
     <meta
       property="og:image"
-      content={ogMeta?.image || settings.site.metadata.image}
+      content={ogMeta?.image || settings.site.metadata.default.image}
     />
     <!-- Twitter Meta Tags -->
     <meta name="twitter:card" content="summary_large_image" />
@@ -81,15 +85,17 @@ const baseUrl = getSiteUrl();
     <meta property="twitter:url" content={`${baseUrl}/${ogMeta?.slug}`} />
     <meta
       name="twitter:title"
-      content={ogMeta?.title || settings.site.metadata.title}
+      content={ogMeta?.title || settings.site.metadata.default.title}
     />
     <meta
       name="twitter:description"
-      content={ogMeta?.description || settings.site.metadata.description}
+      content={ogMeta?.description ||
+        settings.site.metadata.default.description}
     />
     <meta
       name="twitter:image"
-      content={`${baseUrl}${ogMeta?.image}` || settings.site.metadata.image}
+      content={`${baseUrl}${ogMeta?.image}` ||
+        settings.site.metadata.default.image}
     />
 
     <!-- Google Tag Manager -->
