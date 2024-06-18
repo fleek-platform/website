@@ -18,7 +18,10 @@ const allPosts: CollectionEntry<'troubleshooting'>[] = (
 ).sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf());
 ---
 
-<Layout title={settings.site.metadata.title}>
+<Layout
+  title={settings.site.metadata.troubleshooting.title}
+  description={settings.site.metadata.troubleshooting.description}
+>
   <main class="container min-h-container">
     <BlogHeader title="Troubleshooting" indexName={indexNameBlog} />
     <BlogPosts allPosts={allPosts} collection={collection} />

@@ -50,3 +50,13 @@ const githubEditUrlPathname = generateGitHubEditLink({
     <GithubEditLink pathname={githubEditUrlPathname} />
   </article>
 </BlogPageLayout>
+
+<script>
+  document.getElementById('goBackButton')?.addEventListener('click', () => {
+    if (history.length > 2) {
+      history.back();
+    } else {
+      window.location.href = '/support/billing';
+    }
+  });
+</script>

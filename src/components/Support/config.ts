@@ -226,3 +226,37 @@ export const productItems: OptionsType[] = [
     id: 'nfas',
   },
 ];
+
+export const SupportMenuItems = [
+  {
+    id: 1,
+    path: '/support',
+    pathName: 'Home',
+  },
+
+  {
+    id: 2,
+    path: '/support/troubleshooting',
+    pathName: 'Troubleshooting',
+  },
+  {
+    id: 3,
+    path: '/guides',
+    pathName: 'Guides',
+  },
+  {
+    id: 4,
+    path: '/support/billing',
+    pathName: 'Billing',
+  },
+  {
+    id: 5,
+    path: '/support/requests/new?ticket_form_id=phishing-form',
+    pathName: 'Report a site',
+  },
+  {
+    id: 6,
+    path: '/support/requests/new',
+    pathName: 'Submit a request',
+  },
+];

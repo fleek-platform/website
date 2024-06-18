@@ -1,46 +1,78 @@
 import Container from '@components/Container';
-import React, { useState } from 'react';
+import React, { useCallback, useState } from 'react';
 import { MdKeyboardArrowDown, MdOutlineKeyboardArrowUp } from 'react-icons/md';
+import { SupportMenuItems } from './config';
+import clsx from 'clsx';
 
-const SupportFormMenu: React.FC = () => {
+type SupportMenuProps = {
+  pathName: string;
+};
+
+const SupportMenu: React.FC<SupportMenuProps> = ({ pathName }) => {
   return (
-    <div className="container relative">
+    <div className="container relative mb-[3.5rem] xl:mb-[5rem]">
       <Container>
         <nav className="md:static md:w-auto">
-          <SupportFormMenuMobile />
-          <SupportFormMenuDesktop />
+          <SupportMenuMobile pathName={pathName} />
+          <SupportMenuDesktop pathName={pathName} />
         </nav>
       </Container>
     </div>
   );
 };
 
-function SupportFormMenuDesktop() {
+function SupportMenuDesktop({ pathName }: SupportMenuProps) {
+  const fullPath = window.location.href;
+
+  const getActivePath = useCallback(
+    (path: string) => {
+      if (
+        fullPath.includes('?ticket_form_id=phishing-form') &&
+        path.includes('?ticket_form_id=phishing-form')
+      ) {
+        return true;
+      }
+      return path === pathName;
+    },
+    [pathName],
+  );
   return (
     <ul
-      className={`hidden border-b-2 border-gray-700 px-[40px] md:flex md:items-center`}
+      className={`hidden border-b-2 border-gray-700  pl-16 md:flex  md:items-center lg:px-28`}
     >
-      <li
-        className={`mb-[1rem] cursor-pointer px-[10px] py-[4px] text-[1.4rem] font-semibold hover:text-gray-600   xl:my-[1.5rem]`}
-      >
-        <a href="/support/troubleshooting">Troubleshooting</a>
-      </li>
-      <li
-        className={`mb-[1rem] cursor-pointer px-[10px] py-[4px] text-[1.4rem] font-semibold  hover:text-gray-600  xl:my-[1.5rem]`}
-      >
-        <a href="/guides">Guides</a>
-      </li>
-      <li
-        className={`mb-[1rem] cursor-pointer px-[10px] py-[4px] text-[1.4rem] font-semibold hover:text-gray-600  xl:my-[1.5rem]`}
-      >
-        <a href="/support/billing">Billing</a>
-      </li>
+      {SupportMenuItems.map((item) => (
+        <li
+          key={item.id}
+          className={clsx(
+            'mb-[1rem] cursor-pointer px-[10px] py-[4px] text-[1.5rem] font-semibold hover:text-[#2294ff] xl:my-[1.5rem]   xl:text-[1.6rem]',
+            {
+              'text-[#2294ff]': getActivePath(item.path),
+            },
+          )}
+        >
+          <a href={item.path}>{item.pathName}</a>
+        </li>
+      ))}
     </ul>
   );
 }
 
-function SupportFormMenuMobile() {
+function SupportMenuMobile({ pathName }: SupportMenuProps) {
   const [isExpanded, setIsExpanded] = useState(false);
+  const fullPath = window.location.href;
+
+  const getActivePath = useCallback(
+    (path: string) => {
+      if (
+        fullPath.includes('?ticket_form_id=phishing-form') &&
+        path.includes('?ticket_form_id=phishing-form')
+      ) {
+        return true;
+      }
+      return path === pathName;
+    },
+    [pathName],
+  );
 
   const handleExpandClick = () => {
     setIsExpanded(!isExpanded);
@@ -65,18 +97,22 @@ function SupportFormMenuMobile() {
       <ul
         className={`flex flex-col border-b-2 border-gray-700 px-[20px]   ${isExpanded ? '' : 'h-[10px] overflow-y-scroll'} md:hidden`}
       >
-        <li className={`cursor-pointer p-4 text-[1.3rem]  hover:text-gray-700`}>
-          <a href="/support/troubleshooting">Troubleshooting</a>
-        </li>
-        <li className={`cursor-pointer p-4 text-[1.3rem]  hover:text-gray-700`}>
-          <a href="/guides">Guides</a>
-        </li>
-        <li className={`cursor-pointer p-4  text-[1.3rem] hover:text-gray-700`}>
-          <a href="/support/billing">Billing</a>
-        </li>
+        {SupportMenuItems.map((item) => (
+          <li
+            key={item.id}
+            className={clsx(
+              'cursor-pointer p-4 text-[1.3rem]  hover:text-[#2294ff]',
+              {
+                'text-[#2294ff]': getActivePath(item.path),
+              },
+            )}
+          >
+            <a href={item.path}>{item.pathName}</a>
+          </li>
+        ))}
       </ul>
     </>
   );
 }
 
-export default SupportFormMenu;
+export default SupportMenu;

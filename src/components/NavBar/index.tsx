@@ -11,13 +11,15 @@ import ButtonRainbowOutlined from '@components/ButtonRainbowOutlined';
 import { FaXTwitter } from 'react-icons/fa6';
 import { FaDiscord } from 'react-icons/fa';
 
-import { isActivePath } from '@utils/url';
+import { checkPathnameForString, isActivePath } from '@utils/url';
 
 import { NavBarDefault } from './config';
 
 import { RxCaretDown } from 'react-icons/rx';
 
-export type NavProps = Record<'pathname', string>;
+export type NavProps = Record<'pathname', string> & {
+  isSupportCenter: boolean;
+};
 export type NavSubMenuCtaProps = Omit<MenuSettingsItem, 'subMenu'>;
 export type NavSubMenuNavColProps = {
   label: string;
@@ -85,7 +87,7 @@ const NavSubMenu = ({ subMenu }: MenuSettingsItem) => {
   );
 };
 
-const Nav = ({ pathname }: NavProps) => {
+const Nav = ({ pathname, isSupportCenter }: NavProps) => {
   const [isOpen, setIsOpen] = useState(false);
 
   const isLg = useMediaQuery(up('lg'));
@@ -102,7 +104,12 @@ const Nav = ({ pathname }: NavProps) => {
 
   return (
     <Container>
-      <div className="nav-container">
+      <div
+        className={clsx('nav-container', {
+          'mb-16': !isSupportCenter,
+          'mb-[2px]': isSupportCenter,
+        })}
+      >
         <div className="flex items-center">
           <Link href="/" className="flex-shrink-0 ">
             <img

@@ -18,7 +18,10 @@ const allPosts: CollectionEntry<'billing'>[] = (
 ).sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf());
 ---
 
-<Layout title={settings.site.metadata.title}>
+<Layout
+  title={settings.site.metadata.billing.title}
+  description={settings.site.metadata.billing.description}
+>
   <main class="container min-h-container">
     <BlogHeader title="Billing" indexName={indexNameBlog} />
     <BlogPosts allPosts={allPosts} collection={collection} />

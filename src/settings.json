@@ -39,6 +39,26 @@
         "title": "Pricing",
         "description": "Fleek is an edge-optimized cloud platform. Effortlessly build, ship and scale highly performant apps. Try for free and deploy an app in 5 minutes.",
         "image": "/images/fleek-meta.png?202406061658"
+      },
+      "support": {
+        "title": "Support",
+        "description": "Fleek is an edge-optimized cloud platform. Effortlessly build, ship and scale highly performant apps. Try for free and deploy an app in 5 minutes.",
+        "image": "/images/fleek-meta.png?202406061658"
+      },
+      "troubleshooting": {
+        "title": "Troubleshooting",
+        "description": "Fleek is an edge-optimized cloud platform. Effortlessly build, ship and scale highly performant apps. Try for free and deploy an app in 5 minutes.",
+        "image": "/images/fleek-meta.png?202406061658"
+      },
+      "billing": {
+        "title": "Billing",
+        "description": "Fleek is an edge-optimized cloud platform. Effortlessly build, ship and scale highly performant apps. Try for free and deploy an app in 5 minutes.",
+        "image": "/images/fleek-meta.png?202406061658"
+      },
+      "requests": {
+        "title": "Requests",
+        "description": "Fleek is an edge-optimized cloud platform. Effortlessly build, ship and scale highly performant apps. Try for free and deploy an app in 5 minutes.",
+        "image": "/images/fleek-meta.png?202406061658"
       }
     },
     "resources": {

@@ -53,3 +53,13 @@ export const generateSlug = (input: string): string => {
   normalized = normalized.trim();
   return normalized;
 };
+
+export function checkPathnameForString(string: string, pathname: string) {
+  const path = pathname;
+
+  if (path?.includes(string)) {
+    return true;
+  } else {
+    return false;
+  }
+}

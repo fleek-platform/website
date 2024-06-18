@@ -4,15 +4,17 @@ import HomePageHero from '@components/Support/HomePageHero';
 import CategoryCards from '@components/Support/CategoryCards';
 import FeaturedArticles from '@components/Support/FeaturedArticles';
 import UsefulVideos from '@components/Support/UsefulVideos';
-import SupportFormLinks from '@components/Support/SupportFormLinks';
+import settings from '@base/settings.json';
 ---
 
-<Layout title="Fleek Support">
+<Layout
+  title={settings.site.metadata.support.title}
+  description={settings.site.metadata.support.description}
+>
   <main class="support container">
     <HomePageHero />
     <CategoryCards client:load />
     <FeaturedArticles />
-    <SupportFormLinks />
     <UsefulVideos client:load />
   </main>
 </Layout>

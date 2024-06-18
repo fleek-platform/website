@@ -5,6 +5,8 @@ import { getSiteUrl } from '@utils/url';
 import settings from '@base/settings.json';
 import Nav from '@components/NavBar';
 import Footer from '@components/Footer';
+import SupportMenu from '@components/Support/SupportFormMenu';
+import type { on } from 'events';
 
 interface Props {
   title: string;
@@ -18,6 +20,10 @@ interface Props {
 
 const { title, ogMeta } = Astro.props;
 const baseUrl = getSiteUrl();
+const pathName = Astro.url.pathname;
+
+const isSupportCenter =
+  pathName.includes('support') || pathName.includes('guides');
 ---
 
 <!doctype html>
@@ -122,8 +128,12 @@ const baseUrl = getSiteUrl();
         style={{ display: 'none', visibility: 'hidden' }}></iframe>
     </noscript>
     <Announcement client:load />
-    <Nav client:load pathname={Astro.url.pathname} />
+    <Nav client:load pathname={Astro.url.pathname} isSupportCenter />
+    {isSupportCenter && <SupportMenu client:only pathName={pathName} />}
     <slot />
     <Footer client:load />
   </body>
 </html>
+
+<!-- 
+); -->
