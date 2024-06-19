@@ -1,4 +1,5 @@
 import { Hono } from 'hono';
+import { cors } from 'hono/cors';
 import { z } from 'zod';
 import { zValidator } from '@hono/zod-validator';
 
@@ -10,6 +11,7 @@ const requiredEnvVars = [
   'PRIVATE_ZENDESK_EMAIL',
   'PRIVATE_ZENDESK_API_KEY',
   'PRIVATE_ZENDESK_HOSTNAME',
+  'ALLOW_ORIGIN_ADDR',
 ];
 
 requiredEnvVars.forEach((varName) => {
@@ -29,6 +31,15 @@ const generateApiToken = ({ email }: { email: string }) => {
 const zendeskAuthToken = generateApiToken({
   email: process.env.PRIVATE_ZENDESK_EMAIL as string,
 });
+
+if (!process.env.ALLOW_ORIGIN_ADDR) throw Error('Oops! Missing environment variable, expected ALLOW_ORIGIN_ADDR.');
+
+app.use(
+  '*',
+  cors({
+    origin: [process.env.ALLOW_ORIGIN_ADDR],
+  }),
+);
 
 app.get('/health', (c) => c.text('✅ Running!'));
 
