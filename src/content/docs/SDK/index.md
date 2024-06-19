@@ -2,7 +2,7 @@
 order: 0
 title: Overview
 date: 2023-01-10
-description: The Fleek SDK is a set of tools that allow you to interact with Fleek’s services. It’s composed of a set of libraries that you can leverage to build your own application on top of Fleek’s services.
+desc: The Fleek SDK is a set of tools that allow you to interact with Fleek’s services. It’s composed of a set of libraries that you can leverage to build your own application on top of Fleek’s services.
 keywords: [services, documentation, getting started]
 tags:
   - Accounts

@@ -19,7 +19,7 @@ const schema = ({ image }: { image: ImageFunction }) =>
     image: image().optional(),
     thumbnail: image().optional(),
     date: z.date(),
-    desc: z.string().optional(),
+    desc: z.string(),
     author: z.union([z.string(), z.array(z.string())]).optional(),
     order: z.number().optional(),
     tags: z.array(z.string()).optional(),

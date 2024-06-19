@@ -2,7 +2,7 @@
 order: 3
 title: Sites
 date: 2023-01-10
-description: Set and deploy your site with Fleek. Follow our concise CLI guide to create your site and leverage GitHub Actions to automate IPFS deployments through Continuous Integration.
+desc: Set and deploy your site with Fleek. Follow our concise CLI guide to create your site and leverage GitHub Actions to automate IPFS deployments through Continuous Integration.
 keywords: [services, documentation, getting started]
 tags:
   - Accounts
