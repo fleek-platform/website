@@ -13,11 +13,11 @@ const requiredEnvVars = [
 ];
 
 requiredEnvVars.forEach((varName) => {
- if (!varName || !process.env[varName]) {
+  if (!varName || !process.env[varName]) {
     console.error(`Oops! Environment variable ${varName} is not set.`);
 
     process.exit(1);
- }
+  }
 });
 
 const generateApiToken = ({ email }: { email: string }) => {
@@ -59,15 +59,18 @@ app.post(
           },
         },
       };
-      
-      const response = await fetch(`https://${process.env.PRIVATE_ZENDESK_HOSTNAME}.zendesk.com/api/v2/tickets.json?async=true`, {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-          Authorization: `Basic ${zendeskAuthToken}`,
+
+      const response = await fetch(
+        `https://${process.env.PRIVATE_ZENDESK_HOSTNAME}.zendesk.com/api/v2/tickets.json?async=true`,
+        {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+            Authorization: `Basic ${zendeskAuthToken}`,
+          },
+          body: JSON.stringify(body),
         },
-        body: JSON.stringify(body),
-      });
+      );
 
       const data = await response.json();
 
@@ -98,3 +101,5 @@ export default {
   port: PORT,
   fetch: app.fetch,
 };
+
+
