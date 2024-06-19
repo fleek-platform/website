@@ -2,8 +2,8 @@
 title: 'Next.js: The Default Framework for App Development — What you need to know'
 date: 2024-05-10
 desc: 'Learn what Next.js is, understand why it’s ideal for development, and how it enhances both performance and user experience in applications.'
-thumbnail: './Fleek-Blog-Nextjs-Basics-Thumbnail.png'
-image: './Fleek-Blog-Nextjs-Basics-Thumbnail.png'
+thumbnail: './fleek-blog-nextjs-basics-thumbnail.png'
+image: './fleek-blog-nextjs-basics-thumbnail.png'
 author:
   - 'Fleek'
 ---

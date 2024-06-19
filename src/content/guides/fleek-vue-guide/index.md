@@ -1,7 +1,7 @@
 ---
 title: 'How To Deploy a Vue.js App On Fleek: A Step-by-Step Guide for Developers'
 date: 2024-05-14
-desc: "How to use the Fleek CLI to deploy a Vue.Js file upload web app to IPFS"
+desc: 'How to use the Fleek CLI to deploy a Vue.Js file upload web app to IPFS'
 thumbnail: './vuethumbnew.png'
 image: './vuethumbnew.png'
 cannonical: ''
