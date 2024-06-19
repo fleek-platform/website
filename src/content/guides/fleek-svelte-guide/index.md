@@ -4,7 +4,6 @@ date: 2024-05-07
 desc: "How to use Fleek to deploy your Svelte app to IPFS"
 thumbnail: './sveltethumb.png'
 image: './sveltethumb.png'
-cannonical: ''
 author: 
   - 'Olayinka Oshidipe'
 ---

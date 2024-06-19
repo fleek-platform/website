@@ -4,7 +4,6 @@ date: 2024-04-03
 desc: 'How to deploy a static Next.js app using the Fleek CLI.'
 thumbnail: './nextjsguide.png'
 image: './nextjsguide.png'
-cannonical: ''
 author:
   - 'Olayinka Oshidipe'
   - 'Kanishk Khurana'
