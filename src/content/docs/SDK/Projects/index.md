@@ -2,7 +2,7 @@
 order: 1
 title: Projects
 date: 2023-01-10
-description: Create, list, and retrieve project details using the SDK, ensuring seamless integration with IPFS storage & IPNS services.
+desc: Create, list, and retrieve project details using the SDK, ensuring seamless integration with IPFS storage & IPNS services.
 keywords: [services, documentation, getting started]
 tags:
   - Accounts

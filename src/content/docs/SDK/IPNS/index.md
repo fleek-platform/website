@@ -2,7 +2,7 @@
 order: 4
 title: IPNS
 date: 2023-01-10
-description: Learn how to pin a file on IPNS using the service's primary methods. Upload files individually, in bulk, or directly from your local system.
+desc: Learn how to pin a file on IPNS using the service's primary methods. Upload files individually, in bulk, or directly from your local system.
 keywords: [services, documentation, getting started]
 tags:
   - Accounts

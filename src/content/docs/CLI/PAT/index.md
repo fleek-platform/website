@@ -2,7 +2,7 @@
 order: 7
 title: Personal Access Token
 date: 2023-01-10
-description: Learn to manage Personal Access Tokens
+desc: Learn to manage Personal Access Tokens
 keywords: [services, documentation, getting started]
 tags:
   - PAT
