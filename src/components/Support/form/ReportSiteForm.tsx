@@ -35,7 +35,7 @@ function ReportSiteForm() {
     });
 
     try {
-      const response = await fetch('http://localhost:3331/ticket', {
+      const response = await fetch(`${process.env.PUBLIC_SUPPORT_API}/ticket`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/x-www-form-urlencoded',

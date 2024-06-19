@@ -2,7 +2,6 @@
 import NewRequestForm from '@components/Support/form/NewRequestForm';
 import Layout from '@layouts/SupportPage.astro';
 import settings from '@base/settings.json';
-const pathName = Astro.url.pathname;
 ---
 
 <Layout
@@ -10,6 +9,6 @@ const pathName = Astro.url.pathname;
   description={settings.site.metadata.requests.description}
 >
   <main class="container mx-auto min-h-screen">
-    <NewRequestForm pathName={pathName} client:load />
+    <NewRequestForm client:load />
   </main>
 </Layout>

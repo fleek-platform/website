@@ -4,11 +4,9 @@ import Input from './ui/Input';
 import Tooltip from './ui/Tooltip';
 import Button from './ui/Button';
 
-type DynamicFormProps = {
-  pathName: string;
-};
+export type DynamicFormProps = {};
 
-function NewRequestForm({ pathName }: DynamicFormProps) {
+function NewRequestForm() {
   const [formValues, setFormValues] = useState<FormValuesType>({
     name: '',
     email: '',
@@ -33,7 +31,7 @@ function NewRequestForm({ pathName }: DynamicFormProps) {
     });
 
     try {
-      const response = await fetch('http://localhost:3331/ticket', {
+      const response = await fetch(`${process.env.PUBLIC_SUPPORT_API}/ticket`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/x-www-form-urlencoded',
