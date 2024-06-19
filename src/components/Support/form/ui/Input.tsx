@@ -3,10 +3,11 @@ import { SlPaperClip } from 'react-icons/sl';
 import { IoMdClose } from 'react-icons/io';
 
 interface InputProps {
-  type?: 'text' | 'file' | 'email';
-  value?: string;
+  type?: 'text' | 'email' | 'textarea';
+  value: string;
   onChange?: (value: string | FileList) => void;
-  label?: string;
+  label: string;
+  readOnly?: boolean;
   name: string;
   isRequired: boolean;
   bottomText?: string;
@@ -18,6 +19,7 @@ const Input: React.FC<InputProps> = ({
   value: propValue,
   onChange,
   label = 'Name',
+  readOnly,
   isRequired,
   bottomText,
   name,
@@ -30,36 +32,19 @@ const Input: React.FC<InputProps> = ({
     setValue(propValue || '');
   }, [propValue]);
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    if (type === 'file' && e.target.files) {
-      const newFiles = Array.from(e.target.files);
-      const updatedFileList = [...fileList, ...newFiles];
-      setFileList(updatedFileList);
-      if (onChange) {
-        const dataTransfer = new DataTransfer();
-        updatedFileList.forEach((file) => dataTransfer.items.add(file));
-        onChange(dataTransfer.files);
-      }
-    } else {
-      const newValue = e.target.value;
-      setValue(newValue);
-      if (onChange) {
-        onChange(newValue);
-      }
-    }
-  };
-
-  const removeFile = (fileName: string) => {
-    const updatedFileList = fileList.filter((file) => file.name !== fileName);
-    setFileList(updatedFileList);
+  const handleChange = (
+    e:
+      | React.ChangeEvent<HTMLInputElement>
+      | React.ChangeEvent<HTMLTextAreaElement>,
+  ) => {
+    const newValue = e.target.value;
+    setValue(newValue);
     if (onChange) {
-      const dataTransfer = new DataTransfer();
-      updatedFileList.forEach((file) => dataTransfer.items.add(file));
-      onChange(dataTransfer.files);
+      onChange(newValue);
     }
   };
 
-  if (type === 'file') {
+  if (type === 'textarea') {
     return (
       <div>
         <label
@@ -70,44 +55,19 @@ const Input: React.FC<InputProps> = ({
           {isRequired && <span className="text-[#FC8181]">*</span>}
           {!isRequired && <span>(Optional)</span>}
         </label>
-        <div className="relative z-1 w-full rounded-[6px] border border-[#313538] bg-black px-[1.1rem] py-[.8rem] text-center text-[1.6rem] focus-within:border-[#61a5ff] hover:border-[#718096]">
-          <input
-            className="absolute right-0 top-0 h-full w-full cursor-pointer opacity-0"
-            type="file"
-            required
-            id={`input-${name}`}
-            name={name}
-            onChange={handleChange}
-            {...props}
-            multiple
-          />
-          <span className="inline-block text-[13px]">
-            <a className="text-[#61a5ff]">Add file</a> or drop files here
+        <textarea
+          id={`input-${name}`}
+          rows={10}
+          placeholder="Describe your issue..."
+          onChange={handleChange}
+          {...props}
+          className="w-full rounded-[6px] border border-[#313538]  bg-[#111111] px-[1.1rem] py-[.7rem] text-[1.3rem] outline-none placeholder:text-[1.5rem] focus:border focus:border-[#369eff] md:text-[1.6rem]"
+        />
+        {bottomText && (
+          <span className="my-[4px] text-[1.2rem] font-medium text-[#718096] md:text-[1.3rem] xl:my-[6px] xl:text-[1.4rem]">
+            {bottomText}
           </span>
-        </div>
-
-        <div className="mt-[15px]">
-          <ul className="w-[50%]">
-            {fileList.map((file, index) => (
-              <li
-                key={index}
-                className="flex items-center justify-between rounded-[3px] px-[1.1rem] py-[.8rem] hover:bg-[#f2f2f2]"
-              >
-                <div className="flex items-center gap-[10px]">
-                  <SlPaperClip fontSize={13} />
-                  <span className="text-[12px] text-[#333]">{file.name}</span>
-                </div>
-                <button
-                  type="button"
-                  className=""
-                  onClick={() => removeFile(file.name)}
-                >
-                  <IoMdClose fontSize={13} />
-                </button>
-              </li>
-            ))}
-          </ul>
-        </div>
+        )}
       </div>
     );
   }
@@ -127,6 +87,7 @@ const Input: React.FC<InputProps> = ({
         type={type}
         required
         id={`input-${name}`}
+        readOnly={readOnly}
         name={name}
         value={value as string}
         onChange={handleChange}

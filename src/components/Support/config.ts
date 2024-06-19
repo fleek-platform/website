@@ -75,92 +75,6 @@ export const youtubeEmbedVideos = [
   },
 ];
 
-export const categoryOptions: OptionsType[] = [
-  {
-    label: '-',
-    value: '-',
-    id: '-',
-  },
-  {
-    label: 'Fleek.xyz Support',
-    value: 'Fleek.xyz Support',
-    id: 'xyz-form',
-  },
-  {
-    label: 'Fleek.co Support',
-    value: 'Fleek.co Support',
-    id: 'co-form',
-  },
-  {
-    label: 'Billing',
-    value: 'Billing',
-    id: 'billing-form',
-  },
-  {
-    label: 'Crypto Payment',
-    value: 'Crypto Payment',
-    id: 'crypto-form',
-  },
-  {
-    label: 'Partnerships & Collaborations',
-    value: 'Partnerships & Collaborations',
-    id: 'partnerships-form',
-  },
-  {
-    label: 'Phishing and Abuse reports',
-    value: 'Phishing and Abuse reports',
-    id: 'phishing-form',
-  },
-  {
-    label: 'Report Template',
-    value: 'Report Template',
-    id: 'template-form',
-  },
-  {
-    label: 'Feedback & Feature Requests',
-    value: 'Feedback & Feature Requests',
-    id: 'feedback-form',
-  },
-  {
-    label: 'Other',
-    value: 'Other',
-    id: 'other-form',
-  },
-];
-
-export const severityItems: OptionsType[] = [
-  {
-    label: '-',
-    value: '-',
-    id: '-',
-  },
-  {
-    label: 'Urgent',
-    value: 'urgent',
-    id: 'urgent',
-  },
-  {
-    label: 'High',
-    value: 'high',
-    id: 'high',
-  },
-  {
-    label: 'Medium',
-    value: 'medium',
-    id: 'medium',
-  },
-  {
-    label: 'Normal',
-    value: 'normal',
-    id: 'normal',
-  },
-  {
-    label: 'Low',
-    value: 'low',
-    id: 'low',
-  },
-];
-
 export const updateUrl = (id: string, paramName: string) => {
   const params = new URLSearchParams(window.location.search);
 
@@ -176,56 +90,6 @@ export const updateUrl = (id: string, paramName: string) => {
 
   window.history.pushState({}, '', newUrl);
 };
-export const selectedPlanItems: OptionsType[] = [
-  {
-    label: '-',
-    value: '-',
-    id: '-',
-  },
-  {
-    label: 'Pro',
-    value: 'pro',
-    id: 'pro',
-  },
-  {
-    label: 'Business',
-    value: 'business',
-    id: 'business',
-  },
-  {
-    label: 'Enterprise',
-    value: 'enterprise',
-    id: 'enterprise',
-  },
-];
-
-export const productItems: OptionsType[] = [
-  {
-    label: '-',
-    value: '-',
-    id: '-',
-  },
-  {
-    label: 'Fleek.co',
-    value: 'Fleek.co',
-    id: 'fleek-co',
-  },
-  {
-    label: 'Fleek.xyz',
-    value: 'Fleek.xyz',
-    id: 'fleek-xyz',
-  },
-  {
-    label: 'Fleek Network',
-    value: 'Fleek-Network',
-    id: 'fleek-network',
-  },
-  {
-    label: 'NFAs',
-    value: 'NFAs',
-    id: 'nfas',
-  },
-];
 
 export const SupportMenuItems = [
   {
@@ -251,7 +115,7 @@ export const SupportMenuItems = [
   },
   {
     id: 5,
-    path: '/support/requests/new?ticket_form_id=phishing-form',
+    path: '/support/requests/report-site',
     pathName: 'Report a site',
   },
   {

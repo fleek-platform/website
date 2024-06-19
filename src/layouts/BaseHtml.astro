@@ -129,7 +129,7 @@ const isSupportCenter =
     </noscript>
     <Announcement client:load />
     <Nav client:load pathname={Astro.url.pathname} isSupportCenter />
-    {isSupportCenter && <SupportMenu client:only pathName={pathName} />}
+    {isSupportCenter && <SupportMenu client:load pathName={pathName} />}
     <slot />
     <Footer client:load />
   </body>

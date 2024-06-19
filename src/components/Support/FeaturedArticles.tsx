@@ -41,7 +41,6 @@ function SingleArticleCard({
         <div className="flex-1">
           <a
             href={link}
-            target="_blank"
             className="text-[1.3rem] font-semibold text-[#9BA1A6] hover:text-[#2294ff] hover:underline xl:text-[1.5rem]"
           >
             {title}

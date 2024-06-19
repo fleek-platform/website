@@ -22,20 +22,31 @@ const SupportMenu: React.FC<SupportMenuProps> = ({ pathName }) => {
 };
 
 function SupportMenuDesktop({ pathName }: SupportMenuProps) {
-  const fullPath = window.location.href;
-
   const getActivePath = useCallback(
     (path: string) => {
       if (
-        fullPath.includes('?ticket_form_id=phishing-form') &&
+        pathName.includes('?ticket_form_id=phishing-form') &&
         path.includes('?ticket_form_id=phishing-form')
       ) {
         return true;
       }
-      return path === pathName;
+
+      return pathName.includes(path);
     },
     [pathName],
   );
+
+  const activePath = useCallback(
+    () =>
+      SupportMenuItems.reduce((longestPath, item) => {
+        if (getActivePath(item.path) && item.path.length > longestPath.length) {
+          return item.path;
+        }
+        return longestPath;
+      }, ''),
+    [pathName],
+  );
+
   return (
     <ul
       className={`hidden border-b-2 border-gray-700  pl-16 md:flex  md:items-center lg:px-28`}
@@ -46,7 +57,7 @@ function SupportMenuDesktop({ pathName }: SupportMenuProps) {
           className={clsx(
             'mb-[1rem] cursor-pointer px-[10px] py-[4px] text-[1.5rem] font-semibold hover:text-[#2294ff] xl:my-[1.5rem]   xl:text-[1.6rem]',
             {
-              'text-[#2294ff]': getActivePath(item.path),
+              'text-[#2294ff]': item.path === activePath(),
             },
           )}
         >
@@ -59,18 +70,30 @@ function SupportMenuDesktop({ pathName }: SupportMenuProps) {
 
 function SupportMenuMobile({ pathName }: SupportMenuProps) {
   const [isExpanded, setIsExpanded] = useState(false);
-  const fullPath = window.location.href;
 
   const getActivePath = useCallback(
     (path: string) => {
       if (
-        fullPath.includes('?ticket_form_id=phishing-form') &&
+        pathName.includes('?ticket_form_id=phishing-form') &&
         path.includes('?ticket_form_id=phishing-form')
       ) {
         return true;
       }
-      return path === pathName;
+
+      `      console.log(fullPath.startsWith(path));`;
+      return pathName.startsWith(path);
     },
+    [pathName],
+  );
+
+  const activePath = useCallback(
+    () =>
+      SupportMenuItems.reduce((longestPath, item) => {
+        if (getActivePath(item.path) && item.path.length > longestPath.length) {
+          return item.path;
+        }
+        return longestPath;
+      }, ''),
     [pathName],
   );
 
@@ -103,7 +126,7 @@ function SupportMenuMobile({ pathName }: SupportMenuProps) {
             className={clsx(
               'cursor-pointer p-4 text-[1.3rem]  hover:text-[#2294ff]',
               {
-                'text-[#2294ff]': getActivePath(item.path),
+                'text-[#2294ff]': item.path === activePath(),
               },
             )}
           >
