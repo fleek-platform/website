@@ -4,7 +4,6 @@ date: 2024-05-14
 desc: 'How to use the Fleek CLI to deploy a Vue.Js file upload web app to IPFS'
 thumbnail: './vuethumbnew.png'
 image: './vuethumbnew.png'
-cannonical: ''
 author: 
   - 'Olayinka Oshidipe'
 ---
