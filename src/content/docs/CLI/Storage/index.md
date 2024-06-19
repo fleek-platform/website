@@ -2,7 +2,7 @@
 order: 4
 title: Storage
 date: 2023-01-10
-description: Dive into Fleek's decentralized storage service. Offering support for IPFS, Arweave, and Filecoin, Fleek ensures high availability and performance..
+desc: Dive into Fleek's decentralized storage service. Offering support for IPFS, Arweave, and Filecoin, Fleek ensures high availability and performance..
 tags:
   - Edge Platform
   - CDN

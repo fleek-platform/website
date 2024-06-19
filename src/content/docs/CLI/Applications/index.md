@@ -2,7 +2,7 @@
 order: 8
 title: Applications
 date: 2023-01-10
-description: Learn to manage the Applications
+desc: Learn to manage the Applications
 keywords: [services, documentation, getting started]
 tags:
   - PAT
