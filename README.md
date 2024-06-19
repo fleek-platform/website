@@ -86,6 +86,7 @@ PUBLIC_MEILISEARCH_INDEX_REFERENCES="fleekxyz_website_references"
 PRIVATE_MEILISEARCH_MASTER_KEY=***
 PRIVATE_MEILISEARCH_DOCUMENTS_ADMIN_API_KEY=***
 PUBLIC_MEILISEARCH_DOCUMENTS_CLIENT_API_KEY=***
+PUBLIC_SUPPORT_API="localhost:3331"
 ```
 
 ## 🏗️ Build
@@ -829,6 +830,12 @@ Everytime a build happens, the static JSON data should be updated.
 ## Support
 
 ZenDesk is an external provider that provides an API to interact with the service. The following documentation provides information to interace with the proxy server.
+
+### Setup
+
+The application should get the endpoint URL from an environment variable named `PUBLIC_SUPPORT_API`.
+
+Learn how to setup by reading the section [environment variables](#environment-variables).
 
 ### Tokens
 
