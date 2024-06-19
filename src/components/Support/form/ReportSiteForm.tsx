@@ -2,6 +2,7 @@ import React, { Suspense, useCallback, useMemo, useState } from 'react';
 import Button from './ui/Button';
 import Input from './ui/Input';
 import Tooltip from './ui/Tooltip';
+import { zenDeskEndpoint } from './NewRequestForm';
 
 export type FormValuesType = {
   email: string;
@@ -35,7 +36,7 @@ function ReportSiteForm() {
     });
 
     try {
-      const response = await fetch(`${process.env.PUBLIC_SUPPORT_API}/ticket`, {
+      const response = await fetch(`${zenDeskEndpoint}/ticket`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/x-www-form-urlencoded',

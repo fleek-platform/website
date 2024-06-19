@@ -4,6 +4,20 @@ import Input from './ui/Input';
 import Tooltip from './ui/Tooltip';
 import Button from './ui/Button';
 
+export const { zenDeskEndpoint } = (() => {
+  const zenDeskEndpoint = import.meta.env.PUBLIC_SUPPORT_API;
+
+  if (!zenDeskEndpoint) {
+    throw Error(
+      `👹 Oops! Missing environment variable (host ${zenDeskEndpoint})`,
+    );
+  }
+
+  return {
+    zenDeskEndpoint,
+  };
+})();
+
 export type DynamicFormProps = {};
 
 function NewRequestForm() {
@@ -31,7 +45,7 @@ function NewRequestForm() {
     });
 
     try {
-      const response = await fetch(`${process.env.PUBLIC_SUPPORT_API}/ticket`, {
+      const response = await fetch(`${zenDeskEndpoint}/ticket`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/x-www-form-urlencoded',
