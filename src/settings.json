@@ -229,5 +229,8 @@
         }
       ]
     }
+  },
+  "newsletterSubscription": {
+    "activeHostedFormApi": "https://fleek.activehosted.com/proc.php"
   }
 }

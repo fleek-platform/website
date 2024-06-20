@@ -4,8 +4,11 @@ import React, { useState } from 'react';
 import { PiWarningCircleFill } from 'react-icons/pi';
 import { GoCheckCircleFill } from 'react-icons/go';
 import ButtonGray from './ButtonGray';
+import settings from '@base/settings.json';
 
 import type { Dispatch, SetStateAction, MouseEvent } from 'react';
+
+const { activeHostedFormApi } = settings.newsletterSubscription;
 
 const Modal = ({
   isOpen,
@@ -24,7 +27,7 @@ const Modal = ({
     try {
       const data = new FormData(e.currentTarget);
 
-      await fetch('https://fleek.activehosted.com/proc.php', {
+      await fetch(activeHostedFormApi, {
         method: 'POST',
         body: data,
         mode: 'no-cors',
@@ -57,7 +60,7 @@ const Modal = ({
           <div className="">
             <form
               method="POST"
-              action="https://fleek.activehosted.com/proc.php"
+              action={activeHostedFormApi}
               id="_form_37_"
               onSubmit={onSubmit}
             >
