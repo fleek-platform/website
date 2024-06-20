@@ -291,4 +291,4 @@ The identity of the user who initially initiated the transaction is retained, al
 
 We hope all of these resources and information on the whole web3 stack serve you as a tool to start to build in the ecosystem!
 
-If you want to read more about infrastructure on web3 you can find our Build3rs Stack series on our [blog](https://blog.fleek.xyz/) ⚡️
+If you want to read more about infrastructure on web3 you can find our Build3rs Stack series on our [guides](/guides/) ⚡️
