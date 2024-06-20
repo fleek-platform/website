@@ -8,7 +8,7 @@ image: './dns-fleek.png'
 
 Thursday’s release day, and today we delivering another key service on the Fleek CLI beta: **the Custom Domains Service, allowing you to map DNS domains to your Fleek sites**!
 
-Any user can now fully deploy a static website onto IPFS, add a DNS domain to it (e.g. yourdapp.com) and have it resolve, and be fully hosted via Fleek. You can find guides to all new features detailed in our [docs](https://docs.fleek.xyz/).
+Any user can now fully deploy a static website onto IPFS, add a DNS domain to it (e.g. yourdapp.com) and have it resolve, and be fully hosted via Fleek. You can find guides to all new features detailed in our [docs](/docs).
 
 ---
 
