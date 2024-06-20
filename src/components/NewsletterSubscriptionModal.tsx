@@ -5,7 +5,7 @@ import { PiWarningCircleFill } from 'react-icons/pi';
 import { GoCheckCircleFill } from 'react-icons/go';
 import ButtonGray from './ButtonGray';
 
-import type { Dispatch, SetStateAction } from 'react';
+import type { Dispatch, SetStateAction, MouseEvent } from 'react';
 
 const Modal = ({
   isOpen,
@@ -36,12 +36,23 @@ const Modal = ({
     }
   };
 
+  const onClickOutside = (e: MouseEvent<HTMLDivElement>) => {
+    if (e.target === e.currentTarget) {
+      setIsOpen(false);
+    }
+  };
+
   return (
     <div
       id="modal"
       className={`fixed top-0 left-0 ${isOpen ? ' scale-100 duration-300 ease-in-out' : 'scale-0 duration-300 ease-in-out '} z-50 h-[800vh] w-full bg-[#0000004a] backdrop-blur`}
+      onClick={onClickOutside}
     >
-      <div className="typo-l ml-[5%] mt-[55%] w-[90%] rounded-48 border border-yellow bg-gray-dark-1 p-24 text-gray-dark-12  lg:typo-h5 lg:ml-[32%] lg:mt-[22%] lg:w-[40%] lg:p-40 lg:px-64">
+      <div
+        id="modal-child"
+        className="typo-l ml-[5%] mt-[55%] w-[90%] rounded-48 border border-yellow bg-gray-dark-1 p-24 text-gray-dark-12  lg:typo-h5 lg:ml-[32%] lg:mt-[22%] lg:w-[40%] lg:p-40 lg:px-64"
+        onClick={(e) => e.stopPropagation()}
+      >
         {!thankyou ? (
           <div className="">
             <form
