@@ -1,7 +1,7 @@
 ---
 title: 'How to Deploy A NextJs App Using Fleek.xyz UI'
 date: 2024-04-23
-desc: 'How to deploy a static Next.js app using the Fleek UI and your apps GitHub Repo.'
+desc: "How to deploy a static Next.js app using the Fleek UI and your app's GitHub Repo."
 thumbnail: './ghnextjsthumb.png'
 image: './ghnextjsthumb.png'
 author:
