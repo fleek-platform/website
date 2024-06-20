@@ -82,15 +82,15 @@ const DeployWithImage: React.FC<Props & OptionalProps> = (props) => {
           }
         >
           <div className="col-span-16 flex basis-7/12 flex-col items-center justify-center lg:col-span-8 lg:items-start">
-            <h1 className="typo-h5 mb-24 text-center text-gray-dark-12 lg:typo-h4 lg:text-start">
+            <h1 className="typo-h5 mb-24 hidden text-center text-gray-dark-12 lg:typo-h4 lg:block lg:text-start">
               {props.headline}
             </h1>
 
-            <p className="typo-m text-center lg:typo-l lg:text-start">
+            <p className="typo-m hidden text-center lg:typo-l lg:block lg:text-start">
               {props.copy}
             </p>
 
-            <div className="mt-48 flex flex-col gap-20 text-gray-dark-12 lg:flex-row">
+            <div className="flex flex-col gap-20 text-gray-dark-12 lg:mt-48 lg:flex-row">
               {IconList.map((item, index) => {
                 return (
                   <Card
@@ -115,6 +115,15 @@ const DeployWithImage: React.FC<Props & OptionalProps> = (props) => {
               sizes={`${down('lg')} 100vw, 50vw`}
               width={600}
             />
+          </div>
+          <div className="col-span-16 flex basis-7/12 flex-col items-center justify-center lg:col-span-8 lg:hidden lg:items-start">
+            <h1 className="typo-h5 mb-24 mr-64 text-left text-gray-dark-12 lg:typo-h4 lg:text-start">
+              {props.headline}
+            </h1>
+
+            <p className="typo-m mr-64 text-left lg:typo-l lg:text-start">
+              {props.copy}
+            </p>
           </div>
         </div>
       </PageSection>

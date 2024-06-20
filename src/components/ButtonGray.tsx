@@ -18,7 +18,7 @@ const ButtonGray: React.FC<React.PropsWithChildren<Props>> = ({
       <Text
         as="span"
         style="btn-l"
-        className={`text-gray-dark-12 ${props.className}`}
+        className={`text-gray-dark-11 ${props.className}`}
       >
         {props.children}
       </Text>
