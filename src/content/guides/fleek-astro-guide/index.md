@@ -4,7 +4,7 @@ date: 2024-05-28
 desc: 'How to deploy a static Astro app using the Fleek CLI and one of our ready-to-use templates'
 thumbnail: './astrothumbnew.png'
 image: './astrothumbnew.png'
-author: 
+author:
   - 'Olayinka Oshidipe'
 ---
 
@@ -35,7 +35,6 @@ git clone https://github.com/fleekxyz/astro-template.git
 ```
 
 > 💡 This code takes the Astro template from the Fleek.xyz template library and automatically kickstarts your project. You can access an expanding library of other application and framework templates, including Lens, React, and more here.
-> 
 
 ### Start Up Your Dev Server
 
@@ -115,12 +114,12 @@ You’ll get a few prompts, populate them as you wish:
 
 ![](./svelte4.png)
 
-- *Type the name of your site*: › `[site-name]`
-    - If there’s an existing site already with this name, it may ask if you want to link to this site. Please note that when you do this, you will overwrite everything on the previous site. Ensure that this is the outcome you desire, otherwise, select **N** and create a new site.
-- *Specify the dist directory from where the site will be uploaded from*: › **`dist`**
-- *Do you want to include the optional "`build`" command?*: › **`yes`**
-- *Specify `build` command*: › `npm run build`
-- *Select a format how the site's configuration will be saved*: › `Javascript (fleek.config.js)`
+- _Type the name of your site_: › `[site-name]`
+  - If there’s an existing site already with this name, it may ask if you want to link to this site. Please note that when you do this, you will overwrite everything on the previous site. Ensure that this is the outcome you desire, otherwise, select **N** and create a new site.
+- _Specify the dist directory from where the site will be uploaded from_: › **`dist`**
+- _Do you want to include the optional "`build`" command?_: › **`yes`**
+- _Specify `build` command_: › `npm run build`
+- _Select a format how the site's configuration will be saved_: › `Javascript (fleek.config.js)`
 
 You should see:
 
@@ -130,7 +129,7 @@ And a `fleek.config.js` file should appear in your root dir.
 
 ![](./astroimg.png)
 
-----
+---
 
 ## Deployment
 

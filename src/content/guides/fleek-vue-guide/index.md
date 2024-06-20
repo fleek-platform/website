@@ -4,11 +4,11 @@ date: 2024-05-14
 desc: 'How to use the Fleek CLI to deploy a Vue.Js file upload web app to IPFS'
 thumbnail: './vuethumbnew.png'
 image: './vuethumbnew.png'
-author: 
+author:
   - 'Olayinka Oshidipe'
 ---
 
-In this guide, you’ll learn how to build a file upload web app that takes any file and uploads it to IPFS. With Fleek there are a few ways you could upload files to IPFS, one being that you could use the Fleek CLI — we have a guide on that [here](https://www.youtube.com/watch?v=2OzwtDH7K0A&t=38s). You could also upload files directly from the [platform](https://www.notion.so/6c772a4a892943ce92479e5ad7cba582?pvs=21) or via the [SDK](https://docs.fleek.xyz/docs/SDK). 
+In this guide, you’ll learn how to build a file upload web app that takes any file and uploads it to IPFS. With Fleek there are a few ways you could upload files to IPFS, one being that you could use the Fleek CLI — we have a guide on that [here](https://www.youtube.com/watch?v=2OzwtDH7K0A&t=38s). You could also upload files directly from the [platform](https://www.notion.so/6c772a4a892943ce92479e5ad7cba582?pvs=21) or via the [SDK](https://docs.fleek.xyz/docs/SDK).
 
 ## What is Vue Js?
 
@@ -31,7 +31,7 @@ Before we get started, let’s go over the requirements we’ll need to bring th
 
 ## Fleek Account Creation
 
-The first thing we’ll need to do is create a Fleek account: head over to http://app.fleek.xyz, and click on the `Create a Free Account` button.  
+The first thing we’ll need to do is create a Fleek account: head over to http://app.fleek.xyz, and click on the `Create a Free Account` button.
 
 > 💡 Feel free to skip this step if you already have an account on [Fleek.xyz](http://Fleek.xyzapp.fleek.xyz)!
 
@@ -142,7 +142,7 @@ export default {
     readFileAsync(file) {
       return new Promise((resolve, reject) => {
         const reader = new FileReader();
-        
+
         reader.onload = () => {
           if (reader.result instanceof ArrayBuffer) {
             resolve(reader.result); // Resolve with ArrayBuffer
@@ -229,13 +229,13 @@ When you run `fleek applications create` you should get a response that looks li
 > Success! Successfully created. Your new application has client's ID: client_FYMego6wIogtm36sUFQb
 ```
 
-Copy your client_id, and replace it at the `<CLIENT_ID_GOES_HERE>`. 
+Copy your client_id, and replace it at the `<CLIENT_ID_GOES_HERE>`.
 
 Now that we’re all done with that, we’re going to open up our `index.ts` file under our `router` folder, and then link our `UploadComponent.vue` file. We’ll update it with this:
 
 ```javascript
-import { createRouter, createWebHashHistory } from 'vue-router'
-import UploadComponent from '../views/UploadComponent.vue'
+import { createRouter, createWebHashHistory } from 'vue-router';
+import UploadComponent from '../views/UploadComponent.vue';
 
 const router = createRouter({
   history: createWebHashHistory(import.meta.env.BASE_URL),
@@ -243,7 +243,7 @@ const router = createRouter({
     {
       path: '/',
       name: 'UploadFile',
-      component: UploadComponent
+      component: UploadComponent,
     },
     {
       path: '/about',
@@ -251,23 +251,24 @@ const router = createRouter({
       // route level code-splitting
       // this generates a separate chunk (About.[hash].js) for this route
       // which is lazy-loaded when the route is visited.
-      component: () => import('../views/AboutView.vue')
-    }
-  ]
-})
+      component: () => import('../views/AboutView.vue'),
+    },
+  ],
+});
 
-export default router
-
+export default router;
 ```
 
 ### **Testing the Vue.js App**
 
 1. **Run the Development Server**
+
 - Open your terminal.
 - Enter the command **`npm run dev`** to start the development server.
 - This will launch your Vue.js app locally.
 
 2. **Upload a Test File**
+
 - Navigate to the app in your web browser.
 - Use the file upload feature to select a file.
 - Try uploading the file to IPFS using the app.
@@ -278,12 +279,13 @@ export default router
 ### **Preparing for Deployment on Fleek**
 
 1. **Build the Static Site**
-    - In your terminal, execute **`npm run build`**.
-    - This command will compile your Vue.js app into a static site.
-    - Upon completion, a new folder named **`dist`** will be generated.
-    
-    > 💡 Pay attention to the folder name `dist` as it contains your built app files.
-    
+
+   - In your terminal, execute **`npm run build`**.
+   - This command will compile your Vue.js app into a static site.
+   - Upon completion, a new folder named **`dist`** will be generated.
+
+   > 💡 Pay attention to the folder name `dist` as it contains your built app files.
+
 2. **Create Fleek Deployment Configuration**
 
 With the static site built, proceed to set up the Fleek deployment configuration.
@@ -306,14 +308,14 @@ You’ll get a few prompts, populate them as you wish:
 
 ![](./svelte4.png)
 
-- *Type the name of your site*: › `[site-name]`
-    - If there’s an existing site already with this name, it may ask if you want to link to this site. Please note that when you do this, you will overwrite everything on the previous site. Ensure that this is the outcome you desire, otherwise, select **N** and create a new site.
-- *Specify the `dist` directory from where the site will be uploaded from*: › `dist`
-- *Do you want to include the optional "`build`" command?*: › **`yes`**
-- *Specify `build` command*: › `npm run build`
-- *Select a format for how the site's configuration will be saved*: › `Javascript Json`
+- _Type the name of your site_: › `[site-name]`
+  - If there’s an existing site already with this name, it may ask if you want to link to this site. Please note that when you do this, you will overwrite everything on the previous site. Ensure that this is the outcome you desire, otherwise, select **N** and create a new site.
+- _Specify the `dist` directory from where the site will be uploaded from_: › `dist`
+- _Do you want to include the optional "`build`" command?_: › **`yes`**
+- _Specify `build` command_: › `npm run build`
+- _Select a format for how the site's configuration will be saved_: › `Javascript Json`
 
-We’ve successfully created our config file. We can proceed to deploying our site. 
+We’ve successfully created our config file. We can proceed to deploying our site.
 
 ## Deployment
 

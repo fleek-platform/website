@@ -4,7 +4,7 @@ date: 2024-05-07
 desc: 'How to use Fleek to deploy your Svelte app to IPFS'
 thumbnail: './sveltethumb.png'
 image: './sveltethumb.png'
-author: 
+author:
   - 'Olayinka Oshidipe'
 ---
 
@@ -12,7 +12,7 @@ The Fleek.xyz platform empowers developers to build lightning-fast web apps, and
 
 ### What is Svelte?
 
-Svelte is a modern JavaScript framework that rethinks how web applications are built. Unlike traditional frameworks where components are interpreted at runtime, Svelte shifts much of this work to build time, producing highly optimized and efficient code. 
+Svelte is a modern JavaScript framework that rethinks how web applications are built. Unlike traditional frameworks where components are interpreted at runtime, Svelte shifts much of this work to build time, producing highly optimized and efficient code.
 
 ### Requirements:
 
@@ -27,7 +27,7 @@ Let’s get started:
 
 ## Create A New Svelte Project
 
-The first thing we’ll do will be to set up our Svelte project. 
+The first thing we’ll do will be to set up our Svelte project.
 
 To create a new Svelte project open your terminal, `cd` into the directory of your choice, and run the following command:
 
@@ -107,19 +107,16 @@ You’ll get a few prompts, populate them as you wish:
 
 ![](./svelte4.png)
 
-- *Type the name of your site*: › `[site-name]`
-    - If there’s an existing site already with this name, it may ask if you want to link to this site. Please note that when you do this, you will overwrite everything on the previous site. Ensure that this is the outcome you desire, otherwise, select **N** and create a new site.
-- *Specify the dist directory from where the site will be uploaded from*: › `dist`
-- *Do you want to include the optional "`build`" command?*: › **`yes`**
-- *Specify `build` command*: › `npm run build`
-- *Select a format for how the site's configuration will be saved*: › `Javascript Json`
-    
-    **NB:** It is important to make use of the json configuration for your svelte vite app. This has to do with the fact that the `type: "module"` setting in Node.js indicates ECMAScript module (ESM) usage, enabling `import`/`export` syntax. It affects module resolution by treating `.js` and `.mjs` files as ESM modules. This setting allows for modern module handling, impacting compatibility with CommonJS modules and offering enhanced file scoping and loading rules.
-    
-    And since the Fleek CLI expects known file formats, eg, `fleek.config.ts` or `fleek.config.js`, making any modifications to the config file names is not advisable. This is where the `json` configuration comes in, and saves the day. 
-    
+- _Type the name of your site_: › `[site-name]`
+  - If there’s an existing site already with this name, it may ask if you want to link to this site. Please note that when you do this, you will overwrite everything on the previous site. Ensure that this is the outcome you desire, otherwise, select **N** and create a new site.
+- _Specify the dist directory from where the site will be uploaded from_: › `dist`
+- _Do you want to include the optional "`build`" command?_: › **`yes`**
+- _Specify `build` command_: › `npm run build`
+- _Select a format for how the site's configuration will be saved_: › `Javascript Json`
+  **NB:** It is important to make use of the json configuration for your svelte vite app. This has to do with the fact that the `type: "module"` setting in Node.js indicates ECMAScript module (ESM) usage, enabling `import`/`export` syntax. It affects module resolution by treating `.js` and `.mjs` files as ESM modules. This setting allows for modern module handling, impacting compatibility with CommonJS modules and offering enhanced file scoping and loading rules.
+  And since the Fleek CLI expects known file formats, eg, `fleek.config.ts` or `fleek.config.js`, making any modifications to the config file names is not advisable. This is where the `json` configuration comes in, and saves the day.
 
-You should then see: 
+You should then see:
 
 `> Success! Fleek config file has been saved.`
 
@@ -131,7 +128,7 @@ And a `fleek.config.json` file should appear in your root dir.
 
 ## Deployment
 
-We’re close to the finish line — the next step here will be to deploy our Svelte app to Fleek. 
+We’re close to the finish line — the next step here will be to deploy our Svelte app to Fleek.
 
 We’ll do that by running:
 
@@ -149,7 +146,7 @@ Fleek will begin uploading the files in our `dist` folder to IPFS. You should ge
 > https://ipfs.io/ipfs/QmVgNN84eJMPoxznUEFmjAhkbhiKS8ic39zucNkWfux3ft
 ```
 
-Your site has been successfully deployed! 
+Your site has been successfully deployed!
 
 Now head over to the dashboard http://app.fleek.xyz, and ensure you are on the right project (open the drop-down menu on the top left of the homepage and select the current project).
 
