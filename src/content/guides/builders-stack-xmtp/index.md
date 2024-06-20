@@ -4,7 +4,6 @@ date: 2023-08-16
 desc: "The builder's guide to XMTP- the decentralized protocol providing encrypted, interoperable messaging capabilities to users, wallets, and apps"
 thumbnail: './xmtp_thumbnail.jpg'
 image: './xmtp_thumbnail.jpg'
-cannonical: ''
 author:
   - 'Fleek'
 ---

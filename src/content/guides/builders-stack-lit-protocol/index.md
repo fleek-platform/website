@@ -4,7 +4,6 @@ date: 2023-04-14
 desc: 'The builders guide to Lit Protocol, the most important features, applied use-cases, and why it’s important to understand what you can build with it as a web3 developer.'
 thumbnail: './lit-protocol.png'
 image: './lit-protocol.png'
-cannonical: ''
 ---
 
 Welcome to the Build3rs Stack, Fleek’s web3 infrastructure overview series. This week we will take a look at Lit Protocol - A decentralized key management network! We will talk in depth about its main features, resources, and all the necessary information you need to get started.

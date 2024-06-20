@@ -4,7 +4,6 @@ date: 2023-03-04
 desc: "The builder's guide to IPFS: how to use it in your project's Web3 infra-stack, and what you can achieve with it."
 thumbnail: './ipfs-net.png'
 image: './ipfs-net.png'
-cannonical: ''
 ---
 
 Welcome to the Build3rs Stack, our web3 infrastructure overview series! **This week we will cover [IPFS](https://ipfs.io/)**, the **I**nter**p**lanetary **F**ile **S**ystem Protocol! We’ll talk about how you can use this storage/content-addressing protocol to build on web3, and the features and options it can enable for you as a developer.

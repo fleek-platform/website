@@ -4,7 +4,6 @@ date: 2023-06-06
 desc: 'Explore WeaveDB, the NoSQL database providing decentralized and scalable data storage to web3 apps with a familiar web2 experience'
 thumbnail: './weavedb.jpg'
 image: './weavedb.jpg'
-cannonical: ''
 author:
   - 'Fleek'
 ---

@@ -4,7 +4,6 @@ date: 2023-05-05
 desc: "The builder's guide to Gelato Network- the decentralized & automated smart contract execution network"
 thumbnail: './gelato-main.png'
 image: './gelato-main.png'
-cannonical: ''
 author:
   - 'Abru Zucchi'
 ---

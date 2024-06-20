@@ -4,7 +4,6 @@ date: 2023-03-31
 desc: 'The builders guide to Filecoin, the decentralized file storage network and the Filecoin Virtual Machine!'
 thumbnail: './fil-fvm.png'
 image: './fil-fvm.png'
-cannonical: ''
 ---
 
 Welcome to the Build3rs Stack, Fleek’s **web3 infrastructure overview series**. This week we will take a look at **[Filecoin](https://fvm.filecoin.io/) and the Filecoin Virtual Machine** - A decentralized storage network and a runtime environment for smart contracts! We will talk in depth about these, the main features, resources, and all the necessary information to get started.

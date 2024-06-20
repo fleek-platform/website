@@ -4,7 +4,6 @@ date: 2023-04-28
 desc: "The builder's guide to Radicle- the decentralized code collaboration platform! Learn how to integrate the P2P code collab network in your web3 builds."
 thumbnail: './radicle-image.png'
 image: './radicle-image.png'
-cannonical: ''
 author:
   - 'Abru Zucchi'
 ---

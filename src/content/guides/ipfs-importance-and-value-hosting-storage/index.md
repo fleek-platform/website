@@ -4,7 +4,6 @@ date: 2023-05-24
 desc: 'Explore the benefits and applications of InterPlanetary File System (IPFS) technology for decentralized content addressing, storage, and hosting, and learn how to get started with IPFS through Fleek!'
 thumbnail: './exploring-ipfs.png'
 image: './exploring-ipfs.png'
-cannonical: ''
 author: 'Fleek'
 ---
 

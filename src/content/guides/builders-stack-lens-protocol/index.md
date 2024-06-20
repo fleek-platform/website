@@ -4,7 +4,6 @@ date: 2023-04-07
 desc: 'The builders guide to Lens Protocol, the decentralized and composable social graph.'
 thumbnail: './lens-builders.png'
 image: './lens-builders.png'
-cannonical: ''
 ---
 
 Welcome to the Build3rs Stack, Fleek’s **web3 infrastructure overview series**. This week we will take a look at [Lens Protocol](https://lens.xyz) - A decentralized social media protocol! We will talk in depth about its main features, resources, and all the necessary information you need to get started.
