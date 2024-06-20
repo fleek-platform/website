@@ -120,7 +120,7 @@ export const NavBarDefault: MenuSettingsItem[] = [
     label: 'DOCS',
     url: '/docs',
   },
-   {
+  {
     label: 'BLOG',
     url: '/blog',
   },
