@@ -1,20 +1,11 @@
 import Container from '@components/Container';
 import PageSection from '@components/PageSection';
 import GridLayout from '@components/GridLayout';
-import ButtonGray from './ButtonGray';
 import ButtonYellow from './ButtonYellow';
-import React, { useState } from 'react';
-import type { WritableAtom } from 'nanostores';
-import { useStore } from '@nanostores/react';
-import { isOpen } from '@base/store';
+import { useState } from 'react';
+import { CtaNewsletterModal }from '@components/Modal';
 
-type Prop = {
-  isOpen: WritableAtom<boolean>;
-};
-
-const GlobeWithFloatingCards: React.FC<Prop> = (props) => {
-  const $isCartOpen = useStore(isOpen);
-
+const GlobeWithFloatingCards = () => {
   const [showPlayer, setShowPlayer] = useState(false);
   const [hoverEffect, setHoverEffect] = useState(false);
 
@@ -53,11 +44,8 @@ const GlobeWithFloatingCards: React.FC<Prop> = (props) => {
                 </div>
                 <div
                   className="typo-btn-l"
-                  onClick={() => isOpen.set(!$isCartOpen)}
                 >
-                  <ButtonGray className="flex items-center justify-center gap-12 px-10 ">
-                    <div>Stay Updated</div>
-                  </ButtonGray>
+                  <CtaNewsletterModal />
                 </div>
               </div>
             </div>

@@ -1,39 +1,36 @@
-import ButtonYellow from './ButtonYellow';
 import { IoMdCloseCircle } from 'react-icons/io';
 import { MdEmail } from 'react-icons/md';
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { PiWarningCircleFill } from 'react-icons/pi';
-import { useStore } from '@nanostores/react';
 import { GoCheckCircleFill } from 'react-icons/go';
-import type { WritableAtom } from 'nanostores';
-import { isOpen } from '@base/store';
+import ButtonGray from './ButtonGray';
 
-type Prop = {
-  isOpen: WritableAtom<boolean>;
-};
+import type { Dispatch, SetStateAction } from 'react';
 
-const Modal: React.FC<Prop> = (props) => {
-  const [show, setShow] = useState(false);
-  const $isCartOpen = useStore(isOpen);
+const Modal = ({
+  isOpen,
+  setIsOpen,
+}: {
+    isOpen: boolean;
+    setIsOpen: Dispatch<SetStateAction<boolean>>;
+}) => {
   const [userInput, setUserInput] = useState('');
   const [thankyou, setThankyou] = useState(false);
   const regex = /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/;
-
-  useEffect(() => {
-    setShow(!show);
-  }, [props.isOpen]);
 
   const onSubmit = async (e: React.SyntheticEvent<HTMLFormElement>) => {
     e.preventDefault();
 
     try {
       const data = new FormData(e.currentTarget);
-      console.log(userInput);
-      const response = await fetch('https://fleek.activehosted.com/proc.php', {
+
+      await fetch('https://fleek.activehosted.com/proc.php', {
         method: 'POST',
         body: data,
         mode: 'no-cors',
-      }).then(() => setThankyou(true));
+      });
+
+      setThankyou(true)
     } catch (error) {
       console.log('Request failed', error);
     }
@@ -42,7 +39,7 @@ const Modal: React.FC<Prop> = (props) => {
   return (
     <div
       id="modal"
-      className={`fixed ${$isCartOpen ? ' scale-100 duration-300 ease-in-out' : 'scale-0 duration-300 ease-in-out '} z-50 h-[800vh] w-full bg-[#0000004a] backdrop-blur`}
+      className={`fixed top-0 left-0 ${isOpen ? ' scale-100 duration-300 ease-in-out' : 'scale-0 duration-300 ease-in-out '} z-50 h-[800vh] w-full bg-[#0000004a] backdrop-blur`}
     >
       <div className="typo-l ml-[5%] mt-[55%] w-[90%] rounded-48 border border-yellow bg-gray-dark-1 p-24 text-gray-dark-12  lg:typo-h5 lg:ml-[32%] lg:mt-[22%] lg:w-[40%] lg:p-40 lg:px-64">
         {!thankyou ? (
@@ -72,7 +69,7 @@ const Modal: React.FC<Prop> = (props) => {
                     <div
                       id="closer"
                       className="hover:cursor-pointer"
-                      onClick={() => isOpen.set(!$isCartOpen)}
+                      onClick={() => setIsOpen(!isOpen)}
                     >
                       <IoMdCloseCircle className=" rounded-full bg-black text-gray-dark-11" />
                     </div>
@@ -127,7 +124,7 @@ const Modal: React.FC<Prop> = (props) => {
             <GoCheckCircleFill className="text-yellow" />
             You are Subscribed
             <div
-              onClick={() => isOpen.set(!$isCartOpen)}
+              onClick={() => setIsOpen(!isOpen)}
               className="typo-btn-l-mid w-full cursor-pointer rounded-16 bg-yellow-dark-4 px-32 py-16 text-yellow hover:bg-yellow-dark-5"
             >
               Close
@@ -139,4 +136,22 @@ const Modal: React.FC<Prop> = (props) => {
   );
 };
 
-export default Modal;
+export const CtaNewsletterModal = () => {
+  const [isOpen, setIsOpen] = useState(false);
+  const isOpenHandler = () => setIsOpen(!isOpen);
+  
+  return (
+    <>
+      <ButtonGray
+        className="flex items-center justify-center gap-12 px-10"
+        onClick={isOpenHandler}
+      >
+        <div>Stay Updated</div>
+      </ButtonGray>
+      <Modal
+        setIsOpen={setIsOpen}
+        isOpen={isOpen}
+      />
+    </>
+  );
+}
