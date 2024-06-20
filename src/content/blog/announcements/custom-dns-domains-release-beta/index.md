@@ -49,6 +49,6 @@ As part of this new version of the CLI we also include numerous improvements lik
 
 We’re excited to start seeing production-ready sites, hosted in IPFS, linked to a DNS domain… All through the Fleek CLI! Each milestone takes us a step further in feature parity with the legacy platform.
 
-Found a bug, got an idea or request? Pay our [Discord](https://discord.gg/fleek) a visit and let us know.
+Found a bug, got an idea or request? Visit our [Discord](https://discord.gg/fleek) and let us know.
 
 For more resources visit [our LinkTree](https://linktr.ee/fleek)!
