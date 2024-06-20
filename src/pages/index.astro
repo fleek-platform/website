@@ -16,8 +16,6 @@ import { isOpen } from '@base/store';
 import settings from '@base/settings.json';
 ---
 
-<Modal isOpen={isOpen} client:only />
-
 <Layout
   title={settings.site.metadata.default.title}
   description={settings.site.metadata.default.description}
@@ -36,4 +34,5 @@ import settings from '@base/settings.json';
     <PricingLanding client:load rounded="all-big" />
     <ReadyToLive client:load rounded="all-big" />
   </div>
+  <Modal isOpen={isOpen} client:only />
 </Layout>
