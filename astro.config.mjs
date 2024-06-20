@@ -36,7 +36,9 @@ const configRemarkCalloutDirectives = {
 // Environment
 const env = import.meta.env.PROD
   ? 'production'
-  : 'staging';
+  : import.meta.env.DEV
+    ? 'development'
+    : 'staging';
 
 // https://astro.build/config
 export default defineConfig({

@@ -4,7 +4,6 @@ date: 2023-04-21
 desc: 'The builders guide to decentralized domains, including ENS, HNS, and Unstoppable Domains!'
 thumbnail: './web3-domains.png'
 image: './web3-domains.png'
-cannonical: ''
 ---
 
 Welcome to the Build3rs Stack, Fleek’s **web3 infrastructure overview series**. This week we will take a look at ENS, Unstoppable Domains and HandShake - decentralized domain provider alternatives!
@@ -15,7 +14,7 @@ Let's dive in and explore how these protocols are aiming to reshape the traditio
 
 ## What is a ‘Domain’?
 
-In the context of traditional domains in web2, domains are human-readable addresses that are used to locate websites on the internet, like [Fleek.xyz](https://fleek.xyz)! They are a crucial part of the traditional Domain Name System (DNS), which maps these easy-to-remember names to the IP addresses that computers use to identify each other on the network.
+In the context of traditional domains in web2, domains are human-readable addresses that are used to locate websites on the internet, like [Fleek.xyz](https://fleek.xyz/)! They are a crucial part of the traditional Domain Name System (DNS), which maps these easy-to-remember names to the IP addresses that computers use to identify each other on the network.
 
 ### Centralized vs. Decentralized Domains
 
@@ -113,6 +112,6 @@ To enable users to associate their decentralized websites with IPFS hashes, Unst
 
 We hope that this guide has given you the necessary information and tools to start building with decentralized domains! Make sure to follow [ENS](https://twitter.com/ensdomains), [Unstoppable Domains](https://twitter.com/unstoppableweb) and [Handshake](https://twitter.com/HNS) for further updates and developments.
 
-Additionally, we encourage you to check out the previous guides from our [Build3rs Stack](https://blog.fleek.xyz/category/guides/) series and keep an eye out for upcoming ones so that you can stay informed about the latest updates about web3 infrastructure. You can also join our [Discord](https://discord.gg/fleek) community to connect with us quickly.
+Additionally, we encourage you to check out the previous guides from our [Build3rs Stack](/guides/) series and keep an eye out for upcoming ones so that you can stay informed about the latest updates about web3 infrastructure. You can also join our [Discord](https://discord.gg/fleek) community to connect with us quickly.
 
 If you need more resources, please visit our [LinkTree](https://linktr.ee/fleek)!

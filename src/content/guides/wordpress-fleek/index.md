@@ -4,7 +4,6 @@ date: 2023-02-12
 desc: 'In this tutorial, we will show you how simple it is to export a Wordpress site, host it on IPFS and share it with the world.'
 thumbnail: './wordfinal1.jpg'
 image: './wordfinal1.jpg'
-cannonical:
 ---
 
 Fleek allows websites to easily find a home on IPFS where they can rest readily accessible, permanent, and uncensorable. In this tutorial, we will show you how simple it is to export a Wordpress site, host it on IPFS and share it with the world. First, we will show how to export the site using a plugin and then we will upload the exported site to WordPress.
@@ -47,8 +46,8 @@ And that is all! Once the site is done deploying, which should take around a min
 
 Congratulations! Your content is now deployed and a part of IPFS! Your cool site can be shared with the world either with the Fleek-provided URL, or by adding one of your domains to Fleek, or through IPFS by clicking on “Verify on IPFS”. You can now be confident that your site is safe and untouchable on IPFS!
 
-- [Sign up](https://app.fleek.xyz/) to try yourself
+- [Sign up](https://app.fleek.xyz) to try yourself
 - Join our [Community Chat](https://discord.com/invite/fleek)
 - Follow us on [Twitter](https://twitter.com/fleek)
-- Check out our [Tech Docs](https://docs.fleek.xyz/)
+- Check out our [Tech Docs](/docs/)
 - Contact us at support@fleek.xyz

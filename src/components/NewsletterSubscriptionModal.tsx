@@ -1,55 +1,72 @@
-import ButtonYellow from './ButtonYellow';
 import { IoMdCloseCircle } from 'react-icons/io';
 import { MdEmail } from 'react-icons/md';
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { PiWarningCircleFill } from 'react-icons/pi';
-import { useStore } from '@nanostores/react';
 import { GoCheckCircleFill } from 'react-icons/go';
-import type { WritableAtom } from 'nanostores';
-import { isOpen } from '@base/store';
+import ButtonGray from './ButtonGray';
+import settings from '@base/settings.json';
+import Loading from '@components/Loading';
 
-type Prop = {
-  isOpen: WritableAtom<boolean>;
-};
+import type { Dispatch, SetStateAction, MouseEvent } from 'react';
 
-const Modal: React.FC<Prop> = (props) => {
-  const [show, setShow] = useState(false);
-  const $isCartOpen = useStore(isOpen);
+const { activeHostedFormApi } = settings.newsletterSubscription;
+
+const Modal = ({
+  isOpen,
+  setIsOpen,
+}: {
+  isOpen: boolean;
+  setIsOpen: Dispatch<SetStateAction<boolean>>;
+}) => {
   const [userInput, setUserInput] = useState('');
+  const [loading, setLoading] = useState(false);
   const [thankyou, setThankyou] = useState(false);
   const regex = /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/;
 
-  useEffect(() => {
-    setShow(!show);
-  }, [props.isOpen]);
-
   const onSubmit = async (e: React.SyntheticEvent<HTMLFormElement>) => {
     e.preventDefault();
+    setLoading(true);
 
     try {
       const data = new FormData(e.currentTarget);
-      console.log(userInput);
-      const response = await fetch('https://fleek.activehosted.com/proc.php', {
+
+      await fetch(activeHostedFormApi, {
         method: 'POST',
         body: data,
         mode: 'no-cors',
-      }).then(() => setThankyou(true));
+      });
+
+      setLoading(false);
+      setThankyou(true);
     } catch (error) {
       console.log('Request failed', error);
+    }
+
+    setLoading(false);
+  };
+
+  const onClickOutside = (e: MouseEvent<HTMLDivElement>) => {
+    if (e.target === e.currentTarget) {
+      setIsOpen(false);
     }
   };
 
   return (
     <div
       id="modal"
-      className={`fixed ${$isCartOpen ? ' scale-100 duration-300 ease-in-out' : 'scale-0 duration-300 ease-in-out '} z-50 h-[800vh] w-full bg-[#0000004a] backdrop-blur`}
+      className={`fixed left-0 top-0 ${isOpen ? ' scale-100 duration-300 ease-in-out' : 'scale-0 duration-300 ease-in-out '} z-50 h-[800vh] w-full bg-[#0000004a] backdrop-blur`}
+      onClick={onClickOutside}
     >
-      <div className="typo-l ml-[5%] mt-[55%] w-[90%] rounded-48 border border-yellow bg-gray-dark-1 p-24 text-gray-dark-12  lg:typo-h5 lg:ml-[32%] lg:mt-[22%] lg:w-[40%] lg:p-40 lg:px-64">
+      <div
+        id="modal-child"
+        className="typo-l ml-[5%] mt-[55%] w-[90%] rounded-48 border border-yellow bg-gray-dark-1 p-24 text-gray-dark-12  lg:typo-h5 lg:ml-[32%] lg:mt-[22%] lg:w-[40%] lg:p-40 lg:px-64"
+        onClick={(e) => e.stopPropagation()}
+      >
         {!thankyou ? (
           <div className="">
             <form
               method="POST"
-              action="https://fleek.activehosted.com/proc.php"
+              action={activeHostedFormApi}
               id="_form_37_"
               onSubmit={onSubmit}
             >
@@ -72,7 +89,7 @@ const Modal: React.FC<Prop> = (props) => {
                     <div
                       id="closer"
                       className="hover:cursor-pointer"
-                      onClick={() => isOpen.set(!$isCartOpen)}
+                      onClick={() => setIsOpen(!isOpen)}
                     >
                       <IoMdCloseCircle className=" rounded-full bg-black text-gray-dark-11" />
                     </div>
@@ -105,17 +122,25 @@ const Modal: React.FC<Prop> = (props) => {
                   )}
                 </div>
                 <div className="_button-wrapper _full_width">
-                  {regex.test(userInput) ? (
-                    <button
-                      id="_form_37_submit"
-                      className="_submit typo-btn-l-mid w-full rounded-16 bg-yellow-dark-4 px-32 py-16 text-yellow hover:bg-yellow-dark-5"
-                      type="submit"
-                    >
-                      Subscribe to Updates
-                    </button>
+                  {!loading ? (
+                    <>
+                      {regex.test(userInput) ? (
+                        <button
+                          id="_form_37_submit"
+                          className="_submit typo-btn-l-mid w-full rounded-16 bg-yellow-dark-4 px-32 py-16 text-yellow hover:bg-yellow-dark-5"
+                          type="submit"
+                        >
+                          Subscribe to Updates
+                        </button>
+                      ) : (
+                        <div className="_submit typo-btn-l-mid w-full cursor-not-allowed rounded-16 bg-yellow-dark-4 px-32 py-16 text-center text-yellow opacity-50">
+                          Subscribe to Updates
+                        </div>
+                      )}
+                    </>
                   ) : (
-                    <div className="_submit typo-btn-l-mid w-full cursor-not-allowed rounded-16 bg-yellow-dark-4 px-32 py-16 text-center text-yellow opacity-50">
-                      Subscribe to Updates
+                    <div className="flex items-center justify-center">
+                      <Loading size={20} />
                     </div>
                   )}
                 </div>
@@ -127,7 +152,7 @@ const Modal: React.FC<Prop> = (props) => {
             <GoCheckCircleFill className="text-yellow" />
             You are Subscribed
             <div
-              onClick={() => isOpen.set(!$isCartOpen)}
+              onClick={() => setIsOpen(!isOpen)}
               className="typo-btn-l-mid w-full cursor-pointer rounded-16 bg-yellow-dark-4 px-32 py-16 text-yellow hover:bg-yellow-dark-5"
             >
               Close
@@ -139,4 +164,19 @@ const Modal: React.FC<Prop> = (props) => {
   );
 };
 
-export default Modal;
+export const CtaNewsletterModal = () => {
+  const [isOpen, setIsOpen] = useState(false);
+  const isOpenHandler = () => setIsOpen(!isOpen);
+
+  return (
+    <>
+      <ButtonGray
+        className="flex items-center justify-center gap-12 px-10"
+        onClick={isOpenHandler}
+      >
+        <div>Stay Updated</div>
+      </ButtonGray>
+      <Modal setIsOpen={setIsOpen} isOpen={isOpen} />
+    </>
+  );
+};

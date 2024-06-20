@@ -4,7 +4,6 @@ date: 2023-03-02
 desc: 'In this guide, we go over the basic aspects of NFT metadata, the standards to follow, and some of the available options you have as a developer to store them on decentralized web3 protocols'
 thumbnail: './nft-metadata-ipfs.png'
 image: './nft-metadata-ipfs.png'
-cannonical: ''
 ---
 
 NFTs are a popular way to own and trade unique digital assets, and many new applications are also arising for NFTs. However, ensuring the authenticity, ownership, and the characteristics themselves of these assets **requires storing metadata, such as the asset’s creator, transaction history, name, description, and more**. All of which are usually specified in… JSON format!

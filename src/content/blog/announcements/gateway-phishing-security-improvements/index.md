@@ -2,11 +2,11 @@
 title: 'Improving Gateway Protection Against Phishing Effects'
 date: 2023-04-24
 desc: "Explore the steps we're taking towards ensuring our gateways to sites and content hosted on Fleek are protected towards phishing effects!"
-thumbnail: './gateway-improvements-thumbnail.jpg'
-image: './gateway-improvements-thumbnail.jpg'
+thumbnail: './gatewayimprovements.png'
+image: './gatewayimprovements.png'
 ---
 
-As we prepare to [migrate](https://blog.fleek.xyz/post/road-to-sunsetting-from-xyz-to-co/) from [Fleek.co](https://fleek.co/) to [Fleek.xyz](https://fleek.xyz/), we are doing heavy work on Fleek.xyz to further **strengthen aspects of our infrastructure and services** in order to protect our users and their projects.
+As we prepare to [migrate](/blog/announcements/road-to-sunsetting-from-xyz-to-co/) from [Fleek.co](https://fleek.co/) to [Fleek.xyz](https://fleek.xyz/), we are doing heavy work on Fleek.xyz to further **strengthen aspects of our infrastructure and services** in order to protect our users and their projects.
 
 One of those aspects… **Improving protection towards phishing effects for our gateways to sites and content hosted through Fleek**, limiting the harm of any attempts to host malicious content. Let’s dive into this change.
 

@@ -4,7 +4,6 @@ date: 2023-06-14
 desc: "Learn how to effortlessly deploy your web3 projects to IPFS using Fleek's ready-to-use templates and boilerplates. Follow our step-by-step guide."
 thumbnail: './fleek-templates-thumbnail.jpg'
 image: './fleek-templates-thumbnail.jpg'
-cannonical: ''
 author: 'Fleek'
 ---
 

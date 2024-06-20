@@ -41,7 +41,7 @@ When accessing your website from a public gateway, you might encounter a couple 
 
 This is because they're probably loaded from an incorrect URL, like `ipfs.io/my-image.jpg` instead of `ipfs.io/ipfs/$hash/my-image.jpg`. Therefore, this error should only occur on IPFS gateways. If you're using a domain for accessing your site, this shouldn't happen.
 
-However, using public gateways might be handy for previewing your site on a Pull request (you can check Fleek's CLI approach for publishing your site from a [GithubAction here](https://fleek.xyz/docs/cli/)). You have to make sure your assets are loaded using relative paths.
+However, using public gateways might be handy for previewing your site on a Pull request (you can check Fleek's CLI approach for publishing your site from a [GithubAction here](/docs/cli/)). You have to make sure your assets are loaded using relative paths.
 
 If your app has hard-coded absolute paths (a common practice in an `index.html` file), converting these to relative paths should allow the browser to resolve the path correctly:
 
@@ -74,7 +74,7 @@ There are three common operations you can do with IPNS, especially useful if you
   - This will map your IPNS record to an IPFS CID so that gateways can resolve it and direct users to the content
   - You can publish an IPNS record by running: `fleek ipns publish <ipnsName> <ipfsCID>`
 
-You can also check our [Fleek IPNS section](https://docs.fleek.xyz/docs/CLI/ipns/) and [Fleek CLI](https://fleek.xyz/docs/cli/) docs for further reading.
+You can also check our [Fleek IPNS section](/docs/sdk/ipns/) and [Fleek CLI](/docs/cli/) docs for further reading.
 
 ## Securing API Keys on Static Frontends
 
