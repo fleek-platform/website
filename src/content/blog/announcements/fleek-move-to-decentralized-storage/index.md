@@ -8,7 +8,7 @@ author:
   - 'Fleek'
 ---
 
-The other week we gave [an update on Fleek.xyz’s roadmap/launch timeline](https://blog.fleek.xyz/post/fleek-platform-update/) and shared some alpha on a cool change coming to the new platform: **moving from a centralized IPFS setup (Digital Ocean + Cloudflare) to a decentralized IPFS setup (Filecoin/Arweave + Fleek Network).**
+The other week we gave [an update on Fleek.xyz’s roadmap/launch timeline](/blog/announcements/fleek-platform-update/) and shared some alpha on a cool change coming to the new platform: **moving from a centralized IPFS setup (Digital Ocean + Cloudflare) to a decentralized IPFS setup (Filecoin/Arweave + Fleek Network).**
 
 The move will happen in phases, and during all phases, the Fleek experience will remain the same across all products/services. Plus, as with all migrations to decentralized infra, we will keep the legacy centralized infra running in tandem until we are 100% confident in the performance and reliability of the decentralized infra. With that said, the benefits of this move include:
 
