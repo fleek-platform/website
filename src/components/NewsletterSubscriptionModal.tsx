@@ -5,6 +5,7 @@ import { PiWarningCircleFill } from 'react-icons/pi';
 import { GoCheckCircleFill } from 'react-icons/go';
 import ButtonGray from './ButtonGray';
 import settings from '@base/settings.json';
+import Loading from '@components/Loading';
 
 import type { Dispatch, SetStateAction, MouseEvent } from 'react';
 
@@ -18,11 +19,13 @@ const Modal = ({
     setIsOpen: Dispatch<SetStateAction<boolean>>;
 }) => {
   const [userInput, setUserInput] = useState('');
+  const [loading, setLoading] = useState(false);
   const [thankyou, setThankyou] = useState(false);
   const regex = /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/;
 
   const onSubmit = async (e: React.SyntheticEvent<HTMLFormElement>) => {
     e.preventDefault();
+    setLoading(true);
 
     try {
       const data = new FormData(e.currentTarget);
@@ -33,10 +36,13 @@ const Modal = ({
         mode: 'no-cors',
       });
 
+      setLoading(false);
       setThankyou(true)
     } catch (error) {
       console.log('Request failed', error);
     }
+
+    setLoading(false);
   };
 
   const onClickOutside = (e: MouseEvent<HTMLDivElement>) => {
@@ -116,19 +122,29 @@ const Modal = ({
                   )}
                 </div>
                 <div className="_button-wrapper _full_width">
-                  {regex.test(userInput) ? (
-                    <button
-                      id="_form_37_submit"
-                      className="_submit typo-btn-l-mid w-full rounded-16 bg-yellow-dark-4 px-32 py-16 text-yellow hover:bg-yellow-dark-5"
-                      type="submit"
-                    >
-                      Subscribe to Updates
-                    </button>
-                  ) : (
-                    <div className="_submit typo-btn-l-mid w-full cursor-not-allowed rounded-16 bg-yellow-dark-4 px-32 py-16 text-center text-yellow opacity-50">
-                      Subscribe to Updates
+                  {
+                    !loading
+                    ? (
+                      <>
+                        {regex.test(userInput) ? (
+                          <button
+                            id="_form_37_submit"
+                            className="_submit typo-btn-l-mid w-full rounded-16 bg-yellow-dark-4 px-32 py-16 text-yellow hover:bg-yellow-dark-5"
+                            type="submit"
+                          >
+                            Subscribe to Updates
+                          </button>
+                        ) : (
+                          <div className="_submit typo-btn-l-mid w-full cursor-not-allowed rounded-16 bg-yellow-dark-4 px-32 py-16 text-center text-yellow opacity-50">
+                            Subscribe to Updates
+                          </div>
+                        )}
+                      </>
+                    )
+                    : <div className='flex justify-center items-center'>
+                      <Loading size={20} />
                     </div>
-                  )}
+                  }
                 </div>
               </div>
             </form>
