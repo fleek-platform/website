@@ -21,6 +21,8 @@ jobs:
     steps:
       - name: Checkout your repository using git
         uses: actions/checkout@v4
+        with:
+          ref: HEAD
       - name: Setup node
         uses: actions/setup-node@v4
         with:
