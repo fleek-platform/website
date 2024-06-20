@@ -35,6 +35,7 @@ This repository contains the source code and assets for the Fleek.xyz website, w
         - [Troubleshooting open graph](#troubleshooting-open-graph)
 - [Development](#-development)
     - [Search server](#-search-server)
+      - [Multi-index search](#multi-index-search)
     - [Delete Indexes](#💣-delete-indexes)
     - [Images (optimization)](#-images-optimization)
 - [Migration](#-migration)
@@ -700,6 +701,35 @@ curl \
   -H 'Content-Type: application/json' \
   -H 'Authorization: Bearer <API_KEY>' \
   --data-binary '{ "q": "<SEARCH_QUERY>" }'
+```
+
+### Multi index search
+
+Here's an example of how to perform multiple search queries on one or more indexes:
+
+```sh
+curl \
+  -X POST 'http://localhost:7700/multi-search' \
+  -H 'Content-Type: application/json' \
+  --data-binary '{
+    "queries": [
+      {
+        "indexUid": "fleekxyz_website_docs",
+        "q": "something",
+        "limit": 5
+      },
+      {
+        "indexUid": "fleekxyz_website_guides",
+        "q": "something",
+        "limit": 5
+      },
+      {
+        "indexUid": "fleekxyz_website_references",
+        "q": "something",
+        "limit": 5
+      }
+    ]
+  }'
 ```
 
 ### 💣 Delete Indexes
