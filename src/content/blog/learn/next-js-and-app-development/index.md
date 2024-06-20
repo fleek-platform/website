@@ -20,7 +20,7 @@ Next.js is a React-based framework ideal for building server-side rendered and s
 
 It extends React's capabilities for simplified routing and state management, while its integration with Node.js enables server-side rendering and efficient handling of asynchronous blockchain interactions.
 
-> 💡Read this [step-by-step guide](/guides/fleek-js/) to deploy a Next.js app to Fleek.xyz
+> 💡Read this [step-by-step guide](/guides/fleek-nextjs-guide/) to deploy a Next.js app to Fleek.xyz
 
 ## **Why is Next.js the Go-To Framework for Developers?**
 
