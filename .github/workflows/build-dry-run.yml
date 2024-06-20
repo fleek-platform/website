@@ -19,14 +19,19 @@ jobs:
       PUBLIC_MEILISEARCH_DOCUMENTS_CLIENT_API_KEY: dry.run
       PUBLIC_MEILISEARCH_HOST: dry.run
     steps:
-      - name: Checkout your repository using git
+      - name: Checkout
         uses: actions/checkout@v4
+        with:
+          ref: ${{ github.head_ref }}
+          
       - name: Setup node
         uses: actions/setup-node@v4
         with:
           node-version: 18
           cache: 'npm'
+          
       - name: Install
         run: npm ci
+
       - name: Build site
         run: npm run build
