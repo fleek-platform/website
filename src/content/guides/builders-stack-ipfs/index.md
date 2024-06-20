@@ -4,7 +4,6 @@ date: 2023-03-04
 desc: "The builder's guide to IPFS: how to use it in your project's Web3 infra-stack, and what you can achieve with it."
 thumbnail: './ipfs-net.png'
 image: './ipfs-net.png'
-cannonical: ''
 ---
 
 Welcome to the Build3rs Stack, our web3 infrastructure overview series! **This week we will cover [IPFS](https://ipfs.io/)**, the **I**nter**p**lanetary **F**ile **S**ystem Protocol! We’ll talk about how you can use this storage/content-addressing protocol to build on web3, and the features and options it can enable for you as a developer.
@@ -65,7 +64,7 @@ IPFS has a lot of example projects very helpful to understand more the applied f
 
 IPFS is a great resource for hosting static website files. Users can download sites locally and access them forever, or use a gateway, such as https://ipfs.io/ipfs/ to access the site from IPFS in their browser. Alternatively, some browsers such as Brave are starting to adopt IPFS locally, allowing you to access websites using the IPFS protocol natively (ipfs://website-CID-here) rather than traditional HTTPS (https://website-link-here.com).
 
-Going one step further, services such as Fleek & Spheron have sprouted to enable managed experiences for hosting IPFS websites accessible through traditional domains. [Check our documentation to try it out!](https://docs.fleek.xyz/)
+Going one step further, services such as Fleek & Spheron have sprouted to enable managed experiences for hosting IPFS websites accessible through traditional domains. [Check our documentation to try it out!](/docs/)
 
 ---
 
@@ -123,7 +122,7 @@ Here we’ll give you a list of the most helpful resources to get started with I
 - [IPFS Desktop Tutorial](https://docs.ipfs.tech/how-to/desktop-app/#install-ipfs-desktop) - with this guide you can learn the basics of adding files to IPFS.
 - [Javascript SDK](https://github.com/ipfs/js-ipfs) - SDK to implement IPFS with Javascript.
 - [Awesome IPFS](https://github.com/ipfs/awesome-ipfs) - full list of helpful resources on IPFS.
-- [Fleek Documentation](https://docs.fleek.xyz/) - Visit our docs to learn more about our CLI, its IPFS features, and more!
+- [Fleek Documentation](/docs/) - Visit our docs to learn more about our CLI, its IPFS features, and more!
 
 It’s important to note that given the lack of incentive at the IPFS protocol level, most people rely on pinning providers like Fleek to ensure files are stored multiple times on multiple nodes on the network. [Fleek Network](https://fleek.network/) will help address this by decentralizing IPFS and making it storage-layer agnostic. Learn more in [this article.](https://blog.fleek.network/post/how-fleek-network-helps-decentralize-ipfs/)
 

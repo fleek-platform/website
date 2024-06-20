@@ -2,8 +2,8 @@
 title: 'Improved CLI Error Handling Update'
 date: 2023-04-25
 desc: 'The Fleek.xyz beta receives an update focused on sturdyness and security. Dive in!'
-thumbnail: './cli-error-handling.png'
-image: './cli-error-handling.png'
+thumbnail: './errorhandling.png'
+image: './errorhandling.png'
 ---
 
 Let’s walk you through the latest enhancements we’ve made, **specifically in our error management, leveraging events to manage domain states, and our new private IPFS gateway**.
@@ -47,7 +47,7 @@ We’re leveraging our event-driven architecture to enhance how we update domain
 
 ![](./error-handling-updated.jpeg)
 
-**These events are handled asynchronously** for a more efficient and reliable process. For more information on events, check out the Fleek Leak blog post about our [event-driven architecture](https://blog.fleek.xyz/post/fleek-leak-04-event-architecture/)!
+**These events are handled asynchronously** for a more efficient and reliable process. For more information on events, check out the Fleek Leak blog post about our [event-driven architecture](/blog/announcements/fleek-leak-04-event-architecture/)!
 
 ---
 
@@ -59,7 +59,7 @@ _The reason?_
 
 Before, our IPFS gateways to preview raw IPFS sites and storage were publicly accessible to any (browsers, users, and crawlers alike) which meant any content, malicious or not, could be exposed. This affected Fleek's gateway's domain reputation and exposing users to potential phishing content.
 
-Now, **gateways are hidden from the general public and will only serve the purpose of allowing users to map a custom domain on top of them to access their site's raw IPFS preview from a personalized private gateway endpoint**. This separates the scope and responsibility for the content to each user and ensures proper usage. For specifics on the changes we're making to improve security against phishing effects, check out our most recent [blog](https://blog.fleek.xyz/post/gateway-phishing-security-improvements/)!
+Now, **gateways are hidden from the general public and will only serve the purpose of allowing users to map a custom domain on top of them to access their site's raw IPFS preview from a personalized private gateway endpoint**. This separates the scope and responsibility for the content to each user and ensures proper usage. For specifics on the changes we're making to improve security against phishing effects, check out our most recent [blog](/blog/announcements/gateway-phishing-security-improvements/)!
 
 ---
 

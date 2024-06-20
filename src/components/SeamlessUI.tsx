@@ -79,7 +79,7 @@ const SeamlessUI: React.FC<Props & OptionalProps> = ({ rounded }) => {
       <PageSection rounded={rounded}>
         <div
           className={
-            'relative flex flex-col gap-44 overflow-hidden p-10 pb-64 pt-64 lg:flex-row-reverse lg:px-42 lg:py-80'
+            'relative flex flex-col gap-44 overflow-hidden p-10 pb-64 lg:flex-row-reverse lg:px-42 lg:py-80'
           }
         >
           <div
@@ -92,14 +92,9 @@ const SeamlessUI: React.FC<Props & OptionalProps> = ({ rounded }) => {
               className="z-0 right-[10%] top-[80%] mr-12 hidden flex-shrink-0 translate-y-1/4 scale-[1.35] transform-gpu lg:absolute lg:right-[1%] lg:mr-0 lg:block lg:-translate-x-3/4 lg:-translate-y-[95%] lg:scale-[2.30] xl:right-[10%] xl:scale-[3.30]"
               width={200}
             />
-            <img
-              src="/images/fleek-app-mobile.png"
-              className="translate-y-[30%] scale-150 lg:hidden"
-              width={200}
-            />
           </div>
-          <div className="relative col-span-16 flex basis-7/12 flex-col items-center justify-center lg:col-span-8 lg:items-start">
-            <h1 className="typo-h5 mb-24 text-center text-gray-dark-12 lg:typo-h4 lg:text-start">
+          <div className="relative col-span-16 flex basis-7/12 flex-col items-center justify-center  lg:col-span-8 lg:items-start">
+            <h1 className="typo-h5 mb-24  text-start text-gray-dark-12 lg:typo-h4 ">
               All Your Tools,
               <br />
               One Workflow,
@@ -107,7 +102,7 @@ const SeamlessUI: React.FC<Props & OptionalProps> = ({ rounded }) => {
               Zero Devops
             </h1>
 
-            <p className="typo-m text-center lg:typo-l lg:w-3/4 lg:text-start">
+            <p className="typo-m  mx-24 text-start lg:typo-l lg:mx-0 lg:w-3/4">
               Take your development to the next level with an easy-to-use
               interface. Focus on your code, we’ll take care of the rest.
             </p>
@@ -123,6 +118,17 @@ const SeamlessUI: React.FC<Props & OptionalProps> = ({ rounded }) => {
                 );
               })}
             </div>
+          </div>
+          <div
+            className={clsx(
+              'over relative mb-[21.1rem] flex basis-6/12   justify-center rounded-48 bg-blend-screen lg:hidden',
+            )}
+          >
+            <img
+              src="/images/fleek-app-mobile.png"
+              className="z-0 absolute translate-y-[0%] scale-95 transform-gpu  lg:hidden "
+              height={580}
+            />
           </div>
         </div>
       </PageSection>

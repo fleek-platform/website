@@ -33,7 +33,7 @@ const LoopingCardSlider: React.FC<Props> = (props) => {
       <PageSection className="overflow-hidden rounded-48">
         <div className="py-64 lg:py-48">
           <GridLayout>
-            <div className="col-span-12 col-start-3 text-center lg:hidden">
+            <div className="col-span-12 col-start-3 text-left lg:hidden">
               <TextGlowHoverEffect style="h5" align="center">
                 <h3 className="typo-h5 text-ui-white">{props.headline}</h3>
               </TextGlowHoverEffect>

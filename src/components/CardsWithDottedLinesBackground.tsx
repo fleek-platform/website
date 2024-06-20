@@ -6,6 +6,7 @@ import TextGlowHoverEffect from './TextGlowHoverEffect';
 import Link, { Target } from '@components/Link';
 import type { RoundedType } from '@components/PageSection';
 import ButtonGray from './ButtonGray';
+import Text from './Text';
 
 interface Card {
   title: string;
@@ -59,7 +60,7 @@ const CardsWithDottedLinesBackground: React.FC<Props> = (props) => (
               alt="bg-squiggle"
               className="absolute left-0 top-0 -z-1 m-auto h-full w-full lg:hidden"
             />
-            <div className="flex flex-col gap-8 lg:m-auto lg:w-fit lg:items-center">
+            <div className="flex w-full flex-col gap-8 lg:m-auto lg:w-fit lg:items-center">
               {props.cardSections.map((section) => (
                 <div
                   key={section.title}
@@ -83,9 +84,11 @@ const CardsWithDottedLinesBackground: React.FC<Props> = (props) => (
                 </div>
               ))}
               {props.cta && (
-                <div className="mt-12 self-center">
+                <div className="mt-12 w-full self-center lg:w-fit">
                   <Link href={props.cta.url} target={Target.Blank}>
-                    <ButtonGray>{props.cta.text}</ButtonGray>
+                    <ButtonGray>
+                      <Text>{props.cta.text}</Text>
+                    </ButtonGray>
                   </Link>
                 </div>
               )}

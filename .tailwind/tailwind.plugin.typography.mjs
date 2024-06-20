@@ -50,6 +50,10 @@ export default plugin(({ addComponents }) => {
       "@apply font-plex-sans text-13 font-medium uppercase leading-[150%] tracking-[0.256rem]":
         {},
     },
+    ".typo-caption-s-normal": {
+      "@apply font-plex-sans text-15 leading-[150%] tracking-[0.256rem]":
+        {},
+    },
     ".typo-caption-xs": {
       "@apply font-plex-sans text-10 font-normal uppercase leading-[150%] tracking-[0.02725rem]":
         {},

@@ -2,8 +2,8 @@
 title: 'Next.js: The Default Framework for App Development — What you need to know'
 date: 2024-05-10
 desc: 'Learn what Next.js is, understand why it’s ideal for development, and how it enhances both performance and user experience in applications.'
-thumbnail: './nextjsbasicsthumb.png'
-image: './nextjsbasicsthumb.png'
+thumbnail: './fleek-blog-nextjs-basics.png'
+image: './fleek-blog-nextjs-basics.png'
 author:
   - 'Fleek'
 ---
@@ -20,7 +20,7 @@ Next.js is a React-based framework ideal for building server-side rendered and s
 
 It extends React's capabilities for simplified routing and state management, while its integration with Node.js enables server-side rendering and efficient handling of asynchronous blockchain interactions.
 
-> 💡Read this [step-by-step guide](https://blog.fleek.xyz/post/fleek-nextjs-guide/) to deploy a Next.js app to Fleek.xyz
+> 💡Read this [step-by-step guide](/guides/fleek-nextjs-guide/) to deploy a Next.js app to Fleek.xyz
 
 ## **Why is Next.js the Go-To Framework for Developers?**
 

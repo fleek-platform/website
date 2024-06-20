@@ -36,8 +36,9 @@ const StatusBar: React.FC = () => {
       href="https://status.fleek.xyz/"
       target="_blank"
       rel="noopener noreferrer"
+      className="w-full"
     >
-      <div className="flex gap-2">
+      <div className="flex w-full gap-2">
         <div className="hidden rounded-bl-8 rounded-tl-8 border border-[rgba(255,255,255,0.04)] bg-[rgba(255,255,255,0.04)] px-12 py-8 md:block">
           <Text style="caption-text">Status</Text>
         </div>

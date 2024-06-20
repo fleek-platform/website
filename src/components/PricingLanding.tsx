@@ -27,15 +27,15 @@ const PricingLanding: React.FC<Formatting> = ({ rounded }) => {
               <img
                 src={'/svg/bolt-white.svg'}
                 alt="fleek bolt icon"
-                className="h-32 w-16"
+                className="hidden h-32 w-16 lg:block"
               />
-              <div className="typo-caption-xs lg:typo-caption-l">
+              <div className="typo-caption-s-normal text-center lg:typo-caption-l">
                 Switch today and start saving money
               </div>
               <img
                 src={'/svg/bolt-white.svg'}
                 alt="fleek bolt icon"
-                className="h-32 w-16"
+                className="hidden h-32 w-16 lg:block"
               />
             </div>
           </div>

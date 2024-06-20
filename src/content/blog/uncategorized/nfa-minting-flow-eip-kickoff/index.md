@@ -2,8 +2,8 @@
 title: 'Non-Fungible Apps (NFAs): Minting & EIP Kickoff'
 date: 2023-03-03
 desc: 'Since our last NFA update, the team has finished Sprints 1, 2, and 3, is laying the foundation for our EIP proposal, and sharing the first demo of our minting flow experience for NFAs.'
-thumbnail: './nfa-mint.png'
-image: './nfa-mint.png'
+thumbnail: './nfasminting.png'
+image: './nfasminting.png'
 ---
 
 **TL;DR**

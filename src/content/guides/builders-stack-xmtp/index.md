@@ -4,7 +4,6 @@ date: 2023-08-16
 desc: "The builder's guide to XMTP- the decentralized protocol providing encrypted, interoperable messaging capabilities to users, wallets, and apps"
 thumbnail: './xmtp_thumbnail.jpg'
 image: './xmtp_thumbnail.jpg'
-cannonical: ''
 author:
   - 'Fleek'
 ---
@@ -91,6 +90,6 @@ In June XMTP hosted a hackathon at [EthWaterloo](https://xmtp.org/blog/eth-water
 
 Want learn more about XMTP? Join the community in the [XMTP Discord](https://discord.gg/xmtp) and check out the open source projects in the [XMTP](https://github.com/xmtp) and [XMTP Labs](https://github.com/xmtp-labs) GitHub repos.
 
-Or, if you want to keep expanding your knowledge of web3 infrastructure by checking out more of our [Build3rs Stack articles](https://blog.fleek.xyz/category/guides/). You can also [join our Discord server](https://discord.com/invite/fleek) to jam with the team and learn more!
+Or, if you want to keep expanding your knowledge of web3 infrastructure by checking out more of our [Build3rs Stack articles](/guides/). You can also [join our Discord server](https://discord.com/invite/fleek) to jam with the team and learn more!
 
 For more resources, visit [our LinkTree](https://linktr.ee/fleek)

@@ -2,13 +2,13 @@
 title: 'Fleek Leak 01'
 date: 2023-01-12
 desc: 'Progress update incoming ⚡️ Over the last few weeks we’ve been jamming on our CLI beta (Jan 18th), adding compute to Fleek, and an NFAs MVP. Let’s dive into why & what you can expect!'
-thumbnail: './fleek-leak-01.png'
-image: './fleek-leak-01.png'
+thumbnail: './fleekleakjan12.png'
+image: './fleekleakjan12.png'
 ---
 
 Welcome to a new year, Fleek fam! ⚡️ To kickoff 2023 we’re introducing **the Fleek Leak**, a new bi-weekly update segment for us to uncover the veil on all of the awesome things we’re cooking up. The goal is simple: involve everyone in the community more in the development process rather than just the finished product of all things Fleek.xyz.
 
-2022 was a big year for Fleek. We announced [Fleek Network](https://fleek.network), a decentralized content and application delivery network for web3, and [Fleek.xyz](https://fleek.xyz), a new Fleek platform that empowers users to compose our services how they want & eventually even create their own Fleek services.
+2022 was a big year for Fleek. We announced [Fleek Network](https://fleek.network), a decentralized content and application delivery network for web3, and [Fleek.xyz](https://fleek.xyz/), a new Fleek platform that empowers users to compose our services how they want & eventually even create their own Fleek services.
 
 We left off last year taking the first steps towards sunsetting Fleek.co by [deprecating some of our old domains](https://blog.fleek.co/posts/fleek-co-gateway-storage-url-deprecation) & [turning on custom storage domains](https://blog.fleek.co/posts/fleek-co-how-to-add-custom-storage-domains). If you’re an legacy Fleek user take both of those as mandatory reading before proceeding to the good stuff.
 
@@ -98,6 +98,6 @@ Interested? NFAs are open source and we’ve got a working branch up and running
 
 As a last note we’re also working on some housekeeping items like **setting up a dedicated Fleek.xyz blog** (as we deprecate blog.fleek.co and migrate that content), **designing a new landing page**, and completely **open sourcing the Fleek roadmap** including a project backlog so users can keep up with everything we do.
 
-Reminders to keep your eyes peeled on January 18th for our first beta release. If you haven’t already, sign up for the [beta waitlist](https://fleek.xyz)! Or ask nicely in our [Discord](https://discord.gg/fleek) and maybe we’ll let you hop the line 😉
+Reminders to keep your eyes peeled on January 18th for our first beta release. If you haven’t already, sign up for the [beta waitlist](https://fleek.xyz/)! Or ask nicely in our [Discord](https://discord.gg/fleek) and maybe we’ll let you hop the line 😉
 
 For more resources visit [our LinkTree](https://linktr.ee/fleek).
