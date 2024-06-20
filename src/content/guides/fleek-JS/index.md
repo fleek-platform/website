@@ -4,7 +4,6 @@ date: 2021-05-30
 desc: 'We’ll create a Next.js app and deploy it on Fleek. This whole process It should take 10 minutes.'
 thumbnail: './next1.png'
 image: './next1.png'
-cannonical: ''
 author: 'Fleek'
 ---
 

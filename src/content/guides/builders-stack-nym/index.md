@@ -4,7 +4,6 @@ date: 2023-09-26
 desc: 'The builders guide to Nym, a privacy platform enabling anonymous network traffic'
 thumbnail: './nymthumb.jpg'
 image: './nymthumb.jpg'
-cannonical: ''
 author:
   - 'Fleek'
 ---

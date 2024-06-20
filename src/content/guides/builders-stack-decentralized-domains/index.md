@@ -4,7 +4,6 @@ date: 2023-04-21
 desc: 'The builders guide to decentralized domains, including ENS, HNS, and Unstoppable Domains!'
 thumbnail: './web3-domains.png'
 image: './web3-domains.png'
-cannonical: ''
 ---
 
 Welcome to the Build3rs Stack, Fleek’s **web3 infrastructure overview series**. This week we will take a look at ENS, Unstoppable Domains and HandShake - decentralized domain provider alternatives!

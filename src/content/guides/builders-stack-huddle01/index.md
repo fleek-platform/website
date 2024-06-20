@@ -4,7 +4,6 @@ date: 2023-08-26
 desc: "The builder's guide to Huddle01- the decentralized communication protocol, network, and app bringing video, audio, streaming, and more to any web3 protocol."
 thumbnail: './huddle01thumb.jpg'
 image: './huddle01thumb.jpg'
-cannonical: ''
 author:
   - 'Fleek'
 ---

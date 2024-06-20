@@ -4,7 +4,6 @@ date: 2023-08-31
 desc: 'For Fleek.co users: All the answers to the most pressing FAQ about the Fleek.xyz alpha release and eventual migration.'
 thumbnail: './alphafaq-thumb.png'
 image: './alphafaq-thumb.png'
-cannonical: ''
 author: 'Fleek'
 ---
 

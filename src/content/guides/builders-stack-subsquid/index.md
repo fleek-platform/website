@@ -4,7 +4,6 @@ date: 2023-05-12
 desc: "The builder's guide to Subsquid, which removes the need for RPC access while extracting, filtering, and decoding large amounts of on-chain data"
 thumbnail: './subsquidthumbnail.png'
 image: './subsquidthumbnail.png'
-cannonical: ''
 author:
   - 'Fleek'
 ---

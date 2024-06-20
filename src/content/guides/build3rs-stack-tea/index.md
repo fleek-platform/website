@@ -4,7 +4,6 @@ date: 2023-07-03
 desc: "The builder's guide to Tea, a web3 package manager that adds automation, developer environments and a little bit of magic to software development."
 thumbnail: './teaxyz-thumbnil.jpg'
 image: './teaxyz-thumbnil.jpg'
-cannonical: ''
 author:
   - 'Fleek'
 ---

@@ -4,7 +4,6 @@ date: 2023-02-12
 desc: 'In this tutorial, we will show you how simple it is to export a Wordpress site, host it on IPFS and share it with the world.'
 thumbnail: './wordfinal1.jpg'
 image: './wordfinal1.jpg'
-cannonical:
 ---
 
 Fleek allows websites to easily find a home on IPFS where they can rest readily accessible, permanent, and uncensorable. In this tutorial, we will show you how simple it is to export a Wordpress site, host it on IPFS and share it with the world. First, we will show how to export the site using a plugin and then we will upload the exported site to WordPress.

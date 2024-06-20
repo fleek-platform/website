@@ -4,7 +4,6 @@ date: 2023-09-13
 desc: "The builder's guide to Connext-  the cross-chain protocol for secure data and fund transfer"
 thumbnail: './connext-thumb.jpg'
 image: './connext-thumb.jpg'
-cannonical: ''
 author:
   - 'Fleek'
 ---
