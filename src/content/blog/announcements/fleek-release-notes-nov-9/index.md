@@ -1,9 +1,9 @@
 ---
-title: 'Fleek v0.0.3 Release Notes: Project, Site, and Gateway Delete Options, QoL Improvements'
+title: 'Fleek v0.0.3 Changelog: Project, Site, and Gateway Delete Options, QoL Improvements'
 date: 2023-11-09
 desc: 'Dive into the changes coming with Fleek Alpha v0.0.3, including Project, Site, and Gateway Delete Options.'
-thumbnail: './fleekreleasenotes05.png'
-image: './fleekreleasenotes05.png'
+thumbnail: './fleekchangelog1109.png'
+image: './fleekchangelog1109.png'
 author:
   - 'Fleek'
 ---

@@ -2,8 +2,8 @@
 title: 'Fleek Leak 01'
 date: 2023-01-12
 desc: 'Progress update incoming ⚡️ Over the last few weeks we’ve been jamming on our CLI beta (Jan 18th), adding compute to Fleek, and an NFAs MVP. Let’s dive into why & what you can expect!'
-thumbnail: './fleek-leak-01.png'
-image: './fleek-leak-01.png'
+thumbnail: './fleekleakjan12.png'
+image: './fleekleakjan12.png'
 ---
 
 Welcome to a new year, Fleek fam! ⚡️ To kickoff 2023 we’re introducing **the Fleek Leak**, a new bi-weekly update segment for us to uncover the veil on all of the awesome things we’re cooking up. The goal is simple: involve everyone in the community more in the development process rather than just the finished product of all things Fleek.xyz.

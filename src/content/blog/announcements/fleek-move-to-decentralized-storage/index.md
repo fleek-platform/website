@@ -2,8 +2,8 @@
 title: 'Embracing Decentralized Storage for V1 of Fleek.xyz'
 date: 2023-07-11
 desc: "Explore Fleek's transition from centralized IPFS storage nodes to decentralized storage with Arweave, Filecoin and Bundlr enhancing data resiliency and user control."
-thumbnail: './cent.jpg'
-image: './cent.jpg'
+thumbnail: './storageupgrade.png'
+image: './storageupgrade.png'
 author:
   - 'Fleek'
 ---
