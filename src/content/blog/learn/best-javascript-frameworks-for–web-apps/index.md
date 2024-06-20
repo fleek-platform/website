@@ -2,8 +2,8 @@
 title: 'Next.js, Remix, Gatsby: Which JavaScript framework to use for building your Apps?'
 date: 2024-05-10
 desc: 'Discover which React-based framework best suits your Web3 project needs, with detailed comparisons on performance, developer experience, and ecosystem support.'
-thumbnail: './fleek-blog-js-framework-thumbnail.png'
-image: './fleek-blog-js-framework-thumbnail.png'
+thumbnail: './fleek-blog-js-framework.png'
+image: './fleek-blog-js-framework.png'
 author:
   - 'Fleek'
 ---
