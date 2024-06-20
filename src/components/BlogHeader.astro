@@ -18,8 +18,7 @@ const isSupportOrBlogRoot =
   categoryRequiredPages.includes(lowerTitle) &&
   Astro.url.pathname.includes(`/${lowerTitle}`);
 
-const categoryBaseLink =
-  lowerTitle === 'blog' ? `/${lowerTitle}` : `/support/${lowerTitle}`;
+const categoryBaseLink = `/${lowerTitle}`;
 ---
 
 <div

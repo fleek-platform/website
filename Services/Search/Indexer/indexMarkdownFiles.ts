@@ -21,7 +21,9 @@ export enum ContentDirByName {
   'docs' = `${contentBasePath}/docs`,
   'guides' = `${contentBasePath}/guides`,
   'references' = `${contentBasePath}/references`,
-};
+  'troubleshooting' = `${contentBasePath}/troubleshooting`,
+  'billing' = `${contentBasePath}/billing`,
+}
 
 export type ContentName = keyof typeof ContentDirByName;
 
@@ -29,7 +31,7 @@ const sleep = (timeout: number) => {
   return new Promise((resolve) => {
     setTimeout(() => resolve(true), timeout);
   });
-}
+};
 
 async function waitForTask(client: MeiliSearch, id: number) {
   while (true) {
@@ -41,13 +43,13 @@ async function waitForTask(client: MeiliSearch, id: number) {
 }
 
 const toSlug = (name: string) => {
- let text = name.toLowerCase();
- text = text.replace(/[^a-z0-9\s]/g, '');
- text = text.replace(/\s+/g, '-');
- text = text.trim();
+  let text = name.toLowerCase();
+  text = text.replace(/[^a-z0-9\s]/g, '');
+  text = text.replace(/\s+/g, '-');
+  text = text.trim();
 
- return text;
-}
+  return text;
+};
 
 export default async ({
   apiKey,
@@ -69,27 +71,38 @@ export default async ({
     index = await client.getIndex(indexName);
     console.log(`✅ Found index ${indexName}`);
   } catch (e) {
-    console.log(`⚠️ The index ${indexName} doesn't exist.`)
+    console.log(`⚠️ The index ${indexName} doesn't exist.`);
   }
 
   if (!index) {
     try {
       const task = await client.createIndex(indexName);
-      await waitForTask(client, task.taskUid);     
-      
+      await waitForTask(client, task.taskUid);
+
       index = await client.getIndex(indexName);
       console.log(`✅ Created index ${indexName}`);
     } catch (e) {
       console.error('👹 Oops! Failed to create index:', e);
       process.exit(1);
-    }    
+    }
   }
 
-  return async ({
-    targetDir,
-  }: {
-      targetDir: string;
-  }) => {   
+  return async ({ targetDir }: { targetDir: string }) => {
+    // let directories: string[] = [];
+    // let files: string[] = [];
+
+    // if (targetDir === ContentDirByName.support) {
+    //   directories = [
+    //     ContentDirByName.billing,
+    //     ContentDirByName.troubleshooting,
+    //   ];
+    // } else {
+    //   directories = [targetDir];
+    // }
+
+    // for (const directory of directories) {
+    //   files = files.concat(listFilesRecursively({ directory }));
+    // }
     let files = listFilesRecursively({
       directory: targetDir,
     });
@@ -97,7 +110,6 @@ export default async ({
     files = filterMdFiles(files);
 
     for (const filePath of files) {
-     
       const fileContent = fs.readFileSync(filePath, 'utf-8');
 
       const parsed = await remark()
@@ -105,33 +117,36 @@ export default async ({
         .use(remarkParseFrontmatter)
         .process(fileContent);
 
-      const { title, category, date, desc } = parsed.data.frontmatter as Record<string, string>;
+      const { title, category, date, desc } = parsed.data.frontmatter as Record<
+        string,
+        string
+      >;
 
       const re = /---[\s\S]*?---/g;
       let content = fileContent.replace(re, '');
-      content = (await remark()
-        .use(html)
-        .process(content)).toString();
+      content = (await remark().use(html).process(content)).toString();
 
       const url = generateUrlPath({ filePath });
 
       try {
         // TODO: Change to addDocuments in batches
         // client.index('myIndex').addDocumentsInBatches(documents: Document<T>[], batchSize = 1000): Promise<EnqueuedTask[]>
-        await index.addDocuments([{
-          id: toSlug(`${category}-${title}`),
-          content,
-          title,
-          category,
-          date,
-          desc,
-          url,
-        }]);
+        await index.addDocuments([
+          {
+            id: toSlug(`${category}-${title}`),
+            content,
+            title,
+            category,
+            date,
+            desc,
+            url,
+          },
+        ]);
 
         console.log(`✅ Added document ${filePath}`);
       } catch (e) {
         console.error(`👹 Oops! Error indexing ${filePath}:`, e);
       }
     }
-  }
-}
+  };
+};

@@ -3,7 +3,7 @@ import type { OptionsType } from './form/ui/Dropdown';
 export const categoryCardItems = [
   {
     id: '1',
-    link: '/support/troubleshooting',
+    link: '/troubleshooting',
     image: '/images/troubleshooting.png',
     title: 'Troubleshooting',
   },
@@ -15,7 +15,7 @@ export const categoryCardItems = [
   },
   {
     id: '3',
-    link: '/support/billing',
+    link: '/billing',
     image: '/images/billing.png',
     title: 'Billing',
   },
@@ -25,7 +25,7 @@ export const singleArticleCardItems = [
   {
     id: '1',
     title: 'Node engine errors',
-    link: '/support/troubleshooting/faq/node-engine-errors',
+    link: '/troubleshooting/faq/node-engine-errors',
     description:
       "If you are getting node engine mismatch errors, don't worry. It only means the docker image you selected does not have the required node version.  However, you can use any docker image published on dockerhub, you don't need to use the ones we provide if...",
   },
@@ -38,14 +38,14 @@ export const singleArticleCardItems = [
   },
   {
     id: '3',
-    link: '/support/troubleshooting/common-issues/adding-domains-through-fleek-cli',
+    link: '/troubleshooting/common-issues/adding-domains-through-fleek-cli',
     title: 'Adding Domains through Fleek CLI',
     description:
       "Exploring Fleek's New Domain States Process for Seamless Domain Creation   This guide takes you step by step through the process of providing a unique hostname, creating a Content Acceleration Zone, and configuring domain settings. It also introduces...",
   },
   {
     id: '4',
-    link: '/support/troubleshooting/faq/my-links-arent-resolving',
+    link: '/troubleshooting/faq/my-links-arent-resolving',
     title: "My links aren't resolving",
     description:
       "Fixing Fleek IPFS Resolve Errors with _redirects Explore Fleek's method for resolving IPFS link issues. This in-depth tutorial steers you through the essential steps, from creating a new Next.js App to adding a custom domain, and finally optimizing y...",
@@ -100,7 +100,7 @@ export const SupportMenuItems = [
 
   {
     id: 2,
-    path: '/support/troubleshooting',
+    path: '/troubleshooting',
     pathName: 'Troubleshooting',
   },
   {
@@ -110,17 +110,17 @@ export const SupportMenuItems = [
   },
   {
     id: 4,
-    path: '/support/billing',
+    path: '/billing',
     pathName: 'Billing',
   },
   {
     id: 5,
-    path: '/support/requests/report-site',
+    path: '/requests/report-site',
     pathName: 'Report a site',
   },
   {
     id: 6,
-    path: '/support/requests/new',
+    path: '/requests/new',
     pathName: 'Submit a request',
   },
 ];

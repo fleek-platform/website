@@ -1,6 +1,6 @@
 ---
 import { getCollection } from 'astro:content';
-import BlogPageLayout from '../../../layouts/BlogPage.astro';
+import BlogPageLayout from '../../layouts/BlogPage.astro';
 import { getEntry } from 'astro:content';
 import GithubEditLink from '@components/GitHubEditLink.astro';
 import { generateGitHubEditLink } from '@utils/url';
@@ -56,7 +56,7 @@ const githubEditUrlPathname = generateGitHubEditLink({
     if (history.length > 2) {
       history.back();
     } else {
-      window.location.href = '/support/billing';
+      window.location.href = '/billing';
     }
   });
 </script>

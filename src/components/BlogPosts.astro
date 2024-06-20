@@ -17,8 +17,6 @@ type AllPosts = {
     category: string;
   };
 };
-
-const supportLinks = ['troubleshooting', 'billing'];
 ---
 
 <div
@@ -26,9 +24,7 @@ const supportLinks = ['troubleshooting', 'billing'];
 >
   {
     allPosts.map((post: AllPosts) => (
-      <a
-        href={`${supportLinks.includes(collection) ? '/support/' : '/'}${collection}/${post.slug}`}
-      >
+      <a href={`/${collection}/${post.slug}`}>
         <article class="h-full cursor-pointer overflow-hidden rounded-8 border border-gray-dark-7 bg-gray-dark-2 shadow transition hover:border-gray-dark-8">
           {post.data?.image && (
             <Image

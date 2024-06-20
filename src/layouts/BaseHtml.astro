@@ -23,7 +23,11 @@ const baseUrl = getSiteUrl();
 const pathName = Astro.url.pathname;
 
 const isSupportCenter =
-  pathName.includes('support') || pathName.includes('guides');
+  pathName.includes('support') ||
+  pathName.includes('guides') ||
+  pathName.includes('troubleshooting') ||
+  pathName.includes('billing') ||
+  pathName.includes('requests');
 ---
 
 <!doctype html>

@@ -12,7 +12,7 @@ import settings from '@base/settings.json';
   description={settings.site.metadata.support.description}
 >
   <main class="support container">
-    <HomePageHero />
+    <HomePageHero client:load />
     <CategoryCards client:load />
     <FeaturedArticles />
     <UsefulVideos client:load />

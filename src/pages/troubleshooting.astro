@@ -7,7 +7,8 @@ import settings from '@base/settings.json';
 
 import type { CollectionEntry } from 'astro:content';
 
-const indexNameBlog = import.meta.env.PUBLIC_MEILISEARCH_INDEX_SUPPORT;
+const indexNameTroubleShooting = import.meta.env
+  .PUBLIC_MEILISEARCH_INDEX_TROUBLESHOOTING;
 
 const collection = 'troubleshooting';
 
@@ -23,7 +24,7 @@ const allPosts: CollectionEntry<'troubleshooting'>[] = (
   description={settings.site.metadata.troubleshooting.description}
 >
   <main class="container min-h-container">
-    <BlogHeader title="Troubleshooting" indexName={indexNameBlog} />
+    <BlogHeader title="Troubleshooting" indexName={indexNameTroubleShooting} />
     <BlogPosts allPosts={allPosts} collection={collection} />
   </main>
 </Layout>
