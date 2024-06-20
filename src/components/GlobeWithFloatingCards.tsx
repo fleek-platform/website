@@ -32,7 +32,6 @@ const GlobeWithFloatingCards = () => {
               </p>
               <div className="flex flex-col justify-center gap-16 lg:flex-row">
                 <div className="typo-btn-l ">
-
                   <a
                     href="https://app.fleek.xyz/"
                     target="_blank"
