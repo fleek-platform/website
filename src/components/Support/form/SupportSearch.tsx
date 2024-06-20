@@ -1,32 +1,18 @@
-import '@styles/search.css';
-import { useEffect, useState, useRef } from 'react';
-import { instantMeiliSearch } from '@meilisearch/instant-meilisearch';
-import {
-  InstantSearch,
-  Hits,
-  Configure,
-  useSearchBox,
-  useInstantSearch,
-} from 'react-instantsearch';
-
-import type { Hit as AlgoliaHit } from 'instantsearch.js';
-import type { Dispatch, SetStateAction } from 'react';
-import {
-  onSearchBtnEnterDefaultCallback,
-  onSearchBtnLeaveDefaultCallback,
-} from '@utils/search';
+import React, { useState, useEffect, useCallback, useRef } from 'react';
 import { IoIosSearch } from 'react-icons/io';
 
-const MagnifyingGlassSVG = () => (
-  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
-    <path
-      strokeLinecap="round"
-      strokeLinejoin="round"
-      strokeWidth="2"
-      d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
-    />
-  </svg>
-);
+interface Hit {
+  id: string;
+  content: string;
+  url: string;
+  title: string;
+  desc: string;
+}
+
+interface Result {
+  indexUid: string;
+  hits: Hit[];
+}
 
 const { apiKey, host } = (() => {
   const apiKey = import.meta.env.PUBLIC_MEILISEARCH_DOCUMENTS_CLIENT_API_KEY;
@@ -44,204 +30,154 @@ const { apiKey, host } = (() => {
   };
 })();
 
-const { searchClient } = instantMeiliSearch(host, apiKey);
+function debounce(func: (...args: any[]) => void, wait: number) {
+  let timeout: ReturnType<typeof setTimeout>;
 
-// TODO: Share types with indexer
-type HitProps = {
-  hit: AlgoliaHit<{
-    id: string;
-    title: string;
-    content: string;
-    date: Date;
-    url: string;
-  }>;
-};
+  return function executedFunction(...args: any[]) {
+    const later = () => {
+      clearTimeout(timeout);
+      func(...args);
+    };
 
-const Hit = ({ hit }: HitProps) => {
-  const { results } = useInstantSearch();
-
-  const { value } = hit._highlightResult?.content as { value: string };
-
-  const parser = new DOMParser();
-  const doc = parser.parseFromString(value, 'text/html');
-  const data = doc.body.textContent || '';
-
-  const text = stripHtmlAndEntities(data);
-
-  return (
-    <a key={hit.id} href={hit.url}>
-      <div className="result-item-box">
-        <span className="font-semi-bold block pb-10">★ {hit.title}</span>
-        <span>{results.query && <span>{text}</span>}</span>
-      </div>
-    </a>
-  );
-};
-
-function stripHtmlAndEntities(htmlString: string) {
-  const strippedOfTags = htmlString.replace(/<[^>]*>/g, '');
-  const decodedString = strippedOfTags.replace(
-    /&([a-z]+);/g,
-    (match, entity) => {
-      switch (entity) {
-        case 'lt':
-          return '<';
-        case 'gt':
-          return '>';
-        case 'amp':
-          return '&';
-        case 'quot':
-          return '"';
-        case 'apos':
-          return "'";
-        default:
-          return match;
-      }
-    },
-  );
-
-  return decodedString;
+    clearTimeout(timeout);
+    timeout = setTimeout(later, wait);
+  };
 }
 
-const CustomSearchBox = ({
-  setOpenModal,
-}: {
-  setOpenModal: Dispatch<SetStateAction<boolean>>;
-}) => {
-  const { query, refine } = useSearchBox();
-  const { results } = useInstantSearch();
-  const [inputValue, setInputValue] = useState(query);
-  const inputRef = useRef<HTMLInputElement>(null);
+const MultiSearch: React.FC = () => {
+  const [query, setQuery] = useState<string>('');
+  const [results, setResults] = useState<Hit[]>([]);
+  const [loading, setLoading] = useState<boolean>(false);
+  const [isOpen, setIsOpen] = useState(false);
 
-  const setQuery = (newQuery: string) => {
-    setInputValue(newQuery);
+  const dropdownRef = useRef<HTMLDivElement>(null);
 
-    refine(newQuery);
+  const handleClickOutside = (event: MouseEvent) => {
+    if (
+      dropdownRef.current &&
+      !dropdownRef.current.contains(event.target as Node)
+    ) {
+      setIsOpen(false);
+    }
   };
 
-  return (
-    <>
-      <div className="search-box">
-        <input
-          ref={inputRef}
-          autoComplete="off"
-          autoCorrect="off"
-          autoCapitalize="off"
-          placeholder="Search"
-          spellCheck={false}
-          maxLength={300}
-          value={inputValue}
-          onChange={(event) => {
-            setQuery(event.currentTarget.value);
-          }}
-          autoFocus
-        />
-        <button type="button" onClick={() => setOpenModal(false)}>
-          Esc
-        </button>
-      </div>
-      {query && !results.hits.length && (
-        <p className="modal-no-result">No results</p>
-      )}
-    </>
-  );
-};
-
-type Props = {
-  indexName: string;
-  onEnter?: () => void;
-  onLeave?: () => void;
-};
-
-export default ({
-  indexName,
-  // Warn: Astro components are built server side, thus can’t pass
-  // client side functions as a prop inside of a ".astro" files
-  // we'd have to pass the function inside of a react component
-  // so we pass defaults functions to at least be the closest to
-  // separation of concerns
-  onEnter = onSearchBtnEnterDefaultCallback,
-  onLeave = onSearchBtnLeaveDefaultCallback,
-}: Props) => {
-  const [openModal, setOpenModal] = useState(false);
-
   useEffect(() => {
-    document.addEventListener('keydown', handleKeyDown);
-
+    document.addEventListener('mousedown', handleClickOutside);
     return () => {
-      document.removeEventListener('keydown', handleKeyDown);
+      document.removeEventListener('mousedown', handleClickOutside);
     };
   }, []);
 
-  const onSearchFocus = () => setOpenModal(true);
-  const handleKeyDown = (event: KeyboardEvent) => {
-    if (event.key.toLowerCase() === 'escape') {
-      setOpenModal(false);
-    }
-  };
+  const performSearch = useCallback(
+    debounce(async (query: string) => {
+      setLoading(true);
+      try {
+        const response = await fetch(`http://${host}/multi-search`, {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({
+            queries: [
+              {
+                indexUid: 'fleekxyz_website_docs',
+                q: query,
+                limit: 5,
+              },
+              {
+                indexUid: 'fleekxyz_website_troubleshooting',
+                q: query,
+                limit: 5,
+              },
+              {
+                indexUid: 'fleekxyz_website_guides',
+                q: query,
+                limit: 5,
+              },
+              {
+                indexUid: 'fleekxyz_website_billing',
+                q: query,
+                limit: 5,
+              },
+            ],
+          }),
+        });
+        const data = await response.json();
+        const combinedHits = data.results.flatMap(
+          (result: Result) => result.hits,
+        );
+        setResults(combinedHits);
+      } catch (error) {
+        console.error('Error performing search:', error);
+      } finally {
+        setLoading(false);
+      }
+    }, 300),
+    [],
+  );
 
   useEffect(() => {
-    if (openModal && typeof onEnter === 'function') {
-      onEnter();
+    if (query) {
+      performSearch(query);
+    } else {
+      setResults([]);
     }
+  }, [query, performSearch]);
 
-    if (!openModal && typeof onLeave === 'function') {
-      onLeave();
-    }
-  }, [openModal]);
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setQuery(e.target.value);
+    setIsOpen(true);
+  };
 
   return (
-    <div className="search-btn">
-      <div
-        className="mx-auto mb-[4rem]  mt-[1rem] w-[90%] rounded-[8px] border-white/30 bg-[#FFFFFF]/10 px-[1.3rem] py-[1rem] focus-within:border-[.1px] focus-within:bg-[#FFFFFF]/25 hover:border-[.1px] hover:bg-[#FFFFFF]/25 md:w-[50%] xl:w-[40%] xl:px-[1.5rem] xl:py-[1.25rem]"
-        onClick={onSearchFocus}
-      >
+    <div className="relative">
+      <div className=" mx-auto mb-[4rem]  mt-[1rem] w-[90%] rounded-[8px] border-white/30 bg-[#FFFFFF]/10 px-[1.3rem] py-[1rem] focus-within:border-[.1px] focus-within:bg-[#FFFFFF]/25 hover:border-[.1px] hover:bg-[#FFFFFF]/25 md:w-[50%] xl:w-[40%] xl:px-[1.5rem] xl:py-[1.25rem]">
         <div className="flex items-center gap-[1rem] ">
           <div>
             <IoIosSearch className="focus:text-blue-600" fontSize={27} />
           </div>
-          <form className="w-full  text-[#9BA1A6]">
+          <form
+            className="w-full  text-[#9BA1A6]"
+            onSubmit={(e) => e.preventDefault()}
+          >
             <input
               className="w-full border-none bg-transparent text-[1.5rem] outline-none placeholder:text-[#ECEDEE] focus:placeholder:text-[#9BA1A6] xl:text-[2rem]"
               type="search"
               aria-label="Search"
-              placeholder="Search"
-              readOnly={true}
+              value={query}
+              onChange={handleInputChange}
+              placeholder="Search..."
             />
           </form>
         </div>
       </div>
 
-      <div className="mobile" onClick={onSearchFocus}>
-        <div className="icon-container">
-          <MagnifyingGlassSVG />
-        </div>
-      </div>
-      {openModal && (
-        <div className="modal-open" onClick={() => setOpenModal(false)}>
-          <div
-            className="modal-user-box"
-            onClick={(e: any) => e.stopPropagation()}
-          >
-            <InstantSearch
-              indexName={indexName}
-              searchClient={searchClient}
-              insights={false}
-            >
-              <Configure
-                hitsPerPage={12}
-                attributesToSnippet={['content:32']}
-              />
-              <div className="modal-custom-search-container">
-                <CustomSearchBox setOpenModal={setOpenModal} />
-              </div>
-              <div className="modal-hits-container">
-                <Hits hitComponent={Hit} />
-              </div>
-            </InstantSearch>
+      <div>
+        {loading && (
+          <div className="rounded-md absolute left-[50%] top-[100%] z-20  max-h-[250px]  w-[90%]   -translate-x-[50%] overflow-scroll  bg-[#111111] text-[1.3rem] md:w-[50%] md:text-[1.5rem] xl:w-[40%]">
+            Loading...
           </div>
-        </div>
-      )}
+        )}
+        {query.length >= 1 && isOpen && !loading && (
+          <div ref={dropdownRef}>
+            <ul className="rounded-md absolute left-[50%] top-[100%] z-20  max-h-[250px]  w-[90%]   -translate-x-[50%] overflow-scroll  bg-[#111111] text-[1.3rem] md:w-[50%] md:text-[1.5rem] xl:w-[40%]">
+              {results.map((hit) => (
+                <li
+                  className="cursor-pointer px-[1.4rem] py-[.5rem] hover:bg-gray-700"
+                  key={hit.url}
+                >
+                  <a href={hit.url}>{hit.title}</a>
+                  <p className="px-[1.4rem] py-[.5rem] text-[1.3rem] text-gray-500">
+                    {hit.desc}
+                  </p>
+                </li>
+              ))}
+            </ul>
+          </div>
+        )}
+      </div>
     </div>
   );
 };
+
+export default MultiSearch;

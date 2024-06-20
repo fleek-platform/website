@@ -16,7 +16,7 @@ function HomePageHero() {
             </h1>
           </div>
 
-          <SupportSearch indexName={indexNameSupport} />
+          <SupportSearch />
         </div>
       </div>
     </PageSection>
