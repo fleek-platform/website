@@ -15,8 +15,8 @@ const Modal = ({
   isOpen,
   setIsOpen,
 }: {
-    isOpen: boolean;
-    setIsOpen: Dispatch<SetStateAction<boolean>>;
+  isOpen: boolean;
+  setIsOpen: Dispatch<SetStateAction<boolean>>;
 }) => {
   const [userInput, setUserInput] = useState('');
   const [loading, setLoading] = useState(false);
@@ -37,7 +37,7 @@ const Modal = ({
       });
 
       setLoading(false);
-      setThankyou(true)
+      setThankyou(true);
     } catch (error) {
       console.log('Request failed', error);
     }
@@ -54,7 +54,7 @@ const Modal = ({
   return (
     <div
       id="modal"
-      className={`fixed top-0 left-0 ${isOpen ? ' scale-100 duration-300 ease-in-out' : 'scale-0 duration-300 ease-in-out '} z-50 h-[800vh] w-full bg-[#0000004a] backdrop-blur`}
+      className={`fixed left-0 top-0 ${isOpen ? ' scale-100 duration-300 ease-in-out' : 'scale-0 duration-300 ease-in-out '} z-50 h-[800vh] w-full bg-[#0000004a] backdrop-blur`}
       onClick={onClickOutside}
     >
       <div
@@ -122,29 +122,27 @@ const Modal = ({
                   )}
                 </div>
                 <div className="_button-wrapper _full_width">
-                  {
-                    !loading
-                    ? (
-                      <>
-                        {regex.test(userInput) ? (
-                          <button
-                            id="_form_37_submit"
-                            className="_submit typo-btn-l-mid w-full rounded-16 bg-yellow-dark-4 px-32 py-16 text-yellow hover:bg-yellow-dark-5"
-                            type="submit"
-                          >
-                            Subscribe to Updates
-                          </button>
-                        ) : (
-                          <div className="_submit typo-btn-l-mid w-full cursor-not-allowed rounded-16 bg-yellow-dark-4 px-32 py-16 text-center text-yellow opacity-50">
-                            Subscribe to Updates
-                          </div>
-                        )}
-                      </>
-                    )
-                    : <div className='flex justify-center items-center'>
+                  {!loading ? (
+                    <>
+                      {regex.test(userInput) ? (
+                        <button
+                          id="_form_37_submit"
+                          className="_submit typo-btn-l-mid w-full rounded-16 bg-yellow-dark-4 px-32 py-16 text-yellow hover:bg-yellow-dark-5"
+                          type="submit"
+                        >
+                          Subscribe to Updates
+                        </button>
+                      ) : (
+                        <div className="_submit typo-btn-l-mid w-full cursor-not-allowed rounded-16 bg-yellow-dark-4 px-32 py-16 text-center text-yellow opacity-50">
+                          Subscribe to Updates
+                        </div>
+                      )}
+                    </>
+                  ) : (
+                    <div className="flex items-center justify-center">
                       <Loading size={20} />
                     </div>
-                  }
+                  )}
                 </div>
               </div>
             </form>
@@ -169,7 +167,7 @@ const Modal = ({
 export const CtaNewsletterModal = () => {
   const [isOpen, setIsOpen] = useState(false);
   const isOpenHandler = () => setIsOpen(!isOpen);
-  
+
   return (
     <>
       <ButtonGray
@@ -178,10 +176,7 @@ export const CtaNewsletterModal = () => {
       >
         <div>Stay Updated</div>
       </ButtonGray>
-      <Modal
-        setIsOpen={setIsOpen}
-        isOpen={isOpen}
-      />
+      <Modal setIsOpen={setIsOpen} isOpen={isOpen} />
     </>
   );
-}
+};

@@ -3,7 +3,7 @@ import PageSection from '@components/PageSection';
 import GridLayout from '@components/GridLayout';
 import ButtonYellow from './ButtonYellow';
 import { useState } from 'react';
-import { CtaNewsletterModal }from '@components/NewsletterSubscriptionModal';
+import { CtaNewsletterModal } from '@components/NewsletterSubscriptionModal';
 
 const GlobeWithFloatingCards = () => {
   const [showPlayer, setShowPlayer] = useState(false);
@@ -42,9 +42,7 @@ const GlobeWithFloatingCards = () => {
                     </ButtonYellow>
                   </a>
                 </div>
-                <div
-                  className="typo-btn-l"
-                >
+                <div className="typo-btn-l">
                   <CtaNewsletterModal />
                 </div>
               </div>

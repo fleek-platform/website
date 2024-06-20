@@ -1,8 +1,4 @@
-export default ({
-  size
-}: {
-  size: number;  
-}) => (
+export default ({ size }: { size: number }) => (
   <svg className={`h-${size} w-${size} animate-spin`} viewBox="0 0 100 100">
     <circle
       fill="none"
