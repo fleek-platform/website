@@ -5,6 +5,7 @@ desc: "The builder's guide to getting started with Pocket: where it fits in the 
 thumbnail: './builders-2.png'
 image: './builders-2.png'
 cannonical: ''
+---
 
 Welcome to the Build3rs Stack! A new content series we’re starting at Fleek highlighting all Web3 infrastructure protocols from a developer and app-building perspective.
 
