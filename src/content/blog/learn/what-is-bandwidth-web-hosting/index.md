@@ -2,8 +2,8 @@
 title: 'What is Bandwidth in Web Hosting?'
 date: 2024-05-07
 desc: 'Explore how bandwidth impacts web hosting, its significance for site performance, and tips for effective usage in this comprehensive guide.'
-thumbnail: './fleek-blog-bandwidth-thumbnail.png'
-image: './fleek-blog-bandwidth-thumbnail.png'
+thumbnail: './fleek-blog-bandwidth.png'
+image: './fleek-blog-bandwidth.png'
 author:
   - 'Fleek'
 ---

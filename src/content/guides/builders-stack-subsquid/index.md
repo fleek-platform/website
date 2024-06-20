@@ -70,6 +70,6 @@ Enjin is a GameFi and metaverse ecosystem offering a suite of products from wall
 
 We hope this overview has given you a good starting point for getting started with Subsquid! Be sure to follow [Subsquid](https://twitter.com/subsquid) to keep up to date on further updates.
 
-Keep expanding your stack— check out our previous [Build3rs Stack](https://blog.fleek.xyz/category/guides/) for more web3 infrastructure overviews. You can also join our Discord server to jam with the team and learn more!
+Keep expanding your stack— check out our previous [Build3rs Stack](/guides/) for more web3 infrastructure overviews. You can also join our Discord server to jam with the team and learn more!
 
 For more resources, please visit our [LinkTree](https://linktr.ee/fleek) ⚡

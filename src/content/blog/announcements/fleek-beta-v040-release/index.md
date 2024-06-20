@@ -15,7 +15,7 @@ We gave a little warning earlier this week– we’re rolling out a few updates 
 
 The highlight of the Fleek v0.4.0 release is a **substantial, application-disrupting change in the form of an upgrade to our GQL layer**. This will consolidate all our beta services under a single GQL interface, enhancing your experience and making our services even more user-friendly.
 
-As outlined in the [pre-warning](https://blog.fleek.xyz/post/preparing-for-fleek-beta-v040/), users will just need to update the following to ensure their services continue to work as expected:
+As outlined in the [pre-warning](/blog/announcements/preparing-for-fleek-beta-v040/), users will just need to update the following to ensure their services continue to work as expected:
 
 **SDK**: Run the command `npm install @fleek-platform/sdk` on your project
 
