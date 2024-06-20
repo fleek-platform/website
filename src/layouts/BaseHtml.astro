@@ -77,7 +77,7 @@ const baseUrl = getSiteUrl();
     />
     <meta
       property="og:image"
-      content={ogMeta?.image || settings.site.metadata.default.image}
+      content={`${baseUrl}/${ogMeta?.image?.replace(/^\/+/, '') || settings.site.metadata.default.image?.replace(/^\/+/, '')}`}
     />
     <!-- Twitter Meta Tags -->
     <meta name="twitter:card" content="summary_large_image" />
