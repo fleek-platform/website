@@ -55,6 +55,6 @@ Today, it helps us build a future-proofed platform where all infrastructure serv
 
 ---
 
-Thanks for joining us this week on this deep dive! Stay tuned for our next release, and hop into our community if you have any feedback or feature requests. Remember that you can always hop by our [support repository](https://github.com/fleekxyz/fleekxyz-support/) to drop your thoughts or report any bugs you’ve found.
+Thanks for joining us this week on this deep dive! Stay tuned for our next release, and hop into our community if you have any feedback or feature requests. Remember that you can always hop by our [Discord](https://discord.gg/fleek) to drop your thoughts or report any bugs you’ve found.
 
 For more resources visit our[ LinkTree.](https://linktr.ee/fleek)
