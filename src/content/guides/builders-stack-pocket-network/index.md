@@ -4,7 +4,7 @@ date: 2023-02-09
 desc: "The builder's guide to getting started with Pocket: where it fits in the decentralized Web3 infra-stack, and what you can build with it."
 thumbnail: './builders-2.png'
 image: './builders-2.png'
-cannonical: 'https://blog.fleek.xyz/post/builders-stack-pocket-network/'
+cannonical: ''
 ---
 
 Welcome to the Build3rs Stack! A new content series we’re starting at Fleek highlighting all Web3 infrastructure protocols from a developer and app-building perspective.
