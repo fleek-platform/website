@@ -123,6 +123,6 @@ You can start with the [official Filecoin Virtual Machine documentation](https:/
 
 We hope that this guide provides you with the necessary info and tools to start building with Filecoin! Make sure to follow [Filecoin](https://twitter.com/Filecoin) for further updates and developments.
 
-Additionally, we encourage you to check out our previous [Build3rs Stack](https://blog.fleek.xyz/category/guides/) series and keep an eye out for upcoming ones so that you can stay informed about the latest updates about web3 infrastructure. You can also join our [Discord](https://discord.com/invite/fleek) community to connect with us quickly.
+Additionally, we encourage you to check out our previous [Build3rs Stack](/guides/) series and keep an eye out for upcoming ones so that you can stay informed about the latest updates about web3 infrastructure. You can also join our [Discord](https://discord.com/invite/fleek) community to connect with us quickly.
 
 If you need more resources, please visit our [LinkTree](https://linktr.ee/fleek)!

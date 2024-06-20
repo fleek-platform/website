@@ -82,6 +82,6 @@ With all these resources you can quickly start to build on the top of Lens. Chec
 
 We hope that this guide has given you the necessary information and tools to start building with Lens! Make sure to follow [Lens](https://twitter.com/LensProtocol) for further updates and developments.
 
-Additionally, we encourage you to check out our previous [Build3rs Stack](https://blog.fleek.xyz/category/guides/) series and keep an eye out for upcoming ones so that you can stay informed about the latest updates about web3 infrastructure. You can also join our [Discord](https://discord.gg/fleek) community to connect with us quickly.
+Additionally, we encourage you to check out our previous [Build3rs Stack](/guides/) series and keep an eye out for upcoming ones so that you can stay informed about the latest updates about web3 infrastructure. You can also join our [Discord](https://discord.gg/fleek) community to connect with us quickly.
 
 If you need more resources, please visit our [LinkTree](https://linktr.ee/fleek)!

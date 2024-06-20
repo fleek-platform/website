@@ -8,7 +8,7 @@ image: './nodesdkbeta.png'
 
 We’re excited to announce that the beta for our **Node SDK is now live**, and ready for developers to start integrating Fleek’s services!
 
-Let’s dive into this release, and do a rundown of what you can build and achieve with the Node SDK today. Find a detailed guide on how to use it in [our SDK documentation](https://docs.fleek.xyz/docs/SDK/).
+Let’s dive into this release, and do a rundown of what you can build and achieve with the Node SDK today. Find a detailed guide on how to use it in [our SDK documentation](/docs/sdk/).
 
 ---
 
@@ -30,11 +30,11 @@ What can you achieve? For example, you could build a desktop web3 game that **in
 
 ### Getting Started with the SDK
 
-Visit our new [SDK documentation](https://docs.fleek.xyz/docs/SDK/) page to learn how to install, integrate, and leverage Fleek via this interface. To get started run:
+Visit our new [SDK documentation](/docs/sdk/) page to learn how to install, integrate, and leverage Fleek via this interface. To get started run:
 
     npm install -g @fleek-platform/sdk
 
-To setup and authenticate your SDK you will need to create a Personal Access Token via the [Fleek CLI](https://docs.fleek.xyz/docs/SDK/#personal-access-token-service), as so:
+To setup and authenticate your SDK you will need to create a Personal Access Token via the [Fleek CLI](/docs/cli/pat/), as so:
 
     > fleek pat create
     WARN! Fleek CLI is in beta, use it at your own discretion
@@ -56,6 +56,6 @@ This release comes with a lot more features for domain management, and general e
 
 Time to build away! Let us know what ideas pop up as you test the SDK, and tweet your builds at us or share them on Discord. The team’s excited to start opening up Fleek as the infrastructure layer for all web3 apps.
 
-Found a bug, got an idea or request? Visit our [Support repository](https://github.com/fleekxyz/fleekxyz-support/) and open up an issue! Or pay our [Discord](https://discord.gg/fleek) a visit and let us know.
+Found a bug, got an idea or request? Visit our [Discord](https://discord.gg/fleek) and let us know.
 
 For more resources visit our [LinkTree](https://linktr.ee/fleek) ⚡

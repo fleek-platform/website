@@ -8,7 +8,7 @@ image: './cli-beta-error-states.png'
 
 Through the Fleek.xyz beta, we’ve introduced a new domain states process to improve and streamline the flow of associating domains to Fleek-deployed sites for our users.
 
-Originally, users would receive a traditional error stack trace when encountering errors across the CLI and SDK betas, which isn’t as easy to decode! [Recently](https://blog.fleek.xyz/post/error-management-improvements/), we made some changes to our error-handling system to make these errors more user-friendly:
+Originally, users would receive a traditional error stack trace when encountering errors across the CLI and SDK betas, which isn’t as easy to decode! [Recently](/blog/announcements/error-management-improvements/), we made some changes to our error-handling system to make these errors more user-friendly:
 
 ![](./error-handling-updated.jpeg)
 
