@@ -37,7 +37,7 @@ We’ve also squashed quite a few bugs and packaged more improvements that we fo
 Some rapid-fire additions and fixes on this release:
 
 - New cli command to list sites `fleek sites list`
-- Automatic browser opening removed 
+- Automatic browser opening removed
 - Catch SIGKILL on site init and escape gracefully
 - Improve sites deploy success message
 - Fix an infinite loading in login

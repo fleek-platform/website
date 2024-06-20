@@ -47,7 +47,7 @@ You may have noticed uploads on the platform feel faster over the last week– t
 
 ## Other Fixes and Improvements
 
-As always, we’ve squashed a ton of bugs and added a few small improvements with this release! 
+As always, we’ve squashed a ton of bugs and added a few small improvements with this release!
 
 - Increased memory in our deploy lambda to accommodate bigger site repositories
 - Fixed a bug where the IPNS values were not being updated after a deployment

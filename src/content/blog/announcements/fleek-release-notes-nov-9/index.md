@@ -69,7 +69,6 @@ Alongside the new delete options, we’ve also added a ton of quality-of-life im
 - Fixed an error where users were stuck in the UI and unable to log in
 - Added a button to add an organization to the verified GitHub account in the GitHub account selector
 
-
 ---
 
 That’s all for this week! This is a smaller QoL update to bring a heavily requested feature and clean up a little behind the scenes as we prepare for the **next major feature addition– Template Submissions** ⚡
