@@ -2,8 +2,8 @@
 title: 'Exploring the Upgrades in Managed Deployments on Fleek.xyz ⚡'
 date: 2023-06-09
 desc: "We're taking the managed deployments feature you know and love from Fleek.co, and supercharging it to better fit developer needs!"
-thumbnail: './manageddeploymentsxyzco.jpg'
-image: './manageddeploymentsxyzco.jpg'
+thumbnail: './manageddeploymentupgrade.png'
+image: './manageddeploymentupgrade.png'
 author:
   - 'Fleek'
 ---
@@ -40,6 +40,6 @@ Unlike the Fleek.co pipeline, which only supports GitHub, **Fleek.xyz is git pro
 
 We’re bringing a fresh experience to managed deployments with Fleek.xyz, offering a range of features aiming to amplify the developer experience across the board. It's not just about doing the same thing better, but about innovating and adapting to the evolving needs of developers and teams. While Fleek.co remains a solid choice until sunsetting, we know Fleek.xyz's advancements make it a powerful upgrade to start using today, no matter the size of your project.
 
-If you haven’t tried the Fleek.xyz beta yet– there’s no better time! For detailed instructions on how to get started, check out our [docs](https://docs.fleek.xyz/)!
+If you haven’t tried the Fleek.xyz beta yet– there’s no better time! For detailed instructions on how to get started, check out our [docs](/docs/)!
 
-For more information on Fleek.xyz and what we’re building, check out our [Blog](https://blog.fleek.xyz/) and [Social Media](https://linktr.ee/fleek).
+For more information on Fleek.xyz and what we’re building, check out our [Blog](/blog/) and [Social Media](https://linktr.ee/fleek).

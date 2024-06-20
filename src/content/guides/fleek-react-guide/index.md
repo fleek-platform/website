@@ -2,10 +2,9 @@
 title: 'How To Deploy A React App To Fleek: A Step-by-Step Guide for Developers'
 date: 2024-06-14
 desc: 'How to deploy a React app using the Fleek UI.'
-thumbnail: './reactguide.png'
-image: './reactguide.png'
-author:
-  - 'Olayinka Oshidipe'
+thumbnail: './react-guide.png'
+image: './react-guide.png'
+author: 'Olayinka Oshidipe'
 ---
 
 You can rapidly bootstrap a React application using [create-react-app](https://create-react-app.dev/), and with Fleek, you can deploy it in just a few minutes. In this guide, we’ll go over how to:

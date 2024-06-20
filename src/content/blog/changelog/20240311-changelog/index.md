@@ -77,7 +77,7 @@ Also included in this release:
 - Fixed bug where modal was not appearing after creating a domain for a PGW
 - ENS modal now displays the content hash in smaller screen resolutions.
 
-For more details on all the new features, bug fixes, and improvements made in this release, check out our [docs](https://docs.Fleek/docs)!
+For more details on all the new features, bug fixes, and improvements made in this release, check out our [docs](/docs/)!
 
 ---
 

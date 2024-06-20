@@ -4,7 +4,6 @@ date: 2023-10-10
 desc: 'Learn about Progressive Web Apps (PWAs)– what they are, why you should consider turning your app into one, and some best practices in building with PWAs.'
 thumbnail: './pwa-thumb.jpg'
 image: './pwa-thumb.jpg'
-cannonical: ''
 author:
   - 'Fleek'
 ---

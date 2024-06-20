@@ -35,12 +35,15 @@ This repository contains the source code and assets for the Fleek.xyz website, w
         - [Troubleshooting open graph](#troubleshooting-open-graph)
 - [Development](#-development)
     - [Search server](#-search-server)
+      - [Multi-index search](#multi-index-search)
     - [Delete Indexes](#💣-delete-indexes)
     - [Images (optimization)](#-images-optimization)
 - [Migration](#-migration)
     - [Migrate Gatsby content](#migrate-gatsby-content)
 - [Custom data](#custom-data)
     - [Get latest posts](#get-latest-posts)
+- [Support](#support)
+    - [Local API](#local-api)
 
 # Setup
 
@@ -84,6 +87,8 @@ PUBLIC_MEILISEARCH_INDEX_REFERENCES="fleekxyz_website_references"
 PRIVATE_MEILISEARCH_MASTER_KEY=***
 PRIVATE_MEILISEARCH_DOCUMENTS_ADMIN_API_KEY=***
 PUBLIC_MEILISEARCH_DOCUMENTS_CLIENT_API_KEY=***
+PUBLIC_SUPPORT_API="localhost:3331"
+ALLOW_ORIGIN_ADDR="http://localhost:4321"
 ```
 
 ## 🏗️ Build
@@ -698,6 +703,35 @@ curl \
   --data-binary '{ "q": "<SEARCH_QUERY>" }'
 ```
 
+### Multi index search
+
+Here's an example of how to perform multiple search queries on one or more indexes:
+
+```sh
+curl \
+  -X POST 'http://localhost:7700/multi-search' \
+  -H 'Content-Type: application/json' \
+  --data-binary '{
+    "queries": [
+      {
+        "indexUid": "fleekxyz_website_docs",
+        "q": "something",
+        "limit": 5
+      },
+      {
+        "indexUid": "fleekxyz_website_guides",
+        "q": "something",
+        "limit": 5
+      },
+      {
+        "indexUid": "fleekxyz_website_references",
+        "q": "something",
+        "limit": 5
+      }
+    ]
+  }'
+```
+
 ### 💣 Delete Indexes
 
 Delete Index data by running the command:
@@ -823,3 +857,76 @@ You'd get a list to iterate over as the following:
 ```
 
 Everytime a build happens, the static JSON data should be updated.
+
+## Support
+
+ZenDesk is an external provider that provides an API to interact with the service. The following documentation provides information to interace with the proxy server.
+
+### Setup
+
+The application should get the endpoint URL from an environment variable named `PUBLIC_SUPPORT_API`.
+
+Learn how to setup by reading the section [environment variables](#environment-variables).
+
+### Tokens
+
+The environment should have the following variables set up for the corresponding account.
+
+You may want to create a `.env` file to hold these environment variables, or in your shell profile.
+
+```sh
+PRIVATE_ZENDESK_EMAIL="xxxx"
+PRIVATE_ZENDESK_API_KEY="xxxx"
+PRIVATE_ZENDESK_HOSTNAME="xxxx"
+```
+
+### Local API
+
+A proxy service to interact with ZenDesk is available and can be run locally.
+
+Start the local API by running:
+
+```sh
+npm run support:local_api
+```
+
+💡 During implementation the API URL should be provided as an environment variable.
+
+### Interact with the API
+
+**/health**
+
+Hit the /health endpoint for health checks
+
+```sh
+curl -X GET 'localhost:3331/health
+```
+
+**/ticket**
+
+Hit the /ticket endpoint to create a ticket for a user **email**, particular **topic** and comment **query**.
+
+```
+curl \
+  -X POST \
+  -H "Content-Type: application/x-www-form-urlencoded" \
+  -d "email=<CLIENT-EMAIL-ADDRESS>&subject=<SYSTEM-TOPIC>&comment=<USER-QUERY>"" http://localhost:3331/ticket
+```
+
+The **email** is a valid email address, the **topic** should be related to the **query** template. The **query** should correspond and be of a well-known format or template.
+
+Here's an example for **query** template:
+
+```sh
+subject: <System Support Topic> | <User title>
+description: <User text>
+attachments: <User attachments>
+```
+
+A result ticket could look like:
+
+```sh
+subject: Billing | Inquiry Regarding Unprocessed USDC Token Transfer
+description: Dear Fleek, I hope this message finds you well. I am writing to seek clarification regarding an outstanding transaction related to my account. On xxx, I initiated a transfer of xxx USDC tokens from my account to xxx. However, upon checking my transaction history, it appears that this transfer has not been processed.
+attachments: https://fleek-storage/user-file.png
+```

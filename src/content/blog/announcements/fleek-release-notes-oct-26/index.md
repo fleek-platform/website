@@ -1,9 +1,9 @@
 ---
-title: 'Fleek v0.0.2 Release Notes: Primary Domains, Lens Template, Faster Upload Speeds'
+title: 'Fleek v0.0.2 Changelog: Primary Domains, Lens Template, Faster Upload Speeds'
 date: 2023-10-26
 desc: 'Get the latest on the changes coming to the Fleek Alpha with v0.0.2, including Primary Domains, Lens Template, Improved Upload Speeds, and more!'
-thumbnail: './fleekreleasenotes04.png'
-image: './fleekreleasenotes04.png'
+thumbnail: './fleekchangelog1026.png'
+image: './fleekchangelog1026.png'
 author:
   - 'Fleek'
 ---
@@ -47,7 +47,7 @@ You may have noticed uploads on the platform feel faster over the last week– t
 
 ## Other Fixes and Improvements
 
-As always, we’ve squashed a ton of bugs and added a few small improvements with this release! For the full list, head to our [docs](https://docs.fleek.xyz/release-notes/release-notes-0.0.2):
+As always, we’ve squashed a ton of bugs and added a few small improvements with this release!
 
 - Increased memory in our deploy lambda to accommodate bigger site repositories
 - Fixed a bug where the IPNS values were not being updated after a deployment

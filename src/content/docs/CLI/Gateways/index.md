@@ -2,7 +2,7 @@
 order: 5
 title: Gateway
 date: 2023-01-10
-description: Learn how to set up and configure a private gateway on Fleek, serving content from your storage via a custom domain.
+desc: Learn how to set up and configure a private gateway on Fleek, serving content from your storage via a custom domain.
 keywords: [services, documentation, getting started]
 tags:
   - Accounts
