@@ -79,6 +79,7 @@ ecdsa
 ed25519
 education
 ef
+eip
 elkstack
 emacs
 email
@@ -96,9 +97,11 @@ facebook
 fleek
 fleekxyz
 fmt
+frontends
 functional-programming
 gatsby
 gdpr
+gif
 github
 geo
 grafana
@@ -128,6 +131,7 @@ iot
 ipaddress
 ipfs
 ipns
+january
 javascript
 json
 jwt
@@ -167,10 +171,13 @@ mobileapp
 mongodb
 monitoring
 multi-factor
+mvp
 mysql
 namespace
 navigation
 netlify
+nfa
+nfas
 nginx
 nodejs
 npm
@@ -245,6 +252,7 @@ restful
 retrofit
 rfc
 risk-assessment
+roadmap
 rsa
 ruby
 route53
