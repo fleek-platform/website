@@ -24,7 +24,7 @@ The Sites services on Fleek will allow anyone to upload and easily maintain stat
 
 The flow? With one quick command, you can initialize and create a new site project on the CLI. Just specify the output directory and the build command and that would be it! Once the site is configured, you can build and deploy the site to IPFS using the `fleek sites deploy` command.
 
-Any further changes you commit, can then be re-built and deployed for a new IPFS hash and on a following update you will be able to generate a Github action to automate the deployment. We will follow up with managed deployments on a future versions (where Fleek manages the build and deploy). Have feedback? [Let us know here.](https://discord.com/invite/fleek)
+Any further changes you commit, can then be re-built and deployed for a new IPFS hash and on a following update you will be able to generate a Github action to automate the deployment. We will follow up with managed deployments on a future versions (where Fleek manages the build and deploy). Have feedback? [Let us know here.](https://discord.gg/fleek)
 
 As an example, we re-deployed our [a quick blog page with the CLI](https://mntis.eth.limo/), and mapped the IPFS hash to an ENS domain name, to make it accessible! Here’s [how to use ENS](/docs/platform/domains/) for that.
 
