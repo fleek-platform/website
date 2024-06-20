@@ -7,7 +7,7 @@
       "url": "https://fleek-xyz-staging.on-fleek.app"
     },
     "development": {
-      "url": "https://fleek-xyz-staging.on-fleek.app"
+      "url": "http://localhost:4321"
     },
     "metadata": {
       "default": {
@@ -229,5 +229,8 @@
         }
       ]
     }
+  },
+  "newsletterSubscription": {
+    "activeHostedFormApi": "https://fleek.activehosted.com/proc.php"
   }
 }
