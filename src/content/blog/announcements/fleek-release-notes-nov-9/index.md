@@ -69,7 +69,7 @@ Alongside the new delete options, we’ve also added a ton of quality-of-life im
 - Fixed an error where users were stuck in the UI and unable to log in
 - Added a button to add an organization to the verified GitHub account in the GitHub account selector
 
-For a full list of changes coming with v0.0.3, check out our [docs](https://docs.fleek.xyz/release-notes/release-notes-0.0.3).
+For a full list of changes coming with v0.0.3, check out our [blog](/blog/announcements/fleek-release-notes-nov-9/).
 
 ---
 
