@@ -83,6 +83,6 @@ The protocol side of Tea **is still in an early stage of development**, but we h
 
 We hope this overview has given you a good starting point for getting started on brewing Tea! Be sure to follow Tea to keep up to date on further updates.
 
-Keep expanding your stack— [check out our previous Build3rs Stack](/guides/) for more web3 infrastructure overviews. You can also [join our Discord server](https://discord.gg/fleek) to jam with the team and learn more!
+Keep expanding your stack— [check out our previous Build3rs Stack](/guides) for more web3 infrastructure overviews. You can also [join our Discord server](https://discord.gg/fleek) to jam with the team and learn more!
 
 For more resources, please visit [our LinkTree](https://linktr.ee/fleek) ⚡
