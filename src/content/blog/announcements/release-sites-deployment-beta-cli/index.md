@@ -6,7 +6,7 @@ thumbnail: './clisitedeployments.png'
 image: './clisitedeployments.png'
 ---
 
-The beta’s growing, and with new testers, new features are coming to the CLI! Today we are releasing the **Sites Deployments service** to the CLI for developers to start testing and [share their feedback](https://discord.com/invite/fleek) on.
+The beta’s growing, and with new testers, new features are coming to the CLI! Today we are releasing the **Sites Deployments service** to the CLI for developers to start testing and [share their feedback](https://discord.gg/fleek) on.
 
 Step aside, it’s time to host some sites on IPFS! If you want a quick-start, visit our [updated docs](https://fleek.xyz/docs/) right away ⚡️
 
