@@ -30,11 +30,11 @@
   }
 
   .nav-menu {
-    @apply fixed left-0 top-0 z-20 flex h-full w-full flex-col bg-ui-fleek-black pb-50 transition duration-300;
+    @apply fixed left-0 top-0 z-40 flex h-full w-full flex-col overflow-y-scroll bg-black pb-50 transition duration-300;
   }
 
   .nav-menu-open {
-    @apply pointer-events-auto flex justify-around opacity-100;
+    @apply pointer-events-auto flex gap-[1.438rem] opacity-100;
   }
 
   .nav-menu-closed {
@@ -46,14 +46,14 @@
   }
 
   .nav-menu-close-button {
-    @apply ml-auto mr-8 w-42 px-16 font-plex-sans text-25 leading-[150%] text-ui-white;
+    @apply ml-auto mr-20 w-42 px-16 font-plex-sans text-25 leading-[150%] text-ui-white;
   }
 
   .nav-menu-mobile {
-    @apply flex  flex-col items-center justify-center overflow-y-scroll;
+    @apply flex  flex-col items-center justify-center;
 
     .nav-menu-item {
-      @apply relative w-full text-18;
+      @apply relative w-full font-plex-sans   text-18;
     }
   }
 
@@ -68,7 +68,7 @@
   }
 
   .nav-menu-mobile-sub-menu-container {
-    @apply hidden w-full px-20 py-10 group-hover:block;
+    @apply hidden w-full px-20 py-10  group-hover:block;
   }
 
   .nav-sub-menu-ctas-mobile {
@@ -77,10 +77,6 @@
     .nav-sub-menu-cta {
       @apply block w-auto px-12 py-6;
     }
-  }
-
-  .nav-menu-mobile-sub-menu-label {
-    @apply text-12 font-bold;
   }
 
   .nav-menu-item {
@@ -109,8 +105,8 @@
     &.minimal {
       @apply w-[32vw] min-w-[400px];
 
-      .nav-sub-menu-main-col {
-      }
+      /* .nav-sub-menu-main-col {
+      } */
 
       .nav-sub-menu-side-container {
         width: 40%;
@@ -139,8 +135,8 @@
     @apply grid grid-cols-2 gap-50 p-36 pt-18;
   }
 
-  .nav-sub-menu-nav-col {
-  }
+  /* .nav-sub-menu-nav-col {
+  } */
 
   .nav-sub-menu-nav-col-title {
     @apply pb-20 font-sans font-sans text-12 uppercase text-gray-600 dark:text-gray-500;

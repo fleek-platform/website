@@ -6,7 +6,13 @@ import settings from '@base/settings.json';
 
 const announcement = `⚡ ${settings.site.annoucement.message} ⚡`; //character limit: 130
 
-const Announcement: React.FC = () => {
+interface AnnouncementProps {
+  hasMargin?: boolean;
+}
+
+const Announcement: React.FC<AnnouncementProps> = ({
+  hasMargin = true,
+}: AnnouncementProps) => {
   const [mount, setMount] = useState(false);
 
   useEffect(() => {
@@ -18,10 +24,12 @@ const Announcement: React.FC = () => {
     <a
       href={settings.site.annoucement.url}
       rel="noopener noreferrer"
-      className="mb-16 opacity-100 transition hover:opacity-80"
+      className={`${hasMargin && 'mb-16 '}opacity-100 transition hover:opacity-80`}
     >
       <Container>
-        <div className="my-8 overflow-hidden rounded-16 border border-gray-dark-6 bg-ui-mid-black px-16 py-8">
+        <div
+          className={`${hasMargin && 'my-8'} overflow-hidden rounded-16 border border-gray-dark-6 bg-ui-mid-black px-16 py-8`}
+        >
           <div className="overflow-hidden">
             <Text className="whitespace-nowrap text-center lg:hidden" style="m">
               {mount && (
