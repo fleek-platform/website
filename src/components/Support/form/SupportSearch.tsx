@@ -103,7 +103,7 @@ const MultiSearch: React.FC = () => {
           }),
         });
         const data = await response.json();
-        const combinedHits = data.results.flatMap(
+        const combinedHits = data?.results?.flatMap(
           (result: Result) => result.hits,
         );
         setResults(combinedHits);
@@ -158,10 +158,10 @@ const MultiSearch: React.FC = () => {
             Loading...
           </div>
         )}
-        {query.length >= 1 && isOpen && !loading && (
+        {results?.length >= 1 && isOpen && !loading && (
           <div ref={dropdownRef}>
             <ul className="rounded-md absolute left-[50%] top-[100%] z-20  max-h-[250px]  w-[90%]   -translate-x-[50%] overflow-scroll  bg-[#111111] text-[1.3rem] md:w-[50%] md:text-[1.5rem] xl:w-[40%]">
-              {results.map((hit) => (
+              {results?.map((hit) => (
                 <li
                   className="cursor-pointer px-[1.4rem] py-[.5rem] hover:bg-gray-700"
                   key={hit.url}
