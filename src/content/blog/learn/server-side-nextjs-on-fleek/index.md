@@ -6,7 +6,6 @@ desc: "A look at Fleek's first iteration of server side Next.js"
 thumbnail: "./images/general/Next.js_1.png"
 alt: "Fleek server side next.js"
 image: "./images/general/Next.js_1.png"
-cannonical: ""
 author: 
   - "Gabriel Pinto"
 ---
