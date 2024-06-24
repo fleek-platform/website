@@ -119,7 +119,7 @@ The one issue we've encountered when adding polyfills is AsyncLocalStorage, whic
 
 ## Next.js on Fleek
 
-The above explains how our [tool](https://github.com/fleekxyz/fleek-next-cli) works, but if you just want to deploy your Next.js application to Fleek, you also have the option to disregard our configuration and simply follow these steps:
+The above explains how our [tool](https://github.com/fleekxyz/fleek-next) works, but if you just want to deploy your Next.js application to Fleek, you also have the option to disregard our configuration and simply follow these steps:
 
 > Note: This is a very experimental first implementation of Fleek Functions. Please be mindful of that when using or integrating into your deployments. A more stable version will be officially released in the coming weeks.
 
@@ -152,12 +152,12 @@ This is all you need to get your Next.js application to run on Fleek Functions, 
 
 ## Future Work
 
-We still have some work to do to fully support Next.js on Fleek Functions, with Middleware and Incremental Static Rendering support still to come, to provide developers with performant, low cost, easy to use, and self-sovereign alternatives for their cloud infrastructure. You can check out our [repo](https://github.com/fleekxyz/fleek-next-cli) and play around. 
+We still have some work to do to fully support Next.js on Fleek Functions, with Middleware and Incremental Static Rendering support still to come, to provide developers with performant, low cost, easy to use, and self-sovereign alternatives for their cloud infrastructure. You can check out our [repo](https://github.com/fleekxyz/fleek-next) and play around. 
 
 If you’re interested in these deep dives, keep an eye on our blog as we’ll go through the routing used in our tooling and keep you up to date with any advances on our Next.js support as well as Fleek Functions.
 
 Relevant articles:
 
-https://blog.fleek.xyz/post/fleek-nextjs-deploy-guide/
+[Fleek Next.JS deploy guide](https://fleek.xyz/blog/fleek-nextjs-deploy-guide/](https://fleek.xyz/guides/fleek-nextjs-guide/)
 
-https://blog.fleek.network/post/fleek-network-developer-guide-js-runtime/
+[Fleek Network developer guide on JS runtime](https://blog.fleek.network/post/fleek-network-developer-guide-js-runtime/)
