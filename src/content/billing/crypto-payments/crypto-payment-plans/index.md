@@ -1,7 +1,7 @@
 ---
 title: 'Crypto Payments'
 date: 2023-03-18
-desc: 'It is possible to pay for your plan using crypto. We take L1 and L2 payments....'
+desc: 'It is possible to pay for your plan using crypto. We take L1 and L2 payments.'
 thumbnail: './dns-fleek.png'
 image: './dns-fleek.png'
 ---

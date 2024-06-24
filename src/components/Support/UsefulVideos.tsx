@@ -10,6 +10,7 @@ import { youtubeEmbedVideos } from './config';
 export type YoutubeEmbedVideoProps = {
   id: string;
   src: string;
+  widgetId: string;
 };
 
 function UsefulVideos() {
@@ -20,7 +21,7 @@ function UsefulVideos() {
           Useful Videos
         </h2>
       </div>
-      <div className="relative h-full">
+      <div className="swiper-container relative h-full">
         <Swiper
           spaceBetween={10}
           slidesPerView={1}
@@ -45,7 +46,8 @@ function UsefulVideos() {
   );
 }
 
-function VideoCard({ id, src }: YoutubeEmbedVideoProps) {
+function VideoCard({ id, src, widgetId }: YoutubeEmbedVideoProps) {
+  const videoSrc = `${src}?enablejsapi=1&origin=https%3A%2F%2Fsupport.fleek.xyz&widgetid=${widgetId}'`;
   return (
     <div className="xl:w-full">
       <iframe
@@ -57,7 +59,7 @@ function VideoCard({ id, src }: YoutubeEmbedVideoProps) {
         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
         referrerPolicy="strict-origin-when-cross-origin"
         title="YouTube video player"
-        src={src}
+        src={videoSrc}
       ></iframe>
     </div>
   );

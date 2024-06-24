@@ -31,8 +31,6 @@ const blogCollection = createCollection('content', z.object({}));
 
 const guidesCollection = createCollection('content', z.object({}));
 
-const troubleshootingCollection = createCollection('content', z.object({}));
-
 const billingCollection = createCollection('content', z.object({}));
 
 const templatesCollection = createCollection('content', z.object({}));
@@ -49,6 +47,5 @@ export const collections = {
   templates: templatesCollection,
   references: referencesCollection,
   legal: legalCollection,
-  troubleshooting: troubleshootingCollection,
   billing: billingCollection,
 };

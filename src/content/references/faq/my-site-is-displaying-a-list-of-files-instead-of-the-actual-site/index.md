@@ -1,7 +1,7 @@
 ---
 title: 'My site is displaying a list of files instead of the actual site'
 date: 2023-03-14
-desc: 'Double-check your Publish directory: Ensure that you have specified the correct dir...'
+desc: 'Double-check your Publish directory: Ensure that you have specified the correct dir.'
 thumbnail: './dns-fleek.png'
 image: './dns-fleek.png'
 ---

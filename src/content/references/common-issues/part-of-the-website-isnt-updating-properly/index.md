@@ -1,7 +1,7 @@
 ---
 title: "Part of the website isn't updating properly"
 date: 2023-03-19
-desc: 'If only a part of your website is not updating or reflecting changes properly  on your custom domain after a deployment...'
+desc: 'If only a part of your website is not updating or reflecting changes properly  on your custom domain after a deployment.'
 thumbnail: './dns-fleek.png'
 image: './dns-fleek.png'
 ---

@@ -1,8 +1,9 @@
-import { useCallback, useState } from 'react';
-import CoForm, { type FormValuesType } from './ReportSiteForm';
+import { useState } from 'react';
+import { type FormValuesType } from './ReportSiteForm';
 import Input from './ui/Input';
 import Tooltip from './ui/Tooltip';
 import Button from './ui/Button';
+import toast from 'react-hot-toast';
 
 export const { zenDeskEndpoint } = (() => {
   const zenDeskEndpoint = import.meta.env.PUBLIC_SUPPORT_API;
@@ -28,15 +29,21 @@ function NewRequestForm() {
     comment: '',
   });
 
-  const handleInputChange = useCallback(
-    (name: string, value: string | FileList) => {
-      setFormValues((prevValues) => ({
-        ...prevValues,
-        [name]: value,
-      }));
-    },
-    [],
-  );
+  const handleInputChange = (name: string, value: string | FileList) => {
+    setFormValues((prevValues) => ({
+      ...prevValues,
+      [name]: value,
+    }));
+  };
+
+  const resetFormValues = () => {
+    setFormValues({
+      name: '',
+      email: '',
+      subject: '',
+      comment: '',
+    });
+  };
 
   const submitForm = async () => {
     const formData = new URLSearchParams();
@@ -53,14 +60,20 @@ function NewRequestForm() {
         body: formData.toString(),
       });
 
-      if (!response.ok) {
+      if (response.ok === false) {
         throw new Error('Network response was not ok');
       }
 
       const data = await response.json();
-      console.log('Success:', data);
+
+      if (data.success == false) {
+        toast.error(data.error.issues[0].message);
+      } else {
+        toast.success('Request submitted successfully');
+        resetFormValues();
+      }
     } catch (error) {
-      console.error('Error:', error);
+      toast.error('Request not submitted, an error occurred');
     }
   };
 
@@ -122,6 +135,7 @@ function NewRequestForm() {
             name="comment"
             value={formValues.comment as string}
             isRequired={true}
+            bottomText="Description must contain at least 30 character(s)"
             onChange={(value) => handleInputChange('comment', value)}
             label="Description"
           />

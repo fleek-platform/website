@@ -57,9 +57,5 @@ export const generateSlug = (input: string): string => {
 export function checkPathnameForString(string: string, pathname: string) {
   const path = pathname;
 
-  if (path?.includes(string)) {
-    return true;
-  } else {
-    return false;
-  }
+  return path?.includes(string);
 }

@@ -3,6 +3,7 @@ import Button from './ui/Button';
 import Input from './ui/Input';
 import Tooltip from './ui/Tooltip';
 import { zenDeskEndpoint } from './NewRequestForm';
+import toast from 'react-hot-toast';
 
 export type FormValuesType = {
   email: string;
@@ -18,16 +19,20 @@ function ReportSiteForm() {
     subject: 'Report a site',
     comment: '',
   });
-
-  const handleInputChange = useCallback(
-    (name: string, value: string | FileList) => {
-      setFormValues((prevValues) => ({
-        ...prevValues,
-        [name]: value,
-      }));
-    },
-    [],
-  );
+  const handleInputChange = (name: string, value: string | FileList) => {
+    setFormValues((prevValues) => ({
+      ...prevValues,
+      [name]: value,
+    }));
+  };
+  const resetFormValues = () => {
+    setFormValues({
+      name: '',
+      email: '',
+      subject: 'Report a site',
+      comment: '',
+    });
+  };
 
   const submitForm = async () => {
     const formData = new URLSearchParams();
@@ -44,14 +49,20 @@ function ReportSiteForm() {
         body: formData.toString(),
       });
 
-      if (!response.ok) {
+      if (response.ok === false) {
         throw new Error('Network response was not ok');
       }
 
       const data = await response.json();
-      console.log('Success:', data);
+
+      if (data.success == false) {
+        toast.error(data.error.issues[0].message);
+      } else {
+        toast.success('Request submitted successfully');
+        resetFormValues();
+      }
     } catch (error) {
-      console.error('Error:', error);
+      toast.error('Request not submitted, an error occurred');
     }
   };
 
@@ -113,6 +124,7 @@ function ReportSiteForm() {
             name="comment"
             value={formValues.comment as string}
             isRequired={true}
+            bottomText="Description must contain at least 30 character(s)"
             onChange={(value) => handleInputChange('comment', value)}
             label="Description"
           />

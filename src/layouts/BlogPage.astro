@@ -2,14 +2,9 @@
 import '@styles/globals.css';
 import '@styles/blogPage.css';
 
-import type { MarkdownHeading } from 'astro';
-
 import BaseHtml from './BaseHtml.astro';
 
-const { title } = Astro.props;
-const description = '';
-const slug = ``;
-const image = '';
+const { title, description, image, slug } = Astro.props;
 ---
 
 <BaseHtml

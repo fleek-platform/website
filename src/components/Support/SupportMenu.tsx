@@ -1,8 +1,10 @@
 import Container from '@components/Container';
 import React, { useCallback, useState } from 'react';
 import { MdKeyboardArrowDown, MdOutlineKeyboardArrowUp } from 'react-icons/md';
-import { SupportMenuItems } from './config';
+import settings from '@base/settings.json';
 import clsx from 'clsx';
+
+const supportMenu = settings.support.supportMenu;
 
 type SupportMenuProps = {
   pathName: string;
@@ -24,26 +26,8 @@ const SupportMenu: React.FC<SupportMenuProps> = ({ pathName }) => {
 function SupportMenuDesktop({ pathName }: SupportMenuProps) {
   const getActivePath = useCallback(
     (path: string) => {
-      if (
-        pathName.includes('?ticket_form_id=phishing-form') &&
-        path.includes('?ticket_form_id=phishing-form')
-      ) {
-        return true;
-      }
-
       return pathName.includes(path);
     },
-    [pathName],
-  );
-
-  const activePath = useCallback(
-    () =>
-      SupportMenuItems.reduce((longestPath, item) => {
-        if (getActivePath(item.path) && item.path.length > longestPath.length) {
-          return item.path;
-        }
-        return longestPath;
-      }, ''),
     [pathName],
   );
 
@@ -51,13 +35,13 @@ function SupportMenuDesktop({ pathName }: SupportMenuProps) {
     <ul
       className={`hidden border-b-2 border-gray-700  pl-16 md:flex  md:items-center lg:px-28`}
     >
-      {SupportMenuItems.map((item) => (
+      {supportMenu.map((item) => (
         <li
           key={item.id}
           className={clsx(
             'mb-[1rem] cursor-pointer px-[10px] py-[4px] text-[1.5rem] font-semibold hover:text-[#2294ff] xl:my-[1.5rem]   xl:text-[1.6rem]',
             {
-              'text-[#2294ff]': item.path === activePath(),
+              'text-[#2294ff]': getActivePath(item.path),
             },
           )}
         >
@@ -73,27 +57,8 @@ function SupportMenuMobile({ pathName }: SupportMenuProps) {
 
   const getActivePath = useCallback(
     (path: string) => {
-      if (
-        pathName.includes('?ticket_form_id=phishing-form') &&
-        path.includes('?ticket_form_id=phishing-form')
-      ) {
-        return true;
-      }
-
-      `      console.log(fullPath.startsWith(path));`;
-      return pathName.startsWith(path);
+      return pathName.includes(path);
     },
-    [pathName],
-  );
-
-  const activePath = useCallback(
-    () =>
-      SupportMenuItems.reduce((longestPath, item) => {
-        if (getActivePath(item.path) && item.path.length > longestPath.length) {
-          return item.path;
-        }
-        return longestPath;
-      }, ''),
     [pathName],
   );
 
@@ -120,13 +85,13 @@ function SupportMenuMobile({ pathName }: SupportMenuProps) {
       <ul
         className={`flex flex-col border-b-2 border-gray-700 px-[20px]   ${isExpanded ? '' : 'h-[10px] overflow-y-scroll'} md:hidden`}
       >
-        {SupportMenuItems.map((item) => (
+        {supportMenu.map((item) => (
           <li
             key={item.id}
             className={clsx(
               'cursor-pointer p-4 text-[1.3rem]  hover:text-[#2294ff]',
               {
-                'text-[#2294ff]': item.path === activePath(),
+                'text-[#2294ff]': getActivePath(item.path),
               },
             )}
           >

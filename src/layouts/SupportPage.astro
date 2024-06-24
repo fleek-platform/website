@@ -1,17 +1,12 @@
 ---
 import '@styles/supportPage.css';
+import settings from '@base/settings.json';
 
 import BaseHtml from './BaseHtml.astro';
+const zdKey = settings.support.zendeskKey;
+const srcLink = `https://static.zdassets.com/ekr/snippet.js?key=${zdKey}`;
 
-interface Props {
-  title: string;
-  description: string;
-}
-
-const { title } = Astro.props;
-const description = '';
-const image = '';
-const slug = '';
+const { title, description, image, slug } = Astro.props;
 ---
 
 <BaseHtml
@@ -25,9 +20,5 @@ const slug = '';
 >
   <slot />
 
-  <script
-    id="ze-snippet"
-    defer
-    src="https://static.zdassets.com/ekr/snippet.js?key=c0ecb1c1-369a-4543-b528-cbba3f2fb35d"
-  ></script>
+  <script id="ze-snippet" defer src={srcLink}></script>
 </BaseHtml>

@@ -22,8 +22,7 @@ export async function getStaticPaths() {
   return [...params];
 }
 
-const indexNameBilling = import.meta.env
-  .PUBLIC_MEILISEARCH_INDEX_TROUBLESHOOTING;
+const indexNameBilling = import.meta.env.PUBLIC_MEILISEARCH_INDEX_BILLING;
 
 const { category } = Astro.params;
 

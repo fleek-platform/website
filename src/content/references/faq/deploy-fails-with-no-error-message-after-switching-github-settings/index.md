@@ -1,7 +1,7 @@
 ---
 title: 'Deploy fails with no error message after switching GitHub settings'
 date: 2023-03-12
-desc: 'It is possible that your deploy with fail with no error message after you switched GitHub settings like:...'
+desc: 'It is possible that your deploy with fail with no error message after you switched GitHub settings like:.'
 thumbnail: './dns-fleek.png'
 image: './dns-fleek.png'
 ---

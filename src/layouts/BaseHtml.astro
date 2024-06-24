@@ -5,8 +5,9 @@ import { getSiteUrl } from '@utils/url';
 import settings from '@base/settings.json';
 import Nav from '@components/NavBar';
 import Footer from '@components/Footer';
-import SupportMenu from '@components/Support/SupportFormMenu';
-import type { on } from 'events';
+
+import SupportMenu from '@components/Support/SupportMenu';
+import { Toaster } from 'react-hot-toast';
 
 interface Props {
   title: string;
@@ -22,10 +23,10 @@ const { title, ogMeta } = Astro.props;
 const baseUrl = getSiteUrl();
 const pathName = Astro.url.pathname;
 
-const isSupportCenter =
+const hasSecondaryMenu =
   pathName.includes('support') ||
   pathName.includes('guides') ||
-  pathName.includes('troubleshooting') ||
+  pathName.includes('references') ||
   pathName.includes('billing') ||
   pathName.includes('requests');
 ---
@@ -133,11 +134,9 @@ const isSupportCenter =
     </noscript>
     <Announcement client:load />
     <Nav client:load pathname={Astro.url.pathname} isSupportCenter />
-    {isSupportCenter && <SupportMenu client:load pathName={pathName} />}
+    {hasSecondaryMenu && <SupportMenu client:load pathName={pathName} />}
     <slot />
     <Footer client:load />
+    <Toaster client:load position="top-right" reverseOrder={false} />
   </body>
 </html>
-
-<!-- 
-); -->

@@ -1,3 +1,4 @@
+import { debounce } from 'lodash-es';
 import React, { useState, useEffect, useCallback, useRef } from 'react';
 import { IoIosSearch } from 'react-icons/io';
 
@@ -30,20 +31,6 @@ const { apiKey, host } = (() => {
   };
 })();
 
-function debounce(func: (...args: any[]) => void, wait: number) {
-  let timeout: ReturnType<typeof setTimeout>;
-
-  return function executedFunction(...args: any[]) {
-    const later = () => {
-      clearTimeout(timeout);
-      func(...args);
-    };
-
-    clearTimeout(timeout);
-    timeout = setTimeout(later, wait);
-  };
-}
-
 const MultiSearch: React.FC = () => {
   const [query, setQuery] = useState<string>('');
   const [results, setResults] = useState<Hit[]>([]);
@@ -68,65 +55,63 @@ const MultiSearch: React.FC = () => {
     };
   }, []);
 
-  const performSearch = useCallback(
-    debounce(async (query: string) => {
-      setLoading(true);
-      try {
-        const response = await fetch(`http://${host}/multi-search`, {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json',
-          },
-          body: JSON.stringify({
-            queries: [
-              {
-                indexUid: 'fleekxyz_website_docs',
-                q: query,
-                limit: 5,
-              },
-              {
-                indexUid: 'fleekxyz_website_troubleshooting',
-                q: query,
-                limit: 5,
-              },
-              {
-                indexUid: 'fleekxyz_website_guides',
-                q: query,
-                limit: 5,
-              },
-              {
-                indexUid: 'fleekxyz_website_billing',
-                q: query,
-                limit: 5,
-              },
-            ],
-          }),
-        });
-        const data = await response.json();
-        const combinedHits = data?.results?.flatMap(
-          (result: Result) => result.hits,
-        );
-        setResults(combinedHits);
-      } catch (error) {
-        console.error('Error performing search:', error);
-      } finally {
-        setLoading(false);
-      }
-    }, 300),
-    [],
-  );
+  const performSearch = debounce(async (query: string) => {
+    setLoading(true);
+    try {
+      const response = await fetch(`http://${host}/multi-search`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          queries: [
+            {
+              indexUid: 'fleekxyz_website_docs',
+              q: query,
+              limit: 5,
+            },
+            {
+              indexUid: 'fleekxyz_website_troubleshooting',
+              q: query,
+              limit: 5,
+            },
+            {
+              indexUid: 'fleekxyz_website_guides',
+              q: query,
+              limit: 5,
+            },
+            {
+              indexUid: 'fleekxyz_website_billing',
+              q: query,
+              limit: 5,
+            },
+          ],
+        }),
+      });
+      const data = await response.json();
+      const combinedHits = data?.results?.flatMap(
+        (result: Result) => result.hits,
+      );
+      setResults(combinedHits);
+      setIsOpen(true);
+    } catch (error) {
+      console.error('Error performing search:', error);
+    } finally {
+      setLoading(false);
+    }
+  }, 500);
 
   useEffect(() => {
     if (query) {
       performSearch(query);
     } else {
       setResults([]);
+      setIsOpen(false);
     }
   }, [query, performSearch]);
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setQuery(e.target.value);
-    setIsOpen(true);
   };
 
   return (

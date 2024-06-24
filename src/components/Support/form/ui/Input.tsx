@@ -1,6 +1,4 @@
 import React, { useEffect, useState } from 'react';
-import { SlPaperClip } from 'react-icons/sl';
-import { IoMdClose } from 'react-icons/io';
 
 interface InputProps {
   type?: 'text' | 'email' | 'textarea';

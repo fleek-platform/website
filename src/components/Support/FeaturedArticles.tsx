@@ -32,12 +32,6 @@ function SingleArticleCard({
   return (
     <article className="mb-[12px]">
       <div className="flex gap-[7px] xl:gap-[10px]">
-        <img
-          className="mt-[3px] h-[16px]  flex-shrink xl:h-[20px]"
-          src="/images/article-img.svg"
-          alt="file icon"
-        />
-
         <div className="flex-1">
           <a
             href={link}

@@ -2,10 +2,11 @@
 import '@styles/globals.css';
 import '@styles/docPage.css';
 import '@styles/admonition.css';
-
+import BaseHtml from '@layouts/BaseHtml.astro';
 import Announcement from '@components/Announcement';
 import Container from '@components/Container';
-
+import Nav from '@components/NavBar';
+import Footer from '@components/Footer';
 import { generateSidebarDSByUserOrder } from '@utils/generateSidebarDS';
 import { getCollection } from 'astro:content';
 import Sidebar from '@components/Sidebar';
@@ -19,12 +20,16 @@ import settings from '@base/settings.json';
 import type { MarkdownHeading } from 'astro';
 import type { ContentEntryMap } from 'astro:content';
 
-import BaseHtml from './BaseHtml.astro';
-
 type Props = {
   title: string;
   description: string;
   headings: MarkdownHeading[];
+};
+
+type Data = {
+  id: string;
+  collection: keyof ContentEntryMap;
+  slug: string;
 };
 
 const { title, description, headings } = Astro.props;
@@ -51,7 +56,7 @@ const {
   };
 })();
 
-const data = await getEntry(collection, id);
+const data = (await getEntry(collection, id)) as Data;
 if (!data || !data?.id || !data?.collection) {
   throw Error('Oops! Unexpected response data');
 }

@@ -88,21 +88,6 @@ export default async ({
   }
 
   return async ({ targetDir }: { targetDir: string }) => {
-    // let directories: string[] = [];
-    // let files: string[] = [];
-
-    // if (targetDir === ContentDirByName.support) {
-    //   directories = [
-    //     ContentDirByName.billing,
-    //     ContentDirByName.troubleshooting,
-    //   ];
-    // } else {
-    //   directories = [targetDir];
-    // }
-
-    // for (const directory of directories) {
-    //   files = files.concat(listFilesRecursively({ directory }));
-    // }
     let files = listFilesRecursively({
       directory: targetDir,
     });
