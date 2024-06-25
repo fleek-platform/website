@@ -5,6 +5,7 @@ import CategoryCards from '@components/Support/CategoryCards';
 import FeaturedArticles from '@components/Support/FeaturedArticles';
 import UsefulVideos from '@components/Support/UsefulVideos';
 import settings from '@base/settings.json';
+const pageOriginURL = Astro.url.href;
 ---
 
 <Layout
@@ -15,6 +16,6 @@ import settings from '@base/settings.json';
     <HomePageHero client:load />
     <CategoryCards client:load />
     <FeaturedArticles />
-    <UsefulVideos client:load />
+    <UsefulVideos pageOriginURL={pageOriginURL} client:load />
   </main>
 </Layout>

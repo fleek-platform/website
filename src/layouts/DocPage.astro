@@ -26,12 +26,6 @@ type Props = {
   headings: MarkdownHeading[];
 };
 
-type Data = {
-  id: string;
-  collection: keyof ContentEntryMap;
-  slug: string;
-};
-
 const { title, description, headings } = Astro.props;
 const {
   collection,
@@ -56,7 +50,7 @@ const {
   };
 })();
 
-const data = (await getEntry(collection, id)) as Data;
+const data = await getEntry(collection, id);
 if (!data || !data?.id || !data?.collection) {
   throw Error('Oops! Unexpected response data');
 }

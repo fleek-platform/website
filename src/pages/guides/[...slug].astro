@@ -31,11 +31,11 @@ const githubEditUrlPathname = generateGitHubEditLink({
   slug={slug}
 >
   <article class="blog">
-    <div class="mb-10 w-fit" onclick="history.back()">
+    <a class="mb-10 w-fit" href="/guides">
       <ButtonGray className="flex items-center justify-center gap-12 px-5">
         <div>Go Back</div>
       </ButtonGray>
-    </div>
+    </a>
     <h1>{entry.data.title}</h1>
     {
       entry.data?.image?.src && (

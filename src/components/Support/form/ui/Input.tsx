@@ -1,3 +1,4 @@
+import clsx from 'clsx';
 import React, { useEffect, useState } from 'react';
 
 interface InputProps {
@@ -12,9 +13,13 @@ interface InputProps {
   [key: string]: any;
 }
 
+interface IsRequiredComponentProps {
+  isRequired: boolean;
+}
+
 const Input: React.FC<InputProps> = ({
   type = 'text',
-  value: propValue,
+  value: propValue = '',
   onChange,
   label = 'Name',
   readOnly,
@@ -23,11 +28,10 @@ const Input: React.FC<InputProps> = ({
   name,
   ...props
 }) => {
-  const [value, setValue] = useState<string | FileList>(propValue || '');
-  const [fileList, setFileList] = useState<File[]>([]);
+  const [inputValue, setInputValue] = useState<string>(propValue);
 
   useEffect(() => {
-    setValue(propValue || '');
+    setInputValue(propValue);
   }, [propValue]);
 
   const handleChange = (
@@ -36,7 +40,7 @@ const Input: React.FC<InputProps> = ({
       | React.ChangeEvent<HTMLTextAreaElement>,
   ) => {
     const newValue = e.target.value;
-    setValue(newValue);
+    setInputValue(newValue);
     if (onChange) {
       onChange(newValue);
     }
@@ -50,19 +54,19 @@ const Input: React.FC<InputProps> = ({
           htmlFor={`input-${name}`}
         >
           {label}
-          {isRequired && <span className="text-[#FC8181]">*</span>}
-          {!isRequired && <span>(Optional)</span>}
+          <IsRequiredField isRequired />
         </label>
         <textarea
           id={`input-${name}`}
           rows={10}
           placeholder="Describe your issue..."
+          value={inputValue}
           onChange={handleChange}
           {...props}
-          className="w-full rounded-[6px] border border-[#313538]  bg-[#111111] px-[1.1rem] py-[.7rem] text-[1.3rem] outline-none placeholder:text-[1.5rem] focus:border focus:border-[#369eff] md:text-[1.6rem]"
+          className="w-full rounded-[6px] border border-ui-mid-white bg-gray-dark-1 px-[1.1rem] py-[.7rem] text-[1.3rem] outline-none placeholder:text-[1.5rem] focus:border focus:border-ui-medium-blue md:text-[1.6rem]"
         />
         {bottomText && (
-          <span className="my-[4px] text-[1.2rem] font-medium text-[#718096] md:text-[1.3rem] xl:my-[6px] xl:text-[1.4rem]">
+          <span className="my-[4px] text-[1.2rem] font-medium text-ui-dark-grey md:text-[1.3rem] xl:my-[6px] xl:text-[1.4rem]">
             {bottomText}
           </span>
         )}
@@ -77,27 +81,34 @@ const Input: React.FC<InputProps> = ({
         htmlFor={`input-${name}`}
       >
         {label}
-        {isRequired && <span className="text-[#FC8181]">*</span>}
-        {!isRequired && <span>(Optional)</span>}
+        <IsRequiredField isRequired />
       </label>
       <input
-        className="w-full rounded-[6px] border border-[#313538]  bg-[#111111] px-[1.1rem] py-[.7rem] text-[1.3rem] outline-none focus:border focus:border-[#369eff] md:text-[1.6rem]"
+        className="w-full rounded-[6px] border border-ui-mid-white bg-gray-dark-1 px-[1.1rem] py-[.7rem] text-[1.3rem] outline-none focus:border focus:border-ui-medium-blue md:text-[1.6rem]"
         type={type}
         required
         id={`input-${name}`}
         readOnly={readOnly}
         name={name}
-        value={value as string}
+        value={inputValue}
         onChange={handleChange}
         {...props}
       />
       {bottomText && (
-        <span className="my-[4px] text-[1.2rem] font-medium text-[#718096] md:text-[1.3rem] xl:my-[6px] xl:text-[1.4rem]">
+        <span className="my-[4px] text-[1.2rem] font-medium text-ui-dark-grey md:text-[1.3rem] xl:my-[6px] xl:text-[1.4rem]">
           {bottomText}
         </span>
       )}
     </div>
   );
 };
+
+function IsRequiredField({ isRequired }: IsRequiredComponentProps) {
+  return (
+    <span className={clsx({ 'text-yellow-dark-9': isRequired })}>
+      {isRequired ? '*' : '(Optional)'}
+    </span>
+  );
+}
 
 export default Input;

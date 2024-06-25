@@ -3,8 +3,8 @@ import '@styles/supportPage.css';
 import settings from '@base/settings.json';
 
 import BaseHtml from './BaseHtml.astro';
-const zdKey = settings.support.zendeskKey;
-const srcLink = `https://static.zdassets.com/ekr/snippet.js?key=${zdKey}`;
+const zendeskPublicSnippetKey = settings.support.zendesk.publicSnippetKey;
+const srcLink = `https://static.zdassets.com/ekr/snippet.js?key=${zendeskPublicSnippetKey}`;
 
 const { title, description, image, slug } = Astro.props;
 ---

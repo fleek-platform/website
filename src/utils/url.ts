@@ -54,8 +54,5 @@ export const generateSlug = (input: string): string => {
   return normalized;
 };
 
-export function checkPathnameForString(string: string, pathname: string) {
-  const path = pathname;
-
-  return path?.includes(string);
-}
+export const pathContains = (term: string, path: string): boolean =>
+  path.includes(term);

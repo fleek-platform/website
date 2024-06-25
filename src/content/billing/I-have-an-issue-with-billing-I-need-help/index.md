@@ -1,7 +1,7 @@
 ---
 title: 'I have an issue with billing, I need help'
 date: 2023-03-17
-desc: 'Our staff will manually process your request and reply back within 48 hours.'
+desc: 'Get Billing help information for your account'
 thumbnail: './dns-fleek.png'
 image: './dns-fleek.png'
 ---

@@ -10,7 +10,7 @@ export const { zenDeskEndpoint } = (() => {
 
   if (!zenDeskEndpoint) {
     throw Error(
-      `👹 Oops! Missing environment variable (host ${zenDeskEndpoint})`,
+      `👹 Oops! Missing environment variable (host PUBLIC_SUPPORT_API)`,
     );
   }
 
@@ -48,7 +48,7 @@ function NewRequestForm() {
   const submitForm = async () => {
     const formData = new URLSearchParams();
     Object.entries(formValues).forEach(([key, value]) => {
-      formData.append(key, value as string);
+      formData.append(key, value);
     });
 
     try {
@@ -66,8 +66,10 @@ function NewRequestForm() {
 
       const data = await response.json();
 
-      if (data.success == false) {
-        toast.error(data.error.issues[0].message);
+      if (!data.success) {
+        const msg =
+          data.error?.issues?.[0]?.message ?? 'Oops! An unknown error occurred';
+        toast.error(msg);
       } else {
         toast.success('Request submitted successfully');
         resetFormValues();
@@ -88,7 +90,7 @@ function NewRequestForm() {
       className="mx-auto my-[35px] w-[90%] max-w-[768px] lg:w-[70%] xl:w-[65%]"
     >
       <div className="rounded-[8px] border border-[#313538] px-[2.5rem] py-[3rem] md:px-[4rem]">
-        <h1 className="text-[3.2rem] font-medium text-[#ECEDEE] md:text-[3.5rem] xl:text-[4rem]">
+        <h1 className="text-[3.2rem] font-medium text-ui-faded-gray md:text-[3.5rem] xl:text-[4rem]">
           Submit a request
         </h1>
 
@@ -100,7 +102,7 @@ function NewRequestForm() {
           <Input
             type="text"
             name="name"
-            value={formValues.name as string}
+            value={formValues.name}
             isRequired={true}
             onChange={(value) => handleInputChange('name', value)}
             label="Name"
@@ -111,7 +113,7 @@ function NewRequestForm() {
           <Input
             type="email"
             name="email"
-            value={formValues.email as string}
+            value={formValues.email}
             isRequired={true}
             onChange={(value) => handleInputChange('email', value)}
             label="Your email address"
@@ -122,7 +124,7 @@ function NewRequestForm() {
           <Input
             type="text"
             name="subject"
-            value={formValues.subject as string}
+            value={formValues.subject}
             isRequired={true}
             onChange={(value) => handleInputChange('subject', value)}
             label="Subject"
@@ -133,7 +135,7 @@ function NewRequestForm() {
           <Input
             type="textarea"
             name="comment"
-            value={formValues.comment as string}
+            value={formValues.comment}
             isRequired={true}
             bottomText="Description must contain at least 30 character(s)"
             onChange={(value) => handleInputChange('comment', value)}

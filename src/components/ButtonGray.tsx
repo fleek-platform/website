@@ -12,7 +12,6 @@ const ButtonGray: React.FC<React.PropsWithChildren<Props>> = ({
 }) => {
   return (
     <button
-      // id="goBackButton"
       className={`${props.border} inline-block rounded-12 bg-gray-dark-4 px-32 py-16 hover:bg-gray-dark-5`}
       onClick={onClick}
     >

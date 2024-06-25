@@ -30,11 +30,6 @@
         "description": "Fleek is an edge-optimized cloud platform. Effortlessly build, ship and scale highly performant apps. Try for free and deploy an app in 5 minutes.",
         "image": "/images/fleek-meta.png?202406061658"
       },
-      "references": {
-        "title": "References",
-        "description": "Fleek is an edge-optimized cloud platform. Effortlessly build, ship and scale highly performant apps. Try for free and deploy an app in 5 minutes.",
-        "image": "/images/fleek-meta.png?202406061658"
-      },
       "pricing": {
         "title": "Pricing",
         "description": "Fleek is an edge-optimized cloud platform. Effortlessly build, ship and scale highly performant apps. Try for free and deploy an app in 5 minutes.",
@@ -45,8 +40,8 @@
         "description": "Fleek is an edge-optimized cloud platform. Effortlessly build, ship and scale highly performant apps. Try for free and deploy an app in 5 minutes.",
         "image": "/images/fleek-meta.png?202406061658"
       },
-      "troubleshooting": {
-        "title": "Troubleshooting",
+      "references": {
+        "title": "References",
         "description": "Fleek is an edge-optimized cloud platform. Effortlessly build, ship and scale highly performant apps. Try for free and deploy an app in 5 minutes.",
         "image": "/images/fleek-meta.png?202406061658"
       },
@@ -254,38 +249,40 @@
     "activeHostedFormApi": "https://fleek.activehosted.com/proc.php"
   },
   "support": {
-    "zendeskKey": "c0ecb1c1-369a-4543-b528-cbba3f2fb35d",
+    "zendesk": {
+      "publicSnippetKey": "c0ecb1c1-369a-4543-b528-cbba3f2fb35d"
+    },
     "supportMenu": [
       {
         "id": 1,
         "path": "/support",
-        "pathName": "Home"
+        "pathname": "Home"
       },
 
       {
         "id": 2,
         "path": "/references",
-        "pathName": "References"
+        "pathname": "References"
       },
       {
         "id": 3,
         "path": "/guides",
-        "pathName": "Guides"
+        "pathname": "Guides"
       },
       {
         "id": 4,
         "path": "/billing",
-        "pathName": "Billing"
+        "pathname": "Billing"
       },
       {
         "id": 5,
         "path": "/requests/report-site",
-        "pathName": "Report a site"
+        "pathname": "Report a site"
       },
       {
         "id": 6,
         "path": "/requests/new",
-        "pathName": "Submit a request"
+        "pathname": "Submit a request"
       }
     ]
   }

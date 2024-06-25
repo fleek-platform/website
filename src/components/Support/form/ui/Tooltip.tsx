@@ -3,7 +3,7 @@ import { IoIosInformationCircle } from 'react-icons/io';
 function Tooltip() {
   return (
     <form action="">
-      <div className="flex items-center gap-[6px] rounded-[0.5rem] border border-[#369eff] p-[1rem] lg:gap-[10px] lg:px-[1.3rem] lg:py-[1.4rem] xl:px-[1.5rem] xl:py-[1.55rem]">
+      <div className="flex items-center gap-[6px] rounded-[0.5rem] border border-ui-medium-blue p-[1rem] lg:gap-[10px] lg:px-[1.3rem] lg:py-[1.4rem] xl:px-[1.5rem] xl:py-[1.55rem]">
         <div>
           <IoIosInformationCircle
             fill="#61a5ff"

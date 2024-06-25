@@ -61,17 +61,14 @@ export const youtubeEmbedVideos = [
   {
     widgetId: '1',
     id: 'AZhvyHAoFfo',
-    src: 'https://www.youtube.com/embed/AZhvyHAoFfo',
   },
 
   {
     widgetId: '2',
     id: 'ZR6hoLODDvI',
-    src: 'https://www.youtube.com/embed/ZR6hoLODDvI',
   },
   {
     widgetId: '3',
     id: '2OzwtDH7K0A',
-    src: 'https://www.youtube.com/embed/2OzwtDH7K0A',
   },
 ];

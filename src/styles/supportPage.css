@@ -2,7 +2,7 @@
 
 @layer components {
   .support {
-    @apply box-border min-h-screen pb-128 font-sans text-[1.5rem] text-[#ECEDEE];
+    @apply box-border min-h-screen pb-128 font-sans text-[1.5rem] text-ui-faded-gray;
   }
 }
 

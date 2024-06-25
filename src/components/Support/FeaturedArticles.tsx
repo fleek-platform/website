@@ -9,7 +9,7 @@ export type SingleArticleCardProps = {
 
 function FeaturedArticles() {
   return (
-    <div className="mx-auto  w-[85%] max-w-[768px] lg:w-full">
+    <div className="mx-auto w-[85%] max-w-[768px] lg:w-full">
       <div className="my-[1.4rem]">
         <h2 className="text-[1.5rem] font-semibold xl:text-[2rem]">
           Featured Articles
@@ -35,11 +35,11 @@ function SingleArticleCard({
         <div className="flex-1">
           <a
             href={link}
-            className="text-[1.3rem] font-semibold text-[#9BA1A6] hover:text-[#2294ff] hover:underline xl:text-[1.5rem]"
+            className="text-[1.3rem] font-semibold text-gray-dark-11 hover:text-ui-light-blue hover:underline xl:text-[1.5rem]"
           >
             {title}
           </a>
-          <small className="my-[1rem] block text-[1.2rem] text-[#9BA1A6] xl:text-[1.4rem]">
+          <small className="my-[1rem] block text-[1.2rem] text-gray-dark-9 xl:text-[1.4rem]">
             {description}
           </small>
         </div>

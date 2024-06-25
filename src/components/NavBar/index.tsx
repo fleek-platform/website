@@ -13,7 +13,7 @@ import { FaDiscord } from 'react-icons/fa';
 import { RxHamburgerMenu } from 'react-icons/rx';
 import { RxCross2 } from 'react-icons/rx';
 
-import { checkPathnameForString, isActivePath } from '@utils/url';
+import { isActivePath } from '@utils/url';
 
 import { NavBarDefault } from './config';
 

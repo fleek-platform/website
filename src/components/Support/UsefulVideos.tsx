@@ -7,15 +7,18 @@ import 'swiper/css/navigation';
 import { Navigation } from 'swiper/modules';
 import { youtubeEmbedVideos } from './config';
 
-export type YoutubeEmbedVideoProps = {
-  id: string;
-  src: string;
-  widgetId: string;
+type UsefulVideosProps = {
+  pageOriginURL: string;
 };
 
-function UsefulVideos() {
+export type YoutubeEmbedVideoProps = {
+  id: string;
+  widgetId: string;
+} & UsefulVideosProps;
+
+function UsefulVideos({ pageOriginURL }: UsefulVideosProps) {
   return (
-    <div className="mx-auto mt-[20px] w-[85%] max-w-[768px]  lg:w-full">
+    <div className="mx-auto mt-[20px] w-[85%] max-w-[768px] lg:w-full">
       <div>
         <h2 className="my-[1rem] text-[1.5rem] font-semibold xl:text-[2rem]">
           Useful Videos
@@ -37,7 +40,7 @@ function UsefulVideos() {
         >
           {youtubeEmbedVideos.map((youtubeVideo) => (
             <SwiperSlide key={youtubeVideo.id}>
-              <VideoCard {...youtubeVideo} />
+              <VideoCard {...youtubeVideo} pageOriginURL={pageOriginURL} />
             </SwiperSlide>
           ))}
         </Swiper>
@@ -46,8 +49,8 @@ function UsefulVideos() {
   );
 }
 
-function VideoCard({ id, src, widgetId }: YoutubeEmbedVideoProps) {
-  const videoSrc = `${src}?enablejsapi=1&origin=https%3A%2F%2Fsupport.fleek.xyz&widgetid=${widgetId}'`;
+function VideoCard({ id, widgetId, pageOriginURL }: YoutubeEmbedVideoProps) {
+  const videoSrc = `https://www.youtube.com/embed/${id}?enablejsapi=1&origin=${pageOriginURL}&widgetid=${widgetId}'`;
   return (
     <div className="xl:w-full">
       <iframe

@@ -21,7 +21,6 @@ export enum ContentDirByName {
   'docs' = `${contentBasePath}/docs`,
   'guides' = `${contentBasePath}/guides`,
   'references' = `${contentBasePath}/references`,
-  'troubleshooting' = `${contentBasePath}/troubleshooting`,
   'billing' = `${contentBasePath}/billing`,
 }
 

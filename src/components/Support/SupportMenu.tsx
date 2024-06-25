@@ -3,64 +3,51 @@ import React, { useCallback, useState } from 'react';
 import { MdKeyboardArrowDown, MdOutlineKeyboardArrowUp } from 'react-icons/md';
 import settings from '@base/settings.json';
 import clsx from 'clsx';
+import { pathContains } from '@utils/url';
 
 const supportMenu = settings.support.supportMenu;
 
 type SupportMenuProps = {
-  pathName: string;
+  pathname: string;
 };
 
-const SupportMenu: React.FC<SupportMenuProps> = ({ pathName }) => {
+const SupportMenu: React.FC<SupportMenuProps> = ({ pathname }) => {
   return (
     <div className="container relative mb-[3.5rem] xl:mb-[5rem]">
       <Container>
         <nav className="md:static md:w-auto">
-          <SupportMenuMobile pathName={pathName} />
-          <SupportMenuDesktop pathName={pathName} />
+          <SupportMenuMobile pathname={pathname} />
+          <SupportMenuDesktop pathname={pathname} />
         </nav>
       </Container>
     </div>
   );
 };
 
-function SupportMenuDesktop({ pathName }: SupportMenuProps) {
-  const getActivePath = useCallback(
-    (path: string) => {
-      return pathName.includes(path);
-    },
-    [pathName],
-  );
-
+function SupportMenuDesktop({ pathname }: SupportMenuProps) {
   return (
     <ul
-      className={`hidden border-b-2 border-gray-700  pl-16 md:flex  md:items-center lg:px-28`}
+      className={`hidden border-b-2 border-gray-700 pl-16 md:flex md:items-center lg:px-28`}
     >
       {supportMenu.map((item) => (
         <li
           key={item.id}
           className={clsx(
-            'mb-[1rem] cursor-pointer px-[10px] py-[4px] text-[1.5rem] font-semibold hover:text-[#2294ff] xl:my-[1.5rem]   xl:text-[1.6rem]',
+            'mb-[1rem] cursor-pointer px-[10px] py-[4px] text-[1.5rem] font-semibold hover:opacity-50 xl:my-[1.5rem] xl:text-[1.6rem]',
             {
-              'text-[#2294ff]': getActivePath(item.path),
+              'opacity-50': pathContains(item.path, pathname),
             },
           )}
         >
-          <a href={item.path}>{item.pathName}</a>
+          <a href={item.path}>{item.pathname}</a>
         </li>
       ))}
     </ul>
   );
 }
 
-function SupportMenuMobile({ pathName }: SupportMenuProps) {
+function SupportMenuMobile({ pathname }: SupportMenuProps) {
   const [isExpanded, setIsExpanded] = useState(false);
-
-  const getActivePath = useCallback(
-    (path: string) => {
-      return pathName.includes(path);
-    },
-    [pathName],
-  );
 
   const handleExpandClick = () => {
     setIsExpanded(!isExpanded);
@@ -68,7 +55,7 @@ function SupportMenuMobile({ pathName }: SupportMenuProps) {
   return (
     <>
       <div className="flex w-full items-center justify-between px-[20px] md:hidden">
-        <p className="my-[.6rem]  text-[1.3rem] font-semibold">Categories</p>
+        <p className="my-[.6rem] text-[1.3rem] font-semibold">Categories</p>
         <div>
           <button
             className="block p-4 text-gray-400 hover:text-gray-700 md:hidden"
@@ -83,19 +70,23 @@ function SupportMenuMobile({ pathName }: SupportMenuProps) {
         </div>
       </div>
       <ul
-        className={`flex flex-col border-b-2 border-gray-700 px-[20px]   ${isExpanded ? '' : 'h-[10px] overflow-y-scroll'} md:hidden`}
+        className={clsx(
+          'flex flex-col border-b-2 border-gray-700 px-[20px]',
+          { 'h-[10px] overflow-y-scroll': !isExpanded },
+          'md:hidden',
+        )}
       >
         {supportMenu.map((item) => (
           <li
             key={item.id}
             className={clsx(
-              'cursor-pointer p-4 text-[1.3rem]  hover:text-[#2294ff]',
+              'cursor-pointer p-4 text-[1.3rem] hover:opacity-50',
               {
-                'text-[#2294ff]': getActivePath(item.path),
+                'opacity-50': pathContains(item.path, pathname),
               },
             )}
           >
-            <a href={item.path}>{item.pathName}</a>
+            <a href={item.path}>{item.pathname}</a>
           </li>
         ))}
       </ul>
