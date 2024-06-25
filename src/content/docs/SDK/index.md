@@ -100,7 +100,8 @@ const fleekSdk = new FleekSdk({
 
 ## ApplicationAccessTokenService
 
-Application credentials are the access tokens to your project. They are used to authenticate your application with Fleek's services. It's feasible to produce multiple application credentials for a single project, each having different permissions.
+Application credentials are the access tokens to your project. You can use this authentication method if you want to upload files or directories
+to the Fleek Storage. For other SDK methods you need to use the PersonalAccessTokenService.
 
 You can create an application token following the steps [here](/docs/platform/projects#application-credentials).
 
