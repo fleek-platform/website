@@ -33,6 +33,7 @@ This repository contains the source code and assets for the Fleek.xyz website, w
     - [Metadata](#metadata)
         - [Open Graph preview](#open-graph-preview)
         - [Troubleshooting open graph](#troubleshooting-open-graph)
+        - [Customise Blog Categories](#-customise-blog-categories)
 - [Development](#-development)
     - [Search server](#-search-server)
       - [Multi-index search](#multi-index-search)
@@ -620,6 +621,34 @@ For example, let's say that you want to preview the Blog post for "Introducing F
 ### Troubleshooting open graph
 
 It's important to note that if you encounter issues with Open Graph meta tags not displaying correctly on a platform, the first step should be to utilize a validator tool, similar to the one provided in the URL above. This is because our system automatically provides the metadata content, but discrepancies may arise if certain requirements are overlooked by the platform, e.g., persistent cache. Additionally, if a specific URL encounters problems due to previous issues, you can circumvent caching by appending a query parameter to the end of the URL. For example, modifying [https://fleek.xyz/blog/announcements/introducing-fleek-functions](https://fleek.xyz/blog/announcements/introducing-fleek-functions) to [https://fleek.xyz/blog/announcements/introducing-fleek-functions?202406101836](https://fleek.xyz/blog/announcements/introducing-fleek-functions?202406101836). This method is recommended as a preliminary troubleshooting step to identify the source of the problem.
+
+### Customise Blog Categories
+
+You can customise the Blog category list page metadata fields by editing the settings file in [./src/settings.json].
+
+```json
+"blog": {
+  ...
+  "category": {
+    "category-name-here": {
+      "title": "My title",
+      "description": "My description"
+    }
+  }
+```
+
+You can extend the category field with any category name. Notice that category names should match the system name or directory name, e.g. [announcements](https://github.com/fleek-platform/website/tree/a0d7f8ac9c552f1a3d8469b9cfaddfe805ed8c6b/src/content/blog/announcements).
+
+```json
+"blog": {
+  ...
+  "category": {
+    "announcements": {
+      "title": "Announcements",
+      "description": "The announcements description"
+    }
+  }
+```
 
 # 👷‍♀️Development
 
