@@ -26,6 +26,9 @@ const indexNameBlog = import.meta.env.PUBLIC_MEILISEARCH_INDEX_BLOG;
 
 const { category } = Astro.params;
 
+const title = settings.site.metadata.blog.category[category].title || settings.site.metadata.blog.title;
+const description = settings.site.metadata.blog.category[category].description || settings.site.metadata.blog.description;
+
 const collection = 'blog';
 
 const allPosts: CollectionEntry<'blog'>[] = (
@@ -34,8 +37,8 @@ const allPosts: CollectionEntry<'blog'>[] = (
 ---
 
 <Layout
-  title={settings.site.metadata.blog.title}
-  description={settings.site.metadata.blog.description}
+  title={title}
+  description={description}
 >
   <main class="container min-h-container">
     <BlogHeader title="Blog" indexName={indexNameBlog} category={category} />
