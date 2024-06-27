@@ -74,7 +74,7 @@ First of all, it’s important to take a look at the [development official docum
 - [Create your first deployment](https://docs.akash.network/guides/cli/detailed-steps/part-7.-create-your-deployment) - guide to how to deploy with Akash.
 - [SDK javascript](https://github.com/akash-network/akashjs) - JS library to interact with Akash Network.
 - [See all available integrations with Akash](https://docs.akash.network/deploy)
-- [Core Community Groups ](https://akash.network/community/core-groups/cg-list/)- Community groups working on standards related to Akash.
+- [Core Community Groups ](https://akash.network/community/akash-insiders/)- Community groups working on standards related to Akash.
 
 ---
 

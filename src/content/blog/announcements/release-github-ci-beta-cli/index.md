@@ -48,5 +48,3 @@ Found a bug, or want to suggest a feature? Visit our [Discord](https://discord.g
 ---
 
 That’s all for today! A flash-release expanding our Sites Deployment features. What’s next in line for our release calendar? We’re working on adding custom domain management to the CLI next! Stay tuned to our [Twitter](https://twitter.com/fleek) or [Discord](https://discord.gg/fleek) to find out more about it.
-
-For more resources visit our [LinkTree](https://linktr.ee/fleek).

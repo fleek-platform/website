@@ -62,7 +62,7 @@ For example, by creating a file named about.js in the pages directory and export
 
 Dynamic routing in Next.js allows apps to direct users to content-specific pages based on the unique ID in the URL. Here’s an example to understand this better:
 
-Let’s say a user accesses a URL like ‘[example.com/currencies/bitcoin](http://example.com/currencies/bitcoin)’, Next.js automatically detects the part of the URL that is dynamic, represented by [id] in the route’s file name. In this case, it recognizes bitcoin as the id parameter from the URL.
+Let’s say a user accesses a URL like example.com/currencies/bitcoin, Next.js automatically detects the part of the URL that is dynamic, represented by [id] in the route’s file name. In this case, it recognizes bitcoin as the id parameter from the URL.
 
 Next, it fetches relevant data and populates a template page dynamically. This simplifies the development process as it uses a single template to create similar pages.
 

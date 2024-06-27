@@ -15,7 +15,7 @@ image: './communityhostednfas.png'
 
 ---
 
-A month ago we dropped an announcement that we were working on a new web3 primitive: Non-Fungible Apps (NFAs). If you missed the announcement, [go read it](https://blog.fleek.co/posts/introducing-nfas-non-fungible-apps), brush up on the core concept of NFAs (at least the TL;DR), and this blog will make much more sense.
+A month ago we dropped an announcement that we were working on a new web3 primitive: Non-Fungible Apps (NFAs). If you missed the announcement, [go read it](/blog/uncategorized/introducing-nfas-non-fungible-apps/), brush up on the core concept of NFAs (at least the TL;DR), and this blog will make much more sense.
 
 Today, we’re back to announce that we’re working on the MVP for NFAs (to be released in April) that will have a large focus on **decentralizing one of the most vulnerable yet most used parts of web3 apps – their frontend**. In tandem with the Fleek.xyz platform, community hosted NFAs will enable founders, DAOs, and developers alike to empower their community to run verifiable frontends for them.
 
@@ -25,7 +25,6 @@ We’ll touch on a few different topics in this blog, jump ahead using the links
 - [What progress has been made on NFAs and what is left?](#mvp-development-progress)
 - [How does Fleek tie into all of this?](#so-how-does-fleekxyz-fit-into-the-picture)
 
-Prefer to dig into code instead of reading? You’re in luck, NFAs have been open source from day one and we’ve got [an MVP working branch](https://github.com/fleekxyz/non-fungible-apps/tree/develop) in development for you to check out.
 
 ---
 
@@ -61,7 +60,7 @@ While anyone will be able to interact with the NFA contract directly, we’re bu
 
 ### Contracts
 
-Alongside the first NFAs release, we dropped [NFA’s V0](https://github.com/fleekxyz/non-fungible-apps) which included a POC from which the NFAs contract could be hardened from.
+Alongside the first NFAs release, we dropped NFA’s V0 which included a POC from which the NFAs contract could be hardened from.
 
 We’re currently working on extending the V0 contracts to include logic for new things such as community hosting, on-chain SVG storage for NFA preview images, and gas optimizations.
 
@@ -71,7 +70,7 @@ Once solidified, we’ll bundle all of this up into [an EIP](https://eips.ethere
 
 To add some extra magic 🪄 to NFAs we’re spinning up a few off-chain components:
 
-- An NFAs subgraph via TheGraph protocol ([PR here](https://github.com/fleekxyz/non-fungible-apps/pull/72))
+- An NFAs subgraph via TheGraph protocol 
 - Build verification pipeline leveraging Fleek.xyz.
 - DNS verification for Access Point validity.
 
@@ -91,11 +90,10 @@ In the future, **NFAs will be fully integrated into the Fleek.xyz platform**. Fo
 
 ---
 
-That’s a wrap! If you’ve got any questions, want to start playing around with NFAs early, or want to contribute some code (we’re open source, ya know) hop over to [our Github](https://github.com/fleekxyz/non-fungible-apps0) or [our Discord](https://discord.gg/fleek)!
+That’s a wrap! If you’ve got any questions, want to start playing around with NFAs early, or want to contribute some code (we’re open source, ya know) hop over to [our Discord](https://discord.gg/fleek)!
 
 Enjoyed brushing up on NFAs? You’ll love our other recent blogs:
 
-- [Introducing NFA’s: Non-Fungible Apps](https://blog.fleek.co/posts/introducing-nfas-non-fungible-apps)
-- [Fleek CLI Beta Announcement (w/ IPFS Pinning)](https://blog.fleek.co/posts/release-ipfs-pinning-ipns-beta-fleek-xyz)
+- [Introducing NFA’s: Non-Fungible Apps](/uncategorized/introducing-nfas-non-fungible-apps/)
+- [Fleek CLI Beta Announcement (w/ IPFS Pinning)](/announcements/release-ipfs-pinning-ipns-beta-fleek-xyz/)
 
-For all other socials, docs, contact info, and more, checkout [our Linktree](https://linktr.ee/fleek) ⚡️

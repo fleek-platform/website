@@ -57,5 +57,3 @@ This release comes with a lot more features for domain management, and general e
 Time to build away! Let us know what ideas pop up as you test the SDK, and tweet your builds at us or share them on Discord. The team’s excited to start opening up Fleek as the infrastructure layer for all web3 apps.
 
 Found a bug, got an idea or request? Visit our [Discord](https://discord.gg/fleek) and let us know.
-
-For more resources visit our [LinkTree](https://linktr.ee/fleek) ⚡

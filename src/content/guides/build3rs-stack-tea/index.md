@@ -61,7 +61,7 @@ _Have you ever heard of “the Nebraska problem”?_ This theory, [coined by Ran
 
 These libraries are all around our web infrastructure, **and their developers are rarely compensated for their job.**
 
-How is Tea going to change that? Moving the package registry on-chain, and essentially **creating a protocol** –tea token included– to enable a reward platform for developers: package maintainers would publish their releases to a decentralized registry powered by a fault-tolerant blockchain. This means automatic & secure indirect compensation to developers by creators, users and peer reviewers in the developer world by means of the tea token (or, [as the whitepaper describes it](https://tea.xyz/tea.white-paper.pdf), “steeping tea”).
+How is Tea going to change that? Moving the package registry on-chain, and essentially **creating a protocol** –tea token included– to enable a reward platform for developers: package maintainers would publish their releases to a decentralized registry powered by a fault-tolerant blockchain. This means automatic & secure indirect compensation to developers by creators, users and peer reviewers in the developer world by means of the tea token (or, [as the whitepaper describes it](https://docs.tea.xyz/tea-white-paper/white-paper), “steeping tea”).
 
 ![](./tea-rewards.png)
 
@@ -83,6 +83,6 @@ The protocol side of Tea **is still in an early stage of development**, but we h
 
 We hope this overview has given you a good starting point for getting started on brewing Tea! Be sure to follow Tea to keep up to date on further updates.
 
-Keep expanding your stack— [check out our previous Build3rs Stack](https://fleek.xyz/guides/) for more web3 infrastructure overviews. You can also [join our Discord server](https://discord.gg/fleek) to jam with the team and learn more!
+Keep expanding your stack— [check out our previous Build3rs Stack](/guides) for more web3 infrastructure overviews. You can also [join our Discord server](https://discord.gg/fleek) to jam with the team and learn more!
 
 For more resources, please visit [our LinkTree](https://linktr.ee/fleek) ⚡
