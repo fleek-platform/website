@@ -33,7 +33,7 @@ This repository contains the source code and assets for the Fleek.xyz website, w
     - [Metadata](#metadata)
         - [Open Graph preview](#open-graph-preview)
         - [Troubleshooting open graph](#troubleshooting-open-graph)
-        - [Customise Blog Categories](#-customise-blog-categories)
+        - [Customise Blog Categories](#customise-blog-categories)
 - [Development](#-development)
     - [Search server](#-search-server)
       - [Multi-index search](#multi-index-search)
