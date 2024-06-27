@@ -1,9 +1,9 @@
 ---
 title: 'Node engine errors'
 date: 2023-03-16
-desc: "If you are getting node engine mismatch errors, don't worry. It only means the docker image you selected does not have the required node version."
-thumbnail: './dns-fleek.png'
-image: './dns-fleek.png'
+desc: 'Node engine mismatch errors indicate the selected Docker image lacks the required Node.js versions'
+thumbnail: './node-engine-errors.png'
+image: './node-engine-errors.png'
 ---
 
 If you are getting node engine mismatch errors, don't worry. It only means the docker image you selected does not have the required node version.

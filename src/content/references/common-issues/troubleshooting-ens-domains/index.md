@@ -2,8 +2,8 @@
 title: 'Troubleshooting ENS domains'
 date: 2023-03-17
 desc: 'This guide takes you step by step through the process of providing a unique hostname, creating a Content Acceleration Zone, and configuring domain settings.'
-thumbnail: './dns-fleek.png'
-image: './dns-fleek.png'
+thumbnail: './troubleshooting-ens-domains.png'
+image: './troubleshooting-ens-domains.png'
 ---
 
 ### Verifying your .eth domain was linked properly
