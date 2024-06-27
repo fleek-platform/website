@@ -33,10 +33,12 @@ const indexNameBlog = import.meta.env.PUBLIC_MEILISEARCH_INDEX_BLOG;
 
 const { category } = Astro.params;
 
-const blogSettings = settings.site.metadata.blog.category as BlogCustomCategoryMetadata;
+const blogSettings = settings.site.metadata.blog
+  .category as BlogCustomCategoryMetadata;
 
 const title = blogSettings[category].title || settings.site.metadata.blog.title;
-const description = blogSettings[category].description || settings.site.metadata.blog.description;
+const description =
+  blogSettings[category].description || settings.site.metadata.blog.description;
 
 const collection = 'blog';
 
@@ -45,10 +47,7 @@ const allPosts: CollectionEntry<'blog'>[] = (
 ).sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf());
 ---
 
-<Layout
-  title={title}
-  description={description}
->
+<Layout title={title} description={description}>
   <main class="container min-h-container">
     <BlogHeader title="Blog" indexName={indexNameBlog} category={category} />
     <BlogPosts allPosts={allPosts} collection={collection} />
