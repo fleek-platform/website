@@ -18,7 +18,29 @@
       "blog": {
         "title": "Home | Fleek Blog",
         "description": "Stay updated with blog posts from the Fleek team and community. Explore articles and insights on the latest trends and advancements in web development.",
-        "image": "/images/fleek-meta.png?202406061658"
+        "image": "/images/fleek-meta.png?202406061658",
+        "category": {
+          "announcements": {
+            "title": "Announcements",
+            "description": ""
+          },
+          "changelog": {
+            "title": "Changelog",
+            "description": ""
+          },
+          "learn": {
+            "title": "Learn",
+            "description": ""
+          },
+          "templates": {
+            "title": "Templates",
+            "description": ""
+          },
+          "uncategorized": {
+            "title": "Uncategorized",
+            "description": ""
+          }
+        }
       },
       "docs": {
         "title": "Docs",
