@@ -17,24 +17,24 @@
       },
       "blog": {
         "title": "Blog",
-        "description": "Fleek is an edge-optimized cloud platform. Effortlessly build, ship and scale highly performant apps. Try for free and deploy an app in 5 minutes.",
+        "description": "Stay updated with blog posts from the Fleek team and community. Explore articles and insights on the latest trends and advancements in web development.",
         "image": "/images/fleek-meta.png?202406061658",
         "category": {
           "announcements": {
             "title": "Announcements",
-            "description": ""
+            "description": "Stay informed with the latest announcements from Fleek. Get insights on new features, updates, and company developments."
           },
           "changelog": {
             "title": "Changelog",
-            "description": ""
+            "description": "Keep track of all the updates and improvements on Fleek. Our changelog provides detailed information about the latest changes to our platform to help you stay ahead."
           },
           "learn": {
             "title": "Learn",
-            "description": ""
+            "description": "Explore educational content and learning resources on Fleek. Dive into tutorials, case studies, and expert advice to expand your skills and knowledge in web development."
           },
           "templates": {
             "title": "Templates",
-            "description": ""
+            "description": "Get started quickly with Fleek templates. Explore our collection of boilerplates and templates designed for fast build times and easy deployment."
           },
           "uncategorized": {
             "title": "Uncategorized",
@@ -49,7 +49,7 @@
       },
       "guides": {
         "title": "Guides",
-        "description": "Fleek is an edge-optimized cloud platform. Effortlessly build, ship and scale highly performant apps. Try for free and deploy an app in 5 minutes.",
+        "description": "Discover step-by-step guides and tutorials on Fleek to streamline your app and web development. Leverage our resources to build smarter, faster, and stress free.",
         "image": "/images/fleek-meta.png?202406061658"
       },
       "references": {
@@ -59,7 +59,7 @@
       },
       "pricing": {
         "title": "Pricing",
-        "description": "Fleek is an edge-optimized cloud platform. Effortlessly build, ship and scale highly performant apps. Try for free and deploy an app in 5 minutes.",
+        "description": "Discover Fleek's flexible pricing plans tailored to fit any project size. Start for free and upgrade as needed with our transparent, simple pricing structure.",
         "image": "/images/fleek-meta.png?202406061658"
       }
     },
