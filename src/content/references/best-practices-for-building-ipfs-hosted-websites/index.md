@@ -3,7 +3,6 @@ title: 'Best Practices for Building IPFS-hosted Websites'
 date: 2024-04-03
 desc: 'Best Practices for Building IPFS-hosted Websites'
 image: './best-practices-ipfs.png'
-author: 'Gonza'
 ---
 
 IPFS-hosted websites are gaining popularity as a way to host your site. Although the technology is still early, there's been some significant progress and it's an exciting to see fully fledged applications and sites performantly living on this technology.
