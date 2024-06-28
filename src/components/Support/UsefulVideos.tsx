@@ -13,7 +13,6 @@ type UsefulVideosProps = {
 
 export type YoutubeEmbedVideoProps = {
   id: string;
-  widgetId: string;
 } & UsefulVideosProps;
 
 function UsefulVideos({ pageOriginURL }: UsefulVideosProps) {
@@ -49,8 +48,8 @@ function UsefulVideos({ pageOriginURL }: UsefulVideosProps) {
   );
 }
 
-function VideoCard({ id, widgetId, pageOriginURL }: YoutubeEmbedVideoProps) {
-  const videoSrc = `https://www.youtube.com/embed/${id}?enablejsapi=1&origin=${pageOriginURL}&widgetid=${widgetId}'`;
+function VideoCard({ id, pageOriginURL }: YoutubeEmbedVideoProps) {
+  const videoSrc = `https://www.youtube.com/embed/${id}?enablejsapi=1&origin=${pageOriginURL}`;
   return (
     <div className="xl:w-full">
       <iframe

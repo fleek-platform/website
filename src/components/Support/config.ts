@@ -59,16 +59,13 @@ export const singleArticleCardItems = [
 
 export const youtubeEmbedVideos = [
   {
-    widgetId: '1',
     id: 'AZhvyHAoFfo',
   },
 
   {
-    widgetId: '2',
     id: 'ZR6hoLODDvI',
   },
   {
-    widgetId: '3',
     id: '2OzwtDH7K0A',
   },
 ];
