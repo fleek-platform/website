@@ -9,9 +9,7 @@ export const { zenDeskEndpoint } = (() => {
   const zenDeskEndpoint = import.meta.env.PUBLIC_SUPPORT_API;
 
   if (!zenDeskEndpoint) {
-    throw Error(
-      `👹 Oops! Missing environment variable PUBLIC_SUPPORT_API`,
-    );
+    throw Error(`👹 Oops! Missing environment variable PUBLIC_SUPPORT_API`);
   }
 
   return {
@@ -19,17 +17,16 @@ export const { zenDeskEndpoint } = (() => {
   };
 })();
 
-export type DynamicFormProps = {};
 const defaultFormValues = {
-      name: '',
-      email: '',
-      subject: '',
-      comment: '',
+  name: '',
+  email: '',
+  subject: '',
+  comment: '',
 };
 
 function NewRequestForm() {
   const [formValues, setFormValues] = useState<FormValuesType>({
-     ...defaultFormValues,
+    ...defaultFormValues,
   });
 
   const handleInputChange = (name: string, value: string | FileList) => {
@@ -41,7 +38,7 @@ function NewRequestForm() {
 
   const resetFormValues = () => {
     setFormValues({
-       ...defaultFormValues,
+      ...defaultFormValues,
     });
   };
 

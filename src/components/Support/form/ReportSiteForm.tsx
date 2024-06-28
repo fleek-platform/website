@@ -4,6 +4,7 @@ import Input from './ui/Input';
 import Tooltip from './ui/Tooltip';
 import { zenDeskEndpoint } from './NewRequestForm';
 import toast from 'react-hot-toast';
+import type { FormEvent } from 'react';
 
 export type FormValuesType = {
   email: string;
@@ -12,15 +13,15 @@ export type FormValuesType = {
   comment: string;
 };
 const defaultFormValues = {
-      name: '',
-      email: '',
-      subject: 'Report a site',
-      comment: '',
+  name: '',
+  email: '',
+  subject: 'Report a site',
+  comment: '',
 };
 
 function ReportSiteForm() {
   const [formValues, setFormValues] = useState<FormValuesType>({
-     ...defaultFormValues,
+    ...defaultFormValues,
   });
   const handleInputChange = (name: string, value: string | FileList) => {
     setFormValues((prevValues) => ({
@@ -30,7 +31,7 @@ function ReportSiteForm() {
   };
   const resetFormValues = () => {
     setFormValues({
-       ...defaultFormValues,
+      ...defaultFormValues,
     });
   };
   const submitForm = async () => {
@@ -77,7 +78,7 @@ function ReportSiteForm() {
       onSubmit={handleFormSubmit}
       className="mx-auto my-[35px] w-[90%] max-w-[768px] lg:w-[70%] xl:w-[65%]"
     >
-      <div className="rounded-[8px] border border-[#313538] px-[2.5rem] py-[3rem] md:px-[4rem]">
+      <div className="rounded-[8px] border border-ui-mid-white px-[2.5rem] py-[3rem] md:px-[4rem]">
         <h1 className="text-[3.2rem] font-medium text-ui-faded-gray md:text-[3.5rem] xl:text-[4rem]">
           Report a site
         </h1>
@@ -125,7 +126,7 @@ function ReportSiteForm() {
             name="comment"
             value={formValues.comment}
             isRequired={true}
-            bottomText="Description must contain at least 30 character(s)"
+            bottomText="Description must contain at least 30 characters"
             onChange={(value) => handleInputChange('comment', value)}
             label="Description"
           />
