@@ -1,7 +1,7 @@
 ---
 title: 'Crypto Payments'
 date: 2023-03-18
-desc: 'It is possible to pay for your plan using crypto. We take L1 and L2 payments.'
+desc: 'Cryptocurrency payments simplified. Discover how to seamlessly pay for your subscription using USDC or ETH.'
 thumbnail: './crypto-payments.png'
 image: './crypto-payments.png'
 ---
