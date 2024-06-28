@@ -59,7 +59,6 @@ css
 cvs
 database
 datadog
-datascience
 ddos
 decryption
 deep-learning
@@ -226,7 +225,6 @@ project
 protocol
 proxy
 public-key
-publickey
 pub-sub
 pub/sub
 pullzone

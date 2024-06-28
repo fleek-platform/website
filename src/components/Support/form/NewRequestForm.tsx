@@ -10,7 +10,7 @@ export const { zenDeskEndpoint } = (() => {
 
   if (!zenDeskEndpoint) {
     throw Error(
-      `👹 Oops! Missing environment variable (host PUBLIC_SUPPORT_API)`,
+      `👹 Oops! Missing environment variable PUBLIC_SUPPORT_API`,
     );
   }
 
@@ -20,13 +20,16 @@ export const { zenDeskEndpoint } = (() => {
 })();
 
 export type DynamicFormProps = {};
+const defaultFormValues = {
+      name: '',
+      email: '',
+      subject: '',
+      comment: '',
+};
 
 function NewRequestForm() {
   const [formValues, setFormValues] = useState<FormValuesType>({
-    name: '',
-    email: '',
-    subject: '',
-    comment: '',
+     ...defaultFormValues,
   });
 
   const handleInputChange = (name: string, value: string | FileList) => {
@@ -38,10 +41,7 @@ function NewRequestForm() {
 
   const resetFormValues = () => {
     setFormValues({
-      name: '',
-      email: '',
-      subject: '',
-      comment: '',
+       ...defaultFormValues,
     });
   };
 
@@ -52,7 +52,7 @@ function NewRequestForm() {
     });
 
     try {
-      const response = await fetch(`${zenDeskEndpoint}/ticket`, {
+      const response = await fetch(`//${zenDeskEndpoint}/ticket`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/x-www-form-urlencoded',
@@ -60,7 +60,7 @@ function NewRequestForm() {
         body: formData.toString(),
       });
 
-      if (response.ok === false) {
+      if (!response.ok) {
         throw new Error('Network response was not ok');
       }
 

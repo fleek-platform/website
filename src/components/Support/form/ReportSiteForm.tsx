@@ -1,4 +1,4 @@
-import React, { Suspense, useCallback, useMemo, useState } from 'react';
+import { useState } from 'react';
 import Button from './ui/Button';
 import Input from './ui/Input';
 import Tooltip from './ui/Tooltip';
@@ -11,13 +11,16 @@ export type FormValuesType = {
   name: string;
   comment: string;
 };
+const defaultFormValues = {
+      name: '',
+      email: '',
+      subject: 'Report a site',
+      comment: '',
+};
 
 function ReportSiteForm() {
   const [formValues, setFormValues] = useState<FormValuesType>({
-    name: '',
-    email: '',
-    subject: 'Report a site',
-    comment: '',
+     ...defaultFormValues,
   });
   const handleInputChange = (name: string, value: string | FileList) => {
     setFormValues((prevValues) => ({
@@ -27,13 +30,9 @@ function ReportSiteForm() {
   };
   const resetFormValues = () => {
     setFormValues({
-      name: '',
-      email: '',
-      subject: 'Report a site',
-      comment: '',
+       ...defaultFormValues,
     });
   };
-
   const submitForm = async () => {
     const formData = new URLSearchParams();
     Object.entries(formValues).forEach(([key, value]) => {
@@ -41,7 +40,7 @@ function ReportSiteForm() {
     });
 
     try {
-      const response = await fetch(`${zenDeskEndpoint}/ticket`, {
+      const response = await fetch(`//${zenDeskEndpoint}/ticket`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/x-www-form-urlencoded',
@@ -49,7 +48,7 @@ function ReportSiteForm() {
         body: formData.toString(),
       });
 
-      if (response.ok === false) {
+      if (!response.ok) {
         throw new Error('Network response was not ok');
       }
 
@@ -68,7 +67,7 @@ function ReportSiteForm() {
     }
   };
 
-  const handleFormSubmit = (event: React.FormEvent<HTMLFormElement>) => {
+  const handleFormSubmit = (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     submitForm();
   };
