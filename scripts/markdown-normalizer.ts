@@ -8,8 +8,16 @@ if (!process.argv.slice(1).length) {
 }
 
 const args = process.argv.slice(1);
-const filePath = args[1];
-const fileContent = fs.readFileSync(filePath, 'utf-8');
+const filepath = args[1];
+
+let fileContent: string = '';
+
+try {
+  fileContent = fs.readFileSync(filepath, 'utf-8');
+} catch (err) {
+  console.log(`🦖 Skipped! The file ${filepath} wasn't found!`);
+  process.exit(0);
+}
 
 // Markdown headings
 const re1 = /---[\s\S]*?---/g;
