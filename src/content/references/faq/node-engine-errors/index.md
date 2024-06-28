@@ -1,7 +1,7 @@
 ---
 title: 'Node engine errors'
 date: 2023-03-16
-desc: 'Node engine mismatch errors indicate the selected Docker image lacks the required Node.js versions'
+desc: 'Resolving node engine mismatch errors in Docker images'
 thumbnail: './node-engine-errors.png'
 image: './node-engine-errors.png'
 ---
