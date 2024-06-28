@@ -125,7 +125,7 @@ function ReportSiteForm() {
             name="comment"
             value={formValues.comment}
             isRequired={true}
-            bottomText="Description must contain at least 30 character(s)"
+            bottomText="Description must contain at least 30 characters"
             onChange={(value) => handleInputChange('comment', value)}
             label="Description"
           />
