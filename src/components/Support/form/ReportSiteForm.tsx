@@ -11,13 +11,16 @@ export type FormValuesType = {
   name: string;
   comment: string;
 };
+const defaultFormValues = {
+      name: '',
+      email: '',
+      subject: 'Report a site',
+      comment: '',
+};
 
 function ReportSiteForm() {
   const [formValues, setFormValues] = useState<FormValuesType>({
-    name: '',
-    email: '',
-    subject: 'Report a site',
-    comment: '',
+     ...defaultFormValues,
   });
   const handleInputChange = (name: string, value: string | FileList) => {
     setFormValues((prevValues) => ({
@@ -27,13 +30,9 @@ function ReportSiteForm() {
   };
   const resetFormValues = () => {
     setFormValues({
-      name: '',
-      email: '',
-      subject: 'Report a site',
-      comment: '',
+       ...defaultFormValues,
     });
   };
-
   const submitForm = async () => {
     const formData = new URLSearchParams();
     Object.entries(formValues).forEach(([key, value]) => {
