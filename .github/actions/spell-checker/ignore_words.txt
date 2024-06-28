@@ -360,7 +360,7 @@ user
 userbase
 username
 users'
-USDC
+usdc
 uuid
 ux
 validation
