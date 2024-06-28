@@ -48,7 +48,7 @@ function ReportSiteForm() {
         body: formData.toString(),
       });
 
-      if (response.ok === false) {
+      if (!response.ok) {
         throw new Error('Network response was not ok');
       }
 
