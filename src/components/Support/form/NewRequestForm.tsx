@@ -20,13 +20,16 @@ export const { zenDeskEndpoint } = (() => {
 })();
 
 export type DynamicFormProps = {};
+const defaultFormValues = {
+      name: '',
+      email: '',
+      subject: '',
+      comment: '',
+};
 
 function NewRequestForm() {
   const [formValues, setFormValues] = useState<FormValuesType>({
-    name: '',
-    email: '',
-    subject: '',
-    comment: '',
+     ...defaultFormValues,
   });
 
   const handleInputChange = (name: string, value: string | FileList) => {
@@ -38,10 +41,7 @@ function NewRequestForm() {
 
   const resetFormValues = () => {
     setFormValues({
-      name: '',
-      email: '',
-      subject: '',
-      comment: '',
+       ...defaultFormValues,
     });
   };
 
