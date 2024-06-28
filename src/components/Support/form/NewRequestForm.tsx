@@ -1,9 +1,9 @@
-import { useState } from 'react';
+import { useState, type FormEvent } from 'react';
 import { type FormValuesType } from './ReportSiteForm';
 import Input from './ui/Input';
 import Tooltip from './ui/Tooltip';
 import Button from './ui/Button';
-import toast from 'react-hot-toast';
+import { submitForm } from './utils';
 
 export const { zenDeskEndpoint } = (() => {
   const zenDeskEndpoint = import.meta.env.PUBLIC_SUPPORT_API;
@@ -42,43 +42,9 @@ function NewRequestForm() {
     });
   };
 
-  const submitForm = async () => {
-    const formData = new URLSearchParams();
-    Object.entries(formValues).forEach(([key, value]) => {
-      formData.append(key, value);
-    });
-
-    try {
-      const response = await fetch(`//${zenDeskEndpoint}/ticket`, {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/x-www-form-urlencoded',
-        },
-        body: formData.toString(),
-      });
-
-      if (!response.ok) {
-        throw new Error('Network response was not ok');
-      }
-
-      const data = await response.json();
-
-      if (!data.success) {
-        const msg =
-          data.error?.issues?.[0]?.message ?? 'Oops! An unknown error occurred';
-        toast.error(msg);
-      } else {
-        toast.success('Request submitted successfully');
-        resetFormValues();
-      }
-    } catch (error) {
-      toast.error('Request not submitted, an error occurred');
-    }
-  };
-
-  const handleFormSubmit = (event: React.FormEvent<HTMLFormElement>) => {
+  const handleFormSubmit = async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-    submitForm();
+    await submitForm(formValues, resetFormValues);
   };
 
   return (
