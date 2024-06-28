@@ -127,7 +127,7 @@ const MultiSearch: React.FC = () => {
             <IoIosSearch className="focus:text-blue-600" fontSize={27} />
           </div>
           <form
-            className="w-full  text-gray-dark-13"
+            className="w-full text-gray-dark-13"
             onSubmit={(e) => e.preventDefault()}
           >
             <input
