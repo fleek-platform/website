@@ -59,7 +59,6 @@ css
 cvs
 database
 datadog
-datascience
 ddos
 decryption
 deep-learning
