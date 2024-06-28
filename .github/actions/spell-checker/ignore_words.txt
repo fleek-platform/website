@@ -225,7 +225,6 @@ project
 protocol
 proxy
 public-key
-publickey
 pub-sub
 pub/sub
 pullzone
