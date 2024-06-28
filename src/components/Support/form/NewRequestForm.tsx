@@ -10,7 +10,7 @@ export const { zenDeskEndpoint } = (() => {
 
   if (!zenDeskEndpoint) {
     throw Error(
-      `👹 Oops! Missing environment variable (host PUBLIC_SUPPORT_API)`,
+      `👹 Oops! Missing environment variable PUBLIC_SUPPORT_API`,
     );
   }
 
