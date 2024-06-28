@@ -40,7 +40,7 @@ function ReportSiteForm() {
     });
 
     try {
-      const response = await fetch(`${zenDeskEndpoint}/ticket`, {
+      const response = await fetch(`//${zenDeskEndpoint}/ticket`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/x-www-form-urlencoded',
