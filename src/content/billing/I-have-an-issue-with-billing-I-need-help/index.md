@@ -6,4 +6,4 @@ thumbnail: './billing-issue.png'
 image: './billing-issue.png'
 ---
 
-Please head over here and submit a ticket. Our staff will manually process your request and reply back within 48 hours.
+Need assistance? Visit our [support](/support) page and submit a ticket. We'll get back to you within 48 hours!
