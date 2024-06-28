@@ -144,7 +144,7 @@ const MultiSearch: React.FC = () => {
 
       <div>
         {loading && (
-          <div className="rounded-md absolute left-[50%] top-[100%] z-20  max-h-[250px] w-[90%] -translate-x-[50%] overflow-scroll bg-gray-dark-1 text-[1.3rem] md:w-[50%] md:text-[1.5rem] xl:w-[40%]">
+          <div className="rounded-md absolute left-[50%] top-[100%] z-20 max-h-[250px] w-[90%] -translate-x-[50%] overflow-scroll bg-gray-dark-1 text-[1.3rem] md:w-[50%] md:text-[1.5rem] xl:w-[40%]">
             Loading...
           </div>
         )}
