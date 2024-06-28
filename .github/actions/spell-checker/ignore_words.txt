@@ -23,7 +23,6 @@ bdd
 beaconing
 big-data
 big-query
-bigquery
 bindshells
 bitbucket
 blockchain
@@ -52,7 +51,6 @@ cta
 cta's
 customtitlesbydirectoryname
 csv
-cvssscores
 cvv
 cyberattack
 cybercrime
@@ -362,8 +360,7 @@ user
 userbase
 username
 users'
-users’
-USDC
+usdc
 uuid
 ux
 validation
