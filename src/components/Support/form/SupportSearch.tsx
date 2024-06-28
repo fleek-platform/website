@@ -100,7 +100,7 @@ const MultiSearch: React.FC = () => {
       setIsOpen(true);
     } catch (error) {
       toast.dismiss();
-      toast.error('Error performing search');
+      toast.error('Oops! Your search didn’t come through. Please give it another try! If the issue persists report to us to help us improve!');
     } finally {
       setLoading(false);
     }
