@@ -16,18 +16,16 @@ interface Result {
   hits: Hit[];
 }
 
-const { apiKey, host } = (() => {
-  const apiKey = import.meta.env.PUBLIC_MEILISEARCH_DOCUMENTS_CLIENT_API_KEY;
+const { host } = (() => {
   const host = import.meta.env.PUBLIC_MEILISEARCH_HOST;
 
-  if (!apiKey || !host) {
+  if (!host) {
     throw Error(
-      `👹 Oops! Missing environment variables (host PUBLIC_MEILISEARCH_HOST, apiKey PUBLIC_MEILISEARCH_DOCUMENTS_CLIENT_API_KEY)`,
+      `👹 Oops! Missing environment variables PUBLIC_MEILISEARCH_HOST`,
     );
   }
 
   return {
-    apiKey,
     host,
   };
 })();
