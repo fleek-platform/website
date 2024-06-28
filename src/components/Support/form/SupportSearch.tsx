@@ -121,7 +121,7 @@ const MultiSearch: React.FC = () => {
 
   return (
     <div className="relative">
-      <div className="mx-auto mb-[4rem]  mt-[1rem] w-[90%] rounded-[8px] border-white/30 bg-ui-white/10 px-[1.3rem] py-[1rem] focus-within:border-[.1px] focus-within:bg-ui-white/25 hover:border-[.1px] hover:bg-ui-white/25 md:w-[50%] xl:w-[40%] xl:px-[1.5rem] xl:py-[1.25rem]">
+      <div className="mx-auto mb-[4rem] mt-[1rem] w-[90%] rounded-[8px] border-white/30 bg-ui-white/10 px-[1.3rem] py-[1rem] focus-within:border-[.1px] focus-within:bg-ui-white/25 hover:border-[.1px] hover:bg-ui-white/25 md:w-[50%] xl:w-[40%] xl:px-[1.5rem] xl:py-[1.25rem]">
         <div className="flex items-center gap-[1rem] ">
           <div>
             <IoIosSearch className="focus:text-blue-600" fontSize={27} />
