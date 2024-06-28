@@ -6,4 +6,4 @@ thumbnail: './cancel-fleek-subscription.png'
 image: './cancel-fleek-subscription.png'
 ---
 
-Please head over here and submit a ticket. Our staff will manually review your case and process your cancellation request.
+Need assistance? Visit our [subscription cancellation](/support) page and submit a ticket. Our staff will manually review your case and finalize your cancellation request.

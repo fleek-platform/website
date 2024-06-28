@@ -16,18 +16,16 @@ interface Result {
   hits: Hit[];
 }
 
-const { apiKey, host } = (() => {
-  const apiKey = import.meta.env.PUBLIC_MEILISEARCH_DOCUMENTS_CLIENT_API_KEY;
+const { host } = (() => {
   const host = import.meta.env.PUBLIC_MEILISEARCH_HOST;
 
-  if (!apiKey || !host) {
+  if (!host) {
     throw Error(
-      `👹 Oops! Missing environment variables (host PUBLIC_MEILISEARCH_HOST, apiKey PUBLIC_MEILISEARCH_DOCUMENTS_CLIENT_API_KEY)`,
+      `👹 Oops! Missing environment variables PUBLIC_MEILISEARCH_HOST`,
     );
   }
 
   return {
-    apiKey,
     host,
   };
 })();
@@ -102,7 +100,9 @@ const MultiSearch: React.FC = () => {
       setIsOpen(true);
     } catch (error) {
       toast.dismiss();
-      toast.error('Error performing search');
+      toast.error(
+        'Oops! Your search didn’t come through. Please give it another try! If the issue persists report to us to help us improve!',
+      );
     } finally {
       setLoading(false);
     }
@@ -123,13 +123,13 @@ const MultiSearch: React.FC = () => {
 
   return (
     <div className="relative">
-      <div className="mx-auto mb-[4rem]  mt-[1rem] w-[90%] rounded-[8px] border-white/30 bg-ui-white/10 px-[1.3rem] py-[1rem] focus-within:border-[.1px] focus-within:bg-ui-white/25 hover:border-[.1px] hover:bg-ui-white/25 md:w-[50%] xl:w-[40%] xl:px-[1.5rem] xl:py-[1.25rem]">
+      <div className="mx-auto mb-[4rem] mt-[1rem] w-[90%] rounded-[8px] border-white/30 bg-ui-white/10 px-[1.3rem] py-[1rem] focus-within:border-[.1px] focus-within:bg-ui-white/25 hover:border-[.1px] hover:bg-ui-white/25 md:w-[50%] xl:w-[40%] xl:px-[1.5rem] xl:py-[1.25rem]">
         <div className="flex items-center gap-[1rem] ">
           <div>
             <IoIosSearch className="focus:text-blue-600" fontSize={27} />
           </div>
           <form
-            className="w-full  text-gray-dark-13"
+            className="w-full text-gray-dark-13"
             onSubmit={(e) => e.preventDefault()}
           >
             <input
@@ -146,7 +146,7 @@ const MultiSearch: React.FC = () => {
 
       <div>
         {loading && (
-          <div className="rounded-md absolute left-[50%] top-[100%] z-20  max-h-[250px] w-[90%] -translate-x-[50%] overflow-scroll bg-gray-dark-1 text-[1.3rem] md:w-[50%] md:text-[1.5rem] xl:w-[40%]">
+          <div className="rounded-md absolute left-[50%] top-[100%] z-20 max-h-[250px] w-[90%] -translate-x-[50%] overflow-scroll bg-gray-dark-1 text-[1.3rem] md:w-[50%] md:text-[1.5rem] xl:w-[40%]">
             Loading...
           </div>
         )}
