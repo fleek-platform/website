@@ -166,7 +166,7 @@ meilisearch
 meilisearch's
 memorystorage
 message
-MetaMask
+metamask
 metamask
 middleware
 minification
