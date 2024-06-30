@@ -77,7 +77,7 @@ const Input: React.FC<InputProps> = ({
   return (
     <div>
       <label
-        className="my-[.6rem] inline-block text-[1.3rem] sm:text-[1.4rem]  xl:my-[1rem]"
+        className="my-[.6rem] inline-block text-[1.3rem] sm:text-[1.4rem] xl:my-[1rem]"
         htmlFor={`input-${name}`}
       >
         {label}
