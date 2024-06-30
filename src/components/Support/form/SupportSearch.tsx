@@ -21,7 +21,7 @@ const { host } = (() => {
 
   if (!host) {
     throw Error(
-      `👹 Oops! Missing environment variables PUBLIC_MEILISEARCH_HOST`,
+      `👹 Oops! Missing environment variable PUBLIC_MEILISEARCH_HOST`,
     );
   }
 
