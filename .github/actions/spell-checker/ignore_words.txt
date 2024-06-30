@@ -40,7 +40,7 @@ cherrypick
 ci/cd
 cli
 cloudflare
-Cloudflare's
+cloudflare's
 codebase
 compliance
 config
