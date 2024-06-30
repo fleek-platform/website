@@ -128,7 +128,7 @@ const Nav = ({ pathname, isSupportCenter }: NavProps) => {
       <div
         className={clsx(
           'nav-container',
-          isSupportCenter ? 'mb-[2px]' : 'mb-16'
+          isSupportCenter ? 'mb-[2px]' : 'mb-16',
         )}
       >
         <div className="flex items-center">

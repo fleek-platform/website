@@ -1,7 +1,7 @@
 ---
 title: 'My site is displaying a list of files instead of the actual site'
 date: 2023-03-14
-desc: "Learn how to resolve content display issues"
+desc: 'Learn how to resolve content display issues'
 thumbnail: './site-displaying-files-not-content.png'
 image: './site-displaying-files-not-content.png'
 ---

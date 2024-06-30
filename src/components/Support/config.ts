@@ -39,7 +39,7 @@ export const singleArticleCardItems = [
     link: '/references/common-issues/adding-domains-through-fleek-cli',
     title: 'Adding Domains through Fleek CLI',
     description:
-      "This guide takes you step by step through the process of providing a unique hostname, creating a Content Acceleration Zone, and configuring domain settings. It also introduces...",
+      'This guide takes you step by step through the process of providing a unique hostname, creating a Content Acceleration Zone, and configuring domain settings. It also introduces...',
   },
   {
     id: '4',
