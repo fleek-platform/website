@@ -1,7 +1,7 @@
 ---
 title: '428 errors on custom domain'
 date: 2023-03-18
-desc: 'Fleek-hosted site shows 428 errors on custom domain but loads normally on preview URL'
+desc: 'This reference addresses the issue of encountering 428 errors on custom domains for Fleek-hosted sites'
 thumbnail: './428-errors.png'
 image: './428-errors.png'
 ---
