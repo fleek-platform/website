@@ -28,7 +28,7 @@ export const submitForm = async (
 
     if (!data) {
       const msg =
-        data.error?.issues?.[0]?.message ?? 'Oops! An unknown error occurred';
+        data.error?.issues?.[0]?.message ?? 'Oops! Something went wrong. Please try again. If the problem persists, report to us to helps us improve.';
       toast.error(msg);
     } else {
       toast.success('Request submitted successfully');
