@@ -1,7 +1,7 @@
 ---
 title: '404 when connecting GitHub with Fleek'
 date: 2023-03-13
-desc: 'This tutorial covers creating a new Next.js app, adding a custom domain, and optimizing your next.config.js file.'
+desc: 'This reference aids in troubleshooting a 404 error encountered during the integration of GitHub with Fleek'
 thumbnail: './404-linking-github-with-fleek.png'
 image: './404-linking-github-with-fleek.png'
 ---
