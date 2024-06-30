@@ -35,6 +35,6 @@ export const submitForm = async (
       resetFn();
     }
   } catch (error) {
-    toast.error('Request not submitted, an error occurred');
+    toast.error('We're sorry, but there was an error submitting your request. Please try again later. If the issue persists, let us know to help us improve.');
   }
 };
