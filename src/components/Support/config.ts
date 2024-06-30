@@ -53,7 +53,7 @@ export const singleArticleCardItems = [
     link: '/guides/fleek-templates-guide',
     title: 'Deploying with Fleek Templates: Step-by-Step Guide',
     description:
-      'With our ready out-of-the-box templates & boilerplates, and the new Fleek CLI, deploying your first project to IPFS with becomes a lightning-fast process. Turn building apps from the group up into a three-step process: Fork, Customize, and Deploy on Fl...',
+      'With our ready-to-use templates, boilerplates, and the new Fleek CLI, deploying your first project to IPFS becomes a lightning-fast process. Turn building apps from the group up into a three-step process: Fork, Customize, and Deploy...',
   },
 ];
 
