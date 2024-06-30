@@ -31,7 +31,7 @@ export const submitForm = async (
         data.error?.issues?.[0]?.message ?? 'Oops! Something went wrong. Please try again. If the problem persists, report to us to helps us improve.';
       toast.error(msg);
     } else {
-      toast.success('Request submitted successfully');
+      toast.success('Your request has been successfully submitted. We'll get back to you shortly.');
       resetFn();
     }
   } catch (error) {
