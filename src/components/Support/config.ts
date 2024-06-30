@@ -46,7 +46,7 @@ export const singleArticleCardItems = [
     link: '/references/faq/my-links-arent-resolving',
     title: "My links aren't resolving",
     description:
-      "Fixing Fleek IPFS Resolve Errors with _redirects Explore Fleek's method for resolving IPFS link issues. This in-depth tutorial steers you through the essential steps, from creating a new Next.js App to adding a custom domain, and finally optimizing y...",
+      "Explore Fleek's method for resolving IPFS link issues. This in-depth tutorial steers you through the essential steps, from creating a new Next.js App to adding a custom domain, and finally optimizing y...",
   },
   {
     id: '5',
