@@ -53,7 +53,7 @@ function VideoCard({ id, pageOriginURL }: YoutubeEmbedVideoProps) {
   return (
     <div className="xl:w-full">
       <iframe
-        className=" relative z-20 h-[200px] w-full md:h-[260px] lg:h-[200px]"
+        className="relative z-20 h-[200px] w-full md:h-[260px]"
         id={id}
         allowFullScreen
         height={200}
