@@ -55,4 +55,4 @@ export const generateSlug = (input: string): string => {
 };
 
 export const pathContains = (term: string, path: string): boolean =>
-  path.includes(term);
+  path.toLowerCase().includes(term.toLowerCase());

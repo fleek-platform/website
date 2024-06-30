@@ -1,4 +1,5 @@
 import { IoIosInformationCircle } from 'react-icons/io';
+import { colors } from 'tailwind.config.mjs';
 
 function Tooltip() {
   return (
@@ -6,7 +7,7 @@ function Tooltip() {
       <div className="flex items-center gap-[6px] rounded-[0.5rem] border border-ui-medium-blue p-[1rem] lg:gap-[10px] lg:px-[1.3rem] lg:py-[1.4rem] xl:px-[1.5rem] xl:py-[1.55rem]">
         <div>
           <IoIosInformationCircle
-            fill="#61a5ff"
+            fill={colors['sky-blue']}
             fontSize={24}
             className="lg:text-[2.3rem] xl:text-[2.5rem]"
           />

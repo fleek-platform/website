@@ -21,14 +21,14 @@ interface Props {
 
 const { title, ogMeta } = Astro.props;
 const baseUrl = getSiteUrl();
-const pathname = Astro.url.pathname;
+const currentPagePath = Astro.url.pathname;
 
 const hasSecondaryMenu =
-  pathname.includes('support') ||
-  pathname.includes('guides') ||
-  pathname.includes('references') ||
-  pathname.includes('billing') ||
-  pathname.includes('requests');
+  currentPagePath.includes('support') ||
+  currentPagePath.includes('guides') ||
+  currentPagePath.includes('references') ||
+  currentPagePath.includes('billing') ||
+  currentPagePath.includes('requests');
 ---
 
 <!doctype html>
@@ -134,7 +134,11 @@ const hasSecondaryMenu =
     </noscript>
     <Announcement client:load />
     <Nav client:load pathname={Astro.url.pathname} isSupportCenter />
-    {hasSecondaryMenu && <SupportMenu client:load pathname={pathname} />}
+    {
+      hasSecondaryMenu && (
+        <SupportMenu client:load currentPagePath={currentPagePath} />
+      )
+    }
     <slot />
     <Footer client:load />
     <Toaster client:load position="top-right" reverseOrder={false} />

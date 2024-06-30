@@ -8,23 +8,23 @@ import { pathContains } from '@utils/url';
 const supportMenu = settings.support.supportMenu;
 
 type SupportMenuProps = {
-  pathname: string;
+  currentPagePath: string;
 };
 
-const SupportMenu: React.FC<SupportMenuProps> = ({ pathname }) => {
+const SupportMenu: React.FC<SupportMenuProps> = ({ currentPagePath }) => {
   return (
     <div className="container relative mb-[3.5rem] xl:mb-[5rem]">
       <Container>
         <nav className="md:static md:w-auto">
-          <SupportMenuMobile pathname={pathname} />
-          <SupportMenuDesktop pathname={pathname} />
+          <SupportMenuMobile currentPagePath={currentPagePath} />
+          <SupportMenuDesktop currentPagePath={currentPagePath} />
         </nav>
       </Container>
     </div>
   );
 };
 
-function SupportMenuDesktop({ pathname }: SupportMenuProps) {
+function SupportMenuDesktop({ currentPagePath }: SupportMenuProps) {
   return (
     <ul
       className={`hidden border-b-2 border-gray-700 pl-16 md:flex md:items-center lg:px-28`}
@@ -35,7 +35,7 @@ function SupportMenuDesktop({ pathname }: SupportMenuProps) {
           className={clsx(
             'mb-[1rem] cursor-pointer px-[10px] py-[4px] text-[1.5rem] font-semibold hover:opacity-50 xl:my-[1.5rem] xl:text-[1.6rem]',
             {
-              'opacity-50': pathContains(item.path, pathname),
+              'opacity-50': pathContains(item.path, currentPagePath),
             },
           )}
         >
@@ -46,7 +46,7 @@ function SupportMenuDesktop({ pathname }: SupportMenuProps) {
   );
 }
 
-function SupportMenuMobile({ pathname }: SupportMenuProps) {
+function SupportMenuMobile({ currentPagePath }: SupportMenuProps) {
   const [isExpanded, setIsExpanded] = useState(false);
 
   const handleExpandClick = () => {
@@ -82,7 +82,7 @@ function SupportMenuMobile({ pathname }: SupportMenuProps) {
             className={clsx(
               'cursor-pointer p-4 text-[1.3rem] hover:opacity-50',
               {
-                'opacity-50': pathContains(item.path, pathname),
+                'opacity-50': pathContains(item.path, currentPagePath),
               },
             )}
           >
