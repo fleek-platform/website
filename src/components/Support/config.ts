@@ -25,7 +25,7 @@ export const singleArticleCardItems = [
     title: 'Node engine errors',
     link: '/references/faq/node-engine-errors',
     description:
-      "If you are getting node engine mismatch errors, don't worry. It only means the docker image you selected does not have the required node version.  However, you can use any docker image published on dockerhub, you don't need to use the ones we provide if...",
+      "If you are getting node engine mismatch errors, don't worry. It only means the docker image you selected does not have the required node version. However, you can use any docker image published on dockerhub, you don't need to use the ones we provide if...",
   },
   {
     id: '2',
