@@ -40,7 +40,7 @@ cherrypick
 ci/cd
 cli
 cloudflare
-Cloudflare's
+cloudflare's
 codebase
 compliance
 config
@@ -166,7 +166,7 @@ meilisearch
 meilisearch's
 memorystorage
 message
-MetaMask
+metamask
 metamask
 middleware
 minification

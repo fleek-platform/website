@@ -27,7 +27,7 @@ const SupportMenu: React.FC<SupportMenuProps> = ({ currentPagePath }) => {
 function SupportMenuDesktop({ currentPagePath }: SupportMenuProps) {
   return (
     <ul
-      className={`hidden border-b-2 border-gray-700 pl-16 md:flex md:items-center lg:px-28`}
+      className="hidden border-b-2 border-gray-700 pl-16 md:flex md:items-center lg:px-28"
     >
       {supportMenu.map((item) => (
         <li

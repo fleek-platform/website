@@ -2,7 +2,7 @@
 
 @layer components {
   .nav-container {
-    @apply relative z-10  flex select-none items-center justify-between gap-33 py-16 pl-16 lg:px-28;
+    @apply relative z-10 flex select-none items-center justify-between gap-33 py-16 pl-16 lg:px-28;
 
     nav {
       @apply hidden items-center gap-0 pl-0 leading-10 xl:flex;

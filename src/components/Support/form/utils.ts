@@ -28,13 +28,13 @@ export const submitForm = async (
 
     if (!data) {
       const msg =
-        data.error?.issues?.[0]?.message ?? 'Oops! An unknown error occurred';
+        data.error?.issues?.[0]?.message ?? 'Oops! Something went wrong. Please try again. If the problem persists, report to us to helps us improve.';
       toast.error(msg);
     } else {
-      toast.success('Request submitted successfully');
+      toast.success('Your request has been successfully submitted. We'll get back to you shortly.');
       resetFn();
     }
   } catch (error) {
-    toast.error('Request not submitted, an error occurred');
+    toast.error('We're sorry, but there was an error submitting your request. Please try again later. If the issue persists, let us know to help us improve.');
   }
 };
