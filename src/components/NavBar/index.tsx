@@ -126,10 +126,10 @@ const Nav = ({ pathname, isSupportCenter }: NavProps) => {
   return (
     <Container>
       <div
-        className={clsx('nav-container', {
-          'mb-16': !isSupportCenter,
-          'mb-[2px]': isSupportCenter,
-        })}
+        className={clsx(
+          'nav-container',
+          isSupportCenter ? 'mb-[2px]' : 'mb-16'
+        )}
       >
         <div className="flex items-center">
           <Link href="/" className="flex-shrink-0 ">
