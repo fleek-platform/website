@@ -1,0 +1,27 @@
+---
+import Layout from '@layouts/BlogPage.astro';
+import { getCollection } from 'astro:content';
+import BlogPosts from '@components/BlogPosts.astro';
+import BlogHeader from '@components/BlogHeader.astro';
+import settings from '@base/settings.json';
+
+import type { CollectionEntry } from 'astro:content';
+
+const indexNameBilling = import.meta.env.PUBLIC_MEILISEARCH_INDEX_BILLING;
+
+const collection = 'billing';
+
+const allPosts: CollectionEntry<'billing'>[] = (
+  await getCollection('billing')
+).sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf());
+---
+
+<Layout
+  title={settings.site.metadata.billing.title}
+  description={settings.site.metadata.billing.description}
+>
+  <main class="container min-h-container">
+    <BlogHeader title="Billing" indexName={indexNameBilling} />
+    <BlogPosts allPosts={allPosts} collection={collection} />
+  </main>
+</Layout>

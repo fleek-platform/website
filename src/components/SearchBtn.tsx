@@ -56,7 +56,7 @@ type HitProps = {
   }>;
 };
 
-const Hit = ({ hit }: HitProps) => {
+export const Hit = ({ hit }: HitProps) => {
   const { results } = useInstantSearch();
 
   const { value } = hit._highlightResult?.content as { value: string };

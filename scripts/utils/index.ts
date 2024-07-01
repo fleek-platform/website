@@ -8,9 +8,9 @@ export const listFilesRecursively = ({
   directory: string;
   fileList?: string[];
 }) => {
- const files = fs.readdirSync(directory);
+  const files = fs.readdirSync(directory);
 
- files.forEach(file => {
+  files.forEach((file) => {
     const filePath = path.join(directory, file);
     const stat = fs.statSync(filePath);
 
@@ -22,27 +22,25 @@ export const listFilesRecursively = ({
     } else {
       fileList.push(filePath);
     }
- });
+  });
 
- return fileList;
-}
+  return fileList;
+};
 
 export const filterMdFiles = (filePaths: string[]) => {
- return filePaths.filter(filePath => {
+  return filePaths.filter((filePath) => {
     const extension = path.extname(filePath);
     return extension === '.md' || extension === '.mdx';
- });
-}
+  });
+};
 
-export const generateUrlPath = ({
-  filePath,
-}: {
-  filePath: string;
-}) => {
+export const generateUrlPath = ({ filePath }: { filePath: string }) => {
   const baseDir = 'src/content/';
 
   if (!filePath.startsWith(baseDir)) {
-    throw new Error(`👹 Oops! Unexpected file path, as it should start with the base directory ${baseDir}. Is there a new feature that requires implementation updates?`);
+    throw new Error(
+      `👹 Oops! Unexpected file path, as it should start with the base directory ${baseDir}. Is there a new feature that requires implementation updates?`,
+    );
   }
 
   const relativePath = filePath.substring(baseDir.length);
@@ -62,4 +60,4 @@ export const generateUrlPath = ({
   const result = url.replace(regex, '$1').toLowerCase();
 
   return result;
-}
+};

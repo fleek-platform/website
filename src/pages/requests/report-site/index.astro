@@ -1,0 +1,14 @@
+---
+import ReportSiteForm from '@components/Support/form/ReportSiteForm';
+import Layout from '@layouts/SupportPage.astro';
+import settings from '@base/settings.json';
+---
+
+<Layout
+  title={settings.site.metadata.requests.title}
+  description={settings.site.metadata.requests.description}
+>
+  <main class="container mx-auto min-h-screen">
+    <ReportSiteForm client:load />
+  </main>
+</Layout>

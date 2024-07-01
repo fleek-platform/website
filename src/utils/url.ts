@@ -53,3 +53,6 @@ export const generateSlug = (input: string): string => {
   normalized = normalized.trim();
   return normalized;
 };
+
+export const pathContains = (term: string, path: string): boolean =>
+  path.toLowerCase().includes(term.toLowerCase());

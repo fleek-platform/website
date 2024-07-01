@@ -22,7 +22,9 @@ import ButtonYellow from '@components/ButtonYellow';
 import ButtonGray from '@components/ButtonGray';
 import Announcement from '@components/Announcement';
 
-export type NavProps = Record<'pathname', string>;
+export type NavProps = Record<'pathname', string> & {
+  isSupportCenter: boolean;
+};
 export type NavSubMenuCtaProps = Omit<MenuSettingsItem, 'subMenu'>;
 export type NavSubMenuNavColProps = {
   label: string;
@@ -90,7 +92,7 @@ const NavSubMenu = ({ subMenu }: MenuSettingsItem) => {
   );
 };
 
-const Nav = ({ pathname }: NavProps) => {
+const Nav = ({ pathname, isSupportCenter }: NavProps) => {
   const [isOpen, setIsOpen] = useState(false);
 
   useEffect(() => {
@@ -123,7 +125,12 @@ const Nav = ({ pathname }: NavProps) => {
 
   return (
     <Container>
-      <div className="nav-container">
+      <div
+        className={clsx(
+          'nav-container',
+          isSupportCenter ? 'mb-[2px]' : 'mb-16',
+        )}
+      >
         <div className="flex items-center">
           <Link href="/" className="flex-shrink-0 ">
             <img
