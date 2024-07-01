@@ -5,6 +5,7 @@ import { getEntry } from 'astro:content';
 import GithubEditLink from '@components/GitHubEditLink.astro';
 import { generateGitHubEditLink } from '@utils/url';
 import ButtonGray from '@components/ButtonGray';
+import { formatDate } from '@utils/date';
 
 export async function getStaticPaths() {
   const docsEntries = await getCollection('blog');
@@ -22,6 +23,8 @@ const githubEditUrlPathname = generateGitHubEditLink({
   collection,
   id,
 });
+
+const date = formatDate({ date: entry.data.date });
 ---
 
 <BlogPageLayout
@@ -37,6 +40,7 @@ const githubEditUrlPathname = generateGitHubEditLink({
       </ButtonGray>
     </div>
     <h1>{entry.data.title}</h1>
+    <p>{date}</p>
     {
       entry.data?.image?.src && (
         <p>
