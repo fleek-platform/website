@@ -62,7 +62,7 @@ function ReportSiteForm() {
             type="text"
             name="name"
             value={formValues.name}
-            isRequired={false}
+            isRequired
             onChange={(value) => handleInputChange('name', value)}
             label="Name"
           />
@@ -73,7 +73,7 @@ function ReportSiteForm() {
             type="email"
             name="email"
             value={formValues.email}
-            isRequired={true}
+            isRequired
             onChange={(value) => handleInputChange('email', value)}
             label="Your email address"
           />
@@ -85,7 +85,7 @@ function ReportSiteForm() {
             readOnly
             name="subject"
             value={formValues.subject}
-            isRequired={true}
+            isRequired
             label="Subject"
           />
         </div>
@@ -95,7 +95,7 @@ function ReportSiteForm() {
             type="textarea"
             name="comment"
             value={formValues.comment}
-            isRequired={true}
+            isRequired
             bottomText="Description must contain at least 30 characters"
             onChange={(value) => handleInputChange('comment', value)}
             label="Description"

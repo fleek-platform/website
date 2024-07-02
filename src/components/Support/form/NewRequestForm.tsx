@@ -69,7 +69,7 @@ function NewRequestForm() {
             type="text"
             name="name"
             value={formValues.name}
-            isRequired={false}
+            isRequired
             onChange={(value) => handleInputChange('name', value)}
             label="Name"
           />
@@ -80,7 +80,7 @@ function NewRequestForm() {
             type="email"
             name="email"
             value={formValues.email}
-            isRequired={true}
+            isRequired
             onChange={(value) => handleInputChange('email', value)}
             label="Your email address"
           />
@@ -91,7 +91,7 @@ function NewRequestForm() {
             type="text"
             name="subject"
             value={formValues.subject}
-            isRequired={true}
+            isRequired
             onChange={(value) => handleInputChange('subject', value)}
             label="Subject"
           />
@@ -102,7 +102,7 @@ function NewRequestForm() {
             type="textarea"
             name="comment"
             value={formValues.comment}
-            isRequired={true}
+            isRequired
             bottomText="Description must contain at least 30 characters"
             onChange={(value) => handleInputChange('comment', value)}
             label="Description"
