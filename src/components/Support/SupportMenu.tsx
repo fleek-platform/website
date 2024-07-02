@@ -26,14 +26,17 @@ const SupportMenu: React.FC<SupportMenuProps> = ({ currentPagePath }) => {
 
 function SupportMenuDesktop({ currentPagePath }: SupportMenuProps) {
   return (
-    <ul className="hidden border-b-2 border-gray-700 pl-16 md:flex md:items-center lg:px-28">
+    <ul className="hidden border-b-2 border-gray-700 pl-16 md:flex md:items-center md:gap-[5px] lg:px-28">
       {supportMenu.map((item) => (
         <li
           key={item.id}
           className={clsx(
-            'mb-[1rem] cursor-pointer px-[10px] py-[4px] text-[1.5rem] font-semibold hover:opacity-50 xl:my-[1.5rem] xl:text-[1.6rem]',
+            'mb-[.4rem] cursor-pointer rounded-[8px] px-[15px] py-[7px] text-[1.5rem] hover:bg-yellow-dark-4 hover:text-yellow-dark-11 xl:my-[1.5rem] xl:text-[1.6rem]',
             {
-              'opacity-50': pathContains(item.path, currentPagePath),
+              'bg-yellow-dark-4 text-yellow-dark-11': pathContains(
+                item.path,
+                currentPagePath,
+              ),
             },
           )}
         >
@@ -69,8 +72,8 @@ function SupportMenuMobile({ currentPagePath }: SupportMenuProps) {
       </div>
       <ul
         className={clsx(
-          'flex flex-col border-b-2 border-gray-700 px-[20px]',
-          { 'h-[10px] overflow-y-scroll': !isExpanded },
+          'flex flex-col border-b-2 border-gray-700 px-[20px] py-[4px]',
+          { 'h-[.4px] overflow-y-hidden': !isExpanded },
           'md:hidden',
         )}
       >
@@ -78,9 +81,9 @@ function SupportMenuMobile({ currentPagePath }: SupportMenuProps) {
           <li
             key={item.id}
             className={clsx(
-              'cursor-pointer p-4 text-[1.3rem] hover:opacity-50',
+              'cursor-pointer p-4 text-[1.3rem] hover:text-yellow-dark-11',
               {
-                'opacity-50': pathContains(item.path, currentPagePath),
+                'text-yellow-dark-11': pathContains(item.path, currentPagePath),
               },
             )}
           >

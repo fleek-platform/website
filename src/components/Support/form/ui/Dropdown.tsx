@@ -72,7 +72,7 @@ const Dropdown = ({
         className={clsx(
           'relative cursor-pointer rounded-[6px] border-ui-mid-white bg-gray-dark-1 px-[1.1rem] py-[.7rem]',
           {
-            'border focus:border-ui-medium-blue': isOpen,
+            'focus:border-ui-medium-blue border': isOpen,
             border: !isOpen,
           },
         )}

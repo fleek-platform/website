@@ -4,6 +4,7 @@ import Input from './ui/Input';
 import Tooltip from './ui/Tooltip';
 import type { FormEvent } from 'react';
 import { submitForm } from './utils';
+import Formtitle from './ui/Formtitle';
 
 export type FormValuesType = {
   email: string;
@@ -45,11 +46,14 @@ function ReportSiteForm() {
       className="mx-auto my-[35px] w-[90%] max-w-[768px] lg:w-[70%] xl:w-[65%]"
     >
       <div className="rounded-[8px] border border-ui-mid-white px-[2.5rem] py-[3rem] md:px-[4rem]">
-        <h1 className="text-[3.2rem] font-medium text-ui-faded-gray md:text-[3.5rem] xl:text-[4rem]">
-          Report a site
-        </h1>
+        <Formtitle
+          title={'Report a site'}
+          subTitle={
+            "If you suspect a user or a site of violating Fleek's Terms of Service, please fill out the form below."
+          }
+        />
 
-        <div className="mt-[4rem] md:mt-[5rem] xl:mt-[6.5rem]">
+        <div className="mt-[3rem]">
           <Tooltip />
         </div>
 
@@ -58,7 +62,7 @@ function ReportSiteForm() {
             type="text"
             name="name"
             value={formValues.name}
-            isRequired={true}
+            isRequired={false}
             onChange={(value) => handleInputChange('name', value)}
             label="Name"
           />

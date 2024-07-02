@@ -35,7 +35,7 @@ function SingleArticleCard({
         <div className="flex-1">
           <a
             href={link}
-            className="text-[1.3rem] font-semibold text-gray-dark-11 hover:text-ui-light-blue hover:underline xl:text-[1.5rem]"
+            className="text-[1.3rem] font-semibold text-gray-dark-11 hover:text-yellow-dark-11 hover:underline xl:text-[1.5rem]"
           >
             {title}
           </a>

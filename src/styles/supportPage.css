@@ -18,8 +18,8 @@
     .swiper-button-prev,
     .swiper-button-next {
       top: 50%;
-      color: white;
-      background-color: #369eff;
+      color: #362b00;
+      background-color: #f5e147;
       padding: 30px 20px;
       border-radius: 8px;
     }
@@ -36,7 +36,7 @@
     @media (min-width: 1280px) {
       .swiper-button-prev,
       .swiper-button-next {
-        top: 40%;
+        top: 45%;
         padding: 50px 20px;
       }
     }

@@ -54,7 +54,7 @@ const Input: React.FC<InputProps> = ({
           htmlFor={`input-${name}`}
         >
           {label}
-          <IsRequiredField isRequired />
+          <IsRequiredField isRequired={isRequired} />
         </label>
         <textarea
           id={`input-${name}`}
@@ -63,7 +63,7 @@ const Input: React.FC<InputProps> = ({
           value={inputValue}
           onChange={handleChange}
           {...props}
-          className="w-full rounded-[6px] border border-ui-mid-white bg-gray-dark-1 px-[1.1rem] py-[.7rem] text-[1.3rem] outline-none placeholder:text-[1.5rem] focus:border focus:border-ui-medium-blue md:text-[1.6rem]"
+          className="focus:border-ui-medium-blue w-full rounded-[6px] border border-ui-mid-white bg-gray-dark-1 px-[1.1rem] py-[.7rem] text-[1.3rem] outline-none placeholder:text-[1.5rem] focus:border md:text-[1.6rem]"
         />
         {bottomText && (
           <span className="my-[4px] text-[1.2rem] font-medium text-ui-dark-grey md:text-[1.3rem] xl:my-[6px] xl:text-[1.4rem]">
@@ -81,10 +81,10 @@ const Input: React.FC<InputProps> = ({
         htmlFor={`input-${name}`}
       >
         {label}
-        <IsRequiredField isRequired />
+        <IsRequiredField isRequired={isRequired} />
       </label>
       <input
-        className="w-full rounded-[6px] border border-ui-mid-white bg-gray-dark-1 px-[1.1rem] py-[.7rem] text-[1.3rem] outline-none focus:border focus:border-ui-medium-blue md:text-[1.6rem]"
+        className="focus:border-ui-medium-blue w-full rounded-[6px] border border-ui-mid-white bg-gray-dark-1 px-[1.1rem] py-[.7rem] text-[1.3rem] outline-none focus:border md:text-[1.6rem]"
         type={type}
         required
         id={`input-${name}`}

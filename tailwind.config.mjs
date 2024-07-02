@@ -22,9 +22,6 @@ export const colors = {
   'ui-faded-green': '#4CC38A',
   'ui-light-green': '#133929',
   'ui-faded-gray': '#ECEDEE',
-  'ui-light-blue': '#2294ff',
-  'ui-medium-blue': '#369eff',
-  'ui-dark-blue': '#1d92ff',
 
   'gray-dark-1': '#111111',
   'gray-dark-2': '#191919',
@@ -52,7 +49,6 @@ export const colors = {
   'yellow-dark-10': '#FFFF57',
   'yellow-dark-11': '#F5E147',
   'yellow-dark-12': '#F6EEB4',
-  'sky-blue': '#61a5ff',
 };
 
 export default {
