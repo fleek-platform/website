@@ -174,7 +174,7 @@ export const CtaNewsletterModal = () => {
         className="flex items-center justify-center gap-12 px-10"
         onClick={isOpenHandler}
       >
-        <div>Stay Updated</div>
+        <div>Stay updated</div>
       </ButtonGray>
       <Modal setIsOpen={setIsOpen} isOpen={isOpen} />
     </>
