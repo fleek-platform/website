@@ -12,7 +12,6 @@ export type FormValuesType = {
   comment: string;
 };
 const defaultFormValues = {
-  name: '',
   email: '',
   subject: 'Report a site',
   comment: '',
