@@ -39,9 +39,7 @@ const date = formatDate({ date: entry.data.date });
         <div>Go Back</div>
       </ButtonGray>
     </div>
-    <small class="font-plex-sans text-16 text-gray-dark-10"
-      >Last updated: {date}</small
-    >
+    <small class="font-plex-sans text-16 text-gray-dark-10">{date}</small>
     <h1>{entry.data.title}</h1>
     {
       entry.data?.image?.src && (
