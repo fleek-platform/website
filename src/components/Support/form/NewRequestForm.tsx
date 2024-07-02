@@ -19,7 +19,6 @@ export const { zenDeskEndpoint } = (() => {
 })();
 
 const defaultFormValues = {
-  name: '',
   email: '',
   subject: '',
   comment: '',
@@ -62,17 +61,6 @@ function NewRequestForm() {
         />
         <div className="mt-[3rem]">
           <Tooltip />
-        </div>
-
-        <div className="my-[1.6rem] lg:my-[1.8rem]">
-          <Input
-            type="text"
-            name="name"
-            value={formValues.name}
-            isRequired
-            onChange={(value) => handleInputChange('name', value)}
-            label="Name"
-          />
         </div>
 
         <div className="my-[1.6rem] lg:my-[1.8rem]">
