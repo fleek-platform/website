@@ -283,33 +283,33 @@
       {
         "id": 1,
         "path": "/support",
-        "pathname": "Home"
+        "title": "Home"
       },
 
       {
         "id": 2,
         "path": "/references",
-        "pathname": "References"
+        "title": "References"
       },
       {
         "id": 3,
         "path": "/guides",
-        "pathname": "Guides"
+        "title": "Guides"
       },
       {
         "id": 4,
         "path": "/billing",
-        "pathname": "Billing"
+        "title": "Billing"
       },
       {
         "id": 5,
         "path": "/requests/report-site",
-        "pathname": "Report a site"
+        "title": "Report a site"
       },
       {
         "id": 6,
         "path": "/requests/new",
-        "pathname": "Submit a request"
+        "title": "Submit a request"
       }
     ]
   }

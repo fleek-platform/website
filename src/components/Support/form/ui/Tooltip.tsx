@@ -1,7 +1,7 @@
 import { IoIosInformationCircle } from 'react-icons/io';
 import { colors } from 'tailwind.config.mjs';
 
-function Tooltip() {
+function ToolTip() {
   return (
     <form action="">
       <div className="flex items-center gap-[6px] rounded-[0.5rem] border border-yellow-dark-4  p-[1rem] lg:gap-[10px] lg:px-[1.3rem] lg:py-[1.4rem] xl:px-[1.5rem] xl:py-[1.55rem]">
@@ -22,4 +22,4 @@ function Tooltip() {
   );
 }
 
-export default Tooltip;
+export default ToolTip;

@@ -8,7 +8,7 @@ export type OptionsType = {
   id: string;
 };
 
-export type DropdownProps = {
+export type DropDownProps = {
   options: OptionsType[];
   selectedValue: string;
   isRequired?: boolean;
@@ -17,14 +17,14 @@ export type DropdownProps = {
   onChange: ({ value, id }: { value: string; id: string }) => void;
 };
 
-const Dropdown = ({
+const DropDown = ({
   options,
   selectedValue,
   isRequired,
   onChange,
   bottomText,
   dropdownLabel,
-}: DropdownProps) => {
+}: DropDownProps) => {
   const [isOpen, setIsOpen] = useState(false);
   const dropdownRef = useRef<HTMLDivElement>(null);
 
@@ -116,4 +116,4 @@ const Dropdown = ({
   );
 };
 
-export default Dropdown;
+export default DropDown;

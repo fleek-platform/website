@@ -1,10 +1,10 @@
 import { useState, type FormEvent } from 'react';
 import { type FormValuesType } from './ReportSiteForm';
 import Input from './ui/Input';
-import Tooltip from './ui/Tooltip';
+import ToolTip from './ui/ToolTip';
 import Button from './ui/Button';
 import { submitForm } from './utils';
-import Formtitle from './ui/Formtitle';
+import FormTitle from './ui/FormTitle';
 
 export const { zenDeskEndpoint } = (() => {
   const zenDeskEndpoint = import.meta.env.PUBLIC_SUPPORT_API;
@@ -53,14 +53,14 @@ function NewRequestForm() {
       className="mx-auto my-[40px] w-[90%] max-w-[768px] lg:w-[70%] xl:w-[65%]"
     >
       <div className="rounded-[8px] border border-[#313538] px-[2.5rem] py-[3rem] md:px-[4rem]">
-        <Formtitle
+        <FormTitle
           title={'Submit a request'}
           subTitle={
             "If you are encountering issues with Fleek, please explain the problem you're facing in the form below"
           }
         />
         <div className="mt-[3rem]">
-          <Tooltip />
+          <ToolTip />
         </div>
 
         <div className="my-[1.6rem] lg:my-[1.8rem]">

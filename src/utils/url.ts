@@ -56,3 +56,11 @@ export const generateSlug = (input: string): string => {
 
 export const pathContains = (term: string, path: string): boolean =>
   path.toLowerCase().includes(term.toLowerCase());
+
+export const hasSecondaryMenuItem = (pathname: string): boolean => {
+  const supportMenuItems = settings.support.supportMenu.map(
+    (item) => item.path.split('/')[1],
+  );
+  const uniqueMenuItems = [...new Set(supportMenuItems)];
+  return uniqueMenuItems.some((item) => pathname.includes(item));
+};

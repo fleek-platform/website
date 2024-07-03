@@ -60,7 +60,7 @@ function VideoCard({ id, pageOriginURL }: YoutubeEmbedVideoProps) {
         width={350}
         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
         referrerPolicy="strict-origin-when-cross-origin"
-        title="YouTube video player"
+        title="Useful Fleek Platform videos"
         src={videoSrc}
       ></iframe>
     </div>

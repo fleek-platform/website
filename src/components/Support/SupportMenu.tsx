@@ -40,7 +40,7 @@ function SupportMenuDesktop({ currentPagePath }: SupportMenuProps) {
             },
           )}
         >
-          <a href={item.path}>{item.pathname}</a>
+          <a href={item.path}>{item.title}</a>
         </li>
       ))}
     </ul>
@@ -87,7 +87,7 @@ function SupportMenuMobile({ currentPagePath }: SupportMenuProps) {
               },
             )}
           >
-            <a href={item.path}>{item.pathname}</a>
+            <a href={item.path}>{item.title}</a>
           </li>
         ))}
       </ul>
