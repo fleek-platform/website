@@ -47,7 +47,7 @@ function ReportSiteForm() {
         <Formtitle
           title={'Report a site'}
           subTitle={
-            "If you suspect a user or a site of violating Fleek's Terms of Service, please fill out the form below."
+            "If you believe a user or website may be breaching Fleek's Terms of Service, we'd appreciate it if you could take a moment to complete the form below."
           }
         />
 
