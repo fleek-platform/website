@@ -1,13 +1,13 @@
 ---
-title: "How We Built Server-Side Next.js On Fleek"
-category: "Announcements"
-date: "2024-05-15 07:00:00"
+title: 'How We Built Server-Side Next.js On Fleek'
+category: 'Announcements'
+date: '2024-05-15 07:00:00'
 desc: "A look at Fleek's first iteration of server side Next.js"
-thumbnail: "./Next.js_1.png"
-alt: "Fleek server side next.js"
-image: "./Next.js_1.png"
-author: 
-  - "Gabriel Pinto"
+thumbnail: './Next.js_1.png'
+alt: 'Fleek server side next.js'
+image: './Next.js_1.png'
+author:
+  - 'Gabriel Pinto'
 ---
 
 The dev team is working on introducing Fleek Functions to the platform, which are lightning fast edge functions built using Fleek Network’s [cloud infrastructure](https://blog.fleek.network/post/fleek-network-testnet-phase-3-results/). We are testing and experimenting to guarantee support for diverse use cases and compatibility with multiple frameworks and tools. One of those is support for Next.js.
@@ -33,6 +33,7 @@ Open-Next is an adapter that makes the Next.js output deployable to any serverle
 Next.js already builds your application for split routes, as you can see from the build output.
 
 ![](./next-js-ss.png)
+
 > Next.js build output
 
 When building your application with `open-next`, you can configure it to create a function for each route. The configured wrapper and converter will bundle and wrap each function you see on your Next.js build output.
@@ -94,9 +95,11 @@ async function convertTo(result): Promise<FleekResponse> {
 }
 
 function convertHeaders(headers: Record<string, string | string[]>) {
-	return Object.entries(headers)
-	    .map(([key, value]) => ({ [key]: Array.isArray(value) ? value.join(",") : value }))
-	    .reduce((acc, curr) => ({ ...acc, ...curr }), {});
+  return Object.entries(headers)
+    .map(([key, value]) => ({
+      [key]: Array.isArray(value) ? value.join(',') : value,
+    }))
+    .reduce((acc, curr) => ({ ...acc, ...curr }), {});
 }
 ```
 
@@ -109,6 +112,7 @@ That was the easy part. What we now want to do is take all of those functions an
 Getting these bundled functions to run on the Fleek Function runtime is easier said than done, as open-next is still working on full edge support and currently only targets Node, which isn’t fully Web API compliant. We can fix this with a fork of open-next and [some tweaks](https://github.com/sst/open-next/compare/main...fleekxyz:open-next:main) to make the tool more friendly for the Fleek Function runtime. We plan to push these tweaks to the open-next repo once they are more polished.
 
 ![](./edgy-next-js.png)
+
 > We're edgy now.
 
 Since the Fleek Function runtime doesn’t support Node, we resort to bundling the functions with Node.js polyfills. With some trial and error, we've added a few polyfills to our function bundles, such as `buffer`, which we're working on adding to our runtime. The polyfills bundle the needed Node.js libraries with your Next.js code to make sure nothing’s missing during execution.
@@ -152,7 +156,7 @@ This is all you need to get your Next.js application to run on Fleek Functions, 
 
 ## Future Work
 
-We still have some work to do to fully support Next.js on Fleek Functions, with Middleware and Incremental Static Rendering support still to come, to provide developers with performant, low cost, easy to use, and self-sovereign alternatives for their cloud infrastructure. You can check out our [repo](https://github.com/fleekxyz/fleek-next) and play around. 
+We still have some work to do to fully support Next.js on Fleek Functions, with Middleware and Incremental Static Rendering support still to come, to provide developers with performant, low cost, easy to use, and self-sovereign alternatives for their cloud infrastructure. You can check out our [repo](https://github.com/fleekxyz/fleek-next) and play around.
 
 If you’re interested in these deep dives, keep an eye on our blog as we’ll go through the routing used in our tooling and keep you up to date with any advances on our Next.js support as well as Fleek Functions.
 
