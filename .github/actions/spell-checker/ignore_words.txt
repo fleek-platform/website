@@ -295,6 +295,7 @@ sourcecode
 spark
 sql
 sqlite
+src
 ssh
 ssl
 ssl/tls
@@ -357,6 +358,7 @@ upstream
 uri
 url
 usdc
+usd
 usecase
 user
 userbase
