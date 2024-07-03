@@ -208,7 +208,7 @@ export const PRICING_PLANS: Record<PlanKeys, Plan> = {
       description:
         'Pricing that scales with your project. Free $5 included monthly. #WAGMI',
       cta: {
-        text: 'Go Fast with pro',
+        text: 'Go fast with pro',
         href: 'mailto:business@fleek.xyz',
         className: styles.proCTA,
       },
