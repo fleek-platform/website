@@ -56,7 +56,7 @@ function NewRequestForm() {
         <FormTitle
           title={'Submit a request'}
           subTitle={
-            "If you are encountering issues with Fleek, please explain the problem you're facing in the form below"
+            "If you're having issues with Fleek Platform, we're here to help! Please share details about the issue you're experiencing in the form below."
           }
         />
         <div className="mt-[3rem]">

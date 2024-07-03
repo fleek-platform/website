@@ -6,7 +6,7 @@ thumbnail: './deploy-fails-no-error-message.png'
 image: './deploy-fails-no-error-message.png'
 ---
 
-It is possible that your deploy with fail with no error message after you switched GitHub settings like:
+It is possible that your deploy will fail with no error message after you switch GitHub settings like:
 
 - Account
 - Organization
@@ -15,4 +15,4 @@ It is possible that your deploy with fail with no error message after you switch
 
 In most cases this can be quickly fixed by visiting [https://github.com/settings/installations](https://github.com/settings/installations) and removing fleek from the Authorized and Installed tabs. Then simply reinstall fleek on [app.fleek.xyz](https://app.fleek.xyz) on the hosting tab, by triggering a new deploy or adding a site.
 
-If the above still didn't solve your issue, please open a support ticket for fleek.co and we will fix this for you. You will need to provide your site's fleek url ( for example, "burning-hall-9201.on.fleek.xyz" )
+If the above still doesn't solve your issue, please open a support ticket for fleek.xyz, and we will fix this for you. You will need to provide your site's fleek URL (for example, "burning-hall-9201.on.fleek.xyz")

@@ -10,7 +10,7 @@ If you are getting node engine mismatch errors, don't worry. It only means the d
 
 However, you can use any docker image published on [dockerhub](https://hub.docker.com/search), you don't need to use the ones we provide if they are not fit for your project!
 
-Try choosing an official docker image on the "Docker Image Name" field on your build settings, for example, one that usually does the trick is "node:lts" (no fleek/ prefix)
+Try choosing an official docker image on the "Docker Image Name" field on your build settings, for example, one that usually does the trick is "node:lts" (no fleek/ prefix).
 Make sure the image you choose has the dependencies your project needs, for a React app for example, you'd only need node!
 
 This way, you can specify exactly what node version you want to use 😁️

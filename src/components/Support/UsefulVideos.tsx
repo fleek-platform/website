@@ -29,7 +29,7 @@ function UsefulVideos({ pageOriginURL }: UsefulVideosProps) {
           slidesPerView={1}
           navigation={true}
           modules={[Navigation]}
-          className="mySwiper"
+          className="useful-videos-swiper"
           breakpoints={{
             1024: {
               slidesPerView: 2,
