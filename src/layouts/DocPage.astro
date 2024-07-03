@@ -7,26 +7,35 @@ import Announcement from '@components/Announcement';
 import Container from '@components/Container';
 import Nav from '@components/NavBar';
 import Footer from '@components/Footer';
-import { generateSidebarDSByUserOrder } from '@utils/generateSidebarDS';
-import { getCollection } from 'astro:content';
+import {
+  generateSidebarDSByUserOrder,
+  type GenerateSidebarResponse,
+} from '@utils/generateSidebarDS';
+import settings from '@base/settings.json';
+
 import Sidebar from '@components/Sidebar';
 import SearchBtn from '@components/SearchBtn';
+import DocItemLink from '@components/DocItemLink';
+
 import OnPageNavigation from '@components/OnPageNavigation/OnPageNavigation.astro';
 import { getEntry } from 'astro:content';
 import GithubEditLink from '@components/GitHubEditLink.astro';
 import { generateGitHubEditLink } from '@utils/url';
-import settings from '@base/settings.json';
 
 import type { MarkdownHeading } from 'astro';
 import type { ContentEntryMap } from 'astro:content';
+import type { DocsLink } from '@base/pages/docs/[...slug].astro';
+import { getCollection } from 'astro:content';
 
 type Props = {
   title: string;
   description: string;
   headings: MarkdownHeading[];
+  prevItem: DocsLink | null;
+  nextItem: DocsLink | null;
 };
 
-const { title, description, headings } = Astro.props;
+const { title, description, headings, prevItem, nextItem } = Astro.props;
 const {
   collection,
   id,
@@ -59,9 +68,9 @@ const githubEditUrlPathname = generateGitHubEditLink({
   collection: data.collection,
   id: data.id,
 });
+
 const allPosts = await getCollection('docs');
 const orderBy = settings.docs.menu.order;
-
 const sidebarSorted = generateSidebarDSByUserOrder(allPosts, orderBy);
 
 const indexNameDocs = import.meta.env.PUBLIC_MEILISEARCH_INDEX_DOCS;
@@ -99,6 +108,10 @@ const image = '';
       <div class="min-w-0 px-32">
         <article class="doc">
           <slot />
+          <div class="flex flex-row gap-20">
+            {prevItem && <DocItemLink docItem={prevItem} />}
+            {nextItem && <DocItemLink docItem={nextItem} isNext />}
+          </div>
           <GithubEditLink pathname={githubEditUrlPathname} />
         </article>
       </div>
