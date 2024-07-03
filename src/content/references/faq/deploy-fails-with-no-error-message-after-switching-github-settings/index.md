@@ -6,7 +6,7 @@ thumbnail: './deploy-fails-no-error-message.png'
 image: './deploy-fails-no-error-message.png'
 ---
 
-It is possible that your deploy with fail with no error message after you switched GitHub settings like:
+It is possible that your deploy will fail with no error message after you switch GitHub settings like:
 
 - Account
 - Organization
