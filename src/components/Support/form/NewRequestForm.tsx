@@ -1,10 +1,10 @@
 import { useState, type FormEvent } from 'react';
 import { type FormValuesType } from './ReportSiteForm';
 import Input from './ui/Input';
-import ToolTip from './ui/Tooltip';
+import ToolTip from './ui/ToolTip';
 import Button from './ui/Button';
 import { submitForm } from './utils';
-import FormTitle from './ui/Formtitle';
+import FormTitle from './ui/FormTitle';
 
 export const { zenDeskEndpoint } = (() => {
   const zenDeskEndpoint = import.meta.env.PUBLIC_SUPPORT_API;

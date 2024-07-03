@@ -1,10 +1,10 @@
 import { useState } from 'react';
 import Button from './ui/Button';
 import Input from './ui/Input';
-import Tooltip from './ui/Tooltip';
+import ToolTip from './ui/ToolTip';
 import type { FormEvent } from 'react';
 import { submitForm } from './utils';
-import Formtitle from './ui/Formtitle';
+import FormTitle from './ui/FormTitle';
 
 export type FormValuesType = {
   email: string;
@@ -44,7 +44,7 @@ function ReportSiteForm() {
       className="mx-auto my-[35px] w-[90%] max-w-[768px] lg:w-[70%] xl:w-[65%]"
     >
       <div className="rounded-[8px] border border-ui-mid-white px-[2.5rem] py-[3rem] md:px-[4rem]">
-        <Formtitle
+        <FormTitle
           title={'Report a site'}
           subTitle={
             "If you believe a user or website may be breaching Fleek's Terms of Service, we'd appreciate it if you could take a moment to complete the form below."
@@ -52,7 +52,7 @@ function ReportSiteForm() {
         />
 
         <div className="mt-[3rem]">
-          <Tooltip />
+          <ToolTip />
         </div>
 
         <div className="my-[1.6rem] lg:my-[1.8rem]">
