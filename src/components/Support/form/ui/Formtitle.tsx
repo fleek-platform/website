@@ -3,7 +3,7 @@ type FormTitleProps = {
   subTitle: string;
 };
 
-function FormTitle({ title, subTitle }: FormTitleProps) {
+function Formtitle({ title, subTitle }: FormTitleProps) {
   return (
     <>
       <h1 className="text-[3.2rem] font-medium text-ui-faded-gray md:text-[3.5rem] xl:text-[4rem]">
@@ -17,4 +17,4 @@ function FormTitle({ title, subTitle }: FormTitleProps) {
   );
 }
 
-export default FormTitle;
+export default Formtitle;
