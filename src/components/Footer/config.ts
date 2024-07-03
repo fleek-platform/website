@@ -55,15 +55,15 @@ export default {
       rel: 'noopener noreferrer',
     },
     {
-      text: 'Terms of Service',
+      text: 'Terms of service',
       url: '/legal/terms-of-service',
     },
     {
-      text: 'Privacy Policies',
+      text: 'Privacy policies',
       url: '/legal/privacy-policy',
     },
     {
-      text: 'Contact Us',
+      text: 'Contact us',
       url: reportAbuseUrl,
       target: '_blank',
       rel: 'noopener noreferrer',
@@ -95,7 +95,7 @@ export default {
       url: '/docs',
     },
     {
-      text: 'Media Kit',
+      text: 'Media kit',
       url: mediaKit,
       target: '_blank',
       rel: 'noopener noreferrer',
@@ -110,7 +110,7 @@ export default {
       rel: 'noopener noreferrer',
     },
     {
-      text: 'Report Abuse',
+      text: 'Report abuse',
       url: reportAbuseUrl,
       target: '_blank',
       rel: 'noopener noreferrer',
