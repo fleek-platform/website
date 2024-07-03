@@ -4,7 +4,6 @@ date: 2023-04-28
 desc: "The builder's guide to Radicle- the decentralized code collaboration platform! Learn how to integrate the P2P code collab network in your web3 builds."
 thumbnail: './radicle-image.png'
 image: './radicle-image.png'
-cannonical: ''
 author:
   - 'Abru Zucchi'
 ---
@@ -81,6 +80,6 @@ sh <(curl -sSf [https://radicle.xyz/install](https://radicle.xyz/install))
 
 We hope this guide has given you the necessary information and tools to start using Radicle! Make sure to follow [Radicle](https://twitter.com/radicle) [](https://twitter.com/litprotocol)for further updates and developments.
 
-Additionally, we encourage you to check out our previous [Build3rs Stack](https://blog.fleek.xyz/category/guides/) series and keep an eye out for upcoming ones so that you can stay informed about the latest updates about web3 infrastructure. You can also join our [Discord community](https://discord.gg/fleek) to connect with us quickly.
+Additionally, we encourage you to check out our previous [Build3rs Stack](/guides/) series and keep an eye out for upcoming ones so that you can stay informed about the latest updates about web3 infrastructure. You can also join our [Discord community](https://discord.gg/fleek) to connect with us quickly.
 
 If you need more resources, please visit our [LinkTree](https://linktr.ee/fleek)!

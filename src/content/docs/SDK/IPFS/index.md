@@ -2,7 +2,7 @@
 order: 3
 title: IPFS
 date: 2023-01-10
-description: Learn how to pin a file on IPFS using the service's primary methods. Upload files individually, in bulk, or directly from your local system.
+desc: Learn how to pin a file on IPFS using the service's primary methods. Upload files individually, in bulk, or directly from your local system.
 keywords: [services, documentation, getting started]
 tags:
   - Accounts

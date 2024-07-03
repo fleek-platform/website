@@ -20,7 +20,7 @@ const BuildUseCases: React.FC<Props> = (props) => (
         cards: [
           {
             title: 'Next.js Template',
-            description: 'Use the React started kit to get the best look.',
+            description: `Leverage the Next.js boilerplate to streamline your project's setup.`,
             icon: { src: '/svg/react-icon.svg', alt: 'Web3 App' },
             cta: {
               url: 'https://app.fleek.xyz/templates/clmf71ycb0004lb08mubafjnj/',
@@ -30,7 +30,8 @@ const BuildUseCases: React.FC<Props> = (props) => (
           },
           {
             title: 'React Template',
-            description: 'Use the React started kit to get the best look.',
+            description:
+              'Use the React boilerplate for optimal user interface aesthetics.',
             icon: { src: '/svg/react-icon.svg', alt: 'NextJs App' },
             cta: {
               url: 'https://app.fleek.xyz/templates/clmf7apqf0007l808mo2f6937/',
@@ -40,7 +41,8 @@ const BuildUseCases: React.FC<Props> = (props) => (
           },
           {
             title: 'Astro Template',
-            description: 'Use the React started kit to get the best look.',
+            description:
+              'Deploy the Astro boilerplate for an efficient, modern web experience.',
             icon: { src: '/svg/react-icon.svg', alt: 'React App' },
             cta: {
               url: 'https://app.fleek.xyz/templates/clmf7io4a0009ic08ya3sjwyj/',

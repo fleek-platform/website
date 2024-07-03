@@ -4,7 +4,6 @@ date: 2023-06-06
 desc: 'Explore WeaveDB, the NoSQL database providing decentralized and scalable data storage to web3 apps with a familiar web2 experience'
 thumbnail: './weavedb.jpg'
 image: './weavedb.jpg'
-cannonical: ''
 author:
   - 'Fleek'
 ---
@@ -87,6 +86,6 @@ Access control rules can also be set up for these collections. For instance, onl
 
 Hopefully that this guide has provided you with the essential information and tools to begin integrating WeaveDB into your web3 builds! Make sure to follow [WeaveDB](https://twitter.com/weave_db) for updates from their team.
 
-Additionally, we encourage you to check out our previous guides in the [Build3rs Stack series](https://blog.fleek.xyz/category/guides/) and keep an eye out for upcoming ones so that you can stay informed about the latest updates about web3 infrastructure. You can also join our [Discord](https://discord.com/invite/fleek) community to connect with us quickly.
+Additionally, we encourage you to check out our previous guides in the [Build3rs Stack series](/guides/) and keep an eye out for upcoming ones so that you can stay informed about the latest updates about web3 infrastructure. You can also join our [Discord](https://discord.com/invite/fleek) community to connect with us quickly.
 
 For this and more resources, visit our [LinkTree](https://linktr.ee/fleek).

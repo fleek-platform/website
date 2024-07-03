@@ -73,6 +73,7 @@ export default {
         "gray-dark-10": "#7B7B7B",
         "gray-dark-11": "#B4B4B4",
         "gray-dark-12": "#EEEEEE",
+        "gray-dark-13": "#9BA1A6",
 
         "yellow-dark-1": "#14120B",
         "yellow-dark-2": "#1B180F",

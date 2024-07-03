@@ -3,7 +3,6 @@ title: 'Best Practices for Building IPFS-hosted Websites'
 date: 2024-04-03
 desc: ''
 image: './best-practices-ipfs.png'
-cannonical: ''
 author: 'Gonza'
 ---
 

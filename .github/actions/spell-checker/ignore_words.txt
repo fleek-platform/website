@@ -5,6 +5,7 @@ abtesting
 activedirectory
 agile
 ai
+allowfullscreen
 api
 apis
 artifacts
@@ -13,6 +14,7 @@ astrojs
 audit-logs
 authy
 automation
+autoplay
 auto-scaling
 avif
 aws
@@ -79,6 +81,7 @@ ecdsa
 ed25519
 education
 ef
+eip
 elkstack
 emacs
 email
@@ -96,9 +99,12 @@ facebook
 fleek
 fleekxyz
 fmt
+frontends
+frameborder
 functional-programming
 gatsby
 gdpr
+gif
 github
 geo
 grafana
@@ -122,12 +128,14 @@ hostnames
 hyper-v
 iam
 ide
+iframe
 img
 io
 iot
 ipaddress
 ipfs
 ipns
+january
 javascript
 json
 jwt
@@ -167,10 +175,13 @@ mobileapp
 mongodb
 monitoring
 multi-factor
+mvp
 mysql
 namespace
 navigation
 netlify
+nfa
+nfas
 nginx
 nodejs
 npm
@@ -245,6 +256,7 @@ restful
 retrofit
 rfc
 risk-assessment
+roadmap
 rsa
 ruby
 route53
@@ -315,6 +327,7 @@ test
 testing
 text
 theme
+thursday’s
 tls
 token
 tooltip
@@ -346,6 +359,8 @@ user
 userbase
 username
 uuid
+ux
+v0
 validation
 validator
 value
@@ -385,6 +400,7 @@ xss
 xyz
 yaml
 yml
+yourdapp
 youtube
 zero-trust
 zip

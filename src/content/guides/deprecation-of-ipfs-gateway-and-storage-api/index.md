@@ -4,7 +4,7 @@ date: 2023-01-09
 desc: 'We’re starting to take actions to deprecate the legacy Fleek platform (Fleek.co), starting with our IPFS Gateway + Storage API domains.'
 thumbnail: './depricatingdomains.png'
 image: './depricatingdomains.png'
-cannonical: 'https://blog.fleek.xyz/post/deprecation-of-ipfs-gateway-and-storage-api/'
+cannonical: ''
 author:
   - 'Fleek'
 ---
@@ -64,7 +64,7 @@ Why the switch? Two main reasons.
 
 ## What About Fleek.co As a Whole?
 
-As we mentioned in the intro, unless you’ve been living under a rock you’ve probably heard that we [raised $25M to build Fleek.xyz + Fleek Network](https://blog.fleek.co/posts/introducing-fleek-network-and-fleek-xyz). Part of the move to this new platform is sunsetting the Fleek.co platform and domain in favor of Fleek.xyz.
+As we mentioned in the intro, unless you’ve been living under a rock you’ve probably heard that we [raised $25M to build Fleek.xyz + Fleek Network](/blog/announcements/introducing-fleek-network-and-fleek-xyz/). Part of the move to this new platform is sunsetting the Fleek.co platform and domain in favor of Fleek.xyz.
 
 While we don’t have specifics on the move yet, you can expect us to move pretty much everything to the new .xyz domain. You’ll access our UI from something like app.fleek.xyz and our APIs from something akin to api.fleek.xyz.
 

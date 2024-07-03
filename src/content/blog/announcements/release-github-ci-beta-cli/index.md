@@ -8,7 +8,7 @@ image: './ci-cd-2.png'
 
 Releases are hitting a weekly cadence over here! ⚡️ And this week, after previously releasing Sites Deployments on the CLI beta, we’re following-up with the first automated **CI/CD deployment flow integration: Github Actions**.
 
-The TL;DR? With one command, you can configure a Github action for your repository that automatically builds and deploy your Fleek site to IPFS **upon each commit**, outputting the hash. As always, you can now find a how-to on this at [our documentation](https://docs.fleek.xyz/)!
+The TL;DR? With one command, you can configure a Github action for your repository that automatically builds and deploy your Fleek site to IPFS **upon each commit**, outputting the hash. As always, you can now find a how-to on this at [our documentation](/docs/)!
 
 ---
 
@@ -37,13 +37,13 @@ We’ve also squashed quite a few bugs and packaged more improvements that we fo
 Some rapid-fire additions and fixes on this release:
 
 - New cli command to list sites `fleek sites list`
-- Automatic browser opening removed ([Fixes](https://github.com/fleekxyz/fleekxyz-support/issues/8))
+- Automatic browser opening removed
 - Catch SIGKILL on site init and escape gracefully
 - Improve sites deploy success message
 - Fix an infinite loading in login
 - Add ipfs gateway url to success message of sites deploy
 
-Found a bug, or want to suggest a feature? Visit our [support repository](https://github.com/fleekxyz/fleekxyz-support/) and open an issue.
+Found a bug, or want to suggest a feature? Visit our [Discord](https://discord.gg/fleek) and open an issue.
 
 ---
 

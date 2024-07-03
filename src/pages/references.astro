@@ -11,16 +11,20 @@ const indexNameReferences = import.meta.env.PUBLIC_MEILISEARCH_INDEX_REFERENCES;
 
 const collection = 'references';
 
-// TODO: load title from settings
-const pageTitle = 'References';
 const allPosts: CollectionEntry<'references'>[] = (
   await getCollection('references')
 ).sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf());
 ---
 
-<Layout title={settings.site.metadata.title}>
+<Layout
+  title={settings.site.metadata.references.title}
+  description={settings.site.metadata.references.description}
+>
   <main class="container min-h-container">
-    <BlogHeader title="References" indexName={indexNameReferences} />
+    <BlogHeader
+      title={settings.site.metadata.references.title}
+      indexName={indexNameReferences}
+    />
     <BlogPosts allPosts={allPosts} collection={collection} />
   </main>
 </Layout>

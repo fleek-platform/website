@@ -26,7 +26,7 @@ specifiers:
   framer-motion: ^11.0.24
   hono: ^4.2.7
   husky: ^9.0.11
-  instantsearch.js: 4.67.0
+  instantsearch.js: ^4.67.0
   lodash-es: ^4.17.21
   meilisearch: ^0.38.0
   pixi.js: ^7.2.4

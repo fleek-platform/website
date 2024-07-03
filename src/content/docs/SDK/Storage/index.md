@@ -2,7 +2,7 @@
 order: 2
 title: Storage
 date: 2023-01-10
-description: Learn how to use the Storage service via the Fleek Platform SDK.
+desc: Learn how to use the Storage service via the Fleek Platform SDK.
 keywords: [services, documentation, getting started, storage]
 tags:
   - Storage

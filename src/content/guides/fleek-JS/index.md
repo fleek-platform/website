@@ -4,7 +4,6 @@ date: 2021-05-30
 desc: 'We’ll create a Next.js app and deploy it on Fleek. This whole process It should take 10 minutes.'
 thumbnail: './next1.png'
 image: './next1.png'
-cannonical: ''
 author: 'Fleek'
 ---
 
@@ -143,5 +142,5 @@ Fleek will automatically redeploy your website whenever you make changes to GitH
 - [Sign up](https://app.fleek.xyz/) to try yourself
 - Join our [Community Chat](https://discord.com/invite/fleek)
 - Follow us on [Twitter](https://twitter.com/fleek)
-- Check out our [Tech Docs](https://docs.fleek.xyz/)
+- Check out our [Tech Docs](/docs/)
 - Contact us at support@fleek.xyz

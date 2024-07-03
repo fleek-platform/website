@@ -2,8 +2,8 @@
 title: 'Sites Deployments Release on the CLI Beta.'
 date: 2023-02-01
 desc: 'New features are coming to the CLI! Today we are releasing the Sites Deployments service to the CLI for developers to start testing.'
-thumbnail: './cli-sites.png'
-image: './cli-sites.png'
+thumbnail: './clisitedeployments.png'
+image: './clisitedeployments.png'
 ---
 
 The beta’s growing, and with new testers, new features are coming to the CLI! Today we are releasing the **Sites Deployments service** to the CLI for developers to start testing and [share their feedback](https://github.com/fleekxyz/fleekxyz-support) on.

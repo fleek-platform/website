@@ -1,7 +1,7 @@
 ---
 title: Terms of Service
 date: 2023-01-10
-description: Overview of Fleek LLC's Terms of Use detailing the rules and regulations for accessing and using our website, products, and services.
+desc: Overview of Fleek LLC's Terms of Use detailing the rules and regulations for accessing and using our website, products, and services.
 ---
 
 PLEASE NOTE THAT YOUR USE OF AND ACCESS TO OUR SERVICES (DEFINED BELOW) ARE SUBJECT TO THE FOLLOWING TERMS; IF YOU DO NOT AGREE TO ALL OF THE FOLLOWING, YOU MAY NOT USE OR ACCESS THE SERVICES IN ANY MANNER.

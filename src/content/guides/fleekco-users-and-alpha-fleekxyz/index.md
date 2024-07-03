@@ -4,7 +4,6 @@ date: 2023-08-31
 desc: 'For Fleek.co users: All the answers to the most pressing FAQ about the Fleek.xyz alpha release and eventual migration.'
 thumbnail: './alphafaq-thumb.png'
 image: './alphafaq-thumb.png'
-cannonical: ''
 author: 'Fleek'
 ---
 
@@ -13,7 +12,7 @@ The Fleek Alpha release is here! If you’re coming from Fleek.co, you might be 
 To answer the most pressing questions and set clear expectations, we’ve prepared a comprehensive FAQ for existing Fleek.co users. Here’s a TLDR if you’re short on time:
 
 - This first release of Fleek.xyz is a closed alpha test
-- New and existing users can request access to the alpha in our [Discord](https://fleekxyz.typeform.com/alpha-access)
+- New and existing users can request access to the alpha in our [Discord](https://discord.gg/fleek)
 - This phase does not include Fleek.co migration tools, _yet_
 - You will have to create a new account to authenticate, and you can use the same credentials you have on fleek.co to facilitate the migration process later.
 - Using other credentials won’t hinder your migration process in the future
@@ -39,7 +38,7 @@ Migration tools for Fleek.co users will go live with the release of the V1 versi
 
 **Of course you can, and you should**! Anyone can get whitelisted to try the alpha release. We hope you tinker as much as we can until the release of Version 1 of Fleek.xyz.
 
-**[Visit our Discord to get whitelisted to access the alpha!](https://fleekxyz.typeform.com/alpha-access)**
+**[Visit our Discord to get whitelisted to access the alpha!](https://discord.gg/fleek)**
 
 ## Can I sign into the alpha with my current Fleek.co credentials?
 

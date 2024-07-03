@@ -1,9 +1,9 @@
 ---
-title: 'Fleek v0.0.3 Release Notes: Project, Site, and Gateway Delete Options, QoL Improvements'
+title: 'Fleek v0.0.3 Changelog: Project, Site, and Gateway Delete Options, QoL Improvements'
 date: 2023-11-09
 desc: 'Dive into the changes coming with Fleek Alpha v0.0.3, including Project, Site, and Gateway Delete Options.'
-thumbnail: './fleekreleasenotes05.png'
-image: './fleekreleasenotes05.png'
+thumbnail: './fleekchangelog1109.png'
+image: './fleekchangelog1109.png'
 author:
   - 'Fleek'
 ---
@@ -68,8 +68,6 @@ Alongside the new delete options, we’ve also added a ton of quality-of-life im
 - Files with special characters in the name are now rendering correctly on private gateways
 - Fixed an error where users were stuck in the UI and unable to log in
 - Added a button to add an organization to the verified GitHub account in the GitHub account selector
-
-For a full list of changes coming with v0.0.3, check out our [docs](https://docs.fleek.xyz/release-notes/release-notes-0.0.3).
 
 ---
 

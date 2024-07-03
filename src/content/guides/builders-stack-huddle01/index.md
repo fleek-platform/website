@@ -4,7 +4,6 @@ date: 2023-08-26
 desc: "The builder's guide to Huddle01- the decentralized communication protocol, network, and app bringing video, audio, streaming, and more to any web3 protocol."
 thumbnail: './huddle01thumb.jpg'
 image: './huddle01thumb.jpg'
-cannonical: ''
 author:
   - 'Fleek'
 ---
@@ -112,6 +111,6 @@ The Huddle01 team provides SDKs and APIs for projects to integrate their protoco
 
 We hope you enjoyed learning about Huddle01 and their goal to decentralize and scale real time WebRTC to develop a web3 multimedia communication system.
 
-Want more information on cool infrastructure projects? Check out more of our <u>[Build3rs Stack articles](https://blog.fleek.xyz/category/guides/)</u>. You can also <u>[join our Discord server](https://discord.com/invite/fleek)</u> to jam with the team and learn more!
+Want more information on cool infrastructure projects? Check out more of our <u>[Build3rs Stack articles](/guides/)</u>. You can also <u>[join our Discord server](https://discord.com/invite/fleek)</u> to jam with the team and learn more!
 
 For more resources, visit <u>[our LinkTree](https://linktr.ee/fleek)</u>

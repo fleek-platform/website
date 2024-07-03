@@ -2,8 +2,8 @@
 title: 'Build a dApp with Fleek’s Ethereum Boilerplate, and Host it on IPFS.'
 date: 2023-02-17
 desc: 'Build an Ethereum dApp end-to-end with a fully open-source boilerplate with no binding dependencies, and a next.js frontend.'
-thumbnail: './os-ethereum-2.png'
-image: './os-ethereum-2.png'
+thumbnail: './osethereumboilerplate.png'
+image: './osethereumboilerplate.png'
 ---
 
 Juan here from the DevRel team! dApps are gaining popularity due to their decentralized nature, which provides enhanced security and transparency to users. However, **developing a dApp from scratch can be a challenging task**.

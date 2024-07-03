@@ -1,14 +1,14 @@
 ---
-title: 'Fleek Release Notes 01: Alpha Release, New Documentation, New CLI/SDK Version'
+title: 'Fleek Changelog: Alpha Release, New Documentation, New CLI/SDK Version'
 date: 2023-09-16
 desc: 'Take a dive into the first Fleek Release Notes- a knitty-gritty, regular release notes covering Features, Fixes, and Improvements'
-thumbnail: './Fleekreleasenotes01.png'
-image: './Fleekreleasenotes01.png'
+thumbnail: './fleekchangelog0916.png'
+image: './fleekchangelog0916.png'
 author:
   - 'Fleek'
 ---
 
-Hey there _Fleek Freaks_! The Fleek Alpha is here and new testers are being onboarded every day (if you haven’t [gotten access yet to the Alpha](https://fleekxyz.typeform.com/alpha-access), what in Vitalik’s name are you waiting for?
+Hey there _Fleek Freaks_! The Fleek Alpha is here and new testers are being onboarded every day if you haven’t [gotten access yet to the Alpha](https://fleekxyz.typeform.com/alpha-access), what in Vitalik’s name are you waiting for?
 
 With the release of the alpha, setting the foundations for the release of V1, we’re bringing back **our frequent release notes updates at a constant cadence** under a new name: **Fleek Release Notes 📔**
 

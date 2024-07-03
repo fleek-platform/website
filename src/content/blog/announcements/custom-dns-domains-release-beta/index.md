@@ -2,13 +2,13 @@
 title: 'The Custom Domains Service Arrives to the CLI Beta!'
 date: 2023-03-16
 desc: 'The Domains Service is now live, map any DNS domain to your Fleek-deployed sites with this new feature on the CLI.'
-thumbnail: './dns-fleek.png'
-image: './dns-fleek.png'
+thumbnail: './customdns.png'
+image: './customdns.png'
 ---
 
 Thursday’s release day, and today we delivering another key service on the Fleek CLI beta: **the Custom Domains Service, allowing you to map DNS domains to your Fleek sites**!
 
-Any user can now fully deploy a static website onto IPFS, add a DNS domain to it (e.g. yourdapp.com) and have it resolve, and be fully hosted via Fleek. You can find guides to all new features detailed in our [docs](https://docs.fleek.xyz/).
+Any user can now fully deploy a static website onto IPFS, add a DNS domain to it (e.g. yourdapp.com) and have it resolve, and be fully hosted via Fleek. You can find guides to all new features detailed in our [docs](/docs).
 
 ---
 

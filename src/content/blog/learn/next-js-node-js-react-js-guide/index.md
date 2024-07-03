@@ -2,8 +2,8 @@
 title: 'Next.Js, Node.Js, and React.Js — unboxing the developer toolkit'
 date: 2024-05-10
 desc: 'Next.js is a JavaScript (JS) framework that allows developers to build web applications, offering architectural modularity.'
-thumbnail: './unboxingdevelopertoolkit.png'
-image: './unboxingdevelopertoolkit.png'
+thumbnail: './fleek-blog-unboxing-framework.png'
+image: './fleek-blog-unboxing-framework.png'
 author:
   - 'Fleek'
 ---

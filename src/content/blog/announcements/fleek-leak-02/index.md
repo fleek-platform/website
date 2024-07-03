@@ -2,13 +2,13 @@
 title: 'Fleek Leak 02'
 date: 2023-01-25
 desc: 'Time for a development update ⚡️ Over the last few weeks we’ve been jamming on our CLI beta (Jan 18th), adding compute to Fleek, and an NFAs MVP. Let’s dive into why & what you can expect!'
-thumbnail: './leak2.png'
-image: './leak2.png'
+thumbnail: './fleekleakjan26.png'
+image: './fleekleakjan26.png'
 ---
 
 Issue number two of the Fleek Leak is here fam! ⚡ We’re keeping the bi-weekly pace up: a release one week, and a development update on the other.
 
-The past week was a pretty big milestone for us, because we released the **first Beta of Fleek.xyz:** [**IPFS Pinning & IPNS Management on the CLI.**](https://blog.fleek.co/posts/release-ipfs-pinning-ipns-beta-fleek-xyz)
+The past week was a pretty big milestone for us, because we released the **first Beta of Fleek.xyz:** [**IPFS Pinning & IPNS Management on the CLI.**](/blog/announcements/release-ipfs-pinning-ipns-beta-fleek-xyz/)
 
 Merely a day later **we reached triple digits in files pinned and testers.** We received a lot of helpful feedback, and testing went on without major issues. Thanks everyone for the help!
 
@@ -34,7 +34,7 @@ How will Sites deployment work in the CLI? There will be two options. The first 
 
 The second iteration, **managed deployments**, will come later on and offer the option to rely fully on Fleek’s CI/CD service to handle the build and deployment of your site.
 
-Again, our architecture design for Fleek.xyz is [fully modular and extensible](https://blog.fleek.co/posts/fleek-xyz-architecture-overview), which means that while on this release Sites deploy to IPFS initially and Domains will support DNS, in the future we will be able to easily expand to other web3 providers (like ENS).
+Again, our architecture design for Fleek.xyz is [fully modular and extensible](/blog/announcements/fleek-xyz-architecture-overview/), which means that while on this release Sites deploy to IPFS initially and Domains will support DNS, in the future we will be able to easily expand to other web3 providers (like ENS).
 
 ---
 
@@ -50,7 +50,7 @@ For that, we are using an early version of the Fleek SDK, which is now powering 
 
 ---
 
-That wraps up this edition of Fleek Leak! Set your reminders for next week as we prepare to release these new features into the wild. You can also simply [sign up on our website](https://fleek.xyz/) to get a ping when that happens too 📯. While you wait, [pay our docs](https://docs.fleek.xyz/) a visit and give the beta a try!
+That wraps up this edition of Fleek Leak! Set your reminders for next week as we prepare to release these new features into the wild. You can also simply [sign up on our website](https://fleek.xyz/) to get a ping when that happens too 📯. While you wait, [pay our docs](/docs) a visit and give the beta a try!
 
 A final leak: Now that Sites are around the corner, expect our **DevRel team** to start sharing examples, templates, and build ideas around! We’re preparing an open templates repository for Fleek where we’ll add boilerplates and projects you can quickly deploy through Fleek (e.g. a blog, or a [Lens app](https://www.lens.xyz/)). Got any ideas? Swing by our [Discord](https://discord.gg/fleek) and let us know 😉.
 

@@ -7,12 +7,61 @@
       "url": "https://fleek-xyz-staging.on-fleek.app"
     },
     "development": {
-      "url": "https://fleek-xyz-staging.on-fleek.app"
+      "url": "http://localhost:4321"
     },
     "metadata": {
-      "title": "Fleek | Build Lightning Fast Apps",
-      "description": "Fleek is an edge-optimized cloud platform. Effortlessly build, ship and scale highly performant apps. Try for free and deploy an app in 5 minutes.",
-      "image": "/images/fleek-meta.png?202406061658"
+      "default": {
+        "title": "Fleek | Build Lightning Fast Apps",
+        "description": "Fleek is an edge-optimized cloud platform. Effortlessly build, ship and scale highly performant apps. Try for free and deploy an app in 5 minutes.",
+        "image": "/images/fleek-meta.png?202406061658"
+      },
+      "blog": {
+        "title": "Home | Fleek Blog",
+        "description": "Stay updated with blog posts from the Fleek team and community. Explore articles and insights on the latest trends and advancements in web development.",
+        "image": "/images/fleek-meta.png?202406061658",
+        "category": {
+          "announcements": {
+            "title": "Announcements",
+            "description": ""
+          },
+          "changelog": {
+            "title": "Changelog",
+            "description": ""
+          },
+          "learn": {
+            "title": "Learn",
+            "description": ""
+          },
+          "templates": {
+            "title": "Templates",
+            "description": ""
+          },
+          "uncategorized": {
+            "title": "Uncategorized",
+            "description": ""
+          }
+        }
+      },
+      "docs": {
+        "title": "Docs",
+        "description": "Kickstart your Fleek journey with our documentation, detailed guides and references. Browse our platform resources for a deep dive into our features.",
+        "image": "/images/fleek-meta.png?202406061658"
+      },
+      "guides": {
+        "title": "Home | Fleek Guides",
+        "description": "Discover step-by-step guides and tutorials on Fleek to streamline your app and web development. Leverage our resources to build smarter, faster, and stress free.",
+        "image": "/images/fleek-meta.png?202406061658"
+      },
+      "references": {
+        "title": "References",
+        "description": "Fleek is an edge-optimized cloud platform. Effortlessly build, ship and scale highly performant apps. Try for free and deploy an app in 5 minutes.",
+        "image": "/images/fleek-meta.png?202406061658"
+      },
+      "pricing": {
+        "title": "Home | Fleek Pricing",
+        "description": "Discover Fleek's flexible pricing plans tailored to fit any project size. Start for free and upgrade as needed with our transparent, simple pricing structure.",
+        "image": "/images/fleek-meta.png?202406061658"
+      }
     },
     "resources": {
       "careersUrl": "https://wellfound.com/company/fleekhq",
@@ -202,5 +251,8 @@
         }
       ]
     }
+  },
+  "newsletterSubscription": {
+    "activeHostedFormApi": "https://fleek.activehosted.com/proc.php"
   }
 }

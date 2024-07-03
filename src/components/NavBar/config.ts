@@ -102,19 +102,23 @@ export const NavBarDefault: MenuSettingsItem[] = [
         icon: '/svg/guides-navbar-icon.svg',
       },
       {
-        label: 'Media Kit',
+        label: 'Media kit',
         url: 'https://www.notion.so/fleek/Fleek-Brand-Kit-9a2bcf7eb40740a9b7e951fc951b478a',
         description: 'Our branding guidelines.',
         icon: '/svg/media-navbar-icon.svg',
       },
       {
-        label: 'Support Center',
+        label: 'Support center',
         url: supportUrlDefault,
         openInNewTab: true,
         description: 'Get help',
         icon: '/svg/community-navbar-icon.svg',
       },
     ],
+  },
+  {
+    label: 'DOCS',
+    url: '/docs',
   },
   {
     label: 'BLOG',

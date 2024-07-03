@@ -4,7 +4,6 @@ date: 2024-03-22
 desc: 'How to build an app that can pin files to IPFS in minutes using the Fleek SDK.'
 thumbnail: './ipfsguide.png'
 image: './ipfsguide.png'
-cannonical: ''
 author:
   - 'Olayinka Oshidipe'
 ---
@@ -13,9 +12,9 @@ How to build an app that can pin files to IPFS in minutes using the Fleek SDK.
 
 We’re huge fans of IPFS and we know our devs love it. This article is part of our continued effort to give you the easiest access to the protocol in every way possible– including through the Fleek SDK 🤙
 
-The [Fleek SDK](https://docs.fleek.xyz/docs/SDK) provides convenient methods for integrating decentralized storage functionality directly into your applications, enabling tasks such as file uploads and interactions with IPFS. In this guide, we'll be taking a look at **how to create a NodeJS app using the Fleek SDK to interact with IPFS** through a step-by-step process.
+The [Fleek SDK](/docs/sdk) provides convenient methods for integrating decentralized storage functionality directly into your applications, enabling tasks such as file uploads and interactions with IPFS. In this guide, we'll be taking a look at **how to create a NodeJS app using the Fleek SDK to interact with IPFS** through a step-by-step process.
 
-_For more details on getting started with the Fleek SDK check out our [docs](https://docs.fleek.xyz/docs)_
+_For more details on getting started with the Fleek SDK check out our [docs](/docs/)_
 
 ### What is IPFS?
 
@@ -27,14 +26,14 @@ Let’s walk through accessing these benefits by building a basic NodeJs app tha
 
 ## **Requirements:**
 
-- **[Fleek SDK](https://docs.fleek.xyz/docs/SDK)**
+- **[Fleek SDK](/docs/sdk)**
 - Account on [Fleek.xyz](https://app.fleek.xyz)
 - NodeJs 18+
   - Head to the [Node Official Website](https://nodejs.org/en) for help getting started with NodeJs
 
 After creating or logging into your account on [Fleek.xyz](https://app.fleek.xyz), follow these steps to get started with the Fleek SDK:
 
-1. **Install the [Fleek CLI](https://docs.fleek.xyz/docs/CLI)**:
+1. **Install the [Fleek CLI](/docs/cli/)**:
 
 Begin by opening your terminal and installing the Fleek CLI by running:
 
@@ -42,7 +41,7 @@ Begin by opening your terminal and installing the Fleek CLI by running:
 npm install fleek
 ```
 
-_If you’ve never used the Fleek CLI before, our docs have you covered! They go over all the basics that you’ll need for this guide– from installation to authentication and project management. [Check it out here](https://docs.fleek.xyz/docs/CLI)_
+_If you’ve never used the Fleek CLI before, our docs have you covered! They go over all the basics that you’ll need for this guide– from installation to authentication and project management. [Check it out here](/docs/cli/)_
 
 2. **Set Up Your Project Environment**
 
@@ -92,7 +91,7 @@ fleek pat create
 
 - If not logged in, you'll be prompted to do so. Once logged in, you'll receive your PAT, which will look something like this: `pat_jSzFpdfdfsjn8pO2XoWOow` Copy and paste your PAT in front of PAT in your .env file.
 
-_If you aren’t familiar with Fleek’s PATs, check out our docs [here](https://docs.fleek.xyz/docs/SDK#personal-access-token-service) for more details on how to create and use them_
+_If you aren’t familiar with Fleek’s PATs, check out our docs [here](/docs/cli/pat/) for more details on how to create and use them_
 
 4. Create and Retrieve your Project ID
 
@@ -250,6 +249,6 @@ This is just a super quick example of what you can build with the Fleek SDK. You
 
 You can see a finished example of our NodeJS app through this [Github repo](https://github.com/fleekxyz/pin-files-to-ipfs-with-fleekSDK.git).
 
-Learn more about the possible function types, more examples and use cases for the Fleek SDK in our [docs](https://docs.fleek.xyz/docs/SDK/ipfs) 🤙
+Learn more about the possible function types, more examples and use cases for the Fleek SDK in our [docs](/docs/sdk/ipfs/) 🤙
 
 If you have any questions about using the Fleek SDK or any of the possible use cases reach out on [X](https://twitter.com/fleek) or in our [Discord](https://discord.gg/fleek) server ⚡

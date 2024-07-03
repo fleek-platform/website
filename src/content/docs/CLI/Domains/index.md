@@ -2,7 +2,7 @@
 order: 5
 title: Domains
 date: 2023-01-10
-description: Set up a custom domain for your Fleek site easily with our CLI guide. Add, verify, and manage effortlessly.
+desc: Set up a custom domain for your Fleek site easily with our CLI guide. Add, verify, and manage effortlessly.
 keywords: [services, documentation, getting started]
 tags:
   - Accounts

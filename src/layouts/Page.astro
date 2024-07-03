@@ -8,11 +8,11 @@ import settings from '@base/settings.json';
 
 interface Props {
   title: string;
+  description: string;
 }
 
-const { title } = Astro.props;
-const description = settings.site.metadata.description;
-const image = '';
+const { title, description } = Astro.props;
+const image = settings.site.metadata.default.image;
 const slug = '';
 ---
 
