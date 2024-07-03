@@ -14,7 +14,7 @@
     }
 
     h1 {
-      @apply text-38 text-gray-dark-12;
+      @apply pb-24 pt-14 text-38 leading-tight text-gray-dark-12;
     }
 
     h2 {
