@@ -1,5 +1,6 @@
 import type { DocsLink } from '@base/pages/docs/[...slug].astro';
 import React from 'react';
+import { IconArrowLeft, IconArrowRight } from './IconArrow';
 
 interface DocItemLinkProps {
   isNext?: boolean;
@@ -13,32 +14,34 @@ const DocItemLink: React.FC<DocItemLinkProps> = ({
   return (
     <a
       href={`/docs/${docItem.slug}`}
-      className={` bg-red-300 flex flex-row items-end px-10 py-10 text-white opacity-90  hover:opacity-100 ${isNext ? 'ml-auto items-end' : 'mr-auto items-start'}`}
+      className={`
+            flex
+            w-full 
+            flex-row 
+            rounded-10
+            p-20
+            text-white 
+            no-underline  
+            ${isNext ? 'ml-auto items-end' : 'mr-auto items-start'} 
+            border
+            border-gray-400
+            hover:border-white
+             `}
     >
-      {!isNext && (
-        <img
-          src="/svg/arrow-left.svg"
-          alt="arrow-left"
-          className="mr-10 pb-8 text-white"
-          width={20}
-          height={20}
-        />
-      )}
-      <div className={`flex flex-col`}>
-        <span className="text-white no-underline hover:no-underline">
-          {isNext ? 'Next' : 'Previous'}
-        </span>
-        <span>{docItem.title}</span>
+      <div
+        className={`flex w-full flex-col ${isNext ? 'items-end' : 'items-start'}`}
+      >
+        <div className={`flex flex-row items-center`}>
+          {!isNext && <IconArrowLeft className="mt-2 text-yellow" />}
+          <span className="no-underline hover:no-underline">
+            {isNext ? 'Next' : 'Previous'}
+          </span>
+          {isNext && <IconArrowRight className="mt-2 text-yellow" />}
+        </div>
+        <div>
+          <span className="text-white">{docItem.title}</span>
+        </div>
       </div>
-      {isNext && (
-        <img
-          src="/svg/arrow-right.svg"
-          alt="arrow-right"
-          className="ml-10 pb-8 text-white"
-          width={20}
-          height={20}
-        />
-      )}
     </a>
   );
 };
