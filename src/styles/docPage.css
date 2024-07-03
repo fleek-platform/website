@@ -41,7 +41,11 @@
     }
 
     a {
-      @apply text-yellow hover:underline;
+      @apply text-yellow;
+    }
+
+    a:not(.no-underline) {
+      @apply hover:underline;
     }
 
     ul {
