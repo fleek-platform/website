@@ -1,10 +1,10 @@
 import { useState } from 'react';
 import Button from './ui/Button';
 import Input from './ui/Input';
-import ToolTip from './ui/ToolTip';
+import ToolTip from './ui/ToolTipComponent';
 import type { FormEvent } from 'react';
 import { submitForm } from './utils';
-import FormTitle from './ui/FormTitle';
+import FormTitle from './ui/FormTitleComponent';
 
 export type FormValuesType = {
   email: string;
