@@ -283,7 +283,7 @@ Your environment variables are available under `fleek.env`. You can test it out 
 ```js
 export const main = (params) => {
   const foo = fleek.env.FOO;
-  return `foo=${}`;
+  return `foo=${foo}`;
 };
 ```
 
