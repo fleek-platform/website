@@ -144,7 +144,7 @@ export const PRICING_PLANS: Record<PlanKeys, Plan> = {
       description:
         'For those just starting.\n⚡ Up to $5 in free usage every month. ⚡',
       cta: {
-        text: ' Start with free',
+        text: ' Start with Free',
         href: 'https://app.fleek.xyz/',
         className: styles.wagmiCTA,
       },
@@ -208,7 +208,7 @@ export const PRICING_PLANS: Record<PlanKeys, Plan> = {
       description:
         'Pricing that scales with your project. Free $5 included monthly. #WAGMI',
       cta: {
-        text: 'Go fast with pro',
+        text: 'Go fast with Pro',
         href: 'mailto:business@fleek.xyz',
         className: styles.proCTA,
       },
@@ -244,7 +244,7 @@ export const PRICING_PLANS: Record<PlanKeys, Plan> = {
       subtitle: 'Custom',
       description: 'Need high volume or custom requirements? Reach out.',
       cta: {
-        text: 'Contact sales',
+        text: 'Contact Sales',
         href: 'mailto:business@fleek.xyz',
         className: styles.enterpriseCTA,
       },
