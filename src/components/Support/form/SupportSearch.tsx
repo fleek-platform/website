@@ -1,5 +1,5 @@
 import { debounce } from 'lodash-es';
-import React, { useState, useEffect, useCallback, useRef } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import toast from 'react-hot-toast';
 import { IoIosSearch } from 'react-icons/io';
 
@@ -35,6 +35,7 @@ const MultiSearch: React.FC = () => {
   const [results, setResults] = useState<Hit[]>([]);
   const [loading, setLoading] = useState<boolean>(false);
   const [isOpen, setIsOpen] = useState(false);
+  const [isLocked, setIsLocked] = useState(false);
 
   const dropdownRef = useRef<HTMLDivElement>(null);
 
@@ -54,62 +55,64 @@ const MultiSearch: React.FC = () => {
     };
   }, []);
 
-  const performSearch = useCallback(
-    debounce(async (query: string) => {
-      setLoading(true);
-      try {
-        const response = await fetch(`//${host}/multi-search`, {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json',
-          },
-          body: JSON.stringify({
-            queries: [
-              {
-                indexUid: 'fleekxyz_website_docs',
-                q: query,
-                limit: 5,
-              },
-              {
-                indexUid: 'fleekxyz_website_references',
-                q: query,
-                limit: 5,
-              },
-              {
-                indexUid: 'fleekxyz_website_guides',
-                q: query,
-                limit: 5,
-              },
-              {
-                indexUid: 'fleekxyz_website_billing',
-                q: query,
-                limit: 5,
-              },
-            ],
-          }),
-        });
+  const performSearch = debounce(async (query: string) => {
+    if (isLocked) return;
 
-        if (!response.ok) {
-          throw new Error('Network response was not ok');
-        }
+    setLoading(true);
+    setIsLocked(true);
 
-        const data = await response.json();
-        const combinedHits = data?.results?.flatMap(
-          (result: Result) => result.hits,
-        );
-        setResults(combinedHits);
-        setIsOpen(true);
-      } catch (error) {
-        toast.dismiss();
-        toast.error(
-          'Oops! Your search didn’t come through. Please give it another try! If the issue persists report to us to help us improve!',
-        );
-      } finally {
-        setLoading(false);
+    try {
+      const response = await fetch(`//${host}/multi-search`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          queries: [
+            {
+              indexUid: 'fleekxyz_website_docs',
+              q: query,
+              limit: 5,
+            },
+            {
+              indexUid: 'fleekxyz_website_references',
+              q: query,
+              limit: 5,
+            },
+            {
+              indexUid: 'fleekxyz_website_guides',
+              q: query,
+              limit: 5,
+            },
+            {
+              indexUid: 'fleekxyz_website_billing',
+              q: query,
+              limit: 5,
+            },
+          ],
+        }),
+      });
+
+      if (!response.ok) {
+        throw new Error('Network response was not ok');
       }
-    }, 1000),
-    [query],
-  );
+
+      const data = await response.json();
+      const combinedHits = data?.results?.flatMap(
+        (result: Result) => result.hits,
+      );
+      setResults(combinedHits);
+      setIsOpen(true);
+    } catch (error) {
+      toast.dismiss();
+      toast.error(
+        'Oops! Your search didn’t come through. Please give it another try! If the issue persists report to us to help us improve!',
+      );
+    } finally {
+      setLoading(false);
+      setIsLocked(false);
+    }
+  }, 1000);
 
   useEffect(() => {
     if (query) {
@@ -118,13 +121,11 @@ const MultiSearch: React.FC = () => {
       setResults([]);
       setIsOpen(false);
     }
-  }, [query, performSearch]);
+  }, [query]);
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setQuery(e.target.value);
   };
-
-  console.log(results);
 
   return (
     <div className="relative">
