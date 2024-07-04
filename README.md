@@ -90,6 +90,7 @@ PRIVATE_MEILISEARCH_DOCUMENTS_ADMIN_API_KEY=***
 PUBLIC_MEILISEARCH_DOCUMENTS_CLIENT_API_KEY=***
 PUBLIC_SUPPORT_API="localhost:3331"
 ALLOW_ORIGIN_ADDR="http://localhost:4321,https://support-prod-eu-lon-1-01.flkservices.io"
+NODE_ENV=develop
 ```
 
 💡 The ALLOW_ORIGIN_ADDR is a comma separated values (csv).
