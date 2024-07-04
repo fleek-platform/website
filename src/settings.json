@@ -11,30 +11,30 @@
     },
     "metadata": {
       "default": {
-        "title": "Fleek | Build Lightning Fast Apps",
+        "title": "Fleek | Build lightning-fast apps",
         "description": "Fleek is an edge-optimized cloud platform. Effortlessly build, ship and scale highly performant apps. Try for free and deploy an app in 5 minutes.",
         "image": "/images/fleek-meta.png?202406061658"
       },
       "blog": {
-        "title": "Home | Fleek Blog",
+        "title": "Fleek Blog",
         "description": "Stay updated with blog posts from the Fleek team and community. Explore articles and insights on the latest trends and advancements in web development.",
         "image": "/images/fleek-meta.png?202406061658",
         "category": {
           "announcements": {
             "title": "Announcements",
-            "description": ""
+            "description": "Stay informed with the latest announcements from Fleek. Get insights on new features, updates, and company developments."
           },
           "changelog": {
             "title": "Changelog",
-            "description": ""
+            "description": "Keep track of all the updates and improvements on Fleek. Our changelog provides detailed information about the latest changes to our platform to help you stay ahead."
           },
           "learn": {
             "title": "Learn",
-            "description": ""
+            "description": "Explore educational content and learning resources on Fleek. Dive into tutorials, case studies, and expert advice to expand your skills and knowledge in web development."
           },
           "templates": {
             "title": "Templates",
-            "description": ""
+            "description": "Get started quickly with Fleek templates. Explore our collection of boilerplates and templates designed for fast build times and easy deployment."
           },
           "uncategorized": {
             "title": "Uncategorized",
@@ -43,12 +43,12 @@
         }
       },
       "docs": {
-        "title": "Docs",
+        "title": "Fleek Docs",
         "description": "Kickstart your Fleek journey with our documentation, detailed guides and references. Browse our platform resources for a deep dive into our features.",
         "image": "/images/fleek-meta.png?202406061658"
       },
       "guides": {
-        "title": "Home | Fleek Guides",
+        "title": "Fleek Guides",
         "description": "Discover step-by-step guides and tutorials on Fleek to streamline your app and web development. Leverage our resources to build smarter, faster, and stress free.",
         "image": "/images/fleek-meta.png?202406061658"
       },
@@ -63,7 +63,7 @@
         "image": "/images/fleek-meta.png?202406061658"
       },
       "references": {
-        "title": "References",
+        "title": "Fleek References",
         "description": "Fleek is an edge-optimized cloud platform. Effortlessly build, ship and scale highly performant apps. Try for free and deploy an app in 5 minutes.",
         "image": "/images/fleek-meta.png?202406061658"
       },
@@ -78,7 +78,7 @@
         "image": "/images/fleek-meta.png?202406061658"
       },
       "pricing": {
-        "title": "Home | Fleek Pricing",
+        "title": "Fleek Pricing",
         "description": "Discover Fleek's flexible pricing plans tailored to fit any project size. Start for free and upgrade as needed with our transparent, simple pricing structure.",
         "image": "/images/fleek-meta.png?202406061658"
       }
@@ -136,7 +136,7 @@
         "answer": "Yes. You can switch from crypto to credit card payments and any credit top-up model anytime."
       },
       {
-        "question": "If I am in a paid/pro plan, will I still receive the free monthly credits?",
+        "question": "If I am in a paid/Pro plan, will I still receive the free monthly credits?",
         "answer": "Yes, every user receives $5 of credits for free each month, regardless of their account type."
       },
       {

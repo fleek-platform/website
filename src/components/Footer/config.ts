@@ -22,7 +22,7 @@ export default {
     },
     {
       text: 'Changelog',
-      url: '/blog/changelog',
+      url: '/blog/changelog/',
       target: '_blank',
       rel: 'noopener noreferrer',
     },
@@ -42,11 +42,11 @@ export default {
   company: [
     {
       text: 'Blog',
-      url: '/blog',
+      url: '/blog/',
     },
     {
       text: 'Pricing',
-      url: '/pricing',
+      url: '/pricing/',
     },
     {
       text: 'Careers',
@@ -56,14 +56,14 @@ export default {
     },
     {
       text: 'Terms of Service',
-      url: '/legal/terms-of-service',
+      url: '/legal/terms-of-service/',
     },
     {
-      text: 'Privacy Policies',
-      url: '/legal/privacy-policy',
+      text: 'Privacy Policy',
+      url: '/legal/privacy-policy/',
     },
     {
-      text: 'Contact Us',
+      text: 'Contact us',
       url: reportAbuseUrl,
       target: '_blank',
       rel: 'noopener noreferrer',
@@ -72,15 +72,15 @@ export default {
   product: [
     {
       text: 'Platform',
-      url: '/docs/platform',
+      url: '/docs/platform/',
     },
     {
       text: 'Infrastructure',
-      url: '/docs/infrastructure',
+      url: '/docs/infrastructure/',
     },
     {
       text: 'CLI/SDK',
-      url: '/docs/cli',
+      url: '/docs/cli/',
     },
     {
       text: 'Templates',
@@ -92,17 +92,17 @@ export default {
   resources: [
     {
       text: 'Documentation',
-      url: '/docs',
+      url: '/docs/',
     },
     {
-      text: 'Media Kit',
+      text: 'Media kit',
       url: mediaKit,
       target: '_blank',
       rel: 'noopener noreferrer',
     },
     {
       text: 'Guides',
-      url: '/guides',
+      url: '/guides/',
     },
     {
       text: 'Support',
@@ -110,7 +110,7 @@ export default {
       rel: 'noopener noreferrer',
     },
     {
-      text: 'Report Abuse',
+      text: 'Report abuse',
       url: reportAbuseUrl,
       target: '_blank',
       rel: 'noopener noreferrer',

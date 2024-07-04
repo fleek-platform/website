@@ -217,7 +217,7 @@ const Nav = ({ pathname, isSupportCenter }: NavProps) => {
           </div>
           <div className="nav-button-launch hidden md:inline-block">
             <a
-              href="https://app.fleek.xyz/"
+              href="https://app.fleek.xyz"
               target="_blank"
               rel="noopener noreferrer"
             >
@@ -226,7 +226,7 @@ const Nav = ({ pathname, isSupportCenter }: NavProps) => {
           </div>
           <div className="nav-button-launch">
             <a
-              href="https://app.fleek.xyz/"
+              href="https://app.fleek.xyz"
               target="_blank"
               rel="noopener noreferrer"
             >
