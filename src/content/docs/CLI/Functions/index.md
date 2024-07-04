@@ -276,6 +276,17 @@ If you have exported a variable to your environment with export VAR1='foo'and ex
 fleek functions deploy --name print-hello-world --path *./function.js --env VAR1 --env VAR2
 ```
 
+### Using your environment variables
+
+Your environment variables are available under `fleek.env`. You can test it out with the following function:
+
+```js
+export const main = (params) => {
+  const foo = fleek.env.FOO;
+  return `foo=${}`;
+};
+```
+
 ## Making Fleek Functions private (🧪 Alpha)
 
 If you are interested in making your Fleek Function code private, add the `--private` flag to your deployment command:
