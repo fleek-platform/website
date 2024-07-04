@@ -89,8 +89,10 @@ PRIVATE_MEILISEARCH_MASTER_KEY=***
 PRIVATE_MEILISEARCH_DOCUMENTS_ADMIN_API_KEY=***
 PUBLIC_MEILISEARCH_DOCUMENTS_CLIENT_API_KEY=***
 PUBLIC_SUPPORT_API="localhost:3331"
-ALLOW_ORIGIN_ADDR="http://localhost:4321"
+ALLOW_ORIGIN_ADDR="http://localhost:4321,https://support-prod-eu-lon-1-01.flkservices.io"
 ```
+
+💡 The ALLOW_ORIGIN_ADDR is a comma separated values (csv).
 
 ## 🏗️ Build
 
@@ -652,21 +654,7 @@ You can extend the category field with any category name. Notice that category n
 
 # 👷‍♀️Development
 
-## 🔎 Search
-
-### Serve (Development)
-
-Search is provided by [Meilisearch](https://www.meilisearch.com/). The local search server is provided as a [Docker](https://www.docker.com/) image, which you have to have installed and running.
-
-You can start a server locally by running the command:
-
-```sh
-npm run search:serve
-```
-
-⚠️ You'll see a warning message "No master key was found" that can be ignored for local environment development work. If for some reason you want to have a master key, modify the `search:serve` script to include it.
-
-### Cloud
+## Services
 
 The project services have the following naming convention:
 
@@ -674,9 +662,49 @@ The project services have the following naming convention:
 <service-type>-<environment>-<region>-<instance-number>.<domain>  
 ```
 
-The service hostname is `meilisearch-prod-eu-lon-1-01.flkservices.io`. The default location of the service file is `/etc/systemd/system/meilisearch.service`.
+### Support
+
+The support service hostname is `support-prod-eu-lon-1-01.flkservices.io` (endpoint URL).
+
+The environment variable should be set as:
+
+```
+PUBLIC_SUPPORT_API="https://support-prod-eu-lon-1-01.flkservices.io"
+```
+
+The default location of the service file is `/lib/systemd/system/support-prod-eu-lon-1-01.flkservices.io.service`.
+
+To configure Support with environment variables in a cloud-hosted instance, modify the Support's env file. Its default location is `~/fleek-platform/website/.env`.
+
+After editing your configuration options, reload the daemon:
+
+```sh
+sudo systemctl daemon-reload
+```
+
+Restart the service:
+
+```sh
+sudo systemctl restart support-prod-eu-lon-1-01.flkservices.io.service
+```
+
+Check the status:
+
+```sh
+sudo systemctl status support-prod-eu-lon-1-01.flkservices.io.service
+```
+
+### Meilisearch
+
+The search service hostname is `meilisearch-prod-eu-lon-1-01.flkservices.io`. The default location of the service file is `/etc/systemd/system/meilisearch.service`.
 
 To configure Meilisearch with environment variables in a cloud-hosted instance, modify Meilisearch's env file. Its default location is `/var/opt/meilisearch/env`.
+
+DNS Record
+
+```
+A	meilisearch-prod-eu-lon-1-01.flkservices.io	165.232.41.164
+```
 
 After editing your configuration options, relaunch the Meilisearch service:
 
@@ -768,6 +796,20 @@ Delete Index data by running the command:
 ```sh
 npm run search:delete_indexes
 ```
+
+## 🔎 Search
+
+### Serve (Development)
+
+Search is provided by [Meilisearch](https://www.meilisearch.com/). The local search server is provided as a [Docker](https://www.docker.com/) image, which you have to have installed and running.
+
+You can start a server locally by running the command:
+
+```sh
+npm run search:serve
+```
+
+⚠️ You'll see a warning message "No master key was found" that can be ignored for local environment development work. If for some reason you want to have a master key, modify the `search:serve` script to include it.
 
 ## 📸 Images (Optimization)
 
