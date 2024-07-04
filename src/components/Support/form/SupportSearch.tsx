@@ -54,59 +54,62 @@ const MultiSearch: React.FC = () => {
     };
   }, []);
 
-  const performSearch = debounce(async (query: string) => {
-    setLoading(true);
-    try {
-      const response = await fetch(`//${host}/multi-search`, {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({
-          queries: [
-            {
-              indexUid: 'fleekxyz_website_docs',
-              q: query,
-              limit: 5,
-            },
-            {
-              indexUid: 'fleekxyz_website_references',
-              q: query,
-              limit: 5,
-            },
-            {
-              indexUid: 'fleekxyz_website_guides',
-              q: query,
-              limit: 5,
-            },
-            {
-              indexUid: 'fleekxyz_website_billing',
-              q: query,
-              limit: 5,
-            },
-          ],
-        }),
-      });
+  const performSearch = useCallback(
+    debounce(async (query: string) => {
+      setLoading(true);
+      try {
+        const response = await fetch(`//${host}/multi-search`, {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({
+            queries: [
+              {
+                indexUid: 'fleekxyz_website_docs',
+                q: query,
+                limit: 5,
+              },
+              {
+                indexUid: 'fleekxyz_website_references',
+                q: query,
+                limit: 5,
+              },
+              {
+                indexUid: 'fleekxyz_website_guides',
+                q: query,
+                limit: 5,
+              },
+              {
+                indexUid: 'fleekxyz_website_billing',
+                q: query,
+                limit: 5,
+              },
+            ],
+          }),
+        });
 
-      if (!response.ok) {
-        throw new Error('Network response was not ok');
+        if (!response.ok) {
+          throw new Error('Network response was not ok');
+        }
+
+        const data = await response.json();
+        const combinedHits = data?.results?.flatMap(
+          (result: Result) => result.hits,
+        );
+        setResults(combinedHits);
+        setIsOpen(true);
+      } catch (error) {
+        toast.dismiss();
+        toast.error(
+          'Oops! Your search didn’t come through. Please give it another try! If the issue persists report to us to help us improve!',
+        );
+      } finally {
+        setLoading(false);
       }
-
-      const data = await response.json();
-      const combinedHits = data?.results?.flatMap(
-        (result: Result) => result.hits,
-      );
-      setResults(combinedHits);
-      setIsOpen(true);
-    } catch (error) {
-      toast.dismiss();
-      toast.error(
-        'Oops! Your search didn’t come through. Please give it another try! If the issue persists report to us to help us improve!',
-      );
-    } finally {
-      setLoading(false);
-    }
-  }, 1000);
+    }, 1000),
+    [query],
+  );
 
   useEffect(() => {
     if (query) {
@@ -120,6 +123,8 @@ const MultiSearch: React.FC = () => {
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setQuery(e.target.value);
   };
+
+  console.log(results);
 
   return (
     <div className="relative">
@@ -158,10 +163,12 @@ const MultiSearch: React.FC = () => {
                   className="cursor-pointer px-[1.4rem] py-[.5rem] hover:bg-gray-700"
                   key={hit.url}
                 >
-                  <a href={hit.url}>{hit.title}</a>
-                  <p className="px-[1.4rem] py-[.5rem] text-[1.3rem] text-gray-500">
-                    {hit.desc}
-                  </p>
+                  <a href={hit.url} target="_blank" rel="noopener noreferrer">
+                    {hit.title}
+                    <p className="px-[1.4rem] py-[.5rem] text-[1.3rem] text-gray-500">
+                      {hit.desc}
+                    </p>
+                  </a>
                 </li>
               ))}
             </ul>
