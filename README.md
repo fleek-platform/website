@@ -667,7 +667,7 @@ The project services have the following naming convention:
 
 The support service hostname is `support-prod-eu-lon-1-01.flkservices.io` (endpoint URL).
 
-The environment variable should be set as:
+The production environment variable should be set. Declare the hostname:
 
 ```
 PUBLIC_SUPPORT_API="https://support-prod-eu-lon-1-01.flkservices.io"
