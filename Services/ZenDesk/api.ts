@@ -34,10 +34,12 @@ const zendeskAuthToken = generateApiToken({
 
 if (!process.env.ALLOW_ORIGIN_ADDR) throw Error('Oops! Missing environment variable, expected ALLOW_ORIGIN_ADDR.');
 
+const allowedOrigins = process.env.ALLOW_ORIGIN_ADDR.split(',');
+
 app.use(
   '*',
   cors({
-    origin: [process.env.ALLOW_ORIGIN_ADDR],
+    origin: [...allowedOrigins],
   }),
 );
 
