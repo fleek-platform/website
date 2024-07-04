@@ -34,10 +34,12 @@ const zendeskAuthToken = generateApiToken({
 
 if (!process.env.ALLOW_ORIGIN_ADDR) throw Error('Oops! Missing environment variable, expected ALLOW_ORIGIN_ADDR.');
 
+const allowedOrigins = process.env.ALLOW_ORIGIN_ADDR.split(',');
+
 app.use(
   '*',
   cors({
-    origin: [process.env.ALLOW_ORIGIN_ADDR],
+    origin: [...allowedOrigins],
   }),
 );
 
@@ -48,7 +50,7 @@ app.post(
   zValidator(
     'form',
     z.object({
-      name: z.string().min(2),
+      name: z.string().min(2).optional(),
       email: z.string().email(),
       subject: z.string(),
       comment: z.string().min(30),
