@@ -1,0 +1,15 @@
+[Unit]
+Description=support-prod-eu-lon-1-01.flkservices.io
+After=network.target
+
+[Service]
+Type=simple
+ExecStart=/usr/local/bin/bun run <USERNAME>/fleek-platform/website/Services/ZenDesk/api.ts
+Restart=always
+User=root
+Environment=PATH=/usr/bin:/usr/local/bin
+Environment=NODE_ENV=production
+WorkingDirectory=<USERNAME>/fleek-platform/website
+
+[Install]
+WantedBy=multi-user.target
