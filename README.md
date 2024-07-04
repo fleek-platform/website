@@ -35,16 +35,25 @@ This repository contains the source code and assets for the Fleek.xyz website, w
         - [Troubleshooting open graph](#troubleshooting-open-graph)
         - [Customise Blog Categories](#customise-blog-categories)
 - [Development](#-development)
-    - [Search server](#-search-server)
-      - [Multi-index search](#multi-index-search)
-    - [Delete Indexes](#💣-delete-indexes)
-    - [Images (optimization)](#-images-optimization)
+    - [Services](#services)
+      - [Support](#support)
+        - [Setup the Service](#setup-the-service)
+        - [Tokens](#tokens)
+        - [Local API](#local-api)
+        - [Interact with the API](#interact-with-the-api)
+        - [Production Service Setup](#production-service-setup)
+      - [Search](#🔎-search)
+        - [Health Check](#health-check)
+        - [Indexer](#indexer)
+        - [Put markdown content](#put-markdown-content-development)
+        - [Query via cURL](#query-via-curl)
+        - [Multi-Index Search](#multi-index-search)
+        - [Delete Indexes](#💣-delete-indexes)
+        - [Images (optimization)](#-images-optimization)
 - [Migration](#-migration)
     - [Migrate Gatsby content](#migrate-gatsby-content)
 - [Custom data](#custom-data)
     - [Get latest posts](#get-latest-posts)
-- [Support](#support)
-    - [Local API](#local-api)
 
 # Setup
 
@@ -665,6 +674,79 @@ The project services have the following naming convention:
 
 ### Support
 
+Support's based in ZenDesk, as an external provider that provides an API to interact with the service. The following documentation provides information to interace with the proxy server.
+
+### Setup the service
+
+The application should get the endpoint URL from an environment variable named `PUBLIC_SUPPORT_API`.
+
+Learn how to setup by reading the section [environment variables](#environment-variables).
+
+### Tokens
+
+The environment should have the following variables set up for the corresponding account.
+
+You may want to create a `.env` file to hold these environment variables, or in your shell profile.
+
+```sh
+PRIVATE_ZENDESK_EMAIL="xxxx"
+PRIVATE_ZENDESK_API_KEY="xxxx"
+PRIVATE_ZENDESK_HOSTNAME="xxxx"
+```
+
+### Local API
+
+A proxy service to interact with ZenDesk is available and can be run locally.
+
+Start the local API by running:
+
+```sh
+npm run support:local_api
+```
+
+💡 During implementation the API URL should be provided as an environment variable.
+
+### Interact with the API
+
+**/health**
+
+Hit the /health endpoint for health checks
+
+```sh
+curl -X GET 'localhost:3331/health
+```
+
+**/ticket**
+
+Hit the /ticket endpoint to create a ticket for a user **email**, particular **topic** and comment **query**.
+
+```
+curl \
+  -X POST \
+  -H "Content-Type: application/x-www-form-urlencoded" \
+  -d "email=<CLIENT-EMAIL-ADDRESS>&subject=<SYSTEM-TOPIC>&comment=<USER-QUERY>"" http://localhost:3331/ticket
+```
+
+The **email** is a valid email address, the **topic** should be related to the **query** template. The **query** should correspond and be of a well-known format or template.
+
+Here's an example for **query** template:
+
+```sh
+subject: <System Support Topic> | <User title>
+description: <User text>
+attachments: <User attachments>
+```
+
+A result ticket could look like:
+
+```sh
+subject: Billing | Inquiry Regarding Unprocessed USDC Token Transfer
+description: Dear Fleek, I hope this message finds you well. I am writing to seek clarification regarding an outstanding transaction related to my account. On xxx, I initiated a transfer of xxx USDC tokens from my account to xxx. However, upon checking my transaction history, it appears that this transfer has not been processed.
+attachments: https://fleek-storage/user-file.png
+```
+
+### Production Service Setup
+
 The support service hostname is `support-prod-eu-lon-1-01.flkservices.io` (endpoint URL).
 
 The production environment variable should be set. Declare the hostname:
@@ -695,7 +777,9 @@ Check the status:
 sudo systemctl status support-prod-eu-lon-1-01.flkservices.io.service
 ```
 
-### Meilisearch
+### 🔎 Search
+
+The search service is based on Meilisearch [here](https://meilisearch.com).
 
 The search service hostname is `meilisearch-prod-eu-lon-1-01.flkservices.io`. The default location of the service file is `/etc/systemd/system/meilisearch.service`.
 
@@ -797,8 +881,6 @@ Delete Index data by running the command:
 ```sh
 npm run search:delete_indexes
 ```
-
-## 🔎 Search
 
 ### Serve (Development)
 
@@ -929,76 +1011,3 @@ You'd get a list to iterate over as the following:
 ```
 
 Everytime a build happens, the static JSON data should be updated.
-
-## Support
-
-ZenDesk is an external provider that provides an API to interact with the service. The following documentation provides information to interace with the proxy server.
-
-### Setup
-
-The application should get the endpoint URL from an environment variable named `PUBLIC_SUPPORT_API`.
-
-Learn how to setup by reading the section [environment variables](#environment-variables).
-
-### Tokens
-
-The environment should have the following variables set up for the corresponding account.
-
-You may want to create a `.env` file to hold these environment variables, or in your shell profile.
-
-```sh
-PRIVATE_ZENDESK_EMAIL="xxxx"
-PRIVATE_ZENDESK_API_KEY="xxxx"
-PRIVATE_ZENDESK_HOSTNAME="xxxx"
-```
-
-### Local API
-
-A proxy service to interact with ZenDesk is available and can be run locally.
-
-Start the local API by running:
-
-```sh
-npm run support:local_api
-```
-
-💡 During implementation the API URL should be provided as an environment variable.
-
-### Interact with the API
-
-**/health**
-
-Hit the /health endpoint for health checks
-
-```sh
-curl -X GET 'localhost:3331/health
-```
-
-**/ticket**
-
-Hit the /ticket endpoint to create a ticket for a user **email**, particular **topic** and comment **query**.
-
-```
-curl \
-  -X POST \
-  -H "Content-Type: application/x-www-form-urlencoded" \
-  -d "email=<CLIENT-EMAIL-ADDRESS>&subject=<SYSTEM-TOPIC>&comment=<USER-QUERY>"" http://localhost:3331/ticket
-```
-
-The **email** is a valid email address, the **topic** should be related to the **query** template. The **query** should correspond and be of a well-known format or template.
-
-Here's an example for **query** template:
-
-```sh
-subject: <System Support Topic> | <User title>
-description: <User text>
-attachments: <User attachments>
-```
-
-A result ticket could look like:
-
-```sh
-subject: Billing | Inquiry Regarding Unprocessed USDC Token Transfer
-description: Dear Fleek, I hope this message finds you well. I am writing to seek clarification regarding an outstanding transaction related to my account. On xxx, I initiated a transfer of xxx USDC tokens from my account to xxx. However, upon checking my transaction history, it appears that this transfer has not been processed.
-attachments: https://fleek-storage/user-file.png
-```
