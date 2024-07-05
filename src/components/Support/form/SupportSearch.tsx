@@ -17,8 +17,10 @@ interface Result {
   hits: Hit[];
 }
 
-const { host } = (() => {
+const { authBearer, host } = (() => {
   const host = removeProtocolFromUrl(import.meta.env.PUBLIC_MEILISEARCH_HOST);
+  const authBearer = import.meta.env
+    .PUBLIC_MEILISEARCH_DOCUMENTS_CLIENT_API_KEY;
 
   if (!host) {
     throw Error(
@@ -26,7 +28,14 @@ const { host } = (() => {
     );
   }
 
+  if (!authBearer) {
+    throw Error(
+      `👹 Oops! Missing environment variable PUBLIC_MEILISEARCH_DOCUMENTS_CLIENT_API_KEY`,
+    );
+  }
+
   return {
+    authBearer,
     host,
   };
 })();
@@ -67,6 +76,7 @@ const MultiSearch: React.FC = () => {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
+          Authorization: `Bearer ${authBearer}`,
         },
         body: JSON.stringify({
           queries: [
