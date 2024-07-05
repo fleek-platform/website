@@ -67,8 +67,8 @@ export const hasSecondaryMenuItem = (pathname: string): boolean => {
 
 export const removeProtocolFromUrl = (userUrl: string) => {
   try {
-    const url = new URL(userUrl);
-    return url.hostname;
+    const url = userUrl.replace(/^https?:\/\//, '');
+    return url;
   } catch (error) {
     console.error('👹 Oops! The provided URL is invalid', userUrl);
     return;
