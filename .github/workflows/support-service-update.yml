@@ -42,9 +42,11 @@ jobs:
             exit 1
           fi
 
-          echo "✅ Changed to work directory."
+          commit_hash=$(git rev-parse HEAD)
+          commit_msg=$(git log -1 --pretty=format:"%s")
+          echo "✅ Pulled latest ($commit_hash), $commit_msg"
 
-          if ! sudo systemctl restart "$SUPPORT_SERVICE_SYSTEMD_NAME"; then
+          if ! sudo systemctl daemon-reload && sudo systemctl restart "$SUPPORT_SERVICE_SYSTEMD_NAME"; then
             echo "👹 Oops! Failed restart the Systemd Service"
             exit 1
           fi
