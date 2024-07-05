@@ -64,3 +64,13 @@ export const hasSecondaryMenuItem = (pathname: string): boolean => {
   const uniqueMenuItems = [...new Set(supportMenuItems)];
   return uniqueMenuItems.some((item) => pathname.includes(item));
 };
+
+export const removeProtocolFromUrl = (userUrl: string) => {
+  try {
+    const url = new URL(userUrl);
+    return url.hostname;
+  } catch (error) {
+    console.error('👹 Oops! The provided URL is invalid', userUrl);
+    return;
+  }
+};

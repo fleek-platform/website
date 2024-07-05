@@ -5,12 +5,17 @@ import ToolTip from './ui/ToolTip';
 import Button from './ui/Button';
 import { submitForm } from './utils';
 import FormTitle from './ui/FormTitle';
+import { removeProtocolFromUrl } from '@utils/url';
 
 export const { zenDeskEndpoint } = (() => {
-  const zenDeskEndpoint = import.meta.env.PUBLIC_SUPPORT_API;
+  const zenDeskEndpoint = removeProtocolFromUrl(
+    import.meta.env.PUBLIC_SUPPORT_API_HOST,
+  );
 
   if (!zenDeskEndpoint) {
-    throw Error(`👹 Oops! Missing environment variable PUBLIC_SUPPORT_API`);
+    throw Error(
+      `👹 Oops! Missing environment variable PUBLIC_SUPPORT_API_HOST`,
+    );
   }
 
   return {
