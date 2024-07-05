@@ -68,7 +68,7 @@ jobs:
     - name: Health Check
       run: |
         public_health_check_endpoint="https://support-prod-eu-lon-1-01.flkservices.io/health"
-        response_message=$(curl -s "$public_health_chech_endpoint" | jq -r '.message')
+        response_message=$(curl -s "$public_health_check_endpoint" | jq -r '.message')
 
         if [[ "$response_message" != "OK" ]]; then
           echo "👹 Oops! The health check failed, expected \"OK\" and got \"$response_message\"."
