@@ -3,6 +3,7 @@ import { cors } from 'hono/cors';
 import { z } from 'zod';
 import { zValidator } from '@hono/zod-validator';
 import { rateLimiter } from "hono-rate-limiter";
+import { uptimeToHumanFriendly } from './utils';
 
 const PORT = 3331;
 
@@ -53,7 +54,12 @@ app.use(
   }),
 );
 
-app.get('/health', (c) => c.text('✅ Running!'));
+app.get("/health", (c) => {
+  return c.json({
+    message: 'OK',
+    uptime: uptimeToHumanFriendly(process.uptime()),
+  });
+});
 
 app.post(
   '/ticket',
