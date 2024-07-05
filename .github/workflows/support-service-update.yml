@@ -16,7 +16,7 @@ jobs:
     runs-on: ubuntu-latest
     environment: production
     steps:
-    - name: SSH to Server
+    - name: Update Service
       uses: appleboy/ssh-action@v1.0.3
       env:
         SUPPORT_SERVICE_PATHNAME: ${{ secrets.SUPPORT_SERVICE_PATHNAME }}
