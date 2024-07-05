@@ -20,12 +20,13 @@ jobs:
       env:
         SUPPORT_SERVICE_PATHNAME: ${{ secrets.SUPPORT_SERVICE_PATHNAME }}
         SUPPORT_SERVICE_SYSTEMD_NAME: ${{ secrets.SUPPORT_SERVICE_SYSTEMD_NAME }}
+        GITHUB_REF_NAME: ${{ env.GITHUB_REF_NAME }}
       with:
         host: ${{ secrets.SUPPORT_SERVICE_HOST }}
         username: ${{ secrets.SUPPORT_SERVICE_USERNAME }}
         key: ${{ secrets.SUPPORT_SERVICE_KEY }}
         port: ${{ secrets.SUPPORT_SERVICE_PORT }}
-        envs: SUPPORT_SERVICE_PATHNAME,SUPPORT_SERVICE_SYSTEMD_NAME
+        envs: SUPPORT_SERVICE_PATHNAME,SUPPORT_SERVICE_SYSTEMD_NAME,GITHUB_REF_NAME
         script: |
           # TODO: Remove "develop" as used for testing
           if [[ ! "$GITHUB_REF_NAME" =~ ^(master|main|develop)$ ]]; then

@@ -276,7 +276,7 @@ const Nav = ({ pathname, isSupportCenter }: NavProps) => {
                 border="border-yellow"
                 className="flex items-center justify-center gap-12 "
               >
-                <div>Get Started</div>
+                <div>Get started</div>
               </ButtonYellow>
             </a>
           </div>
@@ -288,7 +288,7 @@ const Nav = ({ pathname, isSupportCenter }: NavProps) => {
               className="w-full"
             >
               <ButtonGray className="flex items-center justify-center gap-12 px-10 ">
-                <div>Log In</div>
+                <div>Log in</div>
               </ButtonGray>
             </a>
           </div>
