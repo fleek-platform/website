@@ -2,6 +2,7 @@ import { debounce } from 'lodash-es';
 import React, { useState, useEffect, useRef } from 'react';
 import toast from 'react-hot-toast';
 import { IoIosSearch } from 'react-icons/io';
+import { removeProtocolFromUrl } from '@utils/url';
 
 interface Hit {
   id: string;
@@ -17,7 +18,7 @@ interface Result {
 }
 
 const { host } = (() => {
-  const host = import.meta.env.PUBLIC_MEILISEARCH_HOST;
+  const host = removeProtocolFromUrl(import.meta.env.PUBLIC_MEILISEARCH_HOST);
 
   if (!host) {
     throw Error(
