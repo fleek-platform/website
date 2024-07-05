@@ -20,7 +20,7 @@ files.forEach((file) => {
     console.log(`🚴‍♀️Skipped! File ${file} not found!`);
     process.exit(0);
   }
-  
+
   const stats = fs.statSync(file);
   const bytesSize = stats.size;
   const split = file.split('.');
@@ -30,12 +30,16 @@ files.forEach((file) => {
   const ext = split[0].toLowerCase();
 
   if (bytesSize > MAX_FILE_SIZE) {
-    console.error(`👹 Oops! The file ${file} is too large. The maximum allowed size is ${MAX_FILE_SIZE_IN_MB}MB.`);
+    console.error(
+      `👹 Oops! The file ${file} is too large. The maximum allowed size is ${MAX_FILE_SIZE_IN_MB}MB.`,
+    );
 
     if (videoExt.includes(ext)) {
-      console.log('💡 For large video files is much preferred to upload to a proper video streaming service, such as YouTube. Please consider uploading to YouTube and using the video code snippet.');
+      console.log(
+        '💡 For large video files is much preferred to upload to a proper video streaming service, such as YouTube. Please consider uploading to YouTube and using the video code snippet.',
+      );
     }
-    
+
     process.exit(1);
   }
 });
