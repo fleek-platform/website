@@ -1,0 +1,23 @@
+name: 🎻 Support Service Update
+
+on:
+  push:
+    branches:
+      - develop
+    paths:
+      - 'Services/ZenDesk/**'
+  workflow_dispatch:
+
+jobs:
+  support-service-update-process:
+    runs-on: ubuntu-latest
+    steps:
+    - name: SSH to Server
+      uses: appleboy/ssh-action@v1.0.3
+      with:
+        host: ${{ secrets.SUPPORT_SERVICE_HOST }}
+        username: ${{ secrets.SUPPORT_SERVICE_USERNAME }}
+        key: ${{ secrets.SUPPORT_SERVICE_KEY }}
+        port: ${{ secrets.SUPPORT_SERVICE_PORT }}
+        script: |
+          whoami
