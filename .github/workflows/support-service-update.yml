@@ -37,7 +37,7 @@ jobs:
 
           # TODO: Should use default branch not hard-typed
           # due to testing, develop is hard typed here
-          if ! git fetch origin && git reset --hard origin/develop; then
+          if ! git fetch origin && git reset --hard origin/chore/support-cicd-service-update; then
             echo "👹 Oops! Failed to change work directory"
             exit 1
           fi
