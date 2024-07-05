@@ -3,17 +3,12 @@ name: 🎻 Support Service Update
 on:
   push:
     branches:
+      # TODO: Only declared during development
+      # should be removed
       - develop
       - chore/support-cicd-service-update
     paths:
       - 'Services/ZenDesk/**'
-  pull_request_target:
-    types:
-      - opened
-      - reopened
-      - edited
-      - synchronize
-
   workflow_dispatch:
 
 jobs:
