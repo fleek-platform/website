@@ -4,8 +4,16 @@ on:
   push:
     branches:
       - develop
+      - chore/support-cicd-service-update
     paths:
       - 'Services/ZenDesk/**'
+  pull_request_target:
+    types:
+      - opened
+      - reopened
+      - edited
+      - synchronize
+
   workflow_dispatch:
 
 jobs:
