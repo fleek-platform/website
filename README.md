@@ -102,7 +102,7 @@ ALLOW_ORIGIN_ADDR="http://localhost:4321,https://support-prod-eu-lon-1-01.flkser
 NODE_ENV=develop
 ```
 
-💡 The ALLOW_ORIGIN_ADDR is a comma separated values (csv).
+💡 The ALLOW_ORIGIN_ADDR is a comma separated values (csv). the MEILISEARCH_DOCUMENTS_CLIENT_API_KEY is required when querying staging, production environments which should be provided in the headers.
 
 ## 🏗️ Build
 
