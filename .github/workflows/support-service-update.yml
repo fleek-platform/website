@@ -71,7 +71,7 @@ jobs:
         response_message=$(curl -s "$public_health_chech_endpoint" | jq -r '.message')
 
         if [[ "$response_message" != "OK" ]]; then
-          echo "👹 Oops! The health check failed."
+          echo "👹 Oops! The health check failed, expected \"OK\" and got \"$response_message\"."
           exit 1
         fi
 
