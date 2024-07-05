@@ -45,7 +45,7 @@ const GlobeWithFloatingCards = () => {
                       <div>
                         <img src="/svg/bolt-yellow.svg" />
                       </div>
-                      <div>Try it Now</div>
+                      <div>Try it now</div>
                     </ButtonYellow>
                   </a>
                 </div>
