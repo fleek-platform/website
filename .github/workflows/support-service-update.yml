@@ -3,10 +3,7 @@ name: 🎻 Support Service Update
 on:
   push:
     branches:
-      # TODO: Only declared during development
-      # should be removed
       - develop
-      - chore/support-cicd-service-update
     paths:
       - 'Services/ZenDesk/**'
   workflow_dispatch:
@@ -28,9 +25,14 @@ jobs:
         port: ${{ secrets.SUPPORT_SERVICE_PORT }}
         envs: SUPPORT_SERVICE_PATHNAME,SUPPORT_SERVICE_SYSTEMD_NAME
         script: |
-          # TODO: Should use default branch not hard-typed
-          # due to testing, develop is hard typed here
-          checkout_branch="chore/support-cicd-service-update"
+          # TODO: Remove "develop" as used for testing
+          if [[ ! "$GITHUB_REF_NAME" =~ ^(master|main|develop)$ ]]; then
+            echo "👹 Oops! This script's meant to run in the main branch."
+            exit 1
+          fi
+
+          # TODO: Set as "main", "develop" was used for testing
+          checkout_branch="develop"
 
           if ! cd "$SUPPORT_SERVICE_PATHNAME"; then
             echo "👹 Oops! Failed to change work directory"
