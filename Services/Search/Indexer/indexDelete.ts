@@ -11,7 +11,7 @@ const host = process.env.PUBLIC_MEILISEARCH_HOST;
 const apiKey = process.env.PRIVATE_MEILISEARCH_DOCUMENTS_ADMIN_API_KEY;
 
 if (!apiKey || !host) {
-  console.error("👹 Oops! Failed to parse arguments for some reason...");
+  console.error('👹 Oops! Failed to parse arguments for some reason...');
   process.exit(1);
 }
 
@@ -20,23 +20,19 @@ const client = new MeiliSearch({
   apiKey,
 } as Config);
 
-const deleteIndex = async ({
-  indexName,
-}: {
-  indexName: string;
-}) => {
+const deleteIndex = async ({ indexName }: { indexName: string }) => {
   try {
     const hasDelete = await client.deleteIndexIfExists(indexName);
 
     if (!hasDelete) {
       console.log(`🤡 Index ${indexName} doesn't exist!`);
     }
-    
+
     console.log(`✅ Deleted index ${indexName}`);
   } catch (e) {
     console.error(`👹 Oops! Failed to delete index ${indexName}`, e);
   }
-}
+};
 
 (async () => {
   console.log(`🤖 Start Delete Index ${indexName} process`);
