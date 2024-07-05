@@ -35,16 +35,25 @@ This repository contains the source code and assets for the Fleek.xyz website, w
         - [Troubleshooting open graph](#troubleshooting-open-graph)
         - [Customise Blog Categories](#customise-blog-categories)
 - [Development](#-development)
-    - [Search server](#-search-server)
-      - [Multi-index search](#multi-index-search)
-    - [Delete Indexes](#💣-delete-indexes)
-    - [Images (optimization)](#-images-optimization)
+    - [Services](#services)
+      - [Support](#support)
+        - [Setup the Service](#setup-the-service)
+        - [Tokens](#tokens)
+        - [Local API](#local-api)
+        - [Interact with the API](#interact-with-the-api)
+        - [Production Service Setup](#production-service-setup)
+      - [Search](#🔎-search)
+        - [Health Check](#health-check)
+        - [Indexer](#indexer)
+        - [Put markdown content](#put-markdown-content-development)
+        - [Query via cURL](#query-via-curl)
+        - [Multi-Index Search](#multi-index-search)
+        - [Delete Indexes](#💣-delete-indexes)
+        - [Images (optimization)](#-images-optimization)
 - [Migration](#-migration)
     - [Migrate Gatsby content](#migrate-gatsby-content)
 - [Custom data](#custom-data)
     - [Get latest posts](#get-latest-posts)
-- [Support](#support)
-    - [Local API](#local-api)
 
 # Setup
 
@@ -89,8 +98,11 @@ PRIVATE_MEILISEARCH_MASTER_KEY=***
 PRIVATE_MEILISEARCH_DOCUMENTS_ADMIN_API_KEY=***
 PUBLIC_MEILISEARCH_DOCUMENTS_CLIENT_API_KEY=***
 PUBLIC_SUPPORT_API="localhost:3331"
-ALLOW_ORIGIN_ADDR="http://localhost:4321"
+ALLOW_ORIGIN_ADDR="http://localhost:4321,https://support-prod-eu-lon-1-01.flkservices.io"
+NODE_ENV=develop
 ```
+
+💡 The ALLOW_ORIGIN_ADDR is a comma separated values (csv).
 
 ## 🏗️ Build
 
@@ -652,21 +664,7 @@ You can extend the category field with any category name. Notice that category n
 
 # 👷‍♀️Development
 
-## 🔎 Search
-
-### Serve (Development)
-
-Search is provided by [Meilisearch](https://www.meilisearch.com/). The local search server is provided as a [Docker](https://www.docker.com/) image, which you have to have installed and running.
-
-You can start a server locally by running the command:
-
-```sh
-npm run search:serve
-```
-
-⚠️ You'll see a warning message "No master key was found" that can be ignored for local environment development work. If for some reason you want to have a master key, modify the `search:serve` script to include it.
-
-### Cloud
+## Services
 
 The project services have the following naming convention:
 
@@ -674,9 +672,124 @@ The project services have the following naming convention:
 <service-type>-<environment>-<region>-<instance-number>.<domain>  
 ```
 
-The service hostname is `meilisearch-prod-eu-lon-1-01.flkservices.io`. The default location of the service file is `/etc/systemd/system/meilisearch.service`.
+### Support
+
+Support's based in ZenDesk, as an external provider that provides an API to interact with the service. The following documentation provides information to interace with the proxy server.
+
+### Setup the service
+
+The application should get the endpoint URL from an environment variable named `PUBLIC_SUPPORT_API`.
+
+Learn how to setup by reading the section [environment variables](#environment-variables).
+
+### Tokens
+
+The environment should have the following variables set up for the corresponding account.
+
+You may want to create a `.env` file to hold these environment variables, or in your shell profile.
+
+```sh
+PRIVATE_ZENDESK_EMAIL="xxxx"
+PRIVATE_ZENDESK_API_KEY="xxxx"
+PRIVATE_ZENDESK_HOSTNAME="xxxx"
+```
+
+### Local API
+
+A proxy service to interact with ZenDesk is available and can be run locally.
+
+Start the local API by running:
+
+```sh
+npm run support:local_api
+```
+
+💡 During implementation the API URL should be provided as an environment variable.
+
+### Interact with the API
+
+**/health**
+
+Hit the /health endpoint for health checks
+
+```sh
+curl -X GET 'localhost:3331/health
+```
+
+**/ticket**
+
+Hit the /ticket endpoint to create a ticket for a user **email**, particular **topic** and comment **query**.
+
+```
+curl \
+  -X POST \
+  -H "Content-Type: application/x-www-form-urlencoded" \
+  -d "email=<CLIENT-EMAIL-ADDRESS>&subject=<SYSTEM-TOPIC>&comment=<USER-QUERY>"" http://localhost:3331/ticket
+```
+
+The **email** is a valid email address, the **topic** should be related to the **query** template. The **query** should correspond and be of a well-known format or template.
+
+Here's an example for **query** template:
+
+```sh
+subject: <System Support Topic> | <User title>
+description: <User text>
+attachments: <User attachments>
+```
+
+A result ticket could look like:
+
+```sh
+subject: Billing | Inquiry Regarding Unprocessed USDC Token Transfer
+description: Dear Fleek, I hope this message finds you well. I am writing to seek clarification regarding an outstanding transaction related to my account. On xxx, I initiated a transfer of xxx USDC tokens from my account to xxx. However, upon checking my transaction history, it appears that this transfer has not been processed.
+attachments: https://fleek-storage/user-file.png
+```
+
+### Production Service Setup
+
+The support service hostname is `support-prod-eu-lon-1-01.flkservices.io` (endpoint URL).
+
+The production environment variable should be set. Declare the hostname:
+
+```
+PUBLIC_SUPPORT_API="https://support-prod-eu-lon-1-01.flkservices.io"
+```
+
+The default location of the service file is `/lib/systemd/system/support-prod-eu-lon-1-01.flkservices.io.service`.
+
+To configure Support with environment variables in a cloud-hosted instance, modify the Support's env file. Its default location is `~/fleek-platform/website/.env`.
+
+After editing your configuration options, reload the daemon:
+
+```sh
+sudo systemctl daemon-reload
+```
+
+Restart the service:
+
+```sh
+sudo systemctl restart support-prod-eu-lon-1-01.flkservices.io.service
+```
+
+Check the status:
+
+```sh
+sudo systemctl status support-prod-eu-lon-1-01.flkservices.io.service
+```
+
+### 🔎 Search
+
+The search service is based on Meilisearch [here](https://meilisearch.com).
+
+The search service hostname is `meilisearch-prod-eu-lon-1-01.flkservices.io`. The default location of the service file is `/etc/systemd/system/meilisearch.service`.
 
 To configure Meilisearch with environment variables in a cloud-hosted instance, modify Meilisearch's env file. Its default location is `/var/opt/meilisearch/env`.
+
+DNS Record
+
+```
+A	meilisearch-prod-eu-lon-1-01.flkservices.io	165.232.41.164
+```
 
 After editing your configuration options, relaunch the Meilisearch service:
 
@@ -768,6 +881,18 @@ Delete Index data by running the command:
 ```sh
 npm run search:delete_indexes
 ```
+
+### Serve (Development)
+
+Search is provided by [Meilisearch](https://www.meilisearch.com/). The local search server is provided as a [Docker](https://www.docker.com/) image, which you have to have installed and running.
+
+You can start a server locally by running the command:
+
+```sh
+npm run search:serve
+```
+
+⚠️ You'll see a warning message "No master key was found" that can be ignored for local environment development work. If for some reason you want to have a master key, modify the `search:serve` script to include it.
 
 ## 📸 Images (Optimization)
 
@@ -886,76 +1011,3 @@ You'd get a list to iterate over as the following:
 ```
 
 Everytime a build happens, the static JSON data should be updated.
-
-## Support
-
-ZenDesk is an external provider that provides an API to interact with the service. The following documentation provides information to interace with the proxy server.
-
-### Setup
-
-The application should get the endpoint URL from an environment variable named `PUBLIC_SUPPORT_API`.
-
-Learn how to setup by reading the section [environment variables](#environment-variables).
-
-### Tokens
-
-The environment should have the following variables set up for the corresponding account.
-
-You may want to create a `.env` file to hold these environment variables, or in your shell profile.
-
-```sh
-PRIVATE_ZENDESK_EMAIL="xxxx"
-PRIVATE_ZENDESK_API_KEY="xxxx"
-PRIVATE_ZENDESK_HOSTNAME="xxxx"
-```
-
-### Local API
-
-A proxy service to interact with ZenDesk is available and can be run locally.
-
-Start the local API by running:
-
-```sh
-npm run support:local_api
-```
-
-💡 During implementation the API URL should be provided as an environment variable.
-
-### Interact with the API
-
-**/health**
-
-Hit the /health endpoint for health checks
-
-```sh
-curl -X GET 'localhost:3331/health
-```
-
-**/ticket**
-
-Hit the /ticket endpoint to create a ticket for a user **email**, particular **topic** and comment **query**.
-
-```
-curl \
-  -X POST \
-  -H "Content-Type: application/x-www-form-urlencoded" \
-  -d "email=<CLIENT-EMAIL-ADDRESS>&subject=<SYSTEM-TOPIC>&comment=<USER-QUERY>"" http://localhost:3331/ticket
-```
-
-The **email** is a valid email address, the **topic** should be related to the **query** template. The **query** should correspond and be of a well-known format or template.
-
-Here's an example for **query** template:
-
-```sh
-subject: <System Support Topic> | <User title>
-description: <User text>
-attachments: <User attachments>
-```
-
-A result ticket could look like:
-
-```sh
-subject: Billing | Inquiry Regarding Unprocessed USDC Token Transfer
-description: Dear Fleek, I hope this message finds you well. I am writing to seek clarification regarding an outstanding transaction related to my account. On xxx, I initiated a transfer of xxx USDC tokens from my account to xxx. However, upon checking my transaction history, it appears that this transfer has not been processed.
-attachments: https://fleek-storage/user-file.png
-```

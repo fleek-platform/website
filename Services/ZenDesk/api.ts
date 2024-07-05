@@ -2,6 +2,9 @@ import { Hono } from 'hono';
 import { cors } from 'hono/cors';
 import { z } from 'zod';
 import { zValidator } from '@hono/zod-validator';
+import { rateLimiter } from "hono-rate-limiter";
+import { uptimeToHumanFriendly } from './utils';
+import { csrf } from 'hono/csrf'
 
 const PORT = 3331;
 
@@ -34,21 +37,43 @@ const zendeskAuthToken = generateApiToken({
 
 if (!process.env.ALLOW_ORIGIN_ADDR) throw Error('Oops! Missing environment variable, expected ALLOW_ORIGIN_ADDR.');
 
+const limiter = rateLimiter({
+  windowMs: 60 * 60 * 1000, // 60 minutes
+  limit: 5, // Maximum of 5 requests per window, here 60m
+  standardHeaders: "draft-6",
+  keyGenerator: (c) => c.req.header('x-real-ip') ?? c.req.header("x-forwarded-for") ?? ""
+});
+
+app.use(limiter);
+
+const allowedOrigins = process.env.ALLOW_ORIGIN_ADDR.split(',');
+
 app.use(
   '*',
   cors({
-    origin: [process.env.ALLOW_ORIGIN_ADDR],
+    origin: [...allowedOrigins],
   }),
 );
 
-app.get('/health', (c) => c.text('✅ Running!'));
+app.use(
+  csrf({
+    origin: [...allowedOrigins],
+  })
+)
+
+app.get("/health", (c) => {
+  return c.json({
+    message: 'OK',
+    uptime: uptimeToHumanFriendly(process.uptime()),
+  });
+});
 
 app.post(
   '/ticket',
   zValidator(
     'form',
     z.object({
-      name: z.string().min(2),
+      name: z.string().min(2).optional(),
       email: z.string().email(),
       subject: z.string(),
       comment: z.string().min(30),
@@ -89,7 +114,7 @@ app.post(
         200,
       );
     } catch (error) {
-      console.log('[debug] error');
+      console.error(error);
 
       c.json(
         {
