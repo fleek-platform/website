@@ -1,14 +1,10 @@
 ---
 import '@styles/globals.css';
 import '@styles/blogPage.css';
-import BaseHtml from '@layouts/BaseHtml.astro';
 
-import type { MarkdownHeading } from 'astro';
-
-const data = Astro.props;
+import BaseHtml from './BaseHtml.astro';
 
 const { title, description, image, slug } = Astro.props;
-const currentPage = Astro.url.pathname;
 ---
 
 <BaseHtml

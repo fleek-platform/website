@@ -1,0 +1,21 @@
+---
+import Layout from '@layouts/SupportPage.astro';
+import HomePageHero from '@components/Support/HomePageHero';
+import CategoryCards from '@components/Support/CategoryCards';
+import FeaturedArticles from '@components/Support/FeaturedArticles';
+import UsefulVideos from '@components/Support/UsefulVideos';
+import settings from '@base/settings.json';
+const pageOriginURL = Astro.url.href;
+---
+
+<Layout
+  title={settings.site.metadata.support.title}
+  description={settings.site.metadata.support.description}
+>
+  <main class="support container">
+    <HomePageHero client:load />
+    <CategoryCards client:load />
+    <FeaturedArticles />
+    <UsefulVideos pageOriginURL={pageOriginURL} client:load />
+  </main>
+</Layout>

@@ -1,10 +1,12 @@
 ---
 import '@styles/globals.css';
 import Announcement from '@components/Announcement';
-import Nav from '@components/NavBar';
-import Footer from '@components/Footer';
 import { getSiteUrl } from '@utils/url';
 import settings from '@base/settings.json';
+import Nav from '@components/NavBar';
+import Footer from '@components/Footer';
+
+import { Toaster } from 'react-hot-toast';
 
 interface Props {
   title: string;
@@ -122,8 +124,10 @@ const baseUrl = getSiteUrl();
         style={{ display: 'none', visibility: 'hidden' }}></iframe>
     </noscript>
     <Announcement client:load />
-    <Nav client:load pathname={Astro.url.pathname} />
+    <Nav client:load pathname={Astro.url.pathname} isSupportCenter />
+
     <slot />
     <Footer client:load />
+    <Toaster client:load position="top-right" reverseOrder={false} />
   </body>
 </html>
