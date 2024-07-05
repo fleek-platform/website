@@ -20,11 +20,34 @@ jobs:
       uses: appleboy/ssh-action@v1.0.3
       env:
         SUPPORT_SERVICE_PATHNAME: ${{ secrets.SUPPORT_SERVICE_PATHNAME }}
+        SUPPORT_SERVICE_SYSTEMD_NAME: ${{ secrets.SUPPORT_SERVICE_SYSTEMD_NAME }}
       with:
         host: ${{ secrets.SUPPORT_SERVICE_HOST }}
         username: ${{ secrets.SUPPORT_SERVICE_USERNAME }}
         key: ${{ secrets.SUPPORT_SERVICE_KEY }}
         port: ${{ secrets.SUPPORT_SERVICE_PORT }}
-        envs: SUPPORT_SERVICE_PATHNAME
+        envs: SUPPORT_SERVICE_PATHNAME,SUPPORT_SERVICE_SYSTEMD_NAME
         script: |
-          ls -la "$SUPPORT_SERVICE_PATHNAME"
+          if ! cd "$SUPPORT_SERVICE_PATHNAME"; then
+            echo "👹 Oops! Failed to change work directory"
+            exit 1
+          fi
+
+          echo "✅ Changed to work directory."
+
+          # TODO: Should use default branch not hard-typed
+          # due to testing, develop is hard typed here
+          if ! git fetch origin && git reset --hard origin/develop; then
+            echo "👹 Oops! Failed to change work directory"
+            exit 1
+          fi
+
+          echo "✅ Changed to work directory."
+
+          if ! sudo systemctl restart "$SUPPORT_SERVICE_SYSTEMD_NAME"; then
+            echo "👹 Oops! Failed restart the Systemd Service"
+            exit 1
+          fi
+
+          echo "✅ Restarted the service."
+
