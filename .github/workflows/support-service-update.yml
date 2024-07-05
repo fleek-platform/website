@@ -3,6 +3,8 @@ name: 🎻 Support Service Update
 on:
   push:
     branches:
+      - main
+      # TODO: remove the "develop" branch used for testing
       - develop
     paths:
       - 'Services/ZenDesk/**'
