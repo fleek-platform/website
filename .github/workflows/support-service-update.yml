@@ -25,5 +25,6 @@ jobs:
         username: ${{ secrets.SUPPORT_SERVICE_USERNAME }}
         key: ${{ secrets.SUPPORT_SERVICE_KEY }}
         port: ${{ secrets.SUPPORT_SERVICE_PORT }}
+        env: SUPPORT_SERVICE_PATHNAME
         script: |
           ls -la "$SUPPORT_SERVICE_PATHNAME"
