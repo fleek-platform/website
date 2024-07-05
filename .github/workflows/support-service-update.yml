@@ -38,7 +38,7 @@ jobs:
 
           # TODO: Should use default branch not hard-typed
           # due to testing, develop is hard typed here
-          if ! git fetch origin && git reset --hard "origin/$checkout_branch" && git checkout "$checkout_branch"; then
+          if ! git checkout "$checkout_branch" && git fetch origin && git reset --hard "origin/$checkout_branch"; then
             echo "👹 Oops! Failed to change work directory"
             exit 1
           fi
