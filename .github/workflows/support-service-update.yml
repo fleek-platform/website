@@ -53,3 +53,14 @@ jobs:
 
           echo "✅ Restarted the service."
 
+    - name: Health Check
+      run: |
+        public_health_chech_endpoint="https://support-prod-eu-lon-1-01.flkservices.io.service/health"
+        response_message=$(curl -s "$public_health_chech_endpoint" | jq -r '.message')
+
+        if [[ "$response_message" != "OK" ]]; then
+          echo "👹 Oops! The health check failed."
+          exit 1
+        fi
+
+        echo "✅ The service is healthy!"
