@@ -3,10 +3,9 @@ name: 🎻 Support Service Update
 on:
   push:
     branches:
-      # TODO: Only declared during development
-      # should be removed
+      - main
+      # TODO: remove the "develop" branch used for testing
       - develop
-      - chore/support-cicd-service-update
     paths:
       - 'Services/ZenDesk/**'
   workflow_dispatch:
@@ -14,13 +13,70 @@ on:
 jobs:
   support-service-update-process:
     runs-on: ubuntu-latest
+    environment: production
     steps:
-    - name: SSH to Server
+    - name: Update Service
       uses: appleboy/ssh-action@v1.0.3
+      env:
+        SUPPORT_SERVICE_PATHNAME: ${{ secrets.SUPPORT_SERVICE_PATHNAME }}
+        SUPPORT_SERVICE_SYSTEMD_NAME: ${{ secrets.SUPPORT_SERVICE_SYSTEMD_NAME }}
       with:
         host: ${{ secrets.SUPPORT_SERVICE_HOST }}
         username: ${{ secrets.SUPPORT_SERVICE_USERNAME }}
         key: ${{ secrets.SUPPORT_SERVICE_KEY }}
         port: ${{ secrets.SUPPORT_SERVICE_PORT }}
+        envs: SUPPORT_SERVICE_PATHNAME,SUPPORT_SERVICE_SYSTEMD_NAME
         script: |
-          whoami
+          # TODO: Remove "develop" as used for testing
+          if [[ ! "$GITHUB_REF_NAME" =~ ^(master|main|develop)$ ]]; then
+            echo "👹 Oops! This script's meant to run in the main branch."
+            exit 1
+          fi
+
+          # TODO: Set as "main", "develop" was used for testing
+          checkout_branch="develop"
+
+          if ! cd "$SUPPORT_SERVICE_PATHNAME"; then
+            echo "👹 Oops! Failed to change work directory"
+            exit 1
+          fi
+
+          echo "✅ Changed to work directory."
+
+          if ! git fetch origin; then
+            echo "👹 Oops! Failed to fetch origin"
+            exit 1
+          fi
+
+          if ! git checkout "$checkout_branch"; then
+            echo "👹 Oops! Failed to checkout branch $checkout_branch"
+            exit 1
+          fi
+
+          if ! git reset --hard "origin/$checkout_branch"; then
+            echo "👹 Oops! Failed to reset branch"
+            exit 1
+          fi
+
+          commit_hash=$(git rev-parse HEAD)
+          commit_msg=$(git log -1 --pretty=format:"%s")
+          echo "✅ Pulled latest ($commit_hash), $commit_msg"
+
+          if ! sudo systemctl daemon-reload && sudo systemctl restart "$SUPPORT_SERVICE_SYSTEMD_NAME"; then
+            echo "👹 Oops! Failed restart the Systemd Service"
+            exit 1
+          fi
+
+          echo "✅ Restarted the service."
+
+    - name: Health Check
+      run: |
+        public_health_check_endpoint="https://support-prod-eu-lon-1-01.flkservices.io/health"
+        response_message=$(curl -s "$public_health_check_endpoint" | jq -r '.message')
+
+        if [[ "$response_message" != "OK" ]]; then
+          echo "👹 Oops! The health check failed, expected \"OK\" and got \"$response_message\"."
+          exit 1
+        fi
+
+        echo "✅ The service is healthy!"
