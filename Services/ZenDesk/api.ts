@@ -2,6 +2,9 @@ import { Hono } from 'hono';
 import { cors } from 'hono/cors';
 import { z } from 'zod';
 import { zValidator } from '@hono/zod-validator';
+import { rateLimiter } from "hono-rate-limiter";
+import { uptimeToHumanFriendly } from './utils';
+import { csrf } from 'hono/csrf'
 
 const PORT = 3331;
 
@@ -37,6 +40,15 @@ if (!process.env.ALLOW_ORIGIN_ADDR)
     'Oops! Missing environment variable, expected ALLOW_ORIGIN_ADDR.',
   );
 
+const limiter = rateLimiter({
+  windowMs: 60 * 60 * 1000, // 60 minutes
+  limit: 5, // Maximum of 5 requests per window, here 60m
+  standardHeaders: "draft-6",
+  keyGenerator: (c) => c.req.header('x-real-ip') ?? c.req.header("x-forwarded-for") ?? ""
+});
+
+app.use(limiter);
+
 const allowedOrigins = process.env.ALLOW_ORIGIN_ADDR.split(',');
 
 app.use(
@@ -46,7 +58,18 @@ app.use(
   }),
 );
 
-app.get('/health', (c) => c.text('✅ Running!'));
+app.use(
+  csrf({
+    origin: [...allowedOrigins],
+  })
+)
+
+app.get("/health", (c) => {
+  return c.json({
+    message: 'OK',
+    uptime: uptimeToHumanFriendly(process.uptime()),
+  });
+});
 
 app.post(
   '/ticket',
@@ -97,7 +120,7 @@ app.post(
         200,
       );
     } catch (error) {
-      console.log('[debug] error');
+      console.error(error);
 
       c.json(
         {
