@@ -28,7 +28,10 @@ jobs:
         port: ${{ secrets.SUPPORT_SERVICE_PORT }}
         envs: SUPPORT_SERVICE_PATHNAME,SUPPORT_SERVICE_SYSTEMD_NAME
         script: |
+          # TODO: Should use default branch not hard-typed
+          # due to testing, develop is hard typed here
           checkout_branch="chore/support-cicd-service-update"
+
           if ! cd "$SUPPORT_SERVICE_PATHNAME"; then
             echo "👹 Oops! Failed to change work directory"
             exit 1
@@ -36,10 +39,18 @@ jobs:
 
           echo "✅ Changed to work directory."
 
-          # TODO: Should use default branch not hard-typed
-          # due to testing, develop is hard typed here
-          if ! git checkout "$checkout_branch" && git fetch origin && git reset --hard "origin/$checkout_branch"; then
-            echo "👹 Oops! Failed to change work directory"
+          if ! git fetch origin; then
+            echo "👹 Oops! Failed to fetch origin"
+            exit 1
+          fi
+
+          if ! git checkout "$checkout_branch"; then
+            echo "👹 Oops! Failed to checkout branch $checkout_branch"
+            exit 1
+          fi
+
+          if ! git reset --hard "origin/$checkout_branch"; then
+            echo "👹 Oops! Failed to reset branch"
             exit 1
           fi
 
