@@ -37,7 +37,7 @@ const GlobeWithFloatingCards = () => {
                     href="https://app.fleek.xyz/"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="w-full"
+                    className="inline-block w-fit"
                   >
                     <ButtonYellow
                       border="border-yellow"
