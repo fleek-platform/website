@@ -11,6 +11,7 @@ type TextStyle =
   | 'l'
   | 'm-strong'
   | 'm'
+  | 'm-mid'
   | 's'
   //   | "xs"
   //   | "caption-text-m"
@@ -26,6 +27,7 @@ type TextStyle =
   | 'btn-l'
   | 'btn-l-mid'
   | 'nav-m'
+  | 'nav-m-mid'
   | 'nav-item';
 
 interface Props {
@@ -44,6 +46,7 @@ const textStyles: Record<TextStyle, string> = {
   xl: 'text-16 font-plex-sans font-normal leading-[150%] lg:text-25',
   l: 'text-16 font-plex-sans leading-[150%] lg:text-20',
   m: 'text-13 font-plex-sans leading-[150%] lg:text-16',
+  'm-mid': 'text-13 font-plex-sans leading-[150%] lg:text-14 xl:text-16',
   'm-strong': 'font-plex-sans text-16 leading-[150%] font-medium',
   s: 'font-plex-sans text-10 font-medium leading-[150%] lg:text-13 lg:font-normal',
   'caption-l':
@@ -58,6 +61,8 @@ const textStyles: Record<TextStyle, string> = {
     'font-plex-sans text-10 font-medium leading-[150%] lg:text-13',
   'nav-m':
     'font-plex-sans text-16 uppercase leading-[150%] tracking-[0.064rem]',
+  'nav-m-mid':
+    'font-plex-sans text-16 font-normal leading-[150%] tracking-[0.064rem]',
   'nav-item': 'font-plex-sans text-16 leading-[150%] tracking-[0.064rem]',
   'btn-action':
     'font-plex-sans text-16 font-medium leading-[150%] tracking-[0.09rem] uppercase',
@@ -66,7 +71,7 @@ const textStyles: Record<TextStyle, string> = {
   'btn-s':
     'font-plex-sans text-13 font-normal leading-[150%] tracking-[0.096rem] uppercase',
   'btn-l':
-    'font-plex-sans lg:text-16 font-medium leading-[150%] tracking-[0.192rem] capitalize',
+    'font-plex-sans lg:text-16 font-normal leading-[150%] tracking-[0.0rem]',
 
   'btn-l-mid':
     'font-plex-sans lg:text-14 font-normal leading-[150%] tracking-[0.0rem]',

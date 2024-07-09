@@ -11,7 +11,7 @@ interface Props {
 const PricingButton: React.FC<React.PropsWithChildren<Props>> = (props) => {
   return (
     <button
-      className={`${props.border} ${props.bg} inline-block w-full  rounded-12 px-24 py-14 duration-300 ease-in-out ${props.hoverBtnBg} hover:border-yellow-dark-12`}
+      className={`${props.border} ${props.bg} inline-block w-full rounded-12 px-24 py-14 duration-300 ease-in-out ${props.hoverBtnBg} hover:border-yellow-dark-12`}
     >
       <Text
         as="span"

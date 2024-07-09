@@ -1,0 +1,24 @@
+---
+import '@styles/supportPage.css';
+import settings from '@base/settings.json';
+
+import BaseHtml from './BaseHtml.astro';
+const zendeskPublicSnippetKey = settings.support.zendesk.publicSnippetKey;
+const srcLink = `https://static.zdassets.com/ekr/snippet.js?key=${zendeskPublicSnippetKey}`;
+
+const { title, description, image, slug } = Astro.props;
+---
+
+<BaseHtml
+  title={title}
+  ogMeta={{
+    title,
+    description,
+    image,
+    slug,
+  }}
+>
+  <slot />
+
+  <script id="ze-snippet" defer src={srcLink}></script>
+</BaseHtml>

@@ -2,7 +2,7 @@
 order: 2
 title: Storage
 date: 2023-01-10
-description: Learn how to use the Storage service via the Fleek Platform SDK.
+desc: Learn how to use the Storage service via the Fleek Platform SDK.
 keywords: [services, documentation, getting started, storage]
 tags:
   - Storage
@@ -16,7 +16,7 @@ tags:
 The Fleek Platform SDK provides a storage service allowing you to store your files in a decentralized manner. Our service supports IPFS as our main storage protocol, complemented by Arweave and Filecoin as a backup layer. This approach ensures a high-performing and highly available service. Filecoin acts as the default backup layer, but modifications can be implemented in the storage settings.
 
 :::warn
-If you're authenticating the Fleek Platform SDK with a Personal Access Token (PAT), you must provide a Project ID to the [PersonalAccessTokenService](/src/content/docs/SDK/index.md#personalaccesstokenservice).
+If you're authenticating the Fleek Platform SDK with a Personal Access Token (PAT), you must provide a Project ID to the [PersonalAccessTokenService](/docs/cli/pat/).
 :::
 
 ## Methods

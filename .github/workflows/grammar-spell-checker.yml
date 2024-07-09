@@ -13,17 +13,29 @@ jobs:
         uses: actions/checkout@v4
         with:
           fetch-depth: 0
+          ref: ${{ github.head_ref }}
+
+      - uses: oven-sh/setup-bun@v1
+        with:
+          bun-version: latest
 
       - name: Install Hunspell
         run: |
           sudo apt-get update
           # Hunspell along with the English (US) dictionary
           sudo apt-get install -y hunspell hunspell-en-us
+
+      - name: Show available dictionaries
+        run: |
+          hunspell -D
       
       - name: Spell check (Markdown)
+        shell: bash
         run: |
           base_branch=${{ github.base_ref }}
           diff=$(git diff --name-only origin/$base_branch | grep -E '\.mdx?$' || true)
+          ignore_words_path=".github/actions/spell-checker/ignore_words.txt"
+          potentional_mispellings_path=$(mktemp)
 
           if [[ -n "$diff" ]]; then
             echo "🧐 Going to spell check the following files:"
@@ -31,15 +43,24 @@ jobs:
             echo
             
             for file in $diff; do
-              output=$(hunspell -l -d en_US -p .github/actions/spell-checker/ignore_words.txt "$file")
-              typos_count=$(echo "$output" | wc -l)
+              normalizedFile=$(mktemp)
+
+              ./scripts/markdown-normalizer.ts "$file" > "$normalizedFile"
+            
+              hunspell -l -d en_US -p "$ignore_words_path" "$normalizedFile" > "$potentional_mispellings_path"
+
+              output=$(grep -v -f "$ignore_words_path" "$potentional_mispellings_path" | awk NF)
+              typos_count=$(echo "$output" | awk NF | wc -w | xargs)
+
+              rm "$normalizedFile"
+              rm "$potentional_mispellings_path"
 
               if [[ -n "$output" ]]; then
                 echo "🤓 Found the following typos in $file"
                 echo
                 echo "$output"
                 echo
-                echo "👆 If there are false positives, help us improve by adding the word to the ignore list in the location .github/actions/spell-checker/ignore_words.txt, please!"
+                echo "👆 If there are false positives, help us improve by adding the word to the ignore list in the location .github/actions/spell-checker/ignore_words.txt, order alphabetically for better maintainability, please!"
               fi
 
               if [[ "$typos_count" -gt "$MAX_NUMBER_OF_TYPOS" ]]; then

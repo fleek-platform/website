@@ -41,7 +41,11 @@
     }
 
     a {
-      @apply text-yellow hover:underline;
+      @apply text-yellow;
+    }
+
+    a:not(.no-underline) {
+      @apply hover:underline;
     }
 
     ul {
@@ -109,7 +113,7 @@
   .docs-search-container {
     @apply pb-20 pr-8;
     .search-input {
-      @apply w-full border-gray-dark-7 bg-gray-dark-1 focus:border focus:border-gray-dark-7;
+      @apply w-full border-gray-dark-7 bg-gray-dark-2 hover:border-gray-dark-8 focus:border;
     }
   }
 

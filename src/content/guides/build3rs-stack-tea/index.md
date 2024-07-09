@@ -4,12 +4,11 @@ date: 2023-07-03
 desc: "The builder's guide to Tea, a web3 package manager that adds automation, developer environments and a little bit of magic to software development."
 thumbnail: './teaxyz-thumbnil.jpg'
 image: './teaxyz-thumbnil.jpg'
-cannonical: ''
 author:
   - 'Fleek'
 ---
 
-Welcome to the Build3rs Stack, Fleek’s web3 infrastructure overview series! This week we'll take a look at Tea— a web3 take on the package manager, the swiss army knife of modern web and app development, from the creator of Brew.
+Welcome to the Build3rs Stack, Fleek’s web3 infrastructure overview series! This week we'll take a look at Tea— a web3 take on the package manager, the Swiss Army knife of modern web and app development, from the creator of Brew.
 
 Tea was created with a promise in mind and heart: **to change how packages and dependencies are handled**, and how open-source developers are rewarded for their efforts to maintain them. _Let’s get a taste of that tea_ and look under the hood, to understand what makes this brew a delicious addition to your stack ☕
 
@@ -84,6 +83,6 @@ The protocol side of Tea **is still in an early stage of development**, but we h
 
 We hope this overview has given you a good starting point for getting started on brewing Tea! Be sure to follow Tea to keep up to date on further updates.
 
-Keep expanding your stack— [check out our previous Build3rs Stack](https://blog.fleek.xyz/category/guides/) for more web3 infrastructure overviews. You can also [join our Discord server](https://blog.fleek.xyz/post/build3rs-stack-weavedb/discord.gg/fleek) to jam with the team and learn more!
+Keep expanding your stack— [check out our previous Build3rs Stack](https://fleek.xyz/guides/) for more web3 infrastructure overviews. You can also [join our Discord server](https://discord.gg/fleek) to jam with the team and learn more!
 
 For more resources, please visit [our LinkTree](https://linktr.ee/fleek) ⚡

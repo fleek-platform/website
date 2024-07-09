@@ -4,7 +4,6 @@ date: 2024-04-03
 desc: 'How to deploy a static Next.js app using the Fleek CLI.'
 thumbnail: './nextjsguide.png'
 image: './nextjsguide.png'
-cannonical: ''
 author:
   - 'Olayinka Oshidipe'
   - 'Kanishk Khurana'
@@ -106,7 +105,7 @@ As we are deploying the website using the **fleek-cli**, our next step will be t
 Open up your terminal and run:
 
 ```jsx
-npm install -g @fleekxyz/cli
+npm install -g @fleek-platform/cli
 ```
 
 This will globally install the `fleek-cli` onto your machine. Once installed, open the nextjs-template project in VSCode, and log into your Fleek account via the CLI. This will enable us to run CLI-related commands directly from our terminal.
@@ -198,6 +197,6 @@ See you in the next guide 🤙
 
 ## Resources:
 
-- Understanding Projects: https://docs.fleek.xyz/docs/Projects
-- Sites: https://docs.fleek.xyz/docs/Sites
-- Fleek CLI: https://docs.fleek.xyz/docs/CLI
+- Understanding Projects: https://fleek.xyz/docs/platform/projects/
+- Sites: https://fleek.xyz/docs/cli/sites/
+- Fleek CLI: https://fleek.xyz/docs/cli/

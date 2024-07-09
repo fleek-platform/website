@@ -4,7 +4,6 @@ date: 2023-02-16
 desc: "The builder's guide to Arweave: where it fits in your project's Web3 infra-stack, and what you can achieve with it."
 thumbnail: './arweave-builderstack-2.png'
 image: './arweave-builderstack-2.png'
-cannonical: 'https://blog.fleek.xyz/post/builders-stack-arweave/'
 ---
 
 **Welcome to the Build3rs Stack**! In this content series we cover the most important parts of the web3 infrastructure stack for builders, and go over their applied use-cases.

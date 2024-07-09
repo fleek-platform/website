@@ -1,15 +1,21 @@
 ---
 import '@styles/globals.css';
 import '@styles/blogPage.css';
-import BaseHtml from '@layouts/BaseHtml.astro';
 
-import type { MarkdownHeading } from 'astro';
+import BaseHtml from './BaseHtml.astro';
 
-const { title } = Astro.props;
-const currentPage = Astro.url.pathname;
+const { title, description, image, slug } = Astro.props;
 ---
 
-<BaseHtml title={title}>
+<BaseHtml
+  title={title}
+  ogMeta={{
+    title,
+    description,
+    image,
+    slug,
+  }}
+>
   <main class="container min-h-container">
     <slot />
   </main>

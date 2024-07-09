@@ -2,15 +2,15 @@
 title: 'Fleek v0.5.0: Custom Domains for Private IPFS Gateways Release'
 date: 2023-07-06
 desc: 'With the latest update to the Fleek CLI & SDK, add a custom domain on top of your private IPFS storage gateway for an extra layer of branding, personalization, and security'
-thumbnail: './5050release.jpg'
-image: './5050release.jpg'
+thumbnail: './betav050.png'
+image: './betav050.png'
 author:
   - 'Fleek'
 ---
 
 Quick update today for y’all bringing a highly requested feature to the CLI and SDK v0.5.0: Custom Domains for Private IPFS Gateways. Set a custom domain on top of your private IPFS storage gateway to have a customized endpoint for surfacing your files on Fleek.
 
-For more information on using `fleek gateways create` and setting custom domains for your private IPFS gateways check out our [docs](https://docs.fleek.xyz/docs/Gateways/) ⚡
+For more information on using `fleek gateways create` and setting custom domains for your private IPFS gateways check out our [docs](https://fleek.xyz/docs/platform/gateways/) ⚡
 
 Let’s get into some details:
 
@@ -29,7 +29,7 @@ Now, you can set up a custom domain for a private gateway for another layer of:
 
 ![](https://storage.fleek-internal.com/27a60cdd-37d3-480c-ae88-3ad4ca886b13-bucket/pgggdemo.gif)
 
-For step-by-step instructions on getting started with Custom IPFS Gateway Domains, check out our [docs](https://docs.fleek.xyz/docs/Gateways/).
+For step-by-step instructions on getting started with Custom IPFS Gateway Domains, check out our [docs](https://fleek.xyz/docs/platform/gateways/).
 
 ---
 

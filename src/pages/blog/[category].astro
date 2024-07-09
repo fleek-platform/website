@@ -5,8 +5,16 @@ import { getCollection } from 'astro:content';
 import BlogPosts from '@components/BlogPosts.astro';
 import BlogHeader from '@components/BlogHeader.astro';
 import { listSubDirectories } from '@utils/paths';
+import settings from '@base/settings.json';
 
 import type { CollectionEntry } from 'astro:content';
+
+type CategoryDetails = {
+  title: string;
+  description: string;
+};
+
+type BlogCustomCategoryMetadata = Record<string, CategoryDetails>;
 
 export async function getStaticPaths() {
   const blogCats = await listSubDirectories({
@@ -25,16 +33,21 @@ const indexNameBlog = import.meta.env.PUBLIC_MEILISEARCH_INDEX_BLOG;
 
 const { category } = Astro.params;
 
+const blogSettings = settings.site.metadata.blog
+  .category as BlogCustomCategoryMetadata;
+
+const title = blogSettings[category].title || settings.site.metadata.blog.title;
+const description =
+  blogSettings[category].description || settings.site.metadata.blog.description;
+
 const collection = 'blog';
 
-// TODO: load title from settings
-const pageTitle = 'Blog';
 const allPosts: CollectionEntry<'blog'>[] = (
   await getCollection('blog', ({ slug }) => slug.split('/')[0] === category)
 ).sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf());
 ---
 
-<Layout title="Fleek | Build Lightning Fast Web3 Apps">
+<Layout title={title} description={description}>
   <main class="container min-h-container">
     <BlogHeader title="Blog" indexName={indexNameBlog} category={category} />
     <BlogPosts allPosts={allPosts} collection={collection} />

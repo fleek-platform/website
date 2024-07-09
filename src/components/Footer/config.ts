@@ -2,57 +2,68 @@ import settings from '@base/settings.json';
 
 const {
   careersUrl,
-  supportExternalUrl,
   reportAbuseUrl,
-  fleekNetworkWebsiteUrl,
-  discordFleekCommunityUrl,
   statusURl,
+  mediaKit,
+  fleekNetworkWebsiteUrl,
+  templatesUrl,
 } = settings.site.resources;
 
+const { fleekPlatformOrgUrl } = settings.github;
+
 export default {
+  fleekPlatformOrgUrl,
   developers: [
+    {
+      text: 'Fleek Network',
+      url: fleekNetworkWebsiteUrl,
+      target: '_blank',
+      rel: 'noopener noreferrer',
+    },
+    {
+      text: 'Changelog',
+      url: '/blog/changelog/',
+      target: '_blank',
+      rel: 'noopener noreferrer',
+    },
+    {
+      text: 'Github',
+      url: fleekPlatformOrgUrl,
+      target: '_blank',
+      rel: 'noopener noreferrer',
+    },
     {
       text: 'Status',
       url: statusURl,
       target: '_blank',
       rel: 'noopener noreferrer',
     },
-    {
-      text: 'Github',
-      url: 'https://github.com/fleek-platform',
-      target: '_blank',
-      rel: 'noopener noreferrer',
-    },
-    {
-      text: 'Guides',
-      url: '/guides',
-      target: '_blank',
-      rel: 'noopener noreferrer',
-    },
-    {
-      text: 'Support',
-      url: supportExternalUrl,
-      target: '_blank',
-      rel: 'noopener noreferrer',
-    },
   ],
-  legal: [
+  company: [
+    {
+      text: 'Blog',
+      url: '/blog/',
+    },
+    {
+      text: 'Pricing',
+      url: '/pricing/',
+    },
+    {
+      text: 'Careers',
+      url: careersUrl,
+      target: '_blank',
+      rel: 'noopener noreferrer',
+    },
     {
       text: 'Terms of Service',
-      url: '/legal/terms-of-service',
+      url: '/legal/terms-of-service/',
     },
     {
-      text: 'Privacy Policies',
-      url: '/legal/privacy-policy',
+      text: 'Privacy Policy',
+      url: '/legal/privacy-policy/',
     },
     {
-      text: 'Report Abuse',
-      url: reportAbuseUrl,
-      target: '_blank',
-      rel: 'noopener noreferrer',
-    },
-    {
-      text: 'Contact Us',
+      text: 'Contact us',
       url: reportAbuseUrl,
       target: '_blank',
       rel: 'noopener noreferrer',
@@ -61,37 +72,46 @@ export default {
   product: [
     {
       text: 'Platform',
-      url: '/docs/platform',
+      url: '/docs/platform/',
     },
     {
       text: 'Infrastructure',
-      url: '/docs/infrastructure',
+      url: '/docs/infrastructure/',
     },
     {
       text: 'CLI/SDK',
-      url: '/docs/cli',
+      url: '/docs/cli/',
     },
     {
       text: 'Templates',
-      url: '/templates',
+      url: templatesUrl,
+      target: '_blank',
+      rel: 'noopener noreferrer',
     },
   ],
   resources: [
     {
-      text: 'Blog',
-      url: '/blog',
+      text: 'Documentation',
+      url: '/docs/',
     },
     {
-      text: 'Media Kit',
-      url: '/docs',
+      text: 'Media kit',
+      url: mediaKit,
+      target: '_blank',
+      rel: 'noopener noreferrer',
     },
     {
-      text: 'Careers',
-      url: careersUrl,
+      text: 'Guides',
+      url: '/guides/',
     },
     {
-      text: 'Community',
-      url: discordFleekCommunityUrl,
+      text: 'Support',
+      url: '/support',
+      rel: 'noopener noreferrer',
+    },
+    {
+      text: 'Report abuse',
+      url: reportAbuseUrl,
       target: '_blank',
       rel: 'noopener noreferrer',
     },

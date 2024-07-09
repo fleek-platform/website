@@ -1,14 +1,35 @@
 ---
 import Layout from '@layouts/DocPage.astro';
-import { getEntry } from 'astro:content';
+import { getEntry, getCollection } from 'astro:content';
+import settings from '@base/settings.json';
+
+import { generateSidebarDSByUserOrder } from '@utils/generateSidebarDS';
+import type { DocsLink } from './[...slug].astro';
 
 const entry = await getEntry('docs', 'index');
 
+const docsEntries = await getCollection('docs');
+const orderBy = settings.docs.menu.order;
+const sidebarSorted = generateSidebarDSByUserOrder(docsEntries, orderBy);
+
+const nextItem: DocsLink = {
+  category: sidebarSorted[0].category,
+  slug: sidebarSorted[0].slug,
+  title: sidebarSorted[0].list[0].title,
+};
+
 const { Content, headings } = await entry.render();
-// TODO: Move title to settings
-const title = entry.data.title || 'Documentation';
+
+const title = entry.data.title || settings.site.metadata.docs.title;
+const description = entry.data.desc || settings.site.metadata.docs.description;
 ---
 
-<Layout title={title} headings={headings}>
+<Layout
+  title={title}
+  description={description}
+  headings={headings}
+  prevItem={null}
+  nextItem={nextItem}
+>
   <Content />
 </Layout>

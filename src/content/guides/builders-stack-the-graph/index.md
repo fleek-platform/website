@@ -4,7 +4,6 @@ date: 2023-03-10
 desc: 'The builders guide to The Graph, an indexing and querying protocol for decentralized networks, applications, and data!'
 thumbnail: './graphupd.png'
 image: './graphupd.png'
-cannonical: ''
 ---
 
 Welcome to the Build3rs Stack, our web3 infrastructure overview series! This week we will take a look at **The Graph– an indexing and querying protocol for decentralized networks, applications, and data!** We'll talk about how you can use this protocol w’hen building web3 apps and projects, and the features and options it can enable for you as a developer.

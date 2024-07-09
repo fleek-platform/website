@@ -4,14 +4,21 @@ on:
   workflow_dispatch:
   push:
     branches: [ develop ]
+  pull_request_target:
+    types:
+      - opened
+      - reopened
+      - edited
+      - synchronize
 
 jobs:
-  build:
+  build-dry-run:
     runs-on: ubuntu-latest
     env:
       PRIVATE_MEILISEARCH_DOCUMENTS_ADMIN_API_KEY: dry.run
       PUBLIC_MEILISEARCH_DOCUMENTS_CLIENT_API_KEY: dry.run
       PUBLIC_MEILISEARCH_HOST: dry.run
+      PUBLIC_SUPPORT_API_HOST: dry.run
     steps:
       - name: Checkout your repository using git
         uses: actions/checkout@v4

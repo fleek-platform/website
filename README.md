@@ -22,6 +22,7 @@ This repository contains the source code and assets for the Fleek.xyz website, w
     - [Blog](#-blog)
         - [New post](#new-post)
         - [Create a Pull request](#-create-a-pull-request)
+        - [Release to production](#🚀-release-to-production)
     - [Docs](#-docs)
         - [Sidebar menu item ordering](#-sidebar-menu-item-ordering)
         - [Override category title](#-override-category-title)
@@ -29,12 +30,30 @@ This repository contains the source code and assets for the Fleek.xyz website, w
     - [Admonitions](#-admonitions)
     - [Navigation bar](#-navigation-bar)
         - [Configuration](#-configuration)
+    - [Metadata](#metadata)
+        - [Open Graph preview](#open-graph-preview)
+        - [Troubleshooting open graph](#troubleshooting-open-graph)
+        - [Customise Blog Categories](#customise-blog-categories)
 - [Development](#-development)
-    - [Search server](#-search-server)
-    - [Delete Indexes](#💣-delete-indexes)
-    - [Images (optimization)](#-images-optimization)
+    - [Services](#services)
+      - [Support](#support)
+        - [Setup the Service](#setup-the-service)
+        - [Tokens](#tokens)
+        - [Local API](#local-api)
+        - [Interact with the API](#interact-with-the-api)
+        - [Production Service Setup](#production-service-setup)
+      - [Search](#🔎-search)
+        - [Health Check](#health-check)
+        - [Indexer](#indexer)
+        - [Put markdown content](#put-markdown-content-development)
+        - [Query via cURL](#query-via-curl)
+        - [Multi-Index Search](#multi-index-search)
+        - [Delete Indexes](#💣-delete-indexes)
+        - [Images (optimization)](#-images-optimization)
 - [Migration](#-migration)
     - [Migrate Gatsby content](#migrate-gatsby-content)
+- [Custom data](#custom-data)
+    - [Get latest posts](#get-latest-posts)
 
 # Setup
 
@@ -78,7 +97,12 @@ PUBLIC_MEILISEARCH_INDEX_REFERENCES="fleekxyz_website_references"
 PRIVATE_MEILISEARCH_MASTER_KEY=***
 PRIVATE_MEILISEARCH_DOCUMENTS_ADMIN_API_KEY=***
 PUBLIC_MEILISEARCH_DOCUMENTS_CLIENT_API_KEY=***
+PUBLIC_SUPPORT_API_HOST="localhost:3331"
+ALLOW_ORIGIN_ADDR="http://localhost:4321,https://support-prod-eu-lon-1-01.flkservices.io"
+NODE_ENV=develop
 ```
+
+💡 The ALLOW_ORIGIN_ADDR is a comma separated values (csv). the MEILISEARCH_DOCUMENTS_CLIENT_API_KEY is required when querying staging, production environments which should be provided in the headers.
 
 ## 🏗️ Build
 
@@ -402,6 +426,18 @@ To complete select "Create pull request".
 
 ![Pull request form](public/images/repo/pull-request-form.png?202404161849)
 
+## 🚀 Release to Production
+
+You can release to production following a linear strategy. This assumes that the convention "main" branch is of linear history and is a subset of the "develop" branch commit history. For example, the team is happy to have "develop" as where the latest version of the project exists, that "main" shouldn't diverge and only contain commits from "develop".
+
+Use-case examples:
+- The team has merged some feature branches into develop identified as commit hash "abc123" and want to release upto to the commit history hash "abc123" onto "main". By doing this they expect the build process to occur and deploy into the Fleek Platform
+- The team has merged several feature branches into develop identified as commit hashes "commitFeat1", "commitFeat2" and "commitFeat3" by this historical order. It's decided to release everything in commit history until "commitFeat1", but not "commitFeat2" and "commitFeat3". Although, it'd be wiser to keep the feature branches in pending state as "develop" should always be in a ready state for testing and release as the team may want to release some quick hotfixes, etc
+
+To release to production open the actions tab [here](https://github.com/fleek-platform/website/actions).
+
+Select the "🚀 Release by develop hash" job in the left sidebar. Next, select the "Run workflow" drop-down and provide the required details.
+
 ## 🧐 Spell checker (Grammar)
 
 A spell checker will verify the markdown (.md, .mdx) file content for any typos. The spell checker is an automated process that is active during the pull request (PR).
@@ -453,7 +489,7 @@ Each menu item is represented by an object with the following properties:
 
 - label: A string that defines the text displayed for the menu item.
 - url: A string that specifies the URL to navigate to when the menu item is clicked.
-- openInNewTab (optional): A boolean value (true or false) that determines whether the link should open in a new browser tab.
+- open in new tab (optional): A boolean value (true or false) that determines whether the link should open in a new browser tab.
 
 Example of a basic menu item:
 
@@ -546,24 +582,89 @@ Example of a CTA configuration:
 
 When configuring your menu, ensure that the structure and properties of your objects match the guidelines provided. This will help maintain consistency and ensure that your menu is displayed correctly. Remember, the appearance of your menu is limited by the styles or components you use, so adjust your configuration or business logic accordingly.
 
+## Metadata
+
+Metadata is important for search engines, social media platforms, and others to understand the content and purpose of a page.
+
+The main location for the metadata is in the head element of the main base layout for our pages. At time of writing, is located as `BaseHtml.astro` in the `src/layouts`:
+
+```sh
+src/layouts
+├── ...
+└── BaseHtml.astro
+```
+
+You'll find the elements in the HEAD section of the HTML document. For example:
+
+```html
+...
+
+<head>
+    ...
+    
+    <meta property="og:url" content={`${baseUrl}/${ogMeta?.slug || ''}`} />
+    <meta property="og:type" content="website" />
+    <meta
+      property="og:title"
+      content={ogMeta?.title || settings.site.metadata.title}
+    />
+    
+    ...
+    
+    <meta
+      name="twitter:title"
+      content={ogMeta?.title || settings.site.metadata.title}
+    />
+    
+    ...
+</head>
+```
+
+One of the key components of HTML metadata is the Open Graph meta tags originally created by Facebook to enable them to become rich objects in a social graph.
+
+By using Open Graph meta tags, you can control how your website's links appear when shared on social media platforms such as Facebook, Twitter, LinkedIn, and others.
+
+### Open Graph preview
+
+To discover how the site page's are perceived by social media platforms use a meta tag previewer.
+
+For example, let's say that you want to preview the Blog post for "Introducing Fleek Functions". You'd copy the URL [https://fleek.xyz/blog/announcements/introducing-fleek-functions](https://fleek.xyz/blog/announcements/introducing-fleek-functions) and paste it in the previewer address of your preference, e.g., [opengraph.xyz](https://www.opengraph.xyz).
+
+### Troubleshooting open graph
+
+It's important to note that if you encounter issues with Open Graph meta tags not displaying correctly on a platform, the first step should be to utilize a validator tool, similar to the one provided in the URL above. This is because our system automatically provides the metadata content, but discrepancies may arise if certain requirements are overlooked by the platform, e.g., persistent cache. Additionally, if a specific URL encounters problems due to previous issues, you can circumvent caching by appending a query parameter to the end of the URL. For example, modifying [https://fleek.xyz/blog/announcements/introducing-fleek-functions](https://fleek.xyz/blog/announcements/introducing-fleek-functions) to [https://fleek.xyz/blog/announcements/introducing-fleek-functions?202406101836](https://fleek.xyz/blog/announcements/introducing-fleek-functions?202406101836). This method is recommended as a preliminary troubleshooting step to identify the source of the problem.
+
+### Customise Blog Categories
+
+You can customise the Blog category list page metadata fields by editing the settings file in [./src/settings.json].
+
+```json
+"blog": {
+  ...
+  "category": {
+    "category-name-here": {
+      "title": "My title",
+      "description": "My description"
+    }
+  }
+```
+
+You can extend the category field with any category name. Notice that category names should match the system name or directory name, e.g. [announcements](https://github.com/fleek-platform/website/tree/a0d7f8ac9c552f1a3d8469b9cfaddfe805ed8c6b/src/content/blog/announcements).
+
+```json
+"blog": {
+  ...
+  "category": {
+    "announcements": {
+      "title": "Announcements",
+      "description": "The announcements description"
+    }
+  }
+```
 
 # 👷‍♀️Development
 
-## 🔎 Search
-
-### Serve (Development)
-
-Search is provided by [Meilisearch](https://www.meilisearch.com/). The local search server is provided as a [Docker](https://www.docker.com/) image, which you have to have installed and running.
-
-You can start a server locally by running the command:
-
-```sh
-npm run search:serve
-```
-
-⚠️ You'll see a warning message "No master key was found" that can be ignored for local environment development work. If for some reason you want to have a master key, modify the `search:serve` script to include it.
-
-### Cloud
+## Services
 
 The project services have the following naming convention:
 
@@ -571,9 +672,124 @@ The project services have the following naming convention:
 <service-type>-<environment>-<region>-<instance-number>.<domain>  
 ```
 
-The service hostname is `meilisearch-prod-eu-lon-1-01.flkservices.io`. The default location of the service file is `/etc/systemd/system/meilisearch.service`.
+### Support
+
+Support's based in ZenDesk, as an external provider that provides an API to interact with the service. The following documentation provides information to interace with the proxy server.
+
+### Setup the service
+
+The application should get the endpoint URL from an environment variable named `PUBLIC_SUPPORT_API_HOST`.
+
+Learn how to setup by reading the section [environment variables](#environment-variables).
+
+### Tokens
+
+The environment should have the following variables set up for the corresponding account.
+
+You may want to create a `.env` file to hold these environment variables, or in your shell profile.
+
+```sh
+PRIVATE_ZENDESK_EMAIL="xxxx"
+PRIVATE_ZENDESK_API_KEY="xxxx"
+PRIVATE_ZENDESK_HOSTNAME="xxxx"
+```
+
+### Local API
+
+A proxy service to interact with ZenDesk is available and can be run locally.
+
+Start the local API by running:
+
+```sh
+npm run support:local_api
+```
+
+💡 During implementation the API URL should be provided as an environment variable.
+
+### Interact with the API
+
+**/health**
+
+Hit the /health endpoint for health checks
+
+```sh
+curl -X GET 'localhost:3331/health
+```
+
+**/ticket**
+
+Hit the /ticket endpoint to create a ticket for a user **email**, particular **topic** and comment **query**.
+
+```
+curl \
+  -X POST \
+  -H "Content-Type: application/x-www-form-urlencoded" \
+  -d "email=<CLIENT-EMAIL-ADDRESS>&subject=<SYSTEM-TOPIC>&comment=<USER-QUERY>"" http://localhost:3331/ticket
+```
+
+The **email** is a valid email address, the **topic** should be related to the **query** template. The **query** should correspond and be of a well-known format or template.
+
+Here's an example for **query** template:
+
+```sh
+subject: <System Support Topic> | <User title>
+description: <User text>
+attachments: <User attachments>
+```
+
+A result ticket could look like:
+
+```sh
+subject: Billing | Inquiry Regarding Unprocessed USDC Token Transfer
+description: Dear Fleek, I hope this message finds you well. I am writing to seek clarification regarding an outstanding transaction related to my account. On xxx, I initiated a transfer of xxx USDC tokens from my account to xxx. However, upon checking my transaction history, it appears that this transfer has not been processed.
+attachments: https://fleek-storage/user-file.png
+```
+
+### Production Service Setup
+
+The support service hostname is `support-prod-eu-lon-1-01.flkservices.io` (endpoint URL).
+
+The production environment variable should be set. Declare the hostname:
+
+```
+PUBLIC_SUPPORT_API_HOST="https://support-prod-eu-lon-1-01.flkservices.io"
+```
+
+The default location of the service file is `/lib/systemd/system/support-prod-eu-lon-1-01.flkservices.io.service`.
+
+To configure Support with environment variables in a cloud-hosted instance, modify the Support's env file. Its default location is `~/fleek-platform/website/.env`.
+
+After editing your configuration options, reload the daemon:
+
+```sh
+sudo systemctl daemon-reload
+```
+
+Restart the service:
+
+```sh
+sudo systemctl restart support-prod-eu-lon-1-01.flkservices.io.service
+```
+
+Check the status:
+
+```sh
+sudo systemctl status support-prod-eu-lon-1-01.flkservices.io.service
+```
+
+### 🔎 Search
+
+The search service is based on Meilisearch [here](https://meilisearch.com).
+
+The search service hostname is `meilisearch-prod-eu-lon-1-01.flkservices.io`. The default location of the service file is `/etc/systemd/system/meilisearch.service`.
 
 To configure Meilisearch with environment variables in a cloud-hosted instance, modify Meilisearch's env file. Its default location is `/var/opt/meilisearch/env`.
+
+DNS Record
+
+```
+A	meilisearch-prod-eu-lon-1-01.flkservices.io	165.232.41.164
+```
 
 After editing your configuration options, relaunch the Meilisearch service:
 
@@ -629,6 +845,35 @@ curl \
   --data-binary '{ "q": "<SEARCH_QUERY>" }'
 ```
 
+### Multi index search
+
+Here's an example of how to perform multiple search queries on one or more indexes:
+
+```sh
+curl \
+  -X POST 'http://localhost:7700/multi-search' \
+  -H 'Content-Type: application/json' \
+  --data-binary '{
+    "queries": [
+      {
+        "indexUid": "fleekxyz_website_docs",
+        "q": "something",
+        "limit": 5
+      },
+      {
+        "indexUid": "fleekxyz_website_guides",
+        "q": "something",
+        "limit": 5
+      },
+      {
+        "indexUid": "fleekxyz_website_references",
+        "q": "something",
+        "limit": 5
+      }
+    ]
+  }'
+```
+
 ### 💣 Delete Indexes
 
 Delete Index data by running the command:
@@ -636,6 +881,18 @@ Delete Index data by running the command:
 ```sh
 npm run search:delete_indexes
 ```
+
+### Serve (Development)
+
+Search is provided by [Meilisearch](https://www.meilisearch.com/). The local search server is provided as a [Docker](https://www.docker.com/) image, which you have to have installed and running.
+
+You can start a server locally by running the command:
+
+```sh
+npm run search:serve
+```
+
+⚠️ You'll see a warning message "No master key was found" that can be ignored for local environment development work. If for some reason you want to have a master key, modify the `search:serve` script to include it.
 
 ## 📸 Images (Optimization)
 
@@ -668,7 +925,7 @@ The import name convention is camel-case and to use the prefix img, e.g. imgMyIm
 import imgFleekLogo from "@images/globe-with-bolt.jpg?w=480&h=480&format=webp";
 ```
 
-Place the image in the <img> src field:
+Place the image in the source field:
 
 ```html
 <img src={imgFleekLogo} alt="Image text replacement" />
@@ -709,3 +966,48 @@ Example usage:
   ../gatsby-blog/src/posts/post \
   ./src/content/blog
 ```
+
+## Custom data
+
+Custom data is available as static data. The data is provided by a static file endpoint, placed inside the `/api` directory.
+
+Note that the custom data is static, as the project is fully static (it means that the data is computed ahead of time and not dynamically on runtime), but can be utilized by external applications as any other endpoint. For example, the Fleek Platform application dashboard requires the latest blog posts data.
+
+### Get latest posts
+
+Make a HTTP GET request to the path `/api/latestBlogposts.json` for the target environment, e.g. production as `https://fleek.xyz`.
+
+In the example we make a HTTP GET request and [parse](https://developer.mozilla.org/en-US/docs/Web/API/Response/json) the body text as JSON data.
+
+```js
+const res = await fetch('https://fleek.xyz/api/latestBlogPosts.json');
+const json = await res.json();
+
+console.log(json);
+```
+
+You'd get a list to iterate over as the following:
+
+```sh
+{
+  data: [
+    {
+      date: "1972-01-01",
+      path: "/blog/my-category/my-blog-post-1",
+      title: "My title 1",
+      description: "My description 1"
+      slug: "my-title-1"
+    },
+    {
+      date: "1972-01-02",
+      path: "/blog/my-category/my-blog-post-2",
+      title: "My title 2"
+      description: "My description 2"
+      slug: "my-title-2"
+    },
+    ...
+  ]
+}
+```
+
+Everytime a build happens, the static JSON data should be updated.

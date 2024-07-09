@@ -2,7 +2,7 @@
 order: 3
 title: Sites
 date: 2023-01-10
-description: Set and deploy your site with Fleek. Follow our concise CLI guide to create your site and leverage GitHub Actions to automate IPFS deployments through Continuous Integration.
+desc: Set and deploy your site with Fleek. Follow our concise CLI guide to create your site and leverage GitHub Actions to automate IPFS deployments through Continuous Integration.
 keywords: [services, documentation, getting started]
 tags:
   - Accounts
@@ -17,7 +17,7 @@ The Sites Service in the Fleek Platform CLI let users upload and easily maintain
 
 ## Set up a Site
 
-When planning to deploy a site, you must first set up a Fleek Site. If you have followed the [quick start](/docs/cli), this should be familiar.
+When planning to deploy a site, you must first set up a Fleek Site. If you have followed the [quick start](/docs/cli/), this should be familiar.
 
 For this example we are using a Next.js application that you can find in the [template repository](https://github.com/fleek-platform/nextjs-template).
 
@@ -155,7 +155,7 @@ If sucessfully, you'll get a confirmation message.
 
 The site is available at the gateway described in the output message. Visit it by open it in your browser!
 
-Optionally, you can learn to create a [custom gateway](/docs/CLI/Gateways) of your liking and control.
+Optionally, you can learn to create a [custom gateway](/docs/cli/gateways/) of your liking and control.
 
 ## Continuous Integration (CI)
 

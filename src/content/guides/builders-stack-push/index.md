@@ -4,7 +4,6 @@ date: 2023-03-23
 desc: "The builder's guide to Push Protocol, the web3 communication protocol: how to use it in your project's Web3 infra-stack, and what you can achieve with it."
 thumbnail: './push.png'
 image: './push.png'
-cannonical: ''
 ---
 
 Welcome to the Build3rs Stack, Fleek’s web3 infrastructure overview series. This week we will take a look **at [Push Protocol](https://push.org/) – a web3 communication protocol!** We will talk about the main features, resources to get started, and the necessary info you need to start building with it.

@@ -2,8 +2,8 @@
 title: 'An Overview of Fleek.xyz’s Architecture'
 date: 2022-12-05
 desc: 'New architecture who dis? Here’s a high level overview of how our new platform was designed & why it unlocks total freedom, flexibility, and extensibility for web3 developers.'
-thumbnail: './Fleek-XYZ-Architecture.png'
-image: './Fleek-XYZ-Architecture.png'
+thumbnail: './architecture.png'
+image: './architecture.png'
 ---
 
 TL;DR
@@ -11,11 +11,11 @@ TL;DR
 - The new fleek.xyz is extensible, enabling external contributors to build and surface new services and features leveraging any underlying infra/protocols.
 - Building services is made simple thanks to the new fleek.xyz architecture centered around 4 key building blocks: CLI, SDK, open API, and UI
 - All Fleek.xyz services will be independent of each other, where one or many of the building blocks can be leveraged, and developers can pick and choose which services they want and discard the rest.
-- Interested? [Sign up to be one of our beta testers](https://fleek.xyz).
+- Interested? [Sign up to be one of our beta testers](https://fleek.xyz/).
 
 ---
 
-In case you’ve missed it, [we’ve just announced our Series A led by Polychain](https://blog.fleek.co/posts/introducing-fleek-network-and-fleek-xyz). One of the reasons we’ve raised is to build Fleek.xyz, a next-gen development platform for web3, and the successor to our current Fleek.co platform.
+In case you’ve missed it, [we’ve just announced our Series A led by Polychain](/blog/announcements/introducing-fleek-network-and-fleek-xyz/). One of the reasons we’ve raised is to build Fleek.xyz, a next-gen development platform for web3, and the successor to our current Fleek.co platform.
 
 In an effort to build more in public, this blog is part one of a two part series that will outline the what, why, and how of Fleek.xyz development. Part one, this blog, is a dive into **what is the new Fleek.xyz architecture and why it unlocks total freedom, flexibility, and extensibility** for web3 developers.
 
@@ -63,7 +63,7 @@ That’s all we’ve got for you today. Building in public ftw!
 
 Part two of this series on the _how_ of Fleek.xyz development is coming soon, including how we structure teams around services and _how_ new services are created.
 
-In the meantime, join [our discord](https://discord.gg/fleek), follow [our twitter](https://twitter.com/fleek), and sign up for [our beta waitlist](https://fleek.xyz)!
+In the meantime, join [our discord](https://discord.gg/fleek), follow [our twitter](https://twitter.com/fleek), and sign up for [our beta waitlist](https://fleek.xyz/)!
 
 **.. oh, and we’re building a decentralized content & application delivery network called** [**Fleek Network**](https://fleek.network)**. Go check it out, it will play a key role in Fleek’s story in 2023 and beyond.**
 

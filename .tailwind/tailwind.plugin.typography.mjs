@@ -50,6 +50,10 @@ export default plugin(({ addComponents }) => {
       "@apply font-plex-sans text-13 font-medium uppercase leading-[150%] tracking-[0.256rem]":
         {},
     },
+    ".typo-caption-s-normal": {
+      "@apply font-plex-sans text-15 leading-[150%] tracking-[0.256rem]":
+        {},
+    },
     ".typo-caption-xs": {
       "@apply font-plex-sans text-10 font-normal uppercase leading-[150%] tracking-[0.02725rem]":
         {},
@@ -66,11 +70,15 @@ export default plugin(({ addComponents }) => {
         {},
     },
     ".typo-btn-cap": {
-      "@apply font-plex-sans text-16 font-medium capitalize leading-[150%] tracking-[0.09rem]":
+      "@apply font-plex-sans text-16 font-normal leading-[150%] tracking-[0.0rem]":
         {},
     },
     ".typo-btn-xs": {
       "@apply font-plex-sans text-13 font-normal uppercase leading-[150%] tracking-[0.032rem]":
+        {},
+    },
+    ".typo-btn-xxs": {
+      "@apply font-plex-sans text-13 font-thin leading-[150%] tracking-[0.032rem]":
         {},
     },
     ".typo-btn-s": {
@@ -79,6 +87,10 @@ export default plugin(({ addComponents }) => {
     },
     ".typo-btn-l": {
       "@apply font-plex-sans text-16 font-medium uppercase leading-[150%] tracking-[0.192rem]":
+        {},
+    },
+    ".typo-btn-l-mid": {
+      "@apply font-plex-sans text-16 font-medium leading-[150%] tracking-[0.192rem]":
         {},
     },
  });

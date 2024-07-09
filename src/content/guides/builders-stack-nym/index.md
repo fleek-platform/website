@@ -4,7 +4,6 @@ date: 2023-09-26
 desc: 'The builders guide to Nym, a privacy platform enabling anonymous network traffic'
 thumbnail: './nymthumb.jpg'
 image: './nymthumb.jpg'
-cannonical: ''
 author:
   - 'Fleek'
 ---
@@ -108,7 +107,7 @@ That’s all for this week on Nym! This blog should be a good jumping-off point 
 
 Follow Nym on [X](https://twitter.com/nymproject) to stay up to date on what the team is working on.
 
-If you enjoyed learning about the protocol check out more of our [Build3rs Stack](https://blog.fleek.xyz/category/guides/) articles.
+If you enjoyed learning about the protocol check out more of our [Build3rs Stack](/guides/) articles.
 
 You can also join our [Discord](http://discord.gg/fleek) server to jam with the team and learn more!
 

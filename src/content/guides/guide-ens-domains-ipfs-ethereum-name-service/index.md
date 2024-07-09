@@ -4,7 +4,6 @@ date: 2020-04-27
 desc: 'Learn how to register your first ENS domain and use it to host a decentralized IPFS website in Fleek!'
 thumbnail: './ens1.jpg'
 image: './ens1.jpg'
-cannonical: ''
 ---
 
 ENS ([Ethereum Name Service](https://ens.domains/)) domains, much like the name entails, are the decentralized Ethereum-based naming system alternative to DNS (Domain Name System).
@@ -183,5 +182,5 @@ Now that you know how to register your first ENS domain, and how to use it toget
 - [Sign up](https://app.fleek.xyz/) to try Fleek
 - Join our [Community Chat](https://discord.com/invite/fleek)
 - Follow us on [Twitter](https://twitter.com/fleek)
-- Check out our [Tech Docs](https://docs.fleek.xyz/)
+- Check out our [Tech Docs](/docs/)
 - Contact us at support@fleek.xyz

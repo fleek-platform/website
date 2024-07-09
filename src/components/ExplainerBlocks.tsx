@@ -87,7 +87,7 @@ const ExplainerBlocks: React.FC<props> = ({ index, header }) => {
 
           <img
             src="/svg/dotted-squiggle-bg.svg"
-            className="absolute top-1/3 -z-1 scale-110"
+            className="absolute top-1/3 -z-1 hidden scale-110 lg:block"
           />
         </div>
       </PageSection>

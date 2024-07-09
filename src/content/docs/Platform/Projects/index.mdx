@@ -2,7 +2,7 @@
 order: 3
 title: Projects
 date: 2023-01-10
-description: Create, manage and personalize Projects. Dive into the core of project handling on Fleek, from your first auto-generated project to organizing your next idea.
+desc: Create, manage and personalize Projects. Dive into the core of project handling on Fleek, from your first auto-generated project to organizing your next idea.
 category: Documentation
 keywords: [services, documentation, getting started]
 tags:
@@ -11,6 +11,8 @@ tags:
   - Learn
   - Fleek
 ---
+
+import PermissionsTable from '@components/Permissions/PermissionsTable';
 
 # Projects on Fleek
 
@@ -32,7 +34,7 @@ To change the project name you can click on the 'Settings' icon in the project d
 
 ## Deleting a project
 
-To remove a project, navigate to the project dashboard and select the 'Settings' icon. You will be asked to confirm the removal of all associated resources within the project. Ensure you check the box to the right to acknowledge this action before proceeding for:
+To remove a project, navigate to the project dashboard and click the 'Settings' icon. All of the data inside the project will be removed from the platform, including:
 
 - All of the sites
 - All of the domains linked to the sites
@@ -69,13 +71,19 @@ Invitations are a way to grant access to a another user to one of your projects.
 
 To invite a new user into your project, go to the project's 'Settings' page and select the 'Teams' tab. There you will find a list of members in the project and a button to generate a link to invite a new user.
 
-This is a unique link that will grant project access to a single user. Once the user has used the link to access the project, the link will be invalidated and a new link will need to be generated to invite a new user. This link is not tied to the authentication method used to access the project, so the user can choose to use their wallet, e-mail or Github account to access the project.
+This is a unique link that will grant project access to a single user. Once the user has used the link to access the project, the link will be invalidated and a new link will need to be generated to invite a new user. This link is not tied to the authentication method used to access the project, so the user can choose to use their wallet or e-mail account to access the project.
+
+### Permissions
+
+The Fleek platform uses a role-based system for managing permissions. Certain features are only accessible to users with specific roles. For a detailed breakdown of these permissions, see the table provided below.
+
+<PermissionsTable />
 
 ## Application Credentials
 
 ![](./app-creds.svg)
 
-Application credentials are the keys to your project. They are used to authenticate your application with Fleek's services. You can create multiple application credentials for a single project and each application credential can have different permissions.
+Application credentials are the keys to your project. They are used to authenticate your application with the Fleek Storage. Their use is currently limited to uploading files and directories.
 
 ### Whitelist domains
 
@@ -97,7 +105,7 @@ To create an application credential, follow these steps:
 8. Click on the `Create` button.
 9. Copy the application token.
 
-You can now use the application token to authenticate your application with Fleek's services like the [SDK](/docs/SDK).
+You can now use the application token to authenticate your application with Fleek's services like the [SDK](/docs/sdk/).
 
 ### Managing Application Credentials
 

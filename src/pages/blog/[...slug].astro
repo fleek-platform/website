@@ -5,6 +5,7 @@ import { getEntry } from 'astro:content';
 import GithubEditLink from '@components/GitHubEditLink.astro';
 import { generateGitHubEditLink } from '@utils/url';
 import ButtonGray from '@components/ButtonGray';
+import { formatDate } from '@utils/date';
 
 export async function getStaticPaths() {
   const docsEntries = await getCollection('blog');
@@ -14,8 +15,6 @@ export async function getStaticPaths() {
   }));
 }
 
-const back = () => {};
-
 const { entry } = Astro.props;
 const { Content } = await entry.render();
 const { collection, id, slug } = entry;
@@ -24,15 +23,23 @@ const githubEditUrlPathname = generateGitHubEditLink({
   collection,
   id,
 });
+
+const date = formatDate({ date: entry.data.date });
 ---
 
-<BlogPageLayout title={entry.data.title}>
+<BlogPageLayout
+  title={entry.data.title}
+  description={entry.data?.desc}
+  image={entry.data?.image?.src}
+  slug={slug}
+>
   <article class="blog">
-    <div class="mb-10 w-fit" onclick="history.back()">
+    <div class="mb-24 w-fit" id="goBackButton">
       <ButtonGray className="flex items-center justify-center gap-12 px-5">
-        <div class="typo-s">Back</div>
+        <div>Go back</div>
       </ButtonGray>
     </div>
+    <small class="font-plex-sans text-16 text-gray-dark-10">{date}</small>
     <h1>{entry.data.title}</h1>
     {
       entry.data?.image?.src && (
@@ -45,3 +52,13 @@ const githubEditUrlPathname = generateGitHubEditLink({
     <GithubEditLink pathname={githubEditUrlPathname} />
   </article>
 </BlogPageLayout>
+
+<script>
+  document.getElementById('goBackButton')?.addEventListener('click', () => {
+    if (history.length > 2) {
+      history.back();
+    } else {
+      window.location.href = '/blog';
+    }
+  });
+</script>

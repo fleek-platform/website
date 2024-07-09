@@ -2,13 +2,13 @@
 order: 7
 title: Fleek Functions
 date: 2024-05-23
-description: The Fleek Functions are code snippets that are executed server-side using Fleek Network's on-chain cloud infrastructure.
+desc: The Fleek Functions are code snippets that are executed server-side using Fleek Network's on-chain cloud infrastructure.
 ---
 
 # Fleek Functions
 
 :::warn
-At present, this feature is in alpha. It's recommended not to use Fleek Functions in live applications until more information is available.
+This feature is in alpha and runs on a new testnet version of Fleek Network. Until functionality is finalized further, we do not recommend using Fleek Functions in production apps due to changes that may be made during this ongoing development period. We have a lot of improvements planned to the entire data flow, but they require more precise engineering efforts which will take more time. Releasing this alpha version now while we are still developing it, to get early usage and feedback, felt like the best approach to achieve the long-term goals of Fleek Functions.
 :::
 
 Fleek Functions are code snippets that are executed server-side using Fleek Network’s on-chain cloud infrastructure.
@@ -37,7 +37,22 @@ export const main = (params) => {
 
 You are obligated to export a **main** function. The **main** signifies the entry point for computations or declarations within the file scope. It'll not compute or operate if you neglect to declare and export it.
 
-To learn more about what the export declaration, read the MDN Web docs [here](https://developer.mozilla.org/en-US/docs/web/javascript/reference/statements/export).
+To learn more about what the export declaration is, read the MDN Web docs [here](https://developer.mozilla.org/en-US/docs/web/javascript/reference/statements/export).
+
+### HTTP Requests and Responses
+
+Every execution of your Fleek Function receives an [HttpRequest](https://fleek-network.github.io/js-docs/~/Fleek.HttpRequest.html) argument. It represents the HTTP request made to your function. You can find all the relevant information of your request there.
+
+```js
+export const main = (params) => {
+  const { method, path } = params;
+  return `${method} request to ${path}`;
+};
+```
+
+You can respond either with a string, that will be your HTTP response body, or with an [HttpResponse](https://fleek-network.github.io/js-docs/~/Fleek.HttpResponse.html) to set your response headers or status.
+
+Check out our [docs](https://fleek-network.github.io/js-docs/) for more information on the APIs available to your Fleek Function code.
 
 ## Create a Fleek Function
 
@@ -151,6 +166,10 @@ curl -X GET \
   https://<SLUG>.functions.stg.on-fleek-test.app
 ```
 
+### Limitations
+
+When writing code for your functions, please keep in mind Fleek Functions currently have a timeout of 15 seconds, and a memory limit of 50 MiB during execution.
+
 ## Modify properties
 
 After the deployment of a Fleek Function, you can edit the following properties:
@@ -207,7 +226,69 @@ Afterwards, we could interface with our Fleek Function via the URL:
 https://my-unique-slug.functions.stg.on-fleek-test.app
 ```
 
-### Deactive Functions
+## Using private data with Fleek Functions
+
+You can make use of environment variables through any combination of the following:
+
+- Those set within your CLI
+- Those imported from a separate file
+- Those exported into your local environment
+
+:::warn
+
+Your Fleek Function are stored on IPFS. They are publicly accessible by default, and will expose all of your code associated with the function including any environment variables which are bundled into your code. Ensure you are not inadvertently exposing data you are interested in keeping private.
+
+:::
+
+### Environment variables set within your CLI
+
+You can pass `-e` or `--env` flags to the CLI in order to set simple, non-array environment variables from within the CLI. For example, the following code would set VAR1 as 'foo' and VAR2 as 'bar' for use within your Fleek Function.
+
+```js
+fleek functions deploy --name print-hello-world --path *./function.js --env VAR1='foo' --env VAR2='bar'
+```
+
+### Environment variables imported from a separate file
+
+Additionally, you can pass a `--envFile` flag to the CLI, followed by a file location relative to the current directory, in order to load environment variables from a file. This file should represent variables using a key value pair syntax.
+
+```js
+# This is a comment
+PORT=3000 # This is also a comment
+NAME="Some value"
+MULTI_LINE="THIS IS
+A MULTILINE"
+```
+
+In the example below, the user's environment variables are located in an `env.list` file.
+
+```js
+fleek functions deploy --name print-hello-world --path *./function.js --envFile ./env.list
+```
+
+### Environment variables exported to your local environment
+
+Lastly, you can use variables exported to your local environment.
+
+If you have exported a variable to your environment with export VAR1='foo'and export VAR2='bar', e.g., you can run:
+
+```js
+fleek functions deploy --name print-hello-world --path *./function.js --env VAR1 --env VAR2
+```
+
+## Making Fleek Functions private (🧪 Alpha)
+
+If you are interested in making your Fleek Function code private, add the `--private` flag to your deployment command:
+
+```js
+fleek functions deploy --name print-hello-world --path *./function.js --private
+```
+
+:::warn
+This is an experimental feature, performance will be impacted. We are actively working on improving this experience to be on par with IPFS stored functions.
+:::
+
+## Deactivate Functions
 
 To _deactivate_ such a Fleek Function, you can run the command below, replacing <fleek_function_name> with the name of the Fleek Function you’re deactivating.
 

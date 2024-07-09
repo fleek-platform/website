@@ -13,6 +13,7 @@ export type Props = {
   btnBg?: string;
   hoverBtnBg?: string;
   fontColor?: string;
+  url?: string;
 };
 
 const PricingCard: React.FC<Props> = (props) => {
@@ -60,13 +61,15 @@ const PricingCard: React.FC<Props> = (props) => {
           </ul>
         </div>
         {props.coloredBtn ? (
-          <PricingButton
-            bg={props.btnBg}
-            fontColor={props.fontColor}
-            hoverBtnBg={props.hoverBtnBg}
-          >
-            <p className="typo-btn-cap">{props.cta}</p>
-          </PricingButton>
+          <a href={props.url}>
+            <PricingButton
+              bg={props.btnBg}
+              fontColor={props.fontColor}
+              hoverBtnBg={props.hoverBtnBg}
+            >
+              <p className="typo-btn-cap">{props.cta}</p>
+            </PricingButton>
+          </a>
         ) : (
           <ButtonGray
             border={props.border}

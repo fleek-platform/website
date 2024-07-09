@@ -56,7 +56,7 @@ type HitProps = {
   }>;
 };
 
-const Hit = ({ hit }: HitProps) => {
+export const Hit = ({ hit }: HitProps) => {
   const { results } = useInstantSearch();
 
   const { value } = hit._highlightResult?.content as { value: string };
@@ -126,7 +126,7 @@ const CustomSearchBox = ({
           autoComplete="off"
           autoCorrect="off"
           autoCapitalize="off"
-          placeholder="Search..."
+          placeholder="Search"
           spellCheck={false}
           maxLength={300}
           value={inputValue}
@@ -195,7 +195,7 @@ export default ({
         <input
           className="search-input"
           type="text"
-          placeholder="Search..."
+          placeholder="Search"
           readOnly={true}
         />
         <div className="icon-container">

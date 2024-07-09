@@ -2,7 +2,7 @@
 order: 0
 title: Quick start
 date: 2023-01-10
-description: Find all the information on how to set up and start interacting with Fleek's Command Line Interface (CLI). Install, authenticate, and manage projects directly from your command line.
+desc: Find all the information on how to set up and start interacting with Fleek's Command Line Interface (CLI). Install, authenticate, and manage projects directly from your command line.
 keywords: [services, documentation, getting started]
 tags:
   - Accounts
@@ -13,7 +13,7 @@ tags:
 
 # Quick start
 
-The Fleek Platform CLI is a command-line interface, that let users interact with all our product services directly from your terminal. A user can launch the authentication service, deploy sites, interact with our storage service and much more. It's the simplest and fastest way to get up and running with Fleek Platform from scratch.
+The Fleek Platform CLI is a command-line interface, that lets users interact with all our product services directly from your terminal. A user can login, deploy sites, interact with our storage service and much more. It's the simplest and fastest way to get up and running with Fleek's platform.
 
 In the next steps, we’re going to install the CLI, create a project and deploy a simple page.
 

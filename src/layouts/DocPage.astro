@@ -7,25 +7,35 @@ import Announcement from '@components/Announcement';
 import Container from '@components/Container';
 import Nav from '@components/NavBar';
 import Footer from '@components/Footer';
-import { generateSidebarDSByUserOrder } from '@utils/generateSidebarDS';
-import { getCollection } from 'astro:content';
+import {
+  generateSidebarDSByUserOrder,
+  type GenerateSidebarResponse,
+} from '@utils/generateSidebarDS';
+import settings from '@base/settings.json';
+
 import Sidebar from '@components/Sidebar';
 import SearchBtn from '@components/SearchBtn';
+import DocItemLink from '@components/DocItemLink';
+
 import OnPageNavigation from '@components/OnPageNavigation/OnPageNavigation.astro';
 import { getEntry } from 'astro:content';
 import GithubEditLink from '@components/GitHubEditLink.astro';
 import { generateGitHubEditLink } from '@utils/url';
-import settings from '@base/settings.json';
 
 import type { MarkdownHeading } from 'astro';
 import type { ContentEntryMap } from 'astro:content';
+import type { DocsLink } from '@base/pages/docs/[...slug].astro';
+import { getCollection } from 'astro:content';
 
 type Props = {
   title: string;
+  description: string;
   headings: MarkdownHeading[];
+  prevItem: DocsLink | null;
+  nextItem: DocsLink | null;
 };
 
-const { title, headings } = Astro.props;
+const { title, description, headings, prevItem, nextItem } = Astro.props;
 const {
   collection,
   id,
@@ -50,7 +60,6 @@ const {
 })();
 
 const data = await getEntry(collection, id);
-
 if (!data || !data?.id || !data?.collection) {
   throw Error('Oops! Unexpected response data');
 }
@@ -59,18 +68,29 @@ const githubEditUrlPathname = generateGitHubEditLink({
   collection: data.collection,
   id: data.id,
 });
+
 const allPosts = await getCollection('docs');
 const orderBy = settings.docs.menu.order;
-
 const sidebarSorted = generateSidebarDSByUserOrder(allPosts, orderBy);
 
 const indexNameDocs = import.meta.env.PUBLIC_MEILISEARCH_INDEX_DOCS;
 
 // TODO: Fails after prod build
 const isHome = Astro.url.pathname === '/docs';
+
+const slug = `docs/${data.slug}`;
+const image = '';
 ---
 
-<BaseHtml title={title}>
+<BaseHtml
+  title={title}
+  ogMeta={{
+    title,
+    description,
+    image,
+    slug,
+  }}
+>
   <main class="container min-h-container">
     <div class={`grid grid-cols-[1fr] gap-4 md:grid-cols-[1fr,4fr,1fr]`}>
       <aside data-name="doc-sidebar" class="w-300 relative pl-32">
@@ -88,6 +108,10 @@ const isHome = Astro.url.pathname === '/docs';
       <div class="min-w-0 px-32">
         <article class="doc">
           <slot />
+          <div class="flex flex-row gap-20">
+            {prevItem && <DocItemLink docItem={prevItem} />}
+            {nextItem && <DocItemLink docItem={nextItem} isNext />}
+          </div>
           <GithubEditLink pathname={githubEditUrlPathname} />
         </article>
       </div>

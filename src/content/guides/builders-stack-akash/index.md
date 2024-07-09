@@ -4,7 +4,6 @@ date: 2023-02-24
 desc: 'The builders guide to Akash Network, the most important features, applied use-cases, and why it’s important to understand what you can build with it as a web3 developer.'
 thumbnail: './akash-builders-stack.png'
 image: './akash-builders-stack.png'
-cannonical: ''
 ---
 
 Welcome to the Build3rs Stack, our web3 infrastructure overview series! In this piece we will talk in depth about **the [Akash Network](https://akash.network/), its most important features, applied use-cases**, and why it’s important to understand what you can build with it as a web3 developer.

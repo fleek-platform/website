@@ -3,6 +3,7 @@ import Layout from '@layouts/BlogPage.astro';
 import { getCollection } from 'astro:content';
 import BlogPosts from '@components/BlogPosts.astro';
 import BlogHeader from '@components/BlogHeader.astro';
+import settings from '@base/settings.json';
 
 import type { CollectionEntry } from 'astro:content';
 
@@ -10,16 +11,20 @@ const indexNameBlog = import.meta.env.PUBLIC_MEILISEARCH_INDEX_BLOG;
 
 const collection = 'blog';
 
-// TODO: load title from settings
-const pageTitle = 'Blog';
 const allPosts: CollectionEntry<'blog'>[] = (await getCollection('blog')).sort(
   (a, b) => b.data.date.valueOf() - a.data.date.valueOf(),
 );
 ---
 
-<Layout title="Fleek | Build Lightning Fast Web3 Apps">
+<Layout
+  title={settings.site.metadata.blog.title}
+  description={settings.site.metadata.blog.description}
+>
   <main class="container min-h-container">
-    <BlogHeader title="Blog" indexName={indexNameBlog} />
+    <BlogHeader
+      title={settings.site.metadata.blog.title}
+      indexName={indexNameBlog}
+    />
     <BlogPosts allPosts={allPosts} collection={collection} />
   </main>
 </Layout>

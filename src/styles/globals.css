@@ -22,6 +22,10 @@
     font-feature-settings: 'ss01' 1;
   }
 
+  .body-no-scroll {
+    overflow: hidden;
+  }
+
   table {
     height: 1px;
   } /* Will be ignored, don't worry. */
@@ -102,4 +106,9 @@
     font-style: italic;
     font-display: block;
   }
+}
+
+ol {
+  list-style-type: decimal;
+  padding-left: 30px;
 }

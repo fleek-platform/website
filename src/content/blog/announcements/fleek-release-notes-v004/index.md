@@ -2,15 +2,15 @@
 title: 'Fleek v0.0.4 Release Notes: ENS Integration, Deployment Details, File Upload Size Limit Increase, and more'
 date: 2024-01-22
 desc: 'Get the latest on the changes coming to the Fleek Alpha with v0.0.4, including ENS Integration, Deployment Details, File Upload Size Limit and more!'
-thumbnail: './fleekreleasenotes06.jpg'
-image: './fleekreleasenotes06.jpg'
+thumbnail: './fleekchangelog0123.png'
+image: './fleekchangelog0123.png'
 author:
   - 'Fleek'
 ---
 
 What’s up Fleek Freaks?
 
-We're back with an update to the Fleek.xyz Alpha! This jam-packed v.0.0.4 update brings us to near-feature parity with the Fleek.co platform, an important goal for the team as we approach the start of the [Fleek.co to Fleek.xyz migration](https://blog.fleek.xyz/post/fleek-co-to-fleek-xyz-migration-details/).
+We're back with an update to the Fleek.xyz Alpha! This jam-packed v.0.0.4 update brings us to near-feature parity with the Fleek.co platform, an important goal for the team as we approach the start of the [Fleek.co to Fleek.xyz migration](/blog/announcements/fleek-co-to-fleek-xyz-migration-details/).
 
 If you haven’t been added to the closed alpha yet and you want to try any of the new features we’re rolling out with this release, fill out this [Typeform](https://fleekxyz.typeform.com/alpha-access) and we’ll get you onboarded!
 
@@ -60,7 +60,7 @@ Along with the above, the devs did their usual bug squashing and fixes including
 - Fixed a problem where the site slug was not clickable after the first deployment.
 - Project name can be changed on Arc Browsers.
 
-You can see a full list of changes included in the v0.0.4 release of the Fleek.xyz alpha in our [docs](https://docs.fleek.xyz/)!
+You can see a full list of changes included in the v0.0.4 release of the Fleek.xyz alpha in our [docs](https://docs/)!
 
 ---
 

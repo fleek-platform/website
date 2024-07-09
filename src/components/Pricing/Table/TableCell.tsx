@@ -11,7 +11,7 @@ const TableCell = ({ children, className }: TableCellProps) => (
   <div
     className={clsx(
       className,
-      'flex min-h-52 border-collapse items-center border border-ui-mid-grey p-12 ',
+      'flex min-h-52 border-collapse items-center border border-ui-mid-grey bg-gray-dark-1 p-12 ',
     )}
   >
     <Text style="m">{children}</Text>
