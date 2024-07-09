@@ -52,8 +52,28 @@
         "description": "Discover step-by-step guides and tutorials on Fleek to streamline your app and web development. Leverage our resources to build smarter, faster, and stress free.",
         "image": "/images/fleek-meta.png?202406061658"
       },
+      "pricing": {
+        "title": "Pricing",
+        "description": "Fleek is an edge-optimized cloud platform. Effortlessly build, ship and scale highly performant apps. Try for free and deploy an app in 5 minutes.",
+        "image": "/images/fleek-meta.png?202406061658"
+      },
+      "support": {
+        "title": "Support",
+        "description": "Fleek is an edge-optimized cloud platform. Effortlessly build, ship and scale highly performant apps. Try for free and deploy an app in 5 minutes.",
+        "image": "/images/fleek-meta.png?202406061658"
+      },
       "references": {
         "title": "Fleek References",
+        "description": "Fleek is an edge-optimized cloud platform. Effortlessly build, ship and scale highly performant apps. Try for free and deploy an app in 5 minutes.",
+        "image": "/images/fleek-meta.png?202406061658"
+      },
+      "billing": {
+        "title": "Billing",
+        "description": "Fleek is an edge-optimized cloud platform. Effortlessly build, ship and scale highly performant apps. Try for free and deploy an app in 5 minutes.",
+        "image": "/images/fleek-meta.png?202406061658"
+      },
+      "requests": {
+        "title": "Requests",
         "description": "Fleek is an edge-optimized cloud platform. Effortlessly build, ship and scale highly performant apps. Try for free and deploy an app in 5 minutes.",
         "image": "/images/fleek-meta.png?202406061658"
       },
@@ -254,5 +274,43 @@
   },
   "newsletterSubscription": {
     "activeHostedFormApi": "https://fleek.activehosted.com/proc.php"
+  },
+  "support": {
+    "zendesk": {
+      "publicSnippetKey": "c0ecb1c1-369a-4543-b528-cbba3f2fb35d"
+    },
+    "supportMenu": [
+      {
+        "id": 1,
+        "path": "/support",
+        "title": "Home"
+      },
+
+      {
+        "id": 2,
+        "path": "/references",
+        "title": "References"
+      },
+      {
+        "id": 3,
+        "path": "/guides",
+        "title": "Guides"
+      },
+      {
+        "id": 4,
+        "path": "/billing",
+        "title": "Billing"
+      },
+      {
+        "id": 5,
+        "path": "/requests/report-site",
+        "title": "Report a site"
+      },
+      {
+        "id": 6,
+        "path": "/requests/new",
+        "title": "Submit a request"
+      }
+    ]
   }
 }

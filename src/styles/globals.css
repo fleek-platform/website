@@ -107,3 +107,8 @@
     font-display: block;
   }
 }
+
+ol {
+  list-style-type: decimal;
+  padding-left: 30px;
+}

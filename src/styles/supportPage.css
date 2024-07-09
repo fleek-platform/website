@@ -1,0 +1,44 @@
+@tailwind components;
+
+@layer components {
+  .support {
+    @apply box-border min-h-screen pb-128 font-sans text-[1.5rem] text-ui-faded-gray;
+  }
+}
+
+.input-container:focus-within > div > svg {
+  color: rgba(58, 158, 255, 1);
+}
+
+.swiper-container {
+  .useful-videos-swiper {
+    width: 100%;
+    height: 100%;
+
+    .swiper-button-prev,
+    .swiper-button-next {
+      top: 50%;
+      color: #362b00;
+      background-color: #f5e147;
+      padding: 30px 20px;
+      border-radius: 8px;
+    }
+
+    .swiper-button-prev::after,
+    .swiper-button-next::after {
+      font-size: 15px;
+    }
+
+    .swiper-button-disabled {
+      display: none;
+    }
+
+    @media (min-width: 1280px) {
+      .swiper-button-prev,
+      .swiper-button-next {
+        top: 45%;
+        padding: 50px 20px;
+      }
+    }
+  }
+}

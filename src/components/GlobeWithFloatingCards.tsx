@@ -3,7 +3,8 @@ import PageSection from '@components/PageSection';
 import GridLayout from '@components/GridLayout';
 import ButtonYellow from './ButtonYellow';
 import { useState } from 'react';
-import { CtaNewsletterModal } from '@components/NewsletterSubscriptionModal';
+import ButtonGray from './ButtonGray';
+import Link from './Link';
 
 const GlobeWithFloatingCards = () => {
   const [showPlayer, setShowPlayer] = useState(false);
@@ -36,7 +37,7 @@ const GlobeWithFloatingCards = () => {
                     href="https://app.fleek.xyz/"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="w-full"
+                    className="inline-block w-fit"
                   >
                     <ButtonYellow
                       border="border-yellow"
@@ -45,12 +46,16 @@ const GlobeWithFloatingCards = () => {
                       <div>
                         <img src="/svg/bolt-yellow.svg" />
                       </div>
-                      <div>Try it Now</div>
+                      <div>Try it now</div>
                     </ButtonYellow>
                   </a>
                 </div>
                 <div className="typo-btn-l">
-                  <CtaNewsletterModal />
+                  <Link href="/docs" className="w-full">
+                    <ButtonGray className="flex items-center justify-center gap-12 px-10">
+                      View docs
+                    </ButtonGray>
+                  </Link>
                 </div>
               </div>
             </div>
