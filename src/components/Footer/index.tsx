@@ -26,7 +26,7 @@ const Footer = () => {
               as="p"
               className="mb-16 max-w-[14rem] md:max-w-none"
             >
-              The lightning fast onchain cloud.
+              The edge-optimized cloud platform
             </Text>
             <div className="mb-16 flex gap-16">
               <a
