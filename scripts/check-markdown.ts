@@ -14,18 +14,13 @@ type ContentWithSlug = {
 };
 
 const filterMdFiles = (filePaths: string[]) => {
- return filePaths.filter(filePath => {
+  return filePaths.filter((filePath) => {
     const extension = path.extname(filePath);
     return extension === '.md' || extension === '.mdx';
- });
-}
+  });
+};
 
-const verifyMarkdownFiles = async ({
-  targetDir,
-}: {
-    targetDir: string;
-}) => {   
-
+const verifyMarkdownFiles = async ({ targetDir }: { targetDir: string }) => {
   let files = listFilesRecursively({
     directory: targetDir,
   });
@@ -33,10 +28,10 @@ const verifyMarkdownFiles = async ({
   files = filterMdFiles(files);
 
   return files;
-}
+};
 
 (async () => {
-  console.log("🤖 Start markdown verification process");
+  console.log('🤖 Start markdown verification process');
 
   try {
     const files = await verifyMarkdownFiles({
@@ -44,9 +39,8 @@ const verifyMarkdownFiles = async ({
     });
 
     let contentWithSlug: ContentWithSlug[] = [];
-    
+
     for (const filePath of files) {
-     
       const fileContent = fs.readFileSync(filePath, 'utf-8');
 
       const parsed = await remark()
@@ -66,8 +60,13 @@ const verifyMarkdownFiles = async ({
     }
 
     if (contentWithSlug.length) {
-      console.error("👹 Oops! Custom slugs are not accepted.");
-      console.warn("⚠️ WARNING: Remove the slug property and value from the header of the following markdown content files:\n\n", contentWithSlug.map(item => `${item.title} (${item.path})`).join('\n'));
+      console.error('👹 Oops! Custom slugs are not accepted.');
+      console.warn(
+        '⚠️ WARNING: Remove the slug property and value from the header of the following markdown content files:\n\n',
+        contentWithSlug
+          .map((item) => `${item.title} (${item.path})`)
+          .join('\n'),
+      );
       process.exit(1);
     }
 

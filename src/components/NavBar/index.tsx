@@ -13,7 +13,7 @@ import { FaDiscord } from 'react-icons/fa';
 import { RxHamburgerMenu } from 'react-icons/rx';
 import { RxCross2 } from 'react-icons/rx';
 
-import { isActivePath } from '@utils/url';
+import { hasSecondaryMenuItem, isActivePath } from '@utils/url';
 
 import { NavBarDefault } from './config';
 
@@ -21,8 +21,11 @@ import { RxCaretDown } from 'react-icons/rx';
 import ButtonYellow from '@components/ButtonYellow';
 import ButtonGray from '@components/ButtonGray';
 import Announcement from '@components/Announcement';
+import SupportMenu from '@components/Support/SupportMenu';
 
-export type NavProps = Record<'pathname', string>;
+export type NavProps = Record<'pathname', string> & {
+  isSupportCenter: boolean;
+};
 export type NavSubMenuCtaProps = Omit<MenuSettingsItem, 'subMenu'>;
 export type NavSubMenuNavColProps = {
   label: string;
@@ -90,8 +93,10 @@ const NavSubMenu = ({ subMenu }: MenuSettingsItem) => {
   );
 };
 
-const Nav = ({ pathname }: NavProps) => {
+const Nav = ({ pathname, isSupportCenter }: NavProps) => {
   const [isOpen, setIsOpen] = useState(false);
+
+  const hasSecondaryMenu = hasSecondaryMenuItem(pathname);
 
   useEffect(() => {
     if (isOpen) {
@@ -123,7 +128,12 @@ const Nav = ({ pathname }: NavProps) => {
 
   return (
     <Container>
-      <div className="nav-container">
+      <div
+        className={clsx(
+          'nav-container',
+          isSupportCenter ? 'mb-[2px]' : 'mb-16',
+        )}
+      >
         <div className="flex items-center">
           <Link href="/" className="flex-shrink-0 ">
             <img
@@ -266,7 +276,7 @@ const Nav = ({ pathname }: NavProps) => {
                 border="border-yellow"
                 className="flex items-center justify-center gap-12 "
               >
-                <div>Get Started</div>
+                <div>Get started</div>
               </ButtonYellow>
             </a>
           </div>
@@ -278,7 +288,7 @@ const Nav = ({ pathname }: NavProps) => {
               className="w-full"
             >
               <ButtonGray className="flex items-center justify-center gap-12 px-10 ">
-                <div>Log In</div>
+                <div>Log in</div>
               </ButtonGray>
             </a>
           </div>
@@ -368,6 +378,8 @@ const Nav = ({ pathname }: NavProps) => {
           </div>
         </div>
       </div>
+
+      {hasSecondaryMenu && <SupportMenu currentPagePath={pathname} />}
     </Container>
   );
 };

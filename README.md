@@ -97,12 +97,12 @@ PUBLIC_MEILISEARCH_INDEX_REFERENCES="fleekxyz_website_references"
 PRIVATE_MEILISEARCH_MASTER_KEY=***
 PRIVATE_MEILISEARCH_DOCUMENTS_ADMIN_API_KEY=***
 PUBLIC_MEILISEARCH_DOCUMENTS_CLIENT_API_KEY=***
-PUBLIC_SUPPORT_API="localhost:3331"
+PUBLIC_SUPPORT_API_HOST="localhost:3331"
 ALLOW_ORIGIN_ADDR="http://localhost:4321,https://support-prod-eu-lon-1-01.flkservices.io"
 NODE_ENV=develop
 ```
 
-💡 The ALLOW_ORIGIN_ADDR is a comma separated values (csv).
+💡 The ALLOW_ORIGIN_ADDR is a comma separated values (csv). the MEILISEARCH_DOCUMENTS_CLIENT_API_KEY is required when querying staging, production environments which should be provided in the headers.
 
 ## 🏗️ Build
 
@@ -678,7 +678,7 @@ Support's based in ZenDesk, as an external provider that provides an API to inte
 
 ### Setup the service
 
-The application should get the endpoint URL from an environment variable named `PUBLIC_SUPPORT_API`.
+The application should get the endpoint URL from an environment variable named `PUBLIC_SUPPORT_API_HOST`.
 
 Learn how to setup by reading the section [environment variables](#environment-variables).
 
@@ -752,7 +752,7 @@ The support service hostname is `support-prod-eu-lon-1-01.flkservices.io` (endpo
 The production environment variable should be set. Declare the hostname:
 
 ```
-PUBLIC_SUPPORT_API="https://support-prod-eu-lon-1-01.flkservices.io"
+PUBLIC_SUPPORT_API_HOST="https://support-prod-eu-lon-1-01.flkservices.io"
 ```
 
 The default location of the service file is `/lib/systemd/system/support-prod-eu-lon-1-01.flkservices.io.service`.

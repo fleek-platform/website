@@ -11,7 +11,7 @@ export const PricingInfo: Props[] = [
       'Fleek Functions',
       'Community support',
     ],
-    cta: 'Start with free',
+    cta: 'Start with Free',
     btnBg: 'bg-ui-green',
     hoverBtnBg: 'hover:bg-ui-light-green',
     fontColor: 'text-ui-faded-green',

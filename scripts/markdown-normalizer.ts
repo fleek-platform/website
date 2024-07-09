@@ -3,7 +3,7 @@
 import fs from 'fs';
 
 if (!process.argv.slice(1).length) {
-  console.error("👹 Oops! Missing the filename argument.");
+  console.error('👹 Oops! Missing the filename argument.');
   process.exit(1);
 }
 
@@ -35,6 +35,6 @@ try {
 
   process.stdout.write(content);
 } catch (err) {
-  console.error("👹 Oops! Failed to normalize the file for some reason...");
+  console.error('👹 Oops! Failed to normalize the file for some reason...');
   process.exit(1);
 }
