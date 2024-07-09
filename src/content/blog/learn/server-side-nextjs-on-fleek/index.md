@@ -3,7 +3,6 @@ title: 'How We Built Server-Side Next.js On Fleek'
 date: 2024-05-15
 desc: "A look at Fleek's first iteration of server side Next.js"
 thumbnail: './Next.js_1.png'
-alt: 'Fleek server side next.js'
 image: './Next.js_1.png'
 author:
   - 'Gabriel Pinto'
