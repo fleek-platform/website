@@ -1,7 +1,7 @@
 ---
 title: 'How We Built Server-Side Next.js On Fleek'
 category: 'Announcements'
-date: 2024-05-15
+date: 2024-05-16
 desc: "A look at Fleek's first iteration of server side Next.js"
 thumbnail: './Next.js_1.png'
 alt: 'Fleek server side next.js'
