@@ -84,13 +84,13 @@ To configure the ENS record using the manual configuration, follow these steps:
    - `ipns://your-ipns-name` for an IPNS name
    - `ipfs://your-ipfs-hash`for an IPFS name
 5. Once set, scroll down to confirm and validate the Ethereum transaction with your wallet.
-6. To finalize the process you need to go back to the Fleek application and click the 'Ok! I have added it' button.
+6. To finalize the process you need to go back to the Fleek application and click the 'OK! I have added it' button.
 7. We will run a verification that the content hash was set up correctly and if everything is OK, you will see the ENS domain marked as verified.
 8. Once set up, the site can be accessed via any ENS gateway, such as ETH.limo, by appending '.limo' to the ENS record.
 
 ### Manually adding an ENS subname
 
-Normally, trying to add an ENS subdomain or subname of ENS V3 can trigger errors due to controller settings in ENS. To ensure you can easily add any ENS subdomain to any Fleek site, go to the ENS app at https://app.ens.domains/[yourname] and:
+Normally, trying to add an ENS subdomain or subname of ENS V3 can trigger errors due to controller settings in ENS. To ensure you can easily add any ENS subdomain to any Fleek site, go to the ENS app at https://app.ens.domains/ [yourname] and:
 
 1. Visit the 'Subnames' tab, and select the subname you want to add to Fleek.
 2. Unwrap your subname.
@@ -101,7 +101,7 @@ Normally, trying to add an ENS subdomain or subname of ENS V3 can trigger errors
 
 To set up a custom domain, we will create a unique URL for your pull zone, which will point to the last deployed content on your site. You will then need to configure your domain to the pull zone URL using a CNAME record or an ANAME, depending on your DNS provider. This ensures that when someone visits your custom domain, they will be directed to the cached content on our CDN, resulting in faster load times.
 
-In case you want to set up a root domain, you need to user a DNS provier that supports ANAME record or CNAME as a root record. Some of the most popular DNS providers that support this:
+In case you want to set up a root domain, you need to user a DNS provider that supports ANAME record or CNAME as a root record. Some of the most popular DNS providers that support this:
 
 - Cloudflare
 - DNS Made Easy
@@ -111,7 +111,7 @@ In case you want to set up a root domain, you need to user a DNS provier that su
 - Easy DNS
 - NS1
 
-If your DNS provider does not support ANAME record and you wish to use your root domain with your Fleek site, please consider migratring to one of the providers above.
+If your DNS provider does not support ANAME record and you wish to use your root domain with your Fleek site, please consider migrating to one of the providers above.
 
 Each time you make a new deployment on your site, we will automatically update the pull zone with the latest content. This means that your visitors will always see the most up-to-date version of your website, without any additional effort on your part.
 
@@ -125,7 +125,7 @@ Domains on our CDN are unique. Since we are sharing the same CDN for both platfo
 
 To add a custom domain to your site, first you'll need a site. If you don't have a site yet, please follow the steps in the [Projects](/docs/sdk/projects/) section.
 
-Once you have created a site, go to the 'Site Overview' page and click on the 'Settings' icon. On the 'Settings' page, click on the 'Domains' tab. You will see a list of all the custom domains you have added to the site. To add a new custom domain, type it into the input available in the custom domains section and, after we run some validations (mainly cehcking that the domain is valid and is not added to another site), you will be able to add it by clicking the 'Add custom domain' button.
+Once you have created a site, go to the 'Site Overview' page and click on the 'Settings' icon. On the 'Settings' page, click on the 'Domains' tab. You will see a list of all the custom domains you have added to the site. To add a new custom domain, type it into the input available in the custom domains section and, after we run some validations (mainly checking that the domain is valid and is not added to another site), you will be able to add it by clicking the 'Add custom domain' button.
 
 Once the custom domain is added, you will see a new row in the 'Custom Domains' table with the domain you added and the status of the domain in `creating`. During this process, we are creating a pull zone for your site and configuring it to use the custom domain you added. This process can take up to 5 minutes. Once the pull zone is created, you will be prompted with the information you need to configure your DNS provider.
 
@@ -147,7 +147,7 @@ When you have correctly set up your first domain, it will be marked with the tag
 
 ### Changing a primary domain
 
-At any point, as long as you have another 'Active' domain seted up for the site you can change the 'primary' domain. To do this, you need to click on the three-dot icon in the 'Custom Domains' table and select the 'Make primary' option. This will change the 'primary' domain to the one you selected. You cannot set a domain as 'primary' if it is not 'active', meaning that we have verified that the domain is correctly configured in your DNS provider.
+At any point, as long as you have another 'Active' domain set up for the site you can change the 'primary' domain. To do this, you need to click on the three-dot icon in the 'Custom Domains' table and select the 'Make primary' option. This will change the 'primary' domain to the one you selected. You cannot set a domain as 'primary' if it is not 'active,' meaning that we have verified that the domain is correctly configured in your DNS provider.
 
 ## Deleting a custom domain
 
@@ -157,7 +157,7 @@ To delete a custom domain, click on the three-dot icon in the 'Custom Domains' t
 
 :::info
 
-If you remove all the custom domains from a site, the content of the storage will still be available through the `<site-slug>.on-fleek.app` domain that you can find in your site overview.
+If you remove each of the custom domains from a site, the content of the storage will still be available through the `<site-slug>.on-fleek.app` domain that you can find in your site overview.
 
 :::
 
@@ -179,6 +179,6 @@ Once you have a domain linked, you can click the three dots on the right side of
 
 Once you have added the DNSLink information to your domain, you will need to wait for the changes to propagate. This process can take up to 24 hours, but it usually takes less time.
 
-A grey chip with the text 'DNSLink' next to the domain will indicate the successful integration of DNSLink. At that point you can check your domain on any IPFS gateway like `ipfs.io/ipns/yourdomain.com` to see the latest version of your site.
+A gray chip with the text 'DNSLink' next to the domain will indicate the successful integration of DNSLink. At that point you can check your domain on any IPFS gateway like `ipfs.io/ipns/yourdomain.com` to see the latest version of your site.
 
 ![DNSLink-Confirmation](./manage-dnslink.svg)
