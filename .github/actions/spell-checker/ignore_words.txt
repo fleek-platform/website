@@ -27,6 +27,7 @@ backend
 backlog
 bdd
 beaconing
+bg
 big-data
 big-query
 bindshells
@@ -45,9 +46,12 @@ chaosengineering
 chef
 cherrypick
 ci/cd
+cid
+classname
 cli
 cloudflare
 cloudflare's
+cloudmos
 cname
 codebase
 coinbase
@@ -60,6 +64,7 @@ containers
 cors
 cpu
 crypto
+csr
 cta
 cta's
 customtitlesbydirectoryname
@@ -89,7 +94,9 @@ docker
 docker-compose
 documentation
 domain
+downtime
 downtimes
+dyn
 e-commerce
 ecdsa
 ed25519
@@ -156,6 +163,7 @@ iot
 ipaddress
 ipfs
 ipns
+isr
 january
 javascript
 js
@@ -214,6 +222,7 @@ nfts
 nginx
 nodejs
 npm
+ns1
 oauth
 object-oriented
 objects
@@ -304,6 +313,7 @@ scalability
 schema
 scrum
 sdk
+sdl
 search
 secret
 securecoding
@@ -353,6 +363,7 @@ sudo
 sunsetting
 svg
 swift
+swiss
 syslog
 system-admin
 systemctl
@@ -411,6 +422,7 @@ validator
 value
 var
 variable
+ve
 vector
 vendor-lock
 vendor-lock-in
@@ -447,6 +459,7 @@ xyz
 yaml
 yml
 yourdapp
+yourname
 youtube
 zero-trust
 zip
