@@ -57,6 +57,11 @@ jobs:
               echo "[debug] cat potentional_mispellings_path"
               cat "$potentional_mispellings_path"
 
+              if [[ -z "$potentional_mispellings_path" ]]; then
+                echo "🦖 No pontential mispellings found in $file"
+                continue
+              fi
+
               echo "[debug] hunspell, ok"
 
               output=$(grep -v -f "$ignore_words_path" "$potentional_mispellings_path" | awk NF)
