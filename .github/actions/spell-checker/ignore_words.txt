@@ -162,8 +162,8 @@ js
 json
 jwt
 kubernetes
-L1
-L2
+l1
+l2
 ldap
 leak
 leasable
@@ -292,6 +292,7 @@ retrofit
 rfc
 risk-assessment
 roadmap
+rollup
 rollups
 rsa
 ruby
