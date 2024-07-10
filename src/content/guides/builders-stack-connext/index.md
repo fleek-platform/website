@@ -67,7 +67,7 @@ For a message to be transmitted via the **fast path**, it **must meet two requir
 1. Only tokens and unauthenticated call data can be sent (anyone can call the function on the target contract).
 2. Routers must provide sufficient liquidity for the token on the destination domain.
 
-Routers execute the bridge almost instantaneously by providing instant liquidy on the destination domain for the user. Routers receive a fee for following the Aubritrary Message Bridge (AMB).
+Routers execute the bridge almost instantaneously by providing instant liquidy on the destination domain for the user. Routers receive a fee for following the Arbitrary Message Bridge (AMB).
 
 Messages are directed through the **Slow Path** if _either_ of the following conditions apply:
 
@@ -110,10 +110,6 @@ Hashi is a cross-chain NFT bridge built with Connext. Projects can use NFTHashi 
 
 Dodo is a decentralized trading platform that uses the [Proactive Market Maker (PMM) algorithm](https://docs.dodoex.io/english/dodo-academy/pmm-overview) to provide efficient on-chain liquidity for Web3 assets. [DODO is leveraging Connext’s SDK](https://blog.connext.network/dodo-integrates-connext-599808dcb73b) to power their token bridge.
 
-### Cross-chain Lending (e.g. [Fuji Finance](https://fuji.finance/))
-
-Fuji Finance has implemented Connext in their Web3 app for users to lend on one chain and borrow on another. Interest rates on open positions are optimized with rates across multiple lending markets, protocols, and chains. In the background, Fuji routes users’ loan requests to the liquidity sources with the best rates and refinances the open positions. Fuji relies on Connext’s xERC20 features to enable unlimited cross-chain composability.
-
 ---
 
 ## Getting Started
@@ -124,7 +120,7 @@ Fuji Finance has implemented Connext in their Web3 app for users to lend on one 
 - [Subgraphs](https://docs.connext.network/resources/subgraphs)
   - [Creating an API Key Video Tutorial](https://www.youtube.com/watch?v=UrfIpm-Vlgs)
   - [Managing your API Keys and Settings](https://thegraph.com/docs/en/querying/managing-api-keys/)
-  - [Connext Network Explorer Page](https://thegraph.com/explorer/subgraph?id=DfD1tZSmDtjCGC2LeYEQbVzj9j8kNqKAQEsYL27Vg6Sw&view=Playground)
+  - [Connext Network Explorer Page](https://connextscan.io/)
   - [Connext Subgraph Implementation Repo](https://github.com/connext/monorepo/tree/56a166f3ecb50cc10356dd96c257e2e4d47f29e3/packages/deployments/subgraph/src/amarok-runtime-v0)
 - [Deployments](https://docs.connext.network/resources/deployments)
   - [Full List of Deployed Contracts](https://github.com/connext/monorepo/blob/main/packages/deployments/contracts/deployments.json)
