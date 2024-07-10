@@ -8,9 +8,6 @@ author:
   - 'Fleek'
 ---
 
-
-
-
 Next.js, created by a team at Vercel, stands as a leading React framework that excels in building both static and dynamic web applications. It offers a robust platform that integrates seamlessly with React to enhance user experience through server-side rendering (SSR) and static site generation (SSG).
 
 This framework simplifies the development process with its automatic code splitting, pre-fetching, and optimized performance capabilities.
