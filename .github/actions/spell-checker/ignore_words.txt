@@ -54,6 +54,7 @@ constellix
 container
 containers
 cors
+cpu
 crypto
 cta
 cta's
@@ -155,6 +156,7 @@ L1
 L2
 ldap
 leak
+leasable
 linkedin
 linkedin's
 linux
