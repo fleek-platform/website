@@ -27,6 +27,7 @@ This repository contains the source code and assets for the Fleek.xyz website, w
         - [Sidebar menu item ordering](#-sidebar-menu-item-ordering)
         - [Override category title](#-override-category-title)
     - [Spell checker](#-spell-checker)
+    - [Announcement Marquee](#announcement-marquee)
     - [Admonitions](#-admonitions)
     - [Navigation bar](#-navigation-bar)
         - [Configuration](#-configuration)
@@ -447,6 +448,28 @@ Find the spell checker among other checks, under the checks component at the ver
 It should be similar to the following:
 
 ![Locate the spell checker in CI/CD](public/images/repo/spell-checker-in-cicd.png?202406011433)
+
+## Announcement Marquee
+
+The Announcement Marquee is placed at the very top of the site. To enable
+
+1) Open the settings file located at `/src/settings.json`.
+2) Locate the "announcementMarquee" under "site"
+
+```
+"site": {
+  ...
+  "annoucementMarquee": {
+    "message": "Introducing Fleek Functions: lightning-fast edge functions built on Fleek Network’s onchain cloud infrastructure. Read more here.",
+    "url": "/blog/announcements/introducing-fleek-functions",
+    "visible": true
+  },
+  ...
+}
+```
+
+3) Edit the message and url
+4) Set "visible" to true
 
 ## 🎯 Admonitions
 
