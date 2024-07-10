@@ -67,7 +67,7 @@ For a message to be transmitted via the **fast path**, it **must meet two requir
 1. Only tokens and unauthenticated call data can be sent (anyone can call the function on the target contract).
 2. Routers must provide sufficient liquidity for the token on the destination domain.
 
-Routers execute the bridge almost instantaneously by providing instant liquidy on the destination domain for the user. Routers receive a fee for following the Arbritrary Message Bridge (AMB).
+Routers execute the bridge almost instantaneously by providing instant liquidy on the destination domain for the user. Routers receive a fee for following the Arbitrary Message Bridge (AMB).
 
 Messages are directed through the **Slow Path** if _either_ of the following conditions apply:
 
