@@ -54,6 +54,9 @@ jobs:
             
               hunspell -l -d en_US -p "$ignore_words_path" "$normalizedFile" > "$potentional_mispellings_path"
 
+              echo "[debug] cat potentional_mispellings_path"
+              cat "$potentional_mispellings_path"
+
               echo "[debug] hunspell, ok"
 
               output=$(grep -v -f "$ignore_words_path" "$potentional_mispellings_path" | awk NF)
