@@ -23,6 +23,7 @@ autoplay
 auto-scaling
 avif
 aws
+backend
 backlog
 bdd
 beaconing
@@ -70,6 +71,7 @@ cybersecurity
 css
 cvs
 dao
+dapp
 database
 datadog
 ddos
@@ -107,6 +109,7 @@ envvars
 ethereum
 eth
 everytime
+evm
 exploitation
 facebook
 faq
@@ -118,8 +121,11 @@ frameborder
 frontends
 functional-programming
 functions'
+gasless
 gatsby
 gdpr
+gelato
+gelato's
 geo
 gif
 github
@@ -272,6 +278,7 @@ recover
 redis
 regex
 regular-expression
+relayer
 release
 repo
 repos
