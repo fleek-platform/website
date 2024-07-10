@@ -57,6 +57,7 @@ jobs:
               echo "[debug] hunspell, ok"
 
               output=$(grep -v -f "$ignore_words_path" "$potentional_mispellings_path" | awk NF)
+              echo "[debug] awk NF, ok"
               typos_count=$(echo "$output" | awk NF | wc -w | xargs)
 
               echo "[debug] pontential mispelling count, ok"
