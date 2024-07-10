@@ -177,7 +177,7 @@ Expect a confirmation message once the operation is successfully completed.
 🔗 https://<SLUG>.on-fleek.app
 ```
 
-Another option is to configure your own custom gateway or choose from various gateways, including the main IPFS gateway at https://ipfs.io/ipfs/YOUR-CID.
+Another option is to configure your own custom gateway or choose from various gateways, including the main IPFS gateway at https://ipfs.io/ipfs/ YOUR-CID.
 
 ## Logout
 
