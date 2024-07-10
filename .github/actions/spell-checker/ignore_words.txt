@@ -139,6 +139,7 @@ ipfs
 ipns
 january
 javascript
+js
 json
 jwt
 kubernetes
@@ -210,12 +211,15 @@ pci-dss
 pcidss
 pdf
 performance
+performant
 permissions
 permissionless
 phishing
 pin
 plaintext
 png
+polyfill
+polyfills
 port
 postgresql
 pre
