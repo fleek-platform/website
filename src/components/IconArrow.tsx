@@ -1,21 +1,17 @@
 import React from 'react';
+import clsx from 'clsx';
 
 interface IconProps {
   className: string;
-  transform?: string;
 }
 
-export const IconArrowRight: React.FC<IconProps> = ({
-  className,
-  transform = '',
-}) => (
+export const IconArrowRight: React.FC<IconProps> = ({ className }) => (
   <svg
     xmlns="http://www.w3.org/2000/svg"
     width="20"
     height="20"
     fill="none"
     className={className}
-    transform={transform}
   >
     <path
       fill="currentColor"
@@ -27,5 +23,5 @@ export const IconArrowRight: React.FC<IconProps> = ({
 );
 
 export const IconArrowLeft: React.FC<IconProps> = ({ className }) => (
-  <IconArrowRight className={className} transform="scale(-1, 1)" />
+  <IconArrowRight className={clsx(className, 'scale-x-[-1] scale-y-[1]')} />
 );
