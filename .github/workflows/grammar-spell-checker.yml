@@ -43,17 +43,28 @@ jobs:
             echo
             
             for file in $diff; do
+              echo "[debug] file $file"
+              
               normalizedFile=$(mktemp)
 
               ./scripts/markdown-normalizer.ts "$file" > "$normalizedFile"
+
+              echo "[debug] cat normalizedFile"
+              cat "$normalizedFile"
             
               hunspell -l -d en_US -p "$ignore_words_path" "$normalizedFile" > "$potentional_mispellings_path"
+
+              echo "[debug] hunspell, ok"
 
               output=$(grep -v -f "$ignore_words_path" "$potentional_mispellings_path" | awk NF)
               typos_count=$(echo "$output" | awk NF | wc -w | xargs)
 
+              echo "[debug] pontential mispelling count, ok"
+
               rm "$normalizedFile"
               rm "$potentional_mispellings_path"
+
+              echo "[debug] rm files, ok"
 
               if [[ -n "$output" ]]; then
                 echo "🤓 Found the following typos in $file"
