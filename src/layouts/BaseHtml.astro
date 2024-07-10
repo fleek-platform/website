@@ -123,9 +123,13 @@ const baseUrl = getSiteUrl();
         width="0"
         style={{ display: 'none', visibility: 'hidden' }}></iframe>
     </noscript>
-    <Announcement client:load />
+    {
+      settings.site.annoucementMarquee.visible
+      && (
+        <Announcement client:load />
+      )
+    }
     <Nav client:load pathname={Astro.url.pathname} isSupportCenter />
-
     <slot />
     <Footer client:load />
     <Toaster client:load position="top-right" reverseOrder={false} />
