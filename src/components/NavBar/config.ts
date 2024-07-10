@@ -108,7 +108,7 @@ export const NavBarDefault: MenuSettingsItem[] = [
         icon: '/svg/media-navbar-icon.svg',
       },
       {
-        label: 'Support center',
+        label: 'Support Center',
         url: supportUrlDefault,
         openInNewTab: true,
         description: 'Get help',
