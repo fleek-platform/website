@@ -99,6 +99,8 @@ eth
 everytime
 exploitation
 facebook
+faq
+faqs
 fleek
 fleekxyz
 fmt
@@ -245,6 +247,7 @@ rabbitmq
 rails
 random
 rate-limiting
+react's
 reactjs
 readme
 realm
@@ -281,6 +284,7 @@ securecoding
 security
 segment
 sendgrid
+seo
 serialization
 server
 serverless
@@ -300,9 +304,11 @@ spark
 sql
 sqlite
 src
+ssg
 ssh
 ssl
 ssl/tls
+ssr
 staging
 state
 status
