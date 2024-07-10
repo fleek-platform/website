@@ -57,7 +57,7 @@ jobs:
               echo "[debug] cat potentional_mispellings_path"
               cat "$potentional_mispellings_path"
 
-              if [[ -s "$potentional_mispellings_path" ]]; then
+              if [[ ! -s "$potentional_mispellings_path" ]]; then
                 echo "🦖 No pontential mispellings found in $file"
                 continue
               fi
