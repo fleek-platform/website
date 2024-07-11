@@ -38,10 +38,10 @@ function SingleArticleCard({
             className="text-[1.3rem] font-semibold text-gray-dark-11 hover:text-yellow-dark-11 hover:underline xl:text-[1.5rem]"
           >
             {title}
+            <small className="my-[1rem] block text-[1.2rem] text-gray-dark-11 xl:text-[1.4rem]">
+              {description}
+            </small>
           </a>
-          <small className="my-[1rem] block text-[1.2rem] text-gray-dark-9 xl:text-[1.4rem]">
-            {description}
-          </small>
         </div>
       </div>
     </article>

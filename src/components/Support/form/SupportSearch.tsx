@@ -140,18 +140,21 @@ const MultiSearch: React.FC = () => {
 
   return (
     <div className="relative">
-      <div className="mx-auto mb-[4rem] mt-[1rem] w-[90%] rounded-[8px] border-white/30 bg-ui-white/10 px-[1.3rem] py-[1rem] focus-within:border-[.1px] focus-within:bg-ui-white/25 hover:border-[.1px] hover:bg-ui-white/25 md:w-[50%] xl:w-[40%] xl:px-[1.5rem] xl:py-[1.25rem]">
+      <div className="relative z-[20] mx-auto mb-[4rem] mt-[1rem] w-[90%] rounded-[17.02px] border-[1.52px] border-gray-dark-7 bg-gray-dark-2 px-[1.3rem] py-[1rem] md:w-[50%] xl:w-[40%] xl:px-[1.5rem] xl:py-[1.25rem]">
         <div className="flex items-center gap-[1rem]">
           <div>
-            <IoIosSearch className="focus:text-blue-600" fontSize={27} />
+            <IoIosSearch
+              className="text-gray-dark-9 focus:text-blue-600"
+              fontSize={27}
+            />
           </div>
           <form
             className="w-full text-gray-dark-13"
             onSubmit={(e) => e.preventDefault()}
           >
             <input
-              className="w-full border-none bg-transparent text-[1.5rem] outline-none placeholder:text-ui-faded-gray focus:placeholder:text-gray-dark-13 xl:text-[2rem]"
-              type="search"
+              className="w-full border-none bg-transparent text-[1.5rem] outline-none placeholder:text-gray-dark-11 focus:placeholder:text-gray-dark-13 xl:text-[2rem]"
+              type="text"
               aria-label="Search"
               value={query}
               onChange={handleInputChange}
@@ -160,24 +163,26 @@ const MultiSearch: React.FC = () => {
           </form>
         </div>
       </div>
-
-      <div>
+      <div className="absolute left-[50%] top-[80%] z-[10] w-[90%] -translate-x-[50%] md:w-[50%] md:text-[1.5rem] xl:w-[40%]">
         {loading && (
-          <div className="rounded-md absolute left-[50%] top-[100%] z-20 max-h-[250px] w-[90%] -translate-x-[50%] overflow-scroll bg-gray-dark-1 text-[1.3rem] md:w-[50%] md:text-[1.5rem] xl:w-[40%]">
-            Loading...
-          </div>
+          <div className="rounded-md max-h-[250px] w-[90%] -translate-x-[50%] bg-gray-dark-3 text-[1.3rem] md:w-[50%] md:text-[1.5rem] xl:w-[40%]" />
         )}
         {results?.length > 0 && isOpen && !loading && (
           <div ref={dropdownRef}>
-            <ul className="rounded-md absolute left-[50%] top-[100%] z-20 max-h-[250px] w-[90%] -translate-x-[50%] overflow-scroll bg-black/90 text-[1.3rem] shadow-2xl md:w-[50%] md:text-[1.5rem] xl:w-[40%]">
+            <ul className="rounded-md z-20 max-h-[250px] overflow-scroll rounded-b-[12px] bg-gray-dark-3 p-[12px] text-[1.3rem] shadow-2xl">
               {results.map((hit) => (
                 <li
-                  className="cursor-pointer px-[1.4rem] py-[.5rem] hover:bg-gray-700"
+                  className="cursor-pointer rounded-[10px] p-[1.4rem] hover:bg-gray-dark-2"
                   key={hit.url}
                 >
-                  <a href={hit.url} target="_blank" rel="noopener noreferrer">
+                  <a
+                    href={hit.url}
+                    className="text-gray-dark-12"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
                     {hit.title}
-                    <p className="px-[1.4rem] py-[.5rem] text-[1.3rem] text-gray-500">
+                    <p className="py-[.5rem] text-[1.3rem] text-gray-dark-11">
                       {hit.desc}
                     </p>
                   </a>

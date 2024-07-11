@@ -14,8 +14,7 @@ function ToolTip() {
         </div>
 
         <p className="text-[1rem] sm:text-[1.35rem] xl:text-[1.47rem]">
-          Provide as much information as possible in your message so that we can
-          quickly assist you.
+          Provide information below so we can quickly assist you.
         </p>
       </div>
     </form>
