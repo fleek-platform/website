@@ -1,10 +1,11 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import Button from './ui/Button';
 import Input from './ui/Input';
 import ToolTip from './ui/ToolTip';
 import type { FormEvent } from 'react';
-import { submitForm } from './utils';
+import { checkHealthStatus, submitForm } from './utils';
 import FormTitle from './ui/FormTitle';
+import toast from 'react-hot-toast';
 
 export type FormValuesType = {
   email: string;
@@ -21,6 +22,7 @@ function ReportSiteForm() {
   const [formValues, setFormValues] = useState<FormValuesType>({
     ...defaultFormValues,
   });
+  const [isHealthy, setIsHealthy] = useState<boolean>(true);
   const handleInputChange = (name: string, value: string | FileList) => {
     setFormValues((prevValues) => ({
       ...prevValues,
@@ -32,6 +34,19 @@ function ReportSiteForm() {
       ...defaultFormValues,
     });
   };
+
+  useEffect(() => {
+    async function fetchHealthStatus() {
+      const healthStatus = await checkHealthStatus();
+      if (!healthStatus) {
+        toast.error(
+          'Our support system is currently experiencing issues. Please report this to our team.',
+        );
+      }
+      setIsHealthy(healthStatus);
+    }
+    fetchHealthStatus();
+  }, []);
 
   const handleFormSubmit = (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
@@ -63,6 +78,7 @@ function ReportSiteForm() {
             isRequired
             onChange={(value) => handleInputChange('email', value)}
             label="Your email address"
+            disabled={!isHealthy}
           />
         </div>
 
@@ -74,6 +90,7 @@ function ReportSiteForm() {
             value={formValues.subject}
             isRequired
             label="Subject"
+            disabled={!isHealthy}
           />
         </div>
 
@@ -86,6 +103,7 @@ function ReportSiteForm() {
             bottomText="Description must contain at least 30 characters"
             onChange={(value) => handleInputChange('comment', value)}
             label="Description"
+            disabled={!isHealthy}
           />
         </div>
 

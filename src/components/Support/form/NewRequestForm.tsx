@@ -1,9 +1,10 @@
-import { useState, type FormEvent } from 'react';
+import { useEffect, useState, type FormEvent } from 'react';
 import { type FormValuesType } from './ReportSiteForm';
 import Input from './ui/Input';
 import ToolTip from './ui/ToolTip';
+import toast from 'react-hot-toast';
 import Button from './ui/Button';
-import { submitForm } from './utils';
+import { checkHealthStatus, submitForm } from './utils';
 import FormTitle from './ui/FormTitle';
 import { removeProtocolFromUrl } from '@utils/url';
 
@@ -33,6 +34,7 @@ function NewRequestForm() {
   const [formValues, setFormValues] = useState<FormValuesType>({
     ...defaultFormValues,
   });
+  const [isHealthy, setIsHealthy] = useState<boolean>(true);
 
   const handleInputChange = (name: string, value: string | FileList) => {
     setFormValues((prevValues) => ({
@@ -51,6 +53,20 @@ function NewRequestForm() {
     event.preventDefault();
     await submitForm(formValues, resetFormValues);
   };
+
+  useEffect(() => {
+    async function fetchHealthStatus() {
+      const healthStatus = await checkHealthStatus();
+      console.log(healthStatus);
+      if (!healthStatus) {
+        toast.error(
+          'Our support system is currently experiencing issues. Please report this to our team.',
+        );
+      }
+      setIsHealthy(healthStatus);
+    }
+    fetchHealthStatus();
+  }, []);
 
   return (
     <form
@@ -76,6 +92,7 @@ function NewRequestForm() {
             isRequired
             onChange={(value) => handleInputChange('email', value)}
             label="Your email address"
+            disabled={!isHealthy}
           />
         </div>
 
@@ -87,6 +104,7 @@ function NewRequestForm() {
             isRequired
             onChange={(value) => handleInputChange('subject', value)}
             label="Subject"
+            disabled={!isHealthy}
           />
         </div>
 
@@ -99,6 +117,7 @@ function NewRequestForm() {
             bottomText="Description must contain at least 30 characters"
             onChange={(value) => handleInputChange('comment', value)}
             label="Description"
+            disabled={!isHealthy}
           />
         </div>
 
