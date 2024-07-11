@@ -6,6 +6,8 @@ import type { FormEvent } from 'react';
 import { checkHealthStatus, submitForm } from './utils';
 import FormTitle from './ui/FormTitle';
 import toast from 'react-hot-toast';
+import Spinner from '@components/Spinner';
+import SupportUnavailable from '../SupportUnavailable';
 
 export type FormValuesType = {
   email: string;
@@ -23,6 +25,8 @@ function ReportSiteForm() {
     ...defaultFormValues,
   });
   const [isHealthy, setIsHealthy] = useState<boolean>(true);
+  const [isLoading, setIsLoading] = useState<boolean>(true);
+
   const handleInputChange = (name: string, value: string | FileList) => {
     setFormValues((prevValues) => ({
       ...prevValues,
@@ -35,18 +39,38 @@ function ReportSiteForm() {
     });
   };
 
-  useEffect(() => {
-    async function fetchHealthStatus() {
+  async function fetchHealthStatus() {
+    setIsLoading(true);
+    try {
       const healthStatus = await checkHealthStatus();
+      setIsHealthy(healthStatus);
       if (!healthStatus) {
         toast.error(
           'Our support system is currently experiencing issues. Please report this to our team.',
         );
       }
-      setIsHealthy(healthStatus);
+    } catch (error) {
+      toast.error('Failed to fetch health status. Please try again later.');
+    } finally {
+      setIsLoading(false);
     }
+  }
+
+  useEffect(() => {
     fetchHealthStatus();
   }, []);
+
+  if (isLoading) {
+    return (
+      <div className="flex h-screen items-center justify-center">
+        <Spinner className="w-[70px] md:w-[100px] xl:w-[6%]" />
+      </div>
+    );
+  }
+
+  if (!isHealthy) {
+    return <SupportUnavailable />;
+  }
 
   const handleFormSubmit = (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
@@ -62,7 +86,7 @@ function ReportSiteForm() {
         <FormTitle
           title={'Report a site'}
           subTitle={
-            "If you believe a user or website may be breaching Fleek's Terms of Service, we'd appreciate it if you could take a moment to complete the form below."
+            "If you suspect a user or website is violating Fleek's Terms of Service, please report it using the form below."
           }
         />
 
@@ -78,7 +102,6 @@ function ReportSiteForm() {
             isRequired
             onChange={(value) => handleInputChange('email', value)}
             label="Your email address"
-            disabled={!isHealthy}
           />
         </div>
 
@@ -90,7 +113,6 @@ function ReportSiteForm() {
             value={formValues.subject}
             isRequired
             label="Subject"
-            disabled={!isHealthy}
           />
         </div>
 
@@ -103,7 +125,6 @@ function ReportSiteForm() {
             bottomText="Description must contain at least 30 characters"
             onChange={(value) => handleInputChange('comment', value)}
             label="Description"
-            disabled={!isHealthy}
           />
         </div>
 
