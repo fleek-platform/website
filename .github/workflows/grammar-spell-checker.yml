@@ -50,7 +50,7 @@ jobs:
               hunspell -l -d en_US -p "$ignore_words_path" "$normalizedFile" > "$potentional_misspellings_path"
 
               if [[ ! -s "$potentional_misspellings_path" ]]; then
-                echo "🦖 No pontential misspellings found in $file"
+                echo "🦖 No potential misspellings found in $file"
                 continue
               fi
 
