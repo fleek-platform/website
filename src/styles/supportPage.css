@@ -24,9 +24,27 @@
       border-radius: 8px;
     }
 
+    .swiper-button-next {
+      right: 1px;
+    }
+
+    .swiper-button-prev {
+      left: 1px;
+    }
+
     .swiper-button-prev::after,
     .swiper-button-next::after {
       font-size: 15px;
+    }
+
+    .swiper-button-prev:hover,
+    .swiper-button-next:hover {
+      background-color: #ffff57;
+    }
+
+    .swiper-button-prev:hover::after,
+    .swiper-button-next:hover::after {
+      color: #2d2305;
     }
 
     .swiper-button-disabled {
