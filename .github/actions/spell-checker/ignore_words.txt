@@ -121,6 +121,7 @@ exploitation
 facebook
 faq
 faqs
+filecoin
 fleek
 fleekxyz
 fmt
