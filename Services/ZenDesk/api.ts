@@ -3,7 +3,11 @@ import { cors } from 'hono/cors';
 import { z } from 'zod';
 import { zValidator } from '@hono/zod-validator';
 import { rateLimiter } from 'hono-rate-limiter';
-import { uptimeToHumanFriendly } from './utils';
+import {
+  getUserValue,
+  getRateLimitUserPaths,
+  uptimeToHumanFriendly,
+} from './utils';
 import { csrf } from 'hono/csrf';
 
 const PORT = 3331;
@@ -14,7 +18,10 @@ const requiredEnvVars = [
   'PRIVATE_ZENDESK_EMAIL',
   'PRIVATE_ZENDESK_API_KEY',
   'PRIVATE_ZENDESK_HOSTNAME',
-  'ALLOW_ORIGIN_ADDR',
+  'SUPPORT_ALLOW_ORIGIN_ADDR',
+  'SUPPORT_RATE_LIMIT_WINDOW_MINUTES',
+  'SUPPORT_RATE_LIMIT_MAX_REQ',
+  'SUPPORT_RATE_LIMIT_PATHS',
 ];
 
 requiredEnvVars.forEach((varName) => {
@@ -35,22 +42,45 @@ const zendeskAuthToken = generateApiToken({
   email: process.env.PRIVATE_ZENDESK_EMAIL as string,
 });
 
-if (!process.env.ALLOW_ORIGIN_ADDR)
+if (!process.env.SUPPORT_ALLOW_ORIGIN_ADDR)
   throw Error(
     'Oops! Missing environment variable, expected ALLOW_ORIGIN_ADDR.',
   );
 
+if (!process.env.SUPPORT_RATE_LIMIT_PATHS)
+  throw Error(
+    'Oops! Missing environment variable, expected SUPPORT_RATE_LIMIT_PATHS',
+  );
+
+const timeWindow = getUserValue({
+  userValue: process.env.SUPPORT_RATE_LIMIT_WINDOW_MINUTES,
+  subject: 'TimeWindow',
+});
+
+const maxNumberAttempts = getUserValue({
+  userValue: process.env.SUPPORT_RATE_LIMIT_MAX_REQ,
+  subject: 'MaxNumberAttempts',
+});
+
 const limiter = rateLimiter({
-  windowMs: 60 * 60 * 1000, // 60 minutes
-  limit: 5, // Maximum of 5 requests per window, here 60m
+  // `timeWindowInMins` minutes
+  windowMs: timeWindow * 60 * 1000,
+  // Maximum of 5 requests per `timeWindowInMins` window
+  limit: maxNumberAttempts,
   standardHeaders: 'draft-6',
   keyGenerator: (c) =>
     c.req.header('x-real-ip') ?? c.req.header('x-forwarded-for') ?? '',
 });
 
-app.use(limiter);
+const rateLimitUserPaths = getRateLimitUserPaths(
+  process.env.SUPPORT_RATE_LIMIT_PATHS,
+);
 
-const allowedOrigins = process.env.ALLOW_ORIGIN_ADDR.split(',');
+for (const path of rateLimitUserPaths) {
+  app.use(path, limiter);
+}
+
+const allowedOrigins = process.env.SUPPORT_ALLOW_ORIGIN_ADDR.split(',');
 
 app.use(
   '*',
