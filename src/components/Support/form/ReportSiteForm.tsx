@@ -24,7 +24,7 @@ function ReportSiteForm() {
   const [formValues, setFormValues] = useState<FormValuesType>({
     ...defaultFormValues,
   });
-  const [isHealthy, setIsHealthy] = useState<boolean>(true);
+  const [isHealthy, setIsHealthy] = useState<boolean>(false);
   const [isLoading, setIsLoading] = useState<boolean>(true);
 
   const handleInputChange = (name: string, value: string | FileList) => {
@@ -45,12 +45,13 @@ function ReportSiteForm() {
       const healthStatus = await checkHealthStatus();
       setIsHealthy(healthStatus);
       if (!healthStatus) {
-        toast.error(
-          'Our support system is currently experiencing issues. Please report this to our team.',
-        );
+        throw new Error('Health status failure');
       }
     } catch (error) {
-      toast.error('Failed to fetch health status. Please try again later.');
+      console.error(error);
+      toast.error(
+        'Our support system is currently experiencing issues. Please report this to our team.',
+      );
     } finally {
       setIsLoading(false);
     }

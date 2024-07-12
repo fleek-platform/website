@@ -1,4 +1,5 @@
 import FormTitle from './form/ui/FormTitle';
+import settings from '@base/settings.json';
 
 function SupportUnavailable() {
   return (
@@ -12,7 +13,7 @@ function SupportUnavailable() {
         />
         <div className="mt-[3rem]">
           <a
-            href="https://discord.gg/2ERTJAWF"
+            href={settings.site.resources.discordFleekCommunityUrl}
             target="_blank"
             rel="noopener noreferrer"
             className="text-[1.3rem] text-yellow-dark-11 underline"
