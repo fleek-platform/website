@@ -169,7 +169,7 @@ const MultiSearch: React.FC = () => {
         )}
         {results?.length > 0 && isOpen && !loading && (
           <div ref={dropdownRef}>
-            <ul className="rounded-md search-results-list z-20 max-h-[250px] overflow-auto rounded-b-[12px] bg-gray-dark-3 p-[12px] text-[1.3rem] shadow-2xl">
+            <ul className="rounded-md z-20 max-h-[250px] overflow-auto rounded-b-[12px] bg-gray-dark-3 p-[12px] text-[1.3rem] shadow-2xl">
               {results.map((hit) => (
                 <li
                   className="cursor-pointer rounded-[10px] p-[1.4rem] hover:bg-gray-dark-2"
