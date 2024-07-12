@@ -99,11 +99,13 @@ PRIVATE_MEILISEARCH_MASTER_KEY=***
 PRIVATE_MEILISEARCH_DOCUMENTS_ADMIN_API_KEY=***
 PUBLIC_MEILISEARCH_DOCUMENTS_CLIENT_API_KEY=***
 PUBLIC_SUPPORT_API_HOST="localhost:3331"
-ALLOW_ORIGIN_ADDR="http://localhost:4321,https://support-prod-eu-lon-1-01.flkservices.io"
+SUPPORT_ALLOW_ORIGIN_ADDR="http://localhost:4321,https://fleek-xyz-staging.on-fleek.app"
+SUPPORT_RATE_LIMIT_WINDOW_MINUTES=60
+SUPPORT_RATE_LIMIT_MAX_REQ=15
 NODE_ENV=develop
 ```
 
-💡 The ALLOW_ORIGIN_ADDR is a comma separated values (csv). the MEILISEARCH_DOCUMENTS_CLIENT_API_KEY is required when querying staging, production environments which should be provided in the headers.
+💡 The SUPPORT_ALLOW_ORIGIN_ADDR is a comma separated values (csv). the MEILISEARCH_DOCUMENTS_CLIENT_API_KEY is required when querying staging, production environments which should be provided in the headers.
 
 ## 🏗️ Build
 
