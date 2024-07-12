@@ -26,12 +26,12 @@ const SupportMenu: React.FC<SupportMenuProps> = ({ currentPagePath }) => {
 
 function SupportMenuDesktop({ currentPagePath }: SupportMenuProps) {
   return (
-    <ul className="hidden border-b-2 border-gray-700 pl-16 md:flex md:items-center md:gap-[5px] lg:px-28">
+    <ul className="hidden border-b-1 border-gray-dark-6 pl-16 md:flex md:items-center md:gap-[5px] lg:px-28">
       {supportMenu.map((item) => (
         <li
           key={item.id}
           className={clsx(
-            'mb-[.4rem] cursor-pointer rounded-[8px] px-[15px] py-[7px] text-[1.5rem] hover:bg-yellow-dark-4 hover:text-yellow-dark-11 md:my-[1.5rem] xl:text-[1.6rem]',
+            'mb-[.4rem] cursor-pointer rounded-[8px] px-[15px] py-[7px] text-[1.5rem] hover:bg-gray-dark-4 hover:text-gray-dark-11 md:my-[1.5rem] xl:text-[1.6rem]',
             {
               'bg-yellow-dark-4 text-yellow-dark-11': pathContains(
                 item.path,
@@ -59,7 +59,7 @@ function SupportMenuMobile({ currentPagePath }: SupportMenuProps) {
         <p className="my-[.6rem] text-[1.3rem] font-semibold">Categories</p>
         <div>
           <button
-            className="block p-4 text-gray-400 hover:text-gray-700 md:hidden"
+            className="block p-1 text-gray-400 hover:text-gray-700 md:hidden"
             onClick={handleExpandClick}
           >
             {isExpanded ? (
@@ -72,7 +72,7 @@ function SupportMenuMobile({ currentPagePath }: SupportMenuProps) {
       </div>
       <ul
         className={clsx(
-          'flex flex-col border-b-2 border-gray-700 px-[20px] py-[4px]',
+          'flex flex-col border-b-2 border-gray-dark-6 px-[20px] py-[4px]',
           { 'h-[.4px] overflow-y-hidden': !isExpanded },
           'md:hidden',
         )}
