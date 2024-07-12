@@ -1,4 +1,6 @@
+@tailwind base;
 @tailwind components;
+@tailwind utilities;
 
 @layer components {
   .support {
@@ -18,15 +20,32 @@
     .swiper-button-prev,
     .swiper-button-next {
       top: 50%;
-      color: #362b00;
-      background-color: #f5e147;
       padding: 30px 20px;
       border-radius: 8px;
+      @apply bg-yellow-dark-11 text-yellow-dark-4;
+    }
+
+    .swiper-button-next {
+      right: 1px;
+    }
+
+    .swiper-button-prev {
+      left: 1px;
     }
 
     .swiper-button-prev::after,
     .swiper-button-next::after {
       font-size: 15px;
+    }
+
+    .swiper-button-prev:hover,
+    .swiper-button-next:hover {
+      @apply bg-yellow-dark-10;
+    }
+
+    .swiper-button-prev:hover::after,
+    .swiper-button-next:hover::after {
+      @apply text-yellow-dark-3;
     }
 
     .swiper-button-disabled {

@@ -31,7 +31,7 @@ function SupportMenuDesktop({ currentPagePath }: SupportMenuProps) {
         <li
           key={item.id}
           className={clsx(
-            'mb-[.4rem] cursor-pointer rounded-[8px] px-[15px] py-[7px] text-[1.5rem] hover:bg-yellow-dark-4 hover:text-yellow-dark-11 xl:my-[1.5rem] xl:text-[1.6rem]',
+            'mb-[.4rem] cursor-pointer rounded-[8px] px-[15px] py-[7px] text-[1.5rem] hover:bg-yellow-dark-4 hover:text-yellow-dark-11 md:my-[1.5rem] xl:text-[1.6rem]',
             {
               'bg-yellow-dark-4 text-yellow-dark-11': pathContains(
                 item.path,
