@@ -3,7 +3,11 @@ import { cors } from 'hono/cors';
 import { z } from 'zod';
 import { zValidator } from '@hono/zod-validator';
 import { rateLimiter } from 'hono-rate-limiter';
-import { getUserValue, getRateLimitUserPaths, uptimeToHumanFriendly } from './utils';
+import {
+  getUserValue,
+  getRateLimitUserPaths,
+  uptimeToHumanFriendly,
+} from './utils';
 import { csrf } from 'hono/csrf';
 
 const PORT = 3331;
@@ -50,12 +54,12 @@ if (!process.env.SUPPORT_RATE_LIMIT_PATHS)
 
 const timeWindow = getUserValue({
   userValue: process.env.SUPPORT_RATE_LIMIT_WINDOW_MINUTES,
-  subject: "TimeWindow",
+  subject: 'TimeWindow',
 });
 
 const maxNumberAttempts = getUserValue({
   userValue: process.env.SUPPORT_RATE_LIMIT_MAX_REQ,
-  subject: "MaxNumberAttempts",
+  subject: 'MaxNumberAttempts',
 });
 
 const limiter = rateLimiter({
@@ -68,12 +72,12 @@ const limiter = rateLimiter({
     c.req.header('x-real-ip') ?? c.req.header('x-forwarded-for') ?? '',
 });
 
-const rateLimitUserPaths = getRateLimitUserPaths(process.env.SUPPORT_RATE_LIMIT_PATHS);
+const rateLimitUserPaths = getRateLimitUserPaths(
+  process.env.SUPPORT_RATE_LIMIT_PATHS,
+);
 
 for (const path of rateLimitUserPaths) {
-  app.use(path,
-    limiter
-  );  
+  app.use(path, limiter);
 }
 
 const allowedOrigins = process.env.SUPPORT_ALLOW_ORIGIN_ADDR.split(',');
