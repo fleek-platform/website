@@ -102,10 +102,11 @@ PUBLIC_SUPPORT_API_HOST="localhost:3331"
 SUPPORT_ALLOW_ORIGIN_ADDR="http://localhost:4321,https://fleek-xyz-staging.on-fleek.app"
 SUPPORT_RATE_LIMIT_WINDOW_MINUTES=60
 SUPPORT_RATE_LIMIT_MAX_REQ=15
+SUPPORT_RATE_LIMIT_PATHS="/tickets"
 NODE_ENV=develop
 ```
 
-💡 The SUPPORT_ALLOW_ORIGIN_ADDR is a comma separated values (csv). the MEILISEARCH_DOCUMENTS_CLIENT_API_KEY is required when querying staging, production environments which should be provided in the headers.
+💡 The SUPPORT_ALLOW_ORIGIN_ADDR and SUPPORT_RATE_LIMIT_PATHS are comma separated values (csv). the MEILISEARCH_DOCUMENTS_CLIENT_API_KEY is required when querying staging, production environments which should be provided in the headers.
 
 ## 🏗️ Build
 

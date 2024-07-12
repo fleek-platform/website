@@ -33,3 +33,28 @@ export const getUserValue = ({
   
   return DefaultRateLimitValues[subject];
 }
+
+const isValidUrlPath = (path: string) => {
+  const pathRegex = /^\/(\w+|$)/;
+  return pathRegex.test(path);
+}
+
+export const getRateLimitUserPaths = (userEnvPaths?: string) => {  
+  if (!userEnvPaths) {
+    throw Error(
+      '👹 Oops! Missing environment variable, expected SUPPORT_RATE_LIMIT_PATHS',
+    );
+  }
+
+  const paths = userEnvPaths.split(',');
+
+  const validPaths = paths
+    .map(path => path.trim())
+    .filter(isValidUrlPath);
+
+  if (paths.length !== validPaths.length) {
+    throw Error('👹 Oops! One or more paths failed validation.');
+  }
+
+  return validPaths;
+}

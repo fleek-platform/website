@@ -3,7 +3,7 @@ import { cors } from 'hono/cors';
 import { z } from 'zod';
 import { zValidator } from '@hono/zod-validator';
 import { rateLimiter } from 'hono-rate-limiter';
-import { getUserValue, uptimeToHumanFriendly } from './utils';
+import { getUserValue, getRateLimitUserPaths, uptimeToHumanFriendly } from './utils';
 import { csrf } from 'hono/csrf';
 
 const PORT = 3331;
@@ -17,6 +17,7 @@ const requiredEnvVars = [
   'SUPPORT_ALLOW_ORIGIN_ADDR',
   'SUPPORT_RATE_LIMIT_WINDOW_MINUTES',
   'SUPPORT_RATE_LIMIT_MAX_REQ',
+  'SUPPORT_RATE_LIMIT_PATHS',
 ];
 
 requiredEnvVars.forEach((varName) => {
@@ -42,6 +43,11 @@ if (!process.env.SUPPORT_ALLOW_ORIGIN_ADDR)
     'Oops! Missing environment variable, expected ALLOW_ORIGIN_ADDR.',
   );
 
+if (!process.env.SUPPORT_RATE_LIMIT_PATHS)
+  throw Error(
+    'Oops! Missing environment variable, expected SUPPORT_RATE_LIMIT_PATHS',
+  );
+
 const timeWindow = getUserValue({
   userValue: process.env.SUPPORT_RATE_LIMIT_WINDOW_MINUTES,
   subject: "TimeWindow",
@@ -62,7 +68,13 @@ const limiter = rateLimiter({
     c.req.header('x-real-ip') ?? c.req.header('x-forwarded-for') ?? '',
 });
 
-app.use(limiter);
+const rateLimitUserPaths = getRateLimitUserPaths(process.env.SUPPORT_RATE_LIMIT_PATHS);
+
+for (const path of rateLimitUserPaths) {
+  app.use(path,
+    limiter
+  );  
+}
 
 const allowedOrigins = process.env.SUPPORT_ALLOW_ORIGIN_ADDR.split(',');
 
