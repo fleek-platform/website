@@ -23,7 +23,7 @@
 
     img,
     video {
-      @apply m-0 max-w-[768px] rounded-8 p-0;
+      @apply m-0 max-w-[768px] rounded-20 border-6 border-gray-dark-3 p-0 outline outline-gray-dark-5;
       width: 100%;
       height: auto;
     }
