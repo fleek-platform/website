@@ -10,6 +10,7 @@ interface InputProps {
   name: string;
   isRequired: boolean;
   bottomText?: string;
+  disabled?: boolean;
   [key: string]: any;
 }
 
@@ -25,6 +26,7 @@ const Input: React.FC<InputProps> = ({
   readOnly,
   isRequired,
   bottomText,
+  disabled,
   name,
   ...props
 }) => {
@@ -63,10 +65,15 @@ const Input: React.FC<InputProps> = ({
           value={inputValue}
           onChange={handleChange}
           {...props}
-          className="focus:border-ui-medium-blue w-full rounded-[6px] border border-ui-mid-white bg-gray-dark-1 px-[1.1rem] py-[.7rem] text-[1.3rem] outline-none placeholder:text-[1.5rem] md:text-[1.6rem]"
+          className={clsx(
+            'focus:border-ui-medium-blue w-full rounded-[6px] border border-ui-mid-white bg-gray-dark-1 px-[1.1rem] py-[.7rem] text-[1.3rem] outline-none placeholder:text-[1.5rem] md:text-[1.6rem]',
+            {
+              'cursor-not-allowed': disabled,
+            },
+          )}
         />
         {bottomText && (
-          <span className="my-[4px] text-[1.2rem] font-medium text-ui-dark-grey md:text-[1.3rem] xl:my-[6px] xl:text-[1.4rem]">
+          <span className="my-[4px] text-[1.2rem] font-medium text-gray-dark-11 md:text-[1.3rem] xl:my-[6px] xl:text-[1.4rem]">
             {bottomText}
           </span>
         )}
@@ -84,18 +91,24 @@ const Input: React.FC<InputProps> = ({
         <IsRequiredField isRequired={isRequired} />
       </label>
       <input
-        className="focus:border-ui-medium-blue w-full rounded-[6px] border border-ui-mid-white bg-gray-dark-1 px-[1.1rem] py-[.7rem] text-[1.3rem] outline-none focus:border md:text-[1.6rem]"
+        className={clsx(
+          'focus:border-ui-medium-blue w-full rounded-[6px] border border-ui-mid-white bg-gray-dark-1 px-[1.1rem] py-[.7rem] text-[1.3rem] outline-none focus:border md:text-[1.6rem]',
+          {
+            'cursor-not-allowed': readOnly || disabled,
+          },
+        )}
         type={type}
         required
         id={`input-${name}`}
         readOnly={readOnly}
         name={name}
         value={inputValue}
+        disabled={disabled}
         onChange={handleChange}
         {...props}
       />
       {bottomText && (
-        <span className="my-[4px] text-[1.2rem] font-medium text-ui-dark-grey md:text-[1.3rem] xl:my-[6px] xl:text-[1.4rem]">
+        <span className="my-[4px] text-[1.2rem] font-medium text-gray-dark-11 md:text-[1.3rem] xl:my-[6px] xl:text-[1.4rem]">
           {bottomText}
         </span>
       )}
