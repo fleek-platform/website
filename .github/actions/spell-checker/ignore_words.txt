@@ -108,6 +108,8 @@ ecdsa
 ed25519
 education
 ef
+eigenlayer
+eigenlayer's
 eip
 elkstack
 emacs
@@ -212,6 +214,7 @@ merkle
 message
 metamask
 metamask
+mev
 middleware
 minification
 ml
