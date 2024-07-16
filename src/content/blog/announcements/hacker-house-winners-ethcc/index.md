@@ -37,7 +37,7 @@ Two hackers built a classic roguelike dungeon crawler and deployed this as a Far
 
 Three hackers built 2 solutions that leverage EigenLayer’s AVS capabilities along with Fleek Functions to provide verified and performant execution of tasks. The first solution is called “Fleek Automator”, and it essentially enables cron job like automation for Fleek Functions, allowing them to execute at specified intervals over a set period of time. This is powered by EigenLayer, and operators here act as nodes that execute schedules. They also attached a proxy automation function which generates ‘proof of hit’ which is a unique idea to add additional guarantees for calls to Fleek Functions. The second solution is a helper template to build AVS’ on EigenLayer using Fleek Functions. It helps AVS devs deploy their common functions on Fleek. So they don't all have to each keep deploying them repeatedly.
 
-⚡Hackers - <u>[@mbcse50](https://x.com/mbcse50)</u> <u>[@supernovahs444](https://x.com/supernovahs444)</u> <u>[@zemse_](https://x.com/zemse_)</u>
+⚡Hackers - <u>[@mbcse50](https://x.com/mbcse50)</u> <u>[@supernovahs444](https://x.com/supernovahs444)</u> <u>[@zemse\_](https://x.com/zemse_)</u>
 
 ⚡Total Bounty Secured - $2500
 
@@ -92,5 +92,3 @@ We are excited to continue working closely with developers to further refine and
 In the meantime feel free to check out the <u>[docs](https://fleek.xyz/docs/cli/)</u>, or <u>[download the CLI](https://app.fleek.xyz/)</u> and try deploying your own Fleek Function today!
 
 Fleek Team ⚡
-
-
