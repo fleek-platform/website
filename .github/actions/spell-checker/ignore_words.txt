@@ -19,21 +19,25 @@ astrojs
 audit-logs
 authy
 automation
+automator
 autoplay
 auto-scaling
 avif
+avs
 aws
 backend
 backlog
 bdd
 beaconing
 bg
+biconomy
 big-data
 big-query
 bindshells
 bitbucket
 blockchain
 brackets
+brussels
 bun
 bunjs
 cassandra
@@ -63,6 +67,7 @@ container
 containers
 cors
 cpu
+cron
 crypto
 csr
 cta
@@ -88,6 +93,7 @@ deplatform
 dev
 devops
 devs
+dex
 dns
 dnslink
 docker
@@ -102,6 +108,8 @@ ecdsa
 ed25519
 education
 ef
+eigenlayer
+eigenlayer's
 eip
 elkstack
 emacs
@@ -121,6 +129,7 @@ exploitation
 facebook
 faq
 faqs
+farcaster
 filecoin
 fleek
 fleekxyz
@@ -141,6 +150,7 @@ graphql
 grafana
 gray
 gui
+hackathon
 hacker
 hackers
 hacking
@@ -169,6 +179,7 @@ january
 javascript
 js
 json
+july
 jwt
 kubernetes
 l1
@@ -203,6 +214,7 @@ merkle
 message
 metamask
 metamask
+mev
 middleware
 minification
 ml
@@ -302,6 +314,7 @@ retrofit
 rfc
 risk-assessment
 roadmap
+roguelike
 rollup
 rollups
 rsa
@@ -346,6 +359,7 @@ ssh
 ssl
 ssl/tls
 ssr
+stackr
 staging
 state
 status
@@ -437,6 +451,7 @@ vpc
 vpn
 vulnerability
 walkthrough
+wasm
 web
 webassembly
 webhook
