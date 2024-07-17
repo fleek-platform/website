@@ -58,7 +58,7 @@ npm i @solana/web3.js
 3. Create an empty javascript file called index.js and start by exporting main() so we can add logic inside it
 
 ```javascript
-export const main = async (req) => {}
+export const main = async (req) => {};
 ```
 
 4. We must pass appropriate headers that would comply with the given specification for Solana Blinks
@@ -73,8 +73,9 @@ export const main = async (req) => {
 ['content-type', 'accept-encoding', 'authorization'],
     ];
 }
-  ```
-5. Solana Blinks require the `GET` and `POST` HTTPS methods to receive and send appropriate information. Therefore now let's track the method and build a conditional flow accordingly 
+```
+
+5. Solana Blinks require the `GET` and `POST` HTTPS methods to receive and send appropriate information. Therefore now let's track the method and build a conditional flow accordingly
 
 ```javascript
 export const main = async (req) => {
@@ -87,12 +88,13 @@ export const main = async (req) => {
       'Access-Control-Allow-Headers',
       ['content-type', 'accept-encoding', 'authorization'],
     ];
- 
+
     if(method==="POST"){}
     else{}
 }
 ```
-6. Now let’s starting importing the following from `solana/web3.js` 
+
+6. Now let’s starting importing the following from `solana/web3.js`
 
 ```javascript
 import {
@@ -113,7 +115,7 @@ export const main = async (req) => {
       'Access-Control-Allow-Headers',
       ['content-type', 'accept-encoding', 'authorization'],
     ];
- 
+
     if(method==="POST"){}
     else{}
 }
@@ -195,7 +197,7 @@ if (method === 'POST') {
     transaction: transactionBase64,
     message: 'Send me one SOL',
   };
-  const body = (resp);
+  const body = resp;
   return { body: body, headers: metaData };
 }
 ```
@@ -213,7 +215,7 @@ if (method === 'POST') {
   resp.description = 'Deploy your actions on fleek network';
   resp.label = 'Activate Action';
 
-  return { body: (resp), headers: metaData };
+  return { body: resp, headers: metaData };
 }
 ```
 
