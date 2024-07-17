@@ -195,7 +195,7 @@ if (method === 'POST') {
     transaction: transactionBase64,
     message: 'Send me one SOL',
   };
-  const body = JSON.stringify(resp);
+  const body = (resp);
   return { body: body, headers: metaData };
 }
 ```
@@ -213,7 +213,7 @@ if (method === 'POST') {
   resp.description = 'Deploy your actions on fleek network';
   resp.label = 'Activate Action';
 
-  return { body: JSON.stringify(resp), headers: metaData };
+  return { body: (resp), headers: metaData };
 }
 ```
 
