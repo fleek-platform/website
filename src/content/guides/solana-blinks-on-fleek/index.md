@@ -122,7 +122,7 @@ export const main = async (req) =>{
 			["Access-Control-Allow-Origin", "*"],
 			["Access-Control-Allow-Methods", ["GET","POST","OPTIONS"]],
 			["Access-Control-Allow-Headers",            
-["content-type","accept-encoding","authorization"]],
+            ["content-type","accept-encoding","authorization"]],
 	];
 
   if(method==="POST"){}
