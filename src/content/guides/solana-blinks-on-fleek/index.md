@@ -59,12 +59,12 @@ npm i @solana/web3.js
 
 ```javascript
 import {
-	Transaction,
-	SystemProgram,
-	Connection,
-	clusterApiUrl,
-	PublicKey,
-} from "@solana/web3.js";
+  Transaction,
+  SystemProgram,
+  Connection,
+  clusterApiUrl,
+  PublicKey,
+} from '@solana/web3.js';
 ```
 
 - `Transaction` class helps build the transaction object. Later on it is used to define the transaction fee payer and latest blockhash for the transaction sent and other such properties related to the transaction.
@@ -76,150 +76,155 @@ import {
 
 ```javascript
 import {
-	Transaction,
-	SystemProgram,
-	Connection,
-	clusterApiUrl,
-	PublicKey,
-} from "@solana/web3.js";
-export const main = async (req) => {}
+  Transaction,
+  SystemProgram,
+  Connection,
+  clusterApiUrl,
+  PublicKey,
+} from '@solana/web3.js';
+export const main = async (req) => {};
 ```
 
 5. We must pass appropriate metadata that would comply with the given <u>[specification](https://solana.com/docs/advanced/actions#specification)</u> for Solana Blinks
 
 ```javascript
 import {
-	Transaction,
-	SystemProgram,
-	Connection,
-	clusterApiUrl,
-	PublicKey,
-} from "@solana/web3.js";
-export const main = async (req) =>{
-		const metaData = [
-			["Content-Type", "application/json"],
-			["Access-Control-Allow-Origin", "*"],
-			["Access-Control-Allow-Methods", ["GET","POST","OPTIONS"]],
-			["Access-Control-Allow-Headers",            
-["content-type","accept-encoding","authorization"]],
-	];
-}
+  Transaction,
+  SystemProgram,
+  Connection,
+  clusterApiUrl,
+  PublicKey,
+} from '@solana/web3.js';
+export const main = async (req) => {
+  const metaData = [
+    ['Content-Type', 'application/json'],
+    ['Access-Control-Allow-Origin', '*'],
+    ['Access-Control-Allow-Methods', ['GET', 'POST', 'OPTIONS']],
+    [
+      'Access-Control-Allow-Headers',
+      ['content-type', 'accept-encoding', 'authorization'],
+    ],
+  ];
+};
 ```
 
 6. Solana Blinks require the GET and POST HTTPS methods to receive and send appropriate information. Therefore now let's track the method and build a conditional flow accordingly
 
 ```javascript
 import {
-	Transaction,
-	SystemProgram,
-	Connection,
-	clusterApiUrl,
-	PublicKey,
-} from "@solana/web3.js";
-export const main = async (req) =>{
-		const metaData = [
-			["Content-Type", "application/json"],
-			["Access-Control-Allow-Origin", "*"],
-			["Access-Control-Allow-Methods", ["GET","POST","OPTIONS"]],
-			["Access-Control-Allow-Headers",            
-            ["content-type","accept-encoding","authorization"]],
-	];
+  Transaction,
+  SystemProgram,
+  Connection,
+  clusterApiUrl,
+  PublicKey,
+} from '@solana/web3.js';
+export const main = async (req) => {
+  const metaData = [
+    ['Content-Type', 'application/json'],
+    ['Access-Control-Allow-Origin', '*'],
+    ['Access-Control-Allow-Methods', ['GET', 'POST', 'OPTIONS']],
+    [
+      'Access-Control-Allow-Headers',
+      ['content-type', 'accept-encoding', 'authorization'],
+    ],
+  ];
 
-  if(method==="POST"){}
-  else{}
-}
+  if (method === 'POST') {
+  } else {
+  }
+};
 ```
 
-7. Now let’s *focus* on the POST method. Here, we have to pick the public key of the account that will be signing the transaction. The public key must be sent in the body of the POST request as specified in the <u>[Blink specification](https://solana.com/docs/advanced/actions#post-request)</u>. We will also build the transaction here as follows -
+7. Now let’s _focus_ on the POST method. Here, we have to pick the public key of the account that will be signing the transaction. The public key must be sent in the body of the POST request as specified in the <u>[Blink specification](https://solana.com/docs/advanced/actions#post-request)</u>. We will also build the transaction here as follows -
 
 ```javascript
-if(method==="POST"){
-	const account = new PublicKey(req.body.account);
-	
-	let transaction = new Transaction().add(
-		SystemProgram.transfer({
-			fromPubkey: account,
-			toPubkey: new PublicKey("<add-receiving-public-key>"),
-			lamports: 100000000,
-		})	
-	);
+if (method === 'POST') {
+  const account = new PublicKey(req.body.account);
+
+  let transaction = new Transaction().add(
+    SystemProgram.transfer({
+      fromPubkey: account,
+      toPubkey: new PublicKey('<add-receiving-public-key>'),
+      lamports: 100000000,
+    }),
+  );
 }
 ```
 
 8. Now, in the same conditional block, let’s make a connection to the Solana devnet, fetch the recent blockhash, and serialize the transaction. Serialized transactions must be made into a base64-encoded string to fit the Solana Action specification.
 
 ```javascript
-if(method==="POST"){
-	const account = new PublicKey(req.body.account);
-	
-	let transaction = new Transaction().add(
-		SystemProgram.transfer({
-			fromPubkey: account,
-			toPubkey: new PublicKey("<add-receiving-public-key>"),
-			lamports: 100000000,
-		})	
-	);
-	const connection = new Connection(clusterApiUrl("devnet"), "confirmed");
-	const blockHash = (await connection.getLatestBlockhash("finalized"))
-		.blockhash;
-	transaction.feePayer = account;
-	transaction.recentBlockhash = blockHash;
-	
-	const serializedTransaction = transaction.serialize({
-		requireAllSignatures: false,
-		verifySignatures: true,
-	});
-	const transactionBase64 = serializedTransaction.toString("base64");
+if (method === 'POST') {
+  const account = new PublicKey(req.body.account);
 
+  let transaction = new Transaction().add(
+    SystemProgram.transfer({
+      fromPubkey: account,
+      toPubkey: new PublicKey('<add-receiving-public-key>'),
+      lamports: 100000000,
+    }),
+  );
+  const connection = new Connection(clusterApiUrl('devnet'), 'confirmed');
+  const blockHash = (await connection.getLatestBlockhash('finalized'))
+    .blockhash;
+  transaction.feePayer = account;
+  transaction.recentBlockhash = blockHash;
+
+  const serializedTransaction = transaction.serialize({
+    requireAllSignatures: false,
+    verifySignatures: true,
+  });
+  const transactionBase64 = serializedTransaction.toString('base64');
 }
 ```
 
 9. Finally, let’s build the POST Response and return it
 
 ```javascript
-if(method==="POST"){
-		const account = new PublicKey(req.body.account);
-		
-		let transaction = new Transaction().add(
-			SystemProgram.transfer({
-				fromPubkey: account,
-				toPubkey: new PublicKey("<add-receiving-public-key>"),
-				lamports: 100000000,
-			})
-		);
-	const connection = new Connection(clusterApiUrl("devnet"), "confirmed");
-	const blockHash = (await connection.getLatestBlockhash("finalized"))
-		.blockhash;
-	transaction.feePayer = account;
-	transaction.recentBlockhash = blockHash;
-	
-	const serializedTransaction = transaction.serialize({
-		requireAllSignatures: false,
-		verifySignatures: true,
-	});
-	const transactionBase64 = serializedTransaction.toString("base64");
-	const resp = {
-		transaction: transactionBase64,
-		message: "Send me one SOL",
-	};
-	const body = JSON.stringify(resp);
-	return { body: body, headers:metaData };
+if (method === 'POST') {
+  const account = new PublicKey(req.body.account);
+
+  let transaction = new Transaction().add(
+    SystemProgram.transfer({
+      fromPubkey: account,
+      toPubkey: new PublicKey('<add-receiving-public-key>'),
+      lamports: 100000000,
+    }),
+  );
+  const connection = new Connection(clusterApiUrl('devnet'), 'confirmed');
+  const blockHash = (await connection.getLatestBlockhash('finalized'))
+    .blockhash;
+  transaction.feePayer = account;
+  transaction.recentBlockhash = blockHash;
+
+  const serializedTransaction = transaction.serialize({
+    requireAllSignatures: false,
+    verifySignatures: true,
+  });
+  const transactionBase64 = serializedTransaction.toString('base64');
+  const resp = {
+    transaction: transactionBase64,
+    message: 'Send me one SOL',
+  };
+  const body = JSON.stringify(resp);
+  return { body: body, headers: metaData };
 }
 ```
 
 10. Now that the POST method is complete, we must move to building the logic for the GET method. All we have to do is build a response object with icon, title, description and label fields. You can learn more about the GET response body specification <u>[here](https://solana.com/docs/advanced/actions#get-response-body)</u>
 
 ```javascript
-if(method==="POST"){
-// All the code discussed in step 9
-}else{
-	const resp = {};
-		resp.icon = "https://t3.ftcdn.net/jpg/05/59/27/48/360_F_559274893_O9iSRQwTKIkAooNTglilMgx2yMcXK9Or.jpg";
-		resp.title = "Actions on Fleek";
-		resp.description = "Deploy your actions on fleek network";
-		resp.label = "Activate Action";
-		
-		return { body: JSON.stringify(resp), headers:metaData  };
+if (method === 'POST') {
+  // All the code discussed in step 9
+} else {
+  const resp = {};
+  resp.icon =
+    'https://t3.ftcdn.net/jpg/05/59/27/48/360_F_559274893_O9iSRQwTKIkAooNTglilMgx2yMcXK9Or.jpg';
+  resp.title = 'Actions on Fleek';
+  resp.description = 'Deploy your actions on fleek network';
+  resp.label = 'Activate Action';
+
+  return { body: JSON.stringify(resp), headers: metaData };
 }
 ```
 
@@ -273,7 +278,6 @@ You can <u>[click here](https://fleek.xyz/docs/cli/functions/)</u> to learn more
 Finally, head over to <u>[dial.to](https://dial.to/devnet)</u> to unfurl your Fleek Function into a Solana Blink. Paste the Fleek Network URL in the input box and press submit.
 
 ![](./dialect.png)
-
 
 Here is what the Solana Blink will look like -
 
