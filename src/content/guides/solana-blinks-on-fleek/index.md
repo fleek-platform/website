@@ -139,7 +139,7 @@ if(method==="POST"){
 	let transaction = new Transaction().add(
 		SystemProgram.transfer({
 			fromPubkey: account,
-			toPubkey: new     PublicKey("<add-receiving-public-key>"),
+			toPubkey: new PublicKey("<add-receiving-public-key>"),
 			lamports: 100000000,
 		})	
 	);
@@ -155,7 +155,7 @@ if(method==="POST"){
 	let transaction = new Transaction().add(
 		SystemProgram.transfer({
 			fromPubkey: account,
-			toPubkey: new     PublicKey("<add-receiving-public-key>"),
+			toPubkey: new PublicKey("<add-receiving-public-key>"),
 			lamports: 100000000,
 		})	
 	);
@@ -183,7 +183,7 @@ if(method==="POST"){
 		let transaction = new Transaction().add(
 			SystemProgram.transfer({
 				fromPubkey: account,
-				toPubkey: new     PublicKey("<add-receiving-public-key>"),
+				toPubkey: new PublicKey("<add-receiving-public-key>"),
 				lamports: 100000000,
 			})
 		);
@@ -214,7 +214,7 @@ if(method==="POST"){
 // All the code discussed in step 9
 }else{
 	const resp = {};
-		resp.icon =      "https://t3.ftcdn.net/jpg/05/59/27/48/360_F_559274893_O9iSRQwTKIkAooNTglilMgx2yMcXK9Or.jpg";
+		resp.icon = "https://t3.ftcdn.net/jpg/05/59/27/48/360_F_559274893_O9iSRQwTKIkAooNTglilMgx2yMcXK9Or.jpg";
 		resp.title = "Actions on Fleek";
 		resp.description = "Deploy your actions on fleek network";
 		resp.label = "Activate Action";
