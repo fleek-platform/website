@@ -349,6 +349,7 @@ site
 smtp
 soap
 software
+solana
 sourcecode
 spark
 sql
