@@ -11,7 +11,7 @@ As Fleek moves towards providing more full stack support, we recently explored d
 
 ### Understanding Solana Actions & Blinks
 
-To build your first Solana Blink, let’s first quickly understand Solana Actions. Solana Actions are APIs that help send transactions on the Solana blockchain. These transactions are accessible over a variety of mediums beyond just a wallet. Blinks, or `*Blockchain Links*`, transform any Solana Action into a shareable link with extensive metadata.
+To build your first Solana Blink, let’s first quickly understand Solana Actions. Solana Actions are APIs that help send transactions on the Solana blockchain. These transactions are accessible over a variety of mediums beyond just a wallet. Blinks, or `Blockchain Links`, transform any Solana Action into a shareable link with extensive metadata.
 
 It is important to note that browser-aware clients like wallet extensions are required to be able to parse Solana Blinks and turn them into accessible user interfaces that allow interactions with Solana. Right now, you can use Backpack or Phantom wallet extensions to access Blinks.
 
@@ -55,7 +55,46 @@ npm init -y
 npm i @solana/web3.js
 ```
 
-3. Create an empty javascript file called index.js and start by importing the following from solana/web3.js
+3. Create an empty javascript file called index.js and start by exporting main() so we can add logic inside it
+
+```javascript
+export const main = async (req) => {};
+```
+
+4. We must pass appropriate headers that would comply with the given specification for Solana Blinks
+
+```javascript
+export const main = async (req) => {
+  const headers = [
+    ['Content-Type', 'application/json'],
+    ['Access-Control-Allow-Origin', '*'],
+    ['Access-Control-Allow-Methods', ['GET', 'POST', 'OPTIONS']],
+    ['Access-Control-Allow-Headers',
+['content-type', 'accept-encoding', 'authorization'],
+    ];
+}
+```
+
+5. Solana Blinks require the `GET` and `POST` HTTPS methods to receive and send appropriate information. Therefore now let's track the method and build a conditional flow accordingly
+
+```javascript
+export const main = async (req) => {
+    const { method } = req;
+    const headers = [
+    ['Content-Type', 'application/json'],
+    ['Access-Control-Allow-Origin', '*'],
+    ['Access-Control-Allow-Methods', ['GET', 'POST', 'OPTIONS']],
+    [
+      'Access-Control-Allow-Headers',
+      ['content-type', 'accept-encoding', 'authorization'],
+    ];
+
+    if(method==="POST"){}
+    else{}
+}
+```
+
+6. Now let’s starting importing the following from `solana/web3.js`
 
 ```javascript
 import {
@@ -65,75 +104,27 @@ import {
   clusterApiUrl,
   PublicKey,
 } from '@solana/web3.js';
+
+export const main = async (req) => {
+    const { method } = req;
+    const headers = [
+    ['Content-Type', 'application/json'],
+    ['Access-Control-Allow-Origin', '*'],
+    ['Access-Control-Allow-Methods', ['GET', 'POST', 'OPTIONS']],
+    [
+      'Access-Control-Allow-Headers',
+      ['content-type', 'accept-encoding', 'authorization'],
+    ];
+
+    if(method==="POST"){}
+    else{}
+}
 ```
 
 - `Transaction` class helps build the transaction object. Later on it is used to define the transaction fee payer and latest blockhash for the transaction sent and other such properties related to the transaction.
 - `SystemProgram` provides a transfer method that will be used to send 0.1 SOL from one account to another.
 - `Connection` and `clusterApiUrl` help maintain a secure connection with the Solana Devnet
 - `PublicKey` creates a new public key object
-
-4. We will now export `main()` so we can add logic inside it
-
-```javascript
-import {
-  Transaction,
-  SystemProgram,
-  Connection,
-  clusterApiUrl,
-  PublicKey,
-} from '@solana/web3.js';
-export const main = async (req) => {};
-```
-
-5. We must pass appropriate metadata that would comply with the given <u>[specification](https://solana.com/docs/advanced/actions#specification)</u> for Solana Blinks
-
-```javascript
-import {
-  Transaction,
-  SystemProgram,
-  Connection,
-  clusterApiUrl,
-  PublicKey,
-} from '@solana/web3.js';
-export const main = async (req) => {
-  const metaData = [
-    ['Content-Type', 'application/json'],
-    ['Access-Control-Allow-Origin', '*'],
-    ['Access-Control-Allow-Methods', ['GET', 'POST', 'OPTIONS']],
-    [
-      'Access-Control-Allow-Headers',
-      ['content-type', 'accept-encoding', 'authorization'],
-    ],
-  ];
-};
-```
-
-6. Solana Blinks require the GET and POST HTTPS methods to receive and send appropriate information. Therefore now let's track the method and build a conditional flow accordingly
-
-```javascript
-import {
-  Transaction,
-  SystemProgram,
-  Connection,
-  clusterApiUrl,
-  PublicKey,
-} from '@solana/web3.js';
-export const main = async (req) => {
-  const metaData = [
-    ['Content-Type', 'application/json'],
-    ['Access-Control-Allow-Origin', '*'],
-    ['Access-Control-Allow-Methods', ['GET', 'POST', 'OPTIONS']],
-    [
-      'Access-Control-Allow-Headers',
-      ['content-type', 'accept-encoding', 'authorization'],
-    ],
-  ];
-
-  if (method === 'POST') {
-  } else {
-  }
-};
-```
 
 7. Now let’s _focus_ on the POST method. Here, we have to pick the public key of the account that will be signing the transaction. The public key must be sent in the body of the POST request as specified in the <u>[Blink specification](https://solana.com/docs/advanced/actions#post-request)</u>. We will also build the transaction here as follows -
 
@@ -206,7 +197,7 @@ if (method === 'POST') {
     transaction: transactionBase64,
     message: 'Send me one SOL',
   };
-  const body = JSON.stringify(resp);
+  const body = resp;
   return { body: body, headers: metaData };
 }
 ```
@@ -224,7 +215,7 @@ if (method === 'POST') {
   resp.description = 'Deploy your actions on fleek network';
   resp.label = 'Activate Action';
 
-  return { body: JSON.stringify(resp), headers: metaData };
+  return { body: resp, headers: metaData };
 }
 ```
 
