@@ -229,6 +229,8 @@ With this, the code for the Fleek Function is complete. It is now time to use th
 npm i -g @fleek-platform/cli
 ```
 
+💡: We recommend using the Fleek CLI version 2.8.8 or above. To check which version you are on, please run `fleek -v`
+
 2. Log in and select a suitable project
 
 ```javascript
@@ -244,7 +246,7 @@ fleek functions create --name myFunction
 4. Deploy the Fleek Function
 
 ```javascript
-fleek functions create --name myFunction --path ./index.js
+fleek functions deploy --name myFunction --path ./index.js
 ```
 
 As the Fleek function gets deployed, it will return the following output -
