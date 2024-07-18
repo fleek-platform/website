@@ -6,7 +6,7 @@ thumbnail: './clisitedeployments.png'
 image: './clisitedeployments.png'
 ---
 
-The beta’s growing, and with new testers, new features are coming to the CLI! Today we are releasing the **Sites Deployments service** to the CLI for developers to start testing and [share their feedback](https://github.com/fleekxyz/fleekxyz-support) on.
+The beta’s growing, and with new testers, new features are coming to the CLI! Today we are releasing the **Sites Deployments service** to the CLI for developers to start testing and [share their feedback](https://discord.gg/fleek) on.
 
 Step aside, it’s time to host some sites on IPFS! If you want a quick-start, visit our [updated docs](https://fleek.xyz/docs/) right away ⚡️
 
@@ -16,7 +16,7 @@ Step aside, it’s time to host some sites on IPFS! If you want a quick-start, v
 
 ![Sites Deployment with Fleek promotional banner](https://storage.fleek.ooo/27a60cdd-37d3-480c-ae88-3ad4ca886b13-bucket/imgs/site-demo.png)
 
-The Sites services on Fleek will allow anyone to upload and easily maintain static sites, stored and served by Web3 protocols, starting with IPFS. Visit the [Sites documentation](https://fleek.xyz/docs/cli/sites/) to learn how to get your first project live.
+The Sites services on Fleek will allow anyone to upload and easily maintain static sites, stored and served by Web3 protocols, starting with IPFS. Visit the [Sites documentation](/docs/cli/sites/) to learn how to get your first project live.
 
     > fleek sites init
     ? Choose one of the existing sites or create a new one.
@@ -24,15 +24,15 @@ The Sites services on Fleek will allow anyone to upload and easily maintain stat
 
 The flow? With one quick command, you can initialize and create a new site project on the CLI. Just specify the output directory and the build command and that would be it! Once the site is configured, you can build and deploy the site to IPFS using the `fleek sites deploy` command.
 
-Any further changes you commit, can then be re-built and deployed for a new IPFS hash and on a following update you will be able to generate a Github action to automate the deployment. We will follow up with managed deployments on a future versions (where Fleek manages the build and deploy). Have feedback? [Let us know here.](https://github.com/fleekxyz/fleekxyz-support)
+Any further changes you commit, can then be re-built and deployed for a new IPFS hash and on a following update you will be able to generate a Github action to automate the deployment. We will follow up with managed deployments on a future versions (where Fleek manages the build and deploy). Have feedback? [Let us know here.](https://discord.gg/fleek)
 
-As an example, we re-deployed our [a quick blog page with the CLI](https://mntis.eth.limo/), and mapped the IPFS hash to an ENS domain name, to make it accessible! Here’s [how to use ENS](https://fleek.xyz/docs/platform/domains/) for that.
+As an example, we re-deployed our [a quick blog page with the CLI](https://mntis.eth.limo/), and mapped the IPFS hash to an ENS domain name, to make it accessible! Here’s [how to use ENS](/docs/platform/domains/) for that.
 
 ## The Templates Repository.
 
 <iframe width="600" height="350" src="https://www.youtube.com/embed/JWvhCfrIhTo?controls=0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 
-With this release, given you can now make site deployments, we are introducing [Fleek's templates repository.](https://github.com/fleekxyz/templates) An open-source Github repository, courtesy of the DevRel crew at Fleek, with quick-to-deploy boilerplates and app examples. Starting with a simple React boilerplate and a Nextra blog!
+With this release, given you can now make site deployments, we are introducing Fleek's templates repository. An open-source Github repository, courtesy of the DevRel crew at Fleek, with quick-to-deploy boilerplates and app examples. Starting with a simple React boilerplate and a Nextra blog!
 
 Being open-source, **anyone is open to contribute or suggest in the repository** the templates they want or need. The DevRel team will expand it as well, so let us know what you want to see next.
 

@@ -4,7 +4,7 @@ import Text from '@components/Text';
 import Marquee from 'react-fast-marquee';
 import settings from '@base/settings.json';
 
-const announcement = `⚡ ${settings.site.annoucement.message} ⚡`; //character limit: 130
+const announcement = `⚡ ${settings.site.annoucementMarquee.message} ⚡`; //character limit: 130
 
 interface AnnouncementProps {
   hasMargin?: boolean;
@@ -22,7 +22,7 @@ const Announcement: React.FC<AnnouncementProps> = ({
 
   return (
     <a
-      href={settings.site.annoucement.url}
+      href={settings.site.annoucementMarquee.url}
       rel="noopener noreferrer"
       className={`${hasMargin && 'mb-16 '}opacity-100 transition hover:opacity-80`}
     >

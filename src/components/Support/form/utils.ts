@@ -43,3 +43,14 @@ export const submitForm = async (
     );
   }
 };
+
+export async function checkHealthStatus() {
+  try {
+    const response = await fetch(`//${zenDeskEndpoint}/health`);
+    const data = await response.json();
+    return data.message === 'OK';
+  } catch (error) {
+    console.error('Health check failed', error);
+    return false;
+  }
+}

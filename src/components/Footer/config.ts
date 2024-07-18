@@ -64,9 +64,7 @@ export default {
     },
     {
       text: 'Contact us',
-      url: reportAbuseUrl,
-      target: '_blank',
-      rel: 'noopener noreferrer',
+      url: '/requests/new/',
     },
   ],
   product: [

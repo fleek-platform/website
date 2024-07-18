@@ -1,11 +1,14 @@
-import { useState, type FormEvent } from 'react';
+import { useEffect, useState, type FormEvent } from 'react';
 import { type FormValuesType } from './ReportSiteForm';
 import Input from './ui/Input';
 import ToolTip from './ui/ToolTip';
+import toast from 'react-hot-toast';
 import Button from './ui/Button';
-import { submitForm } from './utils';
+import { checkHealthStatus, submitForm } from './utils';
 import FormTitle from './ui/FormTitle';
 import { removeProtocolFromUrl } from '@utils/url';
+import Spinner from '@components/Spinner';
+import SupportUnavailable from '../SupportUnavailable';
 
 export const { zenDeskEndpoint } = (() => {
   const zenDeskEndpoint = removeProtocolFromUrl(
@@ -33,6 +36,8 @@ function NewRequestForm() {
   const [formValues, setFormValues] = useState<FormValuesType>({
     ...defaultFormValues,
   });
+  const [isHealthy, setIsHealthy] = useState<boolean>(false);
+  const [isLoading, setIsLoading] = useState<boolean>(true);
 
   const handleInputChange = (name: string, value: string | FileList) => {
     setFormValues((prevValues) => ({
@@ -52,6 +57,40 @@ function NewRequestForm() {
     await submitForm(formValues, resetFormValues);
   };
 
+  async function fetchHealthStatus() {
+    setIsLoading(true);
+    try {
+      const healthStatus = await checkHealthStatus();
+      setIsHealthy(healthStatus);
+      if (!healthStatus) {
+        throw new Error('Health status failure');
+      }
+    } catch (error) {
+      console.error(error);
+      toast.error(
+        'Our support system is currently experiencing issues. Please report this to our team.',
+      );
+    } finally {
+      setIsLoading(false);
+    }
+  }
+
+  useEffect(() => {
+    fetchHealthStatus();
+  }, []);
+
+  if (isLoading) {
+    return (
+      <div className="flex h-screen items-center justify-center">
+        <Spinner className="w-[70px] md:w-[100px] xl:w-[6%]" />
+      </div>
+    );
+  }
+
+  if (!isHealthy) {
+    return <SupportUnavailable />;
+  }
+
   return (
     <form
       onSubmit={handleFormSubmit}
@@ -61,7 +100,7 @@ function NewRequestForm() {
         <FormTitle
           title={'Submit a request'}
           subTitle={
-            "If you're having issues with Fleek Platform, we're here to help! Please share details about the issue you're experiencing in the form below."
+            "If you're having issues with Fleek's platform, we're here to help! Please share details about the issue you're experiencing in the form below."
           }
         />
         <div className="mt-[3rem]">

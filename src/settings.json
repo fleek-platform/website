@@ -96,9 +96,10 @@
       "mediaKit": "https://fleek.notion.site/Fleek-Brand-Kit-9a2bcf7eb40740a9b7e951fc951b478a",
       "templatesUrl": "https://app.fleek.xyz/templates"
     },
-    "annoucement": {
+    "annoucementMarquee": {
       "message": "Introducing Fleek Functions: lightning-fast edge functions built on Fleek Network’s onchain cloud infrastructure. Read more here.",
-      "url": "/blog/announcements/introducing-fleek-functions"
+      "url": "/blog/announcements/introducing-fleek-functions",
+      "visible": false
     }
   },
   "docs": {
@@ -283,7 +284,7 @@
       {
         "id": 1,
         "path": "/support",
-        "title": "Home"
+        "title": "Overview"
       },
 
       {
