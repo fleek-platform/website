@@ -38,18 +38,24 @@ function NewRequestForm() {
   });
   const [isHealthy, setIsHealthy] = useState<boolean>(false);
   const [isLoading, setIsLoading] = useState<boolean>(true);
+  const [isButtonDisabled, setIsButtonDisabled] = useState<boolean>(true);
 
-  const handleInputChange = (name: string, value: string | FileList) => {
+  const handleInputChange = (name: string, value: string) => {
     setFormValues((prevValues) => ({
       ...prevValues,
       [name]: value,
     }));
+
+    if (name === 'comment') {
+      setIsButtonDisabled(value.trim().length < 30);
+    }
   };
 
   const resetFormValues = () => {
     setFormValues({
       ...defaultFormValues,
     });
+    setIsButtonDisabled(true);
   };
 
   const handleFormSubmit = async (event: FormEvent<HTMLFormElement>) => {
@@ -141,7 +147,7 @@ function NewRequestForm() {
           />
         </div>
 
-        <Button />
+        <Button isDisabled={isButtonDisabled} />
       </div>
     </form>
   );

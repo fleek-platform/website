@@ -4,7 +4,7 @@ import React, { useEffect, useState } from 'react';
 interface InputProps {
   type?: 'text' | 'email' | 'textarea';
   value: string;
-  onChange?: (value: string | FileList) => void;
+  onChange?: (value: string) => void;
   label: string;
   readOnly?: boolean;
   name: string;
