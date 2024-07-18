@@ -78,17 +78,17 @@ Following the webpack documentation, you can set up your directory by first crea
 In your file (index.js in this case), write the below function:
 
 ```jsx
-import { ethers } from "ethers";
-import { JsonRpcProvider } from "ethers";
+import { ethers } from 'ethers';
+import { JsonRpcProvider } from 'ethers';
 
-export const main = async ({ path = "vitalik.eth" }) => {
-  const ensDomain = path.split("/").pop();
+export const main = async ({ path = 'vitalik.eth' }) => {
+  const ensDomain = path.split('/').pop();
 
-  if (typeof ensDomain !== "string" || !ensDomain.endsWith(".eth")) {
-    throw new Error("Invalid ENS domain");
+  if (typeof ensDomain !== 'string' || !ensDomain.endsWith('.eth')) {
+    throw new Error('Invalid ENS domain');
   }
 
-  const provider = new JsonRpcProvider("https://cloudflare-eth.com");
+  const provider = new JsonRpcProvider('https://cloudflare-eth.com');
 
   try {
     // Resolve the ENS name to an Ethereum address
@@ -116,12 +116,12 @@ export const main = async ({ path = "vitalik.eth" }) => {
       ${
         reverseName
           ? `<p style="font-size: 18px;">Reverse ENS: <strong>${reverseName}</strong></p>`
-          : ""
+          : ''
       }
     </body>
     </html>`;
   } catch (error) {
-    console.error("Error:", error.message);
+    console.error('Error:', error.message);
     return `<html>
     <body style="font-family: Arial, sans-serif; text-align: center; background-color: #f0f0f0; padding: 20px;">
       <h1 style="color: red;">Error</h1>
@@ -131,6 +131,7 @@ export const main = async ({ path = "vitalik.eth" }) => {
   }
 };
 ```
+
 The function in this JavaScript code above resolves an ENS domain to its corresponding Ethereum address, retrieves the address's Ether balance, and performs a reverse lookup of the ENS name. It then formats this information into an HTML string for display. The function includes error handling to manage invalid ENS domains and other potential issues during the lookup process.
 
 ### Adding the webpack config:
@@ -143,23 +144,24 @@ The way bundling works is that our bundler combines the file together with its d
 Most of the options can be found within the <u>[webpack config](https://webpack.js.org/guides/getting-started/#using-a-configuration)</u>. Our webpack config for our purposes will be this:
 
 ```jsx
-const path = require("path");
+const path = require('path');
 
 module.exports = {
-  entry: "./src/index.js",
+  entry: './src/index.js',
   output: {
     library: {
-      type: "module",
+      type: 'module',
     },
-    filename: "bundle.js",
-    path: path.resolve(__dirname, "dist"),
+    filename: 'bundle.js',
+    path: path.resolve(__dirname, 'dist'),
   },
-  mode: "none",
+  mode: 'none',
   experiments: {
     outputModule: true,
   },
 };
 ```
+
 Where:
 
 **Entry Point:** Specifies ./src/index.js as the entry file where webpack starts the bundling process.
@@ -207,8 +209,8 @@ fleek functions create --name bundled-function
 Where “bundled-function” is the name of our Fleek function. The command to deploy should look like this:
 
 ```
-fleek functions deploy \ 
---name bundled-function \ 
+fleek functions deploy \
+--name bundled-function \
 --path ./dist/bundle.js --noBundle
 ```
 
