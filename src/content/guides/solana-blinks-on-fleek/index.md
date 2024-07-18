@@ -244,7 +244,7 @@ fleek functions create --name myFunction
 4. Deploy the Fleek Function
 
 ```javascript
-fleek functions create --name myFunction --path ./index.js
+fleek functions deploy --name myFunction --path ./index.js
 ```
 
 As the Fleek function gets deployed, it will return the following output -
