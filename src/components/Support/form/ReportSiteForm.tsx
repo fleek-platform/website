@@ -135,7 +135,7 @@ function ReportSiteForm() {
           />
         </div>
 
-        <Button isDisabled={isButtonDisabled} />
+        <Button />
       </div>
     </form>
   );
