@@ -11,7 +11,6 @@ author: 'Kanishk Khurana'
 
 ![](./vitaliktweet.png)
 
-
 The blog website follows a minimal UI with focus on loading pages quickly and rendering markdown. The template for the blog is open source and can be found <u>[here](https://github.com/vbuterin/blogmaker)</u>.
 
 ![](./vitaliksite.png)
@@ -67,13 +66,14 @@ Let’s now explore how we can add more blogs to this website and compile markdo
 <!--- content goes here --->
 This is a new blog post!
 ```
+
 Each blog post contains the following properties -
 
 - **Category**: this defines the category to which your blog posts belong. It is particularly useful in sorting and arranging blogs in the longer run.
 - **Date:** this helps arrange all blog posts chronologically
 - **Title**:This is the title of the blog post
 
->💡: Please note that you can change the content here as per your needs.
+> 💡: Please note that you can change the content here as per your needs.
 
 3. Once you are done adding content to your new blog, run the following command in your terminal to compile all new markdown based blogs to HTML and add them to the main HTML file. This will edit the site folder and prepare it for hosting on Fleek -
 
@@ -85,7 +85,7 @@ This will result into a site directory similar to this -
 
 ![](./directory.png)
 
->⚠️: If you don't want to compile your site locally, you can skip this step and move to the next one.
+> ⚠️: If you don't want to compile your site locally, you can skip this step and move to the next one.
 
 4. Finally, head over to `config.md` and make the following changes to ensure it deploys correctly on Fleek -
 
@@ -96,7 +96,7 @@ This will result into a site directory similar to this -
 [posts_directory](./posts)
 ```
 
->💡: You can edit the title and icon here to fit your specifications
+> 💡: You can edit the title and icon here to fit your specifications
 
 - Commit changes and push to GitHub -
 
@@ -132,14 +132,14 @@ Enter the OTP and you are good to continue -
 
 ![](./deploy.png)
 
->💡: Incase you don't see your repository in the list, click on “Adjust GitHub App Permissions” to configure GitHub app permissions.
+> 💡: Incase you don't see your repository in the list, click on “Adjust GitHub App Permissions” to configure GitHub app permissions.
 
 5. Give your site a name and set all the other properties as follows -
-    - **Site Name**: `blogmaker`
-    - **Framework**: `Other`
-    - **Branch**: `main`
-    - **Publish Directory**: `site`
-    - **Build Command**: `apt-get update && apt-get install -y pandoc && python publish.py posts/`
+   - **Site Name**: `blogmaker`
+   - **Framework**: `Other`
+   - **Branch**: `main`
+   - **Publish Directory**: `site`
+   - **Build Command**: `apt-get update && apt-get install -y pandoc && python publish.py posts/`
 
 Now click on “Show advanced options” and edit the “Docker Image” as follows -
 
