@@ -1,19 +1,29 @@
 ---
-title: 'Deploying Vitaliks Blogmaker on Fleek'
+title: "Deploying Vitalik's Blogmaker on Fleek"
 date: 2024-07-19
-desc: 'Deploy Vitaliks IPFS-hosted blog lightning-fast with this step-by-step guide and ready-to-deploy template'
+desc: "Deploy Vitalik's IPFS-hosted blog lightning-fast with this step-by-step guide and ready-to-deploy template"
 thumbnail: './blogmakerthumb.png'
 image: './blogmakerthumb.png'
 author: 'Kanishk Khurana'
 ---
 
+<br/>
+
 <u>[Vitalik Buterin’s website](https://vitalik.eth.limo/index.html)</u> has been a community-favorite resource for blockchain and web3 knowledge since its inception. It contains valuable information on the Ethereum roadmap and technical deep dives on all sorts of concepts relevent to the onchain ecosystem as a whole– **but, did you know all of this is deployed on Fleek?**
+
+<br/>
 
 ![](./vitaliktweet.png)
 
+<br/>
+
 The blog website follows a minimal UI with focus on loading pages quickly and rendering markdown. The template for the blog is open source and can be found <u>[here](https://github.com/vbuterin/blogmaker)</u>.
 
+<br/>
+
 ![](./vitaliksite.png)
+
+<br/>
 
 In this tutorial, we will be showing you how to fork this template and deploy your own Vitalik-inspired blog on Fleek. Towards the end, we will also help you deploy this template in one-click using <u>[Fleek's template gallery](https://app.fleek.xyz/templates/)</u>.
 
@@ -34,9 +44,13 @@ In this tutorial, we will be showing you how to fork this template and deploy yo
 
 1. Start by forking <u>[Vitalik’s repository](https://github.com/vbuterin/blogmaker)</u>
 
-![](./repo.png)
+<br/>
+
+![](./repository.png)
 
 2. Now in an empty directory, clone the forked blogmaker project as follows-
+
+<br/>
 
 ```
 mkdir blog
@@ -44,7 +58,9 @@ cd blog
 git clone https://github.com/<your-github-username>/blogmaker.git
 ```
 
-![](./clonerepo.png)
+<br/>
+
+![](./blogmaker-fork.png)
 
 Great job! You now have blogmaker website locally setup on your system.
 
@@ -77,17 +93,21 @@ Each blog post contains the following properties -
 
 3. Once you are done adding content to your new blog, run the following command in your terminal to compile all new markdown based blogs to HTML and add them to the main HTML file. This will edit the site folder and prepare it for hosting on Fleek -
 
+<br/>
+
 ```
 ./publish.py posts/*
 ```
 
 This will result into a site directory similar to this -
 
-![](./directory.png)
+![](./square_directory.png)
 
 > ⚠️: If you don't want to compile your site locally, you can skip this step and move to the next one.
 
 4. Finally, head over to `config.md` and make the following changes to ensure it deploys correctly on Fleek -
+
+<br/>
 
 ```
 [title]: <> (Vitalik Buterin's website)
@@ -114,23 +134,39 @@ Awesome! You have now explored blogmaker properly and added your own blog post t
 
 1. Head over to <u>[app.fleek.xyz](https://app.fleek.xyz/)</u> and log in. For the purpose of this tutorial we will be logging in using our email account -
 
+<br/>
+
 ![](./login.png)
 
 Enter the OTP and you are good to continue -
 
 ![](./otp.png)
 
+<br/>
+
 2. On the top right corner of the screen, you will see a “Add new” button. Click on it and select the “Deploy my site” option from the dropdown -
+
+   <br/>
 
 ![](./addnew.png)
 
+   <br/>
+
 3. Select the location of your code. In our case it is Github. (Gitlab and Bitbucket will be supported soon) -
+
+   <br/>
 
 ![](./git.png)
 
+ <br/>
+
 4. Ensure you select the correct GitHub Organization in the dropdown where you saved your Blogmaker repository and as you find Blogmaker in the list, click on “Deploy” -
 
+ <br/>
+
 ![](./deploy.png)
+
+ <br/>
 
 > 💡: Incase you don't see your repository in the list, click on “Adjust GitHub App Permissions” to configure GitHub app permissions.
 
@@ -149,13 +185,21 @@ Docker Image: `python:3.9-slim`
 
 ![](./properties.png)
 
+ <br/>
+
 6. Finally, click on “Deploy site”. You will be redirected to the following page -
+
+ <br/>
 
 ![](./deployed.png)
 
 You will notice the site building has started. It will take a couple minutes and once complete, your blog website will be ready and will look like this -
 
+ <br/>
+
 ![](./built.png)
+
+ <br/>
 
 This website is accessible at - <u>https://billions-area-rapping.on-fleek.app/</u>. You can edit the domain, by <u>[connecting your ENS or traditional DNS domain](https://fleek.xyz/docs/platform/domains/)</u>, in your site settings.
 
@@ -171,13 +215,23 @@ You can also deploy the “Blogmaker by Vitalik” template using Fleek’s temp
 
 1. Head over to the <u>[this link](https://app.fleek.xyz/templates/clyqjmjng0001q94by3huy892/)</u> and view the “Blogmaker by Vitalik” template. Click the “Deploy template” button on the top right corner -
 
+ <br/>
+
 ![](./templatedeploy.png)
+
+ <br/>
 
 2. Select where you want to store your code. In our case it will be on GitHub -
 
+ <br/>
+
 ![](./templategit.png)
 
+ <br/>
+
 3. Fleek will now inject the Blogmaker Template code repository in your GitHub account so you have full access and permissions to edit it later on. Select the correct GitHub account and give your repository an appropriate name. Then click on “Create and deploy template” -
+
+ <br/>
 
 ![](./permstemplate.png)
 
@@ -185,9 +239,15 @@ You will be redirected to the deployment page which is similar to the page we sa
 
 ![](./templatedeployment.png)
 
+ <br/>
+
 4. Finally, as we discussed before, a GitHub repository titled “blogmaker-template” will be available in the list of repositories for your GitHub account -
 
+ <br/>
+
 ![](./templatefinish.png)
+
+ <br/>
 
 And just like that, you have a fully functioning, IPFS-hosted blog that auto updates on each commit.  In the future, you can clone this and make any edits you feel fit. As you push changes to this repository, it will automatically deploy to your blog website using Fleek.
 
