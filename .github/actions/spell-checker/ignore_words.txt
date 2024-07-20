@@ -36,6 +36,7 @@ big-query
 bindshells
 bitbucket
 blockchain
+blogmaker
 brackets
 brussels
 bun
@@ -228,6 +229,7 @@ namespace
 natively
 navigation
 netlify
+newblog
 nfa
 nfas
 nft
@@ -447,6 +449,8 @@ verification
 versioncontrol
 video
 virtualization
+vitalik
+vitalik's
 vmware
 vpc
 vpn
