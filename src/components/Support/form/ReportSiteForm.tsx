@@ -27,6 +27,20 @@ function ReportSiteForm() {
   const [isHealthy, setIsHealthy] = useState<boolean>(false);
   const [isLoading, setIsLoading] = useState<boolean>(true);
   const [isButtonDisabled, setIsButtonDisabled] = useState<boolean>(true);
+  const [errors, setErrors] = useState<Record<string, string>>({});
+
+  const validate = (name: string, value: string) => {
+    let error = '';
+    if (name === 'email' && !value.includes('@')) {
+      error = 'Please enter a valid email address';
+    } else if (name === 'comment' && value.trim().length < 30) {
+      error = 'Description must be at least 30 characters';
+    }
+    setErrors((prevErrors) => ({
+      ...prevErrors,
+      [name]: error,
+    }));
+  };
 
   const handleInputChange = (name: string, value: string) => {
     setFormValues((prevValues) => ({
@@ -34,8 +48,12 @@ function ReportSiteForm() {
       [name]: value,
     }));
 
-    if (name === 'comment') {
-      setIsButtonDisabled(value.trim().length < 30);
+    validate(name, value);
+
+    const shouldBeDisabled = value.trim().length < 30;
+
+    if (shouldBeDisabled !== isButtonDisabled) {
+      setIsButtonDisabled(shouldBeDisabled);
     }
   };
   const resetFormValues = () => {
@@ -109,6 +127,7 @@ function ReportSiteForm() {
             isRequired
             onChange={(value) => handleInputChange('email', value)}
             label="Your email address"
+            error={errors.email}
           />
         </div>
 
@@ -132,6 +151,7 @@ function ReportSiteForm() {
             bottomText="Description must contain at least 30 characters"
             onChange={(value) => handleInputChange('comment', value)}
             label="Description"
+            error={errors.comment}
           />
         </div>
 

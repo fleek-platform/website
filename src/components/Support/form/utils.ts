@@ -49,11 +49,14 @@ export const submitForm = async (
       resetFn();
     }
   } catch (error) {
-    const errorMsg =
-      error instanceof Error
-        ? error.message
-        : "We're sorry, but there was an error submitting your request. Please try again later. If the issue persists, let us know to help us improve";
-    toast.error(errorMsg);
+    let errorMsg: string;
+    if (error instanceof Error) {
+      errorMsg = error.message;
+    } else {
+      errorMsg = String(error);
+    }
+    console.error(errorMsg);
+    toast.error("We're sorry, but something went wrong. Please try again.");
   }
 };
 
