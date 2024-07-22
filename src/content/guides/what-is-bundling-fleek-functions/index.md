@@ -21,7 +21,7 @@ Since the browser downloads the bundles synchronously, page rendering is blocked
 
 ---
 
-## **Bundling for Fleek Functions**
+## Bundling for Fleek Functions
 
 Bundling is a critical step in preparing your code for deployment on Fleek. This process ensures that Fleek Functions can seamlessly integrate with any package or SDK, providing the flexibility needed to perform a wide range of functions and implement complex computational tasks at the edge. By optimizing performance and ensuring perpetual availability, bundling enhances the efficiency and reliability of your applications.
 
@@ -42,10 +42,9 @@ The <u>[Fleek CLI](https://fleek.xyz/docs/cli/)</u> manages this process with pr
 4. **Simplifying code transport**
     
     By composing all source code files into a single file, bundling simplifies the process of transporting your code. This is particularly useful for deployment to distributed storage systems like IPFS or S3, where a single bundled file is easier to manage and deploy than multiple files.
-    
+ 
 
-### **How the Fleek CLI handles bundling**
-
+### How the Fleek CLI handles bundling
 
 ![](./bundlegraphic.png)
 
