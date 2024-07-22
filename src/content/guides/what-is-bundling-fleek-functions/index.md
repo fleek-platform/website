@@ -28,52 +28,50 @@ Bundling is a critical step in preparing your code for deployment on Fleek. This
 The <u>[Fleek CLI](https://fleek.xyz/docs/cli/)</u> manages this process with precision, packaging your code and its dependencies in a way that maximizes performance and minimizes potential issues. This streamlined approach not only simplifies the deployment process but also significantly improves the developer experience by allowing you to focus on just writing code. Here’s a clear and concise guide on how the Fleek CLI handles bundling and how it enhances the overall developer experience:
 
 1. **Mitigating import strategy issues**
-    
-    Different projects might use various importing strategies. Bundling standardizes these strategies, reducing compatibility issues across different environments and modules.
-    
+
+   Different projects might use various importing strategies. Bundling standardizes these strategies, reducing compatibility issues across different environments and modules.
+
 2. **Polyfilling unsupported features**
-    
-    Bundling provides a convenient way to polyfill unsupported Node.js features, ensuring your code runs smoothly in the Deno runtime environment used by the Fleek Network.
-    
+
+   Bundling provides a convenient way to polyfill unsupported Node.js features, ensuring your code runs smoothly in the Deno runtime environment used by the Fleek Network.
+
 3. **Improving performance**
-    
-    Bundling makes the source code more performant by reducing the number of network requests needed to load different modules and scripts in the browser. This consolidated approach leads to faster load times and better runtime performance for web applications.
-    
+
+   Bundling makes the source code more performant by reducing the number of network requests needed to load different modules and scripts in the browser. This consolidated approach leads to faster load times and better runtime performance for web applications.
+
 4. **Simplifying code transport**
-    
-    By composing all source code files into a single file, bundling simplifies the process of transporting your code. This is particularly useful for deployment to distributed storage systems like IPFS or S3, where a single bundled file is easier to manage and deploy than multiple files.
- 
+
+   By composing all source code files into a single file, bundling simplifies the process of transporting your code. This is particularly useful for deployment to distributed storage systems like IPFS or S3, where a single bundled file is easier to manage and deploy than multiple files.
 
 ### How the Fleek CLI handles bundling
 
 ![](./bundlegraphic.png)
 
 1. **Loading the root file**
-    
-    When you initiate bundling, the Fleek CLI starts by loading a root file from the path you specify. This root file serves as the entry point for the application.
-    
+
+   When you initiate bundling, the Fleek CLI starts by loading a root file from the path you specify. This root file serves as the entry point for the application.
+
 2. **Bundling with esbuild**
-    
-    The CLI uses `esbuild` to bundle all your code, along with any third-party modules your code depends on. Bundling helps to:
-    
-    - **Optimize performance:** By combining all code into a single file, the startup performance improves as loading the script is easier and quicker.
-    - **Ensure compatibility:** Bundling ensures that all necessary dependencies are included, and unnecessary dependencies are striped off, avoiding runtime errors due to missing modules.
-    - **Skip unnecessary steps:** Users have the option to skip the bundling step if desired, or bundle them manually to fit their use case.
+
+   The CLI uses `esbuild` to bundle all your code, along with any third-party modules your code depends on. Bundling helps to:
+
+   - **Optimize performance:** By combining all code into a single file, the startup performance improves as loading the script is easier and quicker.
+   - **Ensure compatibility:** Bundling ensures that all necessary dependencies are included, and unnecessary dependencies are striped off, avoiding runtime errors due to missing modules.
+   - **Skip unnecessary steps:** Users have the option to skip the bundling step if desired, or bundle them manually to fit their use case.
 
 3. **Deno runtime and polyfills**
-    
-    Fleek Network uses Deno’s core engine to interpret JavaScript and TypeScript (coming soon) code.
-    
+
+   Fleek Network uses Deno’s core engine to interpret JavaScript and TypeScript (coming soon) code.
 
 **N.B.**: If you encounter any error while bundling your files, please reach out to us on <u>[Discord](https://discord.gg/3jaaE9Nc)</u>.
 
 4. **Unsupported Node.js modules**
-    
-    Due to security and compatibility concerns, certain Node.js modules cannot be supported by the Fleek CLI. Examples include:
-    
-    - **`fs` (File system):** Deno handles file system operations differently. For security reasons, direct file system access is restricted.
-    - `child_process`: Spawning new processes can pose security risks, hence it’s not supported.
-    - `dgram`: Sending and receiving UDP packets is not supported due to compatibility issues.
+
+   Due to security and compatibility concerns, certain Node.js modules cannot be supported by the Fleek CLI. Examples include:
+
+   - **`fs` (File system):** Deno handles file system operations differently. For security reasons, direct file system access is restricted.
+   - `child_process`: Spawning new processes can pose security risks, hence it’s not supported.
+   - `dgram`: Sending and receiving UDP packets is not supported due to compatibility issues.
 
 ---
 
