@@ -10,6 +10,12 @@ import { removeProtocolFromUrl } from '@utils/url';
 import Spinner from '@components/Spinner';
 import SupportUnavailable from '../SupportUnavailable';
 import DropDown from './ui/DropDown';
+import settings from '@base/settings.json';
+
+type SelectedCategoryType = {
+  id: string;
+  value: string;
+};
 
 export const { zenDeskEndpoint } = (() => {
   const zenDeskEndpoint = removeProtocolFromUrl(
@@ -33,12 +39,21 @@ const defaultFormValues = {
   comment: '',
 };
 
+const defaultCategory = {
+  id: 'none',
+  value: '-',
+};
+
+let formSubmissionObject;
+
 function NewRequestForm() {
   const [formValues, setFormValues] = useState<FormValuesType>({
     ...defaultFormValues,
   });
   const [isHealthy, setIsHealthy] = useState<boolean>(false);
   const [isLoading, setIsLoading] = useState<boolean>(true);
+  const [selectedCategory, setSelectedCategory] =
+    useState<SelectedCategoryType>({ ...defaultCategory });
 
   const handleInputChange = (name: string, value: string | FileList) => {
     setFormValues((prevValues) => ({
@@ -51,11 +66,16 @@ function NewRequestForm() {
     setFormValues({
       ...defaultFormValues,
     });
+    setSelectedCategory({ ...defaultCategory });
   };
 
   const handleFormSubmit = async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-    await submitForm(formValues, resetFormValues);
+    formSubmissionObject = {
+      ...formValues,
+      subject: `${selectedCategory.value} ${formValues.subject}`,
+    };
+    await submitForm(formSubmissionObject, resetFormValues);
   };
 
   async function fetchHealthStatus() {
@@ -99,7 +119,8 @@ function NewRequestForm() {
     value: string;
     id: string;
   }) => {
-    console.log(value, id);
+    console.log({ value, id });
+    setSelectedCategory({ value, id });
   };
   return (
     <form
@@ -128,6 +149,14 @@ function NewRequestForm() {
           />
         </div>
 
+        <DropDown
+          options={settings.support.requestFormCategories || []}
+          selectedValue={selectedCategory.value}
+          dropdownLabel="Category"
+          isRequired
+          onChange={handleCategoryChange}
+        />
+
         <div className="my-[1.6rem] lg:my-[1.8rem]">
           <Input
             type="text"
@@ -150,12 +179,6 @@ function NewRequestForm() {
             label="Description"
           />
         </div>
-
-        <DropDown
-          options={[{ label: 'Stuff', value: 'Stuff', id: '1' }]}
-          selectedValue={'-'}
-          onChange={handleCategoryChange}
-        />
 
         <Button />
       </div>
