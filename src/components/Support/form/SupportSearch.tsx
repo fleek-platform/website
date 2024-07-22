@@ -3,6 +3,7 @@ import React, { useState, useEffect, useRef } from 'react';
 import toast from 'react-hot-toast';
 import { IoIosSearch } from 'react-icons/io';
 import { removeProtocolFromUrl } from '@utils/url';
+import DropDown from './ui/DropDown';
 
 interface Hit {
   id: string;

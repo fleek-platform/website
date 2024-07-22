@@ -9,6 +9,7 @@ import FormTitle from './ui/FormTitle';
 import { removeProtocolFromUrl } from '@utils/url';
 import Spinner from '@components/Spinner';
 import SupportUnavailable from '../SupportUnavailable';
+import DropDown from './ui/DropDown';
 
 export const { zenDeskEndpoint } = (() => {
   const zenDeskEndpoint = removeProtocolFromUrl(
@@ -91,6 +92,15 @@ function NewRequestForm() {
     return <SupportUnavailable />;
   }
 
+  const handleCategoryChange = ({
+    value,
+    id,
+  }: {
+    value: string;
+    id: string;
+  }) => {
+    console.log(value, id);
+  };
   return (
     <form
       onSubmit={handleFormSubmit}
@@ -140,6 +150,12 @@ function NewRequestForm() {
             label="Description"
           />
         </div>
+
+        <DropDown
+          options={[{ label: 'Stuff', value: 'Stuff', id: '1' }]}
+          selectedValue={'-'}
+          onChange={handleCategoryChange}
+        />
 
         <Button />
       </div>
