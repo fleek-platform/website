@@ -37,7 +37,7 @@ const Footer = () => {
                 rel="noopener noreferrer"
                 target="_blank"
               >
-                <FaXTwitter fontSize={19} className="mt-2 text-gray-dark-8" />
+                <FaXTwitter fontSize={19} className="mt-2 text-gray-dark-11" />
               </a>
               <a
                 href="https://discord.gg/fleek"
