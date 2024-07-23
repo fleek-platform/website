@@ -33,7 +33,7 @@
     }
 
     a {
-      @apply text-yellow;
+      @apply text-white decoration-gray-dark-8;
     }
 
     ul {
@@ -52,7 +52,7 @@
     td {
       @apply mb-24 border p-10;
       a {
-        @apply text-yellow;
+        @apply text-white decoration-gray-dark-8;
       }
       th {
         @apply border bg-gray-dark-4 p-10 text-ui-white;
