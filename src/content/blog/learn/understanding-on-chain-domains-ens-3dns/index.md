@@ -102,13 +102,13 @@ Onchain domain providers come with the same promise — making blockchain addres
 
 Along similar lines, let’s take a technical examination of the differences between ENS domains and 3DNS domains.
 
-|  | ENS | 3DNS |
-| --- | --- | --- |
-| Domain minting process | Minted directly on-chain through smart contracts on Ethereum. | Initially registered off-chain through an ICANN compliant registrar and then its paired NFT is minted on-chain. |
-| Integration with traditional DNS | Operates exclusively with .eth TLD. | Supports integration with traditional TLDs like .com, .xyz, and .io. |
-| Name resolution | Cannot be resolved natively in browsers and requires browser extensions. | Resolve natively in standard web browsers, courtesy of their ICANN compliance. |
-| Purpose | Primarily focuses on making Ethereum more readable and user-friendly. | 3DNS domains focus on making the transition to web3 easier for traditional businesses. |
-| Security | Inherits security from Ethereum. | Users self-custody their 3DNS domains as ERC-721 tokens. |
+|                                  | ENS                                                                      | 3DNS                                                                                                            |
+| -------------------------------- | ------------------------------------------------------------------------ | --------------------------------------------------------------------------------------------------------------- |
+| Domain minting process           | Minted directly on-chain through smart contracts on Ethereum.            | Initially registered off-chain through an ICANN compliant registrar and then its paired NFT is minted on-chain. |
+| Integration with traditional DNS | Operates exclusively with .eth TLD.                                      | Supports integration with traditional TLDs like .com, .xyz, and .io.                                            |
+| Name resolution                  | Cannot be resolved natively in browsers and requires browser extensions. | Resolve natively in standard web browsers, courtesy of their ICANN compliance.                                  |
+| Purpose                          | Primarily focuses on making Ethereum more readable and user-friendly.    | 3DNS domains focus on making the transition to web3 easier for traditional businesses.                          |
+| Security                         | Inherits security from Ethereum.                                         | Users self-custody their 3DNS domains as ERC-721 tokens.                                                        |
 
 ## **How to choose an Onchain domain provider?**
 

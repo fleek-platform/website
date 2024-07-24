@@ -1,7 +1,7 @@
 ---
-title: 'The Importance of Core Web Vitals in SEO'
+title: 'The importance of Core Web Vitals in SEO'
 date: 2024-07-24
-desc: 'Learn how to optimize your site for Google's Core Web Vitals and boost your SEO. Our comprehensive guide covers LCP, INP, CLS, and more.'
+desc: 'Learn how to optimize your site for Core Web Vitals and boost your SEO. Our comprehensive guide covers LCP, INP, CLS, and more.'
 thumbnail: './corewebvitals.png'
 image: './corewebvitals.png'
 author:

@@ -118,4 +118,4 @@ Edge computing is used primarily to improve response times and save bandwidth by
 
 **Will edge computing replace cloud computing?**
 
-No. Edge computing complements cloud computing instead of replacing it. That’s because edge computing excels at processing data closer to its source while cloud computing handles large-scale data processing, storage, and complex tasks not needing immediate responses.****
+No. Edge computing complements cloud computing instead of replacing it. That’s because edge computing excels at processing data closer to its source while cloud computing handles large-scale data processing, storage, and complex tasks not needing immediate responses.\*\*\*\*
