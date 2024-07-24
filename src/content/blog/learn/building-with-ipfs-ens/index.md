@@ -1,5 +1,5 @@
 ---
-title: 'Building with ENS and IPFS: A Developers Guide'
+title: 'Building with ENS and IPFS: A Developer Guide'
 date: 2024-07-24
 desc: 'Learn how to leverage IPFS and ENS to build powerful onchain apps and websites'
 thumbnail: './ipfsens.png'
