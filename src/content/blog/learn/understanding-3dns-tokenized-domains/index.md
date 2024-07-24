@@ -1,5 +1,5 @@
 ---
-title: 'Understanding 3DNS and Tokenized Domains: A Developer's Guide'
+title: 'Understanding 3DNS and Tokenized Domains: A Developers Guide'
 date: 2024-07-24
 desc: '3DNS is tokenizing domains as NFTs, allowing owners to self-custody their domains. Explore how 3DNS is redefining what domains can do.'
 thumbnail: './3dnsdevguide.png'

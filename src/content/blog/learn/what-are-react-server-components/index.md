@@ -1,7 +1,7 @@
 ---
 title: 'What Are React Server Components?'
 date: 2024-07-24
-desc: 'Learn about React Server Components, their benefits, limitations, and how they can improve performance for static sites and decentralized hosting.'
+desc: 'Learn about React Server Components, their benefits, limitations, and how they can improve performance for static sites and onchain hosting.'
 thumbnail: './reactserver.png'
 image: './reactserver.png'
 author:
