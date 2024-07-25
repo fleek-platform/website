@@ -31,30 +31,22 @@ const GlobeWithFloatingCards = () => {
                 Fleek is an edge-optimized cloud platform. Effortlessly build,
                 ship and scale highly performant apps.
               </p>
-              <div className="flex flex-col justify-center gap-16 lg:flex-row">
-                <div className="typo-btn-l ">
+              <div className="flex flex-col justify-center gap-16 px-80 sm:px-0 lg:flex-row">
+                <div className="typo-btn-l">
                   <a
                     href="https://app.fleek.xyz/"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-block w-fit"
                   >
-                    <ButtonYellow
-                      border="border-yellow"
-                      className="flex items-center justify-center gap-12 "
-                    >
-                      <div>
-                        <img src="/svg/bolt-yellow.svg" />
-                      </div>
-                      <div>Try it now</div>
+                    <ButtonYellow>
+                      <img src="/svg/bolt-yellow.svg" />
+                      Try it now
                     </ButtonYellow>
                   </a>
                 </div>
                 <div className="typo-btn-l">
-                  <Link href="/docs" className="w-full">
-                    <ButtonGray className="flex items-center justify-center gap-12 px-10">
-                      View docs
-                    </ButtonGray>
+                  <Link href="/docs">
+                    <ButtonGray>View docs</ButtonGray>
                   </Link>
                 </div>
               </div>

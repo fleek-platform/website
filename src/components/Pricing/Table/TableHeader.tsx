@@ -22,7 +22,7 @@ const TableHeader = ({
       href={cta.href}
       target="_blank"
       rel="noopener noreferrer"
-      className="w-full"
+      className="typo-btn-l w-full"
     >
       <PricingButton bg={btnBg} fontColor={fontColor} hoverBtnBg={hoverBtnBg}>
         <p>{cta.text}</p>

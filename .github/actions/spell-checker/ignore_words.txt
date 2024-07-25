@@ -484,3 +484,9 @@ yourname
 youtube
 zero-trust
 zip
+docscards
+docstitledcards
+sm
+btn
+buttonyellow
+noopener
