@@ -8,6 +8,7 @@ interface Props {
 
 const ButtonGray: React.FC<React.PropsWithChildren<Props>> = ({
   onClick,
+  className,
   ...props
 }) => {
   return (
@@ -18,7 +19,7 @@ const ButtonGray: React.FC<React.PropsWithChildren<Props>> = ({
       <Text
         as="span"
         style="btn-l"
-        className={`text-gray-dark-11 ${props.className}`}
+        className={`text-gray-dark-11 ${className}`}
       >
         {props.children}
       </Text>
