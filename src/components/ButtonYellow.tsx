@@ -13,7 +13,7 @@ const ButtonYellow: React.FC<React.PropsWithChildren<Props>> = (props) => {
       <Text
         as="span"
         style="btn-l"
-        className={`text-yellow-dark-11 ${props.className}`}
+        className={`flex items-center justify-center gap-12 text-yellow-dark-11 ${props.className}`}
       >
         {props.children}
       </Text>

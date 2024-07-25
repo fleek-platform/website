@@ -12,7 +12,7 @@ const ButtonGray: React.FC<React.PropsWithChildren<Props>> = ({
 }) => {
   return (
     <button
-      className={`${props.border} inline-block rounded-12 bg-gray-dark-4 px-32 py-16 hover:bg-gray-dark-5`}
+      className={`${props.border} inline-block w-full rounded-12 bg-gray-dark-4 px-32 py-16 hover:bg-gray-dark-5`}
       onClick={onClick}
     >
       <Text
