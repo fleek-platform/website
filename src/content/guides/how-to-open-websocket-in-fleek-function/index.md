@@ -40,21 +40,21 @@ After running the commands above, your directory should now look like this:
 Ensure you have the Fleek CLI installed globally on your machine and log in following the <u>[quickstart guide](https://fleek.xyz/docs/cli/)</u>. Create a JavaScript file within your project’s directory using the touch command, or create it manually using your preferred code editor within your directory. Before we get started, you should set up your `webpack.config.js` to like the below:
 
 ```jsx
-const path = require("path");
+const path = require('path');
 
 module.exports = {
-	entry: "./src/index.js",
-	output: {
-		library: {
-			type: "module",	
-		},
-		filename: "bundle.js",
-		path: path.resolve(__dirname, "dist"),
-	},
-	mode: "none",
-	experiments: {
-		outputModule: true,
-	},
+  entry: './src/index.js',
+  output: {
+    library: {
+      type: 'module',
+    },
+    filename: 'bundle.js',
+    path: path.resolve(__dirname, 'dist'),
+  },
+  mode: 'none',
+  experiments: {
+    outputModule: true,
+  },
 };
 ```
 
@@ -77,57 +77,56 @@ You can learn more about deploying bundled Fleek Functions in this <u>[guide](ht
 We will be using the web3.js SDK to connect to a smart contract and listen to a custom event which we will then perform an action when that event is emitted from the contract. The code to make all of this happen should look like this:
 
 ```jsx
-
 export const main = async () => {
   const web3 = new Web3(
-    "wss://arb-mainnet.g.alchemy.com/v2/kkd9LJZTw2aZZ12DbeZDUTymIoRifxqW"
+    'wss://arb-mainnet.g.alchemy.com/v2/kkd9LJZTw2aZZ12DbeZDUTymIoRifxqW',
   );
 
   // ABI of your contract, including functions and events
   const abi = [
     {
       inputs: [
-        { internalType: "address", name: "_api3ServerV1", type: "address" },
-        { internalType: "bytes32", name: "_dapiNameHash", type: "bytes32" },
-        { internalType: "address", name: "_oevBeneficiary", type: "address" },
+        { internalType: 'address', name: '_api3ServerV1', type: 'address' },
+        { internalType: 'bytes32', name: '_dapiNameHash', type: 'bytes32' },
+        { internalType: 'address', name: '_oevBeneficiary', type: 'address' },
       ],
-      stateMutability: "nonpayable",
-      type: "constructor",
+      stateMutability: 'nonpayable',
+      type: 'constructor',
     },
     {
       inputs: [],
-      name: "api3ServerV1",
-      outputs: [{ internalType: "address", name: "", type: "address" }],
-      stateMutability: "view",
-      type: "function",
+      name: 'api3ServerV1',
+      outputs: [{ internalType: 'address', name: '', type: 'address' }],
+      stateMutability: 'view',
+      type: 'function',
     },
     {
       inputs: [],
-      name: "dapiNameHash",
-      outputs: [{ internalType: "bytes32", name: "", type: "bytes32" }],
-      stateMutability: "view",
-      type: "function",
+      name: 'dapiNameHash',
+      outputs: [{ internalType: 'bytes32', name: '', type: 'bytes32' }],
+      stateMutability: 'view',
+      type: 'function',
     },
     {
       inputs: [],
-      name: "oevBeneficiary",
-      outputs: [{ internalType: "address", name: "", type: "address" }],
-      stateMutability: "view",
-      type: "function",
+      name: 'oevBeneficiary',
+      outputs: [{ internalType: 'address', name: '', type: 'address' }],
+      stateMutability: 'view',
+      type: 'function',
     },
     {
       inputs: [],
-      name: "read",
+      name: 'read',
       outputs: [
-        { internalType: "int224", name: "value", type: "int224" },
-        { internalType: "uint32", name: "timestamp", type: "uint32" },
+        { internalType: 'int224', name: 'value', type: 'int224' },
+        { internalType: 'uint32', name: 'timestamp', type: 'uint32' },
       ],
-      stateMutability: "view",
-      type: "function",
+      stateMutability: 'view',
+      type: 'function',
     },
   ];
 
-  const contractAddress = "0x5Aba6949BC70c9eDA5E1E5B8d4aD3565f9Acbd09";
+  const contractAddress = '0x5Aba6949BC70c9eDA5E1E5B8d4aD3565f9Acbd09';
 
   const contract = new web3.eth.Contract(abi, contractAddress);
 
@@ -137,7 +136,7 @@ export const main = async () => {
   } catch (error) {
     return [`Error: ${error.message}`];
   }
-}
+};
 ```
 
 **Web3 Setup**: The code initializes a Web3 instance using a WebSocket provider URL (`Alchemy's Sepolia testnet`), allowing interaction with the Ethereum blockchain.
