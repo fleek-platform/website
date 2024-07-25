@@ -485,7 +485,6 @@ youtube
 zero-trust
 zip
 docscards
-buttonyellow
 docstitledcards
 sm
 btn
