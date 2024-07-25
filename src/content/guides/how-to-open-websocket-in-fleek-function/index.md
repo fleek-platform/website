@@ -1,6 +1,6 @@
 ---
 title: 'How to open a Websocket in a Fleek Function'
-date: 2023-07-25
+date: 2024-07-25
 desc: 'Learn how to deploy a simple Web3 Function that uses a websocket within a Fleek Function to stream Ethereum smart contract data'
 thumbnail: './websockets.png'
 image: './websockets.png'
