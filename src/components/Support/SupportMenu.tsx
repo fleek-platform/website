@@ -28,20 +28,21 @@ function SupportMenuDesktop({ currentPagePath }: SupportMenuProps) {
   return (
     <ul className="hidden border-b-1 border-gray-dark-6 pl-16 md:flex md:items-center md:gap-[5px] lg:px-28">
       {supportMenu.map((item) => (
-        <li
-          key={item.id}
-          className={clsx(
-            'mb-[.4rem] cursor-pointer rounded-[8px] px-[15px] py-[7px] text-[1.5rem] hover:bg-gray-dark-4 hover:text-gray-dark-11 md:my-[1.5rem] xl:text-[1.6rem]',
-            {
-              'bg-yellow-dark-4 text-yellow-dark-11': pathContains(
-                item.path,
-                currentPagePath,
-              ),
-            },
-          )}
-        >
-          <a href={item.path}>{item.title}</a>
-        </li>
+        <a key={item.id} href={item.path}>
+          <li
+            className={clsx(
+              'mb-[.4rem] cursor-pointer rounded-[8px] px-[15px] py-[7px] text-[1.5rem] hover:bg-gray-dark-4 hover:text-gray-dark-11 md:my-[1.5rem] xl:text-[1.6rem]',
+              {
+                'bg-yellow-dark-4 text-yellow-dark-11': pathContains(
+                  item.path,
+                  currentPagePath,
+                ),
+              },
+            )}
+          >
+            {item.title}
+          </li>
+        </a>
       ))}
     </ul>
   );
@@ -78,17 +79,21 @@ function SupportMenuMobile({ currentPagePath }: SupportMenuProps) {
         )}
       >
         {supportMenu.map((item) => (
-          <li
-            key={item.id}
-            className={clsx(
-              'cursor-pointer p-4 text-[1.3rem] hover:text-yellow-dark-11',
-              {
-                'text-yellow-dark-11': pathContains(item.path, currentPagePath),
-              },
-            )}
-          >
-            <a href={item.path}>{item.title}</a>
-          </li>
+          <a key={item.id} href={item.path}>
+            <li
+              className={clsx(
+                'cursor-pointer p-4 text-[1.3rem] hover:text-yellow-dark-11',
+                {
+                  'text-yellow-dark-11': pathContains(
+                    item.path,
+                    currentPagePath,
+                  ),
+                },
+              )}
+            >
+              {item.title}
+            </li>
+          </a>
         ))}
       </ul>
     </>
