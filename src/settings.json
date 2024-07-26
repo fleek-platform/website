@@ -282,6 +282,33 @@
     "zendesk": {
       "publicSnippetKey": "c0ecb1c1-369a-4543-b528-cbba3f2fb35d"
     },
+    "requestFormCategories": [
+      {
+        "id": "1",
+        "label": "General Inquiry",
+        "value": "General Inquiry"
+      },
+      {
+        "id": "2",
+        "label": "Billing",
+        "value": "Billing"
+      },
+      {
+        "id": "4",
+        "label": "Feature Request",
+        "value": "Feature Request"
+      },
+      {
+        "id": "5",
+        "label": "Bug Report",
+        "value": "Bug Report"
+      },
+      {
+        "id": "6",
+        "label": "Other",
+        "value": "Other"
+      }
+    ],
     "supportMenu": [
       {
         "id": 1,

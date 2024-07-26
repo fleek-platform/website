@@ -73,9 +73,9 @@ function ReportSiteForm() {
     return <SupportUnavailable />;
   }
 
-  const handleFormSubmit = (event: FormEvent<HTMLFormElement>) => {
+  const handleFormSubmit = async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-    submitForm(formValues, resetFormValues);
+    await submitForm(formValues, resetFormValues);
   };
 
   return (
