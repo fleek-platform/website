@@ -9,6 +9,13 @@ import FormTitle from './ui/FormTitle';
 import { removeProtocolFromUrl } from '@utils/url';
 import Spinner from '@components/Spinner';
 import SupportUnavailable from '../SupportUnavailable';
+import DropDown from './ui/DropDown';
+import settings from '@base/settings.json';
+
+type SelectedCategoryType = {
+  id: string;
+  value: string;
+};
 
 export const { zenDeskEndpoint } = (() => {
   const zenDeskEndpoint = removeProtocolFromUrl(
