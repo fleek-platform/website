@@ -119,7 +119,6 @@ function NewRequestForm() {
     value: string;
     id: string;
   }) => {
-    console.log({ value, id });
     setSelectedCategory({ value, id });
   };
   return (
