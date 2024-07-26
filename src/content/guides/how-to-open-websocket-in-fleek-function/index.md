@@ -139,15 +139,15 @@ export const main = async () => {
 };
 ```
 
-**Web3 Setup**: The code initializes a Web3 instance using a WebSocket provider URL (`Alchemy's Sepolia testnet`), allowing interaction with the Ethereum blockchain.
+**Web3 Setup**: The code initializes a Web3 instance using a WebSocket provider URL (`Alchemy's Arbitrum mainnet`), allowing interaction with the Ethereum blockchain.
 
-**Contract ABI and Address**: It defines an ABI (Application Binary Interface) that includes a function `readDataFeed` and an event `DataFeedRead`. This ABI represents the interface for a specific smart contract deployed at the address `0xAB8e46012957020B9ECEFFA73B453D396A8d4738`.
+**Contract ABI and Address**: It defines an ABI (Application Binary Interface) that includes a function `readDataFeed` and an event `DataFeedRead`. This ABI represents the interface for a specific smart contract deployed at the address `0x5Aba6949BC70c9eDA5E1E5B8d4aD3565f9Acbd09`.
 
 **Contract Instance**: A contract instance is created using the ABI and contract address, enabling interactions with the specified smart contract.
 
-**Event Listener**: The code sets up a listener for the `DataFeedRead` event. This event includes information such as `proxy` (address), `value` (int224), and `timestamp` (uint32).
+**Event Listener**: The code sets up a listener to call the `read()` event. This event includes information such as `value` (int224), and `timestamp` (uint32).
 
-**Event Handling**: When the DataFeedRead event is emitted by the contract, the listener captures the event data. The data is stored in the messages array. If an error occurs, the promise is rejected. Otherwise, the promise resolves with the collected event data.
+**Event Handling**: When the `read()` event is emitted by the contract, the listener captures the event data. The data is returned as an array of strings. If an error occurs, the promise is rejected. Otherwise, the promise resolves with the collected event data.
 
 ### **Bundling the code with webpack.**
 
