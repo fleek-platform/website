@@ -3,10 +3,8 @@ import '@styles/globals.css';
 import '@styles/docPage.css';
 import '@styles/admonition.css';
 import BaseHtml from '@layouts/BaseHtml.astro';
-import Announcement from '@components/Announcement';
-import Container from '@components/Container';
-import Nav from '@components/NavBar';
-import Footer from '@components/Footer';
+import InjectCodeCopy from '@components/InjectCodeCopy.astro';
+
 import {
   generateSidebarDSByUserOrder,
   type GenerateSidebarResponse,
@@ -120,4 +118,5 @@ const image = '';
       </aside>
     </div>
   </main>
+  <InjectCodeCopy />
 </BaseHtml>

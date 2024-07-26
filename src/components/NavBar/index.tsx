@@ -264,32 +264,23 @@ const Nav = ({ pathname, isSupportCenter }: NavProps) => {
           </button>
         </div>
 
-        <div className="mx-15 flex flex-col justify-center gap-16">
-          <div className="typo-btn-l ">
+        <div className="mx-15 flex justify-center gap-16">
+          <div className="typo-btn-l flex-1">
             <a
               href="https://app.fleek.xyz/"
               target="_blank"
               rel="noopener noreferrer"
-              className="w-full"
             >
-              <ButtonYellow
-                border="border-yellow"
-                className="flex items-center justify-center gap-12 "
-              >
-                <div>Get started</div>
-              </ButtonYellow>
+              <ButtonYellow>Get started</ButtonYellow>
             </a>
           </div>
-          <div className="typo-btn-l">
+          <div className="typo-btn-l flex-1">
             <a
               href="https://app.fleek.xyz/"
               target="_blank"
               rel="noopener noreferrer"
-              className="w-full"
             >
-              <ButtonGray className="flex items-center justify-center gap-12 px-10 ">
-                <div>Log in</div>
-              </ButtonGray>
+              <ButtonGray>Log in</ButtonGray>
             </a>
           </div>
         </div>
