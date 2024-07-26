@@ -9,13 +9,13 @@ import FormTitle from './ui/FormTitle';
 import { removeProtocolFromUrl } from '@utils/url';
 import Spinner from '@components/Spinner';
 import SupportUnavailable from '../SupportUnavailable';
-import DropDown from './ui/DropDown';
-import settings from '@base/settings.json';
+// import DropDown from './ui/DropDown';
+// import settings from '@base/settings.json';
 
-type SelectedCategoryType = {
-  id: string;
-  value: string;
-};
+// type SelectedCategoryType = {
+//   id: string;
+//   value: string;
+// };
 
 export const { zenDeskEndpoint } = (() => {
   const zenDeskEndpoint = removeProtocolFromUrl(
@@ -39,10 +39,10 @@ const defaultFormValues = {
   comment: '',
 };
 
-const defaultCategory = {
-  id: 'none',
-  value: '-',
-};
+// const defaultCategory = {
+//   id: 'none',
+//   value: '-',
+// };
 
 let formSubmissionObject;
 
@@ -52,8 +52,8 @@ function NewRequestForm() {
   });
   const [isHealthy, setIsHealthy] = useState<boolean>(false);
   const [isLoading, setIsLoading] = useState<boolean>(true);
-  const [selectedCategory, setSelectedCategory] =
-    useState<SelectedCategoryType>({ ...defaultCategory });
+  // const [selectedCategory, setSelectedCategory] =
+  //   useState<SelectedCategoryType>({ ...defaultCategory });
 
   const handleInputChange = (name: string, value: string | FileList) => {
     setFormValues((prevValues) => ({
@@ -66,14 +66,14 @@ function NewRequestForm() {
     setFormValues({
       ...defaultFormValues,
     });
-    setSelectedCategory({ ...defaultCategory });
+    // setSelectedCategory({ ...defaultCategory });
   };
 
   const handleFormSubmit = async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     formSubmissionObject = {
       ...formValues,
-      subject: `${selectedCategory.value} ${formValues.subject}`,
+      // subject: `${selectedCategory.value} ${formValues.subject}`,
     };
     await submitForm(formSubmissionObject, resetFormValues);
   };
@@ -112,15 +112,15 @@ function NewRequestForm() {
     return <SupportUnavailable />;
   }
 
-  const handleCategoryChange = ({
-    value,
-    id,
-  }: {
-    value: string;
-    id: string;
-  }) => {
-    setSelectedCategory({ value, id });
-  };
+  // const handleCategoryChange = ({
+  //   value,
+  //   id,
+  // }: {
+  //   value: string;
+  //   id: string;
+  // }) => {
+  //   setSelectedCategory({ value, id });
+  // };
   return (
     <form
       onSubmit={handleFormSubmit}
@@ -148,13 +148,13 @@ function NewRequestForm() {
           />
         </div>
 
-        <DropDown
+        {/* <DropDown
           options={settings.support.requestFormCategories || []}
           selectedValue={selectedCategory.value}
           dropdownLabel="Category"
           isRequired
           onChange={handleCategoryChange}
-        />
+        /> */}
 
         <div className="my-[1.6rem] lg:my-[1.8rem]">
           <Input
