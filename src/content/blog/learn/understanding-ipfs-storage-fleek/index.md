@@ -2,8 +2,8 @@
 title: 'Understanding IPFS Storage: An In-Depth Guide'
 date: 2024-07-29
 desc: 'Everything you need to know to get started with IPFS Storage and Fleek'
-thumbnail: './ipfsstorage.png'
-image: './ipfsstorage.png'
+thumbnail: './ipfsstorage2.png'
+image: './ipfsstorage2.png'
 author:
   - 'Fleek'
 ---
@@ -79,13 +79,13 @@ IPFS increases data availability by storing copies of data across multiple nodes
 
 ## **IPFS Storage vs. Traditional Storage**
 
-| **Feature** | **IPFS Storage** | **Traditional Storage** |
-| --- | --- | --- |
-| Architecture | Onchain | Centralized |
-| Data Retrieval | From multiple nodes | From specific servers |
-| Fault Tolerance | High (distributed) | Lower (single points of failure) |
-| Cost | Potentially lower (leveraging network storage) | Higher (dedicated infrastructure) |
-| Security | High (content-addressed, tamper-proof) | Variable (dependent on server security) |
+| **Feature**     | **IPFS Storage**                               | **Traditional Storage**                 |
+| --------------- | ---------------------------------------------- | --------------------------------------- |
+| Architecture    | Onchain                                        | Centralized                             |
+| Data Retrieval  | From multiple nodes                            | From specific servers                   |
+| Fault Tolerance | High (distributed)                             | Lower (single points of failure)        |
+| Cost            | Potentially lower (leveraging network storage) | Higher (dedicated infrastructure)       |
+| Security        | High (content-addressed, tamper-proof)         | Variable (dependent on server security) |
 
 ### **In-depth Comparison**
 
@@ -107,16 +107,16 @@ IPFS increases data availability by storing copies of data across multiple nodes
 ### **Practical Example**
 
 1. **Installing Fleek CLI**:
-    - Download the Fleek CLI installation package from the <u>[official website](https://app.fleek.xyz/)</u>.
-    - Follow the installation instructions for your operating system.
+   - Download the Fleek CLI installation package from the <u>[official website](https://app.fleek.xyz/)</u>.
+   - Follow the installation instructions for your operating system.
 2. **Initializing Fleek Storage**:
-    - Open your terminal or command prompt.
-    - Run the command npm install to initialize the Fleek repository.
+   - Open your terminal or command prompt.
+   - Run the command npm install to initialize the Fleek repository.
 3. **Adding a File**:
-    - Run the command fleek storage add example.txt to add a file named example.txt.
-    - The command will return a unique hash for the file.
+   - Run the command fleek storage add example.txt to add a file named example.txt.
+   - The command will return a unique hash for the file.
 4. **Retrieving a File**:
-    - Use the command fleek storage get [file hash] to retrieve and display the content of the file.
+   - Use the command fleek storage get [file hash] to retrieve and display the content of the file.
 
 ---
 
