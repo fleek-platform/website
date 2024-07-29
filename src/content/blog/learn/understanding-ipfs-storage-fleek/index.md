@@ -81,7 +81,7 @@ IPFS increases data availability by storing copies of data across multiple nodes
 
 | **Feature**     | **IPFS storage**                               | **Traditional storage**                 |
 | --------------- | ---------------------------------------------- | --------------------------------------- |
-| Architecture    | Distributed                                        | Centralized                             |
+| Architecture    | Distributed                                    | Centralized                             |
 | Data retrieval  | From multiple nodes                            | From specific servers                   |
 | Fault tolerance | High (distributed)                             | Lower (single points of failure)        |
 | Cost            | Potentially lower (leveraging network storage) | Higher (dedicated infrastructure)       |
