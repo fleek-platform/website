@@ -50,10 +50,10 @@
   }
 
   .nav-menu-mobile {
-    @apply flex  flex-col items-center justify-center;
+    @apply flex flex-col items-center justify-center;
 
     .nav-menu-item {
-      @apply relative w-full font-plex-sans   text-18;
+      @apply relative w-full font-plex-sans text-18;
     }
   }
 
@@ -68,7 +68,7 @@
   }
 
   .nav-menu-mobile-sub-menu-container {
-    @apply hidden w-full px-20 py-10  group-hover:block;
+    @apply w-full px-20 py-10;
   }
 
   .nav-sub-menu-ctas-mobile {
@@ -139,7 +139,7 @@
   } */
 
   .nav-sub-menu-nav-col-title {
-    @apply pb-20 font-sans font-sans text-12 uppercase text-gray-600 dark:text-gray-500;
+    @apply pb-20 font-sans text-12 uppercase text-gray-600 dark:text-gray-500;
   }
 
   .nav-sub-menu-nav-col-list {
