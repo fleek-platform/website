@@ -8,7 +8,7 @@ author:
   - 'Fleek'
 ---
 
-<u>[InterPlanetary File System](https://ipfs.tech/)</u> (IPFS) represents a paradigm shift in data storage and retrieval, offering an onchain approach that enhances data security, integrity, and availability. As data storage needs evolve, IPFS presents a robust alternative to traditional centralized systems, aligning with the growing trend towards going onchain in the digital world.
+<u>[InterPlanetary File System](https://ipfs.tech/)</u> (IPFS) represents a paradigm shift in data storage and retrieval, offering a distributed approach that enhances data security, integrity, and availability. As data storage needs evolve, IPFS presents a robust alternative to traditional centralized systems, aligning with the growing trend towards going onchain in the digital world.
 
 ---
 
@@ -38,9 +38,9 @@ IPFS breaks down data into smaller chunks and distributes them across various no
 
 ## **Benefits of IPFS storage**
 
-### **Onchain**
+### **Distributed**
 
-IPFS eliminates single points of failure by distributing data across a network of nodes. This onchain architecture enhances data resilience and availability.
+IPFS eliminates single points of failure by distributing data across a network of nodes. This distributed architecture enhances data resilience and availability.
 
 ### **Data integrity and security**
 
@@ -58,22 +58,22 @@ IPFS increases data availability by storing copies of data across multiple nodes
 
 ## **Use cases of IPFS storage**
 
-### **Fleek's adoption of onchain storage**
+### **Fleek's adoption of distributed storage**
 
-<u>[Fleek](https://fleek.xyz/blog/announcements/fleek-move-to-decentralized-storage/)</u> has transitioned from centralized storage to a onchain setup using IPFS, Filecoin, and Arweave. This shift enhances data availability and aligns with the principles of Web3. By separating IPFS content addressing from the storage layer, Fleek benefits from improved cost efficiency and reliability, ensuring that their web services remain robust and scalable.
+<u>[Fleek](https://fleek.xyz/blog/announcements/fleek-move-to-decentralized-storage/)</u> has transitioned from centralized storage to a distributed setup using IPFS, Filecoin, and Arweave. This shift enhances data availability and aligns with the principles of Web3. By separating IPFS content addressing from the storage layer, Fleek benefits from improved cost efficiency and reliability, ensuring that their web services remain robust and scalable.
 
 **Key benefits for Fleek:**
 
-- **Enhanced data availability**: By using an onchain storage model, Fleek ensures that data is always accessible, even if some nodes are down.
-- **Alignment with Web3 principles**: Onchain storage aligns with the core principles of Web3, promoting a more open and democratic internet.
-- **Cost efficiency**: Leveraging onchain storage can reduce operational costs compared to traditional centralized storage solutions.
+- **Enhanced data availability**: By using a distributed storage model, Fleek ensures that data is always accessible, even if some nodes are down.
+- **Alignment with Web3 principles**: Distributed storage aligns with the core principles of Web3, promoting a more open and democratic internet.
+- **Cost efficiency**: Leveraging distributed storage can reduce operational costs compared to traditional centralized storage solutions.
 
 **How Fleek implemented IPFS:**
 
 - **Separation of IPFS content addressing and storage**: Fleek uses IPFS for content addressing and Filecoin and Arweave for the storage layer.
-- **Improved scalability**: The onchain approach allows Fleek to scale its storage needs more efficiently.
+- **Improved scalability**: The distributed approach allows Fleek to scale its storage needs more efficiently.
 
-**Fleek’s move to onchain storage**: For more detailed insights into Fleek’s adoption of IPFS storage, <u>[read here](https://fleek.xyz/blog/announcements/fleek-move-to-decentralized-storage/)</u>.
+**Fleek’s move to distributed storage**: For more detailed insights into Fleek’s adoption of IPFS storage, <u>[read here](https://fleek.xyz/blog/announcements/fleek-move-to-decentralized-storage/)</u>.
 
 ---
 
@@ -81,7 +81,7 @@ IPFS increases data availability by storing copies of data across multiple nodes
 
 | **Feature**     | **IPFS storage**                               | **Traditional storage**                 |
 | --------------- | ---------------------------------------------- | --------------------------------------- |
-| Architecture    | Onchain                                        | Centralized                             |
+| Architecture    | Distributed                                    | Centralized                             |
 | Data retrieval  | From multiple nodes                            | From specific servers                   |
 | Fault tolerance | High (distributed)                             | Lower (single points of failure)        |
 | Cost            | Potentially lower (leveraging network storage) | Higher (dedicated infrastructure)       |
@@ -142,6 +142,6 @@ Ongoing research and development in the IPFS ecosystem aim to address these chal
 
 ## **Conclusion**
 
-IPFS storage offers a revolutionary approach to data storage, addressing the limitations of traditional systems through the onchain nature of the protocol, with enhanced security and cost efficiency. As demonstrated by Fleek, the adoption of IPFS can lead to significant operational benefits, making it a compelling option for modern digital storage needs.
+IPFS storage offers a revolutionary approach to data storage, addressing the limitations of traditional systems through the distributed nature of the protocol, with enhanced security and cost efficiency. As demonstrated by Fleek, the adoption of IPFS can lead to significant operational benefits, making it a compelling option for modern digital storage needs.
 
 You can learn more about getting started with IPFS in our docs, by joining our <u>[Discord](https://discord.gg/hyn6pZmB)</u> server, or by following <u>[Fleek](https://x.com/fleek)</u> and <u>[IPFS](https://x.com/ipfs)</u> on X.
