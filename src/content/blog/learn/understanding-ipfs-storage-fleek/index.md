@@ -79,13 +79,13 @@ IPFS increases data availability by storing copies of data across multiple nodes
 
 ## **IPFS storage vs. traditional storage**
 
-| **Feature** | **IPFS storage** | **Traditional storage** |
-| --- | --- | --- |
-| Architecture | Onchain | Centralized |
-| Data retrieval | From multiple nodes | From specific servers |
-| Fault tolerance | High (distributed) | Lower (single points of failure) |
-| Cost | Potentially lower (leveraging network storage) | Higher (dedicated infrastructure) |
-| Security | High (content-addressed, tamper-proof) | Variable (dependent on server security) |
+| **Feature**     | **IPFS storage**                               | **Traditional storage**                 |
+| --------------- | ---------------------------------------------- | --------------------------------------- |
+| Architecture    | Onchain                                        | Centralized                             |
+| Data retrieval  | From multiple nodes                            | From specific servers                   |
+| Fault tolerance | High (distributed)                             | Lower (single points of failure)        |
+| Cost            | Potentially lower (leveraging network storage) | Higher (dedicated infrastructure)       |
+| Security        | High (content-addressed, tamper-proof)         | Variable (dependent on server security) |
 
 ### **In-depth comparison**
 
@@ -107,16 +107,16 @@ IPFS increases data availability by storing copies of data across multiple nodes
 ### **Practical example**
 
 1. **Installing Fleek CLI**:
-    - Download the Fleek CLI installation package from the <u>[official website](https://app.fleek.xyz/)</u>.
-    - Follow the installation instructions for your operating system.
+   - Download the Fleek CLI installation package from the <u>[official website](https://app.fleek.xyz/)</u>.
+   - Follow the installation instructions for your operating system.
 2. **Initializing Fleek storage**:
-    - Open your terminal or command prompt.
-    - Run the command npm install to initialize the Fleek repository.
+   - Open your terminal or command prompt.
+   - Run the command npm install to initialize the Fleek repository.
 3. **Adding a file**:
-    - Run the command fleek storage add example.txt to add a file named example.txt.
-    - The command will return a unique hash for the file.
+   - Run the command fleek storage add example.txt to add a file named example.txt.
+   - The command will return a unique hash for the file.
 4. **Retrieving a file**:
-    - Use the command fleek storage get [file hash] to retrieve and display the content of the file.
+   - Use the command fleek storage get [file hash] to retrieve and display the content of the file.
 
 ---
 
