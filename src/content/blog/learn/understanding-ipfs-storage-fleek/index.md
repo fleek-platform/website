@@ -144,4 +144,4 @@ Ongoing research and development in the IPFS ecosystem aim to address these chal
 
 IPFS storage offers a revolutionary approach to data storage, addressing the limitations of traditional systems through the onchain nature of the protocol, with enhanced security and cost efficiency. As demonstrated by Fleek, the adoption of IPFS can lead to significant operational benefits, making it a compelling option for modern digital storage needs.
 
-You can learn more about getting startd with IPFS in our docs, by joining our <u>[Discord](https://discord.gg/hyn6pZmB)</u> Server, or by following <u>[Fleek](https://x.com/fleek)</u> and <u>[IPFS](https://x.com/ipfs)</u> on X.
+You can learn more about getting started with IPFS in our docs, by joining our <u>[Discord](https://discord.gg/hyn6pZmB)</u> server, or by following <u>[Fleek](https://x.com/fleek)</u> and <u>[IPFS](https://x.com/ipfs)</u> on X.
