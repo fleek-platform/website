@@ -1,10 +1,9 @@
 ---
 import { getCollection } from 'astro:content';
 import BlogPageLayout from '../../layouts/BlogPage.astro';
-import { getEntry } from 'astro:content';
 import GithubEditLink from '@components/GitHubEditLink.astro';
 import { generateGitHubEditLink } from '@utils/url';
-import ButtonGray from '@components/ButtonGray';
+import ButtonGhost from '@components/ButtonGhost';
 import { formatDate } from '@utils/date';
 
 export async function getStaticPaths() {
@@ -35,13 +34,13 @@ const date = formatDate({ date: entry.data.date });
 >
   <article class="blog">
     <div class="mb-24 w-fit" id="goBackButton">
-      <ButtonGray variant="text">
+      <ButtonGhost>
         <img
           src="/svg/caret-left.svg"
           class="caret mr-1 border-0 !border-none !outline-none invert filter"
         />
         <span class="text-sm mb-2">Go back</span>
-      </ButtonGray>
+      </ButtonGhost>
     </div>
     <small class="font-plex-sans text-16 text-gray-dark-10">{date}</small>
     <h1>{entry.data.title}</h1>

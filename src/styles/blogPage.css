@@ -28,10 +28,6 @@
       height: auto;
     }
 
-    .caret {
-      width: 2rem;
-    }
-
     p {
       @apply pb-20 text-20 leading-normal;
     }
@@ -64,6 +60,15 @@
       tr:nth-child(2n) {
         @apply border bg-gray-dark-4;
       }
+    }
+
+    .caret {
+      width: 2rem;
+    }
+
+    .button-ghost:hover .caret {
+      filter: invert(85%) sepia(100%) saturate(1000%) hue-rotate(0deg)
+        brightness(100%) contrast(100%);
     }
   }
 }
