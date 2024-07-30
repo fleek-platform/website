@@ -76,20 +76,21 @@ npm i assemblyscript --save-dev
 
 ```jsx
 {
-	"name": "wasm",
-	"version": "1.0.0",
-	"description": "",
-	"main": "index.js",
-	"scripts": {
-		"build": "asc index.ts -b raw -o dist/index.wasm"
-	},
-	"keywords": [],
-	"author": "",
-	"license": "ISC",
-	"devDependencies": {
-	"assemblyscript": "^0.27.29"
-	}
+  "name": "wasm",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "build": "asc index.ts -b raw -o dist/index.wasm"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "assemblyscript": "^0.27.29"
+  }
 }
+
 ```
 
 Now, to test the above script and generate a successful WASM module, head over to the terminal and run the following command -
@@ -156,36 +157,36 @@ Please ensure that your `tsconfig.json` file resembles the following -
 
 ```jsx
 {
-	"compilerOptions": {
-		"target": "ES2020",
-		"useDefineForClassFields": true,
-		"module": "ESNext",
-		"lib": ["ES2020", "DOM", "DOM.Iterable"],
-		"skipLibCheck": true,
-		
-		/* Bundler mode */
-		"moduleResolution": "bundler",
-		"allowImportingTsExtensions": true,
-		"resolveJsonModule": true,
-		"isolatedModules": true,
-		"moduleDetection": "force",
-		"noEmit": true,
-		
-		/* Linting */
-		"strict": true,
-		"noUnusedLocals": true,
-		"noUnusedParameters": true,
-		"noFallthroughCasesInSwitch": true
-	},
-	"include": ["src"]
+  "compilerOptions": {
+    "target": "ES2020",
+    "useDefineForClassFields": true,
+    "module": "ESNext",
+    "lib": ["ES2020", "DOM", "DOM.Iterable"],
+    "skipLibCheck": true,
+
+    /* Bundler mode */
+    "moduleResolution": "bundler",
+    "allowImportingTsExtensions": true,
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "moduleDetection": "force",
+    "noEmit": true,
+
+    /* Linting */
+    "strict": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "noFallthroughCasesInSwitch": true
+  },
+  "include": ["src"]
 }
+
 ```
 
 6. Install <u>[rollup](https://rollupjs.org/introduction/#overview)</u> as a dependency along with a few others to ensure that the typescript files we wrote can be bundled into javascript to be then deployed as a Fleek Function -
 
 ```jsx
-npm i rollup @rollup/plugin-node-resolve@13.0.6 
-@rollup/plugin-typescript@11.1.6 @rollup/plugin-wasm@6.2.2
+npm i rollup @rollup/plugin-node-resolve@13.0.6 @rollup/plugin-typescript@11.1.6 @rollup/plugin-wasm@6.2.2
 ```
 
 7. Make a new file called `rollup.config.js` and add the following code to it. This will generate a bundled javascript function in a new `dist `directory that can finally be deployed as a Fleek Function-
@@ -196,20 +197,20 @@ import typescript from '@rollup/plugin-typescript';
 import wasm from '@rollup/plugin-wasm';
 
 export default {
-	input: 'src/main.ts',
-	output: {
-		dir: 'dist',
-		format: 'es',
-		inlineDynamicImports: true,
-	},
-	plugins: [
-		nodeResolve(),
-		typescript(),
-		wasm({
-			targetEnv: 'auto-inline',
-			maxFileSize: 0,
-		})
-	]
+  input: 'src/main.ts',
+  output: {
+    dir: 'dist',
+    format: 'es',
+    inlineDynamicImports: true,
+  },
+  plugins: [
+    nodeResolve(),
+    typescript(),
+    wasm({
+      targetEnv: 'auto-inline',
+      maxFileSize: 0,
+    })
+  ]
 };
 ```
 
@@ -217,27 +218,27 @@ export default {
 
 ```jsx
 {
-	"name": "fleek-functions-using-wasm",
-	"private": true,
-	"version": "0.0.0",
-	"type": "module",
-	"main": "./src/main.ts",
-	"scripts": {
-		"compile": "cd wasm && npm run build && cd ..",
-		"build": "tsc && rollup -c",
-		},
-	"devDependencies": {
-		"@fleek-platform/cli": "^2.8.6",
-		"@rollup/plugin-node-resolve": "^13.0.6",
-		"@rollup/plugin-typescript": "^11.1.6",
-		"@rollup/plugin-wasm": "^6.2.2",
-		"rollup": "^2.60.0",
-		"typescript": "^5.5.4"
-	},
-	"license": "MIT",
-	"dependencies": {
-		"tsc": "^2.0.4"
-	}
+  "name": "fleek-functions-using-wasm",
+  "private": true,
+  "version": "0.0.1",
+  "type": "module",
+  "main": "./src/main.ts",
+  "scripts": {
+    "compile": "cd wasm && npm run build && cd ..",
+    "build": "tsc && rollup -c",
+    },
+  "devDependencies": {
+    "@fleek-platform/cli": "^2.8.6",
+    "@rollup/plugin-node-resolve": "^13.0.6",
+    "@rollup/plugin-typescript": "^11.1.6",
+    "@rollup/plugin-wasm": "^6.2.2",
+    "rollup": "^2.60.0",
+    "typescript": "^5.5.4"
+  },
+  "license": "MIT",
+  "dependencies": {
+    "tsc": "^2.0.4"
+  }
 }
 ```
 
