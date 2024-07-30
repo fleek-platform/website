@@ -14,7 +14,7 @@ In this guide, we will be integrating TypeScript with a Fleek Function using WAS
 
 WebAssembly (WASM) is a binary instruction format designed as a portable target for compiling languages like C, C++, and Rust, enabling deployment on the web for client and server applications. You can learn more about building with WASM <u>[by checking out their docs](https://webassembly.org/)</u>.
 
-*New to Fleek Functions*? Fleek Functions are lightning-fast, auto-scaling edge functions built on top of Fleek Network’s on-chain cloud infrastructure. Fleek Functions allow serverless execution of Javascript code which may provide a more performant, lower cost, easier to maintain, self-sovereign alternative to traditional serverless execution. You can find more info in our docs <u>[here](https://fleek.xyz/docs/platform/fleek-functions/)</u>.
+_New to Fleek Functions_? Fleek Functions are lightning-fast, auto-scaling edge functions built on top of Fleek Network’s on-chain cloud infrastructure. Fleek Functions allow serverless execution of Javascript code which may provide a more performant, lower cost, easier to maintain, self-sovereign alternative to traditional serverless execution. You can find more info in our docs <u>[here](https://fleek.xyz/docs/platform/fleek-functions/)</u>.
 
 ---
 
@@ -122,12 +122,12 @@ touch declarations.d.ts
 2. Now edit the `main.ts` file and import the WASM module to it. We will also import the `instantiate` function from the compiled `index.js` file in the bundled directory generated inside the `wasm` directory. `instantiate` will help setup and start the WASM environment in the Fleek Function and all the functions we created earlier can be added here. We will be using the `add` function here -
 
 ```jsx
-import wasm from '../wasm/dist/index.wasm'
-import { instantiate } from '../wasm/dist/index.js'
+import wasm from '../wasm/dist/index.wasm';
+import { instantiate } from '../wasm/dist/index.js';
 
 export async function main() {
-	const { add } = await instantiate(await wasm(), { env: {}})
-	return add(5,6);
+  const { add } = await instantiate(await wasm(), { env: {} });
+  return add(5, 6);
 }
 ```
 
@@ -209,8 +209,8 @@ export default {
     wasm({
       targetEnv: 'auto-inline',
       maxFileSize: 0,
-    })
-  ]
+    }),
+  ],
 };
 ```
 
