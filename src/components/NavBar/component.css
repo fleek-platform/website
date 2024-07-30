@@ -136,7 +136,11 @@
   }
 
   a > .nav-menu-mobile-sub-menu-label,
-  .nav-menu-item > a > .nav-m {
+  .nav-menu-mobile .nav-menu-item > a > .nav-m {
     @apply hover:text-ui-faded-gray;
+  }
+
+  .nav-menu-mobile .nav-menu-item:has(> a[href='/docs']) {
+    @apply hidden;
   }
 }
