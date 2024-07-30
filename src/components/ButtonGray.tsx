@@ -15,7 +15,7 @@ const ButtonGray: React.FC<React.PropsWithChildren<Props>> = ({
 }) => {
   const buttonClass =
     variant === 'text'
-      ? 'flex w-full items-center space-x-2 bg-transparent  py-6 px-6 rounded-8 text-gray-dark-11 hover:bg-gray-dark-5 disabled:bg-transparent '
+      ? 'flex w-full items-center space-x-2 bg-transparent py-6 pl-6 pr-12 rounded-8 text-gray-dark-11 hover:bg-gray-dark-5 disabled:bg-transparent '
       : `${props.border} inline-block w-full rounded-12 bg-gray-dark-4 px-32 py-16 hover:bg-gray-dark-5 sm:w-fit`;
 
   return (
