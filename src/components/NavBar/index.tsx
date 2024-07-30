@@ -312,7 +312,7 @@ const Nav = ({ pathname }: NavProps) => {
                                   : 'nav-text-item'
                               }
                             >
-                              <div className="nav-menu-mobile-sub-menu-label nav-m-mid flex items-start justify-start gap-8">
+                              <div className="nav-menu-mobile-sub-menu-label nav-m-mid flex items-start justify-start gap-8 py-8">
                                 <img src={icon} className="mt-3 w-20" />
                                 <span>{label}</span>
                               </div>

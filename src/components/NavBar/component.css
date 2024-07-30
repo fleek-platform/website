@@ -60,7 +60,7 @@
   }
 
   .nav-menu-mobile-sub-menu-container {
-    @apply w-1/2 sm:w-1/4;
+    @apply w-full sm:w-1/2 md:w-1/4;
   }
 
   .nav-sub-menu-ctas-mobile {
