@@ -215,7 +215,7 @@ const Nav = ({ pathname }: NavProps) => {
               <ButtonYellowOutline>Log in</ButtonYellowOutline>
             </a>
           </div>
-          <div className="nav-button-launch">
+          <div className="nav-button-launch hidden sm:inline-block">
             <a
               href="https://app.fleek.xyz"
               target="_blank"
