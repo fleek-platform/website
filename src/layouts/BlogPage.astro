@@ -3,6 +3,7 @@ import '@styles/globals.css';
 import '@styles/blogPage.css';
 
 import BaseHtml from './BaseHtml.astro';
+import InjectCodeCopy from '@components/InjectCodeCopy.astro';
 
 const { title, description, image, slug } = Astro.props;
 ---
@@ -19,4 +20,5 @@ const { title, description, image, slug } = Astro.props;
   <main class="container min-h-container">
     <slot />
   </main>
+  <InjectCodeCopy />
 </BaseHtml>

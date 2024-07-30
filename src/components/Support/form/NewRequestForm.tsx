@@ -32,6 +32,8 @@ const defaultFormValues = {
   comment: '',
 };
 
+let formSubmissionObject;
+
 function NewRequestForm() {
   const [formValues, setFormValues] = useState<FormValuesType>({
     ...defaultFormValues,
