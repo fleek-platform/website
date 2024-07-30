@@ -60,7 +60,7 @@
   }
 
   .nav-menu-mobile-sub-menu-container {
-    @apply w-full px-20 py-10;
+    @apply w-1/2 sm:w-1/4;
   }
 
   .nav-sub-menu-ctas-mobile {
@@ -131,8 +131,12 @@
     @apply w-1/3 border-l-1 border-gray-300 bg-ui-fleek-black p-36;
   }
 
+  a > .nav-menu-mobile-sub-menu-label {
+    @apply select-none rounded-5 px-10 hover:bg-gray-900;
+  }
+
   a > .nav-menu-mobile-sub-menu-label,
   .nav-menu-item > a > .nav-m {
-    @apply select-none rounded-5 hover:bg-gray-900;
+    @apply hover:text-ui-faded-gray;
   }
 }

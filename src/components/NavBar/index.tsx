@@ -289,7 +289,7 @@ const Nav = ({ pathname }: NavProps) => {
                       <div className="nav-m mx-15 flex justify-between">
                         {navItem.label}
                       </div>
-                      <div>
+                      <div className="flex flex-wrap px-5 py-10">
                         {navItem?.subMenu.map(({ label, url, icon }, index) => (
                           <div
                             key={`${index}-${label}`}
@@ -312,9 +312,9 @@ const Nav = ({ pathname }: NavProps) => {
                                   : 'nav-text-item'
                               }
                             >
-                              <div className="nav-menu-mobile-sub-menu-label nav-m-mid flex items-center justify-start gap-8">
-                                <img src={icon} className="w-[6%]" />
-                                {label}
+                              <div className="nav-menu-mobile-sub-menu-label nav-m-mid flex items-start justify-start gap-8">
+                                <img src={icon} className="mt-3 w-20" />
+                                <span>{label}</span>
                               </div>
                             </Link>
                           </div>
