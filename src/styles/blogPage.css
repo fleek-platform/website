@@ -28,6 +28,10 @@
       height: auto;
     }
 
+    .caret {
+      width: 2rem;
+    }
+
     p {
       @apply pb-20 text-20 leading-normal;
     }
