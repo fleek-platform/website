@@ -11,15 +11,17 @@ interface Props {
   href?: string;
   className?: string;
   target?: Target;
+  tabIndex?: number;
 }
 
 export const Link: FC<PropsWithChildren<Props>> = ({
   href,
   className,
   target,
+  tabIndex,
   children,
 }) => (
-  <a href={href} target={target} className={className}>
+  <a href={href} target={target} className={className} tabIndex={tabIndex}>
     {children}
   </a>
 );
