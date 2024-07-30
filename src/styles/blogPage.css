@@ -65,10 +65,5 @@
     .caret {
       width: 2rem;
     }
-
-    .button-ghost:hover .caret {
-      filter: invert(85%) sepia(100%) saturate(1000%) hue-rotate(0deg)
-        brightness(100%) contrast(100%);
-    }
   }
 }

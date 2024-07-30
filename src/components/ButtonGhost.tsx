@@ -11,7 +11,7 @@ const ButtonGhost: React.FC<React.PropsWithChildren<Props>> = ({
 }) => {
   return (
     <button
-      className="button-ghost flex w-full items-center space-x-2 rounded-8 bg-transparent py-6 text-gray-dark-11 hover:text-yellow hover:underline disabled:bg-transparent"
+      className={`flex w-full items-center space-x-2 rounded-8 bg-transparent px-6 py-6 pr-12 text-gray-dark-11 hover:bg-ui-mid-grey hover:text-white disabled:bg-transparent ${className}`}
       onClick={onClick}
     >
       {props.children}
