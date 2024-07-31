@@ -34,11 +34,11 @@
   }
 
   .nav-menu-logo {
-    @apply flex py-8 pl-24;
+    @apply flex py-16 pl-24;
   }
 
   .nav-menu-close-button {
-    @apply ml-auto mr-20 w-42 px-16 font-plex-sans text-25 leading-[150%] text-ui-white;
+    @apply ml-auto mr-10 w-42 px-16 font-plex-sans text-25 leading-[150%] text-ui-white;
   }
 
   .nav-menu-mobile {
