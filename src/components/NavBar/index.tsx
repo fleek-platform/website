@@ -274,7 +274,7 @@ const Nav = ({ pathname }: NavProps) => {
             </a>
           </div>
         </div>
-        <div className="nav-menu-mobile">
+        <div className="nav-menu-mobile pt-10">
           <nav className="w-full border-t border-[#3A3A3A] pt-16">
             <div className={clsx('flex w-full flex-col items-center gap-16')}>
               {NavBarDefault.map((navItem, index) => (
