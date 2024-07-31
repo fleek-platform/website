@@ -15,10 +15,12 @@
       "@images/*": ["src/images/*"],
       "@content/*": ["/src/content/*"]
     },
-    "plugins": [{
-      "name": "@astrojs/ts-plugin"
-    }],
+    "plugins": [
+      {
+        "name": "@astrojs/ts-plugin"
+      }
+    ],
     "module": "es2020",
     "noErrorTruncation": true
-  },
+  }
 }
