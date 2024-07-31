@@ -11,7 +11,7 @@ const { product, developers, company, resources, fleekPlatformOrgUrl } = config;
 
 const Footer = () => {
   return (
-    <footer className="bg-gray-dark-1 px-20 pb-40 pt-80 text-gray-dark-11 lg:px-0">
+    <footer className="overflow-hidden bg-gray-dark-1 px-20 pb-40 pt-80 text-gray-dark-11 lg:px-0">
       <Container>
         <GridLayout>
           <div className="col-span-16 mb-24 flex flex-col md:col-span-6 md:mb-0">
@@ -52,8 +52,8 @@ const Footer = () => {
             </div>
           </div>
           <div className="col-span-16 md:col-span-10">
-            <div className="grid grid-cols-6 gap-x-16 gap-y-24 lg:grid-cols-12">
-              <div className="col-span-3 flex flex-col gap-12">
+            <div className="grid-cols-6 gap-x-16 gap-y-24 sm:grid lg:grid-cols-12">
+              <div className="col-span-3 mb-20 flex flex-col gap-12">
                 <Text style="caption-m">Product</Text>
                 <ul className="flex flex-col gap-10 md:gap-8">
                   {product.map((item, index) => (
@@ -65,7 +65,7 @@ const Footer = () => {
                   ))}
                 </ul>
               </div>
-              <div className="col-span-3 flex flex-col gap-12">
+              <div className="col-span-3 mb-20 flex flex-col gap-12">
                 <Text style="caption-m">Developers</Text>
                 <ul className="flex flex-col gap-10 md:gap-8">
                   {developers.map((item, index) => (
@@ -84,7 +84,7 @@ const Footer = () => {
                   ))}
                 </ul>
               </div>
-              <div className="col-span-3 flex flex-col gap-12">
+              <div className="col-span-3 mb-20 flex flex-col gap-12">
                 <Text style="caption-m">Resources</Text>
                 <ul className="flex flex-col gap-10 md:gap-8">
                   {resources.map((item, index) => (
