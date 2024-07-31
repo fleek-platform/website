@@ -7,7 +7,6 @@ import { up } from '@utils/screens';
 import ButtonYellowOutline from '@components/ButtonYellowOutline';
 import Container from '@components/Container';
 import Text from '@components/Text';
-import ButtonRainbowOutlined from '@components/ButtonRainbowOutlined';
 import { FaXTwitter } from 'react-icons/fa6';
 import { FaDiscord } from 'react-icons/fa';
 import { RxHamburgerMenu } from 'react-icons/rx';
@@ -17,15 +16,11 @@ import { hasSecondaryMenuItem, isActivePath } from '@utils/url';
 
 import { NavBarDefault } from './config';
 
-import { RxCaretDown } from 'react-icons/rx';
 import ButtonYellow from '@components/ButtonYellow';
 import ButtonGray from '@components/ButtonGray';
-import Announcement from '@components/Announcement';
 import SupportMenu from '@components/Support/SupportMenu';
 
-export type NavProps = Record<'pathname', string> & {
-  isSupportCenter: boolean;
-};
+export type NavProps = { pathname: string };
 export type NavSubMenuCtaProps = Omit<MenuSettingsItem, 'subMenu'>;
 export type NavSubMenuNavColProps = {
   label: string;
@@ -73,10 +68,10 @@ const NavSubMenuNavCol = ({
 
 const NavSubMenu = ({ subMenu }: MenuSettingsItem) => {
   return (
-    <div className={`nav-sub-menu-container `}>
+    <div className="nav-sub-menu-container">
       <div className="nav-sub-menu-wrap">
         <div className="nav-sub-menu-main-col">
-          <div className={`nav-sub-menu-nav-cols `}>
+          <div className="nav-sub-menu-nav-cols">
             {subMenu?.map(({ label, url, description, icon }, index) => (
               <NavSubMenuNavCol
                 key={`${index}-${label}`}
@@ -93,7 +88,7 @@ const NavSubMenu = ({ subMenu }: MenuSettingsItem) => {
   );
 };
 
-const Nav = ({ pathname, isSupportCenter }: NavProps) => {
+const Nav = ({ pathname }: NavProps) => {
   const [isOpen, setIsOpen] = useState(false);
 
   const hasSecondaryMenu = hasSecondaryMenuItem(pathname);
@@ -128,12 +123,7 @@ const Nav = ({ pathname, isSupportCenter }: NavProps) => {
 
   return (
     <Container>
-      <div
-        className={clsx(
-          'nav-container',
-          isSupportCenter ? 'mb-[2px]' : 'mb-16',
-        )}
-      >
+      <div className={clsx('nav-container', 'mb-[2px]')}>
         <div className="flex items-center">
           <Link href="/" className="flex-shrink-0 ">
             <img
@@ -163,7 +153,7 @@ const Nav = ({ pathname, isSupportCenter }: NavProps) => {
                       style="nav-m"
                       className="nav-text-item  flex capitalize "
                     >
-                      {navItem.label} <RxCaretDown className="mt-3" />
+                      {navItem.label}
                     </Text>
                   </Link>
                   <NavSubMenu subMenu={navItem.subMenu} />
@@ -190,8 +180,8 @@ const Nav = ({ pathname, isSupportCenter }: NavProps) => {
           </nav>
         </div>
 
-        <div className="flex items-center gap-1 lg:gap-10 ">
-          <div className="nav-button-launch hidden pr-10 lg:inline-block">
+        <div className="flex items-center gap-10">
+          <div className="nav-button-launch hidden lg:inline-block">
             <a
               href="https://twitter.com/fleek"
               target="_blank"
@@ -203,7 +193,7 @@ const Nav = ({ pathname, isSupportCenter }: NavProps) => {
               />
             </a>
           </div>
-          <div className="nav-button-launch hidden pr-10 md:inline-block">
+          <div className="nav-button-launch hidden md:inline-block">
             <a
               href="https://discord.gg/fleek"
               target="_blank"
@@ -220,15 +210,17 @@ const Nav = ({ pathname, isSupportCenter }: NavProps) => {
               href="https://app.fleek.xyz"
               target="_blank"
               rel="noopener noreferrer"
+              tabIndex={-1}
             >
               <ButtonYellowOutline>Log in</ButtonYellowOutline>
             </a>
           </div>
-          <div className="nav-button-launch">
+          <div className="nav-button-launch hidden sm:inline-block">
             <a
               href="https://app.fleek.xyz"
               target="_blank"
               rel="noopener noreferrer"
+              tabIndex={-1}
             >
               <ButtonYellowOutline color="yellow">
                 Get started
@@ -237,7 +229,7 @@ const Nav = ({ pathname, isSupportCenter }: NavProps) => {
           </div>
           <button
             onClick={() => setIsOpen(true)}
-            className=" mx-10 font-plex-sans text-28 leading-[150%] text-ui-white xl:hidden"
+            className="self-stretch font-plex-sans text-28 leading-[150%] text-ui-white xl:hidden"
           >
             <RxHamburgerMenu className="h-full rounded-8 bg-gray-dark-4 p-5 text-32 text-gray-dark-11" />
           </button>
@@ -250,10 +242,6 @@ const Nav = ({ pathname, isSupportCenter }: NavProps) => {
           'nav-menu-closed': !isOpen,
         })}
       >
-        <div className="py-8">
-          <Announcement hasMargin={false} />
-        </div>
-
         <div className="nav-menu-logo">
           <img src="/svg/fleek-logo.svg" alt="fleek logo" />
           <button
@@ -264,20 +252,15 @@ const Nav = ({ pathname, isSupportCenter }: NavProps) => {
           </button>
         </div>
 
-        <div className="mx-15 flex flex-col justify-center gap-16">
-          <div className="typo-btn-l ">
+        <div className="mx-15 flex justify-start gap-16">
+          <div className="typo-btn-l">
             <a
               href="https://app.fleek.xyz/"
               target="_blank"
               rel="noopener noreferrer"
-              className="w-full"
+              tabIndex={-1}
             >
-              <ButtonYellow
-                border="border-yellow"
-                className="flex items-center justify-center gap-12 "
-              >
-                <div>Get started</div>
-              </ButtonYellow>
+              <ButtonYellow>Get started</ButtonYellow>
             </a>
           </div>
           <div className="typo-btn-l">
@@ -285,30 +268,28 @@ const Nav = ({ pathname, isSupportCenter }: NavProps) => {
               href="https://app.fleek.xyz/"
               target="_blank"
               rel="noopener noreferrer"
-              className="w-full"
+              tabIndex={-1}
             >
-              <ButtonGray className="flex items-center justify-center gap-12 px-10 ">
-                <div>Log in</div>
-              </ButtonGray>
+              <ButtonGray>Log in</ButtonGray>
             </a>
           </div>
         </div>
         <div className="nav-menu-mobile">
-          <nav className="w-full">
+          <nav className="w-full border-t border-[#3A3A3A] pt-16">
             <div className={clsx('flex w-full flex-col items-center gap-16')}>
               {NavBarDefault.map((navItem, index) => (
-                <div key={index} className="nav-menu-item group w-full">
+                <div
+                  key={index}
+                  className={clsx('nav-menu-item group w-full', {
+                    'border-b border-[#3A3A3A] pb-6': navItem.subMenu,
+                  })}
+                >
                   {navItem.subMenu ? (
                     <>
                       <div className="nav-m mx-15 flex justify-between">
                         {navItem.label}
-                        {navItem.subMenu && (
-                          <span className="ml-4 inline-block w-8">
-                            <RxCaretDown className="mt-3 transform transition-transform duration-100 group-hover:rotate-180" />
-                          </span>
-                        )}
                       </div>
-                      <div className=" ">
+                      <div className="flex flex-wrap px-5 py-10">
                         {navItem?.subMenu.map(({ label, url, icon }, index) => (
                           <div
                             key={`${index}-${label}`}
@@ -331,14 +312,11 @@ const Nav = ({ pathname, isSupportCenter }: NavProps) => {
                                   : 'nav-text-item'
                               }
                             >
-                              <div className="nav-menu-mobile-sub-menu-label nav-m-mid flex items-center justify-start gap-8">
-                                <img src={icon} className="w-[6%]" />
-                                {label}
+                              <div className="nav-menu-mobile-sub-menu-label nav-m-mid flex items-start justify-start gap-8 py-8">
+                                <img src={icon} className="mt-3 w-20" />
+                                <span>{label}</span>
                               </div>
                             </Link>
-                            {index === navItem.subMenu!.length - 1 && (
-                              <div className="mb-[0.5rem] mt-[1.5rem] h-[0.13rem] w-full bg-[#3A3A3A]"></div>
-                            )}
                           </div>
                         ))}
                       </div>

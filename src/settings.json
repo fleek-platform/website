@@ -59,28 +59,30 @@
       },
       "support": {
         "title": "Support",
-        "description": "Fleek is an edge-optimized cloud platform. Effortlessly build, ship and scale highly performant apps. Try for free and deploy an app in 5 minutes.",
+        "description": "Visit the Fleek Support Center for detailed FAQs, troubleshooting guides, and documentation. Quickly report issues or submit support requests to get the help you need.",
         "image": "/images/fleek-meta.png?202406061658"
       },
       "references": {
         "title": "Fleek References",
-        "description": "Fleek is an edge-optimized cloud platform. Effortlessly build, ship and scale highly performant apps. Try for free and deploy an app in 5 minutes.",
+        "description": "Explore the Fleek References page for troubleshooting guides designed to address common errors when using Fleek.",
         "image": "/images/fleek-meta.png?202406061658"
       },
       "billing": {
         "title": "Billing",
-        "description": "Fleek is an edge-optimized cloud platform. Effortlessly build, ship and scale highly performant apps. Try for free and deploy an app in 5 minutes.",
+        "description": "Visit the Fleek Billing FAQs page to find answers about payment methods, account issues, and billing cycles.",
         "image": "/images/fleek-meta.png?202406061658"
       },
       "requests": {
-        "title": "Requests",
-        "description": "Fleek is an edge-optimized cloud platform. Effortlessly build, ship and scale highly performant apps. Try for free and deploy an app in 5 minutes.",
-        "image": "/images/fleek-meta.png?202406061658"
-      },
-      "pricing": {
-        "title": "Fleek Pricing",
-        "description": "Discover Fleek's flexible pricing plans tailored to fit any project size. Start for free and upgrade as needed with our transparent, simple pricing structure.",
-        "image": "/images/fleek-meta.png?202406061658"
+        "reportSite": {
+          "title": "Report a Site",
+          "description": "Report any site violating Fleek's Terms of Service to help maintain a secure and compliant environment.",
+          "image": "/images/fleek-meta.png?202406061658"
+        },
+        "submitRequest": {
+          "title": "Submit a Request",
+          "description": "If you're encountering issues with Fleek's platform, we're here to assist! Please fill out the form with details about your issue to receive help from our support team.",
+          "image": "/images/fleek-meta.png?202406061658"
+        }
       }
     },
     "resources": {
@@ -280,6 +282,33 @@
     "zendesk": {
       "publicSnippetKey": "c0ecb1c1-369a-4543-b528-cbba3f2fb35d"
     },
+    "requestFormCategories": [
+      {
+        "id": "1",
+        "label": "General Inquiry",
+        "value": "General Inquiry"
+      },
+      {
+        "id": "2",
+        "label": "Billing",
+        "value": "Billing"
+      },
+      {
+        "id": "4",
+        "label": "Feature Request",
+        "value": "Feature Request"
+      },
+      {
+        "id": "5",
+        "label": "Bug Report",
+        "value": "Bug Report"
+      },
+      {
+        "id": "6",
+        "label": "Other",
+        "value": "Other"
+      }
+    ],
     "supportMenu": [
       {
         "id": 1,

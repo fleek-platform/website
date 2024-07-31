@@ -79,24 +79,27 @@ const DropDown = ({
         onClick={handleIsOpen}
         tabIndex={1}
       >
-        {isOpen || (
-          <>
-            <div className="flex items-center justify-between ">
-              <span className="text-[1.3rem] md:text-[1.5rem] xl:text-[1.6rem]">
-                {options.find((option) => option.value === selectedValue)
-                  ?.label || '-'}
-              </span>
-              <MdArrowDropDown className="text-ui-mid-white" fontSize={24} />
-            </div>
-          </>
-        )}
+        <>
+          <div className="flex items-center justify-between">
+            <span className="text-[1.3rem] md:text-[1.5rem] xl:text-[1.6rem]">
+              {options.find((option) => option.value === selectedValue)
+                ?.label || '-'}
+            </span>
+            <MdArrowDropDown className="text-ui-mid-white" fontSize={24} />
+          </div>
+        </>
 
         {isOpen && (
-          <ul className="rounded-md absolute left-0 right-0 top-0 z-10 mt-2 max-h-[250px] w-full  overflow-scroll bg-gray-dark-1 text-[1.3rem] md:text-[1.5rem]">
+          <ul className="absolute left-0 right-0 top-0 z-10 mt-2 max-h-[250px] w-full overflow-auto rounded-b-[12px] border border-gray-dark-3 bg-gray-dark-1 text-[1.3rem] shadow-2xl md:text-[1.5rem]">
             {options.map((option) => (
               <li
                 key={option.value}
-                className="cursor-pointer px-[1.4rem] py-[.5rem] hover:bg-gray-700"
+                className={clsx(
+                  'cursor-pointer px-[1.4rem] py-[.5rem] hover:bg-gray-dark-2',
+                  {
+                    'bg-gray-dark-7': option.label === selectedValue,
+                  },
+                )}
                 onClick={() =>
                   handleSelect({ value: option.value, id: option.id })
                 }

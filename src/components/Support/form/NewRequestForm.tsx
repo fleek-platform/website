@@ -32,6 +32,8 @@ const defaultFormValues = {
   comment: '',
 };
 
+let formSubmissionObject;
+
 function NewRequestForm() {
   const [formValues, setFormValues] = useState<FormValuesType>({
     ...defaultFormValues,
@@ -54,7 +56,10 @@ function NewRequestForm() {
 
   const handleFormSubmit = async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-    await submitForm(formValues, resetFormValues);
+    formSubmissionObject = {
+      ...formValues,
+    };
+    await submitForm(formSubmissionObject, resetFormValues);
   };
 
   async function fetchHealthStatus() {

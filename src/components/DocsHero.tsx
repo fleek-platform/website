@@ -19,16 +19,12 @@ const DocsHero = ({ title, description }: Props) => (
         <div className="mt-12 flex gap-16">
           <div className="typo-btn-l">
             <a href="/docs/platform">
-              <ButtonYellow>
-                <div>Learn the platform</div>
-              </ButtonYellow>
+              <ButtonYellow>Learn the platform</ButtonYellow>
             </a>
           </div>
           <div className="typo-btn-l">
             <a href="/docs/cli">
-              <ButtonGray className="flex items-center justify-center gap-12 px-10">
-                <div>Use the CLI</div>
-              </ButtonGray>
+              <ButtonGray>Use the CLI</ButtonGray>
             </a>
           </div>
         </div>
