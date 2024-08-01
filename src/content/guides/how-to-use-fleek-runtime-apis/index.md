@@ -35,7 +35,7 @@ Setup here is straightforward. You can create a directory on your machine and an
 
 ## **How to use Fleek runtime APIs**
 
-To be able to use Fleek runtime APIs, we need to have a Fleek Function. Fleek Functions run javascript on the server-side using Fleek Network by leveraging the JS runtime service, which in turn provides us the ability to interact with any of the runtime APIs through them.
+To be able to use Fleek runtime APIs, we need to have a Fleek Function. Fleek Functions run Javascript on the server-side using Fleek Network by leveraging the JS runtime service, which in turn provides us the ability to interact with any of the runtime APIs through them.
 
 You can find more about Fleek Functions and how to deploy one in our <u>[docs here](https://fleek.xyz/docs/platform/fleek-functions/)</u>.
 
