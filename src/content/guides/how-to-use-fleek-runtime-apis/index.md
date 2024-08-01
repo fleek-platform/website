@@ -27,7 +27,7 @@ In this guide, we'll explore a simple script using Fleek runtime APIs and a Flee
 - Code editor of your choice
 - Your terminal
 
-Setup here is very straightforward. You can create a directory on your machine and an `index.js` file within it. You should have something similar to this:
+Setup here is straightforward. You can create a directory on your machine and an `index.js` file within it. You should have something similar to this:
 
 ![](./index.png)
 
