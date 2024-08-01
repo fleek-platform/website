@@ -61,5 +61,9 @@
         @apply border bg-gray-dark-4;
       }
     }
+
+    .caret {
+      width: 2rem;
+    }
   }
 }
