@@ -2,8 +2,8 @@
 title: 'How to use Fleek runtime APIs'
 date: 2024-08-01
 desc: 'How to build a text-streaming script with Fleek Functions'
-thumbnail: './runtimeapis.png'
-image: './runtimeapis.png'
+thumbnail: './runtimeapisnew.png'
+image: './runtimeapisnew.png'
 author:
   - 'Fleek'
 ---
