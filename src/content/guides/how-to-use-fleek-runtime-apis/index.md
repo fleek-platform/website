@@ -50,14 +50,14 @@ export function main() {
   const writableStream = new WritableStream({
     write(chunk) {
       result.push(chunk);
-      console.log("Writing chunk:", chunk);
+      console.log('Writing chunk:', chunk);
     },
     close() {
-      console.log("Stream closed");
-      console.log("Final result:", result.join(""));
+      console.log('Stream closed');
+      console.log('Final result:', result.join(''));
     },
     abort(err) {
-      console.error("Stream error:", err);
+      console.error('Stream error:', err);
     },
   });
 
@@ -65,29 +65,30 @@ export function main() {
 
   // Write to the stream and then close it
   writer
-    .write("This is streamed data.")
+    .write('This is streamed data.')
     .then(() =>
       writer.write(
-        "Fleek Functions are code snippets that are executed server-side using Fleek Network’s on-chain cloud infrastructure",
+        'Fleek Functions are code snippets that are executed server-side using Fleek Network’s on-chain cloud infrastructure',
       ),
     )
     .then(() =>
       writer.write(
-        " These aim to offer a more economical, high-performance, and scalable solution for running server-side code compared to well-known options like Lambda functions, thanks to the Fleek Network architecture. ",
+        ' These aim to offer a more economical, high-performance, and scalable solution for running server-side code compared to well-known options like Lambda functions, thanks to the Fleek Network architecture. ',
       ),
     )
     .then(() =>
       writer.write(
-        " Fleek Functions make it possible for users to create serverless apps with lightning-fast performance at a much lower cost.",
+        ' Fleek Functions make it possible for users to create serverless apps with lightning-fast performance at a much lower cost.',
       ),
     )
     .then(() => writer.close())
-    .then(() => console.log("Stream writing complete"))
-    .catch((error) => console.error("Error:", error));
+    .then(() => console.log('Stream writing complete'))
+    .catch((error) => console.error('Error:', error));
 
   return result;
 }
 ```
+
 The function `main` demonstrates using WritableStream to handle streamed data. It initializes an array to store data chunks and sets up a WritableStream with methods for writing data, handling closure, and error management. The stream's writer is used to write multiple chunks of text sequentially. Once all data is written, the stream is closed, logging the final combined result.
 
 The function returns the array of data chunks, although it may not contain all data immediately due to asynchronous operations.
