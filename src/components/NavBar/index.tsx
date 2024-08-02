@@ -181,7 +181,7 @@ const Nav = ({ pathname }: NavProps) => {
         </div>
 
         <div className="flex items-center gap-10">
-          <div className="nav-button-launch hidden lg:inline-block">
+          <div className="nav-button-launch hidden md:inline-block">
             <a
               href="https://twitter.com/fleek"
               target="_blank"
@@ -229,7 +229,7 @@ const Nav = ({ pathname }: NavProps) => {
           </div>
           <button
             onClick={() => setIsOpen(true)}
-            className="self-stretch font-plex-sans text-28 leading-[150%] text-ui-white xl:hidden"
+            className="mr-5 self-stretch font-plex-sans text-28 leading-[150%] text-ui-white xl:hidden"
           >
             <RxHamburgerMenu className="h-full rounded-8 bg-gray-dark-4 p-5 text-32 text-gray-dark-11" />
           </button>
@@ -274,7 +274,7 @@ const Nav = ({ pathname }: NavProps) => {
             </a>
           </div>
         </div>
-        <div className="nav-menu-mobile">
+        <div className="nav-menu-mobile pt-10">
           <nav className="w-full border-t border-[#3A3A3A] pt-16">
             <div className={clsx('flex w-full flex-col items-center gap-16')}>
               {NavBarDefault.map((navItem, index) => (
@@ -336,22 +336,28 @@ const Nav = ({ pathname }: NavProps) => {
           </nav>
         </div>
         <div className="mx-15 flex justify-start pt-12">
-          <div className="nav-button-launch pr-10 ">
+          <div className="nav-button-launch pr-10">
             <a
               href="https://twitter.com/fleek"
               target="_blank"
               rel="noopener noreferrer"
             >
-              <FaXTwitter fontSize={23} className="text-gray-dark-8" />
+              <FaXTwitter
+                fontSize={23}
+                className="text-gray-dark-8 hover:text-yellow"
+              />
             </a>
           </div>
-          <div className="nav-button-launch pr-10 ">
+          <div className="nav-button-launch pr-10">
             <a
               href="https://discord.gg/fleek"
               target="_blank"
               rel="noopener noreferrer"
             >
-              <FaDiscord fontSize={25} className="text-gray-dark-8" />
+              <FaDiscord
+                fontSize={25}
+                className="text-gray-dark-8 hover:text-yellow"
+              />
             </a>
           </div>
         </div>

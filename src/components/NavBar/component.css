@@ -22,7 +22,7 @@
   }
 
   .nav-menu {
-    @apply fixed left-0 top-0 z-40 flex h-full w-full flex-col overflow-y-scroll bg-black pb-50 transition duration-300;
+    @apply fixed left-0 top-0 z-40 flex h-full w-full flex-col overflow-y-scroll bg-black pb-50;
   }
 
   .nav-menu-open {
@@ -34,11 +34,11 @@
   }
 
   .nav-menu-logo {
-    @apply flex py-8 pl-24;
+    @apply flex py-16 pl-24;
   }
 
   .nav-menu-close-button {
-    @apply ml-auto mr-20 w-42 px-16 font-plex-sans text-25 leading-[150%] text-ui-white;
+    @apply ml-auto mr-18 w-42 px-16 font-plex-sans text-25 leading-[150%] text-ui-white;
   }
 
   .nav-menu-mobile {
