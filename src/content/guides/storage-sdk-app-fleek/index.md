@@ -11,7 +11,7 @@ In this guide, you'll learn how to build an onchain 'DropBox' using the <u>[Flee
 
 The Fleek Platform SDK is a TypeScript library that lets you interact with Fleek’s services. It’s composed of methods that you can leverage to build your own application on top of Fleek’s services.
 
-The Fleek Platform SDK provides a storage service that allows you to store your files in a distributed manner, supporting IPFS as its main storage protocol. We’ll use the Fleek SDK to tap into Fleek's storage and build a distributed storage app. 
+The Fleek Platform SDK provides a storage service that allows you to store your files in a distributed manner, supporting IPFS as its main storage protocol. We’ll use the Fleek SDK to tap into Fleek's storage and build a distributed storage app.
 
 You’ll be able to safely upload files, and view them, from your custom made, personal storage box.
 
@@ -35,7 +35,7 @@ npm install -g @fleek-platform/cli
 2. **Dependencies**
 
 ```tsx
-npm i express dotenv http-server @fleek-platform/sdk 
+npm i express dotenv http-server @fleek-platform/sdk
 ```
 
 3. **Create Access Token and Projects ID**
@@ -60,22 +60,22 @@ fleek pat create
 fleek projects create
 ```
 
->  Please enter the project name: 
+> Please enter the project name:
 
 `✅ Success! The project "project_name" has been successfully created with the project ID "clz1234aBcXyz", and you've automatically been switched to it.`
 
 2. **Create a `.env` file and populate it with your `accessToken`, and `projectID`**
 
 ```jsx
-token = TOKEN_GOES_HERE
-project_id = PROJECT_ID_GOES_HERE
+token = TOKEN_GOES_HERE;
+project_id = PROJECT_ID_GOES_HERE;
 ```
 
 ---
 
 ## Upload Server
 
-1. **Create a new node file, we’ll call it `server.js`. We’re going to begin by:** 
+1. **Create a new node file, we’ll call it `server.js`. We’re going to begin by:**
 
 - Importing Dependencies
 - Defining dir
@@ -115,25 +115,24 @@ app.use(cors());
 
 There are a few methods made available to us to get access to Fthe fleek's storage. We have:
 
-| **Method** | **Description** |
-| --- | ----------- |
-| uploadFile | Upload a file to IPFS |
-| uploadDirectory | Upload a directory to IPFS |
+| **Method**             | **Description**                    |
+| ---------------------- | ---------------------------------- |
+| uploadFile             | Upload a file to IPFS              |
+| uploadDirectory        | Upload a directory to IPFS         |
 | uploadVirtualDirectory | Upload a virtual directory to IPFS |
-| get | Get a file by CID |
-| getByFilename | Get a file by Filename |
-| list | List files |
-| delete | Delete a file by CID |
+| get                    | Get a file by CID                  |
+| getByFilename          | Get a file by Filename             |
+| list                   | List files                         |
+| delete                 | Delete a file by CID               |
 
 However, in this guide, we’ll be focusing on these methods:
 
-| **Method** | **Description** |
-| --- | ----------- |
+| **Method** | **Description**       |
+| ---------- | --------------------- |
 | uploadFile | Upload a file to IPFS |
-| get | Get a file by CID |
-| list | List files |
-| delete | Delete a file by CID |
-
+| get        | Get a file by CID     |
+| list       | List files            |
+| delete     | Delete a file by CID  |
 
 > 💡 Learn more about the Fleek Storage <u>[here](https://fleek.xyz/docs/cli/storage/)</u>
 
@@ -158,7 +157,7 @@ app.post('/upload', upload.single('file'), async (req, res) => {
   try {
     const filePath = path.join(__dirname, 'uploads', req.file.originalname);
     const file = await filesFromPaths(filePath)
-    
+
     const result = await fleekSdk.storage().uploadFile({
       file: file[0]
     });
@@ -181,29 +180,28 @@ We started out by configuring `multer` for file upload. When a request is sent t
 
 ```tsx
 const storage = multer.diskStorage({
-    destination: function (req, file, cb) {
-      cb(null, path.join(__dirname, 'uploads'));
-    },
-    filename: function (req, file, cb) {
-      cb(null, file.originalname);
-    }
-  });
-  const upload = multer({ storage: storage });
- 
+  destination: function (req, file, cb) {
+    cb(null, path.join(__dirname, 'uploads'));
+  },
+  filename: function (req, file, cb) {
+    cb(null, file.originalname);
+  },
+});
+const upload = multer({ storage: storage });
 ```
 
 The file is then uploaded to Fleek using the Fleek SDK. Once the file is successfully uploaded to Fleek, it is deleted from the local 'uploads' folder to free up space. If the upload is successful, we send a response back to the client with a success message. If any error occurs during this process, we handle it gracefully by logging the error and sending an appropriate response back to the client.
 
-We can also view the list of files that currently exists in our storage through the `/list-files` api. 
+We can also view the list of files that currently exists in our storage through the `/list-files` api.
 
 ```tsx
 app.post('/upload', upload.single('file'), async (req, res) => {
   try {
     const filePath = path.join(__dirname, 'uploads', req.file.originalname);
-    const file = await filesFromPaths(filePath)
-    
+    const file = await filesFromPaths(filePath);
+
     const result = await fleekSdk.storage().uploadFile({
-      file: file[0]
+      file: file[0],
     });
 
     fs.unlinkSync(filePath);
@@ -215,38 +213,37 @@ app.post('/upload', upload.single('file'), async (req, res) => {
 });
 
 app.get('/list-files', async (req, res) => {
-    try {
-      const result = await fleekSdk.storage().list();
-      res.status(200).json(result);
-    } catch (error) {
-      console.error('Error:', error);
-      res.status(500).json({ error: 'Failed to list files' });
-    }
-  });
+  try {
+    const result = await fleekSdk.storage().list();
+    res.status(200).json(result);
+  } catch (error) {
+    console.error('Error:', error);
+    res.status(500).json({ error: 'Failed to list files' });
+  }
+});
 ```
 
 Our full `server.js` file should look like this
 
 ```tsx
-
 import { FleekSdk, PersonalAccessTokenService } from '@fleekxyz/sdk';
-import { filesFromPaths } from 'files-from-path'
+import { filesFromPaths } from 'files-from-path';
 import express from 'express';
 import multer from 'multer';
 import path from 'path';
 import fs from 'fs';
 import cors from 'cors';
 import { fileURLToPath } from 'url';
-import dotenv from 'dotenv'
-dotenv.config()
+import dotenv from 'dotenv';
+dotenv.config();
 // Define __dirname
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
 const patService = new PersonalAccessTokenService({
-    personalAccessToken: process.env.token, // your PAT goes here
-    projectId: process.env.project_id // Optional
-})
+  personalAccessToken: process.env.token, // your PAT goes here
+  projectId: process.env.project_id, // Optional
+});
 const fleekSdk = new FleekSdk({ accessTokenService: patService });
 
 const app = express();
@@ -255,23 +252,23 @@ app.use(cors());
 
 // Configure multer for file upload
 const storage = multer.diskStorage({
-    destination: function (req, file, cb) {
-      cb(null, path.join(__dirname, 'uploads'));
-    },
-    filename: function (req, file, cb) {
-      cb(null, file.originalname);
-    }
-  });
-  const upload = multer({ storage: storage });
+  destination: function (req, file, cb) {
+    cb(null, path.join(__dirname, 'uploads'));
+  },
+  filename: function (req, file, cb) {
+    cb(null, file.originalname);
+  },
+});
+const upload = multer({ storage: storage });
 
 // Endpoint to upload file
 app.post('/upload', upload.single('file'), async (req, res) => {
   try {
     const filePath = path.join(__dirname, 'uploads', req.file.originalname);
-    const file = await filesFromPaths(filePath)
-    
+    const file = await filesFromPaths(filePath);
+
     const result = await fleekSdk.storage().uploadFile({
-      file: file[0]
+      file: file[0],
     });
 
     fs.unlinkSync(filePath);
@@ -284,20 +281,20 @@ app.post('/upload', upload.single('file'), async (req, res) => {
 });
 
 app.get('/list-files', async (req, res) => {
-    try {
-      const result = await fleekSdk.storage().list();
-      res.status(200).json(result);
-    } catch (error) {
-      console.error('Error:', error);
-      res.status(500).json({ error: 'Failed to list files' });
-    }
-  });
+  try {
+    const result = await fleekSdk.storage().list();
+    res.status(200).json(result);
+  } catch (error) {
+    console.error('Error:', error);
+    res.status(500).json({ error: 'Failed to list files' });
+  }
+});
 
 app.listen(port, () => {
   console.log(`Server is running on http://127.0.0.1:${port}`);
 });
-
 ```
+
 ---
 
 ## Client Side UI
@@ -369,7 +366,7 @@ app.listen(port, () => {
                     throw new Error('Failed to fetch files');
                 }
                 const files = await response.json();
-                
+
                 const filesList = document.getElementById('filesList');
                 filesList.innerHTML = ''; // Clear existing list
 
@@ -401,54 +398,53 @@ app.listen(port, () => {
 
 ```css
 body {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    min-height: 100vh; 
-    margin: 0;
-    padding-top: 50px; 
-    background-color: #f4f4f4; 
-    flex-direction: column;
-  }
-  
-  .upload-container {
-    text-align: center; 
-    padding: 20px;
-    border-radius: 10px; 
-    box-shadow: 0 4px 8px rgba(0,0,0,0.1); 
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-  }
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  margin: 0;
+  padding-top: 50px;
+  background-color: #f4f4f4;
+  flex-direction: column;
+}
 
-    .files-container {
-    text-align: center; 
-    padding: 20px;
-    border-radius: 10px; 
-    box-shadow: 0 4px 8px rgba(0,0,0,0.1); 
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-  }
-  
-  input[type="file"] {
-    margin-bottom: 20px; 
-  }
-  
-  button {
-    background-color: lightblue;
-    border: none;
-    border-radius: 5px;
-    padding: 10px 20px; 
-    cursor: pointer; 
-  }
-  
-  button:hover {
-    background-color: #82b4d9;
-  }
-  
+.upload-container {
+  text-align: center;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.files-container {
+  text-align: center;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+input[type='file'] {
+  margin-bottom: 20px;
+}
+
+button {
+  background-color: lightblue;
+  border: none;
+  border-radius: 5px;
+  padding: 10px 20px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #82b4d9;
+}
 ```
 
 ---
@@ -464,7 +460,7 @@ And that's it! Your onchain storage app is done. To see it:
 1. In your terminal, run:
 
 ```tsx
-http-server
+http - server;
 ```
 
 You should see this:
@@ -474,7 +470,7 @@ Starting up http-server, serving ./
 
 http-server version: 14.1.1
 
-http-server settings: 
+http-server settings:
 CORS: disabled
 Cache: 3600 seconds
 Connection Timeout: 120 seconds
@@ -494,7 +490,7 @@ Congrats! You can visit your fully functional onchain storage page here: http://
 
 ---
 
-In this guide, we learned how to make use of the Fleek SDK to upload, get, and list files in the Fleek storage. We built a backend node server powered by express to run our functions. 
+In this guide, we learned how to make use of the Fleek SDK to upload, get, and list files in the Fleek storage. We built a backend node server powered by express to run our functions.
 
 You can see the full code for this project on GitHub: <u>https://github.com/geniusyinka/dropbox_ff</u>.
 
