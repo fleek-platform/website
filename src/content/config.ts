@@ -39,6 +39,8 @@ const referencesCollection = createCollection('content', z.object({}));
 
 const legalCollection = createCollection('content', z.object({}));
 
+const changelogCollection = createCollection('content', z.object({}));
+
 // Export a single `collections` object to register your collection(s)
 export const collections = {
   docs: docsCollection,
@@ -48,4 +50,5 @@ export const collections = {
   references: referencesCollection,
   legal: legalCollection,
   billing: billingCollection,
+  changelog: changelogCollection,
 };
