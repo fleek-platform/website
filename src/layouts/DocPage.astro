@@ -33,22 +33,6 @@ type Props = {
   nextItem: DocsLink | null;
 };
 
-type ContentData = {
-  title: string;
-  date: Date;
-  desc: string;
-  order: number;
-};
-
-type DocsContentEntry = {
-  id: string;
-  slug: string;
-  body: string;
-  collection: string;
-  data: ContentData;
-  render: () => Promise<string>;
-};
-
 const { title, description, headings, prevItem, nextItem } = Astro.props;
 const {
   collection,
@@ -73,7 +57,7 @@ const {
   };
 })();
 
-const data = (await getEntry(collection, id)) as DocsContentEntry;
+const data = await getEntry(collection, id);
 
 console.log(data);
 
