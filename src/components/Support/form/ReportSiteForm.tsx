@@ -3,7 +3,7 @@ import Button from './ui/Button';
 import Input from './ui/Input';
 import ToolTip from './ui/ToolTip';
 import type { FormEvent } from 'react';
-import { checkHealthStatus, submitForm } from './utils';
+import { checkHealthStatus, emailRegex, submitForm } from './utils';
 import FormTitle from './ui/FormTitle';
 import toast from 'react-hot-toast';
 import Spinner from '@components/Spinner';
@@ -27,28 +27,12 @@ function ReportSiteForm() {
   const [isHealthy, setIsHealthy] = useState<boolean>(false);
   const [isLoading, setIsLoading] = useState<boolean>(true);
   const [isButtonDisabled, setIsButtonDisabled] = useState<boolean>(true);
-  const [errors, setErrors] = useState<Record<string, string>>({});
-
-  const validate = (name: string, value: string) => {
-    let error = '';
-    if (name === 'email' && !value.includes('@')) {
-      error = 'Please enter a valid email address';
-    } else if (name === 'comment' && value.trim().length < 30) {
-      error = 'Description must be at least 30 characters';
-    }
-    setErrors((prevErrors) => ({
-      ...prevErrors,
-      [name]: error,
-    }));
-  };
 
   const handleInputChange = (name: string, value: string) => {
     setFormValues((prevValues) => ({
       ...prevValues,
       [name]: value,
     }));
-
-    validate(name, value);
 
     const shouldBeDisabled = value.trim().length < 30;
 
@@ -124,10 +108,10 @@ function ReportSiteForm() {
             type="email"
             name="email"
             value={formValues.email}
+            pattern={emailRegex}
             isRequired
             onChange={(value) => handleInputChange('email', value)}
             label="Your email address"
-            error={errors.email}
           />
         </div>
 
@@ -146,12 +130,13 @@ function ReportSiteForm() {
           <Input
             type="textarea"
             name="comment"
+            minLength={30}
+            maxLength={180}
             value={formValues.comment}
             isRequired
             bottomText="Description must contain at least 30 characters"
             onChange={(value) => handleInputChange('comment', value)}
             label="Description"
-            error={errors.comment}
           />
         </div>
 

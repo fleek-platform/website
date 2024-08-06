@@ -4,7 +4,7 @@ import Input from './ui/Input';
 import ToolTip from './ui/ToolTip';
 import toast from 'react-hot-toast';
 import Button from './ui/Button';
-import { checkHealthStatus, submitForm } from './utils';
+import { checkHealthStatus, emailRegex, submitForm } from './utils';
 import FormTitle from './ui/FormTitle';
 import { removeProtocolFromUrl } from '@utils/url';
 import Spinner from '@components/Spinner';
@@ -41,30 +41,12 @@ function NewRequestForm() {
   const [isHealthy, setIsHealthy] = useState<boolean>(false);
   const [isLoading, setIsLoading] = useState<boolean>(true);
   const [isButtonDisabled, setIsButtonDisabled] = useState<boolean>(true);
-  const [errors, setErrors] = useState<Record<string, string>>({});
-
-  const validate = (name: string, value: string) => {
-    let error = '';
-    if (name === 'email' && !value.includes('@')) {
-      error = 'Please enter a valid email address';
-    } else if (name === 'subject' && value.trim().length < 5) {
-      error = 'Subject name should be more descriptive';
-    } else if (name === 'comment' && value.trim().length < 30) {
-      error = 'Description must be at least 30 characters';
-    }
-    setErrors((prevErrors) => ({
-      ...prevErrors,
-      [name]: error,
-    }));
-  };
 
   const handleInputChange = (name: string, value: string) => {
     setFormValues((prevValues) => ({
       ...prevValues,
       [name]: value,
     }));
-
-    validate(name, value);
 
     const shouldBeDisabled = value.trim().length < 30;
 
@@ -78,15 +60,11 @@ function NewRequestForm() {
       ...defaultFormValues,
     });
     setIsButtonDisabled(true);
-    setErrors({});
   };
 
   const handleFormSubmit = async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-    if (Object.values(errors).some((error) => error)) {
-      toast.error('Please adjust all input values before submitting');
-      return;
-    }
+
     await submitForm(formValues, resetFormValues);
   };
 
@@ -146,9 +124,9 @@ function NewRequestForm() {
             name="email"
             value={formValues.email}
             isRequired
+            pattern={emailRegex}
             onChange={(value) => handleInputChange('email', value)}
             label="Your email address"
-            error={errors.email}
           />
         </div>
 
@@ -160,7 +138,6 @@ function NewRequestForm() {
             isRequired
             onChange={(value) => handleInputChange('subject', value)}
             label="Subject"
-            error={errors.subject}
           />
         </div>
 
@@ -168,12 +145,13 @@ function NewRequestForm() {
           <Input
             type="textarea"
             name="comment"
+            minLength={30}
+            maxLength={180}
             value={formValues.comment}
             isRequired
             bottomText="Description must contain at least 30 characters"
             onChange={(value) => handleInputChange('comment', value)}
             label="Description"
-            error={errors.comment}
           />
         </div>
 

@@ -9,9 +9,11 @@ interface InputProps {
   readOnly?: boolean;
   name: string;
   isRequired: boolean;
+  minLength?: number;
+  maxLength?: number;
   bottomText?: string;
+  pattern?: string;
   disabled?: boolean;
-  error?: string;
   [key: string]: any;
 }
 
@@ -27,6 +29,9 @@ const Input: React.FC<InputProps> = ({
   readOnly,
   isRequired,
   bottomText,
+  pattern,
+  minLength,
+  maxLength,
   error,
   disabled,
   name,
@@ -65,6 +70,8 @@ const Input: React.FC<InputProps> = ({
           rows={10}
           placeholder="Describe your issue..."
           value={inputValue}
+          minLength={minLength}
+          maxLength={maxLength}
           onChange={handleChange}
           {...props}
           className={clsx(
@@ -74,11 +81,6 @@ const Input: React.FC<InputProps> = ({
             },
           )}
         />
-        {error && propValue.length > 0 && (
-          <span className="my-[4px] text-[1.2rem] font-medium text-red md:text-[1.3rem] xl:my-[6px] xl:text-[1.4rem]">
-            {error}
-          </span>
-        )}
       </div>
     );
   }
@@ -104,16 +106,14 @@ const Input: React.FC<InputProps> = ({
         id={`input-${name}`}
         readOnly={readOnly}
         name={name}
+        minLength={minLength}
+        maxLength={maxLength}
         value={inputValue}
+        pattern={pattern}
         disabled={disabled}
         onChange={handleChange}
         {...props}
       />
-      {error && propValue.length > 0 && (
-        <span className="my-[4px] text-[1.2rem] font-medium text-red md:text-[1.3rem] xl:my-[6px] xl:text-[1.4rem]">
-          {error}
-        </span>
-      )}
     </div>
   );
 };
