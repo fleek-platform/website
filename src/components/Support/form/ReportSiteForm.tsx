@@ -3,7 +3,7 @@ import Button from './ui/Button';
 import Input from './ui/Input';
 import ToolTip from './ui/ToolTip';
 import type { FormEvent } from 'react';
-import { checkHealthStatus, submitForm } from './utils';
+import { checkHealthStatus, emailRegex, submitForm } from './utils';
 import FormTitle from './ui/FormTitle';
 import toast from 'react-hot-toast';
 import Spinner from '@components/Spinner';
@@ -26,17 +26,27 @@ function ReportSiteForm() {
   });
   const [isHealthy, setIsHealthy] = useState<boolean>(false);
   const [isLoading, setIsLoading] = useState<boolean>(true);
+  const [isButtonDisabled, setIsButtonDisabled] = useState<boolean>(true);
 
-  const handleInputChange = (name: string, value: string | FileList) => {
+  const handleInputChange = (name: string, value: string) => {
     setFormValues((prevValues) => ({
       ...prevValues,
       [name]: value,
     }));
+
+    if (name === 'comment') {
+      const shouldBeDisabled = value.trim().length < 30;
+
+      if (shouldBeDisabled !== isButtonDisabled) {
+        setIsButtonDisabled(shouldBeDisabled);
+      }
+    }
   };
   const resetFormValues = () => {
     setFormValues({
       ...defaultFormValues,
     });
+    setIsButtonDisabled(true);
   };
 
   async function fetchHealthStatus() {
@@ -100,6 +110,7 @@ function ReportSiteForm() {
             type="email"
             name="email"
             value={formValues.email}
+            pattern={`${emailRegex}`}
             isRequired
             onChange={(value) => handleInputChange('email', value)}
             label="Your email address"
@@ -121,6 +132,8 @@ function ReportSiteForm() {
           <Input
             type="textarea"
             name="comment"
+            minLength={30}
+            maxLength={180}
             value={formValues.comment}
             isRequired
             bottomText="Description must contain at least 30 characters"
@@ -129,7 +142,7 @@ function ReportSiteForm() {
           />
         </div>
 
-        <Button />
+        <Button isDisabled={isButtonDisabled} />
       </div>
     </form>
   );

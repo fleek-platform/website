@@ -2,6 +2,15 @@ import toast from 'react-hot-toast';
 import type { FormValuesType } from './ReportSiteForm';
 import { zenDeskEndpoint } from './NewRequestForm';
 
+const parseResponse = async (response: Response) => {
+  try {
+    const data = await response.json();
+    return data;
+  } catch (error) {
+    return { error: 'Failed to parse response' };
+  }
+};
+
 export const submitForm = async (
   formValuesObject: FormValuesType,
   resetFn: () => void,
@@ -20,11 +29,13 @@ export const submitForm = async (
       body: formData.toString(),
     });
 
-    if (!response.ok) {
-      throw new Error('Network response was not ok');
-    }
+    const data = await parseResponse(response);
 
-    const data = await response.json();
+    if (!response.ok) {
+      throw new Error(
+        data?.error?.issues?.[0]?.message || 'Network response was not ok',
+      );
+    }
 
     if (!data) {
       const msg =
@@ -38,9 +49,14 @@ export const submitForm = async (
       resetFn();
     }
   } catch (error) {
-    toast.error(
-      "We're sorry, but there was an error submitting your request. Please try again later. If the issue persists, let us know to help us improve.",
-    );
+    let errorMsg: string;
+    if (error instanceof Error) {
+      errorMsg = error.message;
+    } else {
+      errorMsg = String(error);
+    }
+    console.error(errorMsg);
+    toast.error("We're sorry, but something went wrong. Please try again.");
   }
 };
 
@@ -54,3 +70,6 @@ export async function checkHealthStatus() {
     return false;
   }
 }
+
+export const emailRegex =
+  /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))/;
