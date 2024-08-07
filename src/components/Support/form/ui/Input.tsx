@@ -4,12 +4,15 @@ import React, { useEffect, useState } from 'react';
 interface InputProps {
   type?: 'text' | 'email' | 'textarea';
   value: string;
-  onChange?: (value: string | FileList) => void;
+  onChange?: (value: string) => void;
   label: string;
   readOnly?: boolean;
   name: string;
   isRequired: boolean;
+  minLength?: number;
+  maxLength?: number;
   bottomText?: string;
+  pattern?: string;
   disabled?: boolean;
   [key: string]: any;
 }
@@ -26,6 +29,10 @@ const Input: React.FC<InputProps> = ({
   readOnly,
   isRequired,
   bottomText,
+  pattern,
+  minLength,
+  maxLength,
+  error,
   disabled,
   name,
   ...props
@@ -63,6 +70,8 @@ const Input: React.FC<InputProps> = ({
           rows={10}
           placeholder="Describe your issue..."
           value={inputValue}
+          minLength={minLength}
+          maxLength={maxLength}
           onChange={handleChange}
           {...props}
           className={clsx(
@@ -72,11 +81,6 @@ const Input: React.FC<InputProps> = ({
             },
           )}
         />
-        {bottomText && (
-          <span className="my-[4px] text-[1.2rem] font-medium text-gray-dark-11 md:text-[1.3rem] xl:my-[6px] xl:text-[1.4rem]">
-            {bottomText}
-          </span>
-        )}
       </div>
     );
   }
@@ -102,16 +106,14 @@ const Input: React.FC<InputProps> = ({
         id={`input-${name}`}
         readOnly={readOnly}
         name={name}
+        minLength={minLength}
+        maxLength={maxLength}
         value={inputValue}
+        pattern={pattern}
         disabled={disabled}
         onChange={handleChange}
         {...props}
       />
-      {bottomText && (
-        <span className="my-[4px] text-[1.2rem] font-medium text-gray-dark-11 md:text-[1.3rem] xl:my-[6px] xl:text-[1.4rem]">
-          {bottomText}
-        </span>
-      )}
     </div>
   );
 };
