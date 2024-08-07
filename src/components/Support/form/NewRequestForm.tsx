@@ -126,7 +126,7 @@ function NewRequestForm() {
             name="email"
             value={formValues.email}
             isRequired
-            pattern={emailRegex}
+            pattern={`${emailRegex}`}
             onChange={(value) => handleInputChange('email', value)}
             label="Your email address"
           />
