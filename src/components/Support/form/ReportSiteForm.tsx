@@ -34,10 +34,12 @@ function ReportSiteForm() {
       [name]: value,
     }));
 
-    const shouldBeDisabled = value.trim().length < 30;
+    if (name === 'comment') {
+      const shouldBeDisabled = value.trim().length < 30;
 
-    if (shouldBeDisabled !== isButtonDisabled) {
-      setIsButtonDisabled(shouldBeDisabled);
+      if (shouldBeDisabled !== isButtonDisabled) {
+        setIsButtonDisabled(shouldBeDisabled);
+      }
     }
   };
   const resetFormValues = () => {
@@ -108,7 +110,7 @@ function ReportSiteForm() {
             type="email"
             name="email"
             value={formValues.email}
-            pattern={emailRegex}
+            pattern={`${emailRegex}`}
             isRequired
             onChange={(value) => handleInputChange('email', value)}
             label="Your email address"
