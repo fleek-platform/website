@@ -2,6 +2,15 @@ import toast from 'react-hot-toast';
 import type { FormValuesType } from './ReportSiteForm';
 import { zenDeskEndpoint } from './NewRequestForm';
 
+const parseResponse = async (response: Response) => {
+  try {
+    const data = await response.json();
+    return data;
+  } catch (error) {
+    return { error: 'Failed to parse response' };
+  }
+};
+
 export const submitForm = async (
   formValuesObject: FormValuesType,
   resetFn: () => void,
@@ -20,11 +29,13 @@ export const submitForm = async (
       body: formData.toString(),
     });
 
-    if (!response.ok) {
-      throw new Error('Network response was not ok');
-    }
+    const data = await parseResponse(response);
 
-    const data = await response.json();
+    if (!response.ok) {
+      throw new Error(
+        data?.error?.issues?.[0]?.message || 'Network response was not ok',
+      );
+    }
 
     if (!data) {
       const msg =
@@ -38,9 +49,14 @@ export const submitForm = async (
       resetFn();
     }
   } catch (error) {
-    toast.error(
-      "We're sorry, but there was an error submitting your request. Please try again later. If the issue persists, let us know to help us improve.",
-    );
+    let errorMsg: string;
+    if (error instanceof Error) {
+      errorMsg = error.message;
+    } else {
+      errorMsg = String(error);
+    }
+    console.error(errorMsg);
+    toast.error("We're sorry, but something went wrong. Please try again.");
   }
 };
 
@@ -54,3 +70,6 @@ export async function checkHealthStatus() {
     return false;
   }
 }
+
+export const emailRegex =
+  '(?:[a-z0-9!#$%&\'*+/=?^_`{|}~-]+(?:\\.[a-z0-9!#$%&\'*+/=?^_`{|}~-]+)*|"(?:[\\x01-\\x08\\x0b\\x0c\\x0e-\\x1f\\x21\\x23-\\x5b\\x5d-\\x7f]|\\\\[\\x01-\\x09\\x0b\\x0c\\x0e-\\x7f])*")@(?:(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?|\\[(?:(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\\.){3}(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?|[a-z0-9-]*[a-z0-9]:(?:[\\x01-\\x08\\x0b\\x0c\\x0e-\\x1f\\x21-\\x5a\\x53-\\x7f]|\\\\[\\x01-\\x09\\x0b\\x0c\\x0e-\\x7f])+))';
