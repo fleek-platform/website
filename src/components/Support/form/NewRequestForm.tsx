@@ -4,7 +4,7 @@ import Input from './ui/Input';
 import ToolTip from './ui/ToolTip';
 import toast from 'react-hot-toast';
 import Button from './ui/Button';
-import { checkHealthStatus, submitForm } from './utils';
+import { checkHealthStatus, emailRegex, submitForm } from './utils';
 import FormTitle from './ui/FormTitle';
 import { removeProtocolFromUrl } from '@utils/url';
 import Spinner from '@components/Spinner';
@@ -40,26 +40,34 @@ function NewRequestForm() {
   });
   const [isHealthy, setIsHealthy] = useState<boolean>(false);
   const [isLoading, setIsLoading] = useState<boolean>(true);
+  const [isButtonDisabled, setIsButtonDisabled] = useState<boolean>(true);
 
-  const handleInputChange = (name: string, value: string | FileList) => {
+  const handleInputChange = (name: string, value: string) => {
     setFormValues((prevValues) => ({
       ...prevValues,
       [name]: value,
     }));
+
+    if (name === 'comment') {
+      const shouldBeDisabled = value.trim().length < 30;
+
+      if (shouldBeDisabled !== isButtonDisabled) {
+        setIsButtonDisabled(shouldBeDisabled);
+      }
+    }
   };
 
   const resetFormValues = () => {
     setFormValues({
       ...defaultFormValues,
     });
+    setIsButtonDisabled(true);
   };
 
   const handleFormSubmit = async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-    formSubmissionObject = {
-      ...formValues,
-    };
-    await submitForm(formSubmissionObject, resetFormValues);
+
+    await submitForm(formValues, resetFormValues);
   };
 
   async function fetchHealthStatus() {
@@ -118,6 +126,7 @@ function NewRequestForm() {
             name="email"
             value={formValues.email}
             isRequired
+            pattern={`${emailRegex}`}
             onChange={(value) => handleInputChange('email', value)}
             label="Your email address"
           />
@@ -138,6 +147,8 @@ function NewRequestForm() {
           <Input
             type="textarea"
             name="comment"
+            minLength={30}
+            maxLength={180}
             value={formValues.comment}
             isRequired
             bottomText="Description must contain at least 30 characters"
@@ -146,7 +157,7 @@ function NewRequestForm() {
           />
         </div>
 
-        <Button />
+        <Button isDisabled={isButtonDisabled} />
       </div>
     </form>
   );
