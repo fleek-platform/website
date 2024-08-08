@@ -189,7 +189,7 @@ type Response = {
 ```typescript
 // The Fleek SDK should be authenticated
 // with a valid Project ID
-const result = await fleekSdk.storage().list();
+const result = await fleekSdk.storage().delete();
 ```
 
 ## uploadDirectory
