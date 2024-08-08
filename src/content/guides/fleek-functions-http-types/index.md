@@ -30,7 +30,7 @@ For example:
 
 The above are some things that may seem trivial, but when dealing with serverless runtime APIs within edge functions like Fleek Functions, they need to be taken into consideration. As systems scale, these seemingly mundane things tend to have a huge impact on your Fleek Functions.
 
-To understand Fleek Function types, it is best to take a look into how they are applied in real-world use cases, which is why we will be focusing on the <u>[fleek-function-utils](https://github.com/gabrielmpinto/fleek-function-utils)</u> library and its usage.
+To understand Fleek Function types, it is best to take a look into how they are applied in real-world use cases, which is why we will be working with the <u>[fleek-function-utils](https://github.com/gabrielmpinto/fleek-function-utils)</u> library and its usage.
 
 The library has utilities for debugging Fleek Functions and types for HTTP requests and responses. Without further ado, let’s step into the library’s code to see what is happening there.
 
@@ -70,59 +70,24 @@ These type definitions are useful for ensuring that HTTP request and response ob
 
 ## Applying the types
 
-The wrapper function is an asynchronous utility designed to enhance another function, fn, that processes HTTP requests. It accepts a request object and optional opts for logging. If the request's query contains debug=true, the function captures logs and returns them alongside the response or error details. If not in debug mode, it simply returns the result of the function or the error encountered. It uses wrapLogger to handle logging and error capturing for better debugging and monitoring.
+The below code is an asynchronous function designed to be a Fleek Function. It processes HTTP requests and checks if the request method is "GET." If the request method is not "GET," it returns a 400 status code with a message indicating that only GET requests are allowed. If the request method is "GET," it returns a 200 status code with a personalized greeting using the name parameter from the query string, defaulting to "World" if no name is provided. This demonstrates handling different HTTP methods and query parameters in Fleek functions
 
-```jsx
-import { wrapLogger as wrapLogger, LoggerOptions } from './logger';
-import { HttpRequest, HttpResponse } from './types';
+```tsx
+import { HttpRequest, HttpResponse } from 'fleek-function-utils';
 
-export type WrapperOptions = {
-  log?: LoggerOptions;
-};
-
-export const wrapper = async (
-  fn: (request: HttpRequest) => Promise<HttpResponse>,
-  request: HttpRequest,
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  opts?: WrapperOptions,
-) => {
-  const debug = request?.query?.debug ?? false;
-  const { logs } = wrapLogger();
-
-  try {
-    const response = await fn(request);
-
-    return debug
-      ? {
-          body: {
-            success: true,
-            result: response,
-            logs,
-          },
-        }
-      : response;
-  } catch (error: unknown) {
-    let errorMsg;
-    if (error instanceof Error && error.message) {
-      errorMsg = {
-        message: error.message,
-        name: error.name,
-        cause: error.cause,
-        stack: error.stack,
-      };
-    } else {
-      errorMsg = error;
-    }
-
-    return debug
-      ? {
-          body: {
-            success: false,
-            error: errorMsg,
-            logs,
-          },
-        }
-      : error;
+export const main = async (params: HttpRequest): Promise<HttpResponse> => {
+  if (params.method !== 'GET') {
+    return {
+      status: 400,
+      headers: {},
+      body: 'Only GET requests are allowed',
+    };
+  } else {
+    return {
+      status: 200,
+      headers: {},
+      body: `Hello, ${params.query?.name || 'World'}!`,
+    };
   }
 };
 ```
@@ -139,7 +104,7 @@ The above code in the library is linked <u>[here.](https://github.com/gabrielmpi
 To setup the environment to test this out, you will need to have a few things in place:
 
 - <u>[Fleek CLI](https://fleek.xyz/docs/cli/)</u>
-- <u>[Webpack](https://webpack.js.org/guides/getting-started/#basic-setup)</u>
+- <u>[esbuild](https://esbuild.github.io/getting-started/#install-esbuild)</u>
 - Code editor of your choice
 - Your terminal
 
@@ -149,61 +114,46 @@ Essentially the steps are:
 
 1. Set up your directory and create an `src` folder within it that contains an `index.js` file in it. Also run the below commands:
 
-```
+```bash
 npm init -y
-npm install webpack webpack-cli --save-dev
+npm install --save-exact --save-dev esbuild
 ```
 
-2. Ensure you have the Fleek CLI and Webpack installed.
+2. Ensure you have the Fleek CLI and esbuild installed.
 
-3. In your `webpack.config.js`, paste the below:
+3. In your `package.json`, add the script below:
 
-```jsx
-const path = require('path');
-
-module.exports = {
-  entry: './src/index.js',
-  output: {
-    library: {
-      type: 'module',
-    },
-    filename: 'bundle.js',
-    path: path.resolve(__dirname, 'dist'),
+```js
+  "scripts": {
+    "build": "esbuild --bundle test.ts --platform=neutral > bundle.js"
   },
-  mode: 'none',
-  experiments: {
-    outputModule: true,
-  },
-};
 ```
 
 4. Then, run the below command:
 
-```
+```bash
 npm run build
 ```
 
-5. The above generates a `dist` folder that contains a `bundle.js` file within it, you can move on to creating the Fleek Function:
+5. The above generates a `bundle.js` file, you can move on to creating the Fleek Function:
 
-```
+```bash
 fleek functions create --name fleek-function-types
 ```
 
 6. Then you deploy the function:
 
-```
-fleek functions deploy \
---name fleek-function-types \
---path ./dist/bundle.js
+```bash
+fleek functions deploy --name fleek-function-types --noBundle --path bundle.js
 ```
 
-For more insights on creating and deploying a Fleek Function, you can check <u>[here.](https://fleek.xyz/docs/cli/functions/#create-a-fleek-function)</u> After the above steps, you should have something similar to what was outlined above. The `wrapper ` should perform as expected.
+For more insights on creating and deploying a Fleek Function, you can check <u>[here.](https://fleek.xyz/docs/cli/functions/#create-a-fleek-function)</u> After the above steps, you should have something similar to what was outlined above. The `main` function should perform as expected.
 
 ---
 
 In this guide, we've explored how Fleek Function types can enhance your serverless edge functions by providing type safety and robust handling of HTTP requests and responses. You can ensure that your HTTP interactions are well-structured and less prone to runtime errors.
 
-We explored the fleek-function-utils library, which offers practical utilities for debugging and applying these types. Specifically, we examined the wrapper function, an asynchronous utility that simplifies handling HTTP requests, logging, and debugging. Using these types offers several benefits:
+We explored the `fleek-function-utils` library, which offers practical utilities for debugging and applying these types. Using these types offers several benefits:
 
 - **Type safety**: Ensures that the structure of HTTP requests and responses is consistent, reducing the likelihood of runtime errors due to unexpected data formats.
 - **Error handling**: Simplifies the detection and handling of errors, providing detailed error messages and stack traces.
