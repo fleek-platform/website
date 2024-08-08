@@ -55,14 +55,15 @@ export type HttpResponseHeaders =
   | Record<string, string[]>
   | [string, string][]
   | [string, string[]][];
-  
-  
+
+
 export type HttpResponse = {
   status: number;
   headers: HttpResponseHeaders;
   body: unknown;
 };
 ```
+
 These type definitions are useful for ensuring that HTTP request and response objects adhere to a specific structure, providing type safety and reducing the likelihood of runtime errors. You can take a look at the code via <u>[this GitHub link](https://github.com/gabrielmpinto/fleek-function-utils/blob/main/src/types.ts)</u> and you can also cross reference with the type aliases from the Fleek runtime <u>[here.](https://fleek-network.github.io/js-docs/fleek-node-api.html#Type%20Aliases)</u>
 
 ---
@@ -125,6 +126,7 @@ export const wrapper = async (
   }
 };
 ```
+
 ### HttpRequest and HttpResponse types:
 
 - **HttpRequest**: Defines the structure of an HTTP request, including method, path, headers, query parameters, and body.
@@ -151,28 +153,30 @@ Essentially the steps are:
 npm init -y
 npm install webpack webpack-cli --save-dev
 ```
+
 2. Ensure you have the Fleek CLI and Webpack installed.
 
 3. In your `webpack.config.js`, paste the below:
 
 ```jsx
-const path = require("path");
+const path = require('path');
 
 module.exports = {
-  entry: "./src/index.js",
+  entry: './src/index.js',
   output: {
     library: {
-      type: "module",
+      type: 'module',
     },
-    filename: "bundle.js",
-    path: path.resolve(__dirname, "dist"),
+    filename: 'bundle.js',
+    path: path.resolve(__dirname, 'dist'),
   },
-  mode: "none",
+  mode: 'none',
   experiments: {
     outputModule: true,
-	 },
- };
+  },
+};
 ```
+
 4. Then, you run the below command:
 
 ```
