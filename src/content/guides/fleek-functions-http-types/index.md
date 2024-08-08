@@ -8,29 +8,29 @@ author:
   - 'Fleek'
 ---
 
-Fleek Functions, being onchain serverless edge functions, use HTTP requests and responses as their primary means of access when they are to be interacted with by users. In this guide, we will take a pragmatic look into how Fleek function types can be used within your Fleek Functions.
+Fleek Functions, being on-chain serverless edge functions, use HTTP requests and responses as their primary means of access when users interact with them. In this guide, we will take a pragmatic look at how Fleek function types can be used within your Fleek Functions.
 
-If you are reading this it is expected that you already know what HTTP and <u>[Fleek Functions](https://fleek.xyz/docs/platform/fleek-functions/)</u> are, and that you have a Fleek account; you can sign up <u>[here](https://app.fleek.xyz/)</u> if you don’t have an account already.
+If you are reading this, it is expected that you already know what HTTP and <u>[Fleek Functions](https://fleek.xyz/docs/platform/fleek-functions/)</u> are, and that you have a Fleek account; you can sign up <u>[here](https://app.fleek.xyz/)</u> if you don’t have an account already.
 
-As you follow along, you will notice a few Fleek Function aliases which you may already be familiar with, but if not you can take a look <u>[here](https://fleek-network.github.io/js-docs/fleek-node-api.html#Type%20Aliases)</u> to see the type aliases provided by the Fleek Runtime which we interact with via Fleek Functions.
+As you follow along, you will notice a few Fleek Function aliases which you may already be familiar with. If not, you can take a look <u>[here](https://fleek-network.github.io/js-docs/fleek-node-api.html#Type%20Aliases)</u> to see the type aliases provided by the Fleek runtime which we interact with via Fleek Functions.
 
-Lets get into the different types of Fleek Functions, and their use cases.
+Let's get into the different types of Fleek Functions, and their use cases.
 
 ---
 
 ## Exploring Fleek Function types
 
-Fleek Function types are known for helping maintain the consistency of data types involved in the exchange of data within the server runtime; this enables the correct data to be read and taken in by the edge functions and the correct response to be output by them.
+Fleek Function types help maintain the consistency of data types involved in the exchange of data within the server runtime; this enables the correct data to be read and taken in by the edge functions and the correct response to be outputted by them.
 
 For example:
 
-- An http request must have an http request method.
+- An HTTP request must have an HTTP request method.
 
-- An http response must have a status code.
+- An HTTP response must have a status code.
 
-The above are some things that may seem trivial, but when dealing with serverless runtime APIs within edge functions like Fleek Functions, they need to be taken into consideration. As systems scale these seemingly mundane things tend to have a huge impact on your Fleek Functions.
+The above are some things that may seem trivial, but when dealing with serverless runtime APIs within edge functions like Fleek Functions, they need to be taken into consideration. As systems scale, these seemingly mundane things tend to have a huge impact on your Fleek Functions.
 
-To understand Fleek Function types it is best to take a look into how they are applied in real-world use cases, which is why we will be focusing on the <u>[fleek-function-utils](https://github.com/gabrielmpinto/fleek-function-utils)</u> library and its usage.
+To understand Fleek Function types, it is best to take a look into how they are applied in real-world use cases, which is why we will be focusing on the <u>[fleek-function-utils](https://github.com/gabrielmpinto/fleek-function-utils)</u> library and its usage.
 
 The library has utilities for debugging Fleek Functions and types for HTTP requests and responses. Without further ado, let’s step into the library’s code to see what is happening there.
 
@@ -177,13 +177,13 @@ module.exports = {
 };
 ```
 
-4. Then, you run the below command:
+4. Then, run the below command:
 
 ```
 npm run build
 ```
 
-5. The above generates a `dist` folder that contains a `bundle.js` file within it, you can move on to creating the fleek function:
+5. The above generates a `dist` folder that contains a `bundle.js` file within it, you can move on to creating the Fleek Function:
 
 ```
 fleek functions create --name fleek-function-types
@@ -201,13 +201,13 @@ For more insights on creating and deploying a Fleek Function, you can check <u>[
 
 ---
 
-In this guide, we've explored how Fleek Function types can enhance your serverless edge functions by providing type safety and robust handling of HTTP requests and responses.You can ensure that your HTTP interactions are well-structured and less prone to runtime errors.
+In this guide, we've explored how Fleek Function types can enhance your serverless edge functions by providing type safety and robust handling of HTTP requests and responses. You can ensure that your HTTP interactions are well-structured and less prone to runtime errors.
 
 We explored the fleek-function-utils library, which offers practical utilities for debugging and applying these types. Specifically, we examined the wrapper function, an asynchronous utility that simplifies handling HTTP requests, logging, and debugging. Using these types offers several benefits:
 
-- **Type Safety**: Ensures that the structure of HTTP requests and responses is consistent, reducing the likelihood of runtime errors due to unexpected data formats.
-- **Error Handling**: Simplifies the detection and handling of errors, providing detailed error messages and stack traces.
-- **Enhanced Debugging**: Allows for comprehensive logging and debug mode, making it easier to trace and fix issues.
-- **Code Readability**: Improves code readability and maintainability by clearly defining the shape of HTTP interactions.
+- **Type safety**: Ensures that the structure of HTTP requests and responses is consistent, reducing the likelihood of runtime errors due to unexpected data formats.
+- **Error handling**: Simplifies the detection and handling of errors, providing detailed error messages and stack traces.
+- **Enhanced debugging**: Allows for comprehensive logging and debug mode, making it easier to trace and fix issues.
+- **Code readability**: Improves code readability and maintainability by clearly defining the shape of HTTP interactions.
 
-To learn more about Fleek Functions, their use cases, and advantages they provide, check out our <u>[docs](https://fleek.xyz/docs/cli/functions/)</u>, <u>[blog](https://fleek.xyz/blog/)</u>, join our <u>[Discord Server](http://discord.gg/fleek)</u> and follow us on <u>[X](https://x.com/fleek)</u>!
+To learn more about Fleek Functions, their use cases and advantages they provide, check out our <u>[docs](https://fleek.xyz/docs/cli/functions/)</u>, <u>[blog](https://fleek.xyz/blog/)</u>, join our <u>[Discord server](http://discord.gg/fleek)</u> and follow us on <u>[X](https://x.com/fleek)</u>!
