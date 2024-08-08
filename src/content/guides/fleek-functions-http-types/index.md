@@ -73,20 +73,20 @@ These type definitions are useful for ensuring that HTTP request and response ob
 The below code is an asynchronous function designed to be a Fleek Function. It processes HTTP requests and checks if the request method is "GET." If the request method is not "GET," it returns a 400 status code with a message indicating that only GET requests are allowed. If the request method is "GET," it returns a 200 status code with a personalized greeting using the name parameter from the query string, defaulting to "World" if no name is provided. This demonstrates handling different HTTP methods and query parameters in Fleek functions
 
 ```tsx
-import { HttpRequest, HttpResponse } from "fleek-function-utils";
+import { HttpRequest, HttpResponse } from 'fleek-function-utils';
 
 export const main = async (params: HttpRequest): Promise<HttpResponse> => {
-  if (params.method !== "GET") {
+  if (params.method !== 'GET') {
     return {
       status: 400,
       headers: {},
-      body: "Only GET requests are allowed",
+      body: 'Only GET requests are allowed',
     };
   } else {
     return {
       status: 200,
       headers: {},
-      body: `Hello, ${params.query?.name || "World"}!`,
+      body: `Hello, ${params.query?.name || 'World'}!`,
     };
   }
 };
