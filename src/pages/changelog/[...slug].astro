@@ -5,20 +5,20 @@ import GithubEditLink from '@components/GitHubEditLink.astro';
 import { generateGitHubEditLink } from '@utils/url';
 import ButtonGray from '@components/ButtonGray';
 
-// export async function getStaticPaths() {
-//   const docsEntries = await getCollection('changelog');
-//   return docsEntries.map((entry) => ({
-//     params: { slug: entry.slug },
-//     props: { entry },
-//   }));
-// }
+export async function getStaticPaths() {
+  const docsEntries = await getCollection('changelog');
+  return docsEntries.map((entry) => ({
+    params: { slug: entry.slug },
+    props: { entry },
+  }));
+}
 
-// const { entry } = Astro.props;
-// const { Content } = await entry.render();
-// const { collection, id, slug } = entry;
+const { entry } = Astro.props;
+const { Content } = await entry.render();
+const { collection, id, slug } = entry;
 
-// const githubEditUrlPathname = generateGitHubEditLink({
-//   collection,
-//   id,
-// });
+const githubEditUrlPathname = generateGitHubEditLink({
+  collection,
+  id,
+});
 ---
