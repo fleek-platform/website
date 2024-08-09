@@ -1,3 +1,62 @@
 ---
+import Layout from '@layouts/ChangelogListPage.astro';
+import settings from '@base/settings.json';
+import { formatDate } from '@utils/date';
+import ChangelogListBody from '@components/Changelog/ChangelogListBody.astro';
+import ButtonYellow from '@components/ButtonYellow';
+import { IconArrowUpRight } from '@components/IconArrow';
+import { getCollection } from 'astro:content';
+import type { CollectionEntry } from 'astro:content';
 
+const changelogs = (await getCollection('changelog')).sort(
+  (a, b) => b.data.date.valueOf() - a.data.date.valueOf(),
+);
+
+const generateChangelogDetailsUrl = (changelog: CollectionEntry<'changelog'>) =>
+  `./${changelog.collection}/${changelog.slug}`;
 ---
+
+<Layout
+  title={settings.site.metadata.changelog.title}
+  description={settings.site.metadata.changelog.description}
+>
+  <section class="m-auto flex max-w-768 flex-col px-20 pb-128 font-plex-sans">
+    <div class="pb-42">
+      <h1 class="text-34 font-medium text-gray-dark-12">Changelog</h1>
+      <h2 class="text-20">New updates and improvements to Fleek</h2>
+    </div>
+    <div class="pl-8">
+      {
+        changelogs.map((changelog) => (
+          <div class="relative border-l border-gray-dark-6 pb-48 pl-26 last:pb-0">
+            <div class="absolute -left-8 top-1 size-15 rounded-full border-3 border-gray-dark-2 bg-gray-dark-11 outline outline-gray-dark-6" />
+            <p class="pb-16 text-14 font-medium text-yellow-dark-11">
+              {formatDate({ date: changelog.data.date })}
+            </p>
+            <img
+              src={changelog.data.image?.src}
+              alt={changelog.data.desc}
+              class="w-full rounded-20 border-6 border-gray-dark-3 p-0 outline outline-gray-dark-5 sm:h-400"
+            />
+            <article class="flex flex-col gap-24 py-24">
+              <a
+                href={generateChangelogDetailsUrl(changelog)}
+                class="text-34 font-medium leading-tight text-gray-dark-12 hover:underline"
+              >
+                {changelog.data.title}
+              </a>
+              <ChangelogListBody slug={changelog.slug} />
+            </article>
+            <a
+              href={generateChangelogDetailsUrl(changelog)}
+              class="group flex items-center gap-4 text-16 text-gray-dark-12 hover:underline"
+            >
+              Read the announcement to learn more{' '}
+              <IconArrowUpRight className="size-18 group-hover:ml-4 transition-all text-gray-dark-11" />
+            </a>
+          </div>
+        ))
+      }
+    </div>
+  </section>
+</Layout>
