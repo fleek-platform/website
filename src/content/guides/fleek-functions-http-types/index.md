@@ -112,7 +112,7 @@ A lot of the steps necessary to have everything in place for this were outlined 
 
 Essentially the steps are:
 
-1. Set up your directory and create an `src` folder within it that contains an `index.js` file in it. Also run the below commands:
+1. Set up your directory and create an `src` folder within it that contains an `index.ts` file in it. Also run the below commands:
 
 ```bash
 npm init -y
@@ -125,7 +125,7 @@ npm install --save-exact --save-dev esbuild
 
 ```js
   "scripts": {
-    "build": "esbuild --bundle test.ts --platform=neutral > bundle.js"
+    "build": "esbuild --bundle index.ts --platform=neutral > bundle.js"
   },
 ```
 
