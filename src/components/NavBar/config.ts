@@ -72,7 +72,7 @@ export const NavBarDefault: MenuSettingsItem[] = [
       },
       {
         label: 'Changelog',
-        url: '/blog/changelog',
+        url: '/changelog',
         description: 'Our latest developments',
         icon: '/svg/blog-navbar-icon.svg',
       },
