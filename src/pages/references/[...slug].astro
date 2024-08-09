@@ -1,10 +1,9 @@
 ---
 import { getCollection } from 'astro:content';
 import BlogPageLayout from '../../layouts/BlogPage.astro';
-import { getEntry } from 'astro:content';
 import GithubEditLink from '@components/GitHubEditLink.astro';
 import { generateGitHubEditLink } from '@utils/url';
-import ButtonGray from '@components/ButtonGray';
+import ButtonGhost from '@components/ButtonGhost';
 
 export async function getStaticPaths() {
   const docsEntries = await getCollection('references');
@@ -33,7 +32,13 @@ const githubEditUrlPathname = generateGitHubEditLink({
   <article class="blog">
     <div class="mb-24 w-fit">
       <a href="/references">
-        <ButtonGray>Go back</ButtonGray>
+        <ButtonGhost>
+          <img
+            src="/svg/caret-left.svg"
+            class="caret border-0 !border-none !outline-none invert filter"
+          />
+          <span class="text-sm mb-2">Go back</span>
+        </ButtonGhost>
       </a>
     </div>
     <h1>{entry.data.title}</h1>
