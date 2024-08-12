@@ -160,4 +160,22 @@ In order for it to work, an utility script is provided to handle any of the envi
 Services/ZenDesk/scripts/add-env-vars
 ```
 
+Here's an example:
+
+```sh
+declare -a envVars=(
+  "PRIVATE_ZENDESK_EMAIL"
+  "PRIVATE_ZENDESK_API_KEY"
+  "PRIVATE_ZENDESK_HOSTNAME"
+  "PUBLIC_SUPPORT_API_HOST"
+  "SUPPORT_ALLOW_ORIGIN_ADDR"
+  "SUPPORT_RATE_LIMIT_WINDOW_MINUTES"
+  "SUPPORT_RATE_LIMIT_MAX_REQ"
+  "SUPPORT_RATE_LIMIT_PATHS"
+  "NODE_ENV"
+)
+```
+
+👆 Any of the above is declared in the CI/CD GitHub's [Secrets and Variables](https://github.com/fleek-platform/website/settings/secrets/actions) dashboard for the particular environment, e.g. production.
+
 The CI/CD job can be seen in action by opening it in the GitHub dashboard [here](https://github.com/fleek-platform/website/actions/workflows/support-service-update.yml).
