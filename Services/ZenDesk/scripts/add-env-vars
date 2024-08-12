@@ -44,4 +44,4 @@ for varName in "${envVars[@]}"; do
   addEnvironmentVar "$varName"
 done
 
-echo "👍Done! Adding environment variables."
+echo "👍 Done! Adding environment variables."
