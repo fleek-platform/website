@@ -2,7 +2,7 @@
 import { getCollection } from 'astro:content';
 import GithubEditLink from '@components/GitHubEditLink.astro';
 import { generateGitHubEditLink } from '@utils/url';
-import Layout from '@layouts/ChangelogListPage.astro';
+import Layout from '@layouts/ChangelogPage.astro';
 import ButtonGhost from '@components/ButtonGhost';
 import { formatDate } from '@utils/date';
 
@@ -61,7 +61,7 @@ const date = formatDate({ date: entry.data.date });
     if (history.length > 2) {
       history.back();
     } else {
-      window.location.href = '/blog';
+      window.location.href = '/changelog';
     }
   });
 </script>
