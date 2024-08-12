@@ -436,7 +436,7 @@ You can release to production following a linear strategy. This assumes that the
 
 Use-case examples:
 - The team has merged some feature branches into develop identified as commit hash "abc123" and want to release upto to the commit history hash "abc123" onto "main". By doing this they expect the build process to occur and deploy into the Fleek Platform
-- The team has merged several feature branches into develop identified as commit hashes "commitFeat1", "commitFeat2" and "commitFeat3" by this historical order. It's decided to release everything in commit history until "commitFeat1", but not "commitFeat2" and "commitFeat3". Although, it'd be wiser to keep the feature branches in pending state as "develop" should always be in a ready state for testing and release as the team may want to release some quick hotfixes, etc
+- The team has merged several feature branches into develop identified as commit hashes `commitFeat1`, `commitFeat2` and `commitFeat3` by this historical order. It's decided to release everything in commit history until `commitFeat1`, but not `commitFeat2` and `commitFeat3`. Although, it'd be wiser to keep the feature branches in pending state as "develop" should always be in a ready state for testing and release as the team may want to release some quick hotfixes, etc
 
 To release to production open the actions tab [here](https://github.com/fleek-platform/website/actions).
 
@@ -457,7 +457,7 @@ It should be similar to the following:
 The Announcement Marquee is placed at the very top of the site. To enable
 
 1) Open the settings file located at `/src/settings.json`.
-2) Locate the "announcementMarquee" under "site"
+2) Locate the `announcementMarquee` under "site"
 
 ```
 "site": {
@@ -700,7 +700,7 @@ The project services have the following naming convention:
 
 ### Support
 
-Support's based in ZenDesk, as an external provider that provides an API to interact with the service. The following documentation provides information to interace with the proxy server.
+Support's based in ZenDesk, as an external provider that provides an API to interact with the service. The following documentation provides information to interact with the proxy server.
 
 ### Setup the service
 
