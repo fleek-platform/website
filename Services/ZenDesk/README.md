@@ -147,3 +147,17 @@ systemctl reload nginx
 ```
 
 💡At time of writting, templates are available under the repository path [/Services/ZenDesk](https://github.com/fleek-platform/website/tree/331f5c1b9e75d3e6c580a93bedb612267257bda7/Services/ZenDesk).
+
+## Environment Variables
+
+The service uses environment variables. The local service loads `.env` if available. For `production` server the environment variables are handled by the CI/CD process, you can see the version available at time of writing [here](https://github.com/fleek-platform/website/blob/bd9e11857f741cf22ee79aeaf5c0ad187a27f743/.github/workflows/support-service-update.yml).
+
+Use the [GitHub's Secrets and Variables](https://github.com/fleek-platform/website/settings/secrets/actions) to declare any business logic required environment variables. This is required otherwise the remote service will not have it, thus the service should malfunction.
+
+In order for it to work, an utility script is provided to handle any of the environment variable for us. So, ensure that any new environment variables is included in the file.
+
+```sh
+Services/ZenDesk/scripts/add-env-vars
+```
+
+The CI/CD job can be seen in action by opening it in the GitHub dashboard [here](https://github.com/fleek-platform/website/actions/workflows/support-service-update.yml).
