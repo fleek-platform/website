@@ -720,6 +720,8 @@ PRIVATE_ZENDESK_API_KEY="xxxx"
 PRIVATE_ZENDESK_HOSTNAME="xxxx"
 ```
 
+⚠️ Setting up the ZenDesk proxy service? Learn more about the ZenDesk's proxy service [here](https://github.com/fleek-platform/website/tree/develop/Services/ZenDesk)
+
 ### Local API
 
 A proxy service to interact with ZenDesk is available and can be run locally.
@@ -802,6 +804,8 @@ Check the status:
 ```sh
 sudo systemctl status support-prod-eu-lon-1-01.flkservices.io.service
 ```
+
+⚠️ Troubleshooting ZenDesk's proxy? Learn more about it [here](https://github.com/fleek-platform/website/tree/develop/Services/ZenDesk)
 
 ### 🔎 Search
 
