@@ -54,9 +54,9 @@ In cases where sensitive data needs to be stored safely outside the memory of an
 Intel SGX processors have 2 operational stages -
 
 1. **Deployment** - this is where the SGX unit is provisioned and the system is made ready to attest to services. This process is run to set up and utilize the Trusted Compute Base (TCB). It is a mix of software, firmware and hardware of the bare metal system. Provisioning data includes the provisioning ID and information about the system’s TCB
-    
-    once the Intel SGX unit is provisioned
-    
+
+   once the Intel SGX unit is provisioned
+
 2. **Runtime** - As the SGX system sets up properly, we can now run the evidence generation and quote verification processes that help enclaves to securely communicate. This is important because in an onchain setup, we have various nodes and running them trustlessly is integral to the success of the data processing capabilities of the Fleek platform.
 
 Evidence (or quotes) are generated using the Intel ECDSA quote generation library and the generated quote is signed with the platform key. Key is obtained via the quote provider library.
