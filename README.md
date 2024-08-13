@@ -1049,7 +1049,7 @@ Everytime a build happens, the static JSON data should be updated.
 
 Place video content relative to the content. We must keep it in context of the content due to portability. At time of writing, Astro doesn't optimize video and suggests placing these in the public directory which would break the portability requirement.
 
-💡 Video should be web optimized. Keep it short. If lenghty, it's much preferred to distribute it on YouTube or similar.
+💡 Video should be web optimized. Keep it short. If lengthy, it's much preferred to distribute it on YouTube or similar.
 
 To mitigate it, the Fleek Website build process includes handling of video files (mp4). It copies the content into the distribution directory to allow us to access it relatively. It doesn't optimize the files, thus video files should be web encoded by the author. For example, if you are on MacOS use [Handbrake](https://handbrake.fr) to optimize the videos, or [ffmpeg](https://www.ffmpeg.org) for any operating system.
 
