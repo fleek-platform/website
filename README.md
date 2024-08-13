@@ -1057,22 +1057,22 @@ A video can be declared in the markdown as follows:
 
 ```html
 <video width="100%" height="auto" autoplay loop>
- <source src="ens_automatic_setup.mp4" type="video/mp4">
- Your browser does not support the video tag.
-</video>
-```
-
-When visiting the site content, the file will be surfaced relatively, e.g. `https://fleek.xyz/blog/announcements/fleek-release-notes-v004/ens_automatic_setup.mp4`.
-
-Alternatively, if including a `./`, which means relative to the current file, the path will be replaced by its absolute pathname.
-
-```html
-<video width="100%" height="auto" autoplay loop>
  <source src="./ens_automatic_setup.mp4" type="video/mp4">
  Your browser does not support the video tag.
 </video>
 ```
 
+💡 Including a `./`, which means relative to the current file, the path will be replaced by its absolute pathname.
+
 When visiting the site content, the file will be surfaced absolutely, e.g. `<source src="https://fleek.xyz/blog/announcements/fleek-release-notes-v004/ens_automatic_setup.mp4" type="video/mp4">`.
+
+```html
+<video width="100%" height="auto" autoplay loop>
+ <source src="ens_automatic_setup.mp4" type="video/mp4">
+ Your browser does not support the video tag.
+</video>
+```
+
+❌ If missing a trailing slash it'll look for the file in the wrong location. At time of writing, trailing slash is not required to resolve the site sections, thus its best practice to declare the file location with `./` as in `<source src="./my-video-filename.mp4">` to avoid confusion.
 
 💡 At time of writing its assumed that video files are put in the directory of a markdown file named `index.md(x)`, e.g. `src/content/guides/my-guide/index.md` and `src/content/guides/my-guide/my-video.mp4`. It's also expected that the base path is the directory of the content and not cross content. It's important to respect the convention for portability, otherwise you'll find unexpected results.
