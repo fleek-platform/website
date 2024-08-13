@@ -48,7 +48,7 @@ At this phase, we will be stopping signups on Fleek.co and offering all the user
 ## Phase 3: Fleek.co Rides into the Sunset & Pending Users are Automatically Migrated
 
 <video width="100%" height="auto" autoplay loop>
- <source src="./ride-into-sunset.mp4" type="video/mp4">
+ <source src="ride-into-sunset.mp4" type="video/mp4">
  Your browser does not support the video tag.
 </video>
 

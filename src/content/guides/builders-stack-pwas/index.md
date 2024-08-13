@@ -28,7 +28,7 @@ Let’s get into some more details about PWAs:
 ## What are Progressive Web Apps (PWAs)?
 
 <video width="100%" height="auto" autoplay loop>
- <source src="./pwa-download.mp4" type="video/mp4">
+ <source src="pwa-download.mp4" type="video/mp4">
  Your browser does not support the video tag.
 </video>
 
