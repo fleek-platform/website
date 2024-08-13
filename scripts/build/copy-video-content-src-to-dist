@@ -1,17 +1,15 @@
 #!/bin/bash
 
-if [[ "$#" -ne 2 ]]; then
-  echo "👹 Oops! Missing source and distribution paths! Please do $0 <source_path> <distribution_path>"
-  exit 1
-fi
+sed_replace() {
+  if [[ "$OSTYPE" == "darwin"* ]]; then
+    sed -i '' "$@"
+  else
+    sed -i "$@"
+  fi
+}
 
-src_dir="$1"
-dist_dir="$2"
-
-if [[ ! -d "$src_dir" ]] || [[ ! -d "$dist_dir" ]]; then
-  echo "👹 Oops! The provided paths are not valid!"
-  exit 1
-fi
+src_dir="src"
+dist_dir="dist"
 
 src_content_dir="$src_dir/content"
 if [[ ! -d "$src_content_dir" ]]; then
@@ -20,18 +18,31 @@ if [[ ! -d "$src_content_dir" ]]; then
 fi
 
 find "$src_content_dir" -type f -name "*.mp4" | while read -r src_file; do
-  dist_file="${src_file/src\/content/dist}"
+  dist_file="${src_file/src\/content/$dist_dir}"
   dist_file_dirname=$(dirname "$dist_file")
   if [[ ! -d "$dist_file_dirname" ]]; then
     echo "👹 Oops! The distribution directory $dist_file_dirname doesn't exist. Run the script after the astro build command, please!"
-    echo "-> $dist_file_dirname"
     exit 1
   fi
 
   if ! cp "$src_file" "$dist_file"; then
     echo "❌ Failed to copy $src_file to $dist_file"
+    exit 1
   else
     echo "✅ Copied $src_file to $dist_file"
+  fi
+
+  video_filename=$(basename "$src_file")
+  dist_html_file="${src_file/src\/content/dist}"
+  dist_html_dirname=$(dirname "$dist_html_file")
+  index_html="$dist_html_dirname/index.html"
+  target_replace_path="${dist_file/$dist_dir/}"
+  
+  if ! sed_replace "s|./$video_filename|$target_replace_path|g" "$index_html"; then
+    echo "❌ Failed to replace path in file $index_html"
+    exit 1
+  else
+    echo "✅ Replaced path in $index_html"
   fi
 done
 
