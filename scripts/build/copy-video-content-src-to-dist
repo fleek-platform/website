@@ -37,12 +37,16 @@ find "$src_content_dir" -type f -name "*.mp4" | while read -r src_file; do
   dist_html_dirname=$(dirname "$dist_html_file")
   index_html="$dist_html_dirname/index.html"
   target_replace_path="${dist_file/$dist_dir/}"
+
+  if ! grep -q "\./$video_filename" "$index_html"; then
+    continue
+  fi
   
-  if ! sed_replace "s|./$video_filename|$target_replace_path|g" "$index_html"; then
+  if ! sed_replace "s|\./$video_filename|$target_replace_path|g" "$index_html"; then
     echo "❌ Failed to replace path in file $index_html"
     exit 1
   else
-    echo "✅ Replaced path in $index_html"
+    echo "✅ Replaced path in $index_html from $video_filename to $target_replace_path"
   fi
 done
 
