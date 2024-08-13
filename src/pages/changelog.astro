@@ -6,10 +6,11 @@ import ChangelogListBody from '@components/Changelog/ChangelogListBody.astro';
 import { IconArrowUpRight } from '@components/IconArrow';
 import { getCollection } from 'astro:content';
 import type { CollectionEntry } from 'astro:content';
+import ButtonYellow from '@components/ButtonYellow';
 
-const changelogs = (await getCollection('changelog')).sort(
-  (a, b) => b.data.date.valueOf() - a.data.date.valueOf(),
-);
+const initialChangelogs = (await getCollection('changelog'))
+  .sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf())
+  .slice(0, 3);
 
 const generateChangelogDetailsUrl = (changelog: CollectionEntry<'changelog'>) =>
   `./${changelog.collection}/${changelog.slug}`;
@@ -24,9 +25,9 @@ const generateChangelogDetailsUrl = (changelog: CollectionEntry<'changelog'>) =>
       <h1 class="text-34 font-medium text-gray-dark-12">Changelog</h1>
       <h2 class="text-20">New updates and improvements to Fleek</h2>
     </div>
-    <div class="pl-8">
+    <div class="pl-8" id="changelog-container">
       {
-        changelogs.map((changelog) => (
+        initialChangelogs.map((changelog) => (
           <div class="relative border-l border-gray-dark-6 pb-48 pl-26 last:pb-0">
             <div class="absolute -left-8 top-1 size-15 rounded-full border-3 border-gray-dark-2 bg-gray-dark-11 outline outline-gray-dark-6" />
             <p class="pb-16 text-14 font-medium text-yellow-dark-11">
@@ -57,5 +58,85 @@ const generateChangelogDetailsUrl = (changelog: CollectionEntry<'changelog'>) =>
         ))
       }
     </div>
+    <div class="self-center pt-42">
+      <ButtonYellow id="load-more">Load More</ButtonYellow>
+    </div>
   </section>
 </Layout>
+
+<script>
+  import type { CollectionEntry } from 'astro:content';
+  import { getEntryBySlug } from 'astro:content';
+
+  let currentIndex = 3;
+  const loadMoreButton = document.getElementById('load-more');
+  const changelogContainer = document.getElementById('changelog-container');
+
+  const generateChangelogDetailsUrl = (
+    changelog: CollectionEntry<'changelog'>,
+  ) => `./${changelog.collection}/${changelog.slug}`;
+
+  loadMoreButton?.addEventListener('click', async () => {
+    const response = await fetch('/api/changelogs.json');
+    const changelogs: CollectionEntry<'changelog'>[] = await response.json();
+
+    const newChangelogs = changelogs.slice(currentIndex, currentIndex + 3);
+    newChangelogs.forEach(async (changelog) => {
+      const entry = await getEntryBySlug('changelog', changelog.slug);
+      const { Content } = await entry!.render();
+
+      const article = document.createElement('article');
+      article.innerHTML = `<div class="relative border-l border-gray-dark-6 pb-48 pl-26 last:pb-0">
+            <div class="absolute -left-8 top-1 size-15 rounded-full border-3 border-gray-dark-2 bg-gray-dark-11 outline outline-gray-dark-6"></div>
+            <p class="pb-16 text-14 font-medium text-yellow-dark-11">
+              ${changelog.data.date}
+            </p>
+            <img
+              src={${changelog.data.image?.src}}
+              alt={${changelog.data.desc}}
+              class="w-full rounded-20 border-6 border-gray-dark-3 p-0 outline outline-gray-dark-5 sm:h-400"
+            />
+            <article class="flex flex-col gap-24 py-24">
+              <a
+                href={${generateChangelogDetailsUrl(changelog)}}
+                class="text-34 font-medium leading-tight text-gray-dark-12 hover:underline"
+              >
+                ${changelog.data.title}
+              </a>
+              ${Content}
+            </article>
+            <a
+              href={${generateChangelogDetailsUrl(changelog)}}
+              class="group flex items-center gap-4 text-16 text-gray-dark-12 hover:underline"
+            >
+              Read the announcement to learn more${' '}
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="20"
+                height="20"
+                fill="none"
+                class="size-18 group-hover:ml-4 transition-all text-gray-dark-11"
+              >
+                <path
+                  d="M5.416 5.69c0-.517.42-.937.938-.937h7.955c.518 0 .937.42.937.938v7.955a.938.938 0 01-1.875 0V6.628H6.354a.938.938 0 01-.938-.937z"
+                  fill="currentColor"
+                  fillRule="evenodd"
+                />
+                <path
+                  d="M5.028 14.972a.937.937 0 010-1.326l8.065-8.066a.938.938 0 011.326 1.326l-8.065 8.066a.938.938 0 01-1.326 0z"
+                  fill="currentColor"
+                  fillRule="evenodd"
+                />
+              </svg>
+            </a>
+          </div>`;
+      changelogContainer?.appendChild(article);
+    });
+
+    currentIndex += newChangelogs.length;
+
+    if (currentIndex >= changelogs.length) {
+      loadMoreButton.style.display = 'none';
+    }
+  });
+</script>
