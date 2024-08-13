@@ -5,7 +5,7 @@ import type { CollectionEntry } from 'astro:content';
 import Markdown from 'markdown-to-jsx';
 import { useState } from 'react';
 
-const CHANGELOG_LIMIT = 3;
+const CHANGELOG_LIMIT = 5;
 
 export const ChangelogList = ({
   changelogs,
@@ -64,7 +64,7 @@ export const ChangelogList = ({
               setVisibleChangelogs((prev) => prev + CHANGELOG_LIMIT)
             }
           >
-            Load more...
+            Load more
           </ButtonYellow>
         )}
       </div>
