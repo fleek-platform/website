@@ -9,7 +9,7 @@
   "scripts": {
     "dev": "astro dev",
     "start": "astro dev",
-    "build": "npm run check:strict && npm run check:json && astro build && ./scripts/build/copy-video-content-src-to-dist",
+    "build": "rm -rf dist && npm run check:strict && npm run check:json && astro build && ./scripts/build/copy-video-content-src-to-dist",
     "preview": "astro preview",
     "astro": "astro",
     "clean": "rm -rf .astro node_modules/.vite",
