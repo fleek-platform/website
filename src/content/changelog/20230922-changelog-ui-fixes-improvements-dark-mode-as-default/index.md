@@ -86,4 +86,4 @@ See you soon ⚡
 
 - [Alpha submissions for Fleek are still open](https://fleekxyz.typeform.com/alpha-access)
 - [Read our documentation in full](https://fleek.xyz/docs/)
-- [Bookmark the changelog so you don’t miss a single thing](https://fleek.xyz/blog/changelog/)
+- [Bookmark the changelog so you don’t miss a single thing](https://fleek.xyz/changelog/)
