@@ -482,6 +482,8 @@ yml
 yourdapp
 yourname
 youtube
+zendesk
+zendesk's
 zero-trust
 zip
 docscards

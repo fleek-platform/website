@@ -21,6 +21,15 @@ jobs:
         SUPPORT_SERVICE_PATHNAME: ${{ secrets.SUPPORT_SERVICE_PATHNAME }}
         SUPPORT_SERVICE_SYSTEMD_NAME: ${{ secrets.SUPPORT_SERVICE_SYSTEMD_NAME }}
         GITHUB_REF_NAME: ${{ env.GITHUB_REF_NAME }}
+        PRIVATE_ZENDESK_EMAIL: ${{ secrets.PRIVATE_ZENDESK_EMAIL }}
+        PRIVATE_ZENDESK_API_KEY: ${{ secrets.PRIVATE_ZENDESK_API_KEY }}
+        PRIVATE_ZENDESK_HOSTNAME: ${{ secrets.PRIVATE_ZENDESK_HOSTNAME }}
+        PUBLIC_SUPPORT_API_HOST: ${{ env.PUBLIC_SUPPORT_API_HOST }}
+        SUPPORT_ALLOW_ORIGIN_ADDR: ${{ env.SUPPORT_ALLOW_ORIGIN_ADDR }}
+        SUPPORT_RATE_LIMIT_WINDOW_MINUTES: ${{ env.SUPPORT_RATE_LIMIT_WINDOW_MINUTES }}
+        SUPPORT_RATE_LIMIT_MAX_REQ: ${{ env.SUPPORT_RATE_LIMIT_MAX_REQ }}
+        SUPPORT_RATE_LIMIT_PATHS: ${{ env.SUPPORT_RATE_LIMIT_PATHS }}
+        NODE_ENV: ${{ env.NODE_ENV }}
       with:
         host: ${{ secrets.SUPPORT_SERVICE_HOST }}
         username: ${{ secrets.SUPPORT_SERVICE_USERNAME }}
@@ -58,6 +67,15 @@ jobs:
             echo "👹 Oops! Failed to reset branch"
             exit 1
           fi
+
+          # If env var path changes
+          # Update the EnvironmentFile in systemd service
+          if ! ./Services/ZenDesk/scripts/add-env-vars "$HOME"; then
+            echo "👹 Oops! Failed to add the environment variables for some reason..."
+            exit 1
+          fi
+          
+          echo "✅ The environment variables were processed successfully."
 
           commit_hash=$(git rev-parse HEAD)
           commit_msg=$(git log -1 --pretty=format:"%s")

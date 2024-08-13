@@ -8,7 +8,7 @@ ExecStart=/usr/local/bin/bun run <USERNAME>/fleek-platform/website/Services/ZenD
 Restart=always
 User=root
 Environment=PATH=/usr/bin:/usr/local/bin
-Environment=NODE_ENV=production
+EnvironmentFile=<USERNAME>/.env.production
 WorkingDirectory=<USERNAME>/fleek-platform/website
 
 [Install]
