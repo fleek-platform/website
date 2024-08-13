@@ -133,7 +133,7 @@ function ReportSiteForm() {
             type="textarea"
             name="comment"
             minLength={30}
-            maxLength={180}
+            maxLength={1000}
             value={formValues.comment}
             isRequired
             bottomText="Description must contain at least 30 characters"
