@@ -55,6 +55,7 @@ This repository contains the source code and assets for the Fleek.xyz website, w
     - [Migrate Gatsby content](#migrate-gatsby-content)
 - [Custom data](#custom-data)
     - [Get latest posts](#get-latest-posts)
+- [Video Content](#video-content)
 
 # Setup
 
@@ -1041,3 +1042,33 @@ You'd get a list to iterate over as the following:
 ```
 
 Everytime a build happens, the static JSON data should be updated.
+
+## Video Content
+
+Place video content relative to the content. We must keep it in context of the content due to portability. At time of writing, Astro doesn't optimize video and suggests placing these in the public directory which would break the portability requirement.
+
+To mitigate it, the Fleek Website build process includes handling of video files (mp4). It copies the content into the distribution directory to allow us to access it relatively. It doesn't optimize the files, thus video files should be web encoded by the author. For example, if you are on MacOS use [Handbrake](https://handbrake.fr) to optimize the videos, or [ffmpeg](https://www.ffmpeg.org) for any operating system.
+
+A video can be declared in the markdown as follows:
+
+```html
+<video width="100%" height="auto" autoplay loop>
+ <source src="ens_automatic_setup.mp4" type="video/mp4">
+ Your browser does not support the video tag.
+</video>
+```
+
+When visiting the site content, the file will be surfaced relatively, e.g. `https://fleek.xyz/blog/announcements/fleek-release-notes-v004/ens_automatic_setup.mp4`.
+
+Alternatively, if including a `./`, which means relative to the current file, the path will be replaced by its absolute pathname.
+
+```html
+<video width="100%" height="auto" autoplay loop>
+ <source src="./ens_automatic_setup.mp4" type="video/mp4">
+ Your browser does not support the video tag.
+</video>
+```
+
+When visiting the site content, the file will be surfaced absolutely, e.g. `<source src="https://fleek.xyz/blog/announcements/fleek-release-notes-v004/ens_automatic_setup.mp4" type="video/mp4">`.
+
+💡 At time of writing its assumed that video files are put in the directory of a markdown file named `index.md(x)`, e.g. `src/content/guides/my-guide/index.md` and `src/content/guides/my-guide/my-video.mp4`. It's also expected that the base path is the directory of the content and not cross content. It's important to respect the convention for portability, otherwise you'll find unexpected results.
