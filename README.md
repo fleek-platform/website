@@ -34,7 +34,7 @@ This repository contains the source code and assets for the Fleek.xyz website, w
     - [Metadata](#metadata)
         - [Open Graph preview](#open-graph-preview)
         - [Troubleshooting open graph](#troubleshooting-open-graph)
-        - [Customise Blog Categories](#customise-blog-categories)
+        - [Customize Blog Categories](#customize-blog-categories)
 - [Development](#-development)
     - [Services](#services)
       - [Support](#support)
@@ -55,6 +55,7 @@ This repository contains the source code and assets for the Fleek.xyz website, w
     - [Migrate Gatsby content](#migrate-gatsby-content)
 - [Custom data](#custom-data)
     - [Get latest posts](#get-latest-posts)
+- [Video Content](#video-content)
 
 # Setup
 
@@ -231,6 +232,8 @@ In the world where text is text, I show you an image:
 
 ![My image](./my-image.jpg)
 ```
+
+💡 Would like to place static video content? Learn how to work with video content [here](#video-content).
 
 ## 📝 Docs
 
@@ -660,9 +663,9 @@ For example, let's say that you want to preview the Blog post for "Introducing F
 
 It's important to note that if you encounter issues with Open Graph meta tags not displaying correctly on a platform, the first step should be to utilize a validator tool, similar to the one provided in the URL above. This is because our system automatically provides the metadata content, but discrepancies may arise if certain requirements are overlooked by the platform, e.g., persistent cache. Additionally, if a specific URL encounters problems due to previous issues, you can circumvent caching by appending a query parameter to the end of the URL. For example, modifying [https://fleek.xyz/blog/announcements/introducing-fleek-functions](https://fleek.xyz/blog/announcements/introducing-fleek-functions) to [https://fleek.xyz/blog/announcements/introducing-fleek-functions?202406101836](https://fleek.xyz/blog/announcements/introducing-fleek-functions?202406101836). This method is recommended as a preliminary troubleshooting step to identify the source of the problem.
 
-### Customise Blog Categories
+### Customize Blog Categories
 
-You can customise the Blog category list page metadata fields by editing the settings file in [./src/settings.json].
+You can customize the Blog category list page metadata fields by editing the settings file in [./src/settings.json].
 
 ```json
 "blog": {
@@ -1041,3 +1044,35 @@ You'd get a list to iterate over as the following:
 ```
 
 Everytime a build happens, the static JSON data should be updated.
+
+## Video Content
+
+Place video content relative to the content. We must keep it in context of the content due to portability. At time of writing, Astro doesn't optimize video and suggests placing these in the public directory which would break the portability requirement.
+
+💡 Video should be web optimized. Keep it short. If lengthy, it's much preferred to distribute it on YouTube or similar.
+
+To mitigate it, the Fleek Website build process includes handling of video files (mp4). It copies the content into the distribution directory to allow us to access it relatively. It doesn't optimize the files, thus video files should be web encoded by the author. For example, if you are on MacOS use [Handbrake](https://handbrake.fr) to optimize the videos, or [ffmpeg](https://www.ffmpeg.org) for any operating system.
+
+A video can be declared in the markdown as follows:
+
+```html
+<video width="100%" height="auto" autoplay loop>
+ <source src="./ens_automatic_setup.mp4" type="video/mp4">
+ Your browser does not support the video tag.
+</video>
+```
+
+💡 Including a `./`, which means relative to the current file, the path will be replaced by its absolute pathname.
+
+When visiting the site content, the file will be surfaced absolutely, e.g. `<source src="https://fleek.xyz/blog/announcements/fleek-release-notes-v004/ens_automatic_setup.mp4" type="video/mp4">`.
+
+```html
+<video width="100%" height="auto" autoplay loop>
+ <source src="ens_automatic_setup.mp4" type="video/mp4">
+ Your browser does not support the video tag.
+</video>
+```
+
+❌ If missing a trailing slash it'll look for the file in the wrong location. At time of writing, trailing slash is not required to resolve the site sections, thus its best practice to declare the file location with `./` as in `<source src="./my-video-filename.mp4">` to avoid confusion.
+
+💡 At time of writing its assumed that video files are put in the directory of a markdown file named `index.md(x)`, e.g. `src/content/guides/my-guide/index.md` and `src/content/guides/my-guide/my-video.mp4`. It's also expected that the base path is the directory of the content and not cross content. It's important to respect the convention for portability, otherwise you'll find unexpected results.
