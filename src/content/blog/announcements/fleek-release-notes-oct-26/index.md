@@ -23,7 +23,7 @@ In an effort to simplify domain management, we're introducing a new "Primary Dom
 If you decide to switch things up and remove your primary domain, you’ll get a prompt to set up a new one from your list of domains.
 
 <video width="100%" height="auto" autoplay loop>
- <source src="primary-domains.mp4" type="video/mp4">
+ <source src="./primary-domains.mp4" type="video/mp4">
  Your browser does not support the video tag.
 </video>
 

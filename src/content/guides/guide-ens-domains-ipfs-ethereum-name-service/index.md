@@ -86,7 +86,7 @@ To register your first ENS domain, visit the [Ethereum Name Service app](https:
 ### **2. Connect to the Main Network.**
 
 <video width="100%" height="auto" autoplay loop>
- <source src="ens4.mp4" type="video/mp4">
+ <source src="./ens4.mp4" type="video/mp4">
  Your browser does not support the video tag.
 </video>
 
@@ -151,7 +151,7 @@ Fleek can auto detect the required build parameters from the inputted framework,
 Once your deployment is successfully finished, you will see your website’s detail and configuration page. Navigate to the **Settings → Domain Management** tab, where you will find the ENS setup flow waiting for you.
 
 <video width="100%" height="auto" autoplay loop>
- <source src="ens11.mp4" type="video/mp4">
+ <source src="./ens11.mp4" type="video/mp4">
  Your browser does not support the video tag.
 </video>
 
