@@ -29,7 +29,6 @@ backend
 backlog
 bdd
 beaconing
-bg
 biconomy
 big-data
 big-query
@@ -39,13 +38,10 @@ blockchain
 blogmaker
 brackets
 brussels
-btn
 bun
 bunjs
-buttonyellow
 calldata
 cassandra
-cd
 cdn
 changelog
 changelogs
