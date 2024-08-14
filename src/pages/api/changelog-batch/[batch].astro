@@ -1,0 +1,35 @@
+---
+import ChangelogItem from '@components/Changelog/ChangelogItem.astro';
+import { getCollection, type CollectionEntry } from 'astro:content';
+
+const batchNumber = Number(Astro.params.batch);
+const batchSize = 3;
+
+// Fetch all changelogs and determine the slice for this batch
+const changelogs = (await getCollection('changelog'))
+  .sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf())
+  .slice((batchNumber - 1) * batchSize, batchNumber * batchSize);
+
+const generateChangelogDetailsUrl = (changelog: CollectionEntry<'changelog'>) =>
+  `./${changelog.collection}/${changelog.slug}`;
+
+export async function getStaticPaths() {
+  const changelogs = await getCollection('changelog');
+  const batchSize = 3;
+  const numberOfBatches = Math.ceil(changelogs.length / batchSize);
+
+  // Generate paths for each batch
+  return Array.from({ length: numberOfBatches }).map((_, i) => ({
+    params: { batch: String(i + 1) },
+  }));
+}
+---
+
+{
+  changelogs.map((changelog) => (
+    <ChangelogItem
+      changelog={changelog}
+      generateChangelogDetailsUrl={generateChangelogDetailsUrl}
+    />
+  ))
+}
