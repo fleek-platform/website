@@ -17,10 +17,10 @@ const isBlogRoot = Astro.url.pathname.startsWith('/blog');
 <div
   class="mx-20 flex items-center justify-between pt-32 font-plex-sans text-32 font-bold text-gray-dark-12 md:mx-64"
 >
-  <div class="align-center flex gap-20 md:gap-40">
-    <h1>{title}</h1>
+  <div class="align-center flex gap-20 md:gap-40 lg:gap-20 xl:gap-40">
+    <h1 class="lg:text-27 xl:text-32">{title}</h1>
     <div class="align-center flex flex-col gap-10 md:flex-row">
-      <div class="group relative md:hidden">
+      <div class="group relative lg:hidden">
         <button
           class="rounded-8 font-plex-sans text-16 font-light capitalize transition ease-in-out"
         >
@@ -61,7 +61,7 @@ const isBlogRoot = Astro.url.pathname.startsWith('/blog');
           }
         </ul>
       </div>
-      <div class="hidden gap-10 md:flex">
+      <div class="hidden gap-10 lg:flex">
         {
           isBlogRoot &&
             categories.map((catName) => (
