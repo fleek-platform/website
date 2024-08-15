@@ -11,7 +11,7 @@ const initialChangelogs = (await getCollection('changelog'))
   .slice(0, 3);
 
 const generateChangelogDetailsUrl = (changelog: CollectionEntry<'changelog'>) =>
-  `./${changelog.collection}/${changelog.slug}`;
+  `/${changelog.collection}/${changelog.slug}`;
 ---
 
 <Layout
