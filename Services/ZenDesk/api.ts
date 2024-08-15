@@ -9,6 +9,7 @@ import {
   uptimeToHumanFriendly,
 } from './utils';
 import { csrf } from 'hono/csrf';
+import router from './routes';
 
 const PORT = 3331;
 
@@ -38,9 +39,15 @@ const generateApiToken = ({ email }: { email: string }) => {
   return Buffer.from(formatted).toString('base64');
 };
 
-const zendeskAuthToken = generateApiToken({
+export const zendeskAuthToken = generateApiToken({
   email: process.env.PRIVATE_ZENDESK_EMAIL as string,
 });
+
+export const ZENDESK_ROUTES = {
+  REQUESTS: `https://${process.env.PRIVATE_ZENDESK_HOSTNAME}.zendesk.com/api/v2/requests`,
+  UPLOADS: `https://${process.env.PRIVATE_ZENDESK_HOSTNAME}.zendesk.com/api/v2/uploads`,
+  TICKETS: `https://${process.env.PRIVATE_ZENDESK_HOSTNAME}.zendesk.com/api/v2/tickets.json?async=true`,
+};
 
 if (!process.env.SUPPORT_ALLOW_ORIGIN_ADDR)
   throw Error(
@@ -130,17 +137,14 @@ app.post(
         },
       };
 
-      const response = await fetch(
-        `https://${process.env.PRIVATE_ZENDESK_HOSTNAME}.zendesk.com/api/v2/tickets.json?async=true`,
-        {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json',
-            Authorization: `Basic ${zendeskAuthToken}`,
-          },
-          body: JSON.stringify(body),
+      const response = await fetch(ZENDESK_ROUTES.TICKETS, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          Authorization: `Basic ${zendeskAuthToken}`,
         },
-      );
+        body: JSON.stringify(body),
+      });
 
       const data = await response.json();
 
@@ -164,6 +168,8 @@ app.post(
     await next();
   },
 );
+
+app.route('/', router);
 
 console.log(`🤖 Server listening in port ${PORT}...`);
 
