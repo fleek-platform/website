@@ -1,7 +1,7 @@
 ---
 title: 'Use cases and what to build with Intel SGX on Fleek'
 date: 2024-08-15
-desc: '0 use cases alongside examples of what can be built with Intel SGX on Fleek'
+desc: '10 use cases alongside examples of what can be built with Intel SGX on Fleek'
 thumbnail: './usecasessgx.png'
 image: './usecasessgx.png'
 author: 'Fleek'
