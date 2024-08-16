@@ -9,12 +9,12 @@
     }
 
     .nav-drop-down-container {
-      @apply relative py-20;
+      @apply relative cursor-pointer py-20;
     }
   }
 
   .nav-link {
-    @apply cursor-pointer px-18;
+    @apply px-18;
   }
 
   .nav-button {
