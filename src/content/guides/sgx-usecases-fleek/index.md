@@ -57,7 +57,7 @@ Below are 10 use cases alongside examples of what can be built with each one:
 
 **What to Build**: Develop an identity management system that securely manages user credentials and personal data using SGX. This system can ensure that identity data is protected from unauthorized access and only shared with trusted parties. Verification of proof of existence can be supported here by having people be able to upload their proof of identification and having the system cross-reference that with securely stored information on Fleek Network enclaves to have the system gain identity management.
 
-## 8. AI model verification and integrity assurance:
+## 8. AI model verification and integrity assurance
 
 **Use Case**: Ensuring the correct AI model is executed, preventing the use of cheaper or less accurate alternatives.
 
