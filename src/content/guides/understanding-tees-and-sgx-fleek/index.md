@@ -53,8 +53,7 @@ In cases where sensitive data needs to be stored safely outside the memory of an
 
 Intel SGX processors have 2 operational stages -
 
-1. **Deployment** - this is where the SGX unit is provisioned and the system is made ready to attest to services. This process is run to set up and utilize the Trusted Compute Base (TCB). It is a mix of software, firmware and hardware of the bare metal system. Provisioning data includes the provisioning ID and information about the system’s TCB once the Intel SGX unit is provisioned
-
+1. **Deployment** - This is where the SGX unit is provisioned and the system is made ready to attest to services. This process is run to set up and utilize the Trusted Compute Base (TCB). It is a mix of software, firmware and hardware of the bare metal system. Provisioning data includes the provisioning ID and information about the system’s TCB once the Intel SGX unit is provisioned.
 2. **Runtime** - As the SGX system sets up properly, we can now run the evidence generation and quote verification processes that help enclaves to securely communicate. This is important because in an onchain setup, we have various nodes and running them trustlessly is integral to the success of the data processing capabilities of the Fleek platform.
 
 Evidence (or quotes) are generated using the Intel ECDSA quote generation library and the generated quote is signed with the platform key. Key is obtained via the quote provider library.
@@ -92,4 +91,4 @@ In conclusion, by providing hardware-backed isolated execution environments, TEE
 
 Furthermore, TEEs can serve as trusted oracles, bridging the gap between on-chain and off-chain data with heightened integrity guarantees, thus expanding the scope of real-world applications for onchain cloud platforms.
 
-You can learn more about Fleek, Fleek Network, and Fleek Functions, and how TEEs and SGX are integral to Fleek’s distributed, onchain edge network in our <u>[docs](https://fleek.xyz/docs/)</u>, by joining our <u>[Discord](http://discord.gg/fleek)</u> Server or following <u>[Fleek](https://x.com/fleek)</u> on X ⚡
+You can learn more about Fleek, Fleek Network, Fleek Functions and how TEEs and SGX are integral to Fleek’s distributed, onchain edge network in our <u>[docs](https://fleek.xyz/docs/)</u>, by joining our <u>[Discord](http://discord.gg/fleek)</u> server or following <u>[Fleek](https://x.com/fleek)</u> on X ⚡
