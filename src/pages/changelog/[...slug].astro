@@ -7,8 +7,8 @@ import ButtonGhost from '@components/ButtonGhost';
 import { formatDate } from '@utils/date';
 
 export async function getStaticPaths() {
-  const docsEntries = await getCollection('changelog');
-  return docsEntries.map((entry) => ({
+  const changelogEntries = await getCollection('changelog');
+  return changelogEntries.map((entry) => ({
     params: { slug: entry.slug },
     props: { entry },
   }));
@@ -46,9 +46,9 @@ const date = formatDate({ date: entry.data.date });
     <h1>{entry.data.title}</h1>
     {
       entry.data?.image?.src && (
-        <p>
+        <figure class="pb-24">
           <img src={entry.data.image.src} alt={entry.data.title} />
-        </p>
+        </figure>
       )
     }
     <Content />
