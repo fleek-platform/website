@@ -67,7 +67,4 @@ export default defineConfig({
       theme: 'min-dark'
     }
   },
-  redirects: {
-    '/changelog': '/blog/announcements',
-  },
 });
