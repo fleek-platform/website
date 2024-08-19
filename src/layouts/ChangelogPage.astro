@@ -1,0 +1,24 @@
+---
+import '@styles/globals.css';
+import '@styles/changelog.css';
+
+import BaseHtml from './BaseHtml.astro';
+import InjectCodeCopy from '@components/InjectCodeCopy.astro';
+
+const { title, description, image, slug } = Astro.props;
+---
+
+<BaseHtml
+  title={title}
+  ogMeta={{
+    title,
+    description,
+    image,
+    slug,
+  }}
+>
+  <main class="container min-h-container">
+    <slot />
+  </main>
+  <InjectCodeCopy />
+</BaseHtml>

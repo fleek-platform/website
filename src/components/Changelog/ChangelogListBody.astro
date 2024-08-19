@@ -1,0 +1,15 @@
+---
+import { getEntryBySlug } from 'astro:content';
+
+const { slug } = Astro.props;
+const entry = await getEntryBySlug('changelog', slug);
+const { Content } = await entry!.render();
+---
+
+<div class="changelog-list relative">
+  <div
+    class="absolute bottom-0 h-80 w-full bg-gradient-to-b from-transparent to-black"
+  >
+  </div>
+  <Content />
+</div>
