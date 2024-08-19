@@ -28,7 +28,7 @@ To create a Fleek Function within a project:
 2. The "Functions" page looks like below. Click on the "Create function" button on the extreme right-hand of the secondary navigation:
    ![functions page](./functions-page.png)
 
-3. A modal appears and asks for the desired name for the Fleek Function. Type it in and click on "Create".
+3. A modal appears and asks for the desired name for the Fleek Function. Type it in and click on "Create."
 
 4. We are navigated to the Fleek Function's "Overview" page. There we see a couple of information about the function including three "Pending" states in the first section. In the second section you see information about how to deploy to the function you just created.
    :::info
@@ -43,13 +43,13 @@ To create a Fleek Function within a project:
     npm install -g @fleek-platform/cli
    ```
 
-   - After installation, type the following command to login to your Fleek account from the CLI:
+   - After installation, type the following command to log in to your Fleek account from the CLI:
 
    ```bash
     fleek login
    ```
 
-   - We also need to switch to the Fleek project we created the Fleek Function within from the platform using the project Id. We use the command below to do that from the CLI:
+   - We also need to switch to the Fleek project we created the Fleek Function within from the platform using the project ID. We use the command below to do that from the CLI:
 
    ```bash
     fleek projects switch --id={{PROJECT_ID}}
@@ -75,7 +75,7 @@ To create a Fleek Function within a project:
     fleek functions deploy --name {{FUNCTION_NAME}} --path <code_path>
    ```
 
-You have successfully deployed a Fleek Function using the above steps from the Fleek platform UI and now the first section of our Fleek Function "Overview" should look like this now with the "Pending" status updated:
+You have successfully deployed a Fleek Function using the above steps from the Fleek platform UI and now the first section of our Fleek Function "Overview" page should look like this now with the "Pending" status updated:
 
 :::info
 The values for the "Domain" and "IPFS Hash" will show the appropriate values for your Fleek Functions.
@@ -83,16 +83,16 @@ The values for the "Domain" and "IPFS Hash" will show the appropriate values for
 
 ![deployed function overview](./final-deployed-function-ui.png)
 
-If you back to the "Functions" page, you should see a list of all your functions with the "Active" state for the deployed ones and "Not deployed" for the ones that have not been deployed.
+If you back to the "Functions" page, you should see a list of all your functions with the "Active" state for the deployed ones and a "Not deployed" state for the ones that have not been deployed.
 
 ## Managing Fleek Functions
 
-Fleek Functions can be managed directly from the Fleek platform within a project now. Most of the operations that required using the Fleek CLI before can
-now from the Fleek UI.
+Fleek Functions can now be managed directly from the Fleek platform within a project. Most of the operations that required using the Fleek CLI before can
+now be from the Fleek UI.
 
-These operations are housed in the "Settings" of the current Fleek Function you are on. To navigate there click on the "Settings" button that is beside "Overview" button.
+These operations are housed in the "Settings" of the current Fleek Function you are on. To navigate there, click on the "Settings" button that is beside "Overview" button.
 
-### Run or Stop a function
+### Run or stop a function
 
 Functions can be run or stopped in the settings of the current Fleek Function. This however, does not delete the deployment of the Fleek Function from IPFS (Interplanetary File System), it just stops it from running as a Fleek Function.
 
@@ -124,8 +124,8 @@ https://echoing-oil-numerous.functions.dev.on-fleek-test.app/
 
 ### Delete Fleek Function
 
-Fleek Functions can be deleted from the settings as well by scrolling to the bottom-most section of the settings page and clicking on the "Delete Function" button.
+Fleek Functions can be deleted from the settings as well by scrolling to the bottom section of the settings page and clicking on the "Delete Function" button.
 
-It brings up a modal that prompts the user to enter the Fleek Function name and the confirm with the "Delete Function" button that is active when the name the user enters matches that in the modal window.
+This surfaces a modal that prompts the user to enter the Fleek Function name and confirm the action with the "Delete function" button that is active when the name the user enters matches the one in the modal window.
 
 ![confirm function deletion](./confirm-delete.png)
