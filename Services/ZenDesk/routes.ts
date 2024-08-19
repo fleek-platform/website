@@ -57,7 +57,7 @@ router.post(
     'json',
     z.object({
       email: z.string().email(),
-      subject: z.string(),
+      subject: z.string().optional(),
       comment: z.string(),
       name: z.string(),
       userId: z.string(),
@@ -66,8 +66,15 @@ router.post(
     }),
   ),
   async (c) => {
-    const { email, subject, comment, tags, name, userId, uploadTokens } =
-      await c.req.json();
+    const {
+      email,
+      subject = 'Untitled ticket (details in description)',
+      comment,
+      tags,
+      name,
+      userId,
+      uploadTokens,
+    } = await c.req.json();
 
     const requestBody = {
       request: {
