@@ -37,3 +37,24 @@ export const IconArrowLeft: React.FC<IconProps> = ({ className }) => (
     />
   </svg>
 );
+
+export const IconArrowUpRight: React.FC<IconProps> = ({ className }) => (
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="20"
+    height="20"
+    fill="none"
+    className={className}
+  >
+    <path
+      d="M5.416 5.69c0-.517.42-.937.938-.937h7.955c.518 0 .937.42.937.938v7.955a.938.938 0 01-1.875 0V6.628H6.354a.938.938 0 01-.938-.937z"
+      fill="currentColor"
+      fillRule="evenodd"
+    />
+    <path
+      d="M5.028 14.972a.937.937 0 010-1.326l8.065-8.066a.938.938 0 011.326 1.326l-8.065 8.066a.938.938 0 01-1.326 0z"
+      fill="currentColor"
+      fillRule="evenodd"
+    />
+  </svg>
+);

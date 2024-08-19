@@ -42,6 +42,11 @@
           }
         }
       },
+      "changelog": {
+        "title": "Fleek Changelog",
+        "description": "Stay updated with our changelog.",
+        "image": "/images/fleek-meta.png?202406061658"
+      },
       "docs": {
         "title": "Fleek Docs",
         "description": "Kickstart your Fleek journey with our documentation, detailed guides and references. Browse our platform resources for a deep dive into our features.",

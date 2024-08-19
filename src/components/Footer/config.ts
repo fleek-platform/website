@@ -22,7 +22,7 @@ export default {
     },
     {
       text: 'Changelog',
-      url: '/blog/changelog/',
+      url: '/changelog/',
       target: '_blank',
       rel: 'noopener noreferrer',
     },
