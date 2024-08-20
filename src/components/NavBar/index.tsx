@@ -137,7 +137,7 @@ const Nav = ({ pathname }: NavProps) => {
               navItem.subMenu ? (
                 <div
                   key={index}
-                  className="nav-link nav-drop-down-container group"
+                  className="nav-link nav-drop-down-container group hover:text-ui-faded-gray"
                 >
                   <Link
                     href={navItem.url}
@@ -151,7 +151,7 @@ const Nav = ({ pathname }: NavProps) => {
                   >
                     <Text
                       style="nav-m"
-                      className="nav-text-item  flex capitalize "
+                      className="nav-text-item flex capitalize "
                     >
                       {navItem.label}
                     </Text>
@@ -167,7 +167,7 @@ const Nav = ({ pathname }: NavProps) => {
                     className={
                       isActivePath({ pathname, lookup: navItem.url || '' })
                         ? 'font-bold'
-                        : 'nav-text-item'
+                        : 'nav-text-item hover:text-ui-faded-gray'
                     }
                   >
                     <Text style="nav-m" className="capitalize">

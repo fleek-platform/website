@@ -1,0 +1,121 @@
+@import 'commonArticle.css';
+
+@tailwind components;
+
+@layer components {
+  .changelog-list {
+    @apply max-h-400 overflow-hidden font-plex-sans text-16;
+
+    h1,
+    h2,
+    h3,
+    h4 {
+      @apply py-10 font-medium leading-normal;
+    }
+
+    img,
+    video {
+      @apply m-0 max-w-[768px] rounded-20 border-6 border-gray-dark-3 p-0 outline outline-gray-dark-5;
+      width: 100%;
+      height: auto;
+    }
+
+    p {
+      @apply pb-20 leading-normal;
+    }
+
+    a {
+      @apply text-white decoration-gray-dark-8 hover:underline;
+    }
+
+    ul {
+      @apply pl-32;
+
+      li {
+        @apply list-disc pb-10;
+      }
+    }
+
+    hr {
+      @apply my-16 border-t-1 border-gray-dark-6 bg-transparent;
+    }
+
+    table,
+    td {
+      @apply mb-24 border p-10;
+      a {
+        @apply text-white decoration-gray-dark-8 hover:underline;
+      }
+      th {
+        @apply border bg-gray-dark-4 p-10 text-ui-white;
+      }
+      tr:nth-child(2n) {
+        @apply border bg-gray-dark-4;
+      }
+    }
+  }
+
+  .changelog {
+    @apply m-auto max-w-[768px] px-20 pb-128 font-plex-sans text-18 leading-normal;
+
+    h1,
+    h2,
+    h3,
+    h4 {
+      @apply py-10 font-plex-sans font-bold leading-normal text-gray-dark-12;
+    }
+
+    h1 {
+      @apply pb-24 pt-14 text-38 leading-tight text-gray-dark-12;
+    }
+
+    h2 {
+      @apply text-32;
+    }
+
+    img,
+    video {
+      @apply m-0 max-w-[768px] rounded-20 border-6 border-gray-dark-3 p-0 outline outline-gray-dark-5;
+      width: 100%;
+      height: auto;
+    }
+
+    p {
+      @apply pb-20 text-20 leading-normal;
+    }
+
+    a {
+      @apply text-white decoration-gray-dark-8;
+    }
+
+    ul {
+      @apply pl-32;
+
+      li {
+        @apply list-disc pb-10;
+      }
+    }
+
+    hr {
+      @apply my-32 border-t-1 border-gray-dark-6 bg-transparent;
+    }
+
+    table,
+    td {
+      @apply mb-24 border p-10;
+      a {
+        @apply text-white decoration-gray-dark-8;
+      }
+      th {
+        @apply border bg-gray-dark-4 p-10 text-ui-white;
+      }
+      tr:nth-child(2n) {
+        @apply border bg-gray-dark-4;
+      }
+    }
+
+    .caret {
+      width: 2rem;
+    }
+  }
+}
