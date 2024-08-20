@@ -30,6 +30,7 @@ const defaultFormValues = {
   email: '',
   subject: '',
   comment: '',
+  name: 'Username',
 };
 
 let formSubmissionObject;
