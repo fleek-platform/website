@@ -16,7 +16,7 @@ tags:
 
 Deploying a site using Fleek's pipeline is a simple process. You can connect your code repository to Fleek and we will take care of the build and deployment process. This allows you to focus on your code without worrying about the infrastructure.
 
-This is a multi-step process that will require you to connect your code repository, configure your build settings, and deploy your site.
+This is a multi-step process that will require you to connect your code repository, configure your build settings and deploy your site.
 
 ![](./select-repo.svg)
 
@@ -26,7 +26,7 @@ This is a multi-step process that will require you to connect your code reposito
 
 The first step is to connect your code repository to Fleek. You can do this by going to the 'Sites' section and clicking on the 'Connect Repository' button.
 
-In this process you will need to select the repository provider and authorize Fleek to access your repository. Once you have authorized Fleek, you will be able to select the repository and branch you want to deploy.
+In this process, you will need to select the repository provider and authorize Fleek to access your repository. Once you have authorized Fleek, you will be able to select the repository and branch you want to deploy.
 
 ## Select your repository and branch
 
@@ -34,9 +34,9 @@ The second step is to select the repository. By giving access to Fleek, we will 
 
 ## Configure your build settings
 
-Fleek will automatically recognize the framework, build commands and publish directory for your site. If you wish to customize this, you can do so in the 'Build Settings' section.
+Fleek will automatically recognize the framework, build commands and publish directory for your site. If you wish to customize this, you can do so in the 'Build settings' section.
 
-In the advanced settings, you can also configure the environment variables you want to use in your build process.
+In the 'Advanced settings' section, you can also configure the environment variables you want to use in your build process.
 
 ### Build parameters
 
@@ -50,7 +50,7 @@ These are the build parameters you can configure:
 
 ## After creating the site
 
-Once your site is created, we will trigger the initial deployment. This process can take several minutes for some sites. Once the deployment is completed you will be able to see the site URL and the status of the deployment.
+Once your site has been created, we will trigger the initial deployment. This process can take several minutes for some sites. Once the deployment is complete, you will be able to see the site URL and the status of the deployment.
 
 ### Monitor the deployment
 
@@ -74,6 +74,32 @@ You can follow a guide on how to configure your ENS domain [here](/guides/guide-
 
 Currently Fleek supports one deployment at a time. This means that if you trigger a new deployment while another one is running, the new deployment will be queued and will start once the current deployment is completed. Setting up concurrent deployments will be possible once our new billing structure is live with support for this deployment option.
 
+## Previewing a deployment
+
+### Deploy previews
+
+Deploy previews allow you to preview a deployment before pushing it to production. You can safely view what your site will look like before you merge the pull request.
+
+It should come in handy when you want to make sure that everything is in order with the changes you want to make and avoid surprises due to unfortunate oversights.
+
+### Enabling deployment previews
+
+To enable previews, you need to go to the 'Settings' page of your site and click on the 'Build & Deploy' tab. In the Deploy Contexts box you will find the option to enable previews. Once enabled, Fleek will automatically create a preview for each pull request you open in your repository to the production branch.
+
+[image]
+
+### Viewing deploy previews
+
+To start a deploy preview, simply create a pull request to your production branch. The deploy preview will appear in the list of deploys of the site.
+
+Click on the deploy tagged Deploy Preview to view it!
+
+[image]
+
+In addition, you are able to view the deploy preview right from the github page of your pull request. Very handy for developers wanting to see the changes resulting from a pull request!
+
+[image]
+
 ## Purging the cache
 
 ![](./purge.svg)
@@ -86,7 +112,7 @@ In the 'Hosting' section, find the affected site, and visit the 'Settings' page.
 
 ## Deleting a site
 
-To delete a site, go to the 'Site Overview' page and click on the 'Settings' icon. In the 'General Settings' page, click on the 'Delete Site' button. This will remove the site from your account and will no longer serve your site's content. You will be asked to confirm the removal of all associated resources within the site. All information related to the site will be removed from the platform, including each of the associated domains and each of the IPNS keys.
+To delete a site, go to the 'Site overview' page and click on the 'Settings' icon. In the 'General settings' page, click on the 'Delete site' button. This will remove the site from your account and will no longer serve your site's content. You will be asked to confirm the removal of all associated resources within the site. All information related to the site will be removed from the platform, including each of the associated domains and each of the IPNS keys.
 
 Deleting a site will remove all the deployments and domains associated with the site. This action cannot be undone.
 
@@ -102,7 +128,7 @@ To set up the site, you will need to add some information about it:
 - `Build command`: The commands to execute to build the site, e.g. `npm install && npm run build`
 - `Publish directory`: The name of the directory containing the `index.html` file of your site after it has been built
 
-With this, you will be redirected to the 'Site Overview' page where you will find two different files that you need to add to your repository:
+With this, you will be redirected to the 'Site overview' page where you will find two different files that you need to add to your repository:
 
 - `Fleek.json`: This file contains the configuration of your site.
 - `GHA workflow`: This file contains the configuration of the Github Action workflow that will trigger the deployment process.
