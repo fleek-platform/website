@@ -13,11 +13,13 @@ export type FormValuesType = {
   email: string;
   subject: string;
   comment: string;
+  name: string;
 };
 const defaultFormValues = {
   email: '',
   subject: 'Report a site',
   comment: '',
+  name: 'Username',
 };
 
 function ReportSiteForm() {
