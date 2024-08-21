@@ -91,7 +91,7 @@ You can now:
 
 ---
 
-## Coming Soon: Migration from Fleek.co to Fleek.xyz
+## Coming soon: Migration from Fleek.co to Fleek.xyz
 
 In the interest of providing the smoothest possible transition period from <u>[Fleek.co to Fleek.xyz](https://fleek.xyz/blog/announcements/fleek-co-to-fleek-xyz-migration-details/)</u> for our users, we have put in a lot of effort into testing to ensure that our infrastructure internally migrated successfully before opening up the floodgates to user projects.
 
