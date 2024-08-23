@@ -28,7 +28,7 @@ We heard your feedback and have spent the week making dark mode the default, wit
 
 2. Template pages now render the repository’s Readmes as the description
 
-<video width="100%" height="auto" autoplay loop>
+<video width="100%" height="auto" autoplay loop controls>
  <source src="./tempreadme.mp4" type="video/mp4">
  Your browser does not support the video tag.
 </video>
