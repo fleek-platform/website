@@ -151,7 +151,7 @@ Fleek is a decentralized edge-optimized cloud computing platform providing an al
 
 All you need to deploy your first app on Fleek is a GitHub repository. Connect the repo to <u>[Fleek.xyz](http://fleek.xyz/)</u>, configure your build settings, and deploy the site to the decentralized web in minutes. Head to <u>[Fleek.xyz](http://fleek.xyz/)</u> to create an account!
 
-![fleek platform serverless cloud computing](./docs-platform.png)
+![fleek platform serverless cloud computing](./seo-trends-blog.png)
 
 ---
 
