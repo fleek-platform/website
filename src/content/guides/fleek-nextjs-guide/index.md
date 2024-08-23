@@ -18,7 +18,7 @@ The Fleek.xyz platform empowers developers to build lightning-fast web apps, and
 ### Requirements:
 
 - Fleek Account
-- FleekCLI Installation (preferably - v0.7.3)
+- FleekCLI Installation (preferably - v2.9.0)
 - GitHub Account
 - NodeJs 18+( preferably - v18.17.0)
 
@@ -54,7 +54,13 @@ Now that we have a fully functional NextJs web app we can proceed to the next st
 
 To successfully deploy our project on Fleek.xyz we must ensure that we are able to produce static files and add the appropriate configuration to the app.
 
-The first thing we need to do is ensure our app builds out the static pages for our NextJs project. We’ll do this by checking the `output: 'export',` into our `next.config.js` file. it should look like this when you clone the nextjs-template:
+The first thing we need to do is ensure our app builds out the static pages for our NextJs project. If `next.config.js` (in the root of the cloned template) doesn't contain the line:
+
+```jsx
+ output: 'export',
+```
+
+Then add it so the configuration looks like this:
 
 ```jsx
 /** @type {import('next').NextConfig} */
@@ -72,7 +78,7 @@ module.exports = nextConfig;
 
 This line of code will create a new folder called `out` for when we build our NextJs app.
 
-Next, run the `npm run build` command. This will compile our NextJs project, and produce the corresponding html code into a folder called `out`.
+Next, run the `npm run build` command. This will compile our NextJs project, and produce the corresponding HTML code into a folder called `out`.
 
 ![](./out.png)
 
@@ -108,7 +114,7 @@ Open up your terminal and run:
 npm install -g @fleek-platform/cli
 ```
 
-This will globally install the `fleek-cli` onto your machine. Once installed, open the nextjs-template project in VSCode, and log into your Fleek account via the CLI. This will enable us to run CLI-related commands directly from our terminal.
+This will globally install the `fleek-cli` onto your machine. Once installed, log into your Fleek account via the CLI. This will enable us to run CLI-related commands directly from our terminal.
 
 To login, open your terminal and run:
 
@@ -116,9 +122,9 @@ To login, open your terminal and run:
 fleek login
 ```
 
-Click on the link displayed to log into your Fleek account. You should see a **Success! Logged in.**
+Click on the link displayed to log into your Fleek account. You should see a **Success! You are now logged in to the Fleek Platform.**
 
-![](./successloggedin.png)
+![](./fleekloginnextjs.png)
 
 ### Configurations
 
@@ -132,22 +138,27 @@ fleek sites init
 
 You’ll get a few prompts, populate them as you wish:
 
-![](./warnings.png)
+![](./fleekinitnextjs.png)
 
-- _Type the name of your site_: › `[site-name]`
-  - If there’s an existing site already with this name, it may ask if you want to link to this site. Please note that when you do this, you will overwrite everything on the previous site. Ensure that this is the outcome you desire, otherwise, select **N** and create a new site.
-- _Specify the dist directory from where the site will be uploaded from_: › `out`
-- _Do you want to include the optional "`build`" command?_: › **`yes`**
-- _Specify `build` command_: › `npm run build`
-- _Select a format how the site's configuration will be saved_: › `Javascript (fleek.config.js)`
+The following paragraph shows the values entered above:
+
+- _Select a project from the list:_ `First Project`
+  - Note: you may only receive this prompt once after first using `fleek login`
+- _We've found existing sites. Would you like to link to one of them?_ › `no`
+  - If there’s an existing site already with this name, it may ask if you want to link to this site. Please note that when you do this, you will overwrite everything on the previous site. Ensure that this is the outcome you desire, otherwise, select **N** and create a new site.
+- _Enter the name of your new site_: `nextjs-template-site`
+- _Please specify the directory containing the site files to be uploaded_: › **`out`**
+- _Would you like to include the optional "`build`" command?_: › **`yes`**
+- _Specify `build` command_: › `npm run build`
+- _Select a format for saving the site's configuration_: › `JSON (fleek.config.json)`
 
 You should see:
 
-`> Success! Fleek config file has been saved.`
+`> Success! The Fleek configuration file has been successfully saved.`
 
-And a `fleek.config.js` file should appear in your root dir.
+And a `fleek.config.json` file should appear in your root directory.
 
-![](./rootdir.png)
+![](./fleekconfignextjs.png)
 
 ### Deployment
 
