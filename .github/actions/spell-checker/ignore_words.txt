@@ -168,6 +168,7 @@ hashing
 hexadecimal
 hostname
 hostnames
+hotfixes
 html
 http
 https
@@ -207,6 +208,7 @@ locked-in
 lodash
 login
 logout
+lon
 machine-learning
 macos
 malware
