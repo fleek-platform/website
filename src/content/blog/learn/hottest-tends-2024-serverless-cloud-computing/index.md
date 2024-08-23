@@ -28,6 +28,8 @@ Despite its name, "serverless" doesn't mean that servers are absent. Instead, th
 
 ### **Understanding the cloud computing execution model**
 
+![saas vs paas vs iaas](./4.png)
+
 Serverless computing falls within the broader cloud computing execution model, which includes Infrastructure as a Service (IaaS), Platform as a Service (PaaS), and Software as a Service (SaaS). Each model offers different levels of abstraction and control:
 
 - **IaaS** provides virtualized computing resources over the internet, allowing businesses to rent servers, storage, and networking hardware.
@@ -35,8 +37,6 @@ Serverless computing falls within the broader cloud computing execution model, w
 - **SaaS** delivers software applications over the internet, managed by a third-party provider.
 
 Serverless computing can be seen as an extension of PaaS, where the platform not only manages the infrastructure but also automatically scales resources based on demand.
-
-![saas vs paas vs iaas](./4.png)
 
 ### **The rise of edge computing in serverless architectures**
 
