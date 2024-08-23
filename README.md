@@ -9,52 +9,52 @@ This repository contains the source code and assets for the Fleek.xyz website, w
 ## 📒 Content
 
 - [Setup](#setup)
-    - [Requirements](#%EF%B8%8F-requirements)
-    - [Install](#-install)
-    - [Develop](#%EF%B8%8Fdevelop)
-      - [EnvVars](#env-vars)
-    - [Build](#%EF%B8%8F-build)
-    - [Preview (locally)](#-preview-locally)
-    - [Preview (staging)](#-preview-staging)
-    - [Code formatter](#-code-formatter)
-    - [Contribution guideline](#-contribution-guideline)
+  - [Requirements](#%EF%B8%8F-requirements)
+  - [Install](#-install)
+  - [Develop](#%EF%B8%8Fdevelop)
+    - [EnvVars](#env-vars)
+  - [Build](#%EF%B8%8F-build)
+  - [Preview (locally)](#-preview-locally)
+  - [Preview (staging)](#-preview-staging)
+  - [Code formatter](#-code-formatter)
+  - [Contribution guideline](#-contribution-guideline)
 - [Instructions](#-instructions)
-    - [Blog](#-blog)
-        - [New post](#new-post)
-        - [Create a Pull request](#-create-a-pull-request)
-        - [Release to production](#🚀-release-to-production)
-    - [Docs](#-docs)
-        - [Sidebar menu item ordering](#-sidebar-menu-item-ordering)
-        - [Override category title](#-override-category-title)
-    - [Spell checker](#-spell-checker)
-    - [Announcement Marquee](#announcement-marquee)
-    - [Admonitions](#-admonitions)
-    - [Navigation bar](#-navigation-bar)
-        - [Configuration](#-configuration)
-    - [Metadata](#metadata)
-        - [Open Graph preview](#open-graph-preview)
-        - [Troubleshooting open graph](#troubleshooting-open-graph)
-        - [Customize Blog Categories](#customize-blog-categories)
+  - [Blog](#-blog)
+    - [New post](#new-post)
+    - [Create a Pull request](#-create-a-pull-request)
+    - [Release to production](#🚀-release-to-production)
+  - [Docs](#-docs)
+    - [Sidebar menu item ordering](#-sidebar-menu-item-ordering)
+    - [Override category title](#-override-category-title)
+  - [Spell checker](#-spell-checker)
+  - [Announcement Marquee](#announcement-marquee)
+  - [Admonitions](#-admonitions)
+  - [Navigation bar](#-navigation-bar)
+    - [Configuration](#-configuration)
+  - [Metadata](#metadata)
+    - [Open Graph preview](#open-graph-preview)
+    - [Troubleshooting open graph](#troubleshooting-open-graph)
+    - [Customize Blog Categories](#customize-blog-categories)
 - [Development](#-development)
-    - [Services](#services)
-      - [Support](#support)
-        - [Setup the Service](#setup-the-service)
-        - [Tokens](#tokens)
-        - [Local API](#local-api)
-        - [Interact with the API](#interact-with-the-api)
-        - [Production Service Setup](#production-service-setup)
-      - [Search](#🔎-search)
-        - [Health Check](#health-check)
-        - [Indexer](#indexer)
-        - [Put markdown content](#put-markdown-content-development)
-        - [Query via cURL](#query-via-curl)
-        - [Multi-Index Search](#multi-index-search)
-        - [Delete Indexes](#💣-delete-indexes)
-        - [Images (optimization)](#-images-optimization)
+  - [Services](#services)
+    - [Support](#support)
+      - [Setup the Service](#setup-the-service)
+      - [Tokens](#tokens)
+      - [Local API](#local-api)
+      - [Interact with the API](#interact-with-the-api)
+      - [Production Service Setup](#production-service-setup)
+    - [Search](#🔎-search)
+      - [Health Check](#health-check)
+      - [Indexer](#indexer)
+      - [Put markdown content](#put-markdown-content-development)
+      - [Query via cURL](#query-via-curl)
+      - [Multi-Index Search](#multi-index-search)
+      - [Delete Indexes](#💣-delete-indexes)
+      - [Images (optimization)](#-images-optimization)
 - [Migration](#-migration)
-    - [Migrate Gatsby content](#migrate-gatsby-content)
+  - [Migrate Gatsby content](#migrate-gatsby-content)
 - [Custom data](#custom-data)
-    - [Get latest posts](#get-latest-posts)
+  - [Get latest posts](#get-latest-posts)
 - [Video Content](#video-content)
 
 # Setup
@@ -204,9 +204,9 @@ slug: my-blog-post
 category: Announcements
 date: 2024-01-31
 desc: A short description about my blog post
-thumbnail: "./thumbnail.jpg"
-image: "./main-image.jpg"
-author: "Fleek"
+thumbnail: './thumbnail.jpg'
+image: './main-image.jpg'
+author: 'Fleek'
 ---
 ```
 
@@ -219,9 +219,9 @@ slug: my-blog-post
 category: Announcements
 date: 2024-01-31
 desc: A short description about my blog post
-thumbnail: "./thumbnail.jpg"
-image: "./main-image.jpg"
-author: "Fleek"
+thumbnail: './thumbnail.jpg'
+image: './main-image.jpg'
+author: 'Fleek'
 ---
 
 Dive into a world of concise knowledge and thought-provoking ideas. Whether you're a seasoned reader or a curious newcomer, this blog post promises to captivate your mind and leave you pondering long after you've finished reading. So grab your favorite beverage, find a cozy spot, and let's explore together!
@@ -241,7 +241,7 @@ Creating a document in the **Docs** section is similar to **Blog**.Learn how to 
 
 ## 🎰 Sidebar menu item ordering
 
-Editing the menu and sidebar is crucial. These elements serve as the primary navigation for your visitors, guiding them through your content. 
+Editing the menu and sidebar is crucial. These elements serve as the primary navigation for your visitors, guiding them through your content.
 
 To reorder menu items, edit the **docs -> menu -> order** section in the settings file located in **src/settings.json**.
 
@@ -312,7 +312,7 @@ Considering the normalization conventions of the directory names, it'd be much p
 └── index.mdx
 ```
 
-💡 Bear in mind that underscores (_) are replaced by white-space when humanized by default. The dashes are kept to comply with terms or names, e.g. "pre-release".
+💡 Bear in mind that underscores (\_) are replaced by white-space when humanized by default. The dashes are kept to comply with terms or names, e.g. "pre-release".
 
 ## 🥷 Create a Pull request
 
@@ -438,6 +438,7 @@ To complete select "Create pull request".
 You can release to production following a linear strategy. This assumes that the convention "main" branch is of linear history and is a subset of the "develop" branch commit history. For example, the team is happy to have "develop" as where the latest version of the project exists, that "main" shouldn't diverge and only contain commits from "develop".
 
 Use-case examples:
+
 - The team has merged some feature branches into develop identified as commit hash "abc123" and want to release upto to the commit history hash "abc123" onto "main". By doing this they expect the build process to occur and deploy into the Fleek Platform
 - The team has merged several feature branches into develop identified as commit hashes `commitFeat1`, `commitFeat2` and `commitFeat3` by this historical order. It's decided to release everything in commit history until `commitFeat1`, but not `commitFeat2` and `commitFeat3`. Although, it'd be wiser to keep the feature branches in pending state as "develop" should always be in a ready state for testing and release as the team may want to release some quick hotfixes, etc
 
@@ -459,8 +460,8 @@ It should be similar to the following:
 
 The Announcement Marquee is placed at the very top of the site. To enable
 
-1) Open the settings file located at `/src/settings.json`.
-2) Locate the `announcementMarquee` under "site"
+1. Open the settings file located at `/src/settings.json`.
+2. Locate the `announcementMarquee` under "site"
 
 ```
 "site": {
@@ -474,8 +475,8 @@ The Announcement Marquee is placed at the very top of the site. To enable
 }
 ```
 
-3) Edit the message and url
-4) Set "visible" to true
+3. Edit the message and url
+4. Set "visible" to true
 
 ## 🎯 Admonitions
 
@@ -630,21 +631,21 @@ You'll find the elements in the HEAD section of the HTML document. For example:
 
 <head>
     ...
-    
+
     <meta property="og:url" content={`${baseUrl}/${ogMeta?.slug || ''}`} />
     <meta property="og:type" content="website" />
     <meta
       property="og:title"
       content={ogMeta?.title || settings.site.metadata.title}
     />
-    
+
     ...
-    
+
     <meta
       name="twitter:title"
       content={ogMeta?.title || settings.site.metadata.title}
     />
-    
+
     ...
 </head>
 ```
@@ -698,7 +699,7 @@ You can extend the category field with any category name. Notice that category n
 The project services have the following naming convention:
 
 ```
-<service-type>-<environment>-<region>-<instance-number>.<domain>  
+<service-type>-<environment>-<region>-<instance-number>.<domain>
 ```
 
 ### Support
@@ -827,7 +828,7 @@ A	meilisearch-prod-eu-lon-1-01.flkservices.io	165.232.41.164
 After editing your configuration options, relaunch the Meilisearch service:
 
 ```
-systemctl restart meilisearch  
+systemctl restart meilisearch
 ```
 
 ### Health check
@@ -940,7 +941,7 @@ For astro components (<component-name>.astro) do:
 import { Image } from 'astro:assets';
 import localBirdImage from '../../images/subfolder/localBirdImage.png';
 ---
-<Image src={localBirdImage} alt="A bird sitting on a nest of eggs." /> 
+<Image src={localBirdImage} alt="A bird sitting on a nest of eggs." />
 ```
 
 To learn more read [here](https://docs.astro.build/en/guides/images/)
@@ -955,31 +956,31 @@ The import name convention is camel-case and to use the prefix img, e.g. imgMyIm
 
 ```ts
 // @ts-ignore
-import imgFleekLogo from "@images/globe-with-bolt.jpg?w=480&h=480&format=webp";
+import imgFleekLogo from '@images/globe-with-bolt.jpg?w=480&h=480&format=webp';
 ```
 
 Place the image in the source field:
 
 ```html
-<img src={imgFleekLogo} alt="Image text replacement" />
+<img src="{imgFleekLogo}" alt="Image text replacement" />
 ```
 
 To generate responsive images, e.g. [SrcSet](https://developer.mozilla.org/en-US/docs/Learn/HTML/Multimedia_and_embedding/Responsive_images):
 
 ```ts
 // @ts-ignore
-import avif from '@images/example.jpg?w=500;900;1200&format=avif&as=srcset'
+import avif from '@images/example.jpg?w=500;900;1200&format=avif&as=srcset';
 // @ts-ignore
-import webp from '@images/example.jpg?w=500;900;1200&format=webp&as=srcset'
+import webp from '@images/example.jpg?w=500;900;1200&format=webp&as=srcset';
 // @ts-ignore
-import fallback from 'example.jpg?w=700'
+import fallback from 'example.jpg?w=700';
 
 const html = `<picture>
     <source srcset="${avif}" type="image/avif" />
     <source srcset="${webp}" type="image/webp" />
     <img src="${fallback}" />
 </picture>
-`
+`;
 ```
 
 Learn more [here](https://github.com/JonasKruckenberg/imagetools/)
@@ -1056,9 +1057,9 @@ To mitigate it, the Fleek Website build process includes handling of video files
 A video can be declared in the markdown as follows:
 
 ```html
-<video width="100%" height="auto" autoplay loop>
- <source src="./ens_automatic_setup.mp4" type="video/mp4">
- Your browser does not support the video tag.
+<video width="100%" height="auto" autoplay loop controls>
+  <source src="./ens_automatic_setup.mp4" type="video/mp4" />
+  Your browser does not support the video tag.
 </video>
 ```
 
@@ -1067,9 +1068,9 @@ A video can be declared in the markdown as follows:
 When visiting the site content, the file will be surfaced absolutely, e.g. `<source src="https://fleek.xyz/blog/announcements/fleek-release-notes-v004/ens_automatic_setup.mp4" type="video/mp4">`.
 
 ```html
-<video width="100%" height="auto" autoplay loop>
- <source src="ens_automatic_setup.mp4" type="video/mp4">
- Your browser does not support the video tag.
+<video width="100%" height="auto" autoplay loop controls>
+  <source src="ens_automatic_setup.mp4" type="video/mp4" />
+  Your browser does not support the video tag.
 </video>
 ```
 
