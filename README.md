@@ -56,7 +56,8 @@ This repository contains the source code and assets for the Fleek.xyz website, w
 - [Custom data](#custom-data)
     - [Get latest posts](#get-latest-posts)
 - [Video Content](#video-content)
-
+- [Changelog Resources](#changelog-resources)
+  
 # Setup
 
 ## ⚙️ Requirements
@@ -1076,3 +1077,11 @@ When visiting the site content, the file will be surfaced absolutely, e.g. `<sou
 ❌ If missing a trailing slash it'll look for the file in the wrong location. At time of writing, trailing slash is not required to resolve the site sections, thus its best practice to declare the file location with `./` as in `<source src="./my-video-filename.mp4">` to avoid confusion.
 
 💡 At time of writing its assumed that video files are put in the directory of a markdown file named `index.md(x)`, e.g. `src/content/guides/my-guide/index.md` and `src/content/guides/my-guide/my-video.mp4`. It's also expected that the base path is the directory of the content and not cross content. It's important to respect the convention for portability, otherwise you'll find unexpected results.
+
+
+## Changelog Resources
+
+At the time of writing, we have the CLI decoupled from the Fleek monorepo. For the continuous changelogs needed on the [changelog](https://fleek.xyz/changelog) page, some team members may find locating the changelogs for some of these projects hard. Here are links to changelogs of projects within Fleek:
+
+- [CLI changelog](https://github.com/fleek-platform/cli/blob/develop/CHANGELOG.md)
+- [SDK changelog](https://github.com/FleekHQ/fleek/blob/master/packages/sdk/CHANGELOG.md)
