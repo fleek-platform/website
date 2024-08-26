@@ -67,6 +67,7 @@ This approach gives us valuable insights into how well the system manages reques
 
 ![Worldwide Average TTFB Analysis. *Pinata has rate limiting on the gateway which may skew the data.](./graphimg2.png)
 
+
 ## **How to make use of the public IPFS gateway**
 
 Users can easily take advantage of Fleek’s public IPFS gateway by[ ](https://fleek.xyz/docs/platform/gateways/)[integrating it into their applications or websites](https://fleek.xyz/docs/platform/gateways/). Here’s how:
