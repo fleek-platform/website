@@ -41,7 +41,6 @@ const description =
   blogSettings[category].description || settings.site.metadata.blog.description;
 
 const collection = 'blog';
-const image = '';
 
 const allPosts: CollectionEntry<'blog'>[] = (
   await getCollection('blog', ({ slug }) => slug.split('/')[0] === category)
