@@ -1,11 +1,13 @@
 ---
 import '@styles/globals.css';
 import '@styles/blogPage.css';
+import settings from '@base/settings.json';
 
 import BaseHtml from './BaseHtml.astro';
 import InjectCodeCopy from '@components/InjectCodeCopy.astro';
 
-const { title, description, image, slug } = Astro.props;
+const { title, description, slug } = Astro.props;
+const image = settings.site.metadata.blog.image;
 ---
 
 <BaseHtml
