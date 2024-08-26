@@ -6,8 +6,7 @@ import settings from '@base/settings.json';
 import BaseHtml from './BaseHtml.astro';
 import InjectCodeCopy from '@components/InjectCodeCopy.astro';
 
-const { title, description, slug } = Astro.props;
-const image = settings.site.metadata.blog.image;
+const { title, description, slug, image } = Astro.props;
 ---
 
 <BaseHtml

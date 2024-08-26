@@ -18,6 +18,7 @@ const allPosts: CollectionEntry<'blog'>[] = (await getCollection('blog')).sort(
 
 <Layout
   title={settings.site.metadata.blog.title}
+  image={settings.site.metadata.blog.image}
   description={settings.site.metadata.blog.description}
 >
   <main class="container min-h-container">
