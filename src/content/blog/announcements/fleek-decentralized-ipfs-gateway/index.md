@@ -63,9 +63,9 @@ For our performance testing we're using a simple [open source benchmarking tool]
 
 This approach gives us valuable insights into how well the system manages requests from various locations, and how quickly it can serve cached content, ensuring we maintain high performance even under pressure.
 
-![Gateway Performance: Regional Average TTFB Analysis. *Pinata has rate limiting on the gateway which may skew the data. ](./graph1.png)
+![Gateway Performance: Regional Average TTFB Analysis. *Pinata has rate limiting on the gateway which may skew the data. ](./graphimg1.png)
 
-![Worldwide Average TTFB Analysis. *Pinata has rate limiting on the gateway which may skew the data.](./graph2.png)
+![Worldwide Average TTFB Analysis. *Pinata has rate limiting on the gateway which may skew the data.](./graphimg2.png)
 
 ## **How to make use of the public IPFS gateway**
 
