@@ -37,6 +37,7 @@ To prepare for the migration, add a [CNAME record on your domain’s DNS that po
    - Point this CNAME record to the URL provided by Fleek for your deployed site.
 3. **Save the DNS Settings**:
    - Ensure the settings are saved and that the subdomain is live by visiting the subdomain in your browser.
+     ![](./step2.webp)
 
 ---
 
@@ -48,6 +49,7 @@ Before making the final switch, you should test your site to ensure everything i
    - Open your browser and go to `test.yourdomain.com` to see your site hosted on Fleek.
 2. **Check Functionality**:
    - Verify that all features, links, and content are functioning as expected.
+     ![](./step3.webp)
 
 ---
 
@@ -57,6 +59,7 @@ You’ll need to delete the Cloudflare Web3 gateway to complete the migration. H
 
 1. **Set a High TTL**:
    - In your DNS settings, increase the TTL (Time to Live) for your DNS records. This gives the DNS changes time to propagate smoothly, reducing downtime.
+     ![](./step4.webp)
 2. **Double-Check the CNAME Setup**:
    - Ensure that the CNAME record pointing to Fleek is correctly configured and active.
 
@@ -68,6 +71,8 @@ Now that you’ve prepared your DNS settings and tested the Fleek deployment, it
 
 1. **Delete the Gateway**:
    - Go to the Cloudflare Web3 dashboard and delete the IPFS gateway. This will remove the DNS records associated with it. \
+
+![](./step5.webp)
 
 ## **Step 6: Update the DNS Gateway to Point to Fleek**
 
