@@ -59,9 +59,9 @@ You’ll need to delete the Cloudflare Web3 gateway to complete the migration. H
 
 1. **Set a High TTL**:
    - In your DNS settings, increase the TTL (Time to Live) for your DNS records. This gives the DNS changes time to propagate smoothly, reducing downtime.
+     ![](./step4.webp)
 2. **Double-Check the CNAME Setup**:
    - Ensure that the CNAME record pointing to Fleek is correctly configured and active.
-     ![](./step4.webp)
 
 ---
 
