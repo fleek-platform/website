@@ -77,8 +77,8 @@ const indexNameDocs = import.meta.env.PUBLIC_MEILISEARCH_INDEX_DOCS;
 // TODO: Fails after prod build
 const isHome = Astro.url.pathname === '/docs';
 
-const slug = `docs/${data.slug}`;
-const image = '';
+const slug = `${settings.site.metadata.docs.slug}/${data.slug}`;
+const image = settings.site.metadata.docs.image;
 ---
 
 <BaseHtml

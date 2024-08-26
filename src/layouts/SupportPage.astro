@@ -6,7 +6,7 @@ import BaseHtml from './BaseHtml.astro';
 const zendeskPublicSnippetKey = settings.support.zendesk.publicSnippetKey;
 const srcLink = `https://static.zdassets.com/ekr/snippet.js?key=${zendeskPublicSnippetKey}`;
 
-const { title, description, image, slug } = Astro.props;
+const { title, description, slug, image } = Astro.props;
 ---
 
 <BaseHtml
