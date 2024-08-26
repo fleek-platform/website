@@ -1,6 +1,5 @@
 ---
 import Layout from '@layouts/BlogPage.astro';
-import Container from '@components/Container';
 import { getCollection } from 'astro:content';
 import BlogPosts from '@components/BlogPosts.astro';
 import BlogHeader from '@components/BlogHeader.astro';
@@ -8,6 +7,7 @@ import { listSubDirectories } from '@utils/paths';
 import settings from '@base/settings.json';
 
 import type { CollectionEntry } from 'astro:content';
+import { generateFullSlug } from '@utils/generateFullSlug';
 
 type CategoryDetails = {
   title: string;
@@ -41,13 +41,18 @@ const description =
   blogSettings[category].description || settings.site.metadata.blog.description;
 
 const collection = 'blog';
+const image = settings.site.metadata.blog.image;
+const slug = generateFullSlug({
+  basePath: settings.site.metadata.blog.slug,
+  slug: category,
+});
 
 const allPosts: CollectionEntry<'blog'>[] = (
   await getCollection('blog', ({ slug }) => slug.split('/')[0] === category)
 ).sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf());
 ---
 
-<Layout title={title} description={description}>
+<Layout title={title} description={description} image={image} slug={slug}>
   <main class="container min-h-container">
     <BlogHeader title="Blog" indexName={indexNameBlog} category={category} />
     <BlogPosts allPosts={allPosts} collection={collection} />

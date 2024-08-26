@@ -1,16 +1,15 @@
 ---
 import '@styles/globals.css';
-import settings from '@base/settings.json';
 import BaseHtml from './BaseHtml.astro';
 
 interface Props {
   title: string;
   description: string;
+  image: string;
+  slug: string;
 }
 
-const { title, description } = Astro.props;
-const image = settings.site.metadata.default.image;
-const slug = '';
+const { title, description, image, slug } = Astro.props;
 ---
 
 <BaseHtml
