@@ -17,6 +17,7 @@ apis
 artifacts
 astro
 astrojs
+async
 audit-logs
 authy
 auto-scaling
@@ -30,6 +31,7 @@ backend
 backlog
 bdd
 beaconing
+bg
 biconomy
 big-data
 big-query
@@ -134,6 +136,7 @@ farcaster
 filecoin
 fleek
 fleekxyz
+flk
 fmt
 frameborder
 frontend
@@ -218,6 +221,7 @@ message
 metamask
 metamask
 mev
+microsoft
 middleware
 minification
 ml
