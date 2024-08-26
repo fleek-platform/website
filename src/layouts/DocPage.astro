@@ -78,7 +78,7 @@ const indexNameDocs = import.meta.env.PUBLIC_MEILISEARCH_INDEX_DOCS;
 const isHome = Astro.url.pathname === '/docs';
 
 const slug = `docs/${data.slug}`;
-const image = '';
+const image = settings.site.metadata.docs.image;
 ---
 
 <BaseHtml

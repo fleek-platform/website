@@ -41,13 +41,14 @@ const description =
   blogSettings[category].description || settings.site.metadata.blog.description;
 
 const collection = 'blog';
+const image = settings.site.metadata.blog.image;
 
 const allPosts: CollectionEntry<'blog'>[] = (
   await getCollection('blog', ({ slug }) => slug.split('/')[0] === category)
 ).sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf());
 ---
 
-<Layout title={title} description={description}>
+<Layout title={title} description={description} image={image}>
   <main class="container min-h-container">
     <BlogHeader title="Blog" indexName={indexNameBlog} category={category} />
     <BlogPosts allPosts={allPosts} collection={collection} />
