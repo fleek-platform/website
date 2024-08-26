@@ -4,6 +4,8 @@ import BlogPageLayout from '../../layouts/BlogPage.astro';
 import GithubEditLink from '@components/GitHubEditLink.astro';
 import { generateGitHubEditLink } from '@utils/url';
 import ButtonGhost from '@components/ButtonGhost';
+import settings from '@base/settings.json';
+import { generateFullSlug } from '@utils/generateFullSlug';
 
 export async function getStaticPaths() {
   const docsEntries = await getCollection('references');
@@ -21,13 +23,18 @@ const githubEditUrlPathname = generateGitHubEditLink({
   collection,
   id,
 });
+
+const fullSlug = generateFullSlug({
+  basePath: settings.site.metadata.references.slug,
+  slug,
+});
 ---
 
 <BlogPageLayout
   title={entry.data.title}
   description={entry.data?.desc}
   image={entry.data?.image?.src}
-  slug={slug}
+  slug={fullSlug}
 >
   <article class="blog">
     <div class="mb-24 w-fit">

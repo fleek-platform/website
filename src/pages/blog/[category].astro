@@ -7,6 +7,7 @@ import { listSubDirectories } from '@utils/paths';
 import settings from '@base/settings.json';
 
 import type { CollectionEntry } from 'astro:content';
+import { generateFullSlug } from '@utils/generateFullSlug';
 
 type CategoryDetails = {
   title: string;
@@ -41,7 +42,10 @@ const description =
 
 const collection = 'blog';
 const image = settings.site.metadata.blog.image;
-const slug = `${settings.site.metadata.blog.slug}/${category}`;
+const slug = generateFullSlug({
+  basePath: settings.site.metadata.blog.slug,
+  slug: category,
+});
 
 const allPosts: CollectionEntry<'blog'>[] = (
   await getCollection('blog', ({ slug }) => slug.split('/')[0] === category)
