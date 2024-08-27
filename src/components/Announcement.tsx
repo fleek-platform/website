@@ -28,7 +28,7 @@ const Announcement: React.FC<AnnouncementProps> = ({
     >
       <Container>
         <div
-          className={`${hasMargin && 'my-8'} overflow-hidden rounded-16 border border-yellow bg-ui-mid-black px-16 py-8`}
+          className={`${hasMargin && 'my-8'} overflow-hidden rounded-16 border border-yellow-dark-7 bg-ui-mid-black px-16 py-8`}
         >
           <div className="overflow-hidden">
             <Text className="whitespace-nowrap text-center lg:hidden" style="m">
