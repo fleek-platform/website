@@ -5,6 +5,8 @@ import GithubEditLink from '@components/GitHubEditLink.astro';
 import { generateGitHubEditLink } from '@utils/url';
 import ButtonGhost from '@components/ButtonGhost';
 import { formatDate } from '@utils/date';
+import { generateFullSlug } from '@utils/generateFullSlug';
+import settings from '@base/settings.json';
 
 export async function getStaticPaths() {
   const docsEntries = await getCollection('blog');
@@ -24,13 +26,18 @@ const githubEditUrlPathname = generateGitHubEditLink({
 });
 
 const date = formatDate({ date: entry.data.date });
+
+const fullSlug = generateFullSlug({
+  basePath: settings.site.metadata.blog.slug,
+  slug,
+});
 ---
 
 <BlogPageLayout
   title={entry.data.title}
   description={entry.data?.desc}
   image={entry.data?.image?.src}
-  slug={slug}
+  slug={fullSlug}
 >
   <article class="blog">
     <div class="mb-24 w-fit" id="goBackButton">

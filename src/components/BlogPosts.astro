@@ -29,11 +29,7 @@ type AllPosts = {
       <a href={`/${collection}/${post.slug}`}>
         <article class="h-full cursor-pointer overflow-hidden rounded-8 border border-gray-dark-7 bg-gray-dark-2 shadow transition hover:border-gray-dark-8">
           {post.data?.image && (
-            <Image
-              class="h-[220px] w-full object-cover"
-              src={post.data.image}
-              alt=""
-            />
+            <Image class=" w-full object-cover" src={post.data.image} alt="" />
           )}
           <div class="p-32">
             <p class="font-plex-sans text-14 text-gray-dark-10">

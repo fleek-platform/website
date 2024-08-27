@@ -1,15 +1,14 @@
 ---
 import Layout from '@layouts/Page.astro';
 import PricingModule from '@components/Pricing';
-import FAQ from '@components/FAQ';
-import PayMethods from '@components/PayMethods';
-import LiveOnTheEdge from '@components/LiveOnTheEdge';
 import settings from '@base/settings.json';
 ---
 
 <Layout
   title={settings.site.metadata.pricing.title}
   description={settings.site.metadata.pricing.description}
+  slug={settings.site.metadata.pricing.slug}
+  image={settings.site.metadata.pricing.image}
 >
   <main class="flex flex-col gap-16 pb-64">
     <PricingModule client:load />
