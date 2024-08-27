@@ -66,6 +66,7 @@ This approach gives us valuable insights into how well the system manages reques
 ![Gateway Performance: Regional Average TTFB Analysis. *Pinata has rate limiting on the gateway which may skew the data. ](./graph1.png)
 
 ![Worldwide Average TTFB Analysis. *Pinata has rate limiting on the gateway which may skew the data.](./graph2.png)
+_Please note: the Pinata gateway is rate-limited; data may be skewed._
 
 ## **How to make use of the public IPFS gateway**
 
