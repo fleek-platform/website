@@ -18,7 +18,7 @@ The Fleek.xyz platform empowers developers to build lightning-fast web apps, and
 ### Requirements:
 
 - Fleek account
-- FleekCLI installation (preferably - v2.9.0)
+- Fleek CLI installation (preferably - v2.9.0)
 - GitHub account
 - NodeJS 18+( preferably - v18.17.0)
 
