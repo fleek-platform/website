@@ -115,9 +115,9 @@
       "templatesUrl": "https://app.fleek.xyz/templates"
     },
     "annoucementMarquee": {
-      "message": "Introducing Fleek Functions: lightning-fast edge functions built on Fleek Network’s onchain cloud infrastructure. Read more here.",
-      "url": "/blog/announcements/introducing-fleek-functions",
-      "visible": false
+      "message": "Introducing Fleek's free IPFS gateway - a reliable, performant, and geo-routed alternative to traditional gateways",
+      "url": "/blog/announcements/fleek-decentralized-ipfs-gateway",
+      "visible": true
     }
   },
   "docs": {
