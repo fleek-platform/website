@@ -98,7 +98,6 @@ Migrating from Cloudflare Web3 to Fleek can be a straightforward process if done
 
 You can learn more about Fleek's IPFS gateway [here](https://fleek.xyz/blog/announcements/fleek-decentralized-ipfs-gateway/).
 
-
 That’s all for now. You can learn more about getting started with the new IPFS gateway in our [docs](https://fleek.xyz/docs/), by joining our Discord [server](discord.gg/fleek), or by following Fleek [X](https://x.com/fleek).
 
 Get started using the new Fleek IPFS Gateway:
