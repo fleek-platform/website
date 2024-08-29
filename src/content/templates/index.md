@@ -31,7 +31,6 @@ If you are looking to build a web application that leverages the power of `JavaS
 |    [vue](https://github.com/fleek-tools/vue-template)     |   Blank starter kit for Vue   |
 |  [gatsby](https://github.com/fleek-tools/hugo-template)   |  Blank starter kit for Hugo   |
 
-
 ## Contributing to Fleek Templates
 
 We welcome your feedback & contributions. If you couldn't find the template you were looking for, please open an issue in the Fleek templates repository and describe your request, or if you want to add a new template please follow the instructions in the `README.md` file of the [Fleek templates repository](https://github.com/fleek-tools).
