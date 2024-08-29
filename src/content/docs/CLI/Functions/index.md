@@ -15,7 +15,7 @@ Fleek Functions are code snippets that are executed server-side using Fleek Netw
 
 These aim to offer a more economical, high-performance, and scalable solution for running server-side code compared to well-known options like Lambda functions, thanks to the [Fleek Network](https://fleek.network) architecture.
 
-Fleek Functions make it possible for users to create serverless apps with lightning-fast performance at a much lower cost. Fleek Functions support typescript and javascript based functions.
+Fleek Functions make it possible for users to create serverless apps with lightning-fast performance at a much lower cost. Fleek Functions support TypeScript and JavaScript based functions.
 
 ## Create a Draft Function
 
@@ -40,13 +40,13 @@ You are obligated to export a **main** function. The **main** signifies the entr
 To learn more about what the export declaration is, read the MDN Web docs [here](https://developer.mozilla.org/en-US/docs/web/javascript/reference/statements/export).
 
 :::note
-If you are creating a typescript based Fleek Function, please make sure that you create a file with the `.ts` extension, you can choose any name-
+If you are creating a TypeScript based Fleek Function, please make sure that you create a file with the `.ts` extension, you can choose any name-
 
 ```sh
 touch my-first-function.ts
 ```
 
-Here is what a simple function that returns the text "Hello world!" may look like in typescript -
+Here is what a simple function that returns the text "Hello world!" may look like in TypeScript -
 
 ```ts
 export const main = (params: any): string => {
@@ -54,7 +54,7 @@ export const main = (params: any): string => {
 };
 ```
 
-Please make sure you are using fleek-platform CLI v2.9.1 to be able to access typescript capabilities.
+Please make sure you are using fleek-platform CLI v2.9.1 to be able to access TypeScript capabilities.
 
 :::
 
