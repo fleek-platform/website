@@ -31,13 +31,6 @@ If you are looking to build a web application that leverages the power of `JavaS
 |    [vue](https://github.com/fleek-tools/vue-template)     |   Blank starter kit for Vue   |
 |  [gatsby](https://github.com/fleek-tools/hugo-template)   |  Blank starter kit for Hugo   |
 
-## Protocol templates
-
-We also offer templates that make it easy to build decentralized applications using certain protocols. Currently, we support the following protocol templates:
-
-|                              Protocol                              |                      Description                      |
-| :----------------------------------------------------------------: | :---------------------------------------------------: |
-| [Lens](https://github.com/fleek-tools/lens-template) - Starter Kit | Minimal social media application using Lens Protocol. |
 
 ## Contributing to Fleek Templates
 
