@@ -58,12 +58,12 @@ Sling Protocol is another use case of Lit Protocol that focuses on DeFi automati
 
 Lit has several tools that will help you get set developing with it! But first,let’s start with the **[official documentation](https://developer.litprotocol.com/)**, and then move on to other resources:
 
-- [SDK Javascript](https://developer.litprotocol.com/SDK/intro) - Starter Kit
-- [Programmable Key Pairs](https://developer.litprotocol.com/pkp/intro) - Quick start
-- [Access Control](https://developer.litprotocol.com/accessControl/intro) - Introduction to Decentralized Access Control
-- [GetLit CLI](https://developer.litprotocol.com/LitActions/getlitCli) - Getting started with the CLI for Lit Actions.
-- [Supported Blockchains](https://developer.litprotocol.com/resources/supportedChains) - all the supported blockchains in Lit.
-- [Projects Building with Lit](https://developer.litprotocol.com/Ecosystem/projects) - ecosystem.
+- [SDK Javascript](https://developer.litprotocol.com/sdk/installation) - Starter Kit
+- [Programmable Key Pairs](https://developer.litprotocol.com/user-wallets/pkps/overview) - Quick start
+- [Access Control](https://developer.litprotocol.com/sdk/access-control/intro#introduction) - Introduction to Decentralized Access Control
+- [GetLit CLI](https://developer.litprotocol.com/tools/getlit-cli#installation) - Getting started with the CLI for Lit Actions.
+- [Supported Blockchains](https://developer.litprotocol.com/resources/supported-chains) - all the supported blockchains in Lit.
+- [Projects Building with Lit](https://developer.litprotocol.com/#explore-the-lit-ecosystem) - ecosystem.
 
 ---
 
