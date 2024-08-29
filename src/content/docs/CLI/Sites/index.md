@@ -19,7 +19,7 @@ The Sites Service in the Fleek Platform CLI let users upload and easily maintain
 
 When planning to deploy a site, you must first set up a Fleek Site. If you have followed the [quick start](/docs/cli/), this should be familiar.
 
-For this example we are using a Next.js application that you can find in the [template repository](https://github.com/fleek-platform/nextjs-template).
+For this example we are using a Next.js application that you can find in the [template repository](https://github.com/fleek-tools/nextjs-boilerplate).
 
 We can clone the repository to our local file system. Firstly, switch to a location of your preference and run the command:
 
