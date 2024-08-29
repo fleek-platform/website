@@ -54,6 +54,8 @@ export const main = (params: any): string => {
 };
 ```
 
+Please make sure you are using fleek-platform CLI v2.9.1 to be able to access typescript capabilities.
+
 :::
 
 ### HTTP Requests and Responses
