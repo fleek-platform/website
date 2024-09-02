@@ -50,8 +50,7 @@ Let us now look at how a Solana transaction can get executed as a Fleek Function
 3. As the user interacts with the UI by clicking the button, the client makes a POST request to the Fleek Function instructing it to build the transaction.
 4. Transaction is sent back to the client and upon successful signature, the wallet finally sends the transaction to the blockchain.
 
-The Fleek Function leverages the capabilities of the Solana network to facilitate efficient and secure transactions.
----
+## The Fleek Function leverages the capabilities of the Solana network to facilitate efficient and secure transactions.
 
 ### Building a Solana Blink with Fleek Functions
 
@@ -235,6 +234,7 @@ if (method === 'POST') {
   return { body: resp, headers: metaData };
 }
 ```
+
 These innovations not only streamline transactions but also foster community engagement within the Solana ecosystem.
 
 [Here is the complete code for Solana Blinks on Fleek](https://github.com/KanishkKhurana/solana-blink-on-edge/blob/main/src/index.js)
