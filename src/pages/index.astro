@@ -17,6 +17,8 @@ import settings from '@base/settings.json';
 <Layout
   title={settings.site.metadata.default.title}
   description={settings.site.metadata.default.description}
+  slug={settings.site.metadata.default.slug}
+  image={settings.site.metadata.default.image}
 >
   <div class="mb-40 flex flex-col gap-24 lg:gap-32">
     <GlobeWithFloatingCards client:load />

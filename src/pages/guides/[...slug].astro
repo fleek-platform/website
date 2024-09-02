@@ -1,11 +1,11 @@
 ---
 import { getCollection } from 'astro:content';
 import BlogPageLayout from '../../layouts/BlogPage.astro';
-import { getEntry } from 'astro:content';
 import GithubEditLink from '@components/GitHubEditLink.astro';
 import { generateGitHubEditLink } from '@utils/url';
-import ButtonGray from '@components/ButtonGray';
 import ButtonGhost from '@components/ButtonGhost';
+import settings from '@base/settings.json';
+import { generateFullSlug } from '@utils/generateFullSlug';
 
 export async function getStaticPaths() {
   const docsEntries = await getCollection('guides');
@@ -23,13 +23,18 @@ const githubEditUrlPathname = generateGitHubEditLink({
   collection,
   id,
 });
+
+const fullSlug = generateFullSlug({
+  basePath: settings.site.metadata.guides.slug,
+  slug,
+});
 ---
 
 <BlogPageLayout
   title={entry.data.title}
   description={entry.data?.desc}
   image={entry.data?.image?.src}
-  slug={slug}
+  slug={fullSlug}
 >
   <article class="blog">
     <div class="mb-24 w-fit">
