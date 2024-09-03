@@ -49,7 +49,7 @@ Phala is a decentralized cloud that offers secure and scalable computing. The [P
 
 StellaSwap is a leading DEX on the Moonbeam Network. Stellaswap has leveraged Subsquid to build real-time dashboards and build internal reporting and analytics pipelines.
 
-### Developer Tooling (e.g. [Enjin](https://enjin.io/))
+### Developer Tooling (e.g. [Enjin](https://enjin.io))
 
 Enjin is a GameFi and metaverse ecosystem offering a suite of products from wallets to NFT marketplaces. Enjin has built a custom explorer and a set of APIs to extend the developer tooling for their platform.
 

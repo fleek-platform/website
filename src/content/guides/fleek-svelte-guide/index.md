@@ -53,7 +53,7 @@ Now that we have a fully functional Svelte app we can proceed to the next step �
 
 ### Fleek Account Creation
 
-The first thing we’ll need to do is create a Fleek account: head over to [http://app.fleek.xyz](http://app.fleek.xyz/), and click on the `Create a Free Account` button.
+The first thing we’ll need to do is create a Fleek account: head over to [http://app.fleek.xyz](http://app.fleek.xyz), and click on the `Create a Free Account` button.
 
 > 💡 Feel free to skip this step if you already have an account on Fleek.xyz!
 
@@ -162,18 +162,18 @@ Click on your deployed site. You should be brought to this page:
 
 Click on the URL (For this example it’s [narrow-sandwich-raspy.on-fleek.app](http://narrow-sandwich-raspy.on-fleek.app) but yours will be different) and it’ll take you to your fully functional static NextJs blog!
 
-From the [Fleek.xyz](http://fleek.xyz/) dashboard, you have the ability to manage a custom domain or ENS address for your site, as well as see deployment history and quickly manage site settings.
+From the [Fleek.xyz](http://fleek.xyz) dashboard, you have the ability to manage a custom domain or ENS address for your site, as well as see deployment history and quickly manage site settings.
 
 ---
 
 Congratulations! You just deployed your Svelte App to the Fleek.xyz platform. The basics from this guide can be taken and applied to any static Svelte app to deploy on Fleek.xyz
 
-If you’d like to learn more about Fleek, visit our [documentation](https://docs.fleek.xyz/docs) page, join our [Discord server](https://discord.gg/fleek), and stay up to date with us on [X](https://twitter.com/fleek/)!
+If you’d like to learn more about Fleek, visit our [documentation](/docs) page, join our [Discord server](https://discord.gg/fleek), and stay up to date with us on [X](https://twitter.com/fleek/)!
 
 See you in the next guide 🤙
 
 ## Resources:
 
-- Understanding Projects: https://fleek.xyz/docs/Projects
-- Sites: https://fleek.xyz/docs/Sites
-- Fleek CLI: https://fleek.xyz/docs/CLI
+- Understanding Projects: https://fleek.xyz/docs/sdk/projects/
+- Sites: https://fleek.xyz/docs/cli/sites/
+- Fleek CLI: https://fleek.xyz/docs/cli/

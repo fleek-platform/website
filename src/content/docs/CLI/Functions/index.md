@@ -15,7 +15,7 @@ Fleek Functions are code snippets that are executed server-side using Fleek Netw
 
 These aim to offer a more economical, high-performance, and scalable solution for running server-side code compared to well-known options like Lambda functions, thanks to the [Fleek Network](https://fleek.network) architecture.
 
-Fleek Functions make it possible for users to create serverless apps with lightning-fast performance at a much lower cost.
+Fleek Functions make it possible for users to create serverless apps with lightning-fast performance at a much lower cost. Fleek Functions support TypeScript and JavaScript based functions.
 
 ## Create a Draft Function
 
@@ -27,7 +27,7 @@ For our example, we'll create a file named "my-first-function.js", you can choos
 touch my-first-function.js
 ```
 
-Open your favourite text editor and declare a function. We'll write a simple function that returns the text "Hello world!".
+Open your favourite text editor and declare a function. We'll write a simple function that returns the text "Hello world!" -
 
 ```js
 export const main = (params) => {
@@ -38,6 +38,25 @@ export const main = (params) => {
 You are obligated to export a **main** function. The **main** signifies the entry point for computations or declarations within the file scope. It'll not compute or operate if you neglect to declare and export it.
 
 To learn more about what the export declaration is, read the MDN Web docs [here](https://developer.mozilla.org/en-US/docs/web/javascript/reference/statements/export).
+
+:::note
+If you are creating a TypeScript based Fleek Function, please make sure that you create a file with the `.ts` extension, you can choose any name-
+
+```sh
+touch my-first-function.ts
+```
+
+Here is what a simple function that returns the text "Hello world!" may look like in TypeScript -
+
+```ts
+export const main = (params: any): string => {
+  return 'hello world';
+};
+```
+
+Please make sure you are using fleek-platform CLI v2.9.1 to be able to access TypeScript capabilities.
+
+:::
 
 ### HTTP Requests and Responses
 

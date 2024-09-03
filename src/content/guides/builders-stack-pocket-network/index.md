@@ -21,7 +21,7 @@ The first one we will cover today? [Pocket Network](http://pokt.network) (Pocket
 
 Pocket Network is a decentralized protocol that provides a network of remote procedure call (RPC) nodes to relay blockchain data/calls from any supported blockchain to DApps and end-users. Which makes it a great chain-agnostic provider for those uses!
 
-Today, most RPC providers are centralized (like [Infura](https://www.infura.io/)), or developers need to spin up their own infrastructure for an independent resource. Pocket eliminates that need with a **decentralized infrastructure network.** No need to rely on a centralized provider (at risk of data alteration and privacy concerns, censorship, or outages), or to run your own infrastructure.
+Today, most RPC providers are centralized (like [Infura](https://www.infura.io)), or developers need to spin up their own infrastructure for an independent resource. Pocket eliminates that need with a **decentralized infrastructure network.** No need to rely on a centralized provider (at risk of data alteration and privacy concerns, censorship, or outages), or to run your own infrastructure.
 
 Independent “node runners” and providers run RPC nodes for the network, and Pocket incentivizes them with the network’s token ($POKT) for providing this data relaying service. Users (i.e. web3 developers) simply register an app in the Pocket Portal (Pocket’s gateway to its service), and then connect to any of Pocket’s supported blockchains and start receiving decentralized RPC service.
 
@@ -76,7 +76,7 @@ Pocket has several SDKs and resources, depending on the environment you want to 
 
 - [Pocket HTTP DB - Access the Portal DB via Restful API.](https://github.com/pokt-foundation/pocket-http-db)
 - [Portal API - single endpoint to all supported chains.](https://github.com/pokt-foundation/portal-api)
-- [Pocket-go GOlang library.](https://github.com/pokt-foundation/pocket-go)
+- [Pocket-go GOlang library.](https://github.com/pokt-foundation/)
 - [Pocket Tools - Examples, Tools, and Demo](https://github.com/pokt-foundation/pocket-tools)
 - [Example dApps built on Pocket](https://docs.pokt.network/use/dapps/)
 

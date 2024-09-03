@@ -189,7 +189,7 @@ Yes. Onchain domains can be used along with traditional DNS if they support inte
 
 **2. What are some tools and libraries available for integrating ENS or 3DNS into my web3 projects?**
 
-<u>[ENS](https://docs.ens.domains/web/libraries)</u> and <u>[3DNS](https://docs.3dns.box/3dns/product-overview/api-docs)</u> have their specific tools and libraries for web3 projects and developers to use. If not, developers and teams can use Fleek to bypass complexities and integrate custom domains into their websites and apps easily.
+<u>[ENS](https://docs.ens.domains/web/libraries)</u> and <u>[3DNS](https://docs.3dns.box/docs/getting-started)</u> have their specific tools and libraries for web3 projects and developers to use. If not, developers and teams can use Fleek to bypass complexities and integrate custom domains into their websites and apps easily.
 
 **3. How can developers build solutions around the concept of onchain domains?**
 
