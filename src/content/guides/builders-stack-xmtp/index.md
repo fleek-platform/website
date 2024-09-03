@@ -32,9 +32,9 @@ The responsibilities of nodes are to form a peer-to-peer network to communicate,
 
 The client layer is made of XMTP message API clients from apps built with the SDK. API clients connect with APIs on an XMTP node to communicate with the network. In short, the responsibilities of nodes on the network layer are:
 
-- Create blockchain account-based XMTP identities, [including public and private key bundles](https://xmtp.org/docs/concepts/key-generation-and-usage).
-- [Encrypt and decrypt](https://xmtp.org/docs/concepts/invitation-and-message-encryption) private key bundles, invitations, and messages.
-- Encode and decode message [content types](https://xmtp.org/docs/content-types/introduction), submit and retrieve key bundles, encrypted invitations, and encrypted messages to and from the XMTP network.
+- Create blockchain account-based XMTP identities, [including public and private key bundles](https://docs.xmtp.org/dms/client#create-an-xmtp-client-with-a-private-key).
+- [Encrypt and decrypt](https://docs.xmtp.org/notifications/build-notifications#9-decrypt-the-message) private key bundles, invitations, and messages.
+- Encode and decode message [content types](https://docs.xmtp.org/content-types/custom#build-custom-content-types), submit and retrieve key bundles, encrypted invitations, and encrypted messages to and from the XMTP network.
 
 The final layer is apps building on top of XMTP!
 
@@ -64,7 +64,7 @@ Let's explore some real-world examples of how XMTP can be used by builders to cr
 
 To counter the norm of companies like WhatsApp, Telegram and Snapchat owning your conversations, Converse has developed an encrypted, decentralized and interoperable alternative so users can feel safe and assured that their private conversations remain just that– private. Converse leverages XMTP’s protocol to enable wallet owned messaging in their application.
 
-**In Wallet Messaging (e.g. [Coinbase](https://www.coinbase.com/))**
+**In Wallet Messaging (e.g. [Coinbase](https://www.coinbase.com))**
 
 Coinbase implemented in-wallet [instant messaging](https://www.youtube.com/watch?v=ukBODIGWLFY) capabilities with XMTP. Coinbase was the first self-custodial wallet to integrate XMTP. Coinbase does not have access to users’ messages, ensuring that their conversations remain private. Digital assets can also be transacted using the same inbox, allowing users to send free global payments in a way that feels like WhatsApp joined forces with Cash App.
 
@@ -80,10 +80,8 @@ In June XMTP hosted a hackathon at [EthWaterloo](https://xmtp.org/blog/eth-water
 
 ## Getting started with XMTP
 
-- [Quickstart](https://xmtp.org/docs/developer-quickstart)
-- [Trending Tutorials](https://xmtp.org/docs/hackathons#trending-tutorials-)
-- [Example Apps](https://xmtp.org/docs/hackathons#trending-tutorials-)
-- [Contribute](https://xmtp.org/docs/contribute)
+- [Quickstart](https://docs.xmtp.org/get-started/developer-quickstart)
+- [Contribute](https://docs.xmtp.org/z_archive/contribute#contribute-to-the-xmtp-community)
 - [Blog](https://xmtp.org/blog)
 
 ---

@@ -52,9 +52,9 @@ This **doesn’t require you to transfer** your domain, it is quicker, and fre
 
 First things first. You need to sign up for a [free Cloudflare account](https://www.cloudflare.com/).
 
-Cloudflare provides a detailed guide on how to configure your nameserver on your other providers to point to Cloudflare. Here is a [step-by-step guide](https://support.cloudflare.com/hc/en-us/articles/205195708-Changing-your-domain-nameservers-to-Cloudflare), with specific guides for all different DNS provider platforms (see the table at the bottom of this article).
+Cloudflare provides a detailed guide on how to configure your nameserver on your other providers to point to Cloudflare. Here is a [step-by-step guide](https://developers.cloudflare.com/dns/zone-setups/full-setup/setup/), with specific guides for all different DNS provider platforms (see the table at the bottom of this article).
 
-Once you have **updated your domain’s nameserver on your old provider to Cloudflare’s**, you can start managing your DNS records from the DNS app in your Cloudflare account. [Here is a guide from Cloudflare](https://support.cloudflare.com/hc/en-us/articles/360019093151-Managing-DNS-records-in-Cloudflare) on how to do so.
+Once you have **updated your domain’s nameserver on your old provider to Cloudflare’s**, you can start managing your DNS records from the DNS app in your Cloudflare account. [Here is a guide from Cloudflare](https://developers.cloudflare.com/dns/manage-dns-records/how-to/create-dns-records/) on how to do so.
 
 Ready to add your new Fleek DNS records in Cloudflare? **There are two important details you need to follow:**
 

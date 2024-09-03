@@ -82,7 +82,7 @@ Meet with Wallet is just like Calendly, but powered by web3. The web3 app integr
 
 Soccly is a decentralized social network powered by Polygon, Lens, XMTP, Push and Huddle01. The platform provides a decentralized calendly, a community space for sharing art, music, film, escrow services for monetizing creativity and token gated educational courses.
 
-**Web3 Email (e.g. <u>[EtherMail](https://ethermail.io/))</u>**
+**Web3 Email (e.g. <u>[EtherMail](https://ethermail.io))</u>**
 
 Ethermail is reimagining email for web3. The app provides an email folder and paywall as a spam filter for users, as well as, on-chain mailing lists, email campaigns and web3 segmentation for companies and DAOs.
 
