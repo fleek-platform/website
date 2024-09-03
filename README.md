@@ -1081,7 +1081,6 @@ When visiting the site content, the file will be surfaced absolutely, e.g. `<sou
 
 ## Changelog Resources
 
-At the time of writing, we have the CLI decoupled from the Fleek mono-repo. For the continuous changelogs needed on the [changelog](https://fleek.xyz/changelog) page, some team members may find locating the changelogs for some of these projects hard. Here are links to changelogs of projects within Fleek:
+The repositories contain a `CHANGELOG.md` file, which is generated automatically. Find the files in the root of the repositories, for example for [@fleek-platform/cli](https://github.com/fleek-platform/cli):
 
-- [CLI changelog](https://github.com/fleek-platform/cli/)
 - SDK changelog
