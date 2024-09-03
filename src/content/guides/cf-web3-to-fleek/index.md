@@ -6,7 +6,7 @@ thumbnail: './cftoflk.png'
 image: './cftoflk.png'
 ---
 
-With Cloudflare’s Web3 product deprecation on the horizon, many users are looking for alternative platforms to host their decentralized websites and applications. Fleek is a powerful, user-friendly option that offers a smooth migration process with minimal downtime. This guide will walk you through the necessary steps to migrate from Cloudflare Web3 to Fleek, ensuring a seamless transition.
+With Cloudflare’s recent Web3 product deprecation, many users are looking for alternative platforms to host their decentralized websites and applications. Fleek [now has a powerful, user-friendly option](https://fleek.xyz/guides/cf-web3-to-fleek/) that offers a smooth migration process with minimal downtime. This guide will walk you through the necessary steps to migrate from Cloudflare Web3 to Fleek, ensuring a seamless transition.
 
 ---
 
@@ -15,7 +15,7 @@ With Cloudflare’s Web3 product deprecation on the horizon, many users are look
 Before starting the migration process, you need to set up your site on Fleek. Here’s how:
 
 1. **Sign up or Log in to Fleek**:
-   - Navigate to[ Fleek](https://fleek.xyz) and sign up or log in to your account.
+   - Navigate to [Fleek](https://fleek.xyz) and sign up or log in to your account.
 2. **Create a New Project**:
    - Click on ["Create New Site"](https://fleek.xyz/docs/platform/hosting/#start-hosting) and choose your preferred framework (e.g., Next.js, React).
    - Follow the prompts to link your GitHub repository, select the branch you want to deploy, and configure the build settings.
@@ -95,3 +95,13 @@ After deleting the Cloudflare Web3 gateway, you need to update your DNS settings
 ## **Conclusion**
 
 Migrating from Cloudflare Web3 to Fleek can be a straightforward process if done correctly. By following these steps, you can ensure a smooth transition with minimal downtime, keeping your site or application live and accessible throughout the migration.
+
+You can learn more about Fleek's IPFS gateway [here](https://fleek.xyz/blog/announcements/fleek-decentralized-ipfs-gateway/).
+
+That’s all for now. You can learn more about getting started with the new IPFS gateway in our [docs](https://fleek.xyz/docs/), by joining our Discord [server](discord.gg/fleek), or by following Fleek [X](https://x.com/fleek).
+
+Get started using the new Fleek IPFS Gateway:
+
+Dive into IPFS Storage: https://fleek.xyz/blog/learn/understanding-ipfs-storage-fleek/
+
+Host your dApp on IPFS: https://fleek.xyz/blog/templates/ethereum-boilerplate-ipfs-nextjs/

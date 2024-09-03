@@ -8,7 +8,7 @@ author:
   - 'Olayinka Oshidipe'
 ---
 
-In this guide, you’ll learn how to build a file upload web app that takes any file and uploads it to IPFS. With Fleek there are a few ways you could upload files to IPFS, one being that you could use the Fleek CLI — we have a guide on that [here](https://www.youtube.com/watch?v=2OzwtDH7K0A&t=38s). You could also upload files directly from the [platform](https://www.notion.so/6c772a4a892943ce92479e5ad7cba582?pvs=21) or via the [SDK](https://docs.fleek.xyz/docs/SDK).
+In this guide, you’ll learn how to build a file upload web app that takes any file and uploads it to IPFS. With Fleek there are a few ways you could upload files to IPFS, one being that you could use the Fleek CLI — we have a guide on that [here](https://www.youtube.com/watch?v=2OzwtDH7K0A&t=38s). You could also upload files directly from the [platform](https://app.fleek.xyz) or via the [SDK](https://docs.fleek.xyz/docs/SDK).
 
 ## What is Vue Js?
 

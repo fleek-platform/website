@@ -162,6 +162,6 @@ If you’re interested in these deep dives, keep an eye on our blog as we’ll g
 
 Relevant articles:
 
-[Fleek Next.JS deploy guide](https://fleek.xyz/blog/fleek-nextjs-deploy-guide/](https://fleek.xyz/guides/fleek-nextjs-guide/)
+[Fleek Next.JS deploy guide](/guides/fleek-nextjs-guide/)
 
 [Fleek Network developer guide on JS runtime](https://blog.fleek.network/post/fleek-network-developer-guide-js-runtime/)

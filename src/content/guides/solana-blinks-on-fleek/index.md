@@ -7,40 +7,54 @@ image: './Fleek-Blog-Solana_Blinks-Thumbnail_v1.png'
 author: 'Kanishk Khurana'
 ---
 
-As Fleek moves towards providing more full stack support, we recently explored deploying Solana Blinks using <u>[Fleek Functions](https://fleek.xyz/docs/cli/functions/)</u>. Today we will be diving deep into the specifics of Solana Blinks and what makes them a perfect fit to be deployed on Fleek. We will also be discussing how HTTPS request methods can be handled by the same Fleek Function.
+## Learn how to deploy Solana Blinks using Fleek Functions with this step-by-step guide. Unlock the potential of onchain transactions on the Solana blockchain and boost your Solana app’s performance.
+
+As Fleek moves towards providing more full-stack support, we recently explored deploying Solana Blinks using [Fleek Functions](https://fleek.xyz/docs/cli/functions/) and unlocking the potential of blockchain technology for onchain transactions to boost your Solana app’s performance.
+
+In this guide, we'll dive into the specifics of Solana Blinks and what makes them a perfect fit to be deployed on Fleek. We will also be discussing how HTTPS request methods can be handled by the same Fleek Function.
 
 ### Understanding Solana Actions & Blinks
 
-To build your first Solana Blink, let’s first quickly understand Solana Actions. Solana Actions are APIs that help send transactions on the Solana blockchain. These transactions are accessible over a variety of mediums beyond just a wallet. Blinks, or `Blockchain Links`, transform any Solana Action into a shareable link with extensive metadata.
+Before getting started with Solana Blinks, let’s explore Solana Actions. Actions are APIs that help send transactions on the Solana blockchain. These transactions are accessible over a variety of mediums beyond just a wallet. Blinks, or Blockchain Links, transform any Solana Action into a shareable link with extensive metadata.
 
-It is important to note that browser-aware clients like wallet extensions are required to be able to parse Solana Blinks and turn them into accessible user interfaces that allow interactions with Solana. Right now, you can use Backpack or Phantom wallet extensions to access Blinks.
+Solana Blinks' URL includes all the necessary details for a task, making Solana network and blockchain operations simpler and more accessible for users by transforming complex instructions into a single clickable link.
 
-One of the main value adds of Solana Blinks is they allow Solana users to do onchain actions (Claim airdrops, buy NFTs, swap tokens etc.) directly on X, Farcaster, and other places where users are natively located. Instead of the typical flow of redirecting away from their current experience, developers can bake Solana Actions into other apps and allow them to interact without leaving the app.
+It is important to note that browser-aware clients like wallet extensions are required to be able to parse Solana Blinks and turn them into accessible user interfaces that allow interactions with Solana. These clients must decode the action API link provided in the Solana Blink URL to generate a user-friendly interface for users to complete various blockchain transactions.
 
-You can learn more about Solana Actions & Blinks <u>[here](https://solana.com/docs/advanced/actions)</u>.
+Clients, such as wallets or browser extensions, use the Action's URL endpoint to make GET and POST requests, facilitating user interactions with the blockchain.
+
+One of the main value adds of Solana Blinks is they allow Solana users to do Solana blockchain actions (Claim airdrops, buy NFTs, swap tokens etc.) directly on social media platforms like X, Farcaster, and other places where users are natively located, facilitating seamless blockchain transactions and crypto transactions.
+
+Solana Actions deliver signable transactions or messages for user-signing directly from applications, enabling seamless interactions with the Solana network. APIs are hosted at publicly accessible URLs, allowing any client to interact with them via their URLs, which is crucial for enabling user-friendly interactions with blockchain technology.
+
+You can learn more about Solana Actions & Solana Blinks [here](https://solana.com/docs/advanced/actions) through the Solana Foundation.
 
 ### Fleek Functions
 
-Fleek Functions are code snippets executed server-side using Fleek’s edge-optimized onchain cloud infrastructure. Fleek Functions allow serverless execution of javascript code which you can use to develop easy and scalable ways of executing transactions on the Solana blockchain. In this guide we will be using the @solana/web3.js package bundled along with a Fleek Function.
+Fleek Functions are code snippets executed server-side using Fleek’s edge-optimized onchain cloud infrastructure. Fleek Functions allow serverless execution of javascript code which you can use to develop easy and scalable ways of executing transactions on the Solana blockchain.
 
-The use cases for Fleek Functions go way beyond just executing Solana Actions and Blinks– anywhere you would execute javascript functions, Fleek Functions may provide a more performant, lower cost, easier to maintain, self-sovereign alternative. You can learn more about building with Fleek Functions in our <u>[docs](https://fleek.xyz/docs/cli/functions/)</u>.
+Fleek Functions make Solana Actions and Solana Blinks web surface capable, allowing users to perform transactions directly on any web interface that can display a URL. In this guide, we will be using the @solana/web3.js package bundled along with a Fleek Function.
+
+The use cases for Fleek Functions go way beyond just executing Solana Actions and Solana Blinks– anywhere you would execute javascript functions, Fleek Functions may provide a more performant, lower cost, easier to maintain, self-sovereign alternative.
+
+You can learn more about building with Fleek Functions in our [docs](https://fleek.xyz/docs/cli/functions/).
 
 ---
 
-## Executing Solana Actions with Fleek Functions
+## Executing Solana actions, Solana Blinks and Solana transactions with Fleek Functions
 
-Let us now look at how a Solana Action can get executed as a Fleek Function-
+Let us now look at how a Solana transaction can get executed as a Fleek Function in the form of Solana Blinks and Actions-
 
 1. The client starts execution by making a GET request to the Fleek Function wrapping the Solana Action. The Fleek Function will respond with corresponding metadata related to the Action.
 2. Icon, title, description, and label related to Solana Action are now visible. A suitable UI is rendered for it as soon as the client app (eg - a Solana wallet) parses the URL.
 3. As the user interacts with the UI by clicking the button, the client makes a POST request to the Fleek Function instructing it to build the transaction.
 4. Transaction is sent back to the client and upon successful signature, the wallet finally sends the transaction to the blockchain.
 
----
+## The Fleek Function leverages the capabilities of the Solana network to facilitate efficient and secure transactions.
 
-Building a Solana Blink with Fleek Functions
+### Building a Solana Blink with Fleek Functions
 
-Now, it's time we start coding our own Solana Blink on Fleek. For this example, we will be sending an onchain memo for 0.1 SOL-
+Now, it’s time we start coding our own Solana Blinks on Fleek. For this example, we will be sending an onchain memo for 0.1 SOL-
 
 1. We begin by initializing NPM in an empty directory-
 
@@ -126,7 +140,9 @@ export const main = async (req) => {
 - `Connection` and `clusterApiUrl` help maintain a secure connection with the Solana Devnet
 - `PublicKey` creates a new public key object
 
-7. Now let’s _focus_ on the POST method. Here, we have to pick the public key of the account that will be signing the transaction. The public key must be sent in the body of the POST request as specified in the <u>[Blink specification](https://solana.com/docs/advanced/actions#post-request)</u>. We will also build the transaction here as follows -
+The Solana Foundation plays a crucial role in the development and launch of features like Solana Blinks, enhancing user interaction with the Solana blockchain.
+
+7. Now let’s _focus_ on the POST method. Here, we have to pick the public key of the account that will be signing the transaction. The public key must be sent in the body of the POST request as specified in the [Blink specification](https://solana.com/docs/advanced/actions#post-request). We will also build the transaction here as follows -
 
 ```javascript
 if (method === 'POST') {
@@ -202,7 +218,7 @@ if (method === 'POST') {
 }
 ```
 
-10. Now that the POST method is complete, we must move to building the logic for the GET method. All we have to do is build a response object with icon, title, description and label fields. You can learn more about the GET response body specification <u>[here](https://solana.com/docs/advanced/actions#get-response-body)</u>
+10. Now that the POST method is complete, we must move to building the logic for the GET method. All we have to do is build a response object with icon, title, description and label fields. You can learn more about the GET response body specification [here](https://solana.com/docs/advanced/actions#get-response-body)
 
 ```javascript
 if (method === 'POST') {
@@ -219,9 +235,11 @@ if (method === 'POST') {
 }
 ```
 
-<u>[Here is the complete code for Solana Blinks on Fleek](https://github.com/KanishkKhurana/solana-blink-on-edge/blob/main/src/index.js)</u>
+These innovations not only streamline transactions but also foster community engagement within the Solana ecosystem.
 
-With this, the code for the Fleek Function is complete. It is now time to use the Fleek CLI to create and deploy this Fleek Function-
+[Here is the complete code for Solana Blinks on Fleek](https://github.com/KanishkKhurana/solana-blink-on-edge/blob/main/src/index.js)
+
+### With this, the code for the Fleek Function is complete. It is now time to use the Fleek CLI to create and deploy this Fleek Function-
 
 1. Install the Fleek CLI
 
@@ -266,9 +284,13 @@ Uploading code to IPFS: [██████████████████�
 
 💡: We recommend using the Fleek Network URL for the purpose of this tutorial
 
-You can <u>[click here](https://fleek.xyz/docs/cli/functions/)</u> to learn more about Fleek Functions.
+You can [click here](https://fleek.xyz/docs/cli/functions/) to learn more about Fleek Functions.
 
-Finally, head over to <u>[dial.to](https://dial.to/devnet)</u> to unfurl your Fleek Function into a Solana Blink. Paste the Fleek Network URL in the input box and press submit.
+### Building a Solana Blink: Final Steps
+
+Finally, head over to [dial.to](https://dial.to/devnet) to unfurl your Fleek Function into Solana Blinks.
+
+Paste the Fleek Network URL in the input box and press submit.
 
 ![](./dialect.png)
 
@@ -276,14 +298,60 @@ Here is what the Solana Blink will look like -
 
 ![](./blink.png)
 
-After the user clicks the “Activate Action” button, the wallet will get triggered and as the transaction is confirmed, the Solana Blink reaches its final state as follows -
+After the user clicks the “Activate Action” button, the wallet will get triggered and as the transaction is confirmed, the blockchain links reach their final state as follows -
 
 ![](./unfurl.png)
 
-> ⚠️ : to successfully unfurl these links on apps and websites your Solana Blink must be registered with Dialect. To do that please <u>[fill this form](https://airtable.com/appGlCDHyLzKnyljX/pagIjqCnWiA7jppHM/form)</u>.
+> ⚠️ : to successfully unfurl these links on apps and websites your Solana Blink must be registered with Dialect. To do that please [fill this form](https://airtable.com/appGlCDHyLzKnyljX/pagIjqCnWiA7jppHM/form).
 
 ---
 
-Congratulations! With this you have completed the tutorial and successfully executed a Solana Blink on a Fleek Function. You can now expand your learning to build interesting use cases on Solana and execute them as a Fleek Function for scalable and performant execution and ensure that your Solana Blink exists perpetually.
+Congratulations! With this you have completed the tutorial and successfully executed a Solana Blink on a Fleek Function.
 
-To learn more about the benefits of building with Fleek Functions, <u>[click here](https://fleek.xyz/blog/announcements/introducing-fleek-functions/)</u>.
+You can now expand your learning to build interesting use cases on Solana and execute them as a Fleek Function for scalable and performant execution and ensure that your Solana Blink, or blockchain links, exist perpetually. These links are easily shared on social media platforms, for easy access to the Solana network for any user.
+
+## Real-World Use Cases of Solana Blinks with Fleek Functions
+
+The deployment of Solana Blinks through Fleek Functions isn’t just a theoretical exercise—it opens up a world of practical applications that can be transformative for both developers and end-users.
+
+Here are some real-world use cases where Solana Blinks can significantly impact the user experience and operational efficiency:
+
+### Seamless Token Airdrops
+
+One of the most popular use cases for Solana Blinks is executing token airdrops. Traditionally, token airdrops require users to interact with complex interfaces, often leading to confusion and errors. With Solana Blinks deployed via Fleek Functions, these airdrops can be streamlined into a single-click operation. Users receive a simple link that, when clicked, automatically initiates the airdrop process, significantly reducing friction and improving the overall experience.
+
+### Instant NFT Transactions on Social Platforms
+
+One of the most popular use cases for Solana Blinks is executing token airdrops. Traditionally, token airdrops require users to interact with complex interfaces, often leading to confusion and errors. With Solana Blinks deployed via Fleek Functions, these airdrops can be streamlined into a single-click operation. Users receive a simple link that, when clicked, automatically initiates the airdrop process, significantly reducing friction and improving the overall experience.
+
+### Effortless Token Swaps
+
+Token swaps are another area where Solana Blinks can shine. By encapsulating the necessary transaction details within a Solana Blink, users can initiate token swaps directly from a shared link. This can be particularly useful in decentralized finance (DeFi) scenarios where speed and simplicity are crucial. Fleek Functions enable these swaps to be executed server-side, ensuring that they are both efficient and secure.
+
+### Event Ticketing and Access Management
+
+Solana Blinks can also be utilized in event ticketing and access management. By converting ticket purchases into a Solana Blink, event organizers can simplify the ticketing process. Attendees can receive their tickets via a link, which upon clicking, finalizes the purchase and adds the ticket to their wallet. This can be extended to access management, where the same blink can be used to verify entry, providing a seamless and integrated solution.
+
+### Decentralized Fundraising Campaigns
+
+Crowdfunding and fundraising campaigns can benefit immensely from Solana Blinks. Campaign organizers can share a blink that allows contributors to send funds directly to the campaign wallet. This method is not only user-friendly but also transparent, as contributors can track the transaction directly on the Solana blockchain.
+
+### Cross-Border Payments and Remittances
+
+Solana Blinks can also revolutionize cross-border payments and remittances. Traditionally, sending money across borders involves high fees and lengthy processing times. With Solana Blinks, users can send funds globally by sharing a simple link that initiates the transaction on the Solana blockchain.
+
+This method drastically reduces both the time and cost associated with cross-border payments, making it an attractive option for individuals and businesses looking for efficient, low-cost remittance solutions.
+
+### Simplified Subscription Services
+
+Another powerful use case for Solana Blinks with Fleek Functions is the creation of decentralized subscription services. Subscription models are increasingly popular, but managing them on blockchain networks can be complex. With Solana Blinks, service providers can encapsulate the entire subscription process into a single link.
+
+For example, a content creator could issue a Solana Blink that, when clicked, initiates a recurring payment transaction on the Solana blockchain. This not only simplifies the user experience but also ensures that the subscription process is secure and transparent, with all transactions recorded on-chain.
+
+### The Future of Solana Blinks with Fleek Functions
+
+As more developers and businesses recognize the potential of Solana Blinks, we can expect to see even more innovative use cases emerge. Including complex transactions in a simple, shareable link opens up endless possibilities, particularly when combined with the decentralized, serverless execution offered by Fleek Functions.
+
+By leveraging these tools, developers can create applications that are not only more accessible but also more secure and scalable. Whether you’re facilitating on-chain transactions, enabling seamless NFT trades, or simplifying user interactions with decentralized apps, Solana Blinks and Fleek Functions offer a powerful combination that can elevate your project to the next level.
+
+To learn more about Fleek Functions, and the additional use cases beyond Solana Blinks, check out our [docs](fleek.xyz/docs)!
