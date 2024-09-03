@@ -1081,7 +1081,7 @@ When visiting the site content, the file will be surfaced absolutely, e.g. `<sou
 
 ## Changelog Resources
 
-At the time of writing, we have the CLI decoupled from the Fleek monorepo. For the continuous changelogs needed on the [changelog](https://fleek.xyz/changelog) page, some team members may find locating the changelogs for some of these projects hard. Here are links to changelogs of projects within Fleek:
+At the time of writing, we have the CLI decoupled from the Fleek mono-repo. For the continuous changelogs needed on the [changelog](https://fleek.xyz/changelog) page, some team members may find locating the changelogs for some of these projects hard. Here are links to changelogs of projects within Fleek:
 
-- [CLI changelog](https://github.com/fleek-platform/cli/blob/develop/CHANGELOG.md)
-- [SDK changelog](https://github.com/FleekHQ/fleek/blob/master/packages/sdk/CHANGELOG.md)
+- [CLI changelog](https://github.com/fleek-platform/cli/)
+- SDK changelog
