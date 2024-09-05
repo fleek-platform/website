@@ -53,11 +53,9 @@ In addition to security, Fleek’s SGX service leverages content-addressed mecha
 
 ## How to use Fleek’s edge-optimized SGX service
 
-Using Fleek’s SGX service is simple and follows a similar process to our Javascript service:
-
 Using Fleek’s Edge SGX service is simple and follows a similar process to our Javascript service:
 
-1. Get the Fleek CLI
+1. Get the [Fleek CLI](https://fleek.xyz/docs/cli/)
 
 2. Run this command to auth your CLI tool:
 
