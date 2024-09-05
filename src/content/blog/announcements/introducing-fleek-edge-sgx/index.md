@@ -72,7 +72,7 @@ fleek functions deploy --name Myfunction --path my.wasm --sgx
 
 ```bash
 curl fleek-test.network/services/3 --data '{"hash": "<hash>", "decrypt": true, "input": "foo"}'
-```
+``` 
 
 ---
 
