@@ -101,7 +101,7 @@ As Fleek progresses towards offering a comprehensive full-stack developer experi
 
 You can start building with our Edge SGX service in alpha at the links below. Don’t hesitate to reach out in [Discord](https://discord.gg/fleek) with any questions or feedback. 
 
-- Fleek CLI
+- [Fleek CLI](https://fleek.xyz/docs/cli/)
 - [GitHub ReadMe & Examples](https://github.com/fleek-network/lightning/tree/sgx-alpha/lib/sgxkit#readme)
 - [Fleek Network SGX Integration Technical Overview](https://fleek.xyz/blog/announcements/fleek-network-intel-sgx-integration/) 
 - [Discord](https://discord.gg/fleek)
