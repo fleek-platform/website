@@ -1,7 +1,7 @@
 ---
-title: 'Introducing Fleek Edge SGX: decentralized, edge-optimized, and dev friendly SGX capabilities' 
+title: 'Introducing Fleek Edge SGX: decentralized, edge-optimized, and dev friendly SGX capabilities'
 date: 2024-09-05
-desc: Discover Fleek's Edge SGX service—decentralized, edge-optimized, and secure Intel SGX compute solution for privacy-focused applications with WASM support. 
+desc: Discover Fleek's Edge SGX service—decentralized, edge-optimized, and secure Intel SGX compute solution for privacy-focused applications with WASM support.
 thumbnail: ./sgxservicefleek.png
 image: ./sgxservicefleek.png
 ---
@@ -39,7 +39,6 @@ Unlike traditional SGX implementations, Fleek’s edge-optimized approach ensure
 ### 4. Reduced cost and overhead + faster time to market
 
 By leveraging Fleek’s Edge SGX rather than trying to integrate SGX into your own stack, developers will save significant development time and costs as well as eliminate all the devops and infra-maintenance work related to upkeep and scaling their own SGX-related infrastructure and usage (Fleek’s Edge SGX service auto-scales). Using Fleek’s Edge SGX service also significantly reduces the complexity of your own code base and allows you to focus on the unique parts of your app/product. All the above results in projects being able to add SGX capabilities to their protocol or app in a fraction of the time, at a much lower cost, with way less headaches, and lightning-fast performance.
-
 
 ### 5. Seamless WASM support (with other languages on the way)
 
@@ -88,34 +87,32 @@ After that, you can call the service via HTTP or other supported transport metho
 ```bash
 https://fleek-test.network/services/3/ipfs/{CID}
 ```
+
 ---
 
 ## The roadmap for Fleek’s Edge SGX service
 
 This is just the beginning for Fleek’s support of SGX. Our V0 alpha release is designed for developers to test and explore, but it is not yet production-ready. Over the coming weeks and months, we’ll roll out several exciting updates:
 
-### 1. Open-source libraries 
+### 1. Open-source libraries
 
 Expect full open-source releases of our enclave-to-enclave remote attestation libraries, including a Ra-TLS library written in Rust. These will make it easier for developers to implement secure communications in their own SGX enclaves.
 
-### 2. Expanded WASM support  
+### 2. Expanded WASM support
 
 We’re working to support additional execution environments and streamline the developer experience with Fleek’s CLI, which will soon automate the encryption and deployment process for SGX-enabled applications.
 
-### 3. Beta and beyond 
+### 3. Beta and beyond
 
 While this V0 alpha preview is a powerful first step, we encourage you to avoid using it in production builds just yet. When we move beyond alpha, we will deploy a new Shared Sealing Public Key, so anything encrypted with the current alpha key will need to be re-uploaded. Stay tuned for more updates as we move toward a full release.
 
 ---
 
-As Fleek progresses towards offering a comprehensive full-stack developer experience, the integration of Intel SGX processors is a pivotal step in enabling secure, scalable, and privacy-preserving applications on our platform. 
+As Fleek progresses towards offering a comprehensive full-stack developer experience, the integration of Intel SGX processors is a pivotal step in enabling secure, scalable, and privacy-preserving applications on our platform.
 
-You can start building with our Edge SGX service in alpha at the links below. Don’t hesitate to reach out in [Discord](https://discord.gg/fleek) with any questions or feedback. 
+You can start building with our Edge SGX service in alpha at the links below. Don’t hesitate to reach out in [Discord](https://discord.gg/fleek) with any questions or feedback.
 
 - Fleek CLI
 - [GitHub ReadMe & Examples](https://github.com/fleek-network/lightning/tree/sgx-alpha/lib/sgxkit#readme)
-- Fleek Network SGX Integration Technical Overview 
+- Fleek Network SGX Integration Technical Overview
 - [Discord](https://discord.gg/fleek)
-
-
-
