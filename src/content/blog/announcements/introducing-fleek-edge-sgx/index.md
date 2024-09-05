@@ -52,40 +52,26 @@ In addition to security, Fleek’s SGX service leverages content-addressed mecha
 
 ## How to use Fleek’s edge-optimized SGX service
 
-Using Fleek’s SGX service is simple and follows a similar process to our Javascript service:
+Using Fleek’s Edge SGX service is simple and follows a similar process to our Javascript service:
 
-1. Upload your program
+1. Get the [Fleek CLI](https://fleek.xyz/docs/cli/)
 
-Compile your program to WASM, then upload it to an underlying storage layer, like IPFS.
-
-The only difference here is the encryption step — before uploading to IPFS, you encrypt the data to ensure privacy. Soon, this step will be abstracted into Fleek’s CLI, but for now, you can use our standalone binary.
-
-2. Install the binary
-
-Install the binary tool with
+2. Run this command to auth your CLI tool:
 
 ```bash
-cargo install sgxencrypt
+fleek login
 ```
 
-Use the binary to encrypt your WASM program before uploading it to Fleek’s storage layer:
+3. Run this command to deploy:
 
 ```bash
-sgxencrypt --pubkey <network pubkey> path/to/wasm.wasm
+fleek functions deploy --name Myfunction --path my.wasm --sgx
 ```
 
-3. Upload and run the program
-
-Once encrypted, upload the output to Fleek’s storage:
+4. You can invoke this function at https://fleek-test.network/services/3 with a payload containing hash, inputs, and whether its encrypted or not (always yes with the current tool), and any inputs you need:
 
 ```bash
-fleek storage add path/to/wasm.cipher
-```
-
-After that, you can call the service via HTTP or other supported transport methods using the CID:
-
-```bash
-https://fleek-test.network/services/3/ipfs/{CID}
+curl fleek-test.network/services/3 --data '{"hash": "<hash>", "decrypt": true, "input": "foo"}'
 ```
 
 ---
@@ -112,7 +98,7 @@ As Fleek progresses towards offering a comprehensive full-stack developer experi
 
 You can start building with our Edge SGX service in alpha at the links below. Don’t hesitate to reach out in [Discord](https://discord.gg/fleek) with any questions or feedback.
 
-- Fleek CLI
+- [Fleek CLI](https://fleek.xyz/docs/cli/)
 - [GitHub ReadMe & Examples](https://github.com/fleek-network/lightning/tree/sgx-alpha/lib/sgxkit#readme)
 - Fleek Network SGX Integration Technical Overview
 - [Discord](https://discord.gg/fleek)
