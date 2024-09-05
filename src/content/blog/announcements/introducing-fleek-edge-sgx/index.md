@@ -71,7 +71,7 @@ fleek login
 fleek functions deploy --name Myfunction --path my.wasm --sgx
 ```
 
-4. You can invoke this function at https://fleek-test.network/services/3 with a payload containing, hash, whether its encrypted or not (always yes with the current tool), and any inputs you need:
+4. You can invoke this function at https://fleek-test.network/services/3 with a payload containing hash, inputs, and whether its encrypted or not (always yes with the current tool), and any inputs you need:
 
 ```bash
 curl fleek-test.network/services/3 --data '{"hash": "<hash>", "decrypt": true, "input": "foo"}'
@@ -103,7 +103,7 @@ You can start building with our Edge SGX service in alpha at the links below. Do
 
 - Fleek CLI
 - [GitHub ReadMe & Examples](https://github.com/fleek-network/lightning/tree/sgx-alpha/lib/sgxkit#readme)
-- Fleek Network SGX Integration Technical Overview 
+- [Fleek Network SGX Integration Technical Overview](https://fleek.xyz/blog/announcements/fleek-network-intel-sgx-integration/) 
 - [Discord](https://discord.gg/fleek)
 
 
