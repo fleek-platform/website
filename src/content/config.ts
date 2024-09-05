@@ -9,7 +9,7 @@ const createCollection = <T extends z.ZodSchema<any>>(
 ) => {
   return defineCollection({
     type,
-    schema: ({ image }) => schema({ image }).and(additionalFields)
+    schema: ({ image }) => schema({ image }).and(additionalFields),
   });
 };
 
