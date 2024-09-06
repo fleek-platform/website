@@ -10,7 +10,7 @@ image: ./sgxservicefleek.png
 
 We are excited to debut Fleek’s Edge SGX Service powered by Fleek Network. It’s an **easy-to-use and highly performant private and verified compute solution built for developers who are looking to add SGX capabilities to their** projects without worrying about hardware or devops or any of the other complexities typically associated with SGX and TEE (trusted execution environment) development.
 
-Today we released the [V0 Alpha Preview](https://blog.fleek.network/post/fleek-network-intel-sgx-integration/) of the Edge SGX service. The goal of the alpha preview is to allow developers to start testing and building with the Edge SGX service over the next few weeks while we work on some finishing touches and improve the DevEx based on early feedback. We highly recommend not using V0 in production environments. The V0 alpha supports WASM in the execution environment, with future support for additional languages on the way.
+Very soon we'll release our Edge SGX service. The goal of the alpha preview is to allow developers to start testing and building with the Edge SGX service over the next few weeks while we work on some finishing touches and improve the DevEx based on early feedback. We highly recommend not using V0 in production environments. The V0 alpha supports WASM in the execution environment, with future support for additional languages on the way. 
 
 For more technical details on the SGX integration, you can check out the Fleek Network SGX integration [announcement post](https://blog.fleek.network/post/fleek-network-intel-sgx-integration/).
 
@@ -96,7 +96,8 @@ As Fleek progresses towards offering a comprehensive full-stack developer experi
 
 You can start building with our Edge SGX service in alpha at the links below. Don’t hesitate to reach out in [Discord](https://discord.gg/fleek) with any questions or feedback.
 
+- [Fleek Website](https://fleek.xyz/)
 - [Fleek CLI](https://fleek.xyz/docs/cli/)
-- [GitHub ReadMe & Examples](https://github.com/fleek-network/lightning/tree/sgx-alpha/lib/sgxkit#readme)
-- Fleek Network SGX Integration Technical Overview
+- [Open-source Fleek Network GitHub repository](https://github.com/fleek-network/lightning/tree/sgx-alpha/lib/sgxkit#readme)
+- [Fleek Network Update: Intel SGX Integration](https://blog.fleek.network/post/fleek-network-intel-sgx-integration/)
 - [Discord](https://discord.gg/fleek)
