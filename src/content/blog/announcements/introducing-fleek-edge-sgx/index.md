@@ -48,18 +48,6 @@ In addition to security, Fleek’s SGX service leverages content-addressed mecha
 
 ---
 
-## **Measuring the performance of Fleek’s Edge SGX**
-
-[GRAPH]
-
-*The graph above shows the average response time for Fleek Edge SGX requests across several different regions around the globe.*
-
-One of the key factors in evaluating SGX infrastructure options is performance, particularly when it comes to response times across the globe given most projects have users (or nodes) all over the world. Fleek’s Edge SGX service unlocks a significant advantage for developers: it’s **fully edge-optimized, designed to deliver lightning-fast responses, while still maintaining all the privacy, verifiability, and security properties of SGX**.
-
-To measure the performance of the Edge SGX service, we utilize an [open-source benchmarking tool](https://github.com/fleek-platform/latency-measure) to test response times across various geographies. This tool simulates requests to our SGX nodes in different regions. It evaluates the time it takes for encrypted data to be processed inside the Trusted Execution Environment (TEE) and returned to the client.
-
----
-
 ## How to use Fleek’s edge-optimized SGX service
 
 Using Fleek’s Edge SGX service is simple and follows a similar process to our Javascript service:
