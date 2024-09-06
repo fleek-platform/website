@@ -124,20 +124,24 @@
     "menu": {
       "order": [
         {
-          "category": "Platform",
+          "category": "Getting_Started",
           "order": 1
         },
         {
-          "category": "Infrastructure",
+          "category": "Platform",
           "order": 2
         },
         {
-          "category": "CLI",
+          "category": "Infrastructure",
           "order": 3
         },
         {
-          "category": "SDK",
+          "category": "CLI",
           "order": 4
+        },
+        {
+          "category": "SDK",
+          "order": 5
         }
       ],
       "customTitlesByDirectoryName": {
