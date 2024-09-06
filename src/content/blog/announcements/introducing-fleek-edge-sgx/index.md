@@ -6,7 +6,7 @@ thumbnail: ./sgxservicefleek.png
 image: ./sgxservicefleek.png
 ---
 
-# Seamlessly add permissionless, performant, and hassle-free Intel SGX capabilities into any protocol, app, or use case 
+# Seamlessly add permissionless, performant, and hassle-free Intel SGX capabilities into any protocol, app, or use case
 
 We are excited to debut Fleek’s Edge SGX Service powered by Fleek Network. It’s an **easy-to-use and highly performant private and verified compute solution built for developers who are looking to add SGX capabilities to their** projects without worrying about hardware or devops or any of the other complexities typically associated with SGX and TEE (trusted execution environment) development.
 
@@ -71,6 +71,7 @@ fleek functions deploy --name Myfunction --path my.wasm --sgx
 ```bash
 curl fleek-test.network/services/3 --data '{"hash": "<hash>", "decrypt": true, "input": "foo"}'
 ```
+
 ---
 
 ## The roadmap for Fleek’s Edge SGX service
