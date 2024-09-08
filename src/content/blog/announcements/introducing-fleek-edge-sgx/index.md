@@ -20,7 +20,7 @@ Now let’s jump in.
 
 ## Key benefits and advantages of Fleek’s Edge SGX service
 
-Recently there has been a lot of renewed excitement around using SGX and TEE’s, especially within the web3 space, as a much more **cost-effective alternative for private and/or verified compute needs**. One of the main reasons driving this is cost, because alternatives like ZK (zero knowledge) compute can be prohibitively expensive for the vast majority of use cases. 
+Recently there has been a lot of renewed excitement around using SGX and TEE’s, especially within the web3 space, as a much more **cost-effective alternative for private and/or verified compute needs**. One of the main reasons driving this is cost, because alternatives like ZK (zero knowledge) compute can be prohibitively expensive for the vast majority of use cases.
 
 However, for those developers interested in adding SGX or TEE capabilities to their projects, the current options are very time, cost and resource-intensive, require specialized skills, and offer very unfriendly devex. Fleek’s Edge SGX service now offers an alternative option that we believe can be a **better, faster, and cheaper way for most developers to add SGX capabilities to their protocols, apps, and use cases**. Below are a few of the unique benefits and advantages of Fleek’s Edge SGX service:
 
