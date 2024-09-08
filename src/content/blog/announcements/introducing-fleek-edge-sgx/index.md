@@ -100,6 +100,6 @@ You can start building with our Edge SGX service in alpha at the links below. Do
 
 - [Fleek Website](https://fleek.xyz/)
 - [Fleek CLI](https://fleek.xyz/docs/cli/)
-- [Open-source Fleek Network GitHub repository](https://github.com/fleek-network/lightning/tree/sgx-alpha/lib/sgxkit#readme)
+- [Fleek SGX kit](https://github.com/fleek-network/lightning/tree/sgx-alpha/lib/sgxkit#readme)
 - [Fleek Network Update: Intel SGX Integration](https://blog.fleek.network/post/fleek-network-intel-sgx-integration/)
 - [Discord](https://discord.gg/fleek)
