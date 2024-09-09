@@ -8,7 +8,7 @@ author:
   - 'Fleek'
 ---
 
-Ever wondered: *“Who is hosting this website?”.* Understanding the internet domain is crucial as it helps identify the web hosting provider behind a website. Whether you’re a curious web user, a budding developer, or someone interested in discovering more about the digital landscape, knowing the **web hosting** provider behind a website can be insightful and useful.
+Ever wondered: _“Who is hosting this website?”._ Understanding the internet domain is crucial as it helps identify the web hosting provider behind a website. Whether you’re a curious web user, a budding developer, or someone interested in discovering more about the digital landscape, knowing the **web hosting** provider behind a website can be insightful and useful.
 
 This blog post will walk you through the steps to easily identify the **web hosting service** provider of any website, as well as web server details that may impact performance, helping you easily answer the question "Who is hosting this?":
 
@@ -67,6 +67,6 @@ If you’re in the market for a **web hosting provider** yourself, consider [Fle
 
 [**Get started with Fleek**](https://fleek.xyz/docs/platform/hosting/)
 
-So next time you find yourself asking, *“Who is hosting this?”* you’ll know exactly where to look—and maybe even where you’d like to host your next project.
+So next time you find yourself asking, _“Who is hosting this?”_ you’ll know exactly where to look—and maybe even where you’d like to host your next project.
 
 **Happy hunting! ⚡️**
