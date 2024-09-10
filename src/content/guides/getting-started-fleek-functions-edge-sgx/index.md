@@ -1,13 +1,13 @@
 ---
 title: 'Getting Started with Edge SGX & Fleek Functions: Run, Decrypt, & Deploy WASM Code with Fleek Functions'
 date: 2024-09-10
-desc: 'Learn how to run. decrypt, and deploy WASM code with Fleek Functions'
+desc: 'Learn how to run, decrypt, and deploy WASM code with Fleek Functions'
 thumbnail: './functionsandsgx.png'
 image: './functionsandsgx.png'
 author: 'Fleek'
 ---
 
-# Building Secure Decentralized Applications: Deploying and Running WASM Code with Fleek Functions and Edge SGX
+# Building secure decentralized applications: deploying and running WASM code with Fleek Functions and Edge SGX
 
 With the recent integration of Intel SGX (Software Guard Extensions) into Fleek’s decentralized platform, building secure and privacy-focused applications has never been easier. Fleek’s [Edge SGX service](https://fleek.xyz/blog/announcements/introducing-fleek-edge-sgx/), currently in alpha, allows developers to leverage Trusted Execution Environments (TEEs) for private, edge-optimized, and secure compute powered by [Fleek Network](https://blog.fleek.network/post/fleek-network-intel-sgx-integration/).
 
