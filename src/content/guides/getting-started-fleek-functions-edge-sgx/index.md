@@ -115,11 +115,13 @@ fn main() {
         .unwrap();
 }
 ```
+
 Build the `main.rs` example using custom-made bindings and encodings that are compatible with the SGX integration on Fleek Network:
 
 ```bash
 cargo build -r --target wasm32-unknown-unknown
 ```
+
 The above command compiles the `fleek-sgx-example-hello` binary from the Rust into a WebAssembly (`.wasm`) file, optimized for release. It targets the WebAssembly format (`wasm32-unknown-unknown`), and the output is stored in the `target/wasm32-unknown-unknown/release/` directory. We will then deploy the `wasm` file from that directory and while deploying we will see the file binary being encrypted.
 
 If the above command fails with a permissions error on UNIX-based systems like MacOS or Linux, try it with a `sudo` prefix:
@@ -212,12 +214,14 @@ export const main = async () => {
   }
 }
 ```
+
 - The code fetches a WebAssembly file from IPFS.
 - Converts it to a hexadecimal string.
 - Sends a request with this hash to Fleek’s SGX service
 - If successful, it returns the first result from the SGX task as a `Uint8Array`, otherwise, it returns an error message.
 
 3. Then you create the Fleek Function:
+
 ```bash
 fleek functions create --name sgx-fleek
 ```
@@ -244,7 +248,7 @@ Bundling code: [█████████████████████�
 🔗 https://fleek-test.network/services/1/ipfs/bafkreibkpoqepzjyeti5evpcg4kl36poeflewxdonb2bwhxb4x3axumtbi
 ```
 
-You can access the Fleek Function by going to the Fleek Function URL [here](https://limited-dawn-petite.functions.on-fleek.app/). 
+You can access the Fleek Function by going to the Fleek Function URL [here](https://limited-dawn-petite.functions.on-fleek.app/).
 
 When you visit the URL, you should see the below on your browser:
 
