@@ -1,5 +1,5 @@
 ---
-order: 4
+order: 3
 title: Storage
 date: 2023-01-10
 desc: Dive into Fleek's decentralized storage service. Offering support for IPFS, Arweave, and Filecoin, Fleek ensures high availability and performance..

@@ -176,7 +176,7 @@ Uploading code to IPFS: [██████████████████�
 
 ## **Deploying the Fleek Function**
 
-Now we will be using a JavaScript function to interact with the “hello world” example we encrypted and uploaded above, by making an IPFS request and running some tasks that will then give us a response with the string and an object that information like the signature and more.
+Now we will be using a JavaScript function to interact with the “hello world” example we encrypted and uploaded above, by making an IPFS request and running some tasks that will then give us a response with the string and an object with some information like the signature and more.
 
 This stage only involves 3 steps.
 
