@@ -16,15 +16,13 @@ But, there’s more to ENS domain names than just making memorable wallet addres
 
 ENS opens up the door for websites, Dapps, and more Dweb resources/services to make themselves accessible via a **decentralized, censorship-resistant, and user-controlled** domain naming system.
 
-Unlike DNS, which is handled by centralized authorities, ENS lives on smart contracts on the Ethereum blockchain and is censorship-resistant.
+Unlike DNS, which is handled by centralized authorities, ENS lives on smart contracts on the Ethereum blockchain and is censorship-resistant. 
 
-Let’s do an overview of what ENS domains are, why they are important, and how to buy and use them for your IPFS site.
+ ENS is also now integrated with [Venmo & PayPal](https://x.com/ensdomains/status/1833536140529570039), meaning your ENS or DNS domains can accept payments via two of the most popular payment platforms in the world! We love seeing the ENS vision coming to life. Let’s take a trip down memory lane to see how this list of ENS benefits we [highlighted in 2020](https://medium.com/fleek/why-ens-names-are-much-more-than-domains-dbe0abffee15) looks now: Domain/hosting, Banking and billing, Online identities, User management, Authentication, and more, are all now supported. 
 
-**What you will learn on this article:**
+Let’s do an overview of what ENS domains are, why they are important, and how to buy and leverage them for the above benefits for your Fleek-deployed site.
 
-- [What is the Ethereum Name Service (ENS)?](https://blog.fleek.co/posts/guide-ens-domains-ipfs-ethereum-name-service#what-is-the-ethereum-name-service-ens)
-- [How to buy ENS domains and register them?](https://blog.fleek.co/posts/guide-ens-domains-ipfs-ethereum-name-service#how-to-buy-ens-domains-and-register-them)
-- [How to link your ENS domain to an IPFS site with Fleek.](https://blog.fleek.co/posts/guide-ens-domains-ipfs-ethereum-name-service#how-to-link-ens-domains-to-ipfs-sites)
+---
 
 ## **What is the Ethereum Name Service (ENS)?**
 
@@ -38,7 +36,7 @@ At its core, ENS is composed of two main pieces. **Firstly, the ENS registry,**
 
 With those two components we can map the basic ENS architecture and flow. When resolving an ENS address, one first queries the ENS registry for an ENS address → the registry then answers what resolver should be queried for the mapped content → and that resolver in return points the user to the final address or content the domain references.
 
-Right now ENS is growing in popularity and browsers like Opera mobile, MetaMask mobile, or any popular browser using the MetaMask extension supports .eth domains. [Even in Fleek](http://fleek.co/), ENS domains are gaining a lot of traction! Over 10% of deployments in Fleek are associated with an ENS domain, and over 4000 sites have added an ENS name already.
+Right now ENS is growing in popularity and browsers like Opera mobile, MetaMask mobile, or any popular browser using the MetaMask extension supports .eth domains. [Even in Fleek](http://fleek.xyz/), ENS domains are gaining a lot of traction! Over 10% of deployments in Fleek are associated with an ENS domain, and over 4000 sites have added an ENS name already.
 
 What’s more, “.eth” is not the only suffix! As of today, some TLDs like .xyz [can be registered](https://docs.ens.domains/dns-registrar-guide) and claimed on ENS, however “.eth” does still benefit from being exclusively blockchain-native.
 
@@ -52,9 +50,9 @@ After all, today in the Web 2.0, **most hosting components are centralized**: D
 
 And, when combined with [IPFS](https://ipfs.io/) (InterPlanetary File System), a distributed, P2P file system, ENS begins to open up the door for getting rid of the centralized, censorship-prone DNS components of Web 2.0, and making **decentralized, P2P and censorship-resistant websites & apps possible**.
 
-Especially because of the fact ENS allows us to access content on decentralized storage like IPFS via decentralized [constant links](https://blog.fleek.co/posts/immutable-ipfs). Remember that, on IPFS, files are identified by their content not by a storage URL. Meaning their addresses/hashes (CID) change every time the content does. Imagine having to change your website’s url every time you made an update!
+Especially because of the fact ENS allows us to access content on decentralized storage like IPFS via decentralized constant links. Remember that, on IPFS, files are identified by their content not by a storage URL. Meaning their addresses/hashes (CID) change every time the content does. Imagine having to change your website’s url every time you made an update!
 
-ENS adoption still needs to grow, and P2P content storage/delivery networks are evolving as well to better achieve this ([we’re working on that with Space](https://blog.space.storage/posts/how-is-space-different-from-cloud-storage)!). But, ENS domains -and the idea behind them- definitely represent the base structure of what hosting and content serving should look like in Web 3.0, because unlike DNS they are:
+ENS adoption still needs to grow, and P2P content storage/delivery networks are evolving as well to better achieve this. But, ENS domains -and the idea behind them- definitely represent the base structure of what hosting and content serving should look like in Web 3.0, because unlike DNS they are:
 
 - Decentralized
 - Immutable
@@ -73,7 +71,7 @@ The acquisition, ownership, and registration aspect of ENS is decentralized as w
 
 Initially, domain name auctions lasted three days, in which a Vickrey Auction process was executed. Someone opened an auction for a name they wanted to buy, people bid for three days, and the winner owned the domain until they released it and recovered their funds. This, however, promoted domain squatting/hoarding, and a new model was introduced.
 
-As of last year, **you can buy and register ENS domains instantly**, with a slight one minute delay. Instead of paying an undefined fee, there is a **yearly rent** model which costs approximately USD$5 payable in ETH (some domains are slightly more expensive due to popularity). These funds now go to [initiatives and grants](https://medium.com/the-ethereum-name-service/what-will-ens-do-with-all-that-rent-money-heres-what-you-need-to-know-c7fe26a7e0e9) to help maintain/develop ENS and the Ethereum ecosystem overall.
+As of last year, **you can buy and register ENS domains instantly**, with a slight one minute delay. Instead of paying an undefined fee, there is a **yearly rent** model which costs approximately USD$5 payable in ETH (some domains are slightly more expensive due to popularity).
 
 Let’s go over the registration process.
 
@@ -138,11 +136,11 @@ Alternatively you can see this [IPFS guide](https://docs.ipfs.io/how-to/website
 
 ![](./ens9.jpg)
 
-You can sign up for [Fleek’s free Basic](https://docs.fleek.co/hosting/site-deployment/) plan to get your first ENS+IPFS website up for this test. Before you begin, you will need to have your test site on a Github repository. You can use many popular frameworks, like Gatsby, Wordpress, NextJS, React, Hugo, Angular, etc. We have specific guides for [each of these](https://docs.fleek.co/tutorials/hosting/) frameworks to help prepare your site.
+You can sign up for [Fleek’s free Basic](https://fleek.xyz/) plan to get your first ENS+IPFS website up for this test. Before you begin, you will need to have your test site on a Github repository. You can use many popular frameworks, like Gatsby, Wordpress, NextJS, React, Hugo, Angular, etc. We have specific guides for [each of these](https://fleek.xyz/docs/platform/)frameworks to help prepare your site.
 
 With the Github repository ready, deploying and hosting your site on IPFS takes just three steps: connect your repository, add your build settings, and deploy.
 
-Fleek can auto detect the required build parameters from the inputted framework, but you can find advanced settings / configurations and a detailed explanation of these [on this guide](https://docs.fleek.co/hosting/site-deployment/#creating-a-deployment).
+Fleek can auto detect the required build parameters from the inputted framework, but you can find advanced settings / configurations and a detailed explanation of these [in this guide](https://fleek.xyz/docs/platform/deployments/).
 
 ### **2. Add an ENS Domain to Your IPFS Site.**
 
@@ -175,7 +173,7 @@ Or, if you have none of those, you can always append the “.link” suffix afte
 
 ## **Explore More on ENS and Stay Tuned!**
 
-Now that you know how to register your first ENS domain, and how to use it together with IPFS to host websites, start exploring new use cases for it. Like [integrating it with your DApp](https://docs.ens.domains/dapp-developer-guide/ens-enabling-your-dapp) to allow users to use/display ENS addresses, or even let them name complex assets inside your platform using ENS.
+Now that you know how to register your first ENS domain, and how to use it together with IPFS to host websites, start exploring new use cases for it. Like [integrating it with your app](https://fleek.xyz/docs/platform/domains/) to allow users to use/display ENS addresses, or even let them name complex assets inside your platform using ENS.
 
 **Stay tuned for more updates** on ENS features that are coming to Fleek ⚡ We’re currently working on an adjustment that would change how Fleek is given access to modify/update the records on your ENS domains automatically, by using the “setAuthorisation” function of the resolver, which is a more flexible approach than assigning us as the Controller itself because it allows users to continue to create subdomains themselves.
 
