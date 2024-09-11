@@ -12,6 +12,8 @@ import ReadyToLive from '@components/ReadyToLive';
 import settings from '@base/settings.json';
 import V2BaseHtml from '@layouts/V2BaseHtml.astro';
 import { Navbar } from '@components/v2/Navbar/Navbar';
+import { Announcement } from '@components/v2/Announcement/Announcement';
+import { FaChevronRight } from 'react-icons/fa6';
 ---
 
 <V2BaseHtml
@@ -23,8 +25,35 @@ import { Navbar } from '@components/v2/Navbar/Navbar';
     image: settings.site.metadata.default.image,
   }}
 >
-  <!-- <div class="mb-40 flex flex-col gap-24 lg:gap-32">
-    <GlobeWithFloatingCards client:load />
+  <div
+    class="absolute left-0 top-0 -z-10 h-full w-full bg-gradient-to-br from-gray-dark-2 via-transparent to-transparent"
+  >
+  </div>
+  <header class="flex h-1/2 flex-col justify-center gap-24">
+    <Announcement />
+    <section class="flex max-w-800 flex-col gap-24">
+      <h1 class="font-sans text-52 font-semibold text-gray-dark-12">
+        Ship fast and break paradigms.
+      </h1>
+      <p class="text-balance font-plex-sans text-18 font-medium">
+        Fleek is an edge-optimized cloud platform for building, shipping and
+        scaling highly-performant Web apps. Escape the costs, constraints and
+        nonsense of Big Cloud.
+      </p>
+      <div class="flex items-center gap-12">
+        <button
+          class="h-40 rounded-12 bg-yellow-dark-9 px-16 font-plex-sans text-16 font-medium text-gray-dark-1"
+          >Get started</button
+        >
+        <button
+          class="flex h-40 items-center gap-8 px-16 font-plex-sans text-16 font-medium text-gray-dark-11"
+          >Read our docs <FaChevronRight className="size-12" /></button
+        >
+      </div>
+    </section>
+  </header>
+
+  <!-- <GlobeWithFloatingCards client:load />
     <JoinOurFriends client:only="react" />
     <DeployOnFleek client:load rounded="all-big" />
     <ImpressUsers client:load rounded="all-big" />
@@ -34,6 +63,5 @@ import { Navbar } from '@components/v2/Navbar/Navbar';
     <ExplainerBlocks index={2} header="We've Got You Covered" />
     <BestOnchain rounded="all-big" />
     <PricingLanding client:load rounded="all-big" />
-    <ReadyToLive client:load rounded="all-big" />
-  </div> --></V2BaseHtml
->
+    <ReadyToLive client:load rounded="all-big" /> -->
+</V2BaseHtml>
