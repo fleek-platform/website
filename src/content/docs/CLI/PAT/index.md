@@ -1,5 +1,5 @@
 ---
-order: 7
+order: 8
 title: Personal Access Token
 date: 2023-01-10
 desc: Learn to manage Personal Access Tokens

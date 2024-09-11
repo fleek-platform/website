@@ -1,5 +1,5 @@
 ---
-order: 8
+order: 9
 title: Applications
 date: 2023-01-10
 desc: Learn to manage the Applications
