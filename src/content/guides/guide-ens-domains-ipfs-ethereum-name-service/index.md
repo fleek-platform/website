@@ -16,9 +16,9 @@ But, there’s more to ENS domain names than just making memorable wallet addres
 
 ENS opens up the door for websites, Dapps, and more Dweb resources/services to make themselves accessible via a **decentralized, censorship-resistant, and user-controlled** domain naming system.
 
-Unlike DNS, which is handled by centralized authorities, ENS lives on smart contracts on the Ethereum blockchain and is censorship-resistant. 
+Unlike DNS, which is handled by centralized authorities, ENS lives on smart contracts on the Ethereum blockchain and is censorship-resistant.
 
- ENS is also now integrated with [Venmo & PayPal](https://x.com/ensdomains/status/1833536140529570039), meaning your ENS or DNS domains can accept payments via two of the most popular payment platforms in the world! We love seeing the ENS vision coming to life. Let’s take a trip down memory lane to see how this list of ENS benefits we [highlighted in 2020](https://medium.com/fleek/why-ens-names-are-much-more-than-domains-dbe0abffee15) looks now: Domain/hosting, Banking and billing, Online identities, User management, Authentication, and more, are all now supported. 
+ENS is also now integrated with [Venmo & PayPal](https://x.com/ensdomains/status/1833536140529570039), meaning your ENS or DNS domains can accept payments via two of the most popular payment platforms in the world! We love seeing the ENS vision coming to life. Let’s take a trip down memory lane to see how this list of ENS benefits we [highlighted in 2020](https://medium.com/fleek/why-ens-names-are-much-more-than-domains-dbe0abffee15) looks now: Domain/hosting, Banking and billing, Online identities, User management, Authentication, and more, are all now supported.
 
 Let’s do an overview of what ENS domains are, why they are important, and how to buy and leverage them for the above benefits for your Fleek-deployed site.
 
