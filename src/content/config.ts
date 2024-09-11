@@ -1,7 +1,7 @@
 import { z, defineCollection } from 'astro:content';
 import type { ImageFunction } from 'astro:content';
 
-type CollectionType = 'content' | 'data' | undefined;
+type CollectionType = 'content' | undefined;
 
 const createCollection = <T extends z.ZodSchema<any>>(
   type: CollectionType,

@@ -1,5 +1,5 @@
 ---
-order: 2
+order: 1
 title: Projects
 date: 2023-01-10
 desc: Learn how to use the projects command.
