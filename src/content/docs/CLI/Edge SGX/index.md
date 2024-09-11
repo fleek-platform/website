@@ -29,6 +29,18 @@ Fleek Edge SGX is used to ensure that sensitive data remains encrypted and secur
 The V0 alpha supports WASM, with future plans to add more languages.
 :::
 
+### SGX & TEEs: How Encryption Works
+
+In typical SGX implementations, private data is "sealed" using a unique Sealing Key that is only available inside the enclave. Once sealed, the data can be stored externally, but it can only be decrypted inside the specific enclave that sealed it. To send private data to an enclave, you would encrypt it with the enclave’s public key, ensuring the data remains protected, even in untrusted environments.
+
+Fleek enhances this by using a "Shared Sealing Key," generated within the first node's enclave and securely shared with other trusted enclaves through remote attestation. This enables all nodes in the network to decrypt the same data, ensuring redundancy and preventing issues if a node goes offline. Data is encrypted once and can be decrypted in any enclave within the network. To add another layer of security, the hash of the WASM program is included with the data, ensuring that only the expected program can access it.
+
+### Remote Attestation
+
+Fleek leverages [Intel SGX DCAP ECDSA Attestations](https://www.intel.com/content/dam/develop/public/us/en/documents/intel-sgx-dcap-ecdsa-orientation.pdf) to verify the trustworthiness of enclave-to-enclave communications. This is integrated with mutual TLS (mTLS), where both parties verify certificates and encryption before a secure connection is established. The connection is only trusted if remote attestation is successful, ensuring that the same program is running in both enclaves.
+
+This approach ensures highly secure communications and prevents unauthorized access or tampering of sensitive data within the network.
+
 ## How to use Fleek Edge SGX
 
 :::info
