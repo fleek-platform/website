@@ -3,10 +3,10 @@ import '@styles/globals.css';
 import Announcement from '@components/Announcement';
 import { getSiteUrl } from '@utils/url';
 import settings from '@base/settings.json';
-import Nav from '@components/NavBar';
 import Footer from '@components/Footer';
 
 import { Toaster } from 'react-hot-toast';
+import { Navbar } from '@components/v2/Navbar/Navbar';
 
 interface Props {
   canonicalUrl: string;
@@ -104,7 +104,7 @@ const baseUrl = getSiteUrl();
     <script is:inline src="/lib/gtm.js"></script>
   </head>
   <body
-    class="--font-plex-sans --font-plex-mono --font-sans bg-mesh min-h-full bg-black font-sans text-gray-dark-11 selection:bg-yellow-dark-9 selection:text-black"
+    class="--font-plex-sans --font-plex-mono --font-sans relative flex min-h-screen flex-col bg-black font-sans text-gray-dark-11 selection:bg-yellow-dark-9 selection:text-black"
   >
     <!-- Google Tag Manager (noscript version) -->
     <!-- WARNING: The script version is above see /lib/gtm.js -->
@@ -123,10 +123,14 @@ const baseUrl = getSiteUrl();
         width="0"
         style={{ display: 'none', visibility: 'hidden' }}></iframe>
     </noscript>
-    {settings.site.annoucementMarquee.visible && <Announcement client:load />}
-    <Nav client:load pathname={Astro.url.pathname} />
+    <!-- {settings.site.annoucementMarquee.visible && <Announcement client:load />} -->
+    <main class="w-full max-w-1024 self-center pt-18">
+      <Navbar client:load />
+    </main>
+
+    <!-- <Nav client:load pathname={Astro.url.pathname} /> -->
     <slot />
-    <Footer client:load />
-    <Toaster client:load position="top-right" reverseOrder={false} />
+    <!-- <Footer client:load />
+    <Toaster client:load position="top-right" reverseOrder={false} /> -->
   </body>
 </html>
