@@ -1,9 +1,9 @@
 import type React from 'react';
 import { navbarMenu, type NavSubMenuItem } from './config';
-import Link from '@components/Link';
+import Link, { Target } from '@components/Link';
 import { useRef, useState } from 'react';
 import { FaArrowRight } from 'react-icons/fa6';
-import clsx from 'clsx';
+import { cn } from '@utils/cn';
 
 type PopoverDimensions = {
   left: number;
@@ -29,10 +29,12 @@ const NavbarSubMenuItem: React.FC<NavSubMenuItem> = ({
       className="group flex items-center gap-16 rounded-8 from-gray-dark-12/40 via-gray-dark-12/70 to-gray-dark-11/40 p-16 hover:bg-gradient-to-br"
       onMouseEnter={() => setHoveringSubMenuItem(true)}
       onMouseLeave={() => setHoveringSubMenuItem(false)}
+      target={openInNewTab ? Target.Blank : Target.Self}
+      rel={openInNewTab ? 'noopener noreferrer' : undefined}
     >
       <div className="flex size-18 items-center justify-center">
         <FaArrowRight
-          className={clsx(
+          className={cn(
             'absolute size-14 -translate-x-5 text-gray-dark-8 opacity-0 transition-all',
             {
               'translate-x-0 opacity-100': hoveringSubMenuItem,
@@ -42,7 +44,7 @@ const NavbarSubMenuItem: React.FC<NavSubMenuItem> = ({
         <img
           src={icon}
           width={18}
-          className={clsx('absolute translate-x-0 transition-all', {
+          className={cn('absolute translate-x-0 transition-all', {
             'translate-x-5 opacity-0': hoveringSubMenuItem,
           })}
         />
@@ -106,7 +108,7 @@ export const Navbar: React.FC = () => {
 
   const menuItemsRef = useRef<(HTMLElement | null)[]>([]);
 
-  const handleHover = ({ idx, left, height }: HandlerHoverProps) => {
+  const handleSubMenuHover = ({ idx, left, height }: HandlerHoverProps) => {
     setHovering(idx + 1);
     setPopoverDimensions({ left, height });
   };
@@ -126,7 +128,7 @@ export const Navbar: React.FC = () => {
             className="flex h-48 cursor-pointer items-center px-18 transition-colors hover:text-white"
             onMouseEnter={(e) =>
               navbarItem.subMenu
-                ? handleHover({
+                ? handleSubMenuHover({
                     idx,
                     left: e.currentTarget.offsetLeft,
                     height: 'auto',
