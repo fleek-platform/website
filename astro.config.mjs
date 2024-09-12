@@ -33,10 +33,6 @@ const configRemarkCalloutDirectives = {
   },
 };
 
-const redirects = {
-  '/docs': '/docs/getting_started',
-};
-
 // Environment
 const env = import.meta.env.PROD
   ? 'production'
@@ -50,7 +46,6 @@ export default defineConfig({
   vite: {
     plugins: [imagetools()],
   },
-  redirects,
   integrations: [
     tailwind({
       nesting: true,
