@@ -36,7 +36,7 @@ const SidebarMenu: FC<Props> = ({ data, pathname }) => {
   const isActiveCategory = (category: string) => category === activeCategory;
   const isActiveSlug = (slug: string) => slug === activeSlug;
   const activeItemStyle = 'font-bold !opacity-100';
-  let isOpenByDefault = true;
+  let isOpen = true;
   const isMd = useMediaQuery(down('md'));
 
   return (
@@ -68,12 +68,12 @@ const SidebarMenu: FC<Props> = ({ data, pathname }) => {
         }
 
         if (item.category !== ROOT_FALLBACK_CATEGORY) {
-          isOpenByDefault = isMd ? item.category === activeCategory : true;
+          isOpen = isMd ? item.category === activeCategory : true;
           return (
             <li key={`${idx}-${item.slug}`}>
               <details
                 className="group [&_summary::-webkit-details-marker]:hidden"
-                open={isOpenByDefault}
+                open={isOpen}
               >
                 <summary className="rounded-lg hover hover flex cursor-pointer items-center justify-between py-2">
                   <a
