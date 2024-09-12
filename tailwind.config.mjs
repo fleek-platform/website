@@ -101,10 +101,11 @@ export default {
           '100%': { transform: 'translateY(0.5px)' },
         },
         'reverse-spin': {
-          from: {
+          '0%': {
             transform: 'rotate(360deg)',
           },
         },
+       
       },
     },
   },

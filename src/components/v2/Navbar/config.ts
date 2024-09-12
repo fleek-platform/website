@@ -1,13 +1,13 @@
 export type MenuSettingsItem = {
   label: string;
-  subMenu?: NavSubMenuProps[];
+  subMenu?: NavSubMenuItem[];
   url?: string;
   description?: string;
   icon?: string;
   openInNewTab?: boolean;
 };
 
-type NavSubMenuProps = Omit<MenuSettingsItem, 'subMenu'>;
+export type NavSubMenuItem = Omit<MenuSettingsItem, 'subMenu'>;
 
 export const navbarMenu: MenuSettingsItem[] = [
   {
@@ -86,7 +86,7 @@ export const navbarMenu: MenuSettingsItem[] = [
       {
         label: 'Media kit',
         url: 'https://www.notion.so/fleek/Fleek-Brand-Kit-9a2bcf7eb40740a9b7e951fc951b478a',
-        description: 'Our branding guidelines.',
+        description: 'Our branding guidelines',
         icon: '/svg/media-navbar-icon.svg',
       },
       {
