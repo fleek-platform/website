@@ -5,6 +5,8 @@ import {
 } from '@utils/generateSidebarDS';
 import { generateSlug } from '@utils/url';
 import clsx from 'clsx';
+import { useMediaQuery } from '@hooks/useMediaQuery';
+import { down } from '@utils/screens';
 
 interface Props {
   data: GenerateSidebarResponse;
@@ -34,6 +36,8 @@ const SidebarMenu: FC<Props> = ({ data, pathname }) => {
   const isActiveCategory = (category: string) => category === activeCategory;
   const isActiveSlug = (slug: string) => slug === activeSlug;
   const activeItemStyle = 'font-bold !opacity-100';
+  let isOpen = true;
+  const isMd = useMediaQuery(down('md'));
 
   return (
     <ul className="mb-80">
@@ -64,15 +68,16 @@ const SidebarMenu: FC<Props> = ({ data, pathname }) => {
         }
 
         if (item.category !== ROOT_FALLBACK_CATEGORY) {
+          isOpen = isMd ? item.category === activeCategory : true;
           return (
             <li key={`${idx}-${item.slug}`}>
               <details
                 className="group [&_summary::-webkit-details-marker]:hidden"
-                open={item.category === activeCategory}
+                open={isOpen}
               >
                 <summary className="rounded-lg hover hover flex cursor-pointer items-center justify-between py-2">
                   <a
-                    className={`inline-block w-full font-plex-sans text-16 leading-loose text-gray-dark-11 transition duration-150 first-letter:uppercase hover:opacity-100 ${isActiveSlug(item.slug) && isActiveCategory(item.category) ? activeItemStyle : 'opacity-80'}`}
+                    className={`inline-block w-full font-plex-sans text-16 capitalize leading-loose text-gray-dark-11 transition duration-150 hover:opacity-100 ${isActiveSlug(item.slug) && isActiveCategory(item.category) ? activeItemStyle : 'opacity-80'}`}
                     href={`/docs/${item.slug}`}
                   >
                     <span data-menu-item={`${generateSlug(item.slug)}`}>
