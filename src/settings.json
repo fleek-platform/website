@@ -124,10 +124,6 @@
     "menu": {
       "order": [
         {
-          "category": "Getting_Started",
-          "order": 0
-        },
-        {
           "category": "Platform",
           "order": 1
         },
