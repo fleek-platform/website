@@ -36,7 +36,7 @@ const { category } = Astro.params;
 const blogSettings = settings.site.metadata.blog
   .category as BlogCustomCategoryMetadata;
 
-const title = blogSettings[category].title || settings.site.metadata.blog.title;
+const title = `${settings.site.metadata.blog.title}${blogSettings[category].title ? ` - ${blogSettings[category].title}` : ''}`;
 const description =
   blogSettings[category].description || settings.site.metadata.blog.description;
 
@@ -47,6 +47,8 @@ const slug = generateFullSlug({
   slug: category,
 });
 
+const blogTitle = settings.site.metadata.blog.title;
+
 const allPosts: CollectionEntry<'blog'>[] = (
   await getCollection('blog', ({ slug }) => slug.split('/')[0] === category)
 ).sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf());
@@ -54,7 +56,11 @@ const allPosts: CollectionEntry<'blog'>[] = (
 
 <Layout title={title} description={description} image={image} slug={slug}>
   <main class="container min-h-container">
-    <BlogHeader title="Blog" indexName={indexNameBlog} category={category} />
+    <BlogHeader
+      title={blogTitle}
+      indexName={indexNameBlog}
+      category={category}
+    />
     <BlogPosts allPosts={allPosts} collection={collection} />
   </main>
 </Layout>
