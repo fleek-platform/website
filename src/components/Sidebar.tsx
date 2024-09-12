@@ -41,18 +41,6 @@ const SidebarMenu: FC<Props> = ({ data, pathname }) => {
 
   return (
     <ul className="mb-80">
-      <li className="">
-        <a
-          href="/docs"
-          className={clsx(
-            `font-plex-sans text-16 capitalize leading-loose opacity-80 transition duration-150 hover:opacity-100`,
-            isHome && activeItemStyle,
-          )}
-        >
-          Home
-        </a>
-      </li>
-
       {data.map((item, idx) => {
         if (item.category === ROOT_FALLBACK_CATEGORY) {
           return (

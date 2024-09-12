@@ -125,23 +125,23 @@
       "order": [
         {
           "category": "Getting_Started",
-          "order": 1
+          "order": 0
         },
         {
           "category": "Platform",
-          "order": 2
+          "order": 1
         },
         {
           "category": "Infrastructure",
-          "order": 3
+          "order": 2
         },
         {
           "category": "CLI",
-          "order": 4
+          "order": 3
         },
         {
           "category": "SDK",
-          "order": 5
+          "order": 4
         }
       ],
       "customTitlesByDirectoryName": {}
