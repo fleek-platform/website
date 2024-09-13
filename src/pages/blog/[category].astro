@@ -38,7 +38,7 @@ const blogSettings = settings.site.metadata.blog
 
 const blogTitle = settings.site.metadata.blog.title;
 const catTitle = blogSettings[category].title;
-const title =  catTitle ? `${blogTitle} - ${catTitle}` : blogTitle;
+const title = catTitle ? `${blogTitle} - ${catTitle}` : blogTitle;
 const description =
   blogSettings[category].description || settings.site.metadata.blog.description;
 
@@ -48,8 +48,6 @@ const slug = generateFullSlug({
   basePath: settings.site.metadata.blog.slug,
   slug: category,
 });
-
-const blogTitle = settings.site.metadata.blog.title;
 
 const allPosts: CollectionEntry<'blog'>[] = (
   await getCollection('blog', ({ slug }) => slug.split('/')[0] === category)
