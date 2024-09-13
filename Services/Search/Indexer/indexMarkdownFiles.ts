@@ -19,6 +19,10 @@ const contentBasePath = 'src/content';
 export enum ContentDirByName {
   'blog' = `${contentBasePath}/blog`,
   'docs' = `${contentBasePath}/docs`,
+  'changelog' = `${contentBasePath}/changelog`,
+  'pricing' = `${contentBasePath}/pricing`,
+  'templates' = `${contentBasePath}/templates`,
+  'legal' = `${contentBasePath}/legal`,
   'guides' = `${contentBasePath}/guides`,
   'references' = `${contentBasePath}/references`,
   'billing' = `${contentBasePath}/billing`,
