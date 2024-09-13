@@ -1,7 +1,7 @@
 ---
-title: 'Getting Started with Edge SGX & Fleek Functions: Run, Decrypt, & Deploy WASM Code with Fleek Functions'
+title: 'Getting started with Edge SGX & Fleek Functions: Run, decrypt, and deploy WASM code with Fleek Functions'
 date: 2024-09-10
-desc: 'Learn how to run, decrypt, and deploy WASM code with Fleek Functions'
+desc: 'Learn how to run, decrypt and deploy WASM code with Fleek Functions'
 thumbnail: './functionsandsgx.png'
 image: './functionsandsgx.png'
 author: 'Fleek'
@@ -132,7 +132,7 @@ sudo cargo build -r --target wasm32-unknown-unknown
 
 ## **Encrypt and upload WASM**
 
-We have to upload the wasm generated to be stored on the Fleek Network so we can call it, decrypt it, and use it via an IPFS URL.
+We have to upload the wasm generated to be stored on Fleek Network so we can call it, decrypt it, and use it via an IPFS URL.
 
 Start by creating the Fleek Function first:
 
