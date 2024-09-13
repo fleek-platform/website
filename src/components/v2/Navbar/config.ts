@@ -1,4 +1,4 @@
-export type MenuSettingsItem = {
+export type NavMenuItem = {
   label: string;
   subMenu?: NavSubMenuItem[];
   url?: string;
@@ -7,9 +7,9 @@ export type MenuSettingsItem = {
   openInNewTab?: boolean;
 };
 
-export type NavSubMenuItem = Omit<MenuSettingsItem, 'subMenu'>;
+export type NavSubMenuItem = Omit<NavMenuItem, 'subMenu'>;
 
-export const navbarMenu: MenuSettingsItem[] = [
+export const navbarMenu: NavMenuItem[] = [
   {
     label: 'Features',
     subMenu: [

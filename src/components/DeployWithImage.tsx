@@ -74,60 +74,52 @@ const Card: React.FC<CardProp> = (props) => {
 
 const DeployWithImage: React.FC<Props & OptionalProps> = (props) => {
   return (
-    <Container>
-      <PageSection rounded={props.rounded}>
-        <div
-          className={
-            'flex flex-col-reverse gap-44 px-10  pb-64 pt-64 lg:flex-row lg:px-42 lg:py-80'
-          }
-        >
-          <div className="col-span-16 flex basis-7/12 flex-col items-center justify-center lg:col-span-8 lg:items-start">
-            <h1 className="typo-h5 mb-24 hidden text-center text-gray-dark-12 lg:typo-h4 lg:block lg:text-start">
-              {props.headline}
-            </h1>
+    <div className={'flex flex-col-reverse gap-44 pb-64 pt-64 lg:flex-row'}>
+      <div className="col-span-16 flex basis-7/12 flex-col items-center justify-center lg:col-span-8 lg:items-start">
+        <h1 className="typo-h5 mb-24 hidden text-center text-gray-dark-12 lg:typo-h4 lg:block lg:text-start">
+          {props.headline}
+        </h1>
 
-            <p className="typo-m hidden text-center lg:typo-l lg:block lg:text-start">
-              {props.copy}
-            </p>
+        <p className="typo-m hidden text-center lg:typo-l lg:block lg:text-start">
+          {props.copy}
+        </p>
 
-            <div className="flex flex-col gap-20 text-gray-dark-12 lg:mt-48 lg:flex-row">
-              {IconList.map((item, index) => {
-                return (
-                  <Card
-                    icon={item.icon}
-                    description={item.description}
-                    key={index}
-                  />
-                );
-              })}
-            </div>
-          </div>
-          <div
-            className={clsx(
-              'col-span-16 flex basis-5/12 justify-center lg:col-span-8',
-              props.inverse && 'lg:col-start-9',
-            )}
-          >
-            <img
-              className=""
-              src={'/svg/deploy-to-repo.svg'}
-              alt=""
-              sizes={`${down('lg')} 100vw, 50vw`}
-              width={600}
-            />
-          </div>
-          <div className="col-span-16 flex basis-7/12 flex-col items-center justify-center lg:col-span-8 lg:hidden lg:items-start">
-            <h1 className="typo-h5 mb-24 mr-64 text-left text-gray-dark-12 lg:typo-h4 lg:text-start">
-              {props.headline}
-            </h1>
-
-            <p className="typo-m mr-64 text-left lg:typo-l lg:text-start">
-              {props.copy}
-            </p>
-          </div>
+        <div className="flex flex-col gap-20 text-gray-dark-12 lg:mt-48 lg:flex-row">
+          {IconList.map((item, index) => {
+            return (
+              <Card
+                icon={item.icon}
+                description={item.description}
+                key={index}
+              />
+            );
+          })}
         </div>
-      </PageSection>
-    </Container>
+      </div>
+      <div
+        className={clsx(
+          'col-span-16 flex basis-5/12 justify-center lg:col-span-8',
+          props.inverse && 'lg:col-start-9',
+        )}
+      >
+        <img
+          className=""
+          src={'/svg/deploy-to-repo.svg'}
+          alt=""
+          sizes={`${down('lg')} 100vw, 50vw`}
+          width={600}
+        />
+      </div>
+      <div className="col-span-16 flex basis-7/12 flex-col items-center justify-center lg:col-span-8 lg:hidden lg:items-start">
+        <h1 className="typo-h5 mb-24 mr-64 text-left text-gray-dark-12 lg:typo-h4 lg:text-start">
+          {props.headline}
+        </h1>
+
+        <p className="typo-m mr-64 text-left lg:typo-l lg:text-start">
+          {props.copy}
+        </p>
+      </div>
+    </div>
   );
 };
 

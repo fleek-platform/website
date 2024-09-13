@@ -1,8 +1,6 @@
 ---
-import GlobeWithFloatingCards from '@components/GlobeWithFloatingCards';
 import DeployOnFleek from '@components/DeployOnFleek';
 import ImpressUsers from '@components/ImpressUsers';
-import JoinOurFriends from '@components/JoinOurFriends';
 import BuildUseCases from '@components/BuildUseCases';
 import ExplainerBlocks from '@components/ExplainerBlocks';
 import SeamlessUI from '@components/SeamlessUI';
@@ -14,6 +12,7 @@ import V2BaseHtml from '@layouts/V2BaseHtml.astro';
 import { Navbar } from '@components/v2/Navbar/Navbar';
 import { Announcement } from '@components/v2/Announcement/Announcement';
 import { FaChevronRight } from 'react-icons/fa6';
+import Footer from '@components/Footer';
 ---
 
 <V2BaseHtml
@@ -25,12 +24,9 @@ import { FaChevronRight } from 'react-icons/fa6';
     image: settings.site.metadata.default.image,
   }}
 >
+  <Navbar pathname={Astro.url.pathname} client:load />
   <div
     class="absolute left-0 top-0 -z-10 h-full w-full bg-gradient-to-br from-gray-dark-3/80 via-transparent to-transparent"
-  >
-  </div>
-  <div
-    class="absolute bottom-0 right-0 -z-10 h-full w-full bg-gradient-to-t from-gray-dark-3/80 via-transparent to-transparent"
   >
   </div>
   <header class="flex flex-col justify-center gap-24 pt-64">
@@ -58,16 +54,14 @@ import { FaChevronRight } from 'react-icons/fa6';
       </div>
     </section>
   </header>
-
-  <!-- <GlobeWithFloatingCards client:load />
-    <JoinOurFriends client:only="react" />
-    <DeployOnFleek client:load rounded="all-big" />
-    <ImpressUsers client:load rounded="all-big" />
-    <ExplainerBlocks index={1} header="Enjoy the (Developer) Experience" />
-    <SeamlessUI client:load rounded="all-big" />
-    <BuildUseCases client:load rounded="all-big" />
-    <ExplainerBlocks index={2} header="We've Got You Covered" />
-    <BestOnchain rounded="all-big" />
-    <PricingLanding client:load rounded="all-big" />
-    <ReadyToLive client:load rounded="all-big" /> -->
+  <!-- <DeployOnFleek client:load rounded="all-big" />
+  <ImpressUsers client:load rounded="all-big" />
+  <ExplainerBlocks index={1} header="Enjoy the (Developer) Experience" />
+  <SeamlessUI client:load rounded="all-big" />
+  <BuildUseCases client:load rounded="all-big" />
+  <ExplainerBlocks index={2} header="We've Got You Covered" />
+  <BestOnchain rounded="all-big" />
+  <PricingLanding client:load rounded="all-big" />
+  <ReadyToLive client:load rounded="all-big" />
+  <Footer client:load /> -->
 </V2BaseHtml>

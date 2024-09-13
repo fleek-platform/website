@@ -124,12 +124,8 @@ const baseUrl = getSiteUrl();
         style={{ display: 'none', visibility: 'hidden' }}></iframe>
     </noscript>
     <!-- {settings.site.annoucementMarquee.visible && <Announcement client:load />} -->
-    <main class="mx-auto h-full w-full max-w-[1048px] px-24 pt-18">
-      <Navbar pathname={Astro.url.pathname} client:load />
+    <main class="mx-auto min-h-full w-full max-w-[1048px] px-24 pt-18">
       <slot />
     </main>
-
-    <!-- <Footer client:load /> -->
-    <Toaster client:load position="top-right" reverseOrder={false} />
   </body>
 </html>

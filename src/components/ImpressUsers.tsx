@@ -76,71 +76,67 @@ const Card: React.FC<CardProp> = (props) => {
 
 const ImpressUsers: React.FC<Props & OptionalProps> = ({ rounded }) => {
   return (
-    <Container>
-      <PageSection rounded={rounded}>
-        <div
-          className={
-            'flex flex-col gap-44 overflow-hidden rounded-b-12 p-10 pb-64 pt-24 lg:relative lg:flex-row lg:px-42 lg:py-80'
-          }
-        >
-          <div
-            className={clsx(
-              'col-span-16 hidden basis-6/12 justify-center overflow-hidden bg-blend-screen  lg:col-span-8 lg:col-start-9 lg:flex',
-            )}
-          >
-            <video
-              src="https://fleek.network/media/globe_animation.mp4"
-              className="z-0 scale-150 transform-gpu mix-blend-screen lg:absolute lg:left-[15%] lg:top-[65%] lg:block lg:-translate-x-1/2 lg:-translate-y-1/2 lg:scale-[2.4] "
-              width={520}
-              height={480}
-              autoPlay
-            />
-          </div>
-          <div className="col-span-16 flex basis-7/12 flex-col items-center justify-center lg:col-span-8 lg:items-start">
-            <h1 className="typo-h5 mx-20 mb-24 text-left text-gray-dark-12 lg:typo-h4 lg:mx-0 lg:text-start">
-              Gain More Users
-            </h1>
+    <div
+      className={
+        'flex flex-col gap-44 overflow-hidden rounded-b-12 p-10 pb-64 pt-24 lg:relative lg:flex-row lg:px-42 lg:py-80'
+      }
+    >
+      <div
+        className={clsx(
+          'col-span-16 hidden basis-6/12 justify-center overflow-hidden bg-blend-screen  lg:col-span-8 lg:col-start-9 lg:flex',
+        )}
+      >
+        <video
+          src="https://fleek.network/media/globe_animation.mp4"
+          className="z-0 scale-150 transform-gpu mix-blend-screen lg:absolute lg:left-[15%] lg:top-[65%] lg:block lg:-translate-x-1/2 lg:-translate-y-1/2 lg:scale-[2.4] "
+          width={520}
+          height={480}
+          autoPlay
+        />
+      </div>
+      <div className="col-span-16 flex basis-7/12 flex-col items-center justify-center lg:col-span-8 lg:items-start">
+        <h1 className="typo-h5 mx-20 mb-24 text-left text-gray-dark-12 lg:typo-h4 lg:mx-0 lg:text-start">
+          Gain More Users
+        </h1>
 
-            <p className="typo-m mx-20 text-start text-gray-dark-11 lg:typo-l lg:mx-0">
-              Your app needs to load fast, otherwise you'll{' '}
-              <a
-                href="https://fleek.xyz/blog/learn/importance-of-latency-modern-web/"
-                className=" text-yellow"
-              >
-                lose customers <GrShare className="mb-5 inline " />
-              </a>
-              . <br />
-              Fleek runs your app in 100+ edge locations to ensure fast loading
-              worldwide.
-            </p>
-
-            <div className="mt-48 flex w-full flex-col gap-8">
-              {IconList.map((item, index) => {
-                return (
-                  <Card
-                    icon={item.icon}
-                    description={item.description}
-                    key={index}
-                  />
-                );
-              })}
-            </div>
-          </div>
-          <div
-            className={clsx(
-              'relative mb-[5.1rem] mr-5 flex basis-6/12 justify-center  rounded-48 bg-blend-screen lg:hidden ',
-            )}
+        <p className="typo-m mx-20 text-start text-gray-dark-11 lg:typo-l lg:mx-0">
+          Your app needs to load fast, otherwise you'll{' '}
+          <a
+            href="https://fleek.xyz/blog/learn/importance-of-latency-modern-web/"
+            className=" text-yellow"
           >
-            <img
-              src="/svg/globe-mobile.svg"
-              className="z-0 absolute translate-y-[0%] transform-gpu mix-blend-screen  lg:hidden "
-              width={520}
-              height={480}
-            />
-          </div>
+            lose customers <GrShare className="mb-5 inline " />
+          </a>
+          . <br />
+          Fleek runs your app in 100+ edge locations to ensure fast loading
+          worldwide.
+        </p>
+
+        <div className="mt-48 flex w-full flex-col gap-8">
+          {IconList.map((item, index) => {
+            return (
+              <Card
+                icon={item.icon}
+                description={item.description}
+                key={index}
+              />
+            );
+          })}
         </div>
-      </PageSection>
-    </Container>
+      </div>
+      <div
+        className={clsx(
+          'relative mb-[5.1rem] mr-5 flex basis-6/12 justify-center  rounded-48 bg-blend-screen lg:hidden ',
+        )}
+      >
+        <img
+          src="/svg/globe-mobile.svg"
+          className="z-0 absolute translate-y-[0%] transform-gpu mix-blend-screen  lg:hidden "
+          width={520}
+          height={480}
+        />
+      </div>
+    </div>
   );
 };
 
