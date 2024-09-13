@@ -36,7 +36,9 @@ const { category } = Astro.params;
 const blogSettings = settings.site.metadata.blog
   .category as BlogCustomCategoryMetadata;
 
-const title = `${settings.site.metadata.blog.title}${blogSettings[category].title ? ` - ${blogSettings[category].title}` : ''}`;
+const blogTitle = settings.site.metadata.blog.title;
+const catTitle = blogSettings[category].title;
+const title =  catTitle ? `${blogTitle} - ${catTitle}` : blogTitle;
 const description =
   blogSettings[category].description || settings.site.metadata.blog.description;
 
