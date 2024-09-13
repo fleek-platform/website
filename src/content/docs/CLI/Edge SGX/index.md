@@ -2,7 +2,7 @@
 order: 7
 title: Edge SGX
 date: 2024-09-11
-desc: Get started with using the SGX service integrated into the Fleek Network from the CLI and unlock a new level of security features
+desc: Get started with using the SGX service integrated into Fleek Network from the CLI and unlock a new level of security features
 keywords: [services, documentation, getting started, sgx]
 tags:
   - Accounts
@@ -29,13 +29,13 @@ Fleek Edge SGX is used to ensure that sensitive data remains encrypted and secur
 The V0 alpha supports WASM, with future plans to add more languages.
 :::
 
-### SGX & TEEs: How Encryption Works
+### SGX & TEEs: How encryption works
 
 In typical SGX implementations, private data is "sealed" using a unique Sealing Key that is only available inside the enclave. Once sealed, the data can be stored externally, but it can only be decrypted inside the specific enclave that sealed it. To send private data to an enclave, you would encrypt it with the enclave’s public key, ensuring the data remains protected, even in untrusted environments.
 
 Fleek enhances this by using a "Shared Sealing Key," generated within the first node's enclave and securely shared with other trusted enclaves through remote attestation. This enables all nodes in the network to decrypt the same data, ensuring redundancy and preventing issues if a node goes offline. Data is encrypted once and can be decrypted in any enclave within the network. To add another layer of security, the hash of the WASM program is included with the data, ensuring that only the expected program can access it.
 
-### Remote Attestation
+### Remote attestation
 
 Fleek leverages [Intel SGX DCAP ECDSA Attestations](https://www.intel.com/content/dam/develop/public/us/en/documents/intel-sgx-dcap-ecdsa-orientation.pdf) to verify the trustworthiness of enclave-to-enclave communications. This is integrated with mutual TLS (mTLS), where both parties verify certificates and encryption before a secure connection is established. The connection is only trusted if remote attestation is successful, ensuring that the same program is running in both enclaves.
 
