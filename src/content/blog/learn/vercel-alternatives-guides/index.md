@@ -49,7 +49,7 @@ Fleek is positioning itself as a top-tier **Vercel alternative** by offering a p
 
 **Start building with Fleek**: If you’re seeking a **Vercel alternative** that combines minimal DevOps overhead, performance, and cost-efficiency, Fleek is a powerful choice. Start building with Fleek today and experience the benefits of this streamlined, high-performing platform.
 
-[**Start](http://app.fleek.xyz/) for free**
+[\*\*Start](http://app.fleek.xyz/) for free\*\*
 
 ## **2. [Netlify](https://www.netlify.com/): A popular and feature-rich option**
 
@@ -184,12 +184,12 @@ By understanding the strengths and use cases of each platform, you can make an i
 ## **FAQs**
 
 1. **What are the main differences between Vercel and Netlify?**
-    - Vercel and Netlify both offer similar features such as continuous deployment and serverless functions, but Vercel is more tightly integrated with Next.js, while Netlify has a broader range of integrations and a more mature plugin ecosystem.
+   - Vercel and Netlify both offer similar features such as continuous deployment and serverless functions, but Vercel is more tightly integrated with Next.js, while Netlify has a broader range of integrations and a more mature plugin ecosystem.
 2. **Is Fleek suitable for all types of web projects?**
-    - Yes, Fleek is a versatile platform suited for all types of web projects. It offers a powerful combination of performance, cost-effectiveness, and open-source flexibility.. This makes it an excellent choice for Next.js applications and projects that require high resilience and censorship resistance.
+   - Yes, Fleek is a versatile platform suited for all types of web projects. It offers a powerful combination of performance, cost-effectiveness, and open-source flexibility.. This makes it an excellent choice for Next.js applications and projects that require high resilience and censorship resistance.
 3. **Can I use GitHub Pages for a large-scale application?**
-    - GitHub Pages is best for small static sites. For large-scale applications that require dynamic functionality, consider using a more robust platform like Netlify or AWS Amplify.
+   - GitHub Pages is best for small static sites. For large-scale applications that require dynamic functionality, consider using a more robust platform like Netlify or AWS Amplify.
 4. **What are the benefits of using AWS Amplify over Vercel?**
-    - AWS Amplify offers a more comprehensive toolset for full-stack development, including backend services and mobile app support, whereas Vercel is more focused on frontend deployment and performance.
+   - AWS Amplify offers a more comprehensive toolset for full-stack development, including backend services and mobile app support, whereas Vercel is more focused on frontend deployment and performance.
 5. **How does Cloudflare Pages handle security?**
-    - Cloudflare Pages benefits from Cloudflare's industry-leading security features, including DDoS protection, WAF, and SSL/TLS encryption, making it a strong choice for secure web hosting.
+   - Cloudflare Pages benefits from Cloudflare's industry-leading security features, including DDoS protection, WAF, and SSL/TLS encryption, making it a strong choice for secure web hosting.
