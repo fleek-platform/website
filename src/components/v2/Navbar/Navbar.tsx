@@ -26,7 +26,7 @@ const NavbarSubMenuItem: React.FC<NavSubMenuItem> = ({
   return (
     <Link
       href={url}
-      className="group flex items-center gap-16 rounded-8 from-gray-dark-12/40 via-gray-dark-12/70 to-gray-dark-11/40 p-16 hover:bg-gradient-to-br"
+      className="group flex items-center gap-16 rounded-6 border-t border-t-transparent from-gray-dark-4 to-gray-dark-3 p-16 hover:border-t-gray-dark-5 hover:bg-gradient-to-br hover:shadow-soft"
       onMouseEnter={() => setHoveringSubMenuItem(true)}
       onMouseLeave={() => setHoveringSubMenuItem(false)}
       target={openInNewTab ? Target.Blank : Target.Self}
@@ -35,7 +35,7 @@ const NavbarSubMenuItem: React.FC<NavSubMenuItem> = ({
       <div className="flex size-18 items-center justify-center">
         <FaArrowRight
           className={cn(
-            'absolute size-14 -translate-x-5 text-gray-dark-8 opacity-0 transition-all',
+            'absolute size-14 -translate-x-5 text-gray-dark-11 opacity-0 transition-all',
             {
               'translate-x-0 opacity-100': hoveringSubMenuItem,
             },
@@ -50,10 +50,8 @@ const NavbarSubMenuItem: React.FC<NavSubMenuItem> = ({
         />
       </div>
       <div className="flex flex-col">
-        <span className="text-14 font-semibold text-gray-dark-2 group-hover:text-gray-dark-1">
-          {label}
-        </span>
-        <span className="text-14 text-gray-dark-8 group-hover:text-gray-dark-6">
+        <span className="text-14 font-semibold text-gray-dark-12">{label}</span>
+        <span className="text-14 text-gray-dark-11 group-hover:text-gray-dark-12">
           {description}
         </span>
       </div>
@@ -85,7 +83,7 @@ const NavbarSubMenu: React.FC<NavbarSubMenuProps> = ({
         left: popoverDimensions?.left,
         height: popoverDimensions?.height,
       }}
-      className="absolute top-46 grid min-w-240 animate-fade-in-down rounded-8 bg-white p-6 text-gray-dark-1 transition-all"
+      className="absolute top-46 grid min-w-256 animate-fade-in-down rounded-8 border border-gray-dark-4 bg-gray-dark-2/80 p-6 backdrop-blur-md transition-all"
     >
       {subMenuItem.map((subMenuItem, idx) => (
         <NavbarSubMenuItem
@@ -101,7 +99,11 @@ const NavbarSubMenu: React.FC<NavbarSubMenuProps> = ({
   );
 };
 
-export const Navbar: React.FC = () => {
+type NavbarProps = {
+  pathname: string;
+};
+
+export const Navbar: React.FC<NavbarProps> = ({ pathname }) => {
   const [hovering, setHovering] = useState<number | null>(null);
   const [popoverDimensions, setPopoverDimensions] =
     useState<PopoverDimensions | null>(null);
@@ -125,7 +127,12 @@ export const Navbar: React.FC = () => {
             tabIndex={0}
             key={navbarItem.label}
             href={navbarItem.url}
-            className="flex h-48 cursor-pointer items-center px-18 transition-colors hover:text-white"
+            className={cn(
+              'flex h-48 cursor-pointer items-center px-18 transition-colors hover:text-white',
+              {
+                'text-white': hovering === idx + 1,
+              },
+            )}
             onMouseEnter={(e) =>
               navbarItem.subMenu
                 ? handleSubMenuHover({

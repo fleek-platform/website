@@ -125,7 +125,7 @@ const baseUrl = getSiteUrl();
     </noscript>
     <!-- {settings.site.annoucementMarquee.visible && <Announcement client:load />} -->
     <main class="mx-auto h-full w-full max-w-1024 pt-18">
-      <Navbar client:load />
+      <Navbar pathname={Astro.url.pathname} client:load />
       <slot />
     </main>
 
