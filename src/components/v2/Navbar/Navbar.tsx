@@ -6,6 +6,7 @@ import { FaArrowRight, FaDiscord, FaXmark, FaXTwitter } from 'react-icons/fa6';
 import { cn } from '@utils/cn';
 import { RxHamburgerMenu } from 'react-icons/rx';
 import { isActivePath } from '@utils/url';
+import { Button } from '../Button/Button';
 
 const NavbarMobileItem: React.FC<NavMenuItem> = ({
   label,
@@ -257,12 +258,12 @@ export const Navbar: React.FC<NavbarProps> = ({ pathname }) => {
         </div>
       </section>
       <section className="flex items-center gap-8">
-        <button className="h-32 rounded-8 bg-gray-dark-3 px-8 text-gray-dark-11">
+        <Button variant="secondary" size="sm">
           Log in
-        </button>
-        <button className="h-32 rounded-8 bg-white px-8 text-gray-dark-1">
+        </Button>
+        <Button variant="tertiary" size="sm">
           Sign up
-        </button>
+        </Button>
         <div className="md:hidden">
           <NavbarMobile />
         </div>

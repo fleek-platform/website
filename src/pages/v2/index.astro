@@ -13,6 +13,7 @@ import { Navbar } from '@components/v2/Navbar/Navbar';
 import { Announcement } from '@components/v2/Announcement/Announcement';
 import { FaChevronRight } from 'react-icons/fa6';
 import Footer from '@components/Footer';
+import { Button } from '@components/v2/Button/Button';
 ---
 
 <V2BaseHtml
@@ -37,19 +38,17 @@ import Footer from '@components/Footer';
       >
         Ship fast and break paradigms.
       </h1>
-      <p class="text-balance font-plex-sans text-18 font-medium">
+      <p
+        class="text-balance font-plex-sans text-18 font-medium text-gray-dark-11"
+      >
         Fleek is an edge-optimized cloud platform for building, shipping and
         scaling highly-performant Web apps. Escape the costs, constraints and
         nonsense of Big Cloud.
       </p>
       <div class="flex items-center gap-12">
-        <button
-          class="h-40 rounded-12 bg-yellow-dark-9 px-16 font-plex-sans text-16 font-medium text-gray-dark-1"
-          >Get started</button
-        >
-        <button
-          class="flex h-40 items-center gap-8 px-16 font-plex-sans text-16 font-medium text-gray-dark-11"
-          >Read our docs <FaChevronRight className="size-12" /></button
+        <Button>Get started</Button>
+        <Button variant="ghost"
+          >Read our docs <FaChevronRight className="size-12" /></Button
         >
       </div>
     </section>
