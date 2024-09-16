@@ -59,7 +59,9 @@ const baseUrl = getSiteUrl();
     />
     <meta name="generator" content={Astro.generator} />
     <!-- HTML Meta Tags -->
-    <title>{ogMeta?.title || settings.site.metadata.default.title}</title>
+    <title>
+      {`Fleek | ${ogMeta?.title || settings.site.metadata.default.title}`}
+    </title>
     <meta
       name="description"
       content={ogMeta?.description ||
