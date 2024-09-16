@@ -182,3 +182,37 @@ Once you have added the DNSLink information to your domain, you will need to wai
 A gray chip with the text 'DNSLink' next to the domain will indicate the successful integration of DNSLink. At that point you can check your domain on any IPFS gateway like `ipfs.io/ipns/yourdomain.com` to see the latest version of your site.
 
 ![DNSLink-Confirmation](./manage-dnslink.svg)
+
+## OFAC country restrictions
+
+The Office of Foreign Assets Control (OFAC) of the US Department of the Treasury administers and enforces economic and trade sanctions based on US foreign policy and national security goals against targeted foreign countries.
+OFAC regulations can impact deployments, particularly when deploying or hosting a site that involves transactions or interactions with individuals or entities in sanctioned countries or regions.
+
+From your project's settings you can control whether or not to allow access to your sites and private gateways from sanctioned countries. By default, this setting is enabled. If you disable this setting, your sites and gateways will be blocked in sanctioned countries.
+
+The screen below shows the control to enable or disable this setting:
+
+![OFAC control in settings](./ofac-control.png)
+
+### Restricted countries on Fleek
+
+:::info
+Fleek blocks any access through our domains and custom domains but not DNSlink since it points directly to IPFS
+:::
+
+The following countries are currently restricted on Fleek due to OFAC regulations:
+
+| Country     | Country Code |
+| ----------- | ------------ |
+| Zimbabwe    | ZW           |
+| Iran        | IR           |
+| Myanmar     | MM           |
+| Russia      | RU           |
+| Sudan       | SD           |
+| Iraq        | IQ           |
+| Ivory Coast | CI           |
+| North Korea | KP           |
+| Syria       | SY           |
+| Cuba        | CU           |
+| Belarus     | BY           |
+| Liberia     | LR           |

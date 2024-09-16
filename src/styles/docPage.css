@@ -56,6 +56,29 @@
       }
     }
 
+    table {
+      @apply w-full border-collapse border border-gray-dark-7;
+      border-spacing: 0;
+
+      th,
+      td {
+        @apply border border-gray-dark-7 text-start;
+        padding: 5px;
+      }
+
+      th {
+        @apply bg-gray-dark-7;
+      }
+
+      tr {
+        @apply text-start;
+      }
+
+      tr:nth-child(even) {
+        @apply bg-gray-dark-2;
+      }
+    }
+
     ol {
       display: block;
       list-style-type: decimal;
@@ -107,6 +130,10 @@
       height: 100%;
       padding: 0;
       overflow: auto;
+    }
+
+    table {
+      @apply text-red;
     }
   }
 
