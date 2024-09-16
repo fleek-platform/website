@@ -31,6 +31,7 @@ backend
 backlog
 bdd
 beaconing
+belarus
 bg
 biconomy
 big-data
@@ -76,6 +77,7 @@ css
 csv
 cta
 cta's
+cuba
 customtitlesbydirectoryname
 cvs
 cyberattack
@@ -179,6 +181,10 @@ iot
 ipaddress
 ipfs
 ipns
+iq
+iran
+iraq
+ir
 isr
 january
 javascript
@@ -186,12 +192,15 @@ js
 json
 july
 jwt
+korea
+kp
 kubernetes
 l1
 l2
 ldap
 leak
 leasable
+liberia
 lifecycle
 linkedin
 linkedin's
@@ -205,6 +214,7 @@ locked-in
 lodash
 login
 logout
+lr
 machine-learning
 macos
 malware
@@ -231,6 +241,7 @@ monitoring
 mp4
 multi-factor
 mvp
+myanmar
 mysql
 namespace
 natively
@@ -249,6 +260,7 @@ ns1
 oauth
 object-oriented
 objects
+ofac
 ok
 onboarding
 onboarded
@@ -332,6 +344,8 @@ rollup
 rollups
 rsa
 ruby
+russia
+ru
 s3
 saml
 sandbox
@@ -389,14 +403,17 @@ submenu
 submenus
 subname
 subscription
+sudan
 sudo
 sunsetting
 svg
 swift
 swiss
+syria
 syslog
 system-admin
 systemctl
+sy
 table
 tag
 tags
@@ -498,4 +515,6 @@ youtube
 zendesk
 zendesk's
 zero-trust
+zimbabwe
 zip
+zw
