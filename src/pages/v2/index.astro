@@ -14,6 +14,7 @@ import { Announcement } from '@components/v2/Announcement/Announcement';
 import { FaChevronRight } from 'react-icons/fa6';
 import Footer from '@components/Footer';
 import { Button } from '@components/v2/Button/Button';
+import { Hero } from '@components/v2/Hero/Hero';
 ---
 
 <V2BaseHtml
@@ -26,33 +27,7 @@ import { Button } from '@components/v2/Button/Button';
   }}
 >
   <Navbar pathname={Astro.url.pathname} client:load />
-  <div
-    class="absolute left-0 top-0 -z-10 h-full w-full bg-gradient-to-br from-gray-dark-3/80 via-transparent to-transparent"
-  >
-  </div>
-  <header class="flex flex-col justify-center gap-24 pt-64">
-    <Announcement variant="content" client:load />
-    <section class="flex max-w-800 flex-col gap-24">
-      <h1
-        class="text-balance font-sans text-52 font-semibold leading-tight -tracking-2 text-gray-dark-12"
-      >
-        Ship fast and break paradigms.
-      </h1>
-      <p
-        class="text-balance font-plex-sans text-18 font-medium text-gray-dark-11"
-      >
-        Fleek is an edge-optimized cloud platform for building, shipping and
-        scaling highly-performant Web apps. Escape the costs, constraints and
-        nonsense of Big Cloud.
-      </p>
-      <div class="flex items-center gap-12">
-        <Button>Get started</Button>
-        <Button variant="ghost"
-          >Read our docs <FaChevronRight className="size-12" /></Button
-        >
-      </div>
-    </section>
-  </header>
+  <Hero client:load />
   <!-- <DeployOnFleek client:load rounded="all-big" />
   <ImpressUsers client:load rounded="all-big" />
   <ExplainerBlocks index={1} header="Enjoy the (Developer) Experience" />
