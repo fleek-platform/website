@@ -26,7 +26,10 @@ const baseUrl = getSiteUrl();
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width" />
+    <meta
+      name="viewport"
+      content="width=device-width, height=device-height, initial-scale=1, viewport-fit=cover"
+    />
     <link rel="icon" type="image/svg+xml" href="/favicon.ico" />
     <link rel="sitemap" href="/sitemap-index.xml" />
     <link rel="canonical" href={canonicalUrl} />
@@ -123,8 +126,9 @@ const baseUrl = getSiteUrl();
         width="0"
         style={{ display: 'none', visibility: 'hidden' }}></iframe>
     </noscript>
-    <!-- {settings.site.annoucementMarquee.visible && <Announcement client:load />} -->
-    <main class="mx-auto min-h-full w-full max-w-[1048px] px-24 pt-18">
+
+    <Navbar pathname={Astro.url.pathname} client:load />
+    <main class="mx-auto min-h-full w-full max-w-[1048px] px-24">
       <slot />
     </main>
   </body>

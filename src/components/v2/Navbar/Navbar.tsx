@@ -54,22 +54,23 @@ const NavbarMobile: React.FC = () => {
 
   return (
     <>
-      <RxHamburgerMenu
-        className="size-20 cursor-pointer text-gray-dark-11"
-        onClick={toggle}
-      />
+      <Button variant="ghost" size="sm" onClick={toggle}>
+        <RxHamburgerMenu className="size-20 cursor-pointer text-gray-dark-11" />
+      </Button>
       {isOpen && (
-        <section className="fixed inset-0 flex animate-fade-in flex-col overflow-auto bg-gray-dark-1/90 px-[37px] pb-60 text-gray-dark-11 backdrop-blur-lg">
-          <div className="sticky top-0 z-10 -mx-[37px] flex items-center justify-between bg-gray-dark-1/80 px-[37px] py-30 backdrop-blur-xl">
+        <section className="fixed inset-0 flex animate-fade-in flex-col bg-gray-dark-1/95 p-[37px] pt-0 text-gray-dark-11 backdrop-blur">
+          <div className="sticky top-0 -mx-[37px] flex items-center justify-between px-[37px] py-27">
             <img src="/svg/fleek-logo.svg" width={66} alt="fleek logo" />
-            <FaXmark className="size-20 cursor-pointer" onClick={toggle} />
+            <Button variant="ghost" size="sm" onClick={toggle}>
+              <FaXmark className="size-20 cursor-pointer" />
+            </Button>
           </div>
-          <div className="flex flex-col gap-24 pb-80">
+          <div className="-mx-[37px] flex flex-col gap-24 overflow-auto px-[37px] pb-30">
             {navbarMenu.map((navbarItem) => (
               <NavbarMobileItem key={navbarItem.label} {...navbarItem} />
             ))}
           </div>
-          <div className="flex items-center gap-32 text-white *:size-24">
+          <div className="flex items-center gap-32 pt-28 text-white *:size-24">
             <FaDiscord />
             <FaXTwitter />
           </div>
@@ -196,10 +197,10 @@ const NavbarItem: React.FC<NavbarItemProps> = ({
           left: popoverDimensions?.left,
           height: popoverDimensions?.height,
         }}
-        className="absolute top-46 grid min-w-256 transition-all"
+        className="absolute top-64 grid min-w-256 transition-all"
       >
         {isActiveSubMenu && (
-          <div className="rounded-8 border border-gray-dark-4 bg-gray-dark-2/80 p-6 backdrop-blur-md">
+          <div className="rounded-8 border border-gray-dark-4 bg-gray-dark-2/80 p-6 backdrop-blur-lg">
             {subMenu.map((item, idx) => (
               <NavbarSubMenuItem key={idx} {...item} />
             ))}
@@ -228,46 +229,61 @@ export const Navbar: React.FC<NavbarProps> = ({ pathname }) => {
   );
 
   return (
-    <nav
-      onMouseLeave={() => setHovering(null)}
-      className="relative z-10 flex h-50 items-center justify-between rounded-12 border border-gray-dark-3 bg-gray-dark-1 pr-12 font-plex-sans text-14 font-medium text-gray-dark-11"
-    >
-      <Link
-        tabIndex={0}
-        href="/"
-        className="flex h-48 items-center rounded-l-12 px-12 outline-none ring-0 focus-visible:bg-gray-dark-3"
-        onFocus={() => setHovering(null)}
-        onMouseEnter={() => setHovering(null)}
+    <div className="sticky top-0 z-50 px-24">
+      <div className="absolute top-0 -z-1 -mx-24 h-80 w-full bg-gray-dark-1/70 backdrop-blur-sm [mask-image:linear-gradient(to_bottom,rgba(0,0,0,1),rgba(0,0,0,1),rgba(0,0,0,0))]"></div>
+      <nav
+        onMouseLeave={() => setHovering(null)}
+        className="z-20 mx-auto mt-18 flex h-50 w-full max-w-[1000px] items-center justify-between rounded-12 border border-gray-dark-3 bg-gray-dark-1/[.97] pr-12 font-plex-sans text-14 font-medium text-gray-dark-11"
       >
-        <img src="/svg/fleek-logo.svg" width={66} alt="fleek logo" />
-      </Link>
-      <section className="hidden md:block">
-        <div className="flex items-center">
-          {navbarMenu.map((navbarItem, idx) => (
-            <NavbarItem
-              idx={idx}
-              key={navbarItem.label}
-              pathname={pathname}
-              hovering={hovering}
-              popoverDimensions={popoverDimensions}
-              onMouseEnterSubMenu={onMouseEnterSubMenu}
-              removeHovering={() => setHovering(null)}
-              {...navbarItem}
-            />
-          ))}
-        </div>
-      </section>
-      <section className="flex items-center gap-8">
-        <Button variant="secondary" size="sm">
-          Log in
-        </Button>
-        <Button variant="tertiary" size="sm">
-          Sign up
-        </Button>
-        <div className="md:hidden">
-          <NavbarMobile />
-        </div>
-      </section>
-    </nav>
+        <Link
+          tabIndex={0}
+          href="/"
+          className="flex h-48 items-center rounded-l-12 px-12 outline-none ring-0 focus-visible:bg-gray-dark-3"
+          onFocus={() => setHovering(null)}
+          onMouseEnter={() => setHovering(null)}
+        >
+          <img src="/svg/fleek-logo.svg" width={66} alt="fleek logo" />
+        </Link>
+        <section className="hidden md:block">
+          <div className="flex items-center">
+            {navbarMenu.map((navbarItem, idx) => (
+              <NavbarItem
+                idx={idx}
+                key={navbarItem.label}
+                pathname={pathname}
+                hovering={hovering}
+                popoverDimensions={popoverDimensions}
+                onMouseEnterSubMenu={onMouseEnterSubMenu}
+                removeHovering={() => setHovering(null)}
+                {...navbarItem}
+              />
+            ))}
+          </div>
+        </section>
+        <section className="flex items-center gap-8">
+          <Button
+            variant="secondary"
+            size="sm"
+            href="https://app.fleek.xyz"
+            rel="noopener noreferrer"
+            target={Target.Blank}
+          >
+            Log in
+          </Button>
+          <Button
+            variant="tertiary"
+            size="sm"
+            href="https://app.fleek.xyz"
+            rel="noopener noreferrer"
+            target={Target.Blank}
+          >
+            Sign up
+          </Button>
+          <div className="md:hidden">
+            <NavbarMobile />
+          </div>
+        </section>
+      </nav>
+    </div>
   );
 };
