@@ -1,10 +1,11 @@
 import type React from 'react';
 import { navbarMenu, type NavMenuItem, type NavSubMenuItem } from './config';
 import Link, { Target } from '@components/Link';
-import { useCallback, useRef, useState } from 'react';
+import { useCallback, useState } from 'react';
 import { FaArrowRight, FaDiscord, FaXmark, FaXTwitter } from 'react-icons/fa6';
 import { cn } from '@utils/cn';
 import { RxHamburgerMenu } from 'react-icons/rx';
+import { isActivePath } from '@utils/url';
 
 const NavbarMobileItem: React.FC<NavMenuItem> = ({
   label,
@@ -34,7 +35,7 @@ const NavbarMobileItem: React.FC<NavMenuItem> = ({
             key={subMenuItem.label}
             target={subMenuItem.openInNewTab ? Target.Blank : Target.Self}
             rel={subMenuItem.openInNewTab ? 'noopener noreferrer' : undefined}
-            className="flex items-center gap-8 rounded-8 bg-gray-dark-2 p-12 active:bg-gray-dark-3"
+            className="flex items-center gap-8 rounded-8 border-t border-gray-dark-4 bg-gradient-to-br from-gray-dark-3 via-gray-dark-2 to-gray-dark-2 p-12 shadow-soft active:bg-gray-dark-3"
           >
             <img src={subMenuItem.icon} width={14} className="opacity-50" />
             <span className="text-gray-dark-12">{subMenuItem.label}</span>
@@ -57,8 +58,8 @@ const NavbarMobile: React.FC = () => {
         onClick={toggle}
       />
       {isOpen && (
-        <section className="fixed inset-0 flex animate-fade-in flex-col overflow-auto bg-gray-dark-1 px-[37px] pb-60 text-gray-dark-11">
-          <div className="sticky top-0 z-10 -mx-[37px] flex items-center justify-between bg-gray-dark-1/50 px-[37px] py-30 backdrop-blur-xl">
+        <section className="fixed inset-0 flex animate-fade-in flex-col overflow-auto bg-gray-dark-1/90 px-[37px] pb-60 text-gray-dark-11 backdrop-blur-lg">
+          <div className="sticky top-0 z-10 -mx-[37px] flex items-center justify-between bg-gray-dark-1/80 px-[37px] py-30 backdrop-blur-xl">
             <img src="/svg/fleek-logo.svg" width={66} alt="fleek logo" />
             <FaXmark className="size-20 cursor-pointer" onClick={toggle} />
           </div>
@@ -121,6 +122,7 @@ const NavbarSubMenuItem: React.FC<NavSubMenuItem> = ({
 
 type NavbarItemProps = NavMenuItem & {
   idx: number;
+  pathname: string;
   hovering: number | null;
   popoverDimensions: PopoverDimensions | null;
   onMouseEnterSubMenu: ({
@@ -133,6 +135,7 @@ type NavbarItemProps = NavMenuItem & {
 
 const NavbarItem: React.FC<NavbarItemProps> = ({
   idx,
+  pathname,
   subMenu,
   url,
   label,
@@ -141,11 +144,16 @@ const NavbarItem: React.FC<NavbarItemProps> = ({
   onMouseEnterSubMenu,
   removeHovering,
 }) => {
+  const isActivePage = isActivePath({ lookup: url || '', pathname });
+
   if (!subMenu)
     return (
       <Link
         href={url}
-        className="flex h-48 cursor-pointer items-center outline-none ring-0 transition-colors hover:text-white focus-visible:bg-gray-dark-3 focus-visible:text-white md:px-14 lg:px-18"
+        className={cn(
+          'flex h-48 cursor-pointer items-center outline-none ring-0 transition-colors hover:text-white focus-visible:bg-gray-dark-3 focus-visible:text-white md:px-14 lg:px-18',
+          { 'text-white': isActivePage },
+        )}
         onFocus={removeHovering}
         onMouseEnter={removeHovering}
       >
@@ -210,8 +218,6 @@ export const Navbar: React.FC<NavbarProps> = ({ pathname }) => {
   const [popoverDimensions, setPopoverDimensions] =
     useState<PopoverDimensions | null>(null);
 
-  const menuItemsRef = useRef<(HTMLElement | null)[]>([]);
-
   const onMouseEnterSubMenu = useCallback(
     ({ idx, left, height }: OnMouseEnterSubMenuProps) => {
       setHovering(idx + 1);
@@ -240,6 +246,7 @@ export const Navbar: React.FC<NavbarProps> = ({ pathname }) => {
             <NavbarItem
               idx={idx}
               key={navbarItem.label}
+              pathname={pathname}
               hovering={hovering}
               popoverDimensions={popoverDimensions}
               onMouseEnterSubMenu={onMouseEnterSubMenu}

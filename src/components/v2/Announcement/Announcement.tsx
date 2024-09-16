@@ -36,11 +36,7 @@ export const Announcement: React.FC<AnnouncementProps> = ({
         },
       )}
     >
-      <span
-        className={cn(
-          'whitespace-nowrap text-11 font-medium uppercase text-yellow-dark-11',
-        )}
-      >
+      <span className="shrink-0 text-11 font-medium uppercase text-yellow-dark-11">
         ✨ new
       </span>
 
