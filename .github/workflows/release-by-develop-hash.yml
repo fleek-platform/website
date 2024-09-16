@@ -114,3 +114,16 @@ jobs:
         fi
 
         echo "✅ Deleted the release preparation branch with name ${{ env.PREPARE_RELEASE_BRANCH }} successfuly"
+
+    - name: Dispatch Event
+      env:
+        PAT: ${{ secrets.PAT }}
+        ENDPOINT: 'https://api.github.com/repos/fleek-platform/website/dispatches'
+        EVENT_NAME: 'release-by-develop-hash-completed'
+      run: |
+        if ! curl -H "Accept: application/vnd.github+json" \
+          -H "Authorization: token $PAT" \
+          --request POST \
+          --data '{ "event_type": "$EVENT_NAME" }' $ENDPOINT; then
+          echo "⚠️ Warning: Failed to dispatch $EVENT_NAME. Since this triggers the indexer listener, you should dispatch the action manually. If this issue persists, report it internally."
+        fi

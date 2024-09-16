@@ -1,7 +1,7 @@
 name: 🚜 Search (Indexer)
 on:
-  push:
-    branches: ['main']
+  repository_dispatch:
+    types: release-by-develop-hash-completed
 
 jobs:
   meilisearch:
