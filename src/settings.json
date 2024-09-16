@@ -115,7 +115,7 @@
       "templatesUrl": "https://app.fleek.xyz/templates"
     },
     "annoucementMarquee": {
-      "message": "Introducing Fleek Edge SGX: a decentralized, edge-optimized, and developer-friendly SGX tool",
+      "message": "Introducing Fleek Edge SGX: a decentralized, edge-optimized, and developer-friendly SGX tool.",
       "url": "/blog/announcements/introducing-fleek-edge-sgx/",
       "visible": true
     }

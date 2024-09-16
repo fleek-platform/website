@@ -111,7 +111,7 @@ const NavbarSubMenuItem: React.FC<NavSubMenuItem> = ({
       </div>
       <div className="flex flex-col">
         <span className="text-14 font-semibold text-gray-dark-12">{label}</span>
-        <span className="text-14 text-gray-dark-11 group-hover:text-gray-dark-12">
+        <span className="text-14 text-gray-dark-11 group-hover:text-gray-dark-12 group-focus-visible:text-gray-dark-12">
           {description}
         </span>
       </div>
