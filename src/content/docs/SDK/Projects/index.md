@@ -13,9 +13,19 @@ tags:
 
 # Projects
 
-Certain services, including IPFS storage and IPNS, require authentication with a projectId to interact with them. The SDK makes it easy to get the projectId needed for the services that call for it.
+Projects help categorize your work and certain services, including [Storage](/docs/cli/storage) and [IPNS](/docs/cli/ipns), require authentication with a projectId to interact with them. The SDK makes it easy to get the projectId needed for the services that call for it.
+
+:::note
+When importing the SDK (version 3 and above), you should explicitly specify the environment, e.g. for server-side (Node.js) use the @fleek-platform/sdk/node in the import statement. If not specified, the import defaults to the browser version.
+
+```ts
+import { FleekSdk, PersonalAccessTokenService } from '@fleek-platform/sdk/node';
+```
+:::
 
 ## Create a project
+
+Start by creating a `Project` with a descriptive name to facilitate management of sites, storage, and functions.
 
 ```typescript
 const projectId = await fleekSdk.projects().create({
@@ -24,6 +34,8 @@ const projectId = await fleekSdk.projects().create({
 ```
 
 ## List projects
+
+Use the `list` method to gather information about the user accounts `Projects`.
 
 ```typescript
 const projects = await fleekSdk.projects().list();
@@ -45,6 +57,8 @@ This returns a list of projects:
 ```
 
 ## Get project
+
+Use the `get` method to retrieve a `Project` by its `id`.
 
 ```typescript
 const project = await fleekSdk.projects().get({
