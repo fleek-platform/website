@@ -234,6 +234,61 @@ const res = await fleekSdk.storage().get({
 });
 ```
 
+## GetByFilename
+
+The `getByFilename` is an asynchronous function to retrieve a file by it's name and extension.
+
+### Function Signature
+
+```typescript
+async ({ filename, extension }: GetPinByFilenameArgs): Promise<StoragePin[]>
+```
+
+### Parameters
+
+```typescript
+type GetPinByFilenameArgs = {
+  filename: string;
+  extension: string;
+};
+```
+
+### Returns
+
+```typescript
+type StoragePin = {
+  cid?: string;
+  size?: number;
+  filename?: string;
+  filecoinDealIds?: string;
+  arweavePin?: ArweavePin;
+  arweaveId?: string;
+}[];
+```
+
+### Usage Example
+
+```typescript
+import { FleekSdk, PersonalAccessTokenService } from '@fleek-platform/sdk/node';
+
+// The Fleek SDK should be authenticated
+// with a valid Project ID
+const accessTokenService = new PersonalAccessTokenService({
+  personalAccessToken: '<PAT>',
+  projectId: '<PROJECT-ID>',
+});
+
+const fleekSdk = new FleekSdk({
+  accessTokenService,
+});
+
+const res = await fleekSdk.storage().getByFilename({
+  filename: '<FILENAME>',
+  extension: '<EXTENSION>',
+});
+```
+
+
 ## Delete
 
 The `delete` is an asynchronous function designed to delete a storage file by it's CID.
