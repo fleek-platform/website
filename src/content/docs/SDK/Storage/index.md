@@ -13,10 +13,18 @@ tags:
 
 # Storage
 
-The Fleek Platform SDK provides a storage service allowing you to store your files in a decentralized manner. Our service supports IPFS as our main storage protocol, complemented by Arweave and Filecoin as a backup layer. This approach ensures a high-performing and highly available service. Filecoin acts as the default backup layer, but modifications can be implemented in the storage settings.
+The Fleek Platform SDK allows you to interface with the storage service to store files in a decentralized manner. Our service supports IPFS as our main storage protocol, complemented by Arweave and Filecoin as a backup layer. This approach ensures a high-performing and highly available service. Filecoin acts as the default backup layer, but modifications can be implemented in the storage settings.
 
 :::warn
 If you're authenticating the Fleek Platform SDK with a Personal Access Token (PAT), you must provide a Project ID to the [PersonalAccessTokenService](/docs/cli/pat/).
+:::
+
+:::note
+When importing the SDK (version 3 and above), you should explicitly specify the environment, e.g. for server-side (Node.js) use the @fleek-platform/sdk/node in the import statement. If not specified, the import defaults to the browser version.
+
+```ts
+import { FleekSdk, PersonalAccessTokenService } from '@fleek-platform/sdk/node';
+```
 :::
 
 ## Methods
@@ -86,8 +94,19 @@ type UploadPinResponse = {
 ### Usage Example
 
 ```typescript
+import { FleekSdk, PersonalAccessTokenService } from '@fleek-platform/sdk/node';
+
 // The Fleek SDK should be authenticated
 // with a valid Project ID
+const accessTokenService = new PersonalAccessTokenService({
+  personalAccessToken: '<PAT>',
+  projectId: '<PROJECT-ID>',
+});
+
+const fleekSdk = new FleekSdk({
+  accessTokenService,
+});
+
 const result = await fleekSdk.storage().uploadFile({
   file,
   onUploadProgress,
@@ -147,9 +166,38 @@ type ArweavePin = {
 ### Usage Example
 
 ```typescript
+import { FleekSdk, PersonalAccessTokenService } from '@fleek-platform/sdk/node';
+
 // The Fleek SDK should be authenticated
 // with a valid Project ID
+const accessTokenService = new PersonalAccessTokenService({
+  personalAccessToken: '<PAT>',
+  projectId: '<PROJECT-ID>',
+});
+
+const fleekSdk = new FleekSdk({
+  accessTokenService,
+});
+
 const result = await fleekSdk.storage().list();
+```
+
+## Get
+
+The `get` is an asynchronous function to retrieve a file by it's CID.
+
+### Function Signature
+
+```typescript
+async ({ cid }: GetPinArgs): Promise<StoragePin>
+```
+
+### Parameters
+
+```typescript
+type GetPinArgs = {
+  cid: string;
+};
 ```
 
 ## Delete
@@ -187,8 +235,19 @@ type Response = {
 ### Usage Example
 
 ```typescript
+import { FleekSdk, PersonalAccessTokenService } from '@fleek-platform/sdk/node';
+
 // The Fleek SDK should be authenticated
 // with a valid Project ID
+const accessTokenService = new PersonalAccessTokenService({
+  personalAccessToken: '<PAT>',
+  projectId: '<PROJECT-ID>',
+});
+
+const fleekSdk = new FleekSdk({
+  accessTokenService,
+});
+
 const result = await fleekSdk.storage().delete();
 ```
 
