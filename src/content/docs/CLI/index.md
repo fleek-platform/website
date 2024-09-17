@@ -200,3 +200,19 @@ fleek logout
 The Fleek.co's [CLI](https://www.npmjs.com/package/@fleekhq/cli) features are part of Fleek Platform CLI, which brings enhanced performance, new features, and broader support for all your development needs.
 
 Learn how to migrate to Fleek Platform with these steps or consult our [CLI docs](/docs/cli) for a deep dive.
+
+### Fleek.co's CLI
+
+If you use [Fleek CLI](https://www.npmjs.com/package/@fleekhq/cli) to interact with Fleek.co's Services, migrate to the Fleek Platform, familiarizing yourself with the following commands:
+
+```sh
+# Old install command
+npm install -g @fleekhq/fleek-cli
+
+# New install command
+npm install -g @fleek-platform/cli
+```
+
+:::warn
+To avoid conflicts, uninstall the deprecated `@fleekhq/fleek-cli` package before installing the new Fleek Platform CLI. This will free up the fleek command for use with the new version.
+:::
