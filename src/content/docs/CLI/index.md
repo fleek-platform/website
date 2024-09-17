@@ -217,7 +217,7 @@ npm install -g @fleekhq/fleek-cli
 npm install -g @fleek-platform/cli
 ```
 
-Learn more by reading the cLI documentation [here](/docs/cli).
+Learn more by reading the CLI documentation [here](/docs/cli).
 
 ### Sites Init & Deploy
 
