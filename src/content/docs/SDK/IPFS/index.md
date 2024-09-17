@@ -19,6 +19,14 @@ The Fleek Platform SDK helps you pin files to IPFS. The Interplanetary File syst
 We're transitioning from using the IPFS service to our new Storage service. To help you make this change smoothly, there's a grace period and we've included warnings within our SDK code. We recommend reviewing our [Storage documentation](/docs/sdk/storage) to understand how to switch to the Storage service. You should start utilizing the Storage service over the IPFS service.
 :::
 
+:::note
+When importing the SDK (version 3 and above), you should explicitly specify the environment, e.g. for server-side (Node.js) use the @fleek-platform/sdk/node in the import statement. If not specified, the import defaults to the browser version.
+
+```ts
+import { FleekSdk, PersonalAccessTokenService } from '@fleek-platform/sdk/node';
+```
+:::
+
 ## Methods
 
 Here is a list of the available methods for the Fleek Platform SDK IPFS Service:
@@ -71,12 +79,23 @@ type UploadResult = {
 Calling this method with an IpfsFile object would look something like the following:
 
 ```typescript
+import { FleekSdk, PersonalAccessTokenService } from '@fleek-platform/sdk/node';
+
+// The Fleek SDK should be authenticated
+// with a valid Project ID
+const accessTokenService = new PersonalAccessTokenService({
+  personalAccessToken: '<PAT>',
+  projectId: '<PROJECT-ID>',
+});
+
+const fleekSdk = new FleekSdk({
+  accessTokenService,
+});
+
 const uploadToIPFS = async (filename: string, content: Buffer) => {
-  // The Fleek SDK should be authenticated
-  // with a valid Project ID
   const result = await fleekSdk.ipfs().add({
-    path: filename,
-    content: content,
+    path: '<FILENAME>',
+    content: '<BUFFER_CONTENT>',
   });
 
   return result;
@@ -133,11 +152,22 @@ type UploadResult = {
 ### Usage Example
 
 ```typescript
+import { FleekSdk, PersonalAccessTokenService } from '@fleek-platform/sdk/node';
+
 import { type IpfsFile } from '@fleek-platform/sdk';
 
+// The Fleek SDK should be authenticated
+// with a valid Project ID
+const accessTokenService = new PersonalAccessTokenService({
+  personalAccessToken: '<PAT>',
+  projectId: '<PROJECT-ID>',
+});
+
+const fleekSdk = new FleekSdk({
+  accessTokenService,
+});
+
 const uploadToIPFS = async (files: IpfsFile[]) => {
-  // The Fleek SDK should be authenticated
-  // with a valid Project ID
   const result = await fleekSdk.ipfs().addAll(files);
 
   return result;
@@ -182,9 +212,20 @@ type UploadResult = {
 Calling this method with a path to a file or directory would be similar to:
 
 ```typescript
+import { FleekSdk, PersonalAccessTokenService } from '@fleek-platform/sdk/node';
+
+// The Fleek SDK should be authenticated
+// with a valid Project ID
+const accessTokenService = new PersonalAccessTokenService({
+  personalAccessToken: '<PAT>',
+  projectId: '<PROJECT-ID>',
+});
+
+const fleekSdk = new FleekSdk({
+  accessTokenService,
+});
+
 const uploadToIPFS = async (filePath: string) => {
-  // The Fleek SDK should be authenticated
-  // with a valid Project ID
   const result = await fleekSdk.ipfs().addFromPath(filePath);
 
   return result;
