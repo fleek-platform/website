@@ -13,7 +13,7 @@ tags:
 
 # Projects
 
-Projects help categorize your work and certain services, including [Storage](/docs/cli/storage) and [IPNS](/docs/cli/ipns), require authentication with a projectId to interact with them. The SDK makes it easy to get the projectId needed for the services that call for it.
+Projects help categorize your work and certain services, including [Storage](/docs/sdk/storage) and [IPNS](/docs/sdk/ipns), require authentication with a projectId to interact with them. The SDK makes it easy to get the projectId needed for the services that call for it.
 
 :::note
 When importing the SDK (version 3 and above), you should explicitly specify the environment, e.g. for server-side (Node.js) use the @fleek-platform/sdk/node in the import statement. If not specified, the import defaults to the browser version.
@@ -23,7 +23,7 @@ import { FleekSdk, PersonalAccessTokenService } from '@fleek-platform/sdk/node';
 ```
 :::
 
-## Create a project
+## Create a new Project
 
 Start by creating a `Project` with a descriptive name to facilitate management of sites, storage, and functions.
 
@@ -33,7 +33,7 @@ const projectId = await fleekSdk.projects().create({
 });
 ```
 
-## List projects
+## List Projects
 
 Use the `list` method to gather information about the user accounts `Projects`.
 
@@ -56,7 +56,7 @@ This returns a list of projects:
 ]
 ```
 
-## Get project
+## Get Project
 
 Use the `get` method to retrieve a `Project` by its `id`.
 
@@ -73,4 +73,36 @@ This returns a the project details:
   "id": "clfk15m6p0002l608gvtp9gm5",
   "name": "My Project"
 }
+```
+
+## Update Project
+
+Use the `update` method by:
+
+```typescript
+const project = await fleekSdk.projects().update({
+  where: {
+    id: '<PROJECT-ID>',
+  },
+  data: {
+    name: '<NEW-PROJECT-NAME>',
+    avatar: new File([yourImage], '<YOUR-IMAGE-DESCRIPTION>'),
+  },
+});
+```
+
+## Update Project
+
+Use the `update` method to modify the project properties, e.g. name:
+
+```typescript
+const project = await fleekSdk.projects().update({
+  where: {
+    id: '<PROJECT-ID>',
+  },
+  data: {
+    name: '<NEW-PROJECT-NAME>',
+    avatar: new File([yourImage], '<YOUR-IMAGE-DESCRIPTION>'),
+  },
+});
 ```
