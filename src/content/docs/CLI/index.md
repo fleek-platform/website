@@ -17,6 +17,10 @@ The Fleek Platform CLI is a command-line interface, that lets users interact wit
 
 In the next steps, we’re going to install the CLI, create a project and deploy a simple page.
 
+:::warn
+Fleek.co users migrating to the new Fleek Platform, please check the [migrating from Fleek.co to Fleek-platform CLI](#migrating-from-fleekco-to-fleek-platform-cli) section.
+:::
+
 ## Install
 
 To install the CLI launch your terminal and run:
@@ -190,3 +194,9 @@ fleek logout
 ```
 ✅ Successfully logged out.
 ```
+
+## Migrating from Fleek.co to Fleek-platform CLI
+
+The Fleek.co's [CLI](https://www.npmjs.com/package/@fleekhq/cli) features are part of Fleek Platform CLI, which brings enhanced performance, new features, and broader support for all your development needs.
+
+Learn how to migrate to Fleek Platform with these steps or consult our [CLI docs](/docs/cli) for a deep dive.
