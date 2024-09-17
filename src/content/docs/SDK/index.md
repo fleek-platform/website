@@ -138,8 +138,6 @@ const fleekSdk = new FleekSdk({
 
 The Fleek.co's [SDK](https://www.npmjs.com/package/@fleekhq/sdk) and [Storage](https://www.npmjs.com/package/@fleekhq/fleek-storage-js) features are part of Fleek Platform SDK, which brings enhanced performance, new features, and broader support for all your development needs.
 
-Learn how to migrate to Fleek Platform by following the instructions below.
-
 Learn how to migrate to Fleek Platform with these steps or consult our [SDK docs](/docs/sdk) for a deep dive.
 
 ### Fleek Storage JS
