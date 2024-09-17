@@ -62,7 +62,10 @@ export const hasSecondaryMenuItem = (pathname: string): boolean => {
     (item) => item.path.split('/')[1],
   );
   const uniqueMenuItems = [...new Set(supportMenuItems)];
-  return uniqueMenuItems.some((item) => pathname.includes(item));
+
+  const pathSegments = pathname.split('/');
+
+  return uniqueMenuItems.some((item) => pathSegments.includes(item));
 };
 
 export const removeProtocolFromUrl = (userUrl: string) => {
