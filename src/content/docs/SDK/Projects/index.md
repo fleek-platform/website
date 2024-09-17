@@ -23,79 +23,223 @@ import { FleekSdk, PersonalAccessTokenService } from '@fleek-platform/sdk/node';
 ```
 :::
 
-## Create a new Project
+## Create
 
 Start by creating a `Project` with a descriptive name to facilitate management of sites, storage, and functions.
 
+### Function Signature
+
 ```typescript
+async ({ name }: CreateProjectArgs): Promise<Project>
+```
+
+### Parameters
+
+```typescript
+type CreateProjectArgs = {
+  name: string;
+}
+```
+
+### Returns
+
+Returns a Promise which resolves to a Project type, to name a few, containing an id, avatar, name, etc.
+
+```typescript
+type Project = {
+    avatar: File;
+    backupStorageOnArweave: boolean;
+    backupStorageOnFilecoin: boolean;
+    createdAt: Date;
+    id: string;
+    name: string;
+    updatedAt: Date;
+}
+```
+
+### Usage Example
+
+```typescript
+import { FleekSdk, PersonalAccessTokenService } from '@fleek-platform/sdk/node';
+
+// The Fleek SDK should be authenticated
+// with a valid Project ID
+const accessTokenService = new PersonalAccessTokenService({
+  personalAccessToken: '<PAT>',
+  projectId: '<PROJECT-ID>',
+});
+
+const fleekSdk = new FleekSdk({
+  accessTokenService,
+});
+
 const projectId = await fleekSdk.projects().create({
   name: 'My Project',
 });
 ```
 
-## List Projects
+## List
 
 Use the `list` method to gather information about the user accounts `Projects`.
 
+### Function Signature
+
 ```typescript
+async (): Promise<Project[]>
+```
+
+### Parameters
+
+Not applicable.
+
+### Returns
+
+Returns a Promise which resolves to a list of Project type, to name a few, containing an id, avatar, name, etc.
+
+```typescript
+type Project = {
+    avatar: File;
+    backupStorageOnArweave: boolean;
+    backupStorageOnFilecoin: boolean;
+    createdAt: Date;
+    id: string;
+    name: string;
+    updatedAt: Date;
+}[];
+```
+
+### Usage Example
+
+```typescript
+import { FleekSdk, PersonalAccessTokenService } from '@fleek-platform/sdk/node';
+
+// The Fleek SDK should be authenticated
+// with a valid Project ID
+const accessTokenService = new PersonalAccessTokenService({
+  personalAccessToken: '<PAT>',
+  projectId: '<PROJECT-ID>',
+});
+
+const fleekSdk = new FleekSdk({
+  accessTokenService,
+});
+
 const projects = await fleekSdk.projects().list();
 ```
 
-This returns a list of projects:
-
-```json
-[
-  {
-    "id": "cldn4lfcy0002lg0835mekajd",
-    "name": "fleek"
-  },
-  {
-    "id": "cdawndf4fladfcfa2wnay8s25",
-    "name": "My Project"
-  }
-]
-```
-
-## Get Project
+## Get
 
 Use the `get` method to retrieve a `Project` by its `id`.
 
+### Function Signature
+
 ```typescript
-const project = await fleekSdk.projects().get({
-  id: 'clfk15m6p0002l608gvtp9gm5',
-});
+async ({ id }: GetProjectArgs): Promise<Project> 
 ```
 
-This returns a the project details:
+### Parameters
 
-```json
-{
-  "id": "clfk15m6p0002l608gvtp9gm5",
-  "name": "My Project"
+```typescript
+type GetProjectArgs = {
+  id: string;
 }
 ```
 
-## Update Project
+### Returns
 
-Use the `update` method by:
+Returns a Promise which resolves to a Project type, to name a few, containing an id, avatar, name, etc.
 
 ```typescript
-const project = await fleekSdk.projects().update({
-  where: {
-    id: '<PROJECT-ID>',
-  },
-  data: {
-    name: '<NEW-PROJECT-NAME>',
-    avatar: new File([yourImage], '<YOUR-IMAGE-DESCRIPTION>'),
-  },
+type Project = {
+    avatar: File;
+    backupStorageOnArweave: boolean;
+    backupStorageOnFilecoin: boolean;
+    createdAt: Date;
+    id: string;
+    name: string;
+    updatedAt: Date;
+};
+```
+
+### Usage Example
+
+```typescript
+import { FleekSdk, PersonalAccessTokenService } from '@fleek-platform/sdk/node';
+
+// The Fleek SDK should be authenticated
+// with a valid Project ID
+const accessTokenService = new PersonalAccessTokenService({
+  personalAccessToken: '<PAT>',
+  projectId: '<PROJECT-ID>',
+});
+
+const fleekSdk = new FleekSdk({
+  accessTokenService,
+});
+
+const project = await fleekSdk.projects().get({
+  id: '<PROJECT-ID>',
 });
 ```
 
-## Update Project
+## Update
 
-Use the `update` method to modify the project properties, e.g. name:
+Use the `update` method by:
+
+### Function Signature
 
 ```typescript
+async ({ id }: GetProjectArgs): Promise<Project> 
+```
+
+### Parameters
+
+```typescript
+type UpdateProjectArgs = {
+  where: {
+    id: string,
+  };
+  data: {
+    name?: string;
+    avatar?: File;
+    backupStorageOnArweave?: boolean;
+    backupStorageOnFilecoin?: boolean,
+  };
+};
+```
+
+### Returns
+
+Returns a Promise which resolves to a Project type, to name a few, containing an id, avatar, name, etc.
+
+```typescript
+type Project = {
+    avatar: File;
+    backupStorageOnArweave: boolean;
+    backupStorageOnFilecoin: boolean;
+    createdAt: Date;
+    id: string;
+    name: string;
+    updatedAt: Date;
+};
+```
+
+### Usage Example
+
+```typescript
+import { FleekSdk, PersonalAccessTokenService } from '@fleek-platform/sdk/node';
+
+// The Fleek SDK should be authenticated
+// with a valid Project ID
+const accessTokenService = new PersonalAccessTokenService({
+  personalAccessToken: '<PAT>',
+  projectId: '<PROJECT-ID>',
+});
+
+const fleekSdk = new FleekSdk({
+  accessTokenService,
+});
+
 const project = await fleekSdk.projects().update({
   where: {
     id: '<PROJECT-ID>',
