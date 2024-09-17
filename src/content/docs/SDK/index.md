@@ -44,7 +44,7 @@ You can create concurrent instances by providing the Personal Access Token and P
 In the example below, we share a Personal Access Token (PAT) and a different Project ID (PID) for each new instance of FleekSdk.
 
 ```typescript
-import { FleekSdk, PersonalAccessTokenService } from '@fleek-platform/sdk';
+import { FleekSdk, PersonalAccessTokenService } from '@fleek-platform/sdk/node';
 
 const accessTokenServiceA = new PersonalAccessTokenService({
   personalAccessToken: <PAT>,
@@ -64,6 +64,14 @@ const fleekSdkInstanceB = new FleekSdk({
   accessTokenService: accessTokenServiceB,
 });
 ```
+
+:::note
+When importing the SDK (version 3 and above), you can explicitly specify the environment:
+- For server-side (Node.js): Use @fleek-platform/sdk/node in the import statement
+- For client-side (Browser): USe @fleek-platform/sdk/browser in the import statement
+
+If not specified, the import defaults to the browser version. The browser and Node.js versions have differences due to their respective environments. Choose the appropriate version for your use case.
+:::
 
 Instance method calls are tied to the Project ID designated during the Fleek Platform SDK instantiation. For example, files added to the storage service will appear under the matching instance Project ID.
 
@@ -86,7 +94,7 @@ This method of authentication relies on a `personalAccessToken` which can be obt
 ### Usage Example
 
 ```typescript
-import { FleekSdk, PersonalAccessTokenService } from '@fleek-platform/sdk';
+import { FleekSdk, PersonalAccessTokenService } from '@fleek-platform/sdk/node';
 
 const personalAccessTokenService = new PersonalAccessTokenService({
   personalAccessToken: <PAT>,
@@ -119,7 +127,7 @@ This method of authentication relies on a `clientId` which can be obtained after
 ### Usage Example
 
 ```typescript copy
-import { FleekSdk, ApplicationAccessTokenService } from '@fleek-platform/sdk';
+import { FleekSdk, ApplicationAccessTokenService } from '@fleek-platform/sdk/node';
 
 const applicationService = new ApplicationAccessTokenService({
   clientId: <CLIENT_ID>,
