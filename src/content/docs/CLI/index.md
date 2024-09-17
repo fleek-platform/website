@@ -219,7 +219,7 @@ npm install -g @fleek-platform/cli
 
 Learn more by reading the cLI documentation [here](/docs/cli).
 
-### Sites
+### Sites Init & Deploy
 
 Initializing and deploying a static site has changed. To initialize a Fleek site:
 
