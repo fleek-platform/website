@@ -16,6 +16,12 @@
         "description": "Fleek is an edge-optimized cloud platform. Effortlessly build, ship and scale highly performant apps. Try for free and deploy an app in 5 minutes.",
         "image": "/images/fleek-meta.png?202406061658"
       },
+      "landingPage": {
+        "title": "Fleek | Build lightning-fast apps",
+        "slug": "",
+        "description": "Fleek is an edge-optimized cloud platform. Effortlessly build, ship and scale highly performant apps. Try for free and deploy an app in 5 minutes.",
+        "image": "/images/fleek-meta.png?202406061658"
+      },
       "blog": {
         "title": "Blog",
         "slug": "blog",
@@ -118,6 +124,14 @@
       "message": "Introducing Fleek Edge SGX: a decentralized, edge-optimized, and developer-friendly SGX tool",
       "url": "/blog/announcements/introducing-fleek-edge-sgx/",
       "visible": true
+    }
+  },
+  "landingPage": {
+    "copy": {
+      "h1": "Lightning-fast, low-cost hosting without the corporate headache",
+      "h2": "Fleek is the cloud platform where performance meets simplicity. No hidden fees or corporate red tape—just the speed and reliability you need to build great apps and experiences.",
+      "primaryCta": "Get started",
+      "secondaryCta": "Read our docs"
     }
   },
   "docs": {

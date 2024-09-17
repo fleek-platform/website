@@ -235,31 +235,33 @@ export const Navbar: React.FC<NavbarProps> = ({ pathname }) => {
         onMouseLeave={() => setHovering(null)}
         className="z-20 mx-auto mt-18 flex h-50 w-full max-w-[1000px] items-center justify-between rounded-12 border border-gray-dark-3 bg-gray-dark-1/[.97] pr-12 font-plex-sans text-14 font-medium text-gray-dark-11"
       >
-        <Link
-          tabIndex={0}
-          href="/"
-          className="flex h-48 items-center rounded-l-12 px-12 outline-none ring-0 focus-visible:bg-gray-dark-3"
-          onFocus={() => setHovering(null)}
-          onMouseEnter={() => setHovering(null)}
-        >
-          <img src="/svg/fleek-logo.svg" width={66} alt="fleek logo" />
-        </Link>
-        <section className="hidden md:block">
-          <div className="flex items-center">
-            {navbarMenu.map((navbarItem, idx) => (
-              <NavbarItem
-                idx={idx}
-                key={navbarItem.label}
-                pathname={pathname}
-                hovering={hovering}
-                popoverDimensions={popoverDimensions}
-                onMouseEnterSubMenu={onMouseEnterSubMenu}
-                removeHovering={() => setHovering(null)}
-                {...navbarItem}
-              />
-            ))}
-          </div>
-        </section>
+        <div className="flex items-center gap-24">
+          <Link
+            tabIndex={0}
+            href="/"
+            className="flex h-48 items-center rounded-l-12 px-12 outline-none ring-0 focus-visible:bg-gray-dark-3"
+            onFocus={() => setHovering(null)}
+            onMouseEnter={() => setHovering(null)}
+          >
+            <img src="/svg/fleek-logo.svg" width={66} alt="fleek logo" />
+          </Link>
+          <section className="hidden md:block">
+            <div className="flex items-center">
+              {navbarMenu.map((navbarItem, idx) => (
+                <NavbarItem
+                  idx={idx}
+                  key={navbarItem.label}
+                  pathname={pathname}
+                  hovering={hovering}
+                  popoverDimensions={popoverDimensions}
+                  onMouseEnterSubMenu={onMouseEnterSubMenu}
+                  removeHovering={() => setHovering(null)}
+                  {...navbarItem}
+                />
+              ))}
+            </div>
+          </section>
+        </div>
         <section className="flex items-center gap-8">
           <Button
             variant="secondary"

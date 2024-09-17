@@ -8,7 +8,7 @@ import BestOnchain from '@components/BestOnchain';
 import PricingLanding from '@components/PricingLanding';
 import ReadyToLive from '@components/ReadyToLive';
 import settings from '@base/settings.json';
-import V2BaseHtml from '@layouts/V2BaseHtml.astro';
+import LandingPageLayout from '@layouts/LandingPage.astro';
 import { Navbar } from '@components/v2/Navbar/Navbar';
 import { Announcement } from '@components/v2/Announcement/Announcement';
 import { FaChevronRight } from 'react-icons/fa6';
@@ -17,7 +17,7 @@ import { Button } from '@components/v2/Button/Button';
 import { Hero } from '@components/v2/Hero/Hero';
 ---
 
-<V2BaseHtml
+<LandingPageLayout
   canonicalUrl={settings.site.production.url}
   ogMeta={{
     title: settings.site.metadata.default.title,
@@ -38,4 +38,4 @@ import { Hero } from '@components/v2/Hero/Hero';
   <PricingLanding client:load rounded="all-big" />
   <ReadyToLive client:load rounded="all-big" />
   <Footer client:load /> -->
-</V2BaseHtml>
+</LandingPageLayout>

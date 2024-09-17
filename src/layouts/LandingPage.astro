@@ -1,11 +1,7 @@
 ---
 import '@styles/globals.css';
-import Announcement from '@components/Announcement';
 import { getSiteUrl } from '@utils/url';
 import settings from '@base/settings.json';
-import Footer from '@components/Footer';
-
-import { Toaster } from 'react-hot-toast';
 import { Navbar } from '@components/v2/Navbar/Navbar';
 
 interface Props {
@@ -63,27 +59,27 @@ const baseUrl = getSiteUrl();
     />
     <meta name="generator" content={Astro.generator} />
     <!-- HTML Meta Tags -->
-    <title>{ogMeta?.title || settings.site.metadata.default.title}</title>
+    <title>{ogMeta?.title || settings.site.metadata.landingPage.title}</title>
     <meta
       name="description"
       content={ogMeta?.description ||
-        settings.site.metadata.default.description}
+        settings.site.metadata.landingPage.description}
     />
     <!-- Facebook Meta Tags -->
     <meta property="og:url" content={`${baseUrl}/${ogMeta?.slug || ''}`} />
     <meta property="og:type" content="website" />
     <meta
       property="og:title"
-      content={ogMeta?.title || settings.site.metadata.default.title}
+      content={ogMeta?.title || settings.site.metadata.landingPage.title}
     />
     <meta
       property="og:description"
       content={ogMeta?.description ||
-        settings.site.metadata.default.description}
+        settings.site.metadata.landingPage.description}
     />
     <meta
       property="og:image"
-      content={`${baseUrl}/${ogMeta?.image?.replace(/^\/+/, '') || settings.site.metadata.default.image?.replace(/^\/+/, '')}`}
+      content={`${baseUrl}/${ogMeta?.image?.replace(/^\/+/, '') || settings.site.metadata.landingPage.image?.replace(/^\/+/, '')}`}
     />
     <!-- Twitter Meta Tags -->
     <meta name="twitter:card" content="summary_large_image" />
@@ -91,16 +87,16 @@ const baseUrl = getSiteUrl();
     <meta property="twitter:url" content={`${baseUrl}/${ogMeta?.slug || ''}`} />
     <meta
       name="twitter:title"
-      content={ogMeta?.title || settings.site.metadata.default.title}
+      content={ogMeta?.title || settings.site.metadata.landingPage.title}
     />
     <meta
       name="twitter:description"
       content={ogMeta?.description ||
-        settings.site.metadata.default.description}
+        settings.site.metadata.landingPage.description}
     />
     <meta
       name="twitter:image"
-      content={`${baseUrl}/${ogMeta?.image?.replace(/^\/+/, '') || settings.site.metadata.default.image?.replace(/^\/+/, '')}`}
+      content={`${baseUrl}/${ogMeta?.image?.replace(/^\/+/, '') || settings.site.metadata.landingPage.image?.replace(/^\/+/, '')}`}
     />
 
     <!-- Google Tag Manager -->
