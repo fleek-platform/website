@@ -200,6 +200,40 @@ type GetPinArgs = {
 };
 ```
 
+### Returns
+
+```typescript
+type StoragePin = {
+  cid?: string;
+  size?: number;
+  filename?: string;
+  filecoinDealIds?: string;
+  arweavePin?: ArweavePin;
+  arweaveId?: string;
+};
+```
+
+### Usage Example
+
+```typescript
+import { FleekSdk, PersonalAccessTokenService } from '@fleek-platform/sdk/node';
+
+// The Fleek SDK should be authenticated
+// with a valid Project ID
+const accessTokenService = new PersonalAccessTokenService({
+  personalAccessToken: '<PAT>',
+  projectId: '<PROJECT-ID>',
+});
+
+const fleekSdk = new FleekSdk({
+  accessTokenService,
+});
+
+const res = await fleekSdk.storage().get({
+  cid: '<CID>',
+});
+```
+
 ## Delete
 
 The `delete` is an asynchronous function designed to delete a storage file by it's CID.
