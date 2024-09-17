@@ -19,15 +19,45 @@ The Fleek Platform SDK helps you create mutable pointers to CIDs known as InterP
 If you're authenticating the Fleek Platform SDK with a Personal Access Token (PAT), you must provide a Project ID to the [PersonalAccessTokenService](/docs/cli/pat/).
 :::
 
-## Create an IPNS Record
+:::note
+When importing the SDK (version 3 and above), you should explicitly specify the environment, e.g. for server-side (Node.js) use the @fleek-platform/sdk/node in the import statement. If not specified, the import defaults to the browser version.
 
-```typescript
-// The Fleek SDK should be authenticated
-// with a valid Project ID
-const record = await fleekSdk.ipns().createRecord();
+```ts
+import { FleekSdk, PersonalAccessTokenService } from '@fleek-platform/sdk/node';
+```
+:::
+
+## Methods
+
+Here is a list of the available methods for the Fleek Platform SDK IPFS Service:
+
+```sh
+Method              Description
+-----------------------------------------------------------------------------------------------------------------
+createRecord        Create an IPNS Record.
+getRecord           Get an IPNS Record.
+publishRecord       Publish an IPNS Record.
+listRecords         List IPNS records.
+deleteRecord        Delete an IPNS record.
 ```
 
-This returns an object with the following properties:
+## CreateRecord
+
+The IPNS `createRecord` let's a user create an IPNS Record.
+
+### Function Signature
+
+```typescript
+async (): Promise<IpnsRecord>
+```
+
+### Parameters
+
+Not applicable.
+
+### Returns
+
+Returns a Promise which resolves to a IpnsRecord type, containing an id, name and the hash.
 
 ```typescript
 type IpnsRecord = {
@@ -40,25 +70,129 @@ type IpnsRecord = {
 };
 ```
 
-Initially, all records are created with an empty IPFS hash. To add it, you will need to publish it.
-
-You can query the record by name:
+### Usage Example
 
 ```typescript
+import { FleekSdk, PersonalAccessTokenService } from '@fleek-platform/sdk/node';
+
 // The Fleek SDK should be authenticated
 // with a valid Project ID
+const accessTokenService = new PersonalAccessTokenService({
+  personalAccessToken: '<PAT>',
+  projectId: '<PROJECT-ID>',
+});
+
+const fleekSdk = new FleekSdk({
+  accessTokenService,
+});
+
+const record = await fleekSdk.ipns().createRecord();
+```
+
+## GetRecord
+
+The `getRecord` method allows you to get an IPNS record.
+
+### Function Signature
+
+```typescript
+async ({ name }: GetRecordArgs): Promise<IpnsRecord>
+```
+
+### Parameters
+
+```typescript
+type GetRecordArgs = {
+  name: string;
+};
+```
+
+### Returns
+
+Returns a Promise which resolves to a IpnsRecord type, containing an id, name and the hash.
+
+```typescript
+type IpnsRecord = {
+  // The IPNS record ID on Fleek DB
+  id: string;
+  // The name of the IPNS record
+  name: string;
+  // The IPFS CID associated with the record
+  hash: string;
+};
+```
+
+### Usage Example
+
+```typescript
+import { FleekSdk, PersonalAccessTokenService } from '@fleek-platform/sdk/node';
+
+// The Fleek SDK should be authenticated
+// with a valid Project ID
+const accessTokenService = new PersonalAccessTokenService({
+  personalAccessToken: '<PAT>',
+  projectId: '<PROJECT-ID>',
+});
+
+const fleekSdk = new FleekSdk({
+  accessTokenService,
+});
+
 const record = await fleekSdk.ipns().getRecord({
   name: record.name,
 });
 ```
 
-## How to Publish an IPNS Record
+## PublishRecord
 
-To publish an IPNS record, you need to provide the IPNS record name and the IPFS hash you want to associate with it.
+To publish an IPNS record, you need to provide the IPNS record name and the IPFS hash you want to associate with it. Initially, all records are created with an empty IPFS hash. To add it, you will need to publish it.
+
+### Function Signature
 
 ```typescript
+async ({ hash, id }: PublishRecordArgs): Promise<IpnsRecord> 
+```
+
+### Parameters
+
+```typescript
+type PublishRecordArgs = {
+  id: string;
+  hash: string;
+}
+```
+
+### Returns
+
+Returns a Promise which resolves to a IpnsRecord type, containing an id, name and the hash.
+
+```typescript
+type IpnsRecord = {
+  // The IPNS record ID on Fleek DB
+  id: string;
+  // The name of the IPNS record
+  name: string;
+  // The IPFS CID associated with the record
+  hash: string;
+};
+```
+
+### Usage Example
+
+```typescript
+import { FleekSdk, PersonalAccessTokenService } from '@fleek-platform/sdk/node';
+
 // The Fleek SDK should be authenticated
 // with a valid Project ID
+const accessTokenService = new PersonalAccessTokenService({
+  personalAccessToken: '<PAT>',
+  projectId: '<PROJECT-ID>',
+});
+
+const fleekSdk = new FleekSdk({
+  accessTokenService,
+});
+
 const record = await fleekSdk.ipns().publishRecord({
   id: record.id,
   hash,
@@ -69,9 +203,36 @@ const record = await fleekSdk.ipns().publishRecord({
 It is important to note that IPNS propagation can take anywhere from 1 to 30 minutes.
 :::
 
-## List All Records
+## ListRecords
 
 To list all the records associated with a project, use the `listRecords` method.
+
+### Function Signature
+
+```typescript
+async (): Promise<IpnsRecord[]>
+```
+
+### Parameters
+
+Not applicable.
+
+### Returns
+
+Returns a Promise which resolves to a list of IpnsRecord type, containing an id, name and the hash.
+
+```typescript
+type IpnsRecord = {
+  // The IPNS record ID on Fleek DB
+  id: string;
+  // The name of the IPNS record
+  name: string;
+  // The IPFS CID associated with the record
+  hash: string;
+}[];
+```
+
+### Usage Example
 
 ```typescript
 // The Fleek SDK should be authenticated
@@ -79,13 +240,55 @@ To list all the records associated with a project, use the `listRecords` method.
 const records = await fleekSdk.ipns().listRecords();
 ```
 
-## Delete a Record
+## DeleteRecord
 
 To delete an IPNS record, use the `deleteRecord` method.
 
+### Function Signature
+
 ```typescript
+async ({ id }: DeleteRecordArgs): Promise<IpnsRecord>
+```
+
+### Parameters
+
+```typescript
+type DeleteRecordArgs = {
+  id: string;
+};
+```
+
+### Returns
+
+Returns a Promise which resolves to a IpnsRecord type, containing an id, name and the hash.
+
+```typescript
+type IpnsRecord = {
+  // The IPNS record ID on Fleek DB
+  id: string;
+  // The name of the IPNS record
+  name: string;
+  // The IPFS CID associated with the record
+  hash: string;
+};
+```
+
+### Usage Example
+
+```typescript
+import { FleekSdk, PersonalAccessTokenService } from '@fleek-platform/sdk/node';
+
 // The Fleek SDK should be authenticated
 // with a valid Project ID
+const accessTokenService = new PersonalAccessTokenService({
+  personalAccessToken: '<PAT>',
+  projectId: '<PROJECT-ID>',
+});
+
+const fleekSdk = new FleekSdk({
+  accessTokenService,
+});
+
 await sdk.ipns().deleteRecord({
   id: record.id,
 });
