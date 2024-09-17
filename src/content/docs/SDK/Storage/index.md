@@ -43,7 +43,7 @@ list                        List files
 delete                      Delete a file by CID
 ```
 
-## uploadFile
+## UploadFile
 
 The `uploadFile` is an asynchronous function designed to upload a file to Fleek Platform Storage Service.
 
@@ -340,7 +340,7 @@ const fleekSdk = new FleekSdk({
 const result = await fleekSdk.storage().delete();
 ```
 
-## uploadDirectory
+## UploadDirectory
 
 Upload a directory to Fleek Platform Storage IPFS.
 
@@ -376,7 +376,7 @@ type UploadPinResponse = {
 };
 ```
 
-## uploadVirtualDirectory
+## UploadVirtualDirectory
 
 Upload a virtual directory to Fleek Platform Storage IPFS.
 
