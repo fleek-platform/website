@@ -48,7 +48,7 @@ const SidebarMenu: FC<Props> = ({ data, pathname }) => {
   }, [activeSlug, activeCategory]);
 
   return (
-    <ul className="mb-[150px]">
+    <ul className="mb-80 lg:mb-[150px]">
       <li className="">
         <a
           href="/docs"
