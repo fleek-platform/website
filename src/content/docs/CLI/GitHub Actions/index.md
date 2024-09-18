@@ -54,7 +54,7 @@ FLEEK_PROJECT_ID  <PROJECT-ID>
 You can create your own GitHub Action with any necessary customizations; The Fleek-platform CLI's generated GitHub Action provides a starting point for deploying your site to Fleek.
 :::
 
-Next, you can navigate to the GitHub's Actions tab. Commit and push a change to your repository in order to trigger the Fleek CI to be executed. 
+Next, you can navigate to the GitHub's Actions tab. Commit and push a change to your repository in order to trigger the Fleek CI to be executed.
 
 You can access the Actions tab of you repository at `https://github.com/<ORGANIZATION>/<REPOSITORY-NAME>`, e.g. for the Fleek's Website [repository](https://github.com/fleek-platform/website) you'd access it [here](https://github.com/fleek-platform/website/actions).
 
@@ -64,7 +64,7 @@ Users migrating from Fleek.co should adapt their setup to use the Fleek Platform
 
 Alternatively, you can use the following as a reference to perform the required changes.
 
-1) Backup the original Fleek deploy yaml file.
+1. Backup the original Fleek deploy yaml file.
 
 ```sh
 git mv .github/workflows/deploy.yml .github/workflows/deploy.yml.bak
@@ -72,18 +72,18 @@ git mv .github/workflows/deploy.yml .github/workflows/deploy.yml.bak
 
 You can delete this file later. But keep it as a reference to move any customization to the new GitHub Action.
 
-2) Remove the secret `FLEEK_API_KEY` from GitHub's repository secrets, read the documentation [here](https://docs.github.com/en/actions/security-for-github-actions/security-guides/using-secrets-in-github-actions)
+2. Remove the secret `FLEEK_API_KEY` from GitHub's repository secrets, read the documentation [here](https://docs.github.com/en/actions/security-for-github-actions/security-guides/using-secrets-in-github-actions)
 
-3) Generate a new GitHub Action as instructed [here](#create-a-github-action-for-fleek-sites-deployment)
+3. Generate a new GitHub Action as instructed [here](#create-a-github-action-for-fleek-sites-deployment)
 
-4) Use the step 1's backup file to copy any custom steps or commands onto the new GitHub Action file
+4. Use the step 1's backup file to copy any custom steps or commands onto the new GitHub Action file
 
-Next, you can navigate to the GitHub's Actions tab. Commit and push a change to your repository in order to trigger the Fleek CI to be executed. 
+Next, you can navigate to the GitHub's Actions tab. Commit and push a change to your repository in order to trigger the Fleek CI to be executed.
 
 You can access the Actions tab of you repository at `https://github.com/<ORGANIZATION>/<REPOSITORY-NAME>`, e.g. for the Fleek's Website [repository](https://github.com/fleek-platform/website) you'd access it [here](https://github.com/fleek-platform/website/actions).
 
-5) When happy, feel free to delete the backup file
+5. When happy, feel free to delete the backup file
 
 ```sh
-git rm .github/workflows/deploy.yml.bak 
+git rm .github/workflows/deploy.yml.bak
 ```
