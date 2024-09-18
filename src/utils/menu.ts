@@ -25,3 +25,24 @@ export const customFilterByDirectoryName = ({ name }: { name: string }) => {
     ? customFilterByDirectoryNameOverride[name]
     : name;
 };
+
+export const scrollToActiveItem = ({
+  container,
+  item,
+}: {
+  container: string;
+  item: string;
+}) => {
+  const scrollableContainer = document.querySelector(container);
+  const activeItem = document.querySelector(item);
+
+  if (scrollableContainer && activeItem) {
+    const scrollOffset =
+      activeItem.getBoundingClientRect().top -
+      scrollableContainer.getBoundingClientRect().top;
+
+    scrollableContainer.scrollTo({
+      top: scrollableContainer.scrollTop + scrollOffset - 20,
+    });
+  }
+};

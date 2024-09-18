@@ -7,6 +7,7 @@ import { generateSlug } from '@utils/url';
 import clsx from 'clsx';
 import { useMediaQuery } from '@hooks/useMediaQuery';
 import { down } from '@utils/screens';
+import { scrollToActiveItem } from '@utils/menu';
 
 interface Props {
   data: GenerateSidebarResponse;
@@ -40,22 +41,14 @@ const SidebarMenu: FC<Props> = ({ data, pathname }) => {
   const isMd = useMediaQuery(down('md'));
 
   useEffect(() => {
-    const scrollableContainer = document.querySelector('.scrollable-menu');
-    const activeItem = document.querySelector('.active-menu-item');
-
-    if (scrollableContainer && activeItem) {
-      const scrollOffset =
-        activeItem.getBoundingClientRect().top -
-        scrollableContainer.getBoundingClientRect().top;
-
-      scrollableContainer.scrollTo({
-        top: scrollableContainer.scrollTop + scrollOffset - 20,
-      });
-    }
+    scrollToActiveItem({
+      container: '.scrollable-menu',
+      item: '.active-menu-item',
+    });
   }, [activeSlug, activeCategory]);
 
   return (
-    <ul className="mb-80">
+    <ul className="mb-[150px]">
       <li className="">
         <a
           href="/docs"
