@@ -1,4 +1,4 @@
-import { useEffect, useRef, type FC } from 'react';
+import { useEffect, type FC } from 'react';
 import {
   ROOT_FALLBACK_CATEGORY,
   type GenerateSidebarResponse,
