@@ -1,4 +1,4 @@
-import { act, useEffect, type FC } from 'react';
+import { useEffect, type FC } from 'react';
 import {
   ROOT_FALLBACK_CATEGORY,
   type GenerateSidebarResponse,
@@ -7,7 +7,6 @@ import { generateSlug } from '@utils/url';
 import clsx from 'clsx';
 import { useMediaQuery } from '@hooks/useMediaQuery';
 import { down } from '@utils/screens';
-import { scrollToActiveItem } from '@utils/menu';
 import { useScrollToActiveItem } from '@hooks/useScrollToActiveItem';
 
 interface Props {
