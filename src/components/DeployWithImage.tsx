@@ -1,16 +1,8 @@
 import clsx from 'clsx';
-
-import Container from '@components/Container';
-import PageSection from '@components/PageSection';
-import GridLayout from '@components/GridLayout';
-import Button from '@components/Button';
-import TextGlowHoverEffect from '@components/TextGlowHoverEffect';
-
-import type { RoundedType } from '@components/PageSection';
-import Link, { Target } from '@components/Link';
-
 import { down } from '@utils/screens';
-import Text from './Text';
+import type { RoundedType } from '@components/PageSection';
+import { Text } from './v2/LandingPage/Text/Text';
+import { Container } from './v2/LandingPage/Container/Container';
 
 const IconList = [
   {
@@ -65,8 +57,8 @@ const Card: React.FC<CardProp> = (props) => {
           <img src={props.icon} />
         </div>
       </div>
-      <div className="mt-16">
-        <Text style="caption-s">{props.description}</Text>
+      <div className="mt-16 font-plex-sans text-[1.28rem] font-medium uppercase tracking-[0.256rem] text-gray-dark-12">
+        {props.description}
       </div>
     </div>
   );
@@ -74,16 +66,15 @@ const Card: React.FC<CardProp> = (props) => {
 
 const DeployWithImage: React.FC<Props & OptionalProps> = (props) => {
   return (
-    <div className={'flex flex-col-reverse gap-44 pb-64 pt-64 lg:flex-row'}>
+    <Container
+      lightSide="left"
+      className="flex flex-col-reverse gap-44 lg:flex-row"
+    >
       <div className="col-span-16 flex basis-7/12 flex-col items-center justify-center lg:col-span-8 lg:items-start">
-        <h1 className="typo-h5 mb-24 hidden text-center text-gray-dark-12 lg:typo-h4 lg:block lg:text-start">
-          {props.headline}
-        </h1>
-
-        <p className="typo-m hidden text-center lg:typo-l lg:block lg:text-start">
-          {props.copy}
-        </p>
-
+        <div className="space-y-24">
+          <Text as="h3">{props.headline}</Text>
+          <Text variant="description">{props.copy}</Text>
+        </div>
         <div className="flex flex-col gap-20 text-gray-dark-12 lg:mt-48 lg:flex-row">
           {IconList.map((item, index) => {
             return (
@@ -111,15 +102,15 @@ const DeployWithImage: React.FC<Props & OptionalProps> = (props) => {
         />
       </div>
       <div className="col-span-16 flex basis-7/12 flex-col items-center justify-center lg:col-span-8 lg:hidden lg:items-start">
-        <h1 className="typo-h5 mb-24 mr-64 text-left text-gray-dark-12 lg:typo-h4 lg:text-start">
+        <h3 className="typo-h5 mb-24 mr-64 text-left text-gray-dark-12 lg:typo-h4 lg:text-start">
           {props.headline}
-        </h1>
+        </h3>
 
         <p className="typo-m mr-64 text-left lg:typo-l lg:text-start">
           {props.copy}
         </p>
       </div>
-    </div>
+    </Container>
   );
 };
 

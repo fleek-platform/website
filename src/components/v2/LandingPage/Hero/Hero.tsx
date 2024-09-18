@@ -4,27 +4,26 @@ import { Announcement } from '../../Announcement/Announcement';
 import { Button } from '../../Button/Button';
 import { Target } from '@components/Link';
 import { BlurFade } from '../../BlurFade/BlurFade';
+import { Text } from '../Text/Text';
 
 export const Hero = () => {
   const calculateDelay = (factor: number) => 0.25 * factor;
 
   return (
-    <header className="relative">
-      <div className="pointer-events-none absolute -left-1/2 -top-1/2 -z-1 h-400 w-400 bg-[radial-gradient(closest-side,rgb(34_34_34_/0.85),transparent)] sm:-left-304 sm:-top-240 sm:w-800"></div>
+    <header className="relative mx-auto w-full max-w-[1048px] px-24">
+      <div className="pointer-events-none absolute -left-1/2 -top-1/2 -z-1 h-400 w-400 bg-[radial-gradient(closest-side,rgb(34_34_34_/0.85),transparent)] sm:-left-304 sm:-top-240 sm:w-800" />
       <section className="flex flex-col justify-center gap-24 pt-64">
         <BlurFade delay={calculateDelay(0)} className="w-fit">
           <Announcement variant="content" />
         </BlurFade>
         <section className="flex max-w-800 flex-col gap-24">
           <BlurFade delay={calculateDelay(1)}>
-            <h1 className="text-balance font-sans text-36 font-semibold leading-tight -tracking-2 text-gray-dark-12 sm:text-52">
-              {settings.landingPage.hero.h1}
-            </h1>
+            <Text as="h1">{settings.landingPage.hero.h1}</Text>
           </BlurFade>
           <BlurFade delay={calculateDelay(2)}>
-            <h2 className="text-balance font-plex-sans text-18 font-medium text-gray-dark-11">
+            <Text variant="description" as="h2">
               {settings.landingPage.hero.h2}
-            </h2>
+            </Text>
           </BlurFade>
           <div className="flex items-center gap-12">
             <BlurFade delay={calculateDelay(3)}>
@@ -55,7 +54,7 @@ export const Hero = () => {
                 alt="Fleek hero image"
               />
             </BlurFade>
-            <div className="pointer-events-none absolute bottom-0 right-0 top-0 w-400 bg-gradient-to-l from-black via-transparent to-transparent"></div>
+            <div className="pointer-events-none absolute bottom-0 right-0 top-0 w-400 bg-gradient-to-l from-black via-transparent to-transparent" />
           </div>
         </div>
       </section>

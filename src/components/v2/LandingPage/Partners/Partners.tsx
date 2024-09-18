@@ -35,7 +35,7 @@ const Partner: React.FC<PartnerProps> = ({ name, logo, caseStudyUrl }) => {
 
 export const Partners: React.FC = () => {
   return (
-    <section className="flex flex-col items-center gap-24">
+    <section className="mx-auto flex w-full max-w-[1048px] flex-col items-center gap-24 px-24 pb-52">
       <h3 className="max-w-480 text-balance text-center font-plex-sans text-20 leading-tight text-gray-dark-11 sm:text-24">
         Join <span className="font-bold text-gray-dark-12">100,000+</span>
         &nbsp;developers who rely on Fleek to power their Web apps and tools.

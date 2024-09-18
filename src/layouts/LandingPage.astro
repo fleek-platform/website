@@ -2,10 +2,8 @@
 import '@styles/globals.css';
 import { getSiteUrl } from '@utils/url';
 import settings from '@base/settings.json';
-import { Navbar } from '@components/v2/Navbar/Navbar';
 
 interface Props {
-  canonicalUrl: string;
   ogMeta: {
     title: string;
     description: string;
@@ -14,7 +12,7 @@ interface Props {
   };
 }
 
-const { canonicalUrl, ogMeta } = Astro.props;
+const { ogMeta } = Astro.props;
 const baseUrl = getSiteUrl();
 ---
 
@@ -28,7 +26,6 @@ const baseUrl = getSiteUrl();
     />
     <link rel="icon" type="image/svg+xml" href="/favicon.ico" />
     <link rel="sitemap" href="/sitemap-index.xml" />
-    <link rel="canonical" href={canonicalUrl} />
     <link
       rel="preload"
       href="/fonts/atyp/AtypDisplay-Regular.woff2"
@@ -115,10 +112,6 @@ const baseUrl = getSiteUrl();
         style={{ display: 'none', visibility: 'hidden' }}></iframe>
     </noscript>
     <!-- End Google Tag Manager (noscript) -->
-
-    <Navbar pathname={Astro.url.pathname} client:load />
-    <main class="mx-auto min-h-full w-full max-w-[1048px] px-24">
-      <slot />
-    </main>
+    <slot />
   </body>
 </html>

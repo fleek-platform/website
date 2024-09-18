@@ -1,16 +1,6 @@
 import clsx from 'clsx';
-
-import Container from '@components/Container';
-import PageSection from '@components/PageSection';
-import GridLayout from '@components/GridLayout';
-import Button from '@components/Button';
-import TextGlowHoverEffect from '@components/TextGlowHoverEffect';
 import { GrShare } from 'react-icons/gr';
-
 import type { RoundedType } from '@components/PageSection';
-import Link, { Target } from '@components/Link';
-
-import { down } from '@utils/screens';
 import Text from './Text';
 
 const IconList = [
@@ -76,11 +66,7 @@ const Card: React.FC<CardProp> = (props) => {
 
 const ImpressUsers: React.FC<Props & OptionalProps> = ({ rounded }) => {
   return (
-    <div
-      className={
-        'flex flex-col gap-44 overflow-hidden rounded-b-12 p-10 pb-64 pt-24 lg:relative lg:flex-row lg:px-42 lg:py-80'
-      }
-    >
+    <div className="flex flex-col gap-44 overflow-hidden rounded-b-12 border-t p-10 pb-64 pt-24 lg:relative lg:flex-row lg:px-42 lg:py-80">
       <div
         className={clsx(
           'col-span-16 hidden basis-6/12 justify-center overflow-hidden bg-blend-screen  lg:col-span-8 lg:col-start-9 lg:flex',
