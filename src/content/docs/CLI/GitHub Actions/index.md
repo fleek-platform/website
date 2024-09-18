@@ -31,7 +31,7 @@ fleek sites ci
 
 A wizard will guide you to create a GitHub Action configuration file of type `json`, `js` or `ts`, e.g. `fleek.config.json`.
 
-The file is saved in the local GitHub Workflows directory. Optionally, you can customize the modify the path.
+The process saves the file in the local GitHub Workflows directory. You can optionally customize the path.
 
 ```sh
 .github/workflows/fleek-deploy.yaml
