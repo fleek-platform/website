@@ -1,9 +1,9 @@
 import settings from '@base/settings.json';
 import { FaChevronRight } from 'react-icons/fa6';
-import { Announcement } from '../Announcement/Announcement';
-import { Button } from '../Button/Button';
+import { Announcement } from '../../Announcement/Announcement';
+import { Button } from '../../Button/Button';
 import { Target } from '@components/Link';
-import { BlurFade } from '../BlurFade/BlurFade';
+import { BlurFade } from '../../BlurFade/BlurFade';
 
 export const Hero = () => {
   const calculateDelay = (factor: number) => 0.25 * factor;
@@ -44,11 +44,11 @@ export const Hero = () => {
             </BlurFade>
           </div>
         </section>
-        <div className="relative">
-          <BlurFade delay={calculateDelay(7)}>
+        <div className="relative h-[520px] lg:h-[720px]">
+          <BlurFade delay={calculateDelay(6.5)}>
             <div className="pointer-events-none absolute -top-152 left-[12%] h-496 w-608 bg-[radial-gradient(closest-side,rgb(34_34_34_/0.85),transparent)]"></div>
           </BlurFade>
-          <div className="absolute inset-0 -left-[4%] top-60 h-608 w-[1000px] origin-top-left overflow-hidden rounded-14 border border-r-0 border-gray-dark-3 bg-gray-dark-1/50 transition-all [mask-image:linear-gradient(to_bottom,rgba(0,0,0,1),rgba(0,0,0,1),rgba(0,0,0,0))] [transform:rotateX(35deg)__rotateY(7deg)_rotate(-14.337deg)] lg:-left-[11%] lg:top-108 lg:h-[800px] lg:w-[1200px] xl:w-[1300px] 2xl:-left-[20%] 2xl:w-[1452px]">
+          <div className="absolute inset-0 -left-[4%] top-60 h-608 w-[1000px] origin-top-left overflow-hidden rounded-14 border border-r-0 border-gray-dark-3 bg-gray-dark-1/50 transition-all [mask-image:linear-gradient(to_bottom,rgba(0,0,0,1),rgba(0,0,0,1),rgba(0,0,0,0))] [transform:rotateX(35deg)_rotateY(7deg)_rotate(-14.337deg)] lg:-left-[11%] lg:top-108 lg:h-[800px] lg:w-[1200px] xl:w-[1300px] 2xl:-left-[20%] 2xl:w-[1452px]">
             <BlurFade delay={calculateDelay(6)}>
               <img
                 src={settings.landingPage.hero.image}
