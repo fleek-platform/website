@@ -18,12 +18,12 @@ export const Hero = () => {
         <section className="flex max-w-800 flex-col gap-24">
           <BlurFade delay={calculateDelay(1)}>
             <h1 className="text-balance font-sans text-36 font-semibold leading-tight -tracking-2 text-gray-dark-12 sm:text-52">
-              {settings.landingPage.copy.h1}
+              {settings.landingPage.hero.h1}
             </h1>
           </BlurFade>
           <BlurFade delay={calculateDelay(2)}>
             <h2 className="text-balance font-plex-sans text-18 font-medium text-gray-dark-11">
-              {settings.landingPage.copy.h2}
+              {settings.landingPage.hero.h2}
             </h2>
           </BlurFade>
           <div className="flex items-center gap-12">
@@ -33,12 +33,12 @@ export const Hero = () => {
                 rel="noopener noreferrer"
                 target={Target.Blank}
               >
-                {settings.landingPage.copy.primaryCta}
+                {settings.landingPage.hero.primaryCta}
               </Button>
             </BlurFade>
             <BlurFade delay={calculateDelay(3.5)}>
               <Button variant="ghost" href="/docs">
-                {settings.landingPage.copy.secondaryCta}
+                {settings.landingPage.hero.secondaryCta}
                 <FaChevronRight className="size-12" />
               </Button>
             </BlurFade>
@@ -50,7 +50,10 @@ export const Hero = () => {
           </BlurFade>
           <div className="absolute inset-0 -left-[4%] top-60 h-608 w-[1000px] origin-top-left overflow-hidden rounded-14 border border-r-0 border-gray-dark-3 bg-gray-dark-1/50 transition-all [mask-image:linear-gradient(to_bottom,rgba(0,0,0,1),rgba(0,0,0,1),rgba(0,0,0,0))] [transform:rotateX(35deg)__rotateY(7deg)_rotate(-14.337deg)] lg:-left-[11%] lg:top-108 lg:h-[800px] lg:w-[1200px] xl:w-[1300px] 2xl:-left-[20%] 2xl:w-[1452px]">
             <BlurFade delay={calculateDelay(6)}>
-              <img src="/images/landing-page/hero.webp" />
+              <img
+                src={settings.landingPage.hero.image}
+                alt="Fleek hero image"
+              />
             </BlurFade>
             <div className="pointer-events-none absolute bottom-0 right-0 top-0 w-400 bg-gradient-to-l from-black via-transparent to-transparent"></div>
           </div>

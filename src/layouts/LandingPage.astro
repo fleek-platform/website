@@ -107,14 +107,6 @@ const baseUrl = getSiteUrl();
   >
     <!-- Google Tag Manager (noscript version) -->
     <!-- WARNING: The script version is above see /lib/gtm.js -->
-    <noscript
-      ><iframe
-        src="https://www.googletagmanager.com/ns.html?id=GTM-WMT553Z"
-        height="0"
-        width="0"
-        style="display:none;visibility:hidden"></iframe></noscript
-    >
-    <!-- End Google Tag Manager (noscript) -->
     <noscript>
       <iframe
         src="https://www.googletagmanager.com/ns.html?id=GTM-WMT553Z"
@@ -122,6 +114,7 @@ const baseUrl = getSiteUrl();
         width="0"
         style={{ display: 'none', visibility: 'hidden' }}></iframe>
     </noscript>
+    <!-- End Google Tag Manager (noscript) -->
 
     <Navbar pathname={Astro.url.pathname} client:load />
     <main class="mx-auto min-h-full w-full max-w-[1048px] px-24">

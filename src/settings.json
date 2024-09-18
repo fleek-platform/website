@@ -127,11 +127,12 @@
     }
   },
   "landingPage": {
-    "copy": {
+    "hero": {
       "h1": "Lightning-fast, low-cost hosting without the corporate headache",
       "h2": "Fleek is the cloud platform where performance meets simplicity. No hidden fees or corporate red tape—just the speed and reliability you need to build great apps and experiences.",
       "primaryCta": "Get started",
-      "secondaryCta": "Read our docs"
+      "secondaryCta": "Read our docs",
+      "image": "/images/landing-page/hero.webp"
     }
   },
   "docs": {

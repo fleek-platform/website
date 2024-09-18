@@ -38,7 +38,12 @@ const NavbarMobileItem: React.FC<NavMenuItem> = ({
             rel={subMenuItem.openInNewTab ? 'noopener noreferrer' : undefined}
             className="flex items-center gap-8 rounded-8 border-t border-gray-dark-4 bg-gradient-to-br from-gray-dark-3 via-gray-dark-2 to-gray-dark-2 p-12 shadow-soft active:bg-gray-dark-3"
           >
-            <img src={subMenuItem.icon} width={14} className="opacity-50" />
+            <img
+              src={subMenuItem.icon}
+              width={14}
+              className="opacity-50"
+              alt={subMenuItem.description}
+            />
             <span className="text-gray-dark-12">{subMenuItem.label}</span>
           </Link>
         ))}
@@ -110,6 +115,7 @@ const NavbarSubMenuItem: React.FC<NavSubMenuItem> = ({
           src={icon}
           width={18}
           className="absolute translate-x-0 transition-all group-hover:translate-x-5 group-hover:opacity-0 group-focus-visible:translate-x-5 group-focus-visible:opacity-0"
+          alt={description}
         />
       </div>
       <div className="flex flex-col">
