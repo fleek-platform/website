@@ -102,15 +102,12 @@ const image = settings.site.metadata.docs.image;
           <div class="docs-search-container">
             <SearchBtn client:load indexName={indexNameDocs} />
           </div>
-          <div
-            class="scrollable-menu max-h-[90vh] w-full overflow-y-auto pr-[10px]"
-          >
-            <Sidebar
-              client:load
-              data={sidebarSorted}
-              pathname={Astro.url.pathname}
-            />
-          </div>
+
+          <Sidebar
+            client:load
+            data={sidebarSorted}
+            pathname={Astro.url.pathname}
+          />
         </div>
       </aside>
       <div class="min-w-0 px-32">

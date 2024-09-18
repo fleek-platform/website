@@ -1,4 +1,4 @@
-import { useEffect, type FC } from 'react';
+import { act, useEffect, type FC } from 'react';
 import {
   ROOT_FALLBACK_CATEGORY,
   type GenerateSidebarResponse,
@@ -8,6 +8,7 @@ import clsx from 'clsx';
 import { useMediaQuery } from '@hooks/useMediaQuery';
 import { down } from '@utils/screens';
 import { scrollToActiveItem } from '@utils/menu';
+import { useScrollToActiveItem } from '@hooks/useScrollToActiveItem';
 
 interface Props {
   data: GenerateSidebarResponse;
@@ -33,6 +34,9 @@ const SidebarMenu: FC<Props> = ({ data, pathname }) => {
       : splitted.length === 2
         ? splitted[1]
         : splitted[0];
+  const isActive = Boolean(activeCategory) || Boolean(activeSlug);
+  const { containerRef: scrollableContainerRef } =
+    useScrollToActiveItem(isActive);
   const isHome = activeSlug === 'docs';
   const isActiveCategory = (category: string) => category === activeCategory;
   const isActiveSlug = (slug: string) => slug === activeSlug;
@@ -40,15 +44,11 @@ const SidebarMenu: FC<Props> = ({ data, pathname }) => {
   let isOpen = true;
   const isMd = useMediaQuery(down('md'));
 
-  useEffect(() => {
-    scrollToActiveItem({
-      container: '.scrollable-menu',
-      item: '.active-menu-item',
-    });
-  }, [activeSlug, activeCategory]);
-
   return (
-    <ul className="mb-80 lg:mb-[150px]">
+    <ul
+      className="mb-80 max-h-[90vh] overflow-y-auto pr-[10px] lg:pb-[150px]"
+      ref={scrollableContainerRef}
+    >
       <li className="">
         <a
           href="/docs"
