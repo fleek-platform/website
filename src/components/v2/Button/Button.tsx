@@ -3,7 +3,7 @@ import type { PropsWithChildren } from 'react';
 import { type VariantProps, cva } from 'class-variance-authority';
 import { cn } from '@utils/cn';
 
-const buttonVariants = cva(
+export const buttonVariants = cva(
   'flex font-medium gap-4 select-none font-plex-sans cursor-pointer items-center justify-center transition-all ring-0 outline-none focus-visible:ring-2',
   {
     variants: {
@@ -16,10 +16,15 @@ const buttonVariants = cva(
           'bg-gray-dark-12 text-gray-dark-1 hover:bg-gray-dark-11 active:bg-gray-dark-12 ring-gray-dark-8',
         ghost:
           'bg-transparent hover:bg-gray-dark-3 active:bg-gray-dark-2 text-gray-dark-11 ring-gray-dark-8',
+        'app-primary':
+          'bg-yellow-dark-3 hover:bg-yellow-dark-4 active:bg-yellow-dark-3 text-yellow-dark-11 ring-yellow-dark-8',
+        'app-success':
+          'bg-ui-green hover:bg-ui-light-green text-ui-faded-green ring-ui-faded-green',
       },
       size: {
         sm: 'h-32 gap-4 px-8 rounded-8 text-[1.4rem]',
         md: 'h-40 gap-8 px-16 rounded-12 text-[1.6rem]',
+        lg: 'h-44 gap-8 rounded-12 text-[1.6rem]',
       },
     },
     defaultVariants: {

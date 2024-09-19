@@ -1,6 +1,6 @@
 import React from 'react';
-import ExplainerCard from '@components/ExplainerCard';
 import { Container } from './v2/LandingPage/Container/Container';
+import { Text } from './v2/LandingPage/Text/Text';
 
 const List = [
   {
@@ -39,15 +39,37 @@ const List = [
   },
 ];
 
+type CardProp = {
+  icon: string;
+  title: string;
+  description: string;
+};
+
+const ExplainerCard: React.FC<CardProp> = (props) => {
+  return (
+    <div className="flex flex-col gap-16 rounded-16 border-t border-gray-dark-5 bg-gradient-to-br from-gray-dark-2 to-gray-dark-1 p-28">
+      <div>
+        <img src={props.icon} className="h-32 sm:h-60" alt={props.title} />
+      </div>
+      <div>
+        <p className="w-2/3 font-sans text-24 font-medium leading-tight -tracking-1 text-gray-dark-12 lg:text-34">
+          {props.title}
+        </p>
+      </div>
+      <div>
+        <p className="typo-m w-4/5 text-gray-dark-11">{props.description}</p>
+      </div>
+    </div>
+  );
+};
+
 const ExplainerBlocks: React.FC = () => {
   return (
     <Container>
-      <div className="flex flex-col gap-24 text-center">
-        <h3 className="typo-h5 pt-64 text-gray-dark-12 lg:typo-h4">
-          Enjoy the (Developer) Experience
-        </h3>
+      <div className="flex flex-col gap-24 sm:text-center">
+        <Text as="h3">Enjoy the (developer) experience</Text>
       </div>
-      <div className="relative grid gap-24 overflow-hidden py-64 sm:grid-cols-2 sm:gap-44 lg:grid-cols-3 lg:py-80">
+      <div className="grid gap-16 overflow-hidden pt-42 sm:grid-cols-2 sm:pt-80 lg:grid-cols-3">
         {List.map((item, index) => {
           return (
             <ExplainerCard
@@ -58,10 +80,10 @@ const ExplainerBlocks: React.FC = () => {
             />
           );
         })}
-
         <img
-          src="/svg/dotted-squiggle-bg.svg"
-          className="absolute top-1/3 -z-1 hidden scale-110 lg:block"
+          src="/images/circles.png"
+          alt="bg-squiggle"
+          className="absolute bottom-0 left-0 right-0 top-[16.5%] -z-1 m-auto hidden w-full max-w-[1500px] sm:block"
         />
       </div>
     </Container>

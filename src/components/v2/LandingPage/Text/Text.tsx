@@ -9,6 +9,8 @@ const textVariants = cva([], {
         'text-balance font-sans text-[3.6rem] font-semibold leading-tight -tracking-2 text-gray-dark-12 sm:text-[5.2rem]',
       description:
         'text-balance font-plex-sans text-[1.8rem] font-medium text-gray-dark-11',
+      feature:
+        'font-plex-sans text-[1.2rem] font-medium uppercase tracking-[0.256rem] text-gray-dark-11',
     },
   },
   defaultVariants: {

@@ -9,7 +9,7 @@ import {
 
 type MarginType = UseInViewOptions['margin'];
 
-interface BlurFadeProps {
+type BlurFadeProps = {
   children: React.ReactNode;
   className?: string;
   variant?: {
@@ -22,7 +22,7 @@ interface BlurFadeProps {
   inView?: boolean;
   inViewMargin?: MarginType;
   blur?: string;
-}
+};
 
 export const BlurFade: React.FC<BlurFadeProps> = ({
   children,

@@ -241,11 +241,11 @@ export const Navbar: React.FC<NavbarProps> = ({ pathname }) => {
         onMouseLeave={() => setHovering(null)}
         className="z-20 mx-auto mt-18 flex h-50 w-full max-w-[1000px] items-center justify-between rounded-12 border border-gray-dark-3 bg-gray-dark-1/[.97] pr-12 font-plex-sans text-14 font-medium text-gray-dark-11"
       >
-        <div className="flex items-center gap-24">
+        <div className="flex items-center gap-12 lg:gap-24">
           <Link
             tabIndex={0}
             href="/"
-            className="flex h-48 items-center rounded-l-12 px-12 outline-none ring-0 focus-visible:bg-gray-dark-3"
+            className="flex h-48 shrink-0 items-center rounded-l-12 px-12 outline-none ring-0 focus-visible:bg-gray-dark-3"
             onFocus={() => setHovering(null)}
             onMouseEnter={() => setHovering(null)}
           >
