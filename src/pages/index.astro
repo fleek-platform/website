@@ -1,5 +1,4 @@
 ---
-import settings from '@base/settings.json';
 import LandingPageHtml from '@layouts/LandingPage.astro';
 import { Navbar } from '@components/v2/Navbar/Navbar';
 import { Hero } from '@components/v2/LandingPage/Hero/Hero';
@@ -13,14 +12,7 @@ import ReadyToLive from '@components/ReadyToLive';
 import Footer from '@components/Footer';
 ---
 
-<LandingPageHtml
-  ogMeta={{
-    title: settings.site.metadata.landingPage.title,
-    description: settings.site.metadata.landingPage.description,
-    slug: settings.site.metadata.landingPage.slug,
-    image: settings.site.metadata.landingPage.image,
-  }}
->
+<LandingPageHtml>
   <Navbar pathname={Astro.url.pathname} client:load />
   <Hero client:load />
   <Partners />
