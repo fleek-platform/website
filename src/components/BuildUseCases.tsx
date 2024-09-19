@@ -1,18 +1,11 @@
 import CardsWithDottedLinesBackground from '@components/CardsWithDottedLinesBackground';
 
-import type { RoundedType } from '@components/PageSection';
-
-interface Props {
-  rounded?: RoundedType;
-}
-// TODO: Should the card declaration be in the settings?
-const BuildUseCases: React.FC<Props> = (props) => (
+const BuildUseCases: React.FC = () => (
   <CardsWithDottedLinesBackground
-    rounded={props.rounded}
     headline="Start with Templates"
     cta={{
       url: 'https://app.fleek.xyz/templates/',
-      text: 'Browse templates',
+      text: 'Browse all templates',
     }}
     cardSections={[
       {
