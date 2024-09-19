@@ -3,13 +3,13 @@ import type { PropsWithChildren } from 'react';
 
 type ContainerProps = PropsWithChildren & {
   className?: string;
-  lightSide?: 'left' | 'right';
+  gradient?: 'left' | 'right';
 };
 
 export const Container: React.FC<ContainerProps> = ({
   children,
   className,
-  lightSide = 'left',
+  gradient = 'left',
 }) => {
   return (
     <section className="relative overflow-clip border-t border-gray-dark-4 py-54">
@@ -17,8 +17,8 @@ export const Container: React.FC<ContainerProps> = ({
         className={cn(
           'absolute top-0 -z-1 h-full w-1/3 from-gray-dark-2/80 via-transparent to-transparent',
           {
-            'left-0 bg-gradient-to-br': lightSide === 'left',
-            'right-0 bg-gradient-to-bl': lightSide === 'right',
+            'left-0 bg-gradient-to-br': gradient === 'left',
+            'right-0 bg-gradient-to-bl': gradient === 'right',
           },
         )}
       />

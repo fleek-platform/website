@@ -63,7 +63,7 @@ const Card: React.FC<CardProp> = (props) => {
 
 const DeployWithImage: React.FC<Props & OptionalProps> = (props) => {
   return (
-    <Container lightSide="left">
+    <Container gradient="left">
       <div className="flex flex-col items-center justify-between gap-20 md:flex-row">
         <div className="w-full md:max-w-[520px]">
           <div className="space-y-24">

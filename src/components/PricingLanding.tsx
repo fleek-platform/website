@@ -5,7 +5,7 @@ import { Container } from './v2/LandingPage/Container/Container';
 
 const PricingLanding: React.FC = () => {
   return (
-    <Container lightSide="right">
+    <Container gradient="right">
       <div className="relative p-10 pb-64 pt-64 lg:px-42 lg:py-80">
         <div>
           <h2 className="typo-h5 text-center text-gray-dark-12 lg:typo-h4">
