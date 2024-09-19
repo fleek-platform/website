@@ -32,7 +32,7 @@ const Card: React.FC<CardProp> = (props) => {
 
 const ImpressUsers: React.FC = () => {
   return (
-    <Container gradient="right">
+    <Container gradient="right" classNameOuterContainer="pt-[82px] pb-[68px]">
       <div className="grid md:grid-cols-2 lg:gap-48">
         <div className="relative hidden md:block">
           <video

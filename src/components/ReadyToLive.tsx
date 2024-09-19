@@ -7,7 +7,8 @@ const ReadyToLive: React.FC = () => {
   return (
     <Container
       gradient="right"
-      className="flex flex-col items-center space-y-40"
+      classNameOuterContainer="py-[72px]"
+      classNameInnerContainer="flex flex-col items-center space-y-40"
     >
       <Text as="h3">Are you on Fleek yet?</Text>
       <Button

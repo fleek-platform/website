@@ -65,7 +65,7 @@ const ExplainerCard: React.FC<CardProp> = (props) => {
 
 const ExplainerBlocks: React.FC = () => {
   return (
-    <Container>
+    <Container classNameOuterContainer="pt-[72px] pb-[105px]">
       <div className="flex flex-col gap-24 sm:text-center">
         <Text as="h3">Enjoy the (developer) experience</Text>
       </div>

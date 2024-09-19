@@ -33,7 +33,7 @@ interface Props {
 }
 
 const CardsWithDottedLinesBackground: React.FC<Props> = (props) => (
-  <Container>
+  <Container classNameOuterContainer="py-[72px]">
     <div className="col-span-16 flex flex-col gap-48 lg:col-span-12 lg:col-start-3">
       <div className="flex flex-col gap-24 text-center">
         <Text as="h3">{props.headline}</Text>

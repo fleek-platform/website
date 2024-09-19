@@ -2,17 +2,24 @@ import { cn } from '@utils/cn';
 import type { PropsWithChildren } from 'react';
 
 type ContainerProps = PropsWithChildren & {
-  className?: string;
+  classNameInnerContainer?: string;
+  classNameOuterContainer?: string;
   gradient?: 'left' | 'right';
 };
 
 export const Container: React.FC<ContainerProps> = ({
   children,
-  className,
+  classNameInnerContainer,
+  classNameOuterContainer,
   gradient = 'left',
 }) => {
   return (
-    <section className="relative overflow-clip border-t border-gray-dark-4 py-54">
+    <section
+      className={cn(
+        'relative overflow-clip border-t border-gray-dark-4 py-54',
+        classNameOuterContainer,
+      )}
+    >
       <div
         className={cn(
           'absolute top-0 -z-1 h-full w-1/3 from-gray-dark-2/80 via-transparent to-transparent',
@@ -22,7 +29,12 @@ export const Container: React.FC<ContainerProps> = ({
           },
         )}
       />
-      <div className={cn('mx-auto w-full max-w-[1048px] px-24', className)}>
+      <div
+        className={cn(
+          'mx-auto w-full max-w-[1048px] px-24',
+          classNameInnerContainer,
+        )}
+      >
         {children}
       </div>
     </section>
