@@ -12,12 +12,13 @@ export const Container: React.FC<ContainerProps> = ({
   lightSide = 'left',
 }) => {
   return (
-    <section className="relative overflow-clip border-t border-gray-dark-6 py-54">
+    <section className="relative overflow-clip border-t border-gray-dark-4 py-54">
       <div
         className={cn(
-          'absolute left-0 top-0 -z-1 h-full w-1/4 bg-gradient-to-br from-gray-dark-2 via-transparent to-transparent',
+          'absolute top-0 -z-1 h-full w-1/3 from-gray-dark-2/80 via-transparent to-transparent',
           {
-            'right-0': lightSide === 'right',
+            'left-0 bg-gradient-to-br': lightSide === 'left',
+            'right-0 bg-gradient-to-bl': lightSide === 'right',
           },
         )}
       />

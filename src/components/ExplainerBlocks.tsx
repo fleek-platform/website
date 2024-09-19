@@ -1,5 +1,6 @@
 import React from 'react';
 import ExplainerCard from '@components/ExplainerCard';
+import { Container } from './v2/LandingPage/Container/Container';
 
 const List = [
   {
@@ -40,7 +41,7 @@ const List = [
 
 const ExplainerBlocks: React.FC = () => {
   return (
-    <div className="border-t">
+    <Container>
       <div className="flex flex-col gap-24 text-center">
         <h3 className="typo-h5 pt-64 text-gray-dark-12 lg:typo-h4">
           Enjoy the (Developer) Experience
@@ -63,7 +64,7 @@ const ExplainerBlocks: React.FC = () => {
           className="absolute top-1/3 -z-1 hidden scale-110 lg:block"
         />
       </div>
-    </div>
+    </Container>
   );
 };
 
