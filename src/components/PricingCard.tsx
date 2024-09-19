@@ -13,7 +13,6 @@ export type Props = {
 };
 
 const PricingCard: React.FC<Props> = (props) => {
-  console.log(props.variant);
   return (
     <>
       <style>

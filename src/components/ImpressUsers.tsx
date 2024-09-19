@@ -36,12 +36,18 @@ const ImpressUsers: React.FC = () => {
       <div className="grid md:grid-cols-2 lg:gap-48">
         <div className="relative hidden md:block">
           <video
-            src="https://fleek.network/media/globe_animation.mp4"
             className="z-0 pointer-events-none absolute left-[25%] hidden -translate-x-1/2 -translate-y-1/2 scale-[2.4] transform-gpu mix-blend-screen sm:block md:top-[65%] lg:top-[80%]"
             width={520}
             height={480}
             autoPlay
-          />
+            muted
+            loop
+          >
+            <source
+              src="https://fleek.network/media/globe_animation.mp4"
+              type="video/mp4"
+            />
+          </video>
         </div>
         <div>
           <div className="space-y-24">
