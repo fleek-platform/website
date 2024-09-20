@@ -37,11 +37,14 @@ const Card: React.FC<CardProp> = (props) => {
 
 const ImpressUsers: React.FC = () => {
   return (
-    <Container gradient="right" classNameOuterContainer="pt-[82px] pb-[68px]">
-      <div className="grid md:grid-cols-2 lg:gap-48">
+    <Container
+      gradient="right"
+      classNameOuterContainer="sm:pt-[82px] sm:pb-[68px] overflow-clip min-h-[640px] lg:min-h-[540px]"
+    >
+      <div className="grid md:grid-cols-2 md:gap-12 lg:gap-48 xl:gap-80">
         <div className="relative hidden md:block">
           <video
-            className="z-0 pointer-events-none absolute left-[25%] hidden -translate-x-1/2 -translate-y-1/2 scale-[2.4] transform-gpu mix-blend-screen sm:block md:top-[65%] lg:top-[80%]"
+            className="pointer-events-none absolute left-[25%] -z-1 hidden -translate-x-1/2 -translate-y-1/2 scale-[2.4] transform-gpu mix-blend-screen sm:block md:top-[65%] lg:top-[70%] xl:left-[35%]"
             width={520}
             height={480}
             autoPlay

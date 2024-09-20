@@ -6,7 +6,10 @@ import { Text } from './v2/LandingPage/Text/Text';
 
 const PricingLanding: React.FC = () => {
   return (
-    <Container gradient="right" classNameOuterContainer="pt-[72px] pb-[105px]">
+    <Container
+      gradient="right"
+      classNameOuterContainer="sm:pt-[72px] sm:pb-[105px]"
+    >
       <div className="text-center">
         <Text as="h3">Best pricing. Period.</Text>
         <div className="mt-44 flex flex-col justify-center gap-20 lg:flex-row">

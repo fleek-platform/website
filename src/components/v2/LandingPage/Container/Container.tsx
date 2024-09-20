@@ -16,7 +16,7 @@ export const Container: React.FC<ContainerProps> = ({
   return (
     <section
       className={cn(
-        'relative overflow-clip border-t border-gray-dark-4 py-54',
+        'relative border-t border-gray-dark-4 py-54',
         classNameOuterContainer,
       )}
     >
@@ -31,7 +31,7 @@ export const Container: React.FC<ContainerProps> = ({
       />
       <div
         className={cn(
-          'mx-auto w-full max-w-[1048px] px-24',
+          'mx-auto h-full w-full max-w-[1048px] px-24',
           classNameInnerContainer,
         )}
       >
