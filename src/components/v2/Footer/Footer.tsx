@@ -48,7 +48,7 @@ const Footer: React.FC = () => {
               <IconSocial icon="discord" />
             </a>
           </div>
-          <div className="col-span-16">
+          <div className="col-span-16 w-fit">
             <StatusBar />
           </div>
         </div>

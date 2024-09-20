@@ -43,24 +43,24 @@ const CardsWithDottedLinesBackground: React.FC<Props> = (props) => (
         <div className="flex w-full flex-col gap-54">
           {props.cardSections.map((section) => (
             <div key={section.title} className="flex flex-col gap-16 lg:gap-8">
-              <div className="grid gap-8 lg:grid-cols-3 lg:gap-30 lg:gap-x-24">
+              <div className="grid gap-24 lg:grid-cols-3 lg:gap-30 lg:gap-x-24">
                 {section.cards.map(({ title, description, cta, image }) => (
                   <Link
                     href={cta.url}
                     key={title}
                     target={Target.Blank}
                     rel="noreferrer noopener"
-                    className="group overflow-hidden rounded-12 border border-gray-dark-5 transition-all hover:scale-[1.02]"
+                    className="group overflow-hidden rounded-12 border border-gray-dark-5 outline-none ring-0 ring-gray-dark-8 transition-all hover:scale-[1.02] focus-visible:scale-[1.02] focus-visible:ring-2"
                   >
                     <figure className="h-144 overflow-clip">
                       <img
                         src={image}
                         alt={title}
                         loading="lazy"
-                        className="h-full w-full object-cover transition-all group-hover:opacity-80"
+                        className="h-full w-full object-cover transition-all group-hover:opacity-80 group-focus-visible:opacity-80"
                       />
                     </figure>
-                    <div className="space-y-8 bg-gray-dark-2 p-16 font-plex-sans transition-colors group-hover:bg-gray-dark-3">
+                    <div className="space-y-8 bg-gray-dark-2 p-16 font-plex-sans transition-colors group-hover:bg-gray-dark-3 group-focus-visible:bg-gray-dark-3">
                       <p className="text-16 font-bold text-gray-dark-12">
                         {title}
                       </p>
