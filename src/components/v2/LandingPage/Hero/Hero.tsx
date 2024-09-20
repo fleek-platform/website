@@ -51,7 +51,7 @@ export const Hero = () => {
             <BlurFade delay={calculateDelay(6)}>
               <img
                 src={settings.landingPage.hero.image}
-                alt="Fleek hero image"
+                alt="Fleek dashboard"
               />
             </BlurFade>
             <div className="pointer-events-none absolute bottom-0 right-0 top-0 w-400 bg-gradient-to-l from-black via-transparent to-transparent" />

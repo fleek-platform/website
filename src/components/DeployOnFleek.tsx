@@ -26,7 +26,7 @@ const Card: React.FC<CardProp> = (props) => {
   return (
     <div className="flex items-center gap-16 rounded-16 border-t border-gray-dark-5 bg-gradient-to-br from-gray-dark-2 to-gray-dark-1 p-16 md:flex-col md:items-start">
       <div className="flex size-40 justify-center rounded-12 border border-gray-dark-5 bg-gray-dark-1 p-8 md:size-60 md:rounded-16">
-        <img src={props.icon} />
+        <img src={props.icon} alt={props.description} loading="lazy" />
       </div>
       <Text variant="feature">{props.description}</Text>
     </div>
@@ -50,6 +50,7 @@ const DeployOnFleek: React.FC = () => {
             alt="Deploy to repo"
             sizes={`${down('lg')} 100vw, 50vw`}
             className="mt-32 md:hidden"
+            loading="lazy"
           />
           <div className="mt-32 grid gap-20 text-gray-dark-12 md:grid-cols-3">
             {IconList.map((item, index) => {
@@ -68,6 +69,7 @@ const DeployOnFleek: React.FC = () => {
           alt="Deploy to repo"
           sizes={`${down('lg')} 100vw, 50vw`}
           className="hidden w-full md:block md:max-w-[300px] lg:max-w-400"
+          loading="lazy"
         />
       </div>
     </Container>

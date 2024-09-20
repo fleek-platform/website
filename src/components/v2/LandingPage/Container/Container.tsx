@@ -2,15 +2,15 @@ import { cn } from '@utils/cn';
 import type { PropsWithChildren } from 'react';
 
 type ContainerProps = PropsWithChildren & {
-  classNameInnerContainer?: string;
   classNameOuterContainer?: string;
+  classNameInnerContainer?: string;
   gradient?: 'left' | 'right';
 };
 
 export const Container: React.FC<ContainerProps> = ({
   children,
-  classNameInnerContainer,
   classNameOuterContainer,
+  classNameInnerContainer,
   gradient = 'left',
 }) => {
   return (

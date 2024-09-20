@@ -24,7 +24,12 @@ type CardProp = {
 const Card: React.FC<CardProp> = (props) => {
   return (
     <div className="flex items-center gap-16 rounded-full border-t border-gray-dark-5 bg-gradient-to-br from-gray-dark-2 to-gray-dark-1 p-1 px-24 py-8 lg:max-w-400">
-      <img className="h-24 sm:h-40" src={props.icon} />
+      <img
+        className="h-24 sm:h-40"
+        src={props.icon}
+        alt={props.description}
+        loading="lazy"
+      />
       <Text variant="feature">{props.description}</Text>
     </div>
   );
@@ -77,6 +82,8 @@ const ImpressUsers: React.FC = () => {
             className="absolute bottom-0 left-1/3 -translate-x-1/4 md:hidden"
             width={520}
             height={480}
+            alt="Globe"
+            loading="lazy"
           />
         </div>
       </div>

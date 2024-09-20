@@ -49,6 +49,7 @@ const PricingCard: React.FC<Props> = (props) => {
                     src={'/svg/bolt-white.svg'}
                     alt="fleek bolt icon"
                     className="h-20"
+                    loading="lazy"
                   />
                   <p className="typo-s text-gray-dark-12">{item}</p>
                 </li>

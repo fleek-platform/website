@@ -49,7 +49,12 @@ const ExplainerCard: React.FC<CardProp> = (props) => {
   return (
     <div className="flex flex-col gap-16 rounded-16 border-t border-gray-dark-5 bg-gradient-to-br from-gray-dark-2 to-gray-dark-1 p-28">
       <div>
-        <img src={props.icon} className="h-32 sm:h-60" alt={props.title} />
+        <img
+          src={props.icon}
+          className="h-32 sm:h-60"
+          alt={props.title}
+          loading="lazy"
+        />
       </div>
       <div>
         <p className="w-2/3 font-sans text-24 font-medium leading-tight -tracking-1 text-gray-dark-12 lg:text-34">
@@ -84,6 +89,7 @@ const ExplainerBlocks: React.FC = () => {
           src="/images/circles.png"
           alt="bg-squiggle"
           className="absolute bottom-0 left-0 right-0 top-[16.5%] -z-1 m-auto hidden w-full max-w-[1500px] sm:block"
+          loading="lazy"
         />
       </div>
     </Container>

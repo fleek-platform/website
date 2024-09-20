@@ -10,27 +10,23 @@ type PartnerProps = {
 
 const Partner: React.FC<PartnerProps> = ({ name, logo, caseStudyUrl }) => {
   const className = 'flex h-80 items-center justify-center sm:h-116';
+  const img = (
+    <img
+      src={logo}
+      alt={name}
+      className="scale-75 transition-all sm:scale-100"
+      loading="lazy"
+    />
+  );
 
   if (caseStudyUrl)
     return (
       <Link className={className} href={caseStudyUrl}>
-        <img
-          src={logo}
-          alt={name}
-          className="scale-75 transition-all sm:scale-100"
-        />
+        {img}
       </Link>
     );
 
-  return (
-    <div className={className}>
-      <img
-        src={logo}
-        alt={name}
-        className="scale-75 transition-all sm:scale-100"
-      />
-    </div>
-  );
+  return <div className={className}>{img}</div>;
 };
 
 export const Partners: React.FC = () => {
