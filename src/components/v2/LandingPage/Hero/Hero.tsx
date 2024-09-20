@@ -11,7 +11,7 @@ export const Hero = () => {
 
   return (
     <header className="relative mx-auto w-full max-w-[1048px] px-24">
-      <div className="pointer-events-none absolute -left-1/2 -top-1/2 -z-1 h-400 w-400 bg-[radial-gradient(closest-side,rgb(34_34_34_/0.85),transparent)] sm:-left-304 sm:-top-240 sm:w-800" />
+      <div className="pointer-events-none absolute -left-320 -top-1/2 -z-1 h-800 w-800 bg-[radial-gradient(closest-side,rgb(34_34_34_/0.85),transparent)] sm:-left-304 sm:-top-240 sm:h-400" />
       <section className="flex flex-col justify-center gap-24 pt-64">
         <BlurFade delay={calculateDelay(0)} className="w-fit">
           <Announcement variant="content" />

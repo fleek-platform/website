@@ -43,6 +43,7 @@ export const BlurFade: React.FC<BlurFadeProps> = ({
     visible: { y: -yOffset, opacity: 1, filter: `blur(0px)` },
   };
   const combinedVariants = variant || defaultVariants;
+
   return (
     <AnimatePresence>
       <motion.div

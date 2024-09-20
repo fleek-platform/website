@@ -50,10 +50,17 @@ const CardsWithDottedLinesBackground: React.FC<Props> = (props) => (
                     key={title}
                     target={Target.Blank}
                     rel="noreferrer noopener"
-                    className="overflow-hidden rounded-12 border border-gray-dark-5 transition-all hover:scale-[1.02]"
+                    className="group overflow-hidden rounded-12 border border-gray-dark-5 transition-all hover:scale-[1.02]"
                   >
-                    <img src={image} alt={title} loading="lazy" />
-                    <div className="space-y-8 bg-gradient-to-br from-gray-dark-2 to-gray-dark-1 p-16 font-plex-sans">
+                    <figure className="h-144 overflow-clip">
+                      <img
+                        src={image}
+                        alt={title}
+                        loading="lazy"
+                        className="h-full w-full object-cover transition-all group-hover:opacity-80"
+                      />
+                    </figure>
+                    <div className="space-y-8 bg-gray-dark-2 p-16 font-plex-sans transition-colors group-hover:bg-gray-dark-3">
                       <p className="text-16 font-bold text-gray-dark-12">
                         {title}
                       </p>
