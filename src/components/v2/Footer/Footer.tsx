@@ -1,11 +1,11 @@
 import IconSocial from '@components/IconSocial';
 import StatusBar from '@components/StatusBar';
 import Link, { Target } from '@components/Link';
-import config from './config';
 import { FaXTwitter } from 'react-icons/fa6';
 import type React from 'react';
 import { Container } from '../LandingPage/Container/Container';
 import { Text } from '../LandingPage/Text/Text';
+import config from '@components/Footer/config';
 
 const { product, developers, company, resources, fleekPlatformOrgUrl } = config;
 
