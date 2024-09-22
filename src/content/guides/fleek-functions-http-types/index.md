@@ -144,7 +144,10 @@ fleek functions create --name fleek-function-types
 6. Then you deploy the function:
 
 ```bash
-fleek functions deploy --name fleek-function-types --noBundle --path bundle.js
+fleek functions deploy \
+--name fleek-function-types \
+--path bundle.js \
+--bundle false
 ```
 
 For more insights on creating and deploying a Fleek Function, you can check <u>[here.](https://fleek.xyz/docs/cli/functions/#create-a-fleek-function)</u> After the above steps, you should have something similar to what was outlined above. The `main` function should perform as expected.
