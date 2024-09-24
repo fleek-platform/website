@@ -1,7 +1,7 @@
 name: 🚜 Search (Indexer)
 on:
-  push:
-    branches: [ 'main' ]
+  repository_dispatch:
+    types: release-by-develop-hash-completed
 
 jobs:
   meilisearch:
@@ -46,6 +46,13 @@ jobs:
       - name: References Indexation
         run: |
           npm run search:index_references
+        env:
+          PRIVATE_MEILISEARCH_DOCUMENTS_ADMIN_API_KEY: ${{ secrets.PRIVATE_MEILISEARCH_DOCUMENTS_ADMIN_API_KEY}}
+          PUBLIC_MEILISEARCH_HOST: ${{ vars.PUBLIC_MEILISEARCH_HOST }}
+
+      - name: Changelog Indexation
+        run: |
+          npm run search:index_changelog
         env:
           PRIVATE_MEILISEARCH_DOCUMENTS_ADMIN_API_KEY: ${{ secrets.PRIVATE_MEILISEARCH_DOCUMENTS_ADMIN_API_KEY}}
           PUBLIC_MEILISEARCH_HOST: ${{ vars.PUBLIC_MEILISEARCH_HOST }}

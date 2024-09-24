@@ -80,7 +80,7 @@ For onchain websites, in particular, ENS plays a key role:
 
 5. Ensures the owners have **full control** over the website with the ability to update, transfer, or sell their domains.
 
-> 💡Learn more onchain domains — <u>[ENS, and Unstoppable Domains](./builders-stack-decentralized-domains/)</u>
+> 💡Learn more onchain domains — <u>[ENS, and Unstoppable Domains](/guides/builders-stack-decentralized-domains/)</u>
 
 ---
 

@@ -91,9 +91,9 @@ Anonymous e-cash payments or self-sovereign identities are also possible with Ny
 ## Getting Started With Nym
 
 - [Developer Portal](https://nymtech.net/developers/introduction.html)
-- [Quickstart Guide](https://nymtech.net/developers/quickstart/overview.html)
-- [Rust SDK](https://nymtech.net/developers/tutorials/rust-sdk.html)
-- [TypeScript](https://nymtech.net/developers/tutorials/typescript.html)
+- [Quickstart Guide](https://nymtech.net/developers/clients-overview.html)
+- [Rust SDK](https://nymtech.net/developers/sdk/rust/rust.html)
+- [TypeScript](https://nymtech.net/developers/sdk/typescript.html)
 - [MixNode Starting Guide](https://nymtech.net/build/nodes?name=mixnodes)
   - [Operator’s Guide](https://nymtech.net/operators)
 - [NymConnect](https://nymtech.net/download/nymconnect)
