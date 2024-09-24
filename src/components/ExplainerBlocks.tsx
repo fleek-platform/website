@@ -18,24 +18,23 @@ const List = [
   {
     icon: '/svg/concentric-circles-icon.svg',
     title: 'Deploy Globally',
-    description: 'The Fleek Edge helps your app load lightning fast worldwide.',
+    description: 'Fleek automatically deploys your app to 100+ edge locations.',
   },
   {
     icon: '/svg/ddos-icon.svg',
     title: 'DDoS Protection',
-    description:
-      'Using either the Platform, CLI, or SDK you can build how you want.',
+    description: 'Effortlessly protect your site from DDoS attacks.',
   },
   {
     icon: '/svg/monitoring-icon.svg',
     title: 'Monitoring & Alerting',
-    description:
-      'Invite your team, share deploy previews, test builds and more.',
+    description: 'Get insights and alerts for your app & infra usage.',
   },
   {
     icon: '/svg/ssl-icon.svg',
     title: 'Domains & SSL',
-    description: 'The Fleek Edge helps your app load lightning fast worldwide.',
+    description:
+      'Seamless domain management & free SSL certificates (Lets Encrypt).',
   },
 ];
 
@@ -62,7 +61,9 @@ const ExplainerCard: React.FC<CardProp> = (props) => {
         </p>
       </div>
       <div>
-        <p className="typo-m w-4/5 text-gray-dark-11">{props.description}</p>
+        <p className="typo-m text-balance text-gray-dark-11">
+          {props.description}
+        </p>
       </div>
     </div>
   );

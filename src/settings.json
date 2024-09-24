@@ -11,15 +11,9 @@
     },
     "metadata": {
       "default": {
-        "title": "Build lightning-fast apps",
+        "title": "Fleek | Build and deploy performant apps",
         "slug": "",
-        "description": "Fleek is an edge-optimized cloud platform. Effortlessly build, ship and scale highly performant apps. Try for free and deploy an app in 5 minutes.",
-        "image": "/images/fleek-meta.png?202406061658"
-      },
-      "landingPage": {
-        "title": "Fleek | Lightning-fast, low-cost hosting without the corporate headache",
-        "slug": "",
-        "description": "Fleek is the cloud platform where performance meets simplicity. No hidden fees or corporate red tape—just the speed and reliability you need to build great apps and experiences.",
+        "description": "Fleek makes it easy to ship performant apps in minutes. Deploy instantly, run globally, scale automatically.",
         "image": "/images/fleek-meta.png?202406061658"
       },
       "blog": {
@@ -128,8 +122,8 @@
   },
   "landingPage": {
     "hero": {
-      "h1": "Lightning-fast, low-cost hosting without the corporate headache",
-      "h2": "Fleek is the cloud platform where performance meets simplicity. No hidden fees or corporate red tape—just the speed and reliability you need to build great apps and experiences.",
+      "h1": "Build on a lightning-fast, open-source cloud platform.",
+      "h2": "Fleek makes it easy to ship performant apps in minutes. Deploy instantly, run globally, scale automatically.",
       "primaryCta": "Get started",
       "secondaryCta": "Read our docs",
       "image": "/images/landing-page/hero/hero.webp"
