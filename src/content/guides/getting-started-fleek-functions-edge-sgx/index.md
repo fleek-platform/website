@@ -149,10 +149,6 @@ fleek functions deploy --name fleekwasm --path target/wasm32-unknown-unknown/rel
 You should see something similar after deploying successfully:
 
 ```bash
-fleek functions deploy --name fleekwasm --path target/wasm32-unknown-unknown/release/fleek-sgx-example-hello.wasm --sgx
-
-You should see something similar after deploying successfully:
-
 Encrypting code: [████████████████████████████████████████] 100% | ETA: 0s | 100/100
 
 Uploading code to IPFS: [████████████████████████████████████████] 100% | ETA: 0s | 342/342
