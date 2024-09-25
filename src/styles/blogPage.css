@@ -37,7 +37,7 @@
     }
 
     a {
-      @apply text-white underline decoration-gray-dark-8 underline-offset-4;
+      @apply text-white underline decoration-gray-dark-8 underline-offset-4 transition-colors hover:decoration-gray-dark-10;
     }
 
     ul,
@@ -46,6 +46,10 @@
 
       li {
         @apply list-disc pb-10;
+      }
+
+      li p {
+        @apply pb-0;
       }
     }
 

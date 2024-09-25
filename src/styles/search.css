@@ -41,7 +41,7 @@
     @apply flex h-40 rounded-12;
 
     input {
-      @apply h-full rounded-12 border-1 border-gray-dark-7 bg-gray-dark-2 pl-40 pt-2 font-sans text-14 font-light leading-18 outline-0 hover:border-gray-dark-8;
+      @apply h-full rounded-12 border-1 border-gray-dark-7 bg-gray-dark-2 pl-40 font-sans text-14 font-light leading-18 outline-0 hover:border-gray-dark-8;
     }
 
     .icon-container {
