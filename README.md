@@ -50,7 +50,8 @@ This repository contains the source code and assets for the Fleek.xyz website, w
         - [Query via cURL](#query-via-curl)
         - [Multi-Index Search](#multi-index-search)
         - [Delete Indexes](#💣-delete-indexes)
-        - [Images (optimization)](#-images-optimization)
+        - [Manual Indexation](#manual-indexation-cicd)
+      - [Images (optimization)](#-images-optimization)
 - [Migration](#-migration)
     - [Migrate Gatsby content](#migrate-gatsby-content)
 - [Custom data](#custom-data)
@@ -928,7 +929,7 @@ npm run search:serve
 
 ⚠️ You'll see a warning message "No master key was found" that can be ignored for local environment development work. If for some reason you want to have a master key, modify the `search:serve` script to include it.
 
-### Indexation (CI/CD)
+### Manual Indexation (CI/CD)
 
 The indexation service should trigger on `push` to `main` branch. Alternatively, the repo admin can trigger the job manually.
 
