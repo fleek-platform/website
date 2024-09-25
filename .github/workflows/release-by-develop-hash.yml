@@ -57,7 +57,7 @@ jobs:
     - name: Setup Git Config
       run: |
         # Use a name other then GitHub's bot
-        # to prevent blocking `on: push: main`
+        # to try prevent blocking `on: push: main`
         git config --global user.email "ops@fleek.xyz"
         git config --global user.name "Fleek Ops"
 
