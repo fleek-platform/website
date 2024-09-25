@@ -3,8 +3,8 @@ import StatusBar from '@components/StatusBar';
 import Link, { Target } from '@components/Link';
 import { FaXTwitter } from 'react-icons/fa6';
 import type React from 'react';
-import { Container } from '../LandingPage/Container/Container';
-import { Text } from '../LandingPage/Text/Text';
+import { Container } from '../LandingPage/Container';
+import { Text } from '../LandingPage/Text';
 import config from './config';
 
 const { product, developers, company, resources, fleekPlatformOrgUrl } = config;

@@ -1,8 +1,8 @@
 import React from 'react';
-import { PricingInfo } from '../content/pricing/config';
-import PricingCard from './PricingCard';
-import { Container } from './LandingPage/Container/Container';
-import { Text } from './LandingPage/Text/Text';
+import { PricingInfo } from '../../content/pricing/config';
+import PricingCard from '../PricingCard';
+import { Container } from './Container';
+import { Text } from './Text';
 
 const PricingLanding: React.FC = () => {
   return (

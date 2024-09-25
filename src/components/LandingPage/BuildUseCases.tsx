@@ -1,4 +1,4 @@
-import CardsWithDottedLinesBackground from '@components/CardsWithDottedLinesBackground';
+import CardsWithDottedLinesBackground from '@components/LandingPage/CardsWithDottedLinesBackground';
 
 const BuildUseCases: React.FC = () => (
   <CardsWithDottedLinesBackground

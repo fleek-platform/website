@@ -1,10 +1,10 @@
 import settings from '@base/settings.json';
 import { FaChevronRight } from 'react-icons/fa6';
-import { Announcement } from '../../Announcement/Announcement';
-import { Button } from '../../Button/Button';
+import { Announcement } from '../Announcement/Announcement';
+import { Button } from '../Button/Button';
 import { Target } from '@components/Link';
-import { BlurFade } from '../../BlurFade/BlurFade';
-import { Text } from '../Text/Text';
+import { BlurFade } from '../BlurFade/BlurFade';
+import { Text } from './Text';
 
 export const Hero = () => {
   const calculateDelay = (factor: number) => 0.25 * factor;

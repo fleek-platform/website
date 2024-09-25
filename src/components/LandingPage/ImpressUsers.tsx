@@ -1,5 +1,5 @@
-import { Container } from './LandingPage/Container/Container';
-import { Text } from './LandingPage/Text/Text';
+import { Container } from './Container';
+import { Text } from './Text';
 
 const IconList = [
   {

@@ -1,7 +1,7 @@
 import React from 'react';
-import { Container } from './LandingPage/Container/Container';
-import { Button } from './Button/Button';
-import { Text } from './LandingPage/Text/Text';
+import { Container } from './Container';
+import { Text } from './Text';
+import { Button } from '../Button/Button';
 
 const ReadyToLive: React.FC = () => {
   return (

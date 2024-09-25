@@ -1,7 +1,7 @@
 import Link, { Target } from '@components/Link';
-import { Container } from './LandingPage/Container/Container';
-import { Text } from './LandingPage/Text/Text';
-import { Button } from './Button/Button';
+import { Container } from './Container';
+import { Text } from './Text';
+import { Button } from '../Button/Button';
 
 interface Card {
   title: string;
