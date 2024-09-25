@@ -1,10 +1,10 @@
-name: Temporary test
+name: TIAS Temporary workflow
+
 on:
-  push:
+ push:
     branches:
       - main
-  repository_dispatch:
-    types: release-by-develop-hash-completed
+ pull_request:
 
 jobs:
  tias:
@@ -18,7 +18,12 @@ jobs:
         with:
           ref: ${{ github.head_ref || github.ref }}
 
-      - name: Install Dependencies
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Install dependencies
         run: npm ci
 
       - name: Delete indexes
