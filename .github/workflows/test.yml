@@ -1,13 +1,14 @@
-name: TIAS Temporary workflow
+name: TIAS temporary workflow
 
 on:
  push:
     branches:
       - main
+      - develop
  pull_request:
 
 jobs:
- tias:
+ code-format:
     runs-on: ubuntu-latest
     defaults:
       run:
@@ -26,51 +27,31 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
-      - name: Delete indexes
+      - name: Code format check
+        id: fmt_check
+        continue-on-error: true
         run: |
-          npm run search:delete_indexes
-        env:
-          PRIVATE_MEILISEARCH_DOCUMENTS_ADMIN_API_KEY: ${{ secrets.PRIVATE_MEILISEARCH_DOCUMENTS_ADMIN_API_KEY}}
-          PUBLIC_MEILISEARCH_HOST: ${{ vars.PUBLIC_MEILISEARCH_HOST }}
+          if ! npm run fmt:check; then
+            echo "exit_code=1" >> "$GITHUB_OUTPUT"
+          fi
 
-      - name: Blog Indexation
-        run: |
-          npm run search:index_blog
-        env:
-          PRIVATE_MEILISEARCH_DOCUMENTS_ADMIN_API_KEY: ${{ secrets.PRIVATE_MEILISEARCH_DOCUMENTS_ADMIN_API_KEY}}
-          PUBLIC_MEILISEARCH_HOST: ${{ vars.PUBLIC_MEILISEARCH_HOST }}
+      - name: Auto-format (Markdown files)
+        if: steps.fmt_check.outputs.exit_code != '0' && github.event_name == 'pull_request'
+        run: npx prettier --write "src/**/*.{md,mdx}"
 
-      - name: Docs Indexation
+      - name: Commit formatted (Markdown files)
+        if: steps.fmt_check.outputs.exit_code != '0' && github.event_name == 'pull_request'
         run: |
-          npm run search:index_docs
-        env:
-          PRIVATE_MEILISEARCH_DOCUMENTS_ADMIN_API_KEY: ${{ secrets.PRIVATE_MEILISEARCH_DOCUMENTS_ADMIN_API_KEY}}
-          PUBLIC_MEILISEARCH_HOST: ${{ vars.PUBLIC_MEILISEARCH_HOST }}
-
-      - name: Guides Indexation
-        run: |
-          npm run search:index_guides
-        env:
-          PRIVATE_MEILISEARCH_DOCUMENTS_ADMIN_API_KEY: ${{ secrets.PRIVATE_MEILISEARCH_DOCUMENTS_ADMIN_API_KEY}}
-          PUBLIC_MEILISEARCH_HOST: ${{ vars.PUBLIC_MEILISEARCH_HOST }}
-
-      - name: References Indexation
-        run: |
-          npm run search:index_references
-        env:
-          PRIVATE_MEILISEARCH_DOCUMENTS_ADMIN_API_KEY: ${{ secrets.PRIVATE_MEILISEARCH_DOCUMENTS_ADMIN_API_KEY}}
-          PUBLIC_MEILISEARCH_HOST: ${{ vars.PUBLIC_MEILISEARCH_HOST }}
-
-      - name: Changelog Indexation
-        run: |
-          npm run search:index_changelog
-        env:
-          PRIVATE_MEILISEARCH_DOCUMENTS_ADMIN_API_KEY: ${{ secrets.PRIVATE_MEILISEARCH_DOCUMENTS_ADMIN_API_KEY}}
-          PUBLIC_MEILISEARCH_HOST: ${{ vars.PUBLIC_MEILISEARCH_HOST }}
-
-      - name: Billing Indexation
-        run: |
-          npm run search:index_billing
-        env:
-          PRIVATE_MEILISEARCH_DOCUMENTS_ADMIN_API_KEY: ${{ secrets.PRIVATE_MEILISEARCH_DOCUMENTS_ADMIN_API_KEY}}
-          PUBLIC_MEILISEARCH_HOST: ${{ vars.PUBLIC_MEILISEARCH_HOST }}
+          git config --global user.name 'GitHub Action'
+          git config --global user.email 'action@github.com'
+          if [[ -n "$(git status --porcelain)" ]]; then
+            git add .
+  
+            if git commit -m "chore: 🤖 code format" --no-verify; then
+              git push
+            else
+              echo "🦖 Skipped! No changes to commit..."
+            fi
+          else
+            echo "🦖 Skipped! No changes found."
+          fi
