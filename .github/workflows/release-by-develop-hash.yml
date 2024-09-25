@@ -23,7 +23,7 @@ jobs:
     env:
       RELEASE_BRANCH: "main"
       PREPARE_RELEASE_BRANCH: "prepare_release"
-    steps:    
+    steps:
     - name: Date safe-guard verification
       run: |
         currDate=$(date +%Y/%m/%d)
@@ -56,10 +56,8 @@ jobs:
 
     - name: Setup Git Config
       run: |
-        # Use a name other then GitHub's bot
-        # to try prevent blocking `on: push: main`
-        git config --global user.email "ops@fleek.xyz"
-        git config --global user.name "Fleek Ops"
+        git config --global user.email "action@github.com"
+        git config --global user.name "GitHub Action"
 
     - name: Verify commit hash in Develop
       id: check_commit_hash
@@ -117,17 +115,8 @@ jobs:
 
         echo "✅ Deleted the release preparation branch with name ${{ env.PREPARE_RELEASE_BRANCH }} successfuly"
 
-    - name: Dispatch Event
-      env:
-        PAT: ${{ secrets.GITHUB_TOKEN }}
-        ENDPOINT: 'https://api.github.com/repos/fleek-platform/website/dispatches'
-        EVENT_NAME: 'release-by-develop-hash-completed'
-      run: |
-        if ! curl -H "Accept: application/vnd.github+json" \
-          -H "Authorization: token $PAT" \
-          --request POST \
-          --data "{ \"event_type\": \"$EVENT_NAME\" }" $ENDPOINT; then
-          echo "⚠️ Warning: Failed to dispatch $EVENT_NAME. Since this triggers the indexer listener, you should dispatch the action manually. If this issue persists, report it internally."
-        else
-          echo "✅ Dispatched event $EVENT_NAME"
-        fi
+    - name: Checkout develop
+      uses: actions/checkout@v4
+      with:
+        # Checkout develop
+        ref: ${{ github.ref }}
