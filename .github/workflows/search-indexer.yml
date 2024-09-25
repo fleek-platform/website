@@ -6,10 +6,29 @@ on:
   push:
     branches:
       - main
+      - develop
 
 jobs:
+  branch-check:
+    runs-on: ubuntu-latest
+    outputs:
+      is-prod: ${{ steps.check-branch.outputs.is-prod }}
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+
+    - name: Check if branch is prod
+      run: |
+        if [[ $(git rev-parse --abbrev-ref HEAD) == "main" ]]; then
+          echo "is-prod=true" >> $GITHUB_OUTPUT
+        else
+          echo "is-prod=false" >> $GITHUB_OUTPUT
+        fi
+
   meilisearch:
     name: MeiliSearch Service
+    needs: branch-check
+    if: needs.branch-check.outputs.is-prod == 'true'
     runs-on: ubuntu-latest
     environment: production
     steps:
