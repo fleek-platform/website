@@ -1,37 +1,26 @@
 ---
-import Layout from '@layouts/Page.astro';
-import GlobeWithFloatingCards from '@components/GlobeWithFloatingCards';
+import LandingPageHtml from '@layouts/LandingPage.astro';
+import { Navbar } from '@components/v2/Navbar/Navbar';
+import { Hero } from '@components/v2/LandingPage/Hero/Hero';
+import { Partners } from '@components/v2/LandingPage/Partners/Partners';
 import DeployOnFleek from '@components/DeployOnFleek';
-import HostingOnFleek from '@components/HostingOnFleek';
 import ImpressUsers from '@components/ImpressUsers';
-import JoinOurFriends from '@components/JoinOurFriends';
 import BuildUseCases from '@components/BuildUseCases';
 import ExplainerBlocks from '@components/ExplainerBlocks';
-import SeamlessUI from '@components/SeamlessUI';
-import BestOnchain from '@components/BestOnchain';
 import PricingLanding from '@components/PricingLanding';
 import ReadyToLive from '@components/ReadyToLive';
-import settings from '@base/settings.json';
+import Footer from '@components/v2/Footer/Footer';
 ---
 
-<Layout
-  title={settings.site.metadata.default.title}
-  description={settings.site.metadata.default.description}
-  slug={settings.site.metadata.default.slug}
-  image={settings.site.metadata.default.image}
->
-  <div class="mb-40 flex flex-col gap-24 lg:gap-32">
-    <GlobeWithFloatingCards client:load />
-    <JoinOurFriends client:only="react" />
-    <DeployOnFleek client:load rounded="all-big" />
-    <ImpressUsers client:load rounded="all-big" />
-    <ExplainerBlocks index={1} header="Enjoy the (Developer) Experience" />
-    <SeamlessUI client:load rounded="all-big" />
-    <BuildUseCases client:load rounded="all-big" />
-    <!-- <HostingOnFleek client:load rounded="all-big" /> -->
-    <ExplainerBlocks index={2} header="We've Got You Covered" />
-    <BestOnchain rounded="all-big" />
-    <PricingLanding client:load rounded="all-big" />
-    <ReadyToLive client:load rounded="all-big" />
-  </div>
-</Layout>
+<LandingPageHtml>
+  <Navbar pathname={Astro.url.pathname} client:load />
+  <Hero client:load />
+  <Partners />
+  <DeployOnFleek />
+  <ImpressUsers />
+  <ExplainerBlocks />
+  <PricingLanding />
+  <BuildUseCases />
+  <ReadyToLive />
+  <Footer />
+</LandingPageHtml>

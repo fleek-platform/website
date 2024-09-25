@@ -1,4 +1,5 @@
-import type { FC, PropsWithChildren } from 'react';
+import React, { forwardRef } from 'react';
+import type { PropsWithChildren } from 'react';
 
 export enum Target {
   Blank = '_blank',
@@ -7,23 +8,13 @@ export enum Target {
   Top = '_top',
 }
 
-interface Props {
-  href?: string;
-  className?: string;
-  target?: Target;
-  tabIndex?: number;
-}
-
-export const Link: FC<PropsWithChildren<Props>> = ({
-  href,
-  className,
-  target,
-  tabIndex,
-  children,
-}) => (
-  <a href={href} target={target} className={className} tabIndex={tabIndex}>
+const Link = forwardRef<
+  HTMLAnchorElement,
+  PropsWithChildren<React.AnchorHTMLAttributes<HTMLAnchorElement>>
+>(({ children, ...props }, ref) => (
+  <a ref={ref} {...props}>
     {children}
   </a>
-);
+));
 
 export default Link;
