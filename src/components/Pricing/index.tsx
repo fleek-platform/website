@@ -4,13 +4,13 @@ import TableDesktop from './Table/TableDesktop';
 import { PricingInfo } from '../../content/pricing/config';
 import PricingCard from '@components/PricingCard';
 import Pay from '@components/Pay';
-import { Text } from '@components/v2/LandingPage/Text/Text';
+import { Text } from '@components/LandingPage/Text';
 
 const Pricing = () => {
   return (
     <Container>
       <>
-        <div className="grid grid-flow-dense grid-cols-16 gap-x-16  px-8 py-80">
+        <div className="grid grid-flow-dense grid-cols-16 gap-x-16 px-8 pb-80 pt-48">
           <div className="col-span-14 col-start-2 text-center">
             <Text className="mb-24">Pricing you can get pumped about</Text>
             <Text variant="description" className="mb-76">

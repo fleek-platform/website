@@ -2,14 +2,12 @@
 import '@styles/globals.css';
 import { getSiteUrl } from '@utils/url';
 import settings from '@base/settings.json';
-import Nav from '@components/NavBar';
-import Footer from '@components/Footer';
 import PostHog from '@components/PostHog.astro';
 
 import { Toaster } from 'react-hot-toast';
-import { Navbar } from '@components/Navbar/Navbar';
 import { Announcement } from '@components/Announcement/Announcement';
 import Footer from '@components/Footer/Footer';
+import { Navbar } from '@components/Navbar/Navbar';
 
 interface Props {
   title: string;
@@ -125,11 +123,13 @@ const baseUrl = getSiteUrl();
     </noscript>
     <Announcement client:load />
     <Navbar
-      pathname={Astro.url.pathname}
       client:load
+      pathname={Astro.url.pathname}
       className="xl:max-w-[1066px] 2xl:max-w-[1300px]"
     />
-    <div>
+    <div
+      class="w-full self-center px-24 py-32 xl:max-w-[1066px] xl:px-0 2xl:max-w-[1300px]"
+    >
       <slot />
     </div>
     <Footer client:load />

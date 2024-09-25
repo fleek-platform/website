@@ -3,11 +3,11 @@ import { MdEmail } from 'react-icons/md';
 import React, { useState } from 'react';
 import { PiWarningCircleFill } from 'react-icons/pi';
 import { GoCheckCircleFill } from 'react-icons/go';
-import ButtonGray from './ButtonGray';
 import settings from '@base/settings.json';
 import Loading from '@components/Loading';
 
 import type { Dispatch, SetStateAction, MouseEvent } from 'react';
+import { Button } from './Button/Button';
 
 const { activeHostedFormApi } = settings.newsletterSubscription;
 
@@ -170,12 +170,9 @@ export const CtaNewsletterModal = () => {
 
   return (
     <>
-      <ButtonGray
-        className="flex items-center justify-center gap-12 px-10"
-        onClick={isOpenHandler}
-      >
+      <Button variant="secondary" onClick={isOpenHandler}>
         <div>Stay updated</div>
-      </ButtonGray>
+      </Button>
       <Modal setIsOpen={setIsOpen} isOpen={isOpen} />
     </>
   );

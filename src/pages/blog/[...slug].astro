@@ -3,10 +3,12 @@ import { getCollection } from 'astro:content';
 import BlogPageLayout from '../../layouts/BlogPage.astro';
 import GithubEditLink from '@components/GitHubEditLink.astro';
 import { generateGitHubEditLink } from '@utils/url';
-import ButtonGhost from '@components/ButtonGhost';
 import { formatDate } from '@utils/date';
 import { generateFullSlug } from '@utils/generateFullSlug';
 import settings from '@base/settings.json';
+import { Button } from '@components/Button/Button';
+import { FaChevronLeft } from 'react-icons/fa6';
+import { GoBackButton } from '@components/GoBackButton';
 
 export async function getStaticPaths() {
   const docsEntries = await getCollection('blog');
@@ -40,17 +42,15 @@ const fullSlug = generateFullSlug({
   slug={fullSlug}
 >
   <article class="blog">
-    <div class="mb-24 w-fit" id="goBackButton">
-      <ButtonGhost>
-        <img
-          src="/svg/caret-left.svg"
-          class="caret border-0 !border-none !outline-none invert filter"
-        />
-        <span class="text-sm mb-2">Go back</span>
-      </ButtonGhost>
+    <div class="space-y-40 pb-16">
+      <GoBackButton client:load />
+      <div></div>
+      <span class="text-[1.4rem]">{date}</span>
     </div>
-    <small class="font-plex-sans text-16 text-gray-dark-10">{date}</small>
-    <h1>{entry.data.title}</h1>
+
+    <h1>
+      {entry.data.title}
+    </h1>
     {
       entry.data?.image?.src && (
         <p>
@@ -62,13 +62,3 @@ const fullSlug = generateFullSlug({
     <GithubEditLink pathname={githubEditUrlPathname} />
   </article>
 </BlogPageLayout>
-
-<script>
-  document.getElementById('goBackButton')?.addEventListener('click', () => {
-    if (history.length > 2) {
-      history.back();
-    } else {
-      window.location.href = '/blog';
-    }
-  });
-</script>

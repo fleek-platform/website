@@ -4,14 +4,14 @@ import { type VariantProps, cva } from 'class-variance-authority';
 import { cn } from '@utils/cn';
 
 export const buttonVariants = cva(
-  'flex font-medium gap-4 select-none font-plex-sans cursor-pointer items-center justify-center transition-all ring-0 outline-none focus-visible:ring-2',
+  'flex font-medium no-underline gap-4 select-none font-plex-sans cursor-pointer items-center justify-center transition-all ring-0 outline-none focus-visible:ring-2',
   {
     variants: {
       variant: {
         primary:
           'bg-yellow-dark-9 hover:bg-yellow-dark-10 active:bg-yellow-dark-9 text-yellow-dark-1 ring-yellow-dark-8',
         secondary:
-          'bg-gray-dark-3 hover:bg-gray-dark-4 active:bg-gray-dark-3 text-gray-dark-11 ring-gray-dark-8',
+          'bg-gray-dark-3 hover:bg-gray-dark-4 active:bg-gray-dark-3 !text-gray-dark-11 ring-gray-dark-8',
         tertiary:
           'bg-gray-dark-12 text-gray-dark-1 hover:bg-gray-dark-11 active:bg-gray-dark-12 ring-gray-dark-8',
         ghost:
@@ -36,14 +36,16 @@ export const buttonVariants = cva(
 
 type ButtonProps = PropsWithChildren &
   VariantProps<typeof buttonVariants> & {
-    onClick?: (e?: React.MouseEvent<HTMLButtonElement, MouseEvent>) => void;
+    id?: string;
     href?: string;
     className?: string;
     target?: Target;
     rel?: string;
+    onClick?: (e?: React.MouseEvent<HTMLButtonElement, MouseEvent>) => void;
   };
 
 export const Button: React.FC<ButtonProps> = ({
+  id,
   children,
   href,
   target,
@@ -56,6 +58,7 @@ export const Button: React.FC<ButtonProps> = ({
   if (href)
     return (
       <Link
+        id={id}
         href={href}
         target={target}
         rel={rel}
@@ -67,6 +70,7 @@ export const Button: React.FC<ButtonProps> = ({
 
   return (
     <button
+      id={id}
       onClick={onClick}
       className={cn(buttonVariants({ variant, size }), className)}
     >
