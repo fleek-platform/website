@@ -3,6 +3,10 @@ name: 🚀 Release by develop hash
 on:
   workflow_dispatch:
     inputs:
+      branch:
+        description: 'The branch namae should correspond to production branch, e.g. main'
+        required: true
+        default: 'main'
       commitHash:
         description: 'Please supply a commit hash from the develop branch. You can find it in the commit history of develop branch, the first 6 characters are enough, e.g. c388cc. The release will encompass all contributions up to and including the specified head commit hash.'
         required: true
@@ -23,7 +27,7 @@ jobs:
     env:
       RELEASE_BRANCH: "main"
       PREPARE_RELEASE_BRANCH: "prepare_release"
-    steps:    
+    steps:
     - name: Date safe-guard verification
       run: |
         currDate=$(date +%Y/%m/%d)

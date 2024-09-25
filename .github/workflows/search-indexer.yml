@@ -3,6 +3,9 @@ on:
   repository_dispatch:
     types: DEPLOY_PROD_SUCESS
   workflow_dispatch:
+  push:
+    branches:
+      - main
 
 jobs:
   branch-check:
