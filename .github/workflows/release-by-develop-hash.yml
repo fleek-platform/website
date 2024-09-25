@@ -3,10 +3,6 @@ name: 🚀 Release by develop hash
 on:
   workflow_dispatch:
     inputs:
-      branch:
-        description: 'The branch namae should correspond to production branch, e.g. main'
-        required: true
-        default: 'main'
       commitHash:
         description: 'Please supply a commit hash from the develop branch. You can find it in the commit history of develop branch, the first 6 characters are enough, e.g. c388cc. The release will encompass all contributions up to and including the specified head commit hash.'
         required: true
@@ -124,18 +120,3 @@ jobs:
       with:
         # Checkout develop
         ref: ${{ github.ref }}
-
-    - name: Dispatch Event
-      env:
-        PAT: ${{ secrets.GITHUB_TOKEN }}
-        ENDPOINT: 'https://api.github.com/repos/fleek-platform/website/dispatches'
-        EVENT_NAME: 'DEPLOY_PROD_SUCESS'
-      run: |
-        if ! curl -H "Accept: application/vnd.github+json" \
-          -H "Authorization: token $PAT" \
-          --request POST \
-          --data "{ \"event_type\": \"$EVENT_NAME\" }" $ENDPOINT; then
-          echo "⚠️ Warning: Failed to dispatch $EVENT_NAME. Since this triggers the indexer listener, you should dispatch the action manually. If this issue persists, report it internally."
-        else
-          echo "✅ Dispatched event $EVENT_NAME"
-        fi

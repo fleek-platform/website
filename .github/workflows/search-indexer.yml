@@ -1,11 +1,9 @@
 name: 🚜 Search (Indexer)
 on:
-  repository_dispatch:
-    types: DEPLOY_PROD_SUCESS
   workflow_dispatch:
-  push:
-    branches:
-      - main
+  schedule:
+    # Run at 2am UTC (daily)
+    - cron: '0 2 * * *'
 
 jobs:
   branch-check:
