@@ -45,12 +45,13 @@ This repository contains the source code and assets for the Fleek.xyz website, w
         - [Production Service Setup](#production-service-setup)
       - [Search](#🔎-search)
         - [Health Check](#health-check)
-        - [Indexer](#indexer)
+      - [Indexer](#indexer)
         - [Put markdown content](#put-markdown-content-development)
         - [Query via cURL](#query-via-curl)
         - [Multi-Index Search](#multi-index-search)
         - [Delete Indexes](#💣-delete-indexes)
-        - [Images (optimization)](#-images-optimization)
+        - [Manual Indexation](#manual-indexation-cicd)
+      - [Images (optimization)](#-images-optimization)
 - [Migration](#-migration)
     - [Migrate Gatsby content](#migrate-gatsby-content)
 - [Custom data](#custom-data)
@@ -845,7 +846,7 @@ curl \
   -X GET '<PROTOCOL>://<ADDRESS>:<PORT>/health'
 ```
 
-### Indexer
+## Indexer
 
 The Indexer's job referred to as indexation is the process of organizing and storing data in a structured manner to facilitate efficient search and retrieval.
 
@@ -927,6 +928,16 @@ npm run search:serve
 ```
 
 ⚠️ You'll see a warning message "No master key was found" that can be ignored for local environment development work. If for some reason you want to have a master key, modify the `search:serve` script to include it.
+
+### Manual Indexation (CI/CD)
+
+The indexation service should trigger on `push` to `main` branch. Alternatively, the repo admin can trigger the job manually.
+
+1) Open the Job runner [here](https://github.com/fleek-platform/website/actions/workflows/search-indexer.yml)
+
+2) Locate the row "This workflow has a workflow_dispatch event trigger." and open the **Run workflow** dropdown. In the option "Use workflow from" select `main` branch.
+
+The Job will index data that exists in the selected `main` branch. Learn how to release to production (main branch) [here](#🚀-release-to-production).
 
 ## 📸 Images (Optimization)
 
