@@ -117,7 +117,7 @@ jobs:
 
     - name: Dispatch Event
       env:
-        PAT: ${{ secrets.PAT }}
+        PAT: ${{ secrets.GITHUB_TOKEN }}
         ENDPOINT: 'https://api.github.com/repos/fleek-platform/website/dispatches'
         EVENT_NAME: 'release-by-develop-hash-completed'
       run: |
