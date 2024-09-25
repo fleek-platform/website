@@ -2,6 +2,9 @@ name: 🚜 Search (Indexer)
 on:
   repository_dispatch:
     types: release-by-develop-hash-completed
+  workflow_dispatch:
+  push:
+    branches: [ main ]     
 
 jobs:
   meilisearch:
