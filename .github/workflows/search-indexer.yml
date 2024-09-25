@@ -17,9 +17,13 @@ jobs:
     - name: Checkout code
       uses: actions/checkout@v4
 
-    - name: Check if branch is prod
+    - name: Set is-prod
       run: |
-        if [[ $(git rev-parse --abbrev-ref HEAD) == "main" ]]; then
+        currentBranchName="$(git branch --show-current)"
+
+        echo "💡 The current branch is $currentBranchName"
+        
+        if [[ "$currentBranchName" == "main" ]]; then
           echo "is-prod=true" >> $GITHUB_OUTPUT
         else
           echo "is-prod=false" >> $GITHUB_OUTPUT
