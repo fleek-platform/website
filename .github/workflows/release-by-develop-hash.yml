@@ -126,4 +126,6 @@ jobs:
           --request POST \
           --data "{ \"event_type\": \"$EVENT_NAME\" }" $ENDPOINT; then
           echo "⚠️ Warning: Failed to dispatch $EVENT_NAME. Since this triggers the indexer listener, you should dispatch the action manually. If this issue persists, report it internally."
+        else
+          echo "✅ Dispatched event $EVENT_NAME"
         fi
