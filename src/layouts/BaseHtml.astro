@@ -1,6 +1,5 @@
 ---
 import '@styles/globals.css';
-import Announcement from '@components/Announcement';
 import { getSiteUrl } from '@utils/url';
 import settings from '@base/settings.json';
 import Nav from '@components/NavBar';
@@ -8,6 +7,9 @@ import Footer from '@components/Footer';
 import PostHog from '@components/PostHog.astro';
 
 import { Toaster } from 'react-hot-toast';
+import { Navbar } from '@components/Navbar/Navbar';
+import { Announcement } from '@components/Announcement/Announcement';
+import Footer from '@components/Footer/Footer';
 
 interface Props {
   title: string;
@@ -19,7 +21,7 @@ interface Props {
   };
 }
 
-const { title, ogMeta } = Astro.props;
+const { ogMeta } = Astro.props;
 const baseUrl = getSiteUrl();
 ---
 
@@ -109,17 +111,10 @@ const baseUrl = getSiteUrl();
     <PostHog />
   </head>
   <body
-    class="--font-plex-sans --font-plex-mono --font-sans bg-mesh min-h-full bg-black font-sans text-gray-dark-11 selection:bg-yellow-dark-9 selection:text-black"
+    class="relative flex flex-col bg-black font-sans text-gray-dark-11 selection:bg-yellow-dark-9 selection:text-black"
   >
     <!-- Google Tag Manager (noscript version) -->
     <!-- WARNING: The script version is above see /lib/gtm.js -->
-    <noscript
-      ><iframe
-        src="https://www.googletagmanager.com/ns.html?id=GTM-WMT553Z"
-        height="0"
-        width="0"
-        style="display:none;visibility:hidden"></iframe></noscript
-    >
     <!-- End Google Tag Manager (noscript) -->
     <noscript>
       <iframe
@@ -128,10 +123,15 @@ const baseUrl = getSiteUrl();
         width="0"
         style={{ display: 'none', visibility: 'hidden' }}></iframe>
     </noscript>
-    {settings.site.annoucementMarquee.visible && <Announcement client:load />}
-    <Nav client:load pathname={Astro.url.pathname} />
-    <slot />
+    <Announcement client:load />
+    <Navbar
+      pathname={Astro.url.pathname}
+      client:load
+      className="xl:max-w-[1066px] 2xl:max-w-[1300px]"
+    />
+    <div>
+      <slot />
+    </div>
     <Footer client:load />
-    <Toaster client:load position="top-right" reverseOrder={false} />
   </body>
 </html>

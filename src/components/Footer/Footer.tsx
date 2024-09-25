@@ -5,7 +5,7 @@ import { FaXTwitter } from 'react-icons/fa6';
 import type React from 'react';
 import { Container } from '../LandingPage/Container/Container';
 import { Text } from '../LandingPage/Text/Text';
-import config from '@components/Footer/config';
+import config from './config';
 
 const { product, developers, company, resources, fleekPlatformOrgUrl } = config;
 

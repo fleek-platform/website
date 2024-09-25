@@ -1,33 +1,17 @@
-import type { MenuSettingsItem } from './index';
+export type NavMenuItem = {
+  label: string;
+  subMenu?: NavSubMenuItem[];
+  url?: string;
+  description?: string;
+  icon?: string;
+  openInNewTab?: boolean;
+};
 
-// Warning: when editing enable Typescript LSP
-// to avoid any typos.
-//
-// Each `menuItem` is an object with key `label`
-// and `url`. There are the optionals `openInNewTab`
-// and the `subMenu`.
-//
-//  {
-//    label: "Blog",
-//    url: "/blog",
-//    openInNewTab: true or false
-//  }
-//
-// The `subMenu` takes a list of `subMenuItems`.
-// The apearance is limited to the conditions
-// supported by the styles or component.
-//
-// For this reason the data is placed in
-// the `main` and `side` (optional) fields.
-//
-// {
-//   label: "A title"
-//   items: <Same as `menuItem`>
-// }
-//
-export const NavBarDefault: MenuSettingsItem[] = [
+export type NavSubMenuItem = Omit<NavMenuItem, 'subMenu'>;
+
+export const navbarMenu: NavMenuItem[] = [
   {
-    label: 'PRODUCTS ',
+    label: 'Features',
     subMenu: [
       {
         label: 'Platform',
@@ -56,19 +40,21 @@ export const NavBarDefault: MenuSettingsItem[] = [
     ],
   },
   {
-    label: 'DEVELOPERS',
+    label: 'Developers',
     subMenu: [
       {
         label: 'Fleek Network',
         url: 'https://fleek.network',
         description: 'Edge-optimized infrastructure',
         icon: '/svg/infra-navbar-icon.svg',
+        openInNewTab: true,
       },
       {
         label: 'Github',
         url: 'https://github.com/fleek-platform',
         description: 'Our code repositories',
         icon: '/svg/github-navbar-icon.svg',
+        openInNewTab: true,
       },
       {
         label: 'Changelog',
@@ -81,11 +67,12 @@ export const NavBarDefault: MenuSettingsItem[] = [
         url: 'https://status.fleek.xyz/',
         description: 'Status uptime monitoring',
         icon: '/svg/status-navbar-icon.svg',
+        openInNewTab: true,
       },
     ],
   },
   {
-    label: 'RESOURCES',
+    label: 'Resources',
     subMenu: [
       {
         label: 'Documentation',
@@ -102,8 +89,9 @@ export const NavBarDefault: MenuSettingsItem[] = [
       {
         label: 'Media kit',
         url: 'https://www.notion.so/fleek/Fleek-Brand-Kit-9a2bcf7eb40740a9b7e951fc951b478a',
-        description: 'Our branding guidelines.',
+        description: 'Our branding guidelines',
         icon: '/svg/media-navbar-icon.svg',
+        openInNewTab: true,
       },
       {
         label: 'Support Center',
@@ -115,37 +103,15 @@ export const NavBarDefault: MenuSettingsItem[] = [
     ],
   },
   {
-    label: 'DOCS',
+    label: 'Docs',
     url: '/docs',
   },
   {
-    label: 'BLOG',
+    label: 'Blog',
     url: '/blog',
   },
   {
-    label: 'PRICING',
+    label: 'Pricing',
     url: '/pricing',
   },
 ];
-
-export const NavBarDocs: MenuSettingsItem[] = [
-  {
-    label: 'documentation',
-    url: '/docs',
-  },
-  {
-    label: 'guides',
-    url: '/guides',
-  },
-  {
-    label: 'Changelog',
-    url: '/changelog',
-  },
-  {
-    label: 'Support',
-    url: '/support',
-    openInNewTab: true,
-  },
-];
-
-export default NavBarDefault;
