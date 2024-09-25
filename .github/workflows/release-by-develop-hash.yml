@@ -23,7 +23,7 @@ jobs:
     env:
       RELEASE_BRANCH: "main"
       PREPARE_RELEASE_BRANCH: "prepare_release"
-    steps:
+    steps:    
     - name: Date safe-guard verification
       run: |
         currDate=$(date +%Y/%m/%d)
@@ -56,8 +56,10 @@ jobs:
 
     - name: Setup Git Config
       run: |
-        git config --global user.email "action@github.com"
-        git config --global user.name "GitHub Action"
+        # Use a name other then GitHub's bot
+        # to prevent blocking `on: push: main`
+        git config --global user.email "ops@fleek.xyz"
+        git config --global user.name "Fleek Ops"
 
     - name: Verify commit hash in Develop
       id: check_commit_hash
