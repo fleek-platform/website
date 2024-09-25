@@ -1,3 +1,6 @@
+import type { buttonVariants } from '@components/Button/Button';
+import type { VariantProps } from 'class-variance-authority';
+
 // TODO: Check the purpose of type as original is next/image
 type StaticImageData = string;
 
@@ -34,11 +37,8 @@ export type PlanHeader = {
   cta: {
     text: string;
     href: string;
-    className?: string;
+    variant?: VariantProps<typeof buttonVariants>['variant'];
   };
-  btnBg?: string;
-  fontColor?: string;
-  hoverBtnBg?: string;
 };
 export type PlanSection = Record<string, string | number | boolean>;
 export type PlanKeys = 'wagmi' | 'pro' | 'enterprise';

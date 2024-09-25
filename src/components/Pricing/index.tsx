@@ -36,10 +36,12 @@ const Pricing = () => {
             <TableMobile />
             <TableDesktop />
           </div>
+          <TableMobile />
+          <TableDesktop />
         </div>
-        <Pay />
-      </>
-    </Container>
+      </div>
+      <Pay />
+    </>
   );
 };
 

@@ -13,10 +13,12 @@ export const Hero = () => {
     <header className="relative mx-auto w-full max-w-[1048px] px-24">
       <div className="pointer-events-none absolute -left-320 -top-1/2 -z-1 h-800 w-800 bg-[radial-gradient(closest-side,rgb(34_34_34_/0.85),transparent)] sm:-left-304 sm:-top-240 sm:h-400" />
       <section className="flex flex-col justify-center gap-24 pt-64">
-        <BlurFade delay={calculateDelay(0)} className="w-fit">
-          <Announcement variant="content" />
-        </BlurFade>
-        <section className="flex max-w-800 flex-col gap-24">
+        {settings.site.annoucementMarquee.visible && (
+          <BlurFade delay={calculateDelay(0)} className="w-fit">
+            <Announcement variant="content" />
+          </BlurFade>
+        )}
+        <section className="flex max-w-800 flex-col gap-24 pt-24">
           <BlurFade delay={calculateDelay(1)}>
             <Text as="h1">{settings.landingPage.hero.h1}</Text>
           </BlurFade>
