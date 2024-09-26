@@ -161,7 +161,7 @@ If the operation is successful, expect to see a confirmation message.
 ✅ Success! The Fleek configuration file has been successfully saved
 ```
 
-## Deploy the Fleek Site
+## Deploy the Fleek site
 
 To deploy, run the sites deploy command in the directory containing your site setup.
 

@@ -13,7 +13,7 @@ Every interaction with the Fleek Platform requires a project to be selected. A u
 
 A user account can take on the role of owning several projects and still be part of projects belonging to other user accounts.
 
-## Create a Project
+## Create a project
 
 As soon as you create a new user account on the Fleek Platform, an initial Project is immediately created for you, with a temporary name and left blank. You have the option to personalize the project name at your convenience.
 
@@ -25,7 +25,7 @@ fleek projects create
 
 If you enter a valid name, you'll be automatically switched to it.
 
-## List Projects
+## List projects
 
 Show a list of all projects where the user is a member by running:
 
@@ -42,7 +42,7 @@ xxxx      First Project      2024-03-20        ✅
 xxxx      Quick Start        2024-05-10
 ```
 
-## Select a Project
+## Select a project
 
 Selecting a project can be accomplished using the **switch** command. Running it opens a simple selection menu:
 
