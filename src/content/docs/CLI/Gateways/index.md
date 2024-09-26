@@ -52,7 +52,7 @@ Once you've set up your DNS records, you should validate them. To start this pro
 
 Now that your domain is verified, you can start using it to serve your content. For example, Fleek Storage content will now appear under **ipfs.my-gateway.online/ipfs/<cid>**.
 
-## Gateway Settings
+## Gateway settings
 
 To access the Gateway settings, use the **gateways detail** command.
 

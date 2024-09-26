@@ -15,7 +15,7 @@ tags:
 
 The Sites Service in the Fleek Platform CLI let users upload and easily maintain static sites powered by Web3 protocols, such as [Fleek Network](https://fleek.network).
 
-## Set up a Site
+## Set up a site
 
 When planning to deploy a site, you must first set up a Fleek Site. If you have followed the [quick start](/docs/cli/), this should be familiar.
 
@@ -35,7 +35,7 @@ Here, we're sticking with the default relative location.
 cd nextjs-template
 ```
 
-### Initialize the Fleek Site
+### Initialize the Fleek site
 
 Run the sites **init** command to initialise the process:
 
@@ -99,7 +99,7 @@ For simplicity, we've selected the JSON format and receive a confirmation messag
 
 Great, your site is ready to deploy!
 
-### Fleek Site Configuration file
+### Fleek site configuration file
 
 The Fleek Site configuration file contains important deployment configuration settings for your project.
 
@@ -135,7 +135,7 @@ If we imagine a scenario, where our package manager tool changes from npm to pnp
 }
 ```
 
-## Deploy a Site
+## Deploy a site
 
 Deploying your site is straightforward; simply run the sites deploy command in the directory where you initialized the site.
 
@@ -157,7 +157,7 @@ The site is available at the gateway described in the output message. Visit it b
 
 Optionally, you can learn to create a [custom gateway](/docs/cli/gateways/) of your liking and control.
 
-## Continuous Integration (CI)
+## Continuous integration (CI)
 
 To set up Continuous Integration (CI), use the fleek sites ci command. This command generates a new workflow file in your repository, which you can customize according to your needs.
 
