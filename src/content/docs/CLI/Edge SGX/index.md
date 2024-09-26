@@ -11,17 +11,17 @@ tags:
   - Fleek
 ---
 
-# Fleek Edge SGX
+# Fleek edge SGX
 
 :::warn
 The Fleek Edge SGX service is still in alpha and not recommended yet to be be used in production.
 :::
 
-## What is Fleek Edge SGX?
+## What is Fleek edge SGX?
 
 Fleek's Edge SGX service is a decentralized, edge-optimized tool that provides secure compute capabilities using Intel's SGX Trusted Execution Environments (TEEs). It allows developers to seamlessly integrate private, encrypted data processing into their applications without worrying about hardware or complex infrastructure management.
 
-## Why Fleek Edge SGX?
+## Why Fleek edge SGX?
 
 Fleek Edge SGX is used to ensure that sensitive data remains encrypted and secure during processing, making it ideal for privacy-focused applications. It offers remote attestation for verified security, edge optimization for faster performance, and reduces development time, cost, and complexity by handling the infrastructure and scaling needs for developers.
 
@@ -41,7 +41,7 @@ Fleek leverages [Intel SGX DCAP ECDSA Attestations](https://www.intel.com/conten
 
 This approach ensures highly secure communications and prevents unauthorized access or tampering of sensitive data within the network.
 
-## How to use Fleek Edge SGX
+## How to use Fleek edge SGX
 
 :::info
 For a deep dive on how to use this service with Fleek, follow this guide [here](https://fleek.xyz/guides/getting-started-fleek-functions-edge-sgx/).

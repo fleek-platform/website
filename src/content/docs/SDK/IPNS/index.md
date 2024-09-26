@@ -19,7 +19,7 @@ The Fleek Platform SDK helps you create mutable pointers to CIDs known as InterP
 If you're authenticating the Fleek Platform SDK with a Personal Access Token (PAT), you must provide a Project ID to the [PersonalAccessTokenService](/docs/cli/pat/).
 :::
 
-## Create an IPNS Record
+## Create an IPNS record
 
 ```typescript
 // The Fleek SDK should be authenticated
@@ -52,7 +52,7 @@ const record = await fleekSdk.ipns().getRecord({
 });
 ```
 
-## How to Publish an IPNS Record
+## How to publish an IPNS record
 
 To publish an IPNS record, you need to provide the IPNS record name and the IPFS hash you want to associate with it.
 
@@ -69,7 +69,7 @@ const record = await fleekSdk.ipns().publishRecord({
 It is important to note that IPNS propagation can take anywhere from 1 to 30 minutes.
 :::
 
-## List All Records
+## List all records
 
 To list all the records associated with a project, use the `listRecords` method.
 
@@ -79,7 +79,7 @@ To list all the records associated with a project, use the `listRecords` method.
 const records = await fleekSdk.ipns().listRecords();
 ```
 
-## Delete a Record
+## Delete a record
 
 To delete an IPNS record, use the `deleteRecord` method.
 
