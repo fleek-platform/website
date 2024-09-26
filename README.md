@@ -45,18 +45,20 @@ This repository contains the source code and assets for the Fleek.xyz website, w
         - [Production Service Setup](#production-service-setup)
       - [Search](#🔎-search)
         - [Health Check](#health-check)
-        - [Indexer](#indexer)
+      - [Indexer](#indexer)
         - [Put markdown content](#put-markdown-content-development)
         - [Query via cURL](#query-via-curl)
         - [Multi-Index Search](#multi-index-search)
         - [Delete Indexes](#💣-delete-indexes)
-        - [Images (optimization)](#-images-optimization)
+        - [Manual Indexation](#manual-indexation-cicd)
+      - [Images (optimization)](#-images-optimization)
 - [Migration](#-migration)
     - [Migrate Gatsby content](#migrate-gatsby-content)
 - [Custom data](#custom-data)
     - [Get latest posts](#get-latest-posts)
 - [Video Content](#video-content)
-
+- [Changelog Resources](#changelog-resources)
+  
 # Setup
 
 ## ⚙️ Requirements
@@ -844,7 +846,7 @@ curl \
   -X GET '<PROTOCOL>://<ADDRESS>:<PORT>/health'
 ```
 
-### Indexer
+## Indexer
 
 The Indexer's job referred to as indexation is the process of organizing and storing data in a structured manner to facilitate efficient search and retrieval.
 
@@ -926,6 +928,16 @@ npm run search:serve
 ```
 
 ⚠️ You'll see a warning message "No master key was found" that can be ignored for local environment development work. If for some reason you want to have a master key, modify the `search:serve` script to include it.
+
+### Manual Indexation (CI/CD)
+
+The indexation service should trigger on `push` to `main` branch. Alternatively, the repo admin can trigger the job manually.
+
+1) Open the Job runner [here](https://github.com/fleek-platform/website/actions/workflows/search-indexer.yml)
+
+2) Locate the row "This workflow has a workflow_dispatch event trigger." and open the **Run workflow** dropdown. In the option "Use workflow from" select `main` branch.
+
+The Job will index data that exists in the selected `main` branch. Learn how to release to production (main branch) [here](#🚀-release-to-production).
 
 ## 📸 Images (Optimization)
 
@@ -1076,3 +1088,10 @@ When visiting the site content, the file will be surfaced absolutely, e.g. `<sou
 ❌ If missing a trailing slash it'll look for the file in the wrong location. At time of writing, trailing slash is not required to resolve the site sections, thus its best practice to declare the file location with `./` as in `<source src="./my-video-filename.mp4">` to avoid confusion.
 
 💡 At time of writing its assumed that video files are put in the directory of a markdown file named `index.md(x)`, e.g. `src/content/guides/my-guide/index.md` and `src/content/guides/my-guide/my-video.mp4`. It's also expected that the base path is the directory of the content and not cross content. It's important to respect the convention for portability, otherwise you'll find unexpected results.
+
+
+## Changelog Resources
+
+The repositories contain a `CHANGELOG.md` file, which is generated automatically. Find the files in the root of the repositories, for example for [@fleek-platform/cli](https://github.com/fleek-platform/cli):
+
+- SDK changelog

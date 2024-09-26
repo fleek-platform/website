@@ -1,10 +1,13 @@
-import type { FC } from 'react';
+import { useEffect, type FC } from 'react';
 import {
   ROOT_FALLBACK_CATEGORY,
   type GenerateSidebarResponse,
 } from '@utils/generateSidebarDS';
 import { generateSlug } from '@utils/url';
 import clsx from 'clsx';
+import { useMediaQuery } from '@hooks/useMediaQuery';
+import { down } from '@utils/screens';
+import { useScrollToActiveItem } from '@hooks/useScrollToActiveItem';
 
 interface Props {
   data: GenerateSidebarResponse;
@@ -30,22 +33,30 @@ const SidebarMenu: FC<Props> = ({ data, pathname }) => {
       : splitted.length === 2
         ? splitted[1]
         : splitted[0];
+  const { containerRef: scrollableContainerRef, itemRef: activeItemRef } =
+    useScrollToActiveItem(activeCategory, activeSlug);
   const isHome = activeSlug === 'docs';
   const isActiveCategory = (category: string) => category === activeCategory;
   const isActiveSlug = (slug: string) => slug === activeSlug;
   const activeItemStyle = 'font-bold !opacity-100';
+  let isOpen = true;
+  const isMd = useMediaQuery(down('md'));
 
   return (
-    <ul className="mb-80">
+    <ul
+      className="mb-80 max-h-[90vh] overflow-y-auto pr-[10px] lg:pb-[150px]"
+      ref={scrollableContainerRef}
+    >
       <li className="">
         <a
+          ref={isHome ? activeItemRef : null}
           href="/docs"
           className={clsx(
-            `font-plex-sans text-16 capitalize leading-loose opacity-80 transition duration-150 hover:opacity-100`,
-            isHome && activeItemStyle,
+            `font-plex-sans text-16  leading-loose opacity-80 transition duration-150 hover:opacity-100`,
+            isHome && `${activeItemStyle}`,
           )}
         >
-          Home
+          Getting started
         </a>
       </li>
 
@@ -54,8 +65,12 @@ const SidebarMenu: FC<Props> = ({ data, pathname }) => {
           return (
             <li key={`${idx}-${item.slug}`}>
               <a
+                ref={isActiveSlug(item.slug) ? activeItemRef : null}
                 href={`/docs/${item.slug}`}
-                className={`rounded-lg block w-full py-2 font-plex-sans text-16  leading-loose opacity-80 transition duration-150 hover:opacity-100 ${isActiveSlug(item.slug) ? activeItemStyle : ''}`}
+                className={clsx(
+                  'rounded-lg block w-full py-2 font-plex-sans text-16 leading-loose opacity-80 transition duration-150 hover:opacity-100',
+                  isActiveSlug(item.slug) && `${activeItemStyle}`,
+                )}
               >
                 {item.title}
               </a>
@@ -64,15 +79,25 @@ const SidebarMenu: FC<Props> = ({ data, pathname }) => {
         }
 
         if (item.category !== ROOT_FALLBACK_CATEGORY) {
+          isOpen = isMd ? item.category === activeCategory : true;
           return (
             <li key={`${idx}-${item.slug}`}>
               <details
                 className="group [&_summary::-webkit-details-marker]:hidden"
-                open={item.category === activeCategory}
+                open={isOpen}
               >
                 <summary className="rounded-lg hover hover flex cursor-pointer items-center justify-between py-2">
                   <a
-                    className={`inline-block w-full font-plex-sans text-16 capitalize leading-loose text-gray-dark-11 transition duration-150 hover:opacity-100 ${isActiveSlug(item.slug) && isActiveCategory(item.category) ? activeItemStyle : 'opacity-80'}`}
+                    ref={
+                      isActiveSlug(item.slug) && isActiveCategory(item.category)
+                        ? activeItemRef
+                        : null
+                    }
+                    className={`inline-block w-full font-plex-sans text-16 capitalize leading-loose text-gray-dark-11 transition duration-150 hover:opacity-100 ${
+                      isActiveSlug(item.slug) && isActiveCategory(item.category)
+                        ? `${activeItemStyle}`
+                        : 'opacity-80'
+                    }`}
                     href={`/docs/${item.slug}`}
                   >
                     <span data-menu-item={`${generateSlug(item.slug)}`}>
@@ -101,6 +126,12 @@ const SidebarMenu: FC<Props> = ({ data, pathname }) => {
                   {item.list.map((sItem, idx) => (
                     <li key={`${idx}-${item.slug}`}>
                       <a
+                        ref={
+                          isActiveCategory(item.category) &&
+                          isActiveSlug(sItem.slug)
+                            ? activeItemRef
+                            : null
+                        }
                         href={`/docs/${item.category}/${!sItem.index ? sItem.slug : ''}`}
                         className={`rounded-lg inline-block w-full py-2 font-plex-sans text-16 leading-loose transition duration-150 hover:opacity-100 ${isActiveCategory(item.category) && isActiveSlug(sItem.slug) ? 'font-bold opacity-100' : 'opacity-80'}`}
                       >

@@ -1,18 +1,14 @@
 import React from 'react';
-import ButtonGray from './ButtonGray';
-import PricingButton from './PricingButton';
+import { Button, buttonVariants } from './v2/Button/Button';
+import type { VariantProps } from 'class-variance-authority';
 
 export type Props = {
   title: string;
   description: string;
   cost: number | String;
   features: string[];
-  border?: string;
   cta?: string;
-  coloredBtn?: boolean;
-  btnBg?: string;
-  hoverBtnBg?: string;
-  fontColor?: string;
+  variant: VariantProps<typeof buttonVariants>['variant'];
   url?: string;
 };
 
@@ -26,7 +22,7 @@ const PricingCard: React.FC<Props> = (props) => {
             }
           `}
       </style>
-      <div className="flex w-full flex-col gap-12 rounded-16 border border-gray-dark-6 bg-gray-dark-2 p-20">
+      <div className="flex w-full flex-col gap-12 rounded-16 border-t border-gray-dark-5 bg-gradient-to-br from-gray-dark-2 to-gray-dark-1 p-20">
         <div>
           <h3 className="typo-xl-bold text-left text-gray-dark-12">
             {props.title}
@@ -53,31 +49,17 @@ const PricingCard: React.FC<Props> = (props) => {
                     src={'/svg/bolt-white.svg'}
                     alt="fleek bolt icon"
                     className="h-20"
+                    loading="lazy"
                   />
-                  <p className="typo-s">{item}</p>
+                  <p className="typo-s text-gray-dark-12">{item}</p>
                 </li>
               );
             })}
           </ul>
         </div>
-        {props.coloredBtn ? (
-          <a href={props.url}>
-            <PricingButton
-              bg={props.btnBg}
-              fontColor={props.fontColor}
-              hoverBtnBg={props.hoverBtnBg}
-            >
-              <p className="typo-btn-cap">{props.cta}</p>
-            </PricingButton>
-          </a>
-        ) : (
-          <ButtonGray
-            border={props.border}
-            className="flex items-center justify-center gap-12 px-10 "
-          >
-            <div>{props.cta}</div>
-          </ButtonGray>
-        )}
+        <Button href={props.url} variant={props.variant} size="lg">
+          {props.cta}
+        </Button>
       </div>
     </>
   );

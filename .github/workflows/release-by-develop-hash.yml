@@ -114,3 +114,9 @@ jobs:
         fi
 
         echo "✅ Deleted the release preparation branch with name ${{ env.PREPARE_RELEASE_BRANCH }} successfuly"
+
+    - name: Checkout develop
+      uses: actions/checkout@v4
+      with:
+        # Checkout develop
+        ref: ${{ github.ref }}

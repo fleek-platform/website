@@ -1,11 +1,35 @@
 name: 🚜 Search (Indexer)
 on:
-  push:
-    branches: [ 'main' ]
+  workflow_dispatch:
+  schedule:
+    # Run at 2am UTC (daily)
+    - cron: '0 2 * * *'
 
 jobs:
+  branch-check:
+    runs-on: ubuntu-latest
+    outputs:
+      is-prod: ${{ steps.check-branch.outputs.is-prod }}
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+
+    - name: Check if branch is prod
+      run: |
+        currentBranchName="$(git branch --show-current)"
+
+        echo "💡 The current branch is $currentBranchName"
+
+        if [[ "$currentBranchName" == "main" ]]; then
+          echo "is-prod=true" >> $GITHUB_OUTPUT
+        else
+          echo "is-prod=false" >> $GITHUB_OUTPUT
+        fi
+
   meilisearch:
     name: MeiliSearch Service
+    needs: branch-check
+    if: needs.branch-check.outputs.is-prod == 'true'
     runs-on: ubuntu-latest
     environment: production
     steps:
@@ -46,6 +70,20 @@ jobs:
       - name: References Indexation
         run: |
           npm run search:index_references
+        env:
+          PRIVATE_MEILISEARCH_DOCUMENTS_ADMIN_API_KEY: ${{ secrets.PRIVATE_MEILISEARCH_DOCUMENTS_ADMIN_API_KEY}}
+          PUBLIC_MEILISEARCH_HOST: ${{ vars.PUBLIC_MEILISEARCH_HOST }}
+
+      - name: Changelog Indexation
+        run: |
+          npm run search:index_changelog
+        env:
+          PRIVATE_MEILISEARCH_DOCUMENTS_ADMIN_API_KEY: ${{ secrets.PRIVATE_MEILISEARCH_DOCUMENTS_ADMIN_API_KEY}}
+          PUBLIC_MEILISEARCH_HOST: ${{ vars.PUBLIC_MEILISEARCH_HOST }}
+
+      - name: Billing Indexation
+        run: |
+          npm run search:index_billing
         env:
           PRIVATE_MEILISEARCH_DOCUMENTS_ADMIN_API_KEY: ${{ secrets.PRIVATE_MEILISEARCH_DOCUMENTS_ADMIN_API_KEY}}
           PUBLIC_MEILISEARCH_HOST: ${{ vars.PUBLIC_MEILISEARCH_HOST }}

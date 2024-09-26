@@ -3,6 +3,7 @@
 2fa
 8f
 8fdevelop
+abi
 abtesting
 ach
 activedirectory
@@ -31,6 +32,7 @@ backend
 backlog
 bdd
 beaconing
+belarus
 bg
 biconomy
 big-data
@@ -76,6 +78,7 @@ css
 csv
 cta
 cta's
+cuba
 customtitlesbydirectoryname
 cvs
 cyberattack
@@ -179,6 +182,10 @@ iot
 ipaddress
 ipfs
 ipns
+iq
+ir
+iran
+iraq
 isr
 january
 javascript
@@ -186,12 +193,15 @@ js
 json
 july
 jwt
+korea
+kp
 kubernetes
 l1
 l2
 ldap
 leak
 leasable
+liberia
 lifecycle
 linkedin
 linkedin's
@@ -205,6 +215,7 @@ locked-in
 lodash
 login
 logout
+lr
 machine-learning
 macos
 malware
@@ -231,6 +242,7 @@ monitoring
 mp4
 multi-factor
 mvp
+myanmar
 mysql
 namespace
 natively
@@ -249,9 +261,10 @@ ns1
 oauth
 object-oriented
 objects
+ofac
 ok
-onboarding
 onboarded
+onboarding
 onchain
 online
 openssl
@@ -331,7 +344,9 @@ roguelike
 rollup
 rollups
 rsa
+ru
 ruby
+russia
 s3
 saml
 sandbox
@@ -389,11 +404,14 @@ submenu
 submenus
 subname
 subscription
+sudan
 sudo
 sunsetting
 svg
 swift
 swiss
+sy
+syria
 syslog
 system-admin
 systemctl
@@ -498,4 +516,6 @@ youtube
 zendesk
 zendesk's
 zero-trust
+zimbabwe
 zip
+zw

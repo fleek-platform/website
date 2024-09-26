@@ -11,13 +11,13 @@
     },
     "metadata": {
       "default": {
-        "title": "Fleek | Build lightning-fast apps",
+        "title": "Fleek | Build and deploy performant apps",
         "slug": "",
-        "description": "Fleek is an edge-optimized cloud platform. Effortlessly build, ship and scale highly performant apps. Try for free and deploy an app in 5 minutes.",
+        "description": "Fleek makes it easy to ship performant apps in minutes. Deploy instantly, run globally, scale automatically.",
         "image": "/images/fleek-meta.png?202406061658"
       },
       "blog": {
-        "title": "Fleek Blog",
+        "title": "Blog",
         "slug": "blog",
         "description": "Stay updated with blog posts from the Fleek team and community. Explore articles and insights on the latest trends and advancements in web development.",
         "image": "/images/fleek-meta.png?202406061658",
@@ -45,19 +45,19 @@
         }
       },
       "changelog": {
-        "title": "Fleek Changelog",
+        "title": "Changelog",
         "slug": "changelog",
         "description": "Stay updated with our changelog.",
         "image": "/images/fleek-meta.png?202406061658"
       },
       "docs": {
-        "title": "Fleek Docs",
+        "title": "Docs",
         "slug": "docs",
         "description": "Kickstart your Fleek journey with our documentation, detailed guides and references. Browse our platform resources for a deep dive into our features.",
         "image": "/images/fleek-meta.png?202406061658"
       },
       "guides": {
-        "title": "Fleek Guides",
+        "title": "Guides",
         "slug": "guides",
         "description": "Discover step-by-step guides and tutorials on Fleek to streamline your app and web development. Leverage our resources to build smarter, faster, and stress free.",
         "image": "/images/fleek-meta.png?202406061658"
@@ -75,7 +75,7 @@
         "image": "/images/fleek-meta.png?202406061658"
       },
       "references": {
-        "title": "Fleek References",
+        "title": "References",
         "slug": "references",
         "description": "Explore the Fleek References page for troubleshooting guides designed to address common errors when using Fleek.",
         "image": "/images/fleek-meta.png?202406061658"
@@ -120,6 +120,47 @@
       "visible": true
     }
   },
+  "landingPage": {
+    "hero": {
+      "h1": "Build on a lightning-fast, open-source cloud platform.",
+      "h2": "Fleek makes it easy to ship performant apps in minutes. Deploy instantly, run globally, scale automatically.",
+      "primaryCta": "Get started",
+      "secondaryCta": "Read our docs",
+      "image": "/images/landing-page/hero/hero.webp"
+    },
+    "partners": [
+      {
+        "name": "Polygon",
+        "logo": "/images/landing-page/partners/polygon.svg",
+        "caseStudyUrl": ""
+      },
+      {
+        "name": "Filecoin",
+        "logo": "/images/landing-page/partners/filecoin.svg",
+        "caseStudyUrl": ""
+      },
+      {
+        "name": "Velodrome",
+        "logo": "/images/landing-page/partners/velodrome.svg",
+        "caseStudyUrl": ""
+      },
+      {
+        "name": "Protocol Labs",
+        "logo": "/images/landing-page/partners/protocollabs.svg",
+        "caseStudyUrl": ""
+      },
+      {
+        "name": "Berachain",
+        "logo": "/images/landing-page/partners/berachain.svg",
+        "caseStudyUrl": ""
+      },
+      {
+        "name": "ENS",
+        "logo": "/images/landing-page/partners/ens.svg",
+        "caseStudyUrl": ""
+      }
+    ]
+  },
   "docs": {
     "menu": {
       "order": [
@@ -140,9 +181,7 @@
           "order": 4
         }
       ],
-      "customTitlesByDirectoryName": {
-        "fleek_dot_co_migration": "Fleek.co Migration"
-      }
+      "customTitlesByDirectoryName": {}
     }
   },
   "blog": {

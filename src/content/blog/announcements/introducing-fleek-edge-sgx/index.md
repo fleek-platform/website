@@ -58,21 +58,27 @@ Using Fleek’s Edge SGX service is simple and follows a similar process to our 
 
 2. Run this command to auth your CLI tool:
 
-```bash
-fleek login
-```
+   ```bash
+   fleek login
+   ```
 
-3. Run this command to deploy:
+3. Create a Fleek Function:
 
-```bash
-fleek functions deploy --name Myfunction --path my.wasm --sgx
-```
+   ```bash
+   fleek functions create  --name Myfunction
+   ```
 
-4. You can invoke this function at https://fleek-test.network/services/3 with a payload containing hash, inputs, and whether its encrypted or not (always yes with the current tool), and any inputs you need:
+4. Run this command to deploy:
 
-```bash
-curl fleek-test.network/services/3 --data '{"hash": "<hash>", "decrypt": true, "input": "foo"}'
-```
+   ```bash
+   fleek functions deploy --name Myfunction --path my.wasm --sgx
+   ```
+
+5. You can invoke this function at https://fleek-test.network/services/3 with a payload containing hash, inputs, and whether its encrypted or not (always yes with the current tool), and any inputs you need:
+
+   ```bash
+   curl fleek-test.network/services/3 --data '{"hash": "<hash>", "decrypt": true, "input": "foo"}'
+   ```
 
 ---
 

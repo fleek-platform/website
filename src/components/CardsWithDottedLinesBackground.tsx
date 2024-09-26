@@ -1,12 +1,7 @@
-import Container from '@components/Container';
-import GridLayout from '@components/GridLayout';
-import PageSection from '@components/PageSection';
-import TemplateAppCard from '@components/TemplateAppCard';
-import TextGlowHoverEffect from './TextGlowHoverEffect';
 import Link, { Target } from '@components/Link';
-import type { RoundedType } from '@components/PageSection';
-import ButtonGray from './ButtonGray';
-import Text from './Text';
+import { Container } from './v2/LandingPage/Container/Container';
+import { Text } from './v2/LandingPage/Text/Text';
+import { Button } from './v2/Button/Button';
 
 interface Card {
   title: string;
@@ -35,68 +30,61 @@ interface Props {
     url: string;
     text: string;
   };
-  rounded?: RoundedType;
 }
 
 const CardsWithDottedLinesBackground: React.FC<Props> = (props) => (
-  <Container>
-    <PageSection rounded={props.rounded}>
-      <GridLayout className="overflow-hidden py-64 lg:py-50">
-        <div className="col-span-16 flex flex-col gap-48 lg:col-span-12 lg:col-start-3">
-          <div className="flex flex-col gap-24 text-center">
-            <h2 className="typo-h5 text-gray-dark-12 lg:typo-h4">
-              {props.headline}
-            </h2>
-            {props.copy && <p className="typo-l">{props.copy}</p>}
-          </div>
-          <div className="relative">
-            <img
-              src="/images/circles.png"
-              alt="bg-squiggle"
-              className="absolute  -top-44 bottom-0 left-0 right-0 -z-1 m-auto hidden w-full scale-125 lg:block"
-            />
-            <img
-              src="/svg/elliptical-squiggle-bg-mobile.svg"
-              alt="bg-squiggle"
-              className="absolute left-0 top-0 -z-1 m-auto h-full w-full lg:hidden"
-            />
-            <div className="flex w-full flex-col gap-8 lg:m-auto lg:w-fit lg:items-center">
-              {props.cardSections.map((section) => (
-                <div
-                  key={section.title}
-                  className="flex flex-col gap-16 lg:gap-8"
-                >
-                  <div className="flex flex-col gap-8 lg:grid lg:grid-cols-3 lg:gap-30 lg:gap-x-24">
-                    {section.cards.map(
-                      ({ title, description, icon, cta, image }) => (
-                        <Link href={cta.url} key={title} target={Target.Blank}>
-                          <TemplateAppCard
-                            key={title}
-                            title={title}
-                            description={description}
-                            icon={icon}
-                            image={image}
-                          />
-                        </Link>
-                      ),
-                    )}
-                  </div>
-                </div>
-              ))}
-              {props.cta && (
-                <div className="mt-12 w-full self-center lg:w-fit">
-                  <Link href={props.cta.url} target={Target.Blank}>
-                    <ButtonGray>
-                      <Text>{props.cta.text}</Text>
-                    </ButtonGray>
+  <Container classNameOuterContainer="sm:py-[72px]">
+    <div className="col-span-16 flex flex-col gap-48 lg:col-span-12 lg:col-start-3">
+      <div className="flex flex-col gap-24 text-center">
+        <Text as="h3">{props.headline}</Text>
+        {props.copy && <p className="typo-l">{props.copy}</p>}
+      </div>
+      <div className="relative">
+        <div className="flex w-full flex-col gap-54">
+          {props.cardSections.map((section) => (
+            <div key={section.title} className="flex flex-col gap-16 lg:gap-8">
+              <div className="grid gap-24 lg:grid-cols-3 lg:gap-30 lg:gap-x-24">
+                {section.cards.map(({ title, description, cta, image }) => (
+                  <Link
+                    href={cta.url}
+                    key={title}
+                    target={Target.Blank}
+                    rel="noreferrer noopener"
+                    className="group overflow-hidden rounded-12 border border-gray-dark-5 outline-none ring-0 ring-gray-dark-8 transition-all hover:scale-[1.02] focus-visible:scale-[1.02] focus-visible:ring-2"
+                  >
+                    <figure className="h-144 overflow-clip">
+                      <img
+                        src={image}
+                        alt={title}
+                        loading="lazy"
+                        className="h-full w-full object-cover transition-all group-hover:opacity-80 group-focus-visible:opacity-80"
+                      />
+                    </figure>
+                    <div className="space-y-8 bg-gray-dark-2 p-16 font-plex-sans transition-colors group-hover:bg-gray-dark-3 group-focus-visible:bg-gray-dark-3">
+                      <p className="text-16 font-bold text-gray-dark-12">
+                        {title}
+                      </p>
+                      <p className="text-14 text-gray-dark-11">{description}</p>
+                    </div>
                   </Link>
-                </div>
-              )}
+                ))}
+              </div>
             </div>
-          </div>
+          ))}
+          {props.cta && (
+            <Button
+              href={props.cta.url}
+              target={Target.Blank}
+              rel="noreferrer noopener"
+              variant="secondary"
+              className="mx-auto"
+            >
+              {props.cta.text}
+            </Button>
+          )}
         </div>
-      </GridLayout>
-    </PageSection>
+      </div>
+    </div>
   </Container>
 );
 
