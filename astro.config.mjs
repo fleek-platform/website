@@ -70,4 +70,7 @@ export default defineConfig({
       theme: 'min-dark',
     },
   },
+  redirects: {
+    '/blog/learn/hottest-tends-2024-serverless-cloud-computing/': '/blog/learn/hottest-trends-2024-serverless-cloud-computing/',   
+  },
 });

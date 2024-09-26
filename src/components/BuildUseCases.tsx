@@ -1,18 +1,11 @@
 import CardsWithDottedLinesBackground from '@components/CardsWithDottedLinesBackground';
 
-import type { RoundedType } from '@components/PageSection';
-
-interface Props {
-  rounded?: RoundedType;
-}
-// TODO: Should the card declaration be in the settings?
-const BuildUseCases: React.FC<Props> = (props) => (
+const BuildUseCases: React.FC = () => (
   <CardsWithDottedLinesBackground
-    rounded={props.rounded}
     headline="Start with Templates"
     cta={{
       url: 'https://app.fleek.xyz/templates/',
-      text: 'Browse templates',
+      text: 'Browse all templates',
     }}
     cardSections={[
       {
@@ -34,7 +27,7 @@ const BuildUseCases: React.FC<Props> = (props) => (
               'Use the React boilerplate for optimal user interface aesthetics.',
             icon: { src: '/svg/react-icon.svg', alt: 'NextJs App' },
             cta: {
-              url: 'https://app.fleek.xyz/templates/clmf7apqf0007l808mo2f6937/',
+              url: 'https://app.fleek.xyz/templates/clx3g4dwk0008qy2i5d6aobe4/',
               text: 'try it',
             },
             image: '/svg/react-template.svg',
@@ -45,7 +38,7 @@ const BuildUseCases: React.FC<Props> = (props) => (
               'Deploy the Astro boilerplate for an efficient, modern web experience.',
             icon: { src: '/svg/react-icon.svg', alt: 'React App' },
             cta: {
-              url: 'https://app.fleek.xyz/templates/clmf7io4a0009ic08ya3sjwyj/',
+              url: 'https://app.fleek.xyz/templates/clx3f5nem000333n7acqcxiwj/',
               text: 'try it',
             },
             image: '/svg/astro-template.svg',

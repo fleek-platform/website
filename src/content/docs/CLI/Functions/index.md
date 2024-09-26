@@ -17,7 +17,7 @@ These aim to offer a more economical, high-performance, and scalable solution fo
 
 Fleek Functions make it possible for users to create serverless apps with lightning-fast performance at a much lower cost. Fleek Functions support TypeScript and JavaScript based functions.
 
-## Create a Draft Function
+## Create a draft function
 
 To create your first Fleek Function, you must first draft the code and then configure the deployment settings accordingly. To follow the instructions, open your terminal, and change directory to your liking.
 
@@ -58,7 +58,7 @@ Please make sure you are using fleek-platform CLI v2.9.1 to be able to access Ty
 
 :::
 
-### HTTP Requests and Responses
+### HTTP requests and responses
 
 Every execution of your Fleek Function receives an [HttpRequest](https://fleek-network.github.io/js-docs/~/Fleek.HttpRequest.html) argument. It represents the HTTP request made to your function. You can find all the relevant information of your request there.
 
@@ -197,7 +197,7 @@ After the deployment of a Fleek Function, you can edit the following properties:
 - Name: Modify the unique identifier term listed in the project
 - Slug: The alias utilized to access the specific function resource
 
-### Update the Name or Slug
+### Update the name or slug
 
 You might find it necessary to rename an existing Fleek Function, e.g. if the code it executes now diverges from its initial purpose or to improve clarity.
 
@@ -318,7 +318,7 @@ fleek functions deploy --name print-hello-world --path *./function.js --private
 This is an experimental feature, performance will be impacted. We are actively working on improving this experience to be on par with IPFS stored functions.
 :::
 
-## Deactivate Functions
+## Deactivate functions
 
 To _deactivate_ such a Fleek Function, you can run the command below, replacing <fleek_function_name> with the name of the Fleek Function you’re deactivating.
 
