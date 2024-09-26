@@ -7,11 +7,16 @@
 
 @layer base {
   :root {
+    /* Font antialising */
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+
     font-size: 62.5%;
   }
 
   html,
   body {
+    overflow-x: hidden;
     margin: 0;
     padding: 0;
     width: 100%;

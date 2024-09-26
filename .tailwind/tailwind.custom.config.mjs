@@ -81,11 +81,21 @@ export default function (usePx) {
             "100%": {
               transform: "rotate(-9deg)",
             },
-          }
+          },
+          'fade-in': {
+            '0%': { opacity: 0 },
+            '100%': { opacity: 1 },
+          },
+          'fade-in-down': {
+            '0%': { transform: 'translateY(2%)', opacity: 0 },
+            '100%': { transform: 'translateY(0)', opacity: 1 },
+          },
         },
         animation: {
           "blur-out": "blur 0.6s ease-out",
           "rock": "rock 1.2s infinite",
+          'fade-in': 'fade-in 100ms ease-out',
+          'fade-in-down': 'fade-in-down 120ms ease-out',
         },
       },
     },
