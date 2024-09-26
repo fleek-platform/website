@@ -170,3 +170,26 @@ Ref:
 
 - Nginx location match tester
   https://nginx.viraptor.info
+
+## Certificate auto-renewal
+
+The certificates are auto-renewed by the certbot process. Cronjob's are located at:
+
+```
+/etc/cron.d/certbot
+```
+
+Here's an example of a `renew_hook`, for Lets Encrypt renewal.
+
+```sh
+# Trigger when renew successful
+renew_hook = systemctl reload nginx
+```
+
+The configuration file is located at `/etc/letsencrypt/renewal/docs.fleek.xyz.conf`.
+
+Alternatively, executable scripts can be stored in:
+
+```
+/etc/letsencrypt/renewal-hooks/deploy/
+```
