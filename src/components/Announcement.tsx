@@ -7,7 +7,7 @@ import { useMediaQuery } from '@hooks/useMediaQuery';
 import { cn } from '@utils/cn';
 
 type AnnouncementProps = PropsWithChildren & {
-  variant?: 'content' | 'full';
+  variant?: 'content' | 'full' | 'docs';
 };
 
 export const Announcement: React.FC<AnnouncementProps> = ({
@@ -23,6 +23,21 @@ export const Announcement: React.FC<AnnouncementProps> = ({
   const shouldShowMarquee = useMediaQuery('(max-width: 800px)');
 
   if (!settings.site.annoucementMarquee.visible) return null;
+
+  if (variant === 'docs')
+    return (
+      <Link
+        href={settings.site.annoucementMarquee.url}
+        target={Target.Blank}
+        rel="noopener noreferrer"
+        className="group flex flex-col gap-4 text-balance rounded-8 border-t border-gray-dark-4 bg-gradient-to-br from-gray-dark-2 to-gray-dark-1 p-8 font-plex-sans text-13 font-normal leading-tight text-gray-dark-11 hover:border-gray-dark-5 hover:from-gray-dark-3 hover:to-gray-dark-2 hover:text-gray-dark-12"
+      >
+        <span className="shrink-0 text-10 font-medium uppercase text-yellow-dark-11">
+          ✨ new
+        </span>
+        {settings.site.annoucementMarquee.message}
+      </Link>
+    );
 
   return (
     <Link

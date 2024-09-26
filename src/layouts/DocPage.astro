@@ -22,6 +22,7 @@ import type { DocsLink } from '@base/pages/docs/[...slug].astro';
 import { getCollection } from 'astro:content';
 import { generateFullSlug } from '@utils/generateFullSlug';
 import DocsHtml from './DocsHtml.astro';
+import { Announcement } from '@components/Announcement';
 
 type Props = {
   title: string;
@@ -81,12 +82,6 @@ const slug = generateFullSlug({
 });
 
 const image = settings.site.metadata.docs.image;
-
-/**
- *
- * hidden lg:block fixed z-20 inset-0 top-[3.8125rem] left-[max(0px,calc(50%-45rem))] right-auto w-[19rem] pb-10 pl-8 pr-6 overflow-y-auto
- *
- * */
 ---
 
 <DocsHtml
@@ -101,10 +96,14 @@ const image = settings.site.metadata.docs.image;
   <main class="relative flex flex-col gap-48 md:flex-row">
     <aside data-name="doc-sidebar">
       <div
-        class="relative inset-0 top-[92px] shrink-0 overflow-y-auto md:sticky md:max-h-[calc(100vh-96px)] md:w-256 md:pr-24"
+        class="relative top-[92px] shrink-0 overflow-y-auto md:sticky md:max-h-[calc(100vh-96px)] md:w-232 md:pr-12"
       >
         <div class="sticky top-0 z-10 w-full">
           <SearchBtn client:load indexName={indexNameDocs} />
+          <div
+            class="absolute h-24 w-full bg-gradient-to-b from-black to-transparent"
+          >
+          </div>
         </div>
         <Sidebar
           client:load
@@ -121,9 +120,14 @@ const image = settings.site.metadata.docs.image;
       </div>
       <GithubEditLink pathname={githubEditUrlPathname} />
     </article>
-    <aside class="hidden w-224 shrink-0 lg:block">
-      {headings && <OnPageNavigation headings={headings} />}
-    </aside>
+    <div class="relative">
+      <aside
+        class="sticky top-[92px] hidden h-full max-h-[calc(100vh-96px)] w-224 shrink-0 flex-col justify-between gap-24 overflow-auto pb-14 md:flex"
+      >
+        {headings && <OnPageNavigation headings={headings} />}
+        <Announcement variant="docs" />
+      </aside>
+    </div>
   </main>
   <InjectCodeCopy />
 </DocsHtml>

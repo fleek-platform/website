@@ -2,7 +2,6 @@ import { useState, useEffect, useRef } from 'react';
 import type { FC } from 'react';
 import type { MarkdownHeading } from 'astro';
 import { throttle } from 'lodash-es';
-import { Announcement } from '@components/Announcement';
 
 type ItemOffsets = {
   id: string;
@@ -97,9 +96,9 @@ const TableOfContents: FC<Props> = ({ headings = [] }) => {
   };
 
   return (
-    <ul>
+    <ul className="flex flex-col gap-4">
       <li className="leading-normal">
-        <p className="pb-8 font-sans text-16 font-semibold text-gray-dark-12 opacity-100">
+        <p className="pb-8 font-sans text-16 font-semibold text-gray-dark-12">
           On this page
         </p>
       </li>
@@ -109,7 +108,7 @@ const TableOfContents: FC<Props> = ({ headings = [] }) => {
           heading.depth == 2 ? (
             <li
               key={heading.slug}
-              className={`leading-normal ${activeId === heading.slug ? 'font-bold' : ''}`}
+              className={`leading-normal ${activeId === heading.slug ? 'font-semibold text-gray-dark-12' : 'opacity-90'}`}
               onClick={() => onClickHandler(heading.slug)}
             >
               <a className="font-plex-sans text-13" href={`#${heading.slug}`}>
@@ -121,14 +120,14 @@ const TableOfContents: FC<Props> = ({ headings = [] }) => {
               <ul>
                 <li
                   key={heading.slug}
-                  className={`leading-normal ${activeId === heading.slug ? 'font-semibold text-gray-dark-12' : ''}`}
+                  className={`pl-6 leading-normal ${activeId === heading.slug ? 'font-semibold text-gray-dark-12' : 'opacity-90'}`}
                   onClick={() => onClickHandler(heading.slug)}
                 >
                   <a
                     className="font-plex-sans text-13 leading-normal"
                     href={`#${heading.slug}`}
                   >
-                    {heading.text}
+                    - {heading.text}
                   </a>
                 </li>
               </ul>

@@ -7,6 +7,7 @@ import { useMediaQuery } from '@hooks/useMediaQuery';
 import { down } from '@utils/screens';
 import { useScrollToActiveItem } from '@hooks/useScrollToActiveItem';
 import { cn } from '@utils/cn';
+import { FaHouse } from 'react-icons/fa6';
 
 interface Props {
   data: GenerateSidebarResponse;
@@ -37,88 +38,108 @@ const SidebarMenu: React.FC<Props> = ({ data, pathname }) => {
   const isHome = activeSlug === 'docs';
   const isActiveCategory = (category: string) => category === activeCategory;
   const isActiveSlug = (slug: string) => slug === activeSlug;
-  const activeItemStyle = 'font-semibold text-gray-dark-12 text-16 opacity-100';
   let isOpen = true;
   const isMd = useMediaQuery(down('md'));
 
   return (
-    <ul
-      ref={scrollableContainerRef}
-      className="flex flex-col gap-24 pb-64 pt-24"
-    >
-      <li>
-        <a ref={isHome ? activeItemRef : null} href="/docs" className="">
-          Getting started
-        </a>
-      </li>
+    <>
+      <div className="fixed bottom-0 h-24 w-[233px] bg-gradient-to-t from-black to-transparent" />
+      <ul
+        ref={scrollableContainerRef}
+        className="flex flex-col gap-20 px-8 pb-64 pt-24 font-plex-sans text-14 text-gray-dark-11"
+      >
+        <li>
+          <a
+            ref={isHome ? activeItemRef : null}
+            href="/docs"
+            className={cn(
+              'group flex items-center gap-8 font-semibold hover:text-gray-dark-12',
+              {
+                'text-gray-dark-12': isHome,
+              },
+            )}
+          >
+            <div
+              className={cn(
+                'flex size-20 items-center justify-center rounded-4 bg-gray-dark-3 group-hover:bg-gray-dark-4',
+                { 'bg-yellow-dark-11 group-hover:bg-yellow-dark-11': isHome },
+              )}
+            >
+              <FaHouse
+                className={cn('size-12 text-gray-dark-11', {
+                  'text-gray-dark-1': isHome,
+                })}
+              />
+            </div>
+            Getting started
+          </a>
+        </li>
 
-      {data.map((item, idx) => {
-        if (item.category === ROOT_FALLBACK_CATEGORY) {
-          return (
-            <li key={`${idx}-${item.slug}`}>
-              <a
-                ref={isActiveSlug(item.slug) ? activeItemRef : null}
-                href={`/docs/${item.slug}`}
-                className="bg-white"
-              >
-                {item.title}
-              </a>
-            </li>
-          );
-        }
+        {data.map((item, idx) => {
+          if (item.category === ROOT_FALLBACK_CATEGORY) {
+            return (
+              <li key={`${idx}-${item.slug}`}>
+                <a
+                  ref={isActiveSlug(item.slug) ? activeItemRef : null}
+                  href={`/docs/${item.slug}`}
+                  className={cn(
+                    'font-semibold text-gray-dark-11 hover:text-gray-dark-12',
+                    {
+                      'text-gray-dark-12': isActiveSlug(item.slug),
+                    },
+                  )}
+                >
+                  {item.title}
+                </a>
+              </li>
+            );
+          }
 
-        if (item.category !== ROOT_FALLBACK_CATEGORY) {
-          isOpen = isMd ? item.category === activeCategory : true;
-          return (
-            <li key={`${idx}-${item.slug}`}>
-              <details
-                className="group [&_summary::-webkit-details-marker]:hidden"
-                open={isOpen}
-              >
-                <summary className="rounded-lg hover hover flex cursor-pointer items-center justify-between py-2">
-                  <a
-                    ref={
-                      isActiveSlug(item.slug) && isActiveCategory(item.category)
-                        ? activeItemRef
-                        : null
-                    }
-<<<<<<< HEAD
-                    className={`inline-block w-full font-plex-sans text-16 capitalize leading-loose text-gray-dark-11 transition duration-150 hover:opacity-100 ${
-                      isActiveSlug(item.slug) && isActiveCategory(item.category)
-                        ? `${activeItemStyle}`
-                        : 'opacity-80'
-                    }`}
-=======
-                    className="bg-yellow-dark-12"
->>>>>>> 7b76684 (chore: refactor docs)
-                    href={`/docs/${item.slug}`}
-                  >
-                    <span data-menu-item={`${generateSlug(item.slug)}`}>
-                      {item.title}
-                    </span>
-                  </a>
-
-                  <span className="shrink-0 text-gray-dark-6 opacity-60 transition duration-300 hover:opacity-100 group-open:rotate-90 group-open:opacity-100">
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      width={20}
-                      height={20}
-                      fill="none"
+          if (item.category !== ROOT_FALLBACK_CATEGORY) {
+            isOpen = isMd ? item.category === activeCategory : true;
+            return (
+              <li key={`${idx}-${item.slug}`}>
+                <details
+                  className="group [&_summary::-webkit-details-marker]:hidden"
+                  open={isOpen}
+                >
+                  <summary className="rounded-lg flex cursor-pointer select-none items-center justify-between pb-8">
+                    <a
+                      ref={
+                        isActiveSlug(item.slug) &&
+                        isActiveCategory(item.category)
+                          ? activeItemRef
+                          : null
+                      }
+                      className="font-semibold capitalize text-gray-dark-11"
+                      href={`/docs/${item.slug}`}
                     >
-                      <path
-                        fill="currentColor"
-                        fillRule="evenodd"
-                        d="M7.293 14.707a1 1 0 0 1 0-1.414L10.586 10 7.293 6.707a1 1 0 1 1 1.414-1.414l4 4a1 1 0 0 1 0 1.414l-4 4a1 1 0 0 1-1.414 0Z"
-                        clipRule="evenodd"
-                      />
-                    </svg>
-                  </span>
-                </summary>
+                      <span data-menu-item={`${generateSlug(item.slug)}`}>
+                        {item.title}
+                      </span>
+                    </a>
 
-                <ul className="mt-2 space-y-1 border-l border-ui-dark-grey pl-20">
-                  {item.list.map((sItem, idx) => (
-                    <li key={`${idx}-${item.slug}`}>
+                    <span className="shrink-0 text-gray-dark-6 opacity-60 transition duration-300 hover:opacity-100 group-open:rotate-90 group-open:opacity-100">
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width={20}
+                        height={20}
+                        fill="none"
+                      >
+                        <path
+                          fill="currentColor"
+                          fillRule="evenodd"
+                          d="M7.293 14.707a1 1 0 0 1 0-1.414L10.586 10 7.293 6.707a1 1 0 1 1 1.414-1.414l4 4a1 1 0 0 1 0 1.414l-4 4a1 1 0 0 1-1.414 0Z"
+                          clipRule="evenodd"
+                        />
+                      </svg>
+                    </span>
+                  </summary>
+
+                  <div className="flex flex-col border-l border-gray-dark-4">
+                    {item.list.map((sItem, idx) => (
                       <a
+                        key={`${idx}-${sItem.slug}`}
                         ref={
                           isActiveCategory(item.category) &&
                           isActiveSlug(sItem.slug)
@@ -126,21 +147,27 @@ const SidebarMenu: React.FC<Props> = ({ data, pathname }) => {
                             : null
                         }
                         href={`/docs/${item.category}/${!sItem.index ? sItem.slug : ''}`}
-                        className={`rounded-lg inline-block w-full py-2 font-plex-sans text-16 leading-loose transition duration-150 hover:opacity-100 ${isActiveCategory(item.category) && isActiveSlug(sItem.slug) ? 'font-bold opacity-100' : 'opacity-80'}`}
+                        className={cn(
+                          'w-full border-gray-dark-10 py-4 pl-16 text-gray-dark-11 hover:-ml-[1px] hover:border-l hover:text-gray-dark-12',
+                          {
+                            '-ml-[1px] border-l border-yellow-dark-11 text-16 font-semibold text-gray-dark-12':
+                              isActiveSlug(sItem.slug) &&
+                              isActiveCategory(item.category),
+                          },
+                        )}
+                        data-menu-item={`${generateSlug(sItem.title)}`}
                       >
-                        <span data-menu-item={`${generateSlug(sItem.title)}`}>
-                          {sItem.title}
-                        </span>
+                        {sItem.title}
                       </a>
-                    </li>
-                  ))}
-                </ul>
-              </details>
-            </li>
-          );
-        }
-      })}
-    </ul>
+                    ))}
+                  </div>
+                </details>
+              </li>
+            );
+          }
+        })}
+      </ul>
+    </>
   );
 };
 
