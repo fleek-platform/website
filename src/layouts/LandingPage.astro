@@ -2,7 +2,7 @@
 import '@styles/globals.css';
 import { getSiteUrl } from '@utils/url';
 import settings from '@base/settings.json';
-
+import PostHog from '@components/PostHog.astro';
 const baseUrl = getSiteUrl();
 ---
 
@@ -79,6 +79,9 @@ const baseUrl = getSiteUrl();
 
     <!-- Google Tag Manager -->
     <script is:inline src="/lib/gtm.js"></script>
+
+    <!-- PostHog -->
+    <PostHog />
   </head>
   <body
     class="relative flex min-h-dvh flex-col overflow-x-hidden bg-black font-sans text-gray-dark-11 selection:bg-yellow-dark-9 selection:text-black"

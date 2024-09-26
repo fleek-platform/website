@@ -7,6 +7,7 @@ import Nav from '@components/NavBar';
 import Footer from '@components/Footer';
 
 import { Toaster } from 'react-hot-toast';
+import PostHog from '@components/PostHog.astro';
 
 interface Props {
   title: string;
@@ -103,6 +104,9 @@ const baseUrl = getSiteUrl();
 
     <!-- Google Tag Manager -->
     <script is:inline src="/lib/gtm.js"></script>
+
+    <!-- PostHog -->
+    <PostHog />
   </head>
   <body
     class="--font-plex-sans --font-plex-mono --font-sans bg-mesh min-h-full bg-black font-sans text-gray-dark-11 selection:bg-yellow-dark-9 selection:text-black"
