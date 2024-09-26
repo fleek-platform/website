@@ -10,7 +10,7 @@ const Pricing = () => {
   return (
     <Container>
       <>
-        <div className="grid grid-flow-dense grid-cols-16 gap-x-16 px-8 pb-80 pt-48">
+        <div className="grid grid-flow-dense grid-cols-16 gap-x-16  px-8 py-80">
           <div className="col-span-14 col-start-2 text-center">
             <Text className="mb-24">Pricing you can get pumped about</Text>
             <Text variant="description" className="mb-76">
@@ -36,12 +36,10 @@ const Pricing = () => {
             <TableMobile />
             <TableDesktop />
           </div>
-          <TableMobile />
-          <TableDesktop />
         </div>
-      </div>
-      <Pay />
-    </>
+        <Pay />
+      </>
+    </Container>
   );
 };
 

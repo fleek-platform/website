@@ -2,13 +2,9 @@
 import '@styles/globals.css';
 import '@styles/docPage.css';
 import '@styles/admonition.css';
-import BaseHtml from '@layouts/BaseHtml.astro';
 import InjectCodeCopy from '@components/InjectCodeCopy.astro';
 
-import {
-  generateSidebarDSByUserOrder,
-  type GenerateSidebarResponse,
-} from '@utils/generateSidebarDS';
+import { generateSidebarDSByUserOrder } from '@utils/generateSidebarDS';
 import settings from '@base/settings.json';
 
 import Sidebar from '@components/Sidebar';
@@ -25,6 +21,7 @@ import type { ContentEntryMap } from 'astro:content';
 import type { DocsLink } from '@base/pages/docs/[...slug].astro';
 import { getCollection } from 'astro:content';
 import { generateFullSlug } from '@utils/generateFullSlug';
+import DocsHtml from './DocsHtml.astro';
 
 type Props = {
   title: string;
@@ -84,9 +81,15 @@ const slug = generateFullSlug({
 });
 
 const image = settings.site.metadata.docs.image;
+
+/**
+ *
+ * hidden lg:block fixed z-20 inset-0 top-[3.8125rem] left-[max(0px,calc(50%-45rem))] right-auto w-[19rem] pb-10 pl-8 pr-6 overflow-y-auto
+ *
+ * */
 ---
 
-<BaseHtml
+<DocsHtml
   title={title}
   ogMeta={{
     title,
@@ -95,35 +98,32 @@ const image = settings.site.metadata.docs.image;
     slug,
   }}
 >
-  <main class="container min-h-container">
-    <div class={`grid grid-cols-[1fr] gap-4 md:grid-cols-[1fr,4fr,1fr]`}>
-      <aside data-name="doc-sidebar" class="w-300 relative">
-        <div class="lg:sticky lg:top-40 lg:pb-40">
-          <div class="docs-search-container">
-            <SearchBtn client:load indexName={indexNameDocs} />
-          </div>
-
-          <Sidebar
-            client:load
-            data={sidebarSorted}
-            pathname={Astro.url.pathname}
-          />
+  <main class="relative flex flex-col gap-48 md:flex-row">
+    <aside data-name="doc-sidebar">
+      <div
+        class="relative inset-0 top-[92px] shrink-0 overflow-y-auto md:sticky md:max-h-[calc(100vh-96px)] md:w-256 md:pr-24"
+      >
+        <div class="sticky top-0 z-10 w-full">
+          <SearchBtn client:load indexName={indexNameDocs} />
         </div>
-      </aside>
-      <div class="min-w-0 px-32">
-        <article class="doc">
-          <slot />
-          <div class="mt-12 flex flex-row gap-20">
-            {prevItem && <DocItemLink docItem={prevItem} />}
-            {nextItem && <DocItemLink docItem={nextItem} isNext />}
-          </div>
-          <GithubEditLink pathname={githubEditUrlPathname} />
-        </article>
+        <Sidebar
+          client:load
+          data={sidebarSorted}
+          pathname={Astro.url.pathname}
+        />
       </div>
-      <aside class="hidden w-240 lg:block">
-        {headings && <OnPageNavigation headings={headings} />}
-      </aside>
-    </div>
+    </aside>
+    <article class="doc w-full min-w-0 flex-1">
+      <slot />
+      <div class="mt-12 flex flex-row gap-20">
+        {prevItem && <DocItemLink docItem={prevItem} />}
+        {nextItem && <DocItemLink docItem={nextItem} isNext />}
+      </div>
+      <GithubEditLink pathname={githubEditUrlPathname} />
+    </article>
+    <aside class="hidden w-224 shrink-0 lg:block">
+      {headings && <OnPageNavigation headings={headings} />}
+    </aside>
   </main>
   <InjectCodeCopy />
-</BaseHtml>
+</DocsHtml>

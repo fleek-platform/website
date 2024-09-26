@@ -1,13 +1,12 @@
-import { useEffect, type FC } from 'react';
 import {
   ROOT_FALLBACK_CATEGORY,
   type GenerateSidebarResponse,
 } from '@utils/generateSidebarDS';
 import { generateSlug } from '@utils/url';
-import clsx from 'clsx';
 import { useMediaQuery } from '@hooks/useMediaQuery';
 import { down } from '@utils/screens';
 import { useScrollToActiveItem } from '@hooks/useScrollToActiveItem';
+import { cn } from '@utils/cn';
 
 interface Props {
   data: GenerateSidebarResponse;
@@ -24,7 +23,7 @@ const findBase = (splitted: string[]) => {
   return splitted[1];
 };
 
-const SidebarMenu: FC<Props> = ({ data, pathname }) => {
+const SidebarMenu: React.FC<Props> = ({ data, pathname }) => {
   const splitted = pathname.split('/').filter(Boolean);
   const activeCategory = splitted.length > 2 ? splitted[1] : findBase(splitted);
   const activeSlug =
@@ -38,24 +37,17 @@ const SidebarMenu: FC<Props> = ({ data, pathname }) => {
   const isHome = activeSlug === 'docs';
   const isActiveCategory = (category: string) => category === activeCategory;
   const isActiveSlug = (slug: string) => slug === activeSlug;
-  const activeItemStyle = 'font-bold !opacity-100';
+  const activeItemStyle = 'font-semibold text-gray-dark-12 text-16 opacity-100';
   let isOpen = true;
   const isMd = useMediaQuery(down('md'));
 
   return (
     <ul
-      className="mb-80 max-h-[90vh] overflow-y-auto pr-[10px] lg:pb-[150px]"
       ref={scrollableContainerRef}
+      className="flex flex-col gap-24 pb-64 pt-24"
     >
-      <li className="">
-        <a
-          ref={isHome ? activeItemRef : null}
-          href="/docs"
-          className={clsx(
-            `font-plex-sans text-16  leading-loose opacity-80 transition duration-150 hover:opacity-100`,
-            isHome && `${activeItemStyle}`,
-          )}
-        >
+      <li>
+        <a ref={isHome ? activeItemRef : null} href="/docs" className="">
           Getting started
         </a>
       </li>
@@ -67,10 +59,7 @@ const SidebarMenu: FC<Props> = ({ data, pathname }) => {
               <a
                 ref={isActiveSlug(item.slug) ? activeItemRef : null}
                 href={`/docs/${item.slug}`}
-                className={clsx(
-                  'rounded-lg block w-full py-2 font-plex-sans text-16 leading-loose opacity-80 transition duration-150 hover:opacity-100',
-                  isActiveSlug(item.slug) && `${activeItemStyle}`,
-                )}
+                className="bg-white"
               >
                 {item.title}
               </a>
@@ -93,11 +82,15 @@ const SidebarMenu: FC<Props> = ({ data, pathname }) => {
                         ? activeItemRef
                         : null
                     }
+<<<<<<< HEAD
                     className={`inline-block w-full font-plex-sans text-16 capitalize leading-loose text-gray-dark-11 transition duration-150 hover:opacity-100 ${
                       isActiveSlug(item.slug) && isActiveCategory(item.category)
                         ? `${activeItemStyle}`
                         : 'opacity-80'
                     }`}
+=======
+                    className="bg-yellow-dark-12"
+>>>>>>> 7b76684 (chore: refactor docs)
                     href={`/docs/${item.slug}`}
                   >
                     <span data-menu-item={`${generateSlug(item.slug)}`}>
@@ -105,7 +98,7 @@ const SidebarMenu: FC<Props> = ({ data, pathname }) => {
                     </span>
                   </a>
 
-                  <span className="shrink-0 opacity-60 transition duration-300 hover:opacity-100 group-open:rotate-90 group-open:opacity-100">
+                  <span className="shrink-0 text-gray-dark-6 opacity-60 transition duration-300 hover:opacity-100 group-open:rotate-90 group-open:opacity-100">
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
                       width={20}
@@ -113,7 +106,7 @@ const SidebarMenu: FC<Props> = ({ data, pathname }) => {
                       fill="none"
                     >
                       <path
-                        fill="#fff"
+                        fill="currentColor"
                         fillRule="evenodd"
                         d="M7.293 14.707a1 1 0 0 1 0-1.414L10.586 10 7.293 6.707a1 1 0 1 1 1.414-1.414l4 4a1 1 0 0 1 0 1.414l-4 4a1 1 0 0 1-1.414 0Z"
                         clipRule="evenodd"

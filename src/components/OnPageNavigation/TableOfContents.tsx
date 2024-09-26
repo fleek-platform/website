@@ -2,6 +2,7 @@ import { useState, useEffect, useRef } from 'react';
 import type { FC } from 'react';
 import type { MarkdownHeading } from 'astro';
 import { throttle } from 'lodash-es';
+import { Announcement } from '@components/Announcement';
 
 type ItemOffsets = {
   id: string;
@@ -96,47 +97,45 @@ const TableOfContents: FC<Props> = ({ headings = [] }) => {
   };
 
   return (
-    <>
-      <ul>
-        <li className="leading-normal">
-          <a href="" className="font-plex-sans text-18 font-bold">
-            Content
-          </a>
-        </li>
-        {headings
-          .filter(({ depth }) => depth > 1 && depth < 4)
-          .map((heading) =>
-            heading.depth == 2 ? (
-              <li
-                key={heading.slug}
-                className={`leading-normal ${activeId === heading.slug ? 'font-bold' : ''}`}
-                onClick={() => onClickHandler(heading.slug)}
-              >
-                <a className="font-plex-sans text-13" href={`#${heading.slug}`}>
-                  {heading.text}
-                </a>
-              </li>
-            ) : (
-              <li key={`${heading.depth}-${heading.slug}`}>
-                <ul>
-                  <li
-                    key={heading.slug}
-                    className={`leading-normal ${activeId === heading.slug ? 'font-bold' : ''}`}
-                    onClick={() => onClickHandler(heading.slug)}
+    <ul>
+      <li className="leading-normal">
+        <p className="pb-8 font-sans text-16 font-semibold text-gray-dark-12 opacity-100">
+          On this page
+        </p>
+      </li>
+      {headings
+        .filter(({ depth }) => depth > 1 && depth < 4)
+        .map((heading) =>
+          heading.depth == 2 ? (
+            <li
+              key={heading.slug}
+              className={`leading-normal ${activeId === heading.slug ? 'font-bold' : ''}`}
+              onClick={() => onClickHandler(heading.slug)}
+            >
+              <a className="font-plex-sans text-13" href={`#${heading.slug}`}>
+                {heading.text}
+              </a>
+            </li>
+          ) : (
+            <li key={`${heading.depth}-${heading.slug}`}>
+              <ul>
+                <li
+                  key={heading.slug}
+                  className={`leading-normal ${activeId === heading.slug ? 'font-semibold text-gray-dark-12' : ''}`}
+                  onClick={() => onClickHandler(heading.slug)}
+                >
+                  <a
+                    className="font-plex-sans text-13 leading-normal"
+                    href={`#${heading.slug}`}
                   >
-                    <a
-                      className="font-plex-sans text-13 leading-normal"
-                      href={`#${heading.slug}`}
-                    >
-                      {heading.text}
-                    </a>
-                  </li>
-                </ul>
-              </li>
-            ),
-          )}
-      </ul>
-    </>
+                    {heading.text}
+                  </a>
+                </li>
+              </ul>
+            </li>
+          ),
+        )}
+    </ul>
   );
 };
 
