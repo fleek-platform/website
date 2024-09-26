@@ -1,7 +1,7 @@
 import Link, { Target } from '@components/Link';
 import { Container } from './Container';
 import { Text } from './Text';
-import { Button } from '../Button/Button';
+import { Button } from '../Button';
 
 interface Card {
   title: string;

@@ -7,7 +7,7 @@ import settings from '@base/settings.json';
 import Loading from '@components/Loading';
 
 import type { Dispatch, SetStateAction, MouseEvent } from 'react';
-import { Button } from './Button/Button';
+import { Button } from './Button';
 
 const { activeHostedFormApi } = settings.newsletterSubscription;
 

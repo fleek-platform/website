@@ -1,6 +1,6 @@
 import { Target } from '@components/Link';
 import type { PlanHeader } from './types';
-import { Button } from '@components/Button/Button';
+import { Button } from '@components/Button';
 
 const TableHeader = ({ title, cta }: PlanHeader) => (
   <div

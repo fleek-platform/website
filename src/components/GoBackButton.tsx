@@ -1,5 +1,5 @@
 import { FaChevronLeft } from 'react-icons/fa6';
-import { Button } from './Button/Button';
+import { Button } from './Button';
 
 export const GoBackButton: React.FC = () => {
   const handleClick = () => {

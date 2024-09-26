@@ -1,5 +1,5 @@
 import React from 'react';
-import { Button, buttonVariants } from './Button/Button';
+import { Button, buttonVariants } from './Button';
 import type { VariantProps } from 'class-variance-authority';
 
 export type Props = {

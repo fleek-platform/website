@@ -1,7 +1,7 @@
 import settings from '@base/settings.json';
 import { FaChevronRight } from 'react-icons/fa6';
-import { Announcement } from '../Announcement/Announcement';
-import { Button } from '../Button/Button';
+import { Announcement } from '../Announcement';
+import { Button } from '../Button';
 import { Target } from '@components/Link';
 import { BlurFade } from './BlurFade';
 import { Text } from './Text';

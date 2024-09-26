@@ -6,7 +6,7 @@ import { FaArrowRight, FaDiscord, FaXmark, FaXTwitter } from 'react-icons/fa6';
 import { cn } from '@utils/cn';
 import { RxHamburgerMenu } from 'react-icons/rx';
 import { isActivePath } from '@utils/url';
-import { Button } from '../Button/Button';
+import { Button } from '../Button';
 
 const NavbarMobileItem: React.FC<NavMenuItem> = ({
   label,

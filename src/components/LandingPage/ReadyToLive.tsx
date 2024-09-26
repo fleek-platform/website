@@ -1,7 +1,7 @@
 import React from 'react';
 import { Container } from './Container';
 import { Text } from './Text';
-import { Button } from '../Button/Button';
+import { Button } from '../Button';
 
 const ReadyToLive: React.FC = () => {
   return (

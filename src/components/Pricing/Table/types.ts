@@ -1,4 +1,4 @@
-import type { buttonVariants } from '@components/Button/Button';
+import type { buttonVariants } from '@components/Button';
 import type { VariantProps } from 'class-variance-authority';
 
 // TODO: Check the purpose of type as original is next/image
