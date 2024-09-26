@@ -10,17 +10,20 @@ import ExplainerBlocks from '@components/ExplainerBlocks';
 import PricingLanding from '@components/PricingLanding';
 import ReadyToLive from '@components/ReadyToLive';
 import Footer from '@components/v2/Footer/Footer';
----
+import PostHogLayout from '@layouts/PosthogLayout.astro';
 
-<LandingPageHtml>
-  <Navbar pathname={Astro.url.pathname} client:load />
-  <Hero client:load />
-  <Partners />
-  <DeployOnFleek />
-  <ImpressUsers />
-  <ExplainerBlocks />
-  <PricingLanding />
-  <BuildUseCases />
-  <ReadyToLive />
-  <Footer />
-</LandingPageHtml>
+---
+<PostHogLayout>
+	<LandingPageHtml>
+	  <Navbar pathname={Astro.url.pathname} client:load />
+	  <Hero client:load />
+	  <Partners />
+	  <DeployOnFleek />
+	  <ImpressUsers />
+	  <ExplainerBlocks />
+	  <PricingLanding />
+	  <BuildUseCases />
+	  <ReadyToLive />
+	  <Footer />
+	</LandingPageHtml>
+<PostHogLayout>
