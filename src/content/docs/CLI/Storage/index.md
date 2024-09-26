@@ -17,7 +17,7 @@ The Fleek Platform CLI provides a storage service allowing you to store your fil
 
 Storage configurations are unique to each project, offering flexibility in how each project utilizes the service.
 
-## Add a File or Directory to Fleek Storage
+## Add a file or directory to Fleek storage
 
 Add file via Fleek Storage to ipfs and backup on filecoin or arweave or both
 
@@ -53,7 +53,7 @@ Once complete, you'll get a confirmation message, including a gateway URL to acc
 🔗 https://<CID>.ipfs.cf-ipfs.com
 ```
 
-## List Storage
+## List storage
 
 The **list** command gives the user a list of files or directories in the Fleek Storage for the current project.
 
@@ -73,7 +73,7 @@ hello-world.txt     baf...kia  -                -               https://<CID>.ip
 john-coltrane.mp3   baf...yu2  -                -               https://<CID>.custom-domain.xyz
 ```
 
-## Get a Storage file
+## Get a storage file
 
 You can retrieve files or directories from Fleek Storage by providing a Name or a CID. Use the list table to identify the files you are interested in.
 
@@ -115,7 +115,7 @@ filename            cid        filecoin id      arweave id      link
 john-coltrane.mp3   baf...yu2  -                -               https://<CID>.custom-domain.xyz
 ```
 
-## Delete a Storage file or directory
+## Delete a storage file or directory
 
 Delete files and directories in Fleek Storage either by Name or CID.
 

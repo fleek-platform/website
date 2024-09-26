@@ -16,7 +16,6 @@
 
   html,
   body {
-    overflow-x: hidden;
     margin: 0;
     padding: 0;
     width: 100%;
@@ -24,6 +23,7 @@
   }
 
   body {
+    overflow-x: hidden;
     font-feature-settings: 'ss01' 1;
   }
 
