@@ -1,4 +1,4 @@
-import CardsWithDottedLinesBackground from '@components/CardsWithDottedLinesBackground';
+import CardsWithDottedLinesBackground from '@components/LandingPage/CardsWithDottedLinesBackground';
 
 const BuildUseCases: React.FC = () => (
   <CardsWithDottedLinesBackground
@@ -12,20 +12,10 @@ const BuildUseCases: React.FC = () => (
         title: 'Frameworks',
         cards: [
           {
-            title: 'Next.js Template',
-            description: `Leverage the Next.js boilerplate to streamline your project's setup.`,
-            icon: { src: '/svg/react-icon.svg', alt: 'Web3 App' },
-            cta: {
-              url: 'https://app.fleek.xyz/templates/clmf71ycb0004lb08mubafjnj/',
-              text: 'try it',
-            },
-            image: '/svg/nextjs-template.svg',
-          },
-          {
             title: 'React Template',
             description:
               'Use the React boilerplate for optimal user interface aesthetics.',
-            icon: { src: '/svg/react-icon.svg', alt: 'NextJs App' },
+            icon: { src: '/svg/react-icon.svg', alt: 'React App' },
             cta: {
               url: 'https://app.fleek.xyz/templates/clx3g4dwk0008qy2i5d6aobe4/',
               text: 'try it',
@@ -36,12 +26,22 @@ const BuildUseCases: React.FC = () => (
             title: 'Astro Template',
             description:
               'Deploy the Astro boilerplate for an efficient, modern web experience.',
-            icon: { src: '/svg/react-icon.svg', alt: 'React App' },
+            icon: { src: '/svg/react-icon.svg', alt: 'Astro App' },
             cta: {
               url: 'https://app.fleek.xyz/templates/clx3f5nem000333n7acqcxiwj/',
               text: 'try it',
             },
             image: '/svg/astro-template.svg',
+          },
+          {
+            title: 'Vue Template',
+            description: `Leverage the Vue boilerplate to streamline your project's setup.`,
+            icon: { src: '/svg/react-icon.svg', alt: 'Vue.js App' },
+            cta: {
+              url: 'https://app.fleek.xyz/templates/clx3gdagl0001byl7romw0ynd/',
+              text: 'try it',
+            },
+            image: '/svg/vuejs-template.svg',
           },
         ],
       },

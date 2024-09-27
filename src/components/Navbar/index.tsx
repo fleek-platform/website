@@ -6,7 +6,7 @@ import { FaArrowRight, FaDiscord, FaXmark, FaXTwitter } from 'react-icons/fa6';
 import { cn } from '@utils/cn';
 import { RxHamburgerMenu } from 'react-icons/rx';
 import { isActivePath } from '@utils/url';
-import { Button } from '../Button/Button';
+import { Button } from '../Button';
 
 const NavbarMobileItem: React.FC<NavMenuItem> = ({
   label,
@@ -218,10 +218,16 @@ const NavbarItem: React.FC<NavbarItemProps> = ({
 };
 
 type NavbarProps = {
+  variant?: 'fixed' | 'sticky';
   pathname: string;
+  className?: string;
 };
 
-export const Navbar: React.FC<NavbarProps> = ({ pathname }) => {
+export const Navbar: React.FC<NavbarProps> = ({
+  pathname,
+  className,
+  variant = 'sticky',
+}) => {
   const [hovering, setHovering] = useState<number | null>(null);
   const [popoverDimensions, setPopoverDimensions] =
     useState<PopoverDimensions | null>(null);
@@ -235,11 +241,18 @@ export const Navbar: React.FC<NavbarProps> = ({ pathname }) => {
   );
 
   return (
-    <div className="sticky top-0 z-50 px-24">
+    <div
+      className={cn('sticky top-0 z-50 w-full px-24', {
+        fixed: variant === 'fixed',
+      })}
+    >
       <div className="absolute top-0 -z-1 -mx-24 h-80 w-full bg-gray-dark-1/70 backdrop-blur-sm [mask-image:linear-gradient(to_bottom,rgba(0,0,0,1),rgba(0,0,0,1),rgba(0,0,0,0))]"></div>
       <nav
         onMouseLeave={() => setHovering(null)}
-        className="z-20 mx-auto mt-18 flex h-50 w-full max-w-[1000px] items-center justify-between rounded-12 border border-gray-dark-3 bg-gray-dark-1/[.97] pr-12 font-plex-sans text-14 font-medium text-gray-dark-11"
+        className={cn(
+          'z-20 mx-auto mt-18 flex h-50 w-full max-w-[1000px] items-center justify-between rounded-12 border border-gray-dark-3 bg-gray-dark-1/[.97] pr-12 font-plex-sans text-[1.4rem] font-medium text-gray-dark-11',
+          className,
+        )}
       >
         <div className="flex items-center gap-12 lg:gap-24">
           <Link

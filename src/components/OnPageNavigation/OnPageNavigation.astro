@@ -9,14 +9,10 @@ type Props = {
 const { headings } = Astro.props as Props;
 ---
 
-<nav class="sidebar-nav" aria-labelledby="grid-right">
-  <div>
-    {
-      headings.length > 1 ? (
-        <TableOfContents client:media="(min-width: 50em)" headings={headings} />
-      ) : (
-        ''
-      )
-    }
-  </div>
+<nav aria-labelledby="grid-right">
+  {
+    headings.length > 1 && (
+      <TableOfContents client:media="(min-width: 50em)" headings={headings} />
+    )
+  }
 </nav>

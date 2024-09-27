@@ -2,12 +2,9 @@
 import '@styles/globals.css';
 import { getSiteUrl } from '@utils/url';
 import settings from '@base/settings.json';
-import PostHog from '@components/PostHog.astro';
-
 import { Toaster } from 'react-hot-toast';
-import { Announcement } from '@components/Announcement';
-import Footer from '@components/Footer';
 import { Navbar } from '@components/Navbar';
+import PostHog from '@components/PostHog.astro';
 
 interface Props {
   title: string;
@@ -24,7 +21,7 @@ const baseUrl = getSiteUrl();
 ---
 
 <!doctype html>
-<html lang="en" class="overflow-x-hidden">
+<html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width" />
@@ -109,7 +106,7 @@ const baseUrl = getSiteUrl();
     <PostHog />
   </head>
   <body
-    class="relative flex min-h-dvh flex-col overflow-x-hidden bg-black font-sans text-gray-dark-11 selection:bg-yellow-dark-9 selection:text-black"
+    class="relative flex flex-col bg-black font-sans text-gray-dark-11 selection:bg-yellow-dark-9 selection:text-black"
   >
     <!-- Google Tag Manager (noscript version) -->
     <!-- WARNING: The script version is above see /lib/gtm.js -->
@@ -121,17 +118,39 @@ const baseUrl = getSiteUrl();
         width="0"
         style={{ display: 'none', visibility: 'hidden' }}></iframe>
     </noscript>
-    <Announcement client:load />
     <Navbar
       client:load
+      variant="fixed"
+      className="max-w-[1452px]"
       pathname={Astro.url.pathname}
-      className="max-w-[1024px] transition-all xl:max-w-[1066px] 2xl:max-w-[1300px]"
     />
-    <div
-      class="relative w-full self-center px-24 py-32 xl:max-w-[1066px] xl:px-0 2xl:max-w-[1300px]"
-    >
+    <div class="w-full max-w-[1500px] self-center px-24 md:pt-92">
       <slot />
     </div>
-    <Footer client:load />
+    <Toaster client:load position="bottom-center" reverseOrder={false} />
+    <script is:inline defer>
+      document.addEventListener('DOMContentLoaded', () => {
+        const adjustScrollOffset = () => {
+          const yOffset = -84; // Adjust this value to the navbar height
+          const { hash } = window.location;
+
+          if (hash) {
+            const element = document.querySelector(hash);
+            if (element) {
+              const yPosition =
+                element.getBoundingClientRect().top + window.scrollY + yOffset;
+              window.scrollTo({ top: yPosition, behavior: 'auto' });
+            }
+          }
+        };
+
+        window.addEventListener('hashchange', adjustScrollOffset);
+
+        // Scroll to the hash on initial load if present
+        if (window.location.hash) {
+          adjustScrollOffset();
+        }
+      });
+    </script>
   </body>
 </html>

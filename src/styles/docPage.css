@@ -4,13 +4,13 @@
 
 @layer components {
   .doc {
-    @apply pb-128 font-plex-sans text-18 leading-loose;
+    @apply font-plex-sans text-18 leading-loose;
 
     h1,
     h2,
     h3,
     h4 {
-      @apply py-10 font-plex-sans font-bold leading-30 lg:leading-40;
+      @apply py-10 font-sans font-semibold leading-30 lg:leading-40;
     }
 
     h1 {
@@ -38,6 +38,11 @@
     p {
       @apply pb-20 leading-normal;
       width: 100%;
+    }
+
+    button p,
+    a p {
+      @apply pb-0;
     }
 
     a {
@@ -89,51 +94,6 @@
       padding-inline-start: 40px;
       unicode-bidi: isolate;
       padding-bottom: 20px;
-    }
-  }
-
-  .sidebar-nav {
-    width: 100%;
-    position: sticky;
-    top: 34px;
-    margin-top: 34px;
-    border-left-style: dashed;
-    border-left-width: 1px;
-    border-color: #555;
-    padding-left: 18px;
-    @apply mb-50;
-
-    > ul {
-      &:last-child {
-        @apply pb-0;
-      }
-    }
-
-    li {
-      &:first-child {
-        @apply pl-0;
-        line-height: 1;
-      }
-
-      li {
-        @apply p-0;
-      }
-
-      @apply pb-8 pl-0 opacity-80 transition duration-150 hover:opacity-100;
-
-      > ul {
-        @apply pl-10;
-      }
-    }
-
-    > div {
-      height: 100%;
-      padding: 0;
-      overflow: auto;
-    }
-
-    table {
-      @apply text-red;
     }
   }
 

@@ -1,6 +1,6 @@
 import { down } from '@utils/screens';
-import { Text } from './v2/LandingPage/Text/Text';
-import { Container } from './v2/LandingPage/Container/Container';
+import { Text } from './Text';
+import { Container } from './Container';
 
 const IconList = [
   {
