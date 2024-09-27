@@ -238,8 +238,7 @@ To deploy the Fleek site:
 fleek site:deploy
 
 # New site deploy command
-fleek sites deploy 
+fleek sites deploy
 ```
 
 You can learn about other Sites service features [here](docs/cli/sites).
-
