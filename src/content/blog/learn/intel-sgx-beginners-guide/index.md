@@ -142,6 +142,8 @@ You can confirm your Fleek CLI version by running:
 fleek version
 ```
 
+⚠️: Please ensure you are on CLI version >= 2.10.0
+
 Then login into your Fleek account from your Fleek CLI with the command:
 
 ```bash
@@ -458,4 +460,4 @@ We encourage you to explore SGX in your projects. Start by setting up your devel
 
 **Thank you for reading!**
 
-If you have any questions or need assistance, feel free to reach out on our [Discord server](https://discord.gg/fleek) or read our latest blog about the new Fleek SGX features.
+If you have any questions or need assistance, feel free to reach out on our [Discord server](https://discord.gg/fleek) or [read our latest blog](https://fleek.xyz/blog/announcements/introducing-fleek-edge-sgx/) about the new Fleek SGX features.
