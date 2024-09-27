@@ -20,27 +20,25 @@ const DocItemLink: React.FC<DocItemLinkProps> = ({
             flex-row 
             rounded-10
             p-20
-            text-white 
             no-underline  
             ${isNext ? 'ml-auto items-end' : 'mr-auto items-start'} 
             border
-            border-gray-400
-            hover:border-white
+            border-gray-dark-6
+            hover:border-gray-dark-7
+            hover:bg-gray-dark-1
              `}
     >
       <div
-        className={`flex w-full flex-col ${isNext ? 'items-end' : 'items-start'}`}
+        className={`flex w-full flex-col text-16 ${isNext ? 'items-end' : 'items-start'}`}
       >
         <div className={`flex flex-row items-center`}>
-          {!isNext && <IconArrowLeft className="mt-2 text-yellow" />}
+          {!isNext && <IconArrowLeft className="text-yellow-dark-11" />}
           <span className="no-underline hover:no-underline">
             {isNext ? 'Next' : 'Previous'}
           </span>
-          {isNext && <IconArrowRight className="mt-2 text-yellow" />}
+          {isNext && <IconArrowRight className="text-yellow-dark-11" />}
         </div>
-        <div>
-          <span className="text-white">{docItem.title}</span>
-        </div>
+        <span className="text-gray-dark-12 ">{docItem.title}</span>
       </div>
     </a>
   );

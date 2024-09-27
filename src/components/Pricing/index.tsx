@@ -8,7 +8,7 @@ import { Text } from '@components/LandingPage/Text';
 const Pricing = () => {
   return (
     <>
-      <div className="grid grid-flow-dense grid-cols-16 gap-x-16 py-80">
+      <div className="grid grid-flow-dense grid-cols-16 gap-x-16 pb-80 pt-50">
         <div className="col-span-16 text-center">
           <Text className="mb-24">Pricing you can get pumped about</Text>
           <Text variant="description" className="mb-76">

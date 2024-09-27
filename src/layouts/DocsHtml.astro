@@ -116,10 +116,11 @@ const baseUrl = getSiteUrl();
     </noscript>
     <Navbar
       client:load
-      pathname={Astro.url.pathname}
+      variant="fixed"
       className="max-w-[1452px]"
+      pathname={Astro.url.pathname}
     />
-    <div class="mt-92 w-full max-w-[1500px] self-center px-24">
+    <div class="w-full max-w-[1500px] self-center px-24 pt-92">
       <slot />
     </div>
     <Toaster client:load position="bottom-center" reverseOrder={false} />
