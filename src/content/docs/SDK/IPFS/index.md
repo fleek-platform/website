@@ -35,7 +35,7 @@ addFromPath         Uploads a file from the local file system.
 
 The `add` is an asynchronous function designed to upload a file to IPFS via the Fleek Platform Service.
 
-### Function Signature
+### Function signature
 
 ```typescript
 async (file: IpfsFile): Promise<UploadResult>
@@ -66,7 +66,7 @@ type UploadResult = {
 };
 ```
 
-### Usage Example
+### Usage example
 
 Calling this method with an IpfsFile object would look something like the following:
 
@@ -87,7 +87,7 @@ const uploadToIPFS = async (filename: string, content: Buffer) => {
 
 The addAll is designed to upload multiple files to IPFS. This function is asynchronous and returns a Promise that resolves to an array of UploadResult objects.
 
-### Function Signature
+### Function signature
 
 ```typescript
 addAll: (files: IpfsFile[], options?: AddAllOptions) => Promise<UploadResult[]>;
@@ -130,7 +130,7 @@ type UploadResult = {
 };
 ```
 
-### Usage Example
+### Usage example
 
 ```typescript
 import { type IpfsFile } from '@fleek-platform/sdk';
@@ -148,7 +148,7 @@ const uploadToIPFS = async (files: IpfsFile[]) => {
 
 The addFromPath is designed to upload a file or directory located at a given path to IPFS (InterPlanetary File System). This function is asynchronous and returns a Promise that resolves to an array containing a single UploadResult object.
 
-### Function Signature
+### Function signature
 
 ```typescript
 addFromPath: (path: string, options?: AddFromPathOptions) =>
@@ -177,7 +177,7 @@ type UploadResult = {
 };
 ```
 
-### Usage Example
+### Usage example
 
 Calling this method with a path to a file or directory would be similar to:
 
