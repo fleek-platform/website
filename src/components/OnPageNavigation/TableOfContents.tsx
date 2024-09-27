@@ -3,6 +3,7 @@ import type { FC } from 'react';
 import type { MarkdownHeading } from 'astro';
 import { throttle } from 'lodash-es';
 import { cn } from '@utils/cn';
+import { FaChevronRight } from 'react-icons/fa6';
 
 type ItemOffsets = {
   id: string;
@@ -18,7 +19,8 @@ const SECTION_OFFSET = 120;
 
 const TableOfContents: FC<Props> = ({ headings = [] }) => {
   const itemOffsets = useRef<ItemOffsets[]>([]);
-  const [activeId, setActiveId] = useState<string>('');
+  const [activeSectionId, setActiveSectionId] = useState('');
+  const [activeId, setActiveId] = useState('');
 
   useEffect(() => {
     const doc = document.querySelector('.doc');
@@ -64,6 +66,9 @@ const TableOfContents: FC<Props> = ({ headings = [] }) => {
       if (!sections) return;
 
       let currentSectionId;
+      let currentActiveSectionId = '';
+      let lastH2Id = '';
+
       const isAtBottom =
         window.scrollY + window.innerHeight >= document.body.scrollHeight;
 
@@ -71,6 +76,21 @@ const TableOfContents: FC<Props> = ({ headings = [] }) => {
         const sectionTop = section.getBoundingClientRect().top;
         if (sectionTop <= SECTION_OFFSET) {
           currentSectionId = section.id;
+
+          // Keep track of the last `h2` heading
+          if (section.tagName.toLowerCase() === 'h2') {
+            lastH2Id = section.id;
+          }
+
+          // If an `h3` or `h4` is active, keep the nearest preceding `h2` active
+          if (
+            section.tagName.toLowerCase() === 'h3' ||
+            section.tagName.toLowerCase() === 'h4'
+          ) {
+            currentActiveSectionId = lastH2Id;
+          } else if (section.tagName.toLowerCase() === 'h2') {
+            currentActiveSectionId = section.id;
+          }
         }
       });
 
@@ -83,6 +103,7 @@ const TableOfContents: FC<Props> = ({ headings = [] }) => {
       }
 
       setActiveId(currentSectionId);
+      setActiveSectionId(currentActiveSectionId);
     }, THROTTLE_MS);
 
     window.addEventListener('scroll', update);
@@ -112,8 +133,9 @@ const TableOfContents: FC<Props> = ({ headings = [] }) => {
               className={cn(
                 'hover-text-gray-dark-12 leading-normal text-gray-dark-11 opacity-90 hover:text-gray-dark-12',
                 {
-                  'font-semibold text-gray-dark-12 opacity-100':
-                    activeId === heading.slug,
+                  'font-medium text-gray-dark-12 opacity-100':
+                    activeId === heading.slug ||
+                    activeSectionId === heading.slug,
                 },
               )}
               onClick={() => onClickHandler(heading.slug)}
@@ -130,17 +152,23 @@ const TableOfContents: FC<Props> = ({ headings = [] }) => {
                   className={cn(
                     'hover-text-gray-dark-12 pl-6 leading-normal text-gray-dark-11 opacity-90 hover:text-gray-dark-12',
                     {
-                      'font-semibold text-gray-dark-12 opacity-100':
+                      'font-medium text-gray-dark-12 opacity-100':
                         activeId === heading.slug,
                     },
                   )}
                   onClick={() => onClickHandler(heading.slug)}
                 >
                   <a
-                    className="font-plex-sans text-13 leading-normal"
+                    className="flex items-center gap-4 font-plex-sans text-13 leading-normal"
                     href={`#${heading.slug}`}
                   >
-                    - {heading.text}
+                    <FaChevronRight
+                      className={cn('size-9 opacity-50', {
+                        'text-yellow-dark-11 opacity-100':
+                          activeId === heading.slug,
+                      })}
+                    />
+                    {heading.text}
                   </a>
                 </li>
               </ul>
