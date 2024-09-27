@@ -18,7 +18,7 @@ export const Hero = () => {
             <Announcement variant="content" />
           </BlurFade>
         )}
-        <section className="flex max-w-800 flex-col gap-24 pt-24">
+        <section className="flex max-w-800 flex-col gap-24 pt-12">
           <BlurFade delay={calculateDelay(1)}>
             <Text as="h1">{settings.landingPage.hero.h1}</Text>
           </BlurFade>

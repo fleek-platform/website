@@ -93,6 +93,16 @@ const TableOfContents: FC<Props> = ({ headings = [] }) => {
 
   const onClickHandler = (activeId: string) => {
     setActiveId(activeId);
+
+    const targetElement = document.getElementById(activeId);
+    if (targetElement) {
+      const elementPosition = targetElement.getBoundingClientRect().top;
+      console.log(elementPosition, scrollY);
+      const offsetPosition = elementPosition + window.scrollY + 200; // Adjust by 100px
+      window.scrollTo({
+        top: offsetPosition,
+      });
+    }
   };
 
   return (
@@ -111,7 +121,11 @@ const TableOfContents: FC<Props> = ({ headings = [] }) => {
               className={`leading-normal ${activeId === heading.slug ? 'font-semibold text-gray-dark-12' : 'opacity-90'}`}
               onClick={() => onClickHandler(heading.slug)}
             >
-              <a className="font-plex-sans text-13" href={`#${heading.slug}`}>
+              <a
+                className="font-plex-sans text-13"
+                href={`#${heading.slug}`}
+                onClick={(e) => e.preventDefault()}
+              >
                 {heading.text}
               </a>
             </li>
@@ -126,6 +140,7 @@ const TableOfContents: FC<Props> = ({ headings = [] }) => {
                   <a
                     className="font-plex-sans text-13 leading-normal"
                     href={`#${heading.slug}`}
+                    onClick={(e) => e.preventDefault()}
                   >
                     - {heading.text}
                   </a>

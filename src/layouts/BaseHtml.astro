@@ -121,15 +121,17 @@ const baseUrl = getSiteUrl();
         width="0"
         style={{ display: 'none', visibility: 'hidden' }}></iframe>
     </noscript>
-    <Announcement client:load />
     <Navbar
       client:load
       pathname={Astro.url.pathname}
       className="max-w-[1024px] transition-all xl:max-w-[1066px] 2xl:max-w-[1300px]"
     />
     <div
-      class="w-full self-center px-24 py-32 xl:max-w-[1066px] xl:px-0 2xl:max-w-[1300px]"
+      class="w-full self-center px-24 pb-32 pt-120 xl:max-w-[1066px] xl:px-0 2xl:max-w-[1300px]"
     >
+      <div class="mx-auto">
+        <Announcement variant="content" client:load />
+      </div>
       <slot />
     </div>
     <Footer client:load />
