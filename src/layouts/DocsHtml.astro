@@ -124,9 +124,33 @@ const baseUrl = getSiteUrl();
       className="max-w-[1452px]"
       pathname={Astro.url.pathname}
     />
-    <div class="w-full max-w-[1500px] self-center px-24 pt-92">
+    <div class="w-full max-w-[1500px] self-center px-24 md:pt-92">
       <slot />
     </div>
     <Toaster client:load position="bottom-center" reverseOrder={false} />
+    <script is:inline defer>
+      document.addEventListener('DOMContentLoaded', () => {
+        const adjustScrollOffset = () => {
+          const yOffset = -84; // Adjust this value to the navbar height
+          const { hash } = window.location;
+
+          if (hash) {
+            const element = document.querySelector(hash);
+            if (element) {
+              const yPosition =
+                element.getBoundingClientRect().top + window.scrollY + yOffset;
+              window.scrollTo({ top: yPosition, behavior: 'auto' });
+            }
+          }
+        };
+
+        window.addEventListener('hashchange', adjustScrollOffset);
+
+        // Scroll to the hash on initial load if present
+        if (window.location.hash) {
+          adjustScrollOffset();
+        }
+      });
+    </script>
   </body>
 </html>

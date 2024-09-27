@@ -15,7 +15,7 @@ type Props = {
 };
 
 const THROTTLE_MS = 100;
-const SECTION_OFFSET = 120;
+const SECTION_OFFSET = 140;
 
 const TableOfContents: FC<Props> = ({ headings = [] }) => {
   const itemOffsets = useRef<ItemOffsets[]>([]);
