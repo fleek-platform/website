@@ -31,7 +31,7 @@ npm install @fleek-platform/sdk
 
 Authentication requires providing an access token. There are currently two methods available: the ApplicationAccessTokenService and PersonalAccessTokenService. These services differ in their application, depending on whether you're deploying them in a client-side or server-side context.
 
-### Available Methods
+### Available methods
 
 The table below outlines the available methods in the left column alongside the corresponding target environments for Web or Node.js applications.
 
@@ -41,7 +41,7 @@ PersonalAccessTokenService      ❌        ✅
 ApplicationAccessTokenService   ✅        ❌
 ```
 
-## Multiple Instance Support
+## Multiple instance support
 
 You can create concurrent instances by providing the Personal Access Token and Project ID on library instantiation. This is important for navigating between projects.
 
@@ -87,7 +87,7 @@ graphqlServiceApiUrl (Optional)      The GraphQL Service API URL, which defaults
 
 This method of authentication relies on a `personalAccessToken` which can be obtained from the CLI [pat create](/docs/cli/pat) command.
 
-### Usage Example
+### Usage example
 
 ```typescript
 import { FleekSdk, PersonalAccessTokenService } from '@fleek-platform/sdk';
@@ -120,7 +120,7 @@ authAppsServiceUrl (Optional)        The Applications Authentication Service URL
 
 This method of authentication relies on a `clientId` which can be obtained after creating an application from the CLI [application create](/docs/cli/applications/#create) command.
 
-### Usage Example
+### Usage example
 
 ```typescript copy
 import { FleekSdk, ApplicationAccessTokenService } from '@fleek-platform/sdk';

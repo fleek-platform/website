@@ -91,21 +91,9 @@ Each blog post contains the following properties -
 
 > 💡: Please note that you can change the content here as per your needs.
 
-3. Once you are done adding content to your new blog, run the following command in your terminal to compile all new markdown based blogs to HTML and add them to the main HTML file. This will edit the site folder and prepare it for hosting on Fleek -
+> ⚠️: If you don't want to compile your site locally, you can skip step 3 and move to step 4.
 
-<br/>
-
-```
-./publish.py posts/*
-```
-
-This will result into a site directory similar to this -
-
-![](./square_directory.png)
-
-> ⚠️: If you don't want to compile your site locally, you can skip this step and move to the next one.
-
-4. Finally, head over to `config.md` and make the following changes to ensure it deploys correctly on Fleek -
+3. Next, head over to `config.md` and make the following changes to ensure it generates correctly with publish.py (the `publish` script expects `[domain]` to have a value) and deploys correctly on Fleek -
 
 <br/>
 
@@ -117,6 +105,18 @@ This will result into a site directory similar to this -
 ```
 
 > 💡: You can edit the title and icon here to fit your specifications
+
+4. Once you are done adding content to your new blog, run the following command in your terminal to compile all new markdown based blogs to HTML and add them to the main HTML file. This will edit the site folder and prepare it for hosting on Fleek -
+
+<br/>
+
+```
+./publish.py posts/*
+```
+
+This will result into a site directory similar to this -
+
+![](./square_directory.png)
 
 - Commit changes and push to GitHub -
 
@@ -175,7 +175,7 @@ Enter the OTP and you are good to continue -
    - **Framework**: `Other`
    - **Branch**: `main`
    - **Publish Directory**: `site`
-   - **Build Command**: `apt-get update && apt-get install -y pandoc && python publish.py posts/`
+   - **Build Command**: `apt-get update && apt-get install -y pandoc && python publish.py posts/*`
 
 Now click on “Show advanced options” and edit the “Docker Image” as follows -
 

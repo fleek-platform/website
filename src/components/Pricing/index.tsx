@@ -30,11 +30,7 @@ const Pricing = () => {
                     features={item.features}
                     cta={item.cta}
                     cost={item.cost}
-                    border={item.border}
-                    coloredBtn={true}
-                    btnBg={item.btnBg}
-                    fontColor={item.fontColor}
-                    hoverBtnBg={item.hoverBtnBg}
+                    variant={item.variant}
                     url={item.url}
                   />
                 );

@@ -12,9 +12,7 @@ export const PricingInfo: Props[] = [
       'Community support',
     ],
     cta: 'Start with Free',
-    btnBg: 'bg-ui-green',
-    hoverBtnBg: 'hover:bg-ui-light-green',
-    fontColor: 'text-ui-faded-green',
+    variant: 'app-success',
     url: 'https://app.fleek.xyz',
   },
   {
@@ -28,10 +26,7 @@ export const PricingInfo: Props[] = [
       'Intermediate support',
     ],
     cta: 'Go fast with Pro',
-    border: 'border-yellow',
-    btnBg: 'bg-yellow-dark-4',
-    hoverBtnBg: 'hover:bg-yellow-dark-5',
-    fontColor: 'text-ui-faded-green',
+    variant: 'app-primary',
     url: 'mailto:business@fleek.xyz',
   },
   {
@@ -45,9 +40,7 @@ export const PricingInfo: Props[] = [
       'Dedicated 24/7 support',
     ],
     cta: 'Contact Sales',
-    btnBg: 'bg-gray-dark-4',
-    hoverBtnBg: 'hover:bg-gray-dark-5',
-    fontColor: 'text-gray-dark-11',
+    variant: 'secondary',
     url: 'mailto:business@fleek.xyz',
   },
 ];
