@@ -21,8 +21,8 @@ jobs:
   merge-by-develop-hash:
     runs-on: ubuntu-latest
     env:
-      RELEASE_BRANCH: "main"
-      PREPARE_RELEASE_BRANCH: "prepare_release"
+      RELEASE_BRANCH: main
+      PREPARE_RELEASE_BRANCH: prepare_release
     steps:
     - name: Date safe-guard verification
       run: |
@@ -115,8 +115,17 @@ jobs:
 
         echo "✅ Deleted the release preparation branch with name ${{ env.PREPARE_RELEASE_BRANCH }} successfuly"
 
-    - name: Checkout develop
-      uses: actions/checkout@v4
-      with:
-        # Checkout develop
-        ref: ${{ github.ref }}
+    - name: Dispatch Event
+      env:
+        PAT: ${{ secrets.GITHUB_TOKEN }}
+        ENDPOINT: 'https://api.github.com/repos/fleek-platform/website/dispatches'
+        EVENT_NAME: 'Release'
+      run: |
+        if ! curl -H "Accept: application/vnd.github+json" \
+          -H "Authorization: token $PAT" \
+          --request POST \
+          --data "{ \"event_type\": \"$EVENT_NAME\" }" $ENDPOINT; then
+          echo "⚠️ Warning: Failed to dispatch $EVENT_NAME. Since this triggers the indexer listener, you should dispatch the action manually. If this issue persists, report it internally."
+        else
+          echo "✅ Dispatched event $EVENT_NAME"
+        fi
