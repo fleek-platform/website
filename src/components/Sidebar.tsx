@@ -93,7 +93,7 @@ const SidebarMenu: FC<Props> = ({ data, pathname }) => {
                         ? activeItemRef
                         : null
                     }
-                    className={`inline-block w-full font-plex-sans text-16 leading-loose text-gray-dark-11 transition duration-150 hover:opacity-100 ${
+                    className={`inline-block w-full font-plex-sans text-16 capitalize leading-loose text-gray-dark-11 transition duration-150 hover:opacity-100 ${
                       isActiveSlug(item.slug) && isActiveCategory(item.category)
                         ? `${activeItemStyle}`
                         : 'opacity-80'
