@@ -11,9 +11,9 @@
     },
     "metadata": {
       "default": {
-        "title": "Build lightning-fast apps",
+        "title": "Fleek | Build and deploy performant apps",
         "slug": "",
-        "description": "Fleek is an edge-optimized cloud platform. Effortlessly build, ship and scale highly performant apps. Try for free and deploy an app in 5 minutes.",
+        "description": "Fleek makes it easy to ship performant apps in minutes. Deploy instantly, run globally, scale automatically.",
         "image": "/images/fleek-meta.png?202406061658"
       },
       "blog": {
@@ -119,6 +119,47 @@
       "url": "/blog/announcements/introducing-fleek-edge-sgx/",
       "visible": true
     }
+  },
+  "landingPage": {
+    "hero": {
+      "h1": "Build on a lightning-fast, open-source cloud platform.",
+      "h2": "Fleek makes it easy to ship performant apps in minutes. Deploy instantly, run globally, scale automatically.",
+      "primaryCta": "Get started",
+      "secondaryCta": "Read our docs",
+      "image": "/images/landing-page/hero/hero.webp"
+    },
+    "partners": [
+      {
+        "name": "Polygon",
+        "logo": "/images/landing-page/partners/polygon.svg",
+        "caseStudyUrl": ""
+      },
+      {
+        "name": "Filecoin",
+        "logo": "/images/landing-page/partners/filecoin.svg",
+        "caseStudyUrl": ""
+      },
+      {
+        "name": "Velodrome",
+        "logo": "/images/landing-page/partners/velodrome.svg",
+        "caseStudyUrl": ""
+      },
+      {
+        "name": "Protocol Labs",
+        "logo": "/images/landing-page/partners/protocollabs.svg",
+        "caseStudyUrl": ""
+      },
+      {
+        "name": "Berachain",
+        "logo": "/images/landing-page/partners/berachain.svg",
+        "caseStudyUrl": ""
+      },
+      {
+        "name": "ENS",
+        "logo": "/images/landing-page/partners/ens.svg",
+        "caseStudyUrl": ""
+      }
+    ]
   },
   "docs": {
     "menu": {
