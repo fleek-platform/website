@@ -6,8 +6,8 @@ import PostHog from '@components/PostHog.astro';
 
 import { Toaster } from 'react-hot-toast';
 import { Announcement } from '@components/Announcement';
-import Footer from '@components/Footer/Footer';
-import { Navbar } from '@components/renamed/Navbar';
+import Footer from '@components/Footer';
+import { Navbar } from '@components/Navbar';
 
 interface Props {
   title: string;
@@ -127,11 +127,8 @@ const baseUrl = getSiteUrl();
       className="max-w-[1024px] transition-all xl:max-w-[1066px] 2xl:max-w-[1300px]"
     />
     <div
-      class="w-full self-center px-24 pb-32 pt-120 xl:max-w-[1066px] xl:px-0 2xl:max-w-[1300px]"
+      class="mt-92 w-full self-center px-24 pb-32 xl:max-w-[1066px] xl:px-0 2xl:max-w-[1300px]"
     >
-      <div class="mx-auto">
-        <Announcement variant="content" client:load />
-      </div>
       <slot />
     </div>
     <Footer client:load />
