@@ -45,7 +45,7 @@ export const Announcement: React.FC<AnnouncementProps> = ({
       target={Target.Blank}
       rel="noopener noreferrer"
       className={cn(
-        'group relative mr-auto flex  cursor-pointer items-center gap-8 rounded-8 bg-gray-dark-2 from-gray-dark-4 to-gray-dark-2 px-8 py-6 pr-12 font-plex-sans outline-none ring-0 ring-gray-dark-8 transition-all hover:bg-gradient-to-br hover:pr-30 focus-visible:bg-gradient-to-br focus-visible:pr-30 focus-visible:ring-2',
+        'group relative mr-auto flex h-[33px] cursor-pointer items-center gap-8 rounded-8 bg-gray-dark-2 from-gray-dark-4 to-gray-dark-2 px-8 py-6 pr-12 font-plex-sans outline-none ring-0 ring-gray-dark-8 transition-all hover:bg-gradient-to-br hover:pr-30 focus-visible:bg-gradient-to-br focus-visible:pr-30 focus-visible:ring-2',
         {
           'w-full justify-center rounded-none px-24': variant === 'full',
         },

@@ -95,22 +95,12 @@ const image = settings.site.metadata.docs.image;
 >
   <main class="relative flex flex-col gap-48 md:flex-row">
     <aside data-name="doc-sidebar">
-      <div
-        class="relative top-[92px] shrink-0 overflow-y-auto md:sticky md:max-h-[calc(100vh-96px)] md:w-232 md:pr-12"
-      >
-        <div class="sticky top-0 z-10 w-full">
-          <SearchBtn client:load indexName={indexNameDocs} />
-          <div
-            class="absolute h-24 w-full bg-gradient-to-b from-black to-transparent"
-          >
-          </div>
-        </div>
-        <Sidebar
-          client:load
-          data={sidebarSorted}
-          pathname={Astro.url.pathname}
-        />
-      </div>
+      <Sidebar
+        client:load
+        data={sidebarSorted}
+        pathname={Astro.url.pathname}
+        indexNameDocs={indexNameDocs}
+      />
     </aside>
     <article class="doc w-full min-w-0 flex-1 pb-64">
       <slot />
@@ -129,5 +119,5 @@ const image = settings.site.metadata.docs.image;
       </aside>
     </div>
   </main>
-  <InjectCodeCopy />
 </DocsHtml>
+<InjectCodeCopy />

@@ -8,10 +8,12 @@ import { down } from '@utils/screens';
 import { useScrollToActiveItem } from '@hooks/useScrollToActiveItem';
 import { cn } from '@utils/cn';
 import { FaHouse } from 'react-icons/fa6';
+import SearchBtn from './SearchBtn';
 
 interface Props {
   data: GenerateSidebarResponse;
   pathname: string;
+  indexNameDocs: string;
 }
 
 const findBase = (splitted: string[]) => {
@@ -24,7 +26,7 @@ const findBase = (splitted: string[]) => {
   return splitted[1];
 };
 
-const SidebarMenu: React.FC<Props> = ({ data, pathname }) => {
+const SidebarMenu: React.FC<Props> = ({ data, pathname, indexNameDocs }) => {
   const splitted = pathname.split('/').filter(Boolean);
   const activeCategory = splitted.length > 2 ? splitted[1] : findBase(splitted);
   const activeSlug =
@@ -42,12 +44,16 @@ const SidebarMenu: React.FC<Props> = ({ data, pathname }) => {
   const isMd = useMediaQuery(down('md'));
 
   return (
-    <>
-      <div className="fixed bottom-0 h-24 w-[233px] bg-gradient-to-t from-black to-transparent" />
-      <ul
-        ref={scrollableContainerRef}
-        className="flex flex-col gap-20 px-8 pb-64 pt-24 font-plex-sans text-14 text-gray-dark-11"
-      >
+    <div
+      className="relative top-[92px] shrink-0 overflow-y-auto md:sticky md:max-h-[calc(100vh-96px)] md:w-232 md:pr-12"
+      ref={scrollableContainerRef}
+    >
+      <div className="sticky top-0 z-10 w-full">
+        <SearchBtn indexName={indexNameDocs} />
+        <div className="absolute h-24 w-full bg-gradient-to-b from-black to-transparent"></div>
+        <div className="fixed bottom-0 h-24 w-[233px] bg-gradient-to-t from-black to-transparent" />
+      </div>
+      <ul className="flex flex-col gap-20 px-8 pb-64 pt-24 font-plex-sans text-14 text-gray-dark-11">
         <li>
           <a
             ref={isHome ? activeItemRef : null}
@@ -62,7 +68,9 @@ const SidebarMenu: React.FC<Props> = ({ data, pathname }) => {
             <div
               className={cn(
                 'flex size-20 items-center justify-center rounded-4 bg-gray-dark-3 group-hover:bg-gray-dark-4',
-                { 'bg-yellow-dark-11 group-hover:bg-yellow-dark-11': isHome },
+                {
+                  'bg-yellow-dark-11 group-hover:bg-yellow-dark-11': isHome,
+                },
               )}
             >
               <FaHouse
@@ -151,13 +159,14 @@ const SidebarMenu: React.FC<Props> = ({ data, pathname }) => {
                           'w-full border-gray-dark-10 py-4 pl-16 text-gray-dark-11 hover:-ml-[1px] hover:border-l hover:text-gray-dark-12',
                           {
                             '-ml-[1px] border-l border-yellow-dark-11 text-16 font-semibold text-gray-dark-12':
-                              isActiveSlug(sItem.slug) &&
-                              isActiveCategory(item.category),
+                              isActiveCategory(item.category) &&
+                              isActiveSlug(sItem.slug),
                           },
                         )}
-                        data-menu-item={`${generateSlug(sItem.title)}`}
                       >
-                        {sItem.title}
+                        <span data-menu-item={`${generateSlug(sItem.title)}`}>
+                          {sItem.title}
+                        </span>
                       </a>
                     ))}
                   </div>
@@ -167,7 +176,7 @@ const SidebarMenu: React.FC<Props> = ({ data, pathname }) => {
           }
         })}
       </ul>
-    </>
+    </div>
   );
 };
 
