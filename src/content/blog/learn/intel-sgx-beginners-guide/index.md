@@ -8,7 +8,7 @@ author:
   - 'Fleek'
 ---
 
-*Welcome to our guide on Intel Software Guard Extensions (SGX). If you're a developer diving into SGX for the first time, this guide is for you. We'll explore what SGX is, how it works, and how you can leverage it in your applications—highlighting real-world examples like our very own Fleek Edge SGX.*
+_Welcome to our guide on Intel Software Guard Extensions (SGX). If you're a developer diving into SGX for the first time, this guide is for you. We'll explore what SGX is, how it works, and how you can leverage it in your applications—highlighting real-world examples like our very own Fleek Edge SGX._
 
 ---
 
@@ -16,7 +16,7 @@ author:
 
 ### **What is SGX?**
 
-Intel Software Guard Extensions (SGX) are a set of security-related instruction codes that are built into modern Intel CPUs. SGX allows applications to run code and processes inside secure, isolated environments called *enclaves*. These enclaves protect sensitive data and operations from being accessed or tampered with, even if the rest of the system is compromised.
+Intel Software Guard Extensions (SGX) are a set of security-related instruction codes that are built into modern Intel CPUs. SGX allows applications to run code and processes inside secure, isolated environments called _enclaves_. These enclaves protect sensitive data and operations from being accessed or tampered with, even if the rest of the system is compromised.
 
 ### **Why is SGX important?**
 
@@ -91,14 +91,14 @@ SGX introduces the concept of **enclaves**, which are protected areas of executi
 ### **Key Features of SGX**
 
 1. **Memory encryption engine (MEE):**
-    - Encrypts and decrypts data as it moves in and out of the enclave.
-    - Protects against memory snooping and cold boot attacks.
+   - Encrypts and decrypts data as it moves in and out of the enclave.
+   - Protects against memory snooping and cold boot attacks.
 2. **Secure remote attestation:**
-    - Allows a remote party to verify that the enclave is genuine and running trusted code.
-    - Facilitates secure communication between enclaves and external entities.
+   - Allows a remote party to verify that the enclave is genuine and running trusted code.
+   - Facilitates secure communication between enclaves and external entities.
 3. **Sealing (secure storage):**
-    - Enables enclaves to securely store data persistently.
-    - Sealed data can only be unsealed by the same enclave or another enclave with the same sealing identity.
+   - Enables enclaves to securely store data persistently.
+   - Sealed data can only be unsealed by the same enclave or another enclave with the same sealing identity.
 
 ### **Limitations and Considerations**
 
@@ -209,7 +209,7 @@ fn main() {
     let a = 8;
     let b = 7;
     let result = a * b;
-    
+
     writer
         .write_all(format!("The result of {} * {} = {}\n", a, b, result).as_bytes())
         .unwrap();
@@ -254,7 +254,7 @@ Uploading code to IPFS: [██████████████████�
 > You can also call this Fleek Network URL directly for increased performance (please keep in mind you will not be able to deactivate this link)
 🔗 https://fleek-test.network/services/3
 
-🔗 Blake3 Hash: fdab03dbbc61be6331eadac4912e63e46f5a97ac0a4095034a8df64bdd837aaf 
+🔗 Blake3 Hash: fdab03dbbc61be6331eadac4912e63e46f5a97ac0a4095034a8df64bdd837aaf
 🔗 Invoke by sending request to https://fleek-test.network/services/3 with payload of {hash: <Blake3Hash>, decrypt: true, inputs: "foo"}
 🔗 Example: curl fleek-test.network/services/3 --data '{"hash": "fdab03dbbc61be6331eadac4912e63e46f5a97ac0a4095034a8df64bdd837aaf", "decrypt": true, "input": "foo"}'
 ```
@@ -288,11 +288,11 @@ Remote attestation allows a remote party to verify that:
 **How it works:**
 
 1. **Enclave generates a quote:**
-    - Contains measurements of the enclave's code.
-    - Signed using Intel's attestation key.
+   - Contains measurements of the enclave's code.
+   - Signed using Intel's attestation key.
 2. **Verification by remote party:**
-    - The remote party sends the quote to Intel's Attestation Service (IAS).
-    - IAS verifies the quote and confirms the enclave's integrity.
+   - The remote party sends the quote to Intel's Attestation Service (IAS).
+   - IAS verifies the quote and confirms the enclave's integrity.
 
 **Use Cases:**
 
@@ -313,11 +313,11 @@ Remote attestation allows a remote party to verify that:
 ### **Performance Optimization**
 
 - **Minimize enclave transitions:**
-    - Frequent calls between untrusted and trusted code can slow down performance.
+  - Frequent calls between untrusted and trusted code can slow down performance.
 - **Keep enclaves small:**
-    - Limit the code and data within the enclave to what's necessary.
+  - Limit the code and data within the enclave to what's necessary.
 - **Efficient memory usage:**
-    - Enclave memory is limited; use it wisely.
+  - Enclave memory is limited; use it wisely.
 
 ---
 
@@ -326,26 +326,26 @@ Remote attestation allows a remote party to verify that:
 ### **Debugging Enclaves**
 
 - **Use SGX debug mode:**
-    - Allows enclaves to be debugged but is not secure for production.
+  - Allows enclaves to be debugged but is not secure for production.
 - **Debugging tools:**
-    - GDB can be used with special considerations.
-    - Intel provides debugging extensions in the SDK.
+  - GDB can be used with special considerations.
+  - Intel provides debugging extensions in the SDK.
 
 **Common Pitfalls:**
 
 - **Invalid pointers:**
-    - Ensure pointers passed between untrusted and trusted code are properly managed.
+  - Ensure pointers passed between untrusted and trusted code are properly managed.
 - **Stack size limitations:**
-    - Enclave stack sizes are limited; avoid deep recursion or large stack allocations.
+  - Enclave stack sizes are limited; avoid deep recursion or large stack allocations.
 
 ### **Security Testing**
 
 - **Code reviews:**
-    - Regularly review enclave code for vulnerabilities.
+  - Regularly review enclave code for vulnerabilities.
 - **Static analysis tools:**
-    - Use tools to detect common security issues.
+  - Use tools to detect common security issues.
 - **Vulnerability scanning:**
-    - Test your application against known attack vectors.
+  - Test your application against known attack vectors.
 
 ---
 
@@ -364,41 +364,41 @@ With [Fleek Edge SGX](https://fleek.xyz/blog/announcements/introducing-fleek-edg
 **Challenges Addressed:**
 
 - **Securing Edge Computing Environments:**
-    - Edge nodes are often in less secure locations. SGX helps protect sensitive computations.
+  - Edge nodes are often in less secure locations. SGX helps protect sensitive computations.
 - **Protecting Sensitive Data:**
-    - Data processed at the edge is vulnerable. Enclaves ensure data remains confidential.
+  - Data processed at the edge is vulnerable. Enclaves ensure data remains confidential.
 
 **Implementation Details:**
 
 - **Isolation of Workloads:**
-    - Each edge computation runs within its own enclave, preventing cross-application attacks.
+  - Each edge computation runs within its own enclave, preventing cross-application attacks.
 - **Secure Communication:**
-    - Remote attestation ensures that only trusted enclaves participate in the network.
+  - Remote attestation ensures that only trusted enclaves participate in the network.
 
 **Benefits Realized:**
 
 - **Enhanced Security:**
-    - Strong protection against a range of attack vectors.
+  - Strong protection against a range of attack vectors.
 - **Improved Trust:**
-    - Users can trust that their data and computations are secure.
+  - Users can trust that their data and computations are secure.
 - **Performance Optimization:**
-    - Secure local processing reduces the need to send data back to centralized servers.
+  - Secure local processing reduces the need to send data back to centralized servers.
 
 **Implications for Developers:**
 
 - **Building Secure Applications:**
-    - Developers can leverage Fleek Edge SGX to deploy secure edge applications without managing the underlying infrastructure.
+  - Developers can leverage Fleek Edge SGX to deploy secure edge applications without managing the underlying infrastructure.
 - **Focus on Innovation:**
-    - With security handled, developers can focus on building features and improving user experience.
+  - With security handled, developers can focus on building features and improving user experience.
 
 ### **Other Use Cases**
 
 - **Secure Databases:**
-    - Protecting sensitive data within databases using SGX enclaves.
+  - Protecting sensitive data within databases using SGX enclaves.
 - **Confidential Cloud Computing:**
-    - Cloud providers offering SGX-enabled instances for secure computation.
+  - Cloud providers offering SGX-enabled instances for secure computation.
 - **Blockchain and Cryptography:**
-    - Securely managing cryptographic keys and operations within enclaves.
+  - Securely managing cryptographic keys and operations within enclaves.
 
 ---
 
@@ -416,8 +416,8 @@ With [Fleek Edge SGX](https://fleek.xyz/blog/announcements/introducing-fleek-edg
 - **Intel SGX official documentation:** Intel SGX Developer Reference
 - **Fleek edge SGX blog post:** [Introducing Fleek Edge SGX](https://fleek.xyz/blog/announcements/introducing-fleek-edge-sgx/)
 - **Books and tutorials:**
-    - *"Intel SGX Explained"* by Victor Costan and Srinivas Devadas.
-    - Online tutorials and courses on trusted execution environments.
+  - _"Intel SGX Explained"_ by Victor Costan and Srinivas Devadas.
+  - Online tutorials and courses on trusted execution environments.
 
 We encourage you to explore SGX in your projects. Start by setting up your development environment and writing simple enclave applications. As you become more comfortable, consider how SGX can enhance the security of your applications, just as we've done with Fleek Edge SGX.
 
@@ -435,26 +435,26 @@ We encourage you to explore SGX in your projects. Start by setting up your devel
 
 ### **Frequently Asked Questions**
 
-**Q:** *Can I use SGX on virtual machines or cloud instances?*
+**Q:** _Can I use SGX on virtual machines or cloud instances?_
 
 **A:** Yes, many cloud providers offer instances with SGX support. However, ensure that the cloud environment exposes SGX features to the virtual machines.
 
-**Q:** *Is SGX only for applications written in C/C++?*
+**Q:** _Is SGX only for applications written in C/C++?_
 
 **A:** While the SGX SDK primarily supports C/C++, there are wrappers and libraries for other languages like Rust and Java.
 
-**Q:** *What happens if someone tries to tamper with the enclave?*
+**Q:** _What happens if someone tries to tamper with the enclave?_
 
 **A:** The hardware protections ensure that any tampering attempts result in the enclave being destroyed, preventing data leakage.
 
 ### **Troubleshooting Tips**
 
 - **Enclave Creation Fails:**
-    - Ensure SGX is enabled in your BIOS settings.
-    - Verify that the SGX driver is correctly installed.
+  - Ensure SGX is enabled in your BIOS settings.
+  - Verify that the SGX driver is correctly installed.
 - **Compilation Errors:**
-    - Check that all SGX SDK environment variables are set.
-    - Ensure you're using the correct compiler flags.
+  - Check that all SGX SDK environment variables are set.
+  - Ensure you're using the correct compiler flags.
 
 ---
 
