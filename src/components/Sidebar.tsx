@@ -103,7 +103,7 @@ const SidebarMenu: React.FC<Props> = ({ data, pathname }) => {
                   className="group [&_summary::-webkit-details-marker]:hidden"
                   open={isOpen}
                 >
-                  <summary className="rounded-lg flex cursor-pointer select-none items-center justify-between pb-8">
+                  <summary className="rounded-lg hover hover flex cursor-pointer items-center justify-between py-2">
                     <a
                       ref={
                         isActiveSlug(item.slug) &&

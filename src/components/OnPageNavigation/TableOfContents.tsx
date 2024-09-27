@@ -2,6 +2,7 @@ import { useState, useEffect, useRef } from 'react';
 import type { FC } from 'react';
 import type { MarkdownHeading } from 'astro';
 import { throttle } from 'lodash-es';
+import { cn } from '@utils/cn';
 
 type ItemOffsets = {
   id: string;
@@ -108,7 +109,13 @@ const TableOfContents: FC<Props> = ({ headings = [] }) => {
           heading.depth == 2 ? (
             <li
               key={heading.slug}
-              className={`leading-normal ${activeId === heading.slug ? 'font-semibold text-gray-dark-12' : 'opacity-90'}`}
+              className={cn(
+                'hover-text-gray-dark-12 leading-normal text-gray-dark-11 opacity-90 hover:text-gray-dark-12',
+                {
+                  'font-semibold text-gray-dark-12 opacity-100':
+                    activeId === heading.slug,
+                },
+              )}
               onClick={() => onClickHandler(heading.slug)}
             >
               <a className="font-plex-sans text-13" href={`#${heading.slug}`}>
@@ -120,7 +127,13 @@ const TableOfContents: FC<Props> = ({ headings = [] }) => {
               <ul>
                 <li
                   key={heading.slug}
-                  className={`pl-6 leading-normal ${activeId === heading.slug ? 'font-semibold text-gray-dark-12' : 'opacity-90'}`}
+                  className={cn(
+                    'hover-text-gray-dark-12 pl-6 leading-normal text-gray-dark-11 opacity-90 hover:text-gray-dark-12',
+                    {
+                      'font-semibold text-gray-dark-12 opacity-100':
+                        activeId === heading.slug,
+                    },
+                  )}
                   onClick={() => onClickHandler(heading.slug)}
                 >
                   <a
