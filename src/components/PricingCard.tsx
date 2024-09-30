@@ -1,5 +1,5 @@
 import React from 'react';
-import { Button, buttonVariants } from './v2/Button/Button';
+import { Button, buttonVariants } from './Button';
 import type { VariantProps } from 'class-variance-authority';
 
 export type Props = {
@@ -37,7 +37,6 @@ const PricingCard: React.FC<Props> = (props) => {
           <p className="typo-m text-left text-gray-dark-12">
             $ <span className="typo-h5">{props.cost}</span> /mo
           </p>
-          <p className="typo-s mt-3 text-left">+ Overage</p>
         </div>
         <div className="my-12 bg-gray-dark-6 p-[1px]" />
         <div className="mb-16">

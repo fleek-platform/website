@@ -146,11 +146,8 @@ export const PRICING_PLANS: Record<PlanKeys, Plan> = {
       cta: {
         text: ' Start with Free',
         href: 'https://app.fleek.xyz/',
-        className: styles.wagmiCTA,
+        variant: 'app-success',
       },
-      btnBg: 'bg-ui-green',
-      hoverBtnBg: 'hover:bg-ui-light-green',
-      fontColor: 'text-ui-faded-green',
     },
   },
   pro: {
@@ -210,10 +207,8 @@ export const PRICING_PLANS: Record<PlanKeys, Plan> = {
       cta: {
         text: 'Go fast with Pro',
         href: 'mailto:business@fleek.xyz',
-        className: styles.proCTA,
+        variant: 'app-primary',
       },
-      btnBg: 'bg-yellow-dark-4',
-      hoverBtnBg: 'hover:bg-yellow-dark-5',
     },
   },
   enterprise: {
@@ -246,10 +241,8 @@ export const PRICING_PLANS: Record<PlanKeys, Plan> = {
       cta: {
         text: 'Contact Sales',
         href: 'mailto:business@fleek.xyz',
-        className: styles.enterpriseCTA,
+        variant: 'secondary',
       },
-      btnBg: 'bg-gray-dark-4',
-      hoverBtnBg: 'hover:bg-gray-dark-5',
     },
   },
 };

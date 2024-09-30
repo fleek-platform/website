@@ -96,7 +96,6 @@ export const navbarMenu: NavMenuItem[] = [
       {
         label: 'Support Center',
         url: '/support',
-        openInNewTab: true,
         description: 'Get help',
         icon: '/svg/community-navbar-icon.svg',
       },

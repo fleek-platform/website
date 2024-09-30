@@ -5,7 +5,7 @@ date: 2024-09-04
 desc: Welcome to the documentation for the beta of Fleek.xyz. Whether you are an expert or an absolute beginner, you'll find your answers here.
 ---
 
-import ButtonGray from '@components/ButtonGray';
+import { Button } from '@components/Button';
 
 ![](./docs-hero-fleek.svg)
 
@@ -289,12 +289,15 @@ to using Fleek for building edge-optimized applications.
 
 In this section, you'll find helpful guides designed to assist you with the most commonly-encountered tasks on Fleek. For a deeper understanding and more extensive information, our documentation is available to provide further insights and support.
 
-<div className="typo-btn-l mb-32">
-  <a href="/guides" target="_blank" rel="noopener noreferrer">
-    <ButtonGray className="flex items-center justify-center gap-12">
-      <div>View guides</div>
-    </ButtonGray>
-  </a>
+<div className="w-fit">
+  <Button
+    variant="secondary"
+    href="/guides"
+    target="_blank"
+    rel="noopener noreferrer"
+  >
+    View guides
+  </Button>
 </div>
 
 <div className="my-12 bg-gray-dark-6 p-[1px]" />
@@ -303,24 +306,21 @@ In this section, you'll find helpful guides designed to assist you with the most
 
 Join our community and stay up-to-date with the latest news, features, and insights from our team. Follow us on social media to receive updates, engage with our community, and share your thoughts. Connect with us on Discord for real-time conversations, support, and collaboration. Together, we're shaping the future of our service.
 
-<div className="justify-left mt-12 flex flex-col sm:flex-row gap-16 mb-32">
-  <div className="typo-btn-l">
-    <a href="https://x.com/fleek" target="_blank" rel="noopener noreferrer">
-      <ButtonGray className="flex items-center justify-center gap-12">
-        <div>Follow us on X</div>
-      </ButtonGray>
-    </a>
-  </div>
-
-  <div className="typo-btn-l">
-    <a
-      href="https://discord.gg/fleek"
-      target="_blank"
-      rel="noopener noreferrer"
-    >
-      <ButtonGray className="flex items-center justify-center gap-12">
-        <div>Join our Discord</div>
-      </ButtonGray>
-    </a>
-  </div>
+<div className="justify-left mb-32 mt-12 flex flex-col gap-16 sm:flex-row">
+  <Button
+    variant="secondary"
+    href="https://x.com/fleek"
+    target="_blank"
+    rel="noopener noreferrer"
+  >
+    Follow us on X
+  </Button>
+  <Button
+    variant="secondary"
+    href="https://discord.gg/fleek"
+    target="_blank"
+    rel="noopener noreferrer"
+  >
+    Join our Discord
+  </Button>
 </div>
