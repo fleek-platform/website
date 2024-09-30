@@ -159,15 +159,17 @@ const TableOfContents: FC<Props> = ({ headings = [] }) => {
                   onClick={() => onClickHandler(heading.slug)}
                 >
                   <a
-                    className="flex items-center gap-4 font-plex-sans text-13 leading-normal"
+                    className="flex items-start gap-8 font-plex-sans text-13 leading-normal"
                     href={`#${heading.slug}`}
                   >
-                    <FaChevronRight
-                      className={cn('size-9 opacity-50', {
+                    <span
+                      className={cn('shrink-0 opacity-50', {
                         'text-yellow-dark-11 opacity-100':
                           activeId === heading.slug,
                       })}
-                    />
+                    >
+                      •
+                    </span>
                     {heading.text}
                   </a>
                 </li>
