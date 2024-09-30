@@ -95,6 +95,10 @@
       unicode-bidi: isolate;
       padding-bottom: 20px;
     }
+
+    .callout .callout-indicator {
+      @apply gap-6;
+    }
   }
 
   .docs-search-container {
