@@ -1,6 +1,6 @@
 ---
 import '@styles/globals.css';
-import { getSiteUrl } from '@utils/url';
+import { getSiteUrl, hasSecondaryMenuItem } from '@utils/url';
 import settings from '@base/settings.json';
 import PostHog from '@components/PostHog.astro';
 
@@ -8,6 +8,7 @@ import { Toaster } from 'react-hot-toast';
 import { Announcement } from '@components/Announcement';
 import Footer from '@components/Footer';
 import { Navbar } from '@components/Navbar';
+import SupportMenu from '@components/Support/SupportMenu';
 
 interface Props {
   title: string;
@@ -21,6 +22,7 @@ interface Props {
 
 const { ogMeta } = Astro.props;
 const baseUrl = getSiteUrl();
+const hasSecondaryMenu = hasSecondaryMenuItem(Astro.url.pathname);
 ---
 
 <!doctype html>
@@ -130,6 +132,11 @@ const baseUrl = getSiteUrl();
     <div
       class="relative w-full self-center px-24 py-32 xl:max-w-[1066px] xl:px-0 2xl:max-w-[1300px]"
     >
+      {
+        hasSecondaryMenu && (
+          <SupportMenu client:load currentPagePath={Astro.url.pathname} />
+        )
+      }
       <slot />
     </div>
     <Footer client:load />

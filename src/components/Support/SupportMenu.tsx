@@ -4,6 +4,7 @@ import { MdKeyboardArrowDown, MdOutlineKeyboardArrowUp } from 'react-icons/md';
 import settings from '@base/settings.json';
 import clsx from 'clsx';
 import { pathContains } from '@utils/url';
+import { Button } from '@components/Button';
 
 const supportMenu = settings.support.supportMenu;
 
@@ -13,38 +14,38 @@ type SupportMenuProps = {
 
 const SupportMenu: React.FC<SupportMenuProps> = ({ currentPagePath }) => {
   return (
-    <div className="container relative mb-[3.5rem] xl:mb-[5rem]">
-      <Container>
-        <nav className="md:static md:w-auto">
-          <SupportMenuMobile currentPagePath={currentPagePath} />
-          <SupportMenuDesktop currentPagePath={currentPagePath} />
-        </nav>
-      </Container>
+    <div className="container relative mb-[3.5rem] font-plex-sans xl:mb-[5rem]">
+      <nav className="md:static md:w-auto">
+        <SupportMenuMobile currentPagePath={currentPagePath} />
+        <SupportMenuDesktop currentPagePath={currentPagePath} />
+      </nav>
     </div>
   );
 };
 
 function SupportMenuDesktop({ currentPagePath }: SupportMenuProps) {
   return (
-    <ul className="hidden border-b-1 border-gray-dark-6 pl-16 md:flex md:items-center md:gap-[5px] lg:px-28">
-      {supportMenu.map((item) => (
-        <a key={item.id} href={item.path}>
-          <li
-            className={clsx(
-              'mb-[.4rem] cursor-pointer rounded-[8px] px-[15px] py-[7px] text-[1.5rem] hover:bg-gray-dark-4 hover:text-gray-dark-11 md:my-[1.5rem] xl:text-[1.6rem]',
-              {
-                'bg-yellow-dark-4 text-yellow-dark-11': pathContains(
-                  item.path,
-                  currentPagePath,
-                ),
-              },
-            )}
+    <div className="flex items-center gap-40">
+      <h1 className="hidden text-24 font-semibold text-white md:block lg:text-27 xl:text-32">
+        Support
+      </h1>
+      <ul className="hidden items-center gap-10 md:flex">
+        {supportMenu.map((item) => (
+          <Button
+            key={item.id}
+            href={item.path}
+            size="sm"
+            variant={
+              pathContains(item.path, currentPagePath)
+                ? 'app-primary'
+                : 'secondary'
+            }
           >
             {item.title}
-          </li>
-        </a>
-      ))}
-    </ul>
+          </Button>
+        ))}
+      </ul>
+    </div>
   );
 }
 
@@ -52,7 +53,7 @@ function SupportMenuMobile({ currentPagePath }: SupportMenuProps) {
   const [isExpanded, setIsExpanded] = useState(false);
 
   const handleExpandClick = () => {
-    setIsExpanded(!isExpanded);
+    setIsExpanded((prev) => !prev);
   };
   return (
     <>
