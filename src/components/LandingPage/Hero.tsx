@@ -45,7 +45,7 @@ export const Hero = () => {
             </BlurFade>
           </div>
         </section>
-        <div className="relative h-[400px] md:h-[520px] lg:h-[730px]">
+        <div className="relative h-[400px]  lg:h-[730px]">
           <BlurFade delay={calculateDelay(6.5)}>
             <div className="pointer-events-none absolute -top-152 left-[12%] h-496 w-608 bg-[radial-gradient(closest-side,rgb(34_34_34_/0.85),transparent)]"></div>
           </BlurFade>
