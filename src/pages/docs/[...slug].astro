@@ -4,6 +4,7 @@ import DocPageLayout from '../../layouts/DocPage.astro';
 
 import settings from '@base/settings.json';
 import { generateSidebarDSByUserOrder } from '@utils/generateSidebarDS';
+import { capitalizeFirstLetter } from '@utils/url';
 
 export interface DocsLink {
   category: string;
@@ -47,6 +48,7 @@ export async function getStaticPaths() {
     const currentIndex = flatSidebar.findIndex(
       (item) => item.slug === entry.slug,
     );
+
     // Determine previous and next items
     const prevItem = currentIndex > 0 ? flatSidebar[currentIndex - 1] : null;
     const nextItem =
@@ -54,19 +56,30 @@ export async function getStaticPaths() {
         ? flatSidebar[currentIndex + 1]
         : null;
 
+    const currentCategory = flatSidebar[currentIndex]?.category;
+
     return {
       params: { slug: entry.slug },
-      props: { entry, prevItem, nextItem },
+      props: { entry, prevItem, nextItem, currentCategory },
     };
   });
 }
 
-const { entry, prevItem, nextItem } = Astro.props;
+const { entry, prevItem, nextItem, currentCategory } = Astro.props;
 const { Content, headings } = await entry.render();
+const title = handlePageTitle('Docs');
+
+function handlePageTitle(collection: string) {
+  if (entry.data.title && currentCategory !== 'root') {
+    return ` ${collection} | ${capitalizeFirstLetter(currentCategory)} - ${entry.data.title}`;
+  } else {
+    return `${collection} - ${entry.data.title}`;
+  }
+}
 ---
 
 <DocPageLayout
-  title={entry.data.title}
+  title={title}
   description={entry.data.desc || ''}
   headings={headings}
   prevItem={prevItem}
