@@ -23,6 +23,7 @@ import { getCollection } from 'astro:content';
 import { generateFullSlug } from '@utils/generateFullSlug';
 import DocsHtml from './DocsHtml.astro';
 import { Announcement } from '@components/Announcement';
+import AskCookbook from '@components/AskCookbook.astro';
 
 type Props = {
   title: string;
@@ -121,3 +122,4 @@ const image = settings.site.metadata.docs.image;
   </main>
 </DocsHtml>
 <InjectCodeCopy />
+<AskCookbook />
