@@ -4,8 +4,7 @@ import DocPageLayout from '../../layouts/DocPage.astro';
 
 import settings from '@base/settings.json';
 import { generateSidebarDSByUserOrder } from '@utils/generateSidebarDS';
-import { capitalizeFirstLetter } from '@utils/url';
-
+import { capitalizeFirstLetter } from '@utils/capitalizeFirstLetter';
 export interface DocsLink {
   category: string;
   title: string;
@@ -71,7 +70,8 @@ const title = handlePageTitle('Docs');
 
 function handlePageTitle(collection: string) {
   if (entry.data.title && currentCategory !== 'root') {
-    return ` ${collection} | ${capitalizeFirstLetter(currentCategory)} - ${entry.data.title}`;
+    const currentPageTitleCapitalized = capitalizeFirstLetter(currentCategory);
+    return ` ${collection} | ${currentPageTitleCapitalized} - ${entry.data.title}`;
   } else {
     return `${collection} - ${entry.data.title}`;
   }
