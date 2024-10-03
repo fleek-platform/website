@@ -35,64 +35,6 @@ Some of the more popular frameworks Fleek supports include:
 
 For the most popular frameworks bulleted above along with several other less popular frameworks, we can perform auto-detection to automatically apply the correct build settings. We will find the correct Docker image from our [Dockerhub organization](https://hub.docker.com/u/fleek) depending on the detected framework and offer support for additional frameworks through custom Docker images users create.
 
-### Host a React app
-
-1. Create a react app with [Vite](https://vitejs.dev/guide/) or [Create-React-App (CRA)](https://create-react-app.dev/docs/getting-started)
-
-2. If you are using Vite, make sure your Vite config has the base set to "./" as seen below:
-
-   ```ts
-   import { defineConfig } from 'vite';
-   import react from '@vitejs/plugin-react-swc';
-
-   // https://vitejs.dev/config/
-   export default defineConfig({
-     plugins: [react()],
-     base: './',
-   });
-   ```
-
-3. When using Create React App (CRA), ensure that your `package.json` includes the following `homepage` attribute:
-   ```js
-   {
-       // ...
-       "homepage": ".",
-       // ...
-   }
-   ```
-4. Push your app to Github
-5. Go to the [Fleek app](https://app.fleek.xyz/) and go to `Settings` and click on "Git Integrations"
-6. Ensure that you install both of the Github applications and that they both have the "Active" badge as below. They are important for any deployment from Fleek:
-
-   ![Github integration active](./git-integration.png)
-
-7. Go to the "Sites" tab, click on "Add new" and select the Github repository where your app is hosted
-8. Ensure everything is correct with the build settings and click on "Deploy site". The correct build settings for a React app are:
-   - Build command: `npm run dev && npm run build`
-   - Publish directory: `dist`
-9. Your site has been deployed and you can access it by clicking on the "Visit site" button:
-
-   ![deployed website fleek page](./deployed-site.png)
-
-### Host an Astro template
-
-Deploy a Fleek template app in Astro on Fleek using the Fleek platform app.
-
-1. Go to the [Fleek app](https://app.fleek.xyz/) and go to the "Sites" tab
-2. Click on "Add new" and from the dropdown, select the "Use a template" option and it takes you to the templates page
-3. Search for the "Astro Boilerplate" template and click on it
-
-   ![Astro template page](./astro-template.png)
-
-4. Select Github. Ensure you have your Github account connected, as in the Github integration step 6 in the React app section
-5. You get a page you can customize the name that Fleek is to create and the account the Github account you connected earlier appears as well. You can choose if you want the repository private or public.
-
-   ![Create and deploy](./create-and-deploy.png)
-
-6. Fleek will start the deployment process and you can see the progress in the "Deploys" tab. Once the deployment is complete, you can access the site by clicking on the "Visit site" button.
-
-   ![deployed astro site](./deployed-astro-site.png)
-
 ### Other frameworks: npm package dependencies
 
 The frameworks we can auto-detect are a small subset of those we support, however. _Any_ framework that is a dependency for an npm package will be supported, since we apply a Node-based Docker image by default when none are selected.
