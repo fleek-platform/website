@@ -81,7 +81,7 @@ You can retrieve files or directories from Fleek Storage by providing a Name or 
 Currently, the data isn't downloaded, a table is presented instead. For single files, you can lookup for the content URL and use cURL and pipe to a local file.
 
 ```sh
-curl https://<CID>.ipfs.cf-ipfs.com > hello-world.txt
+curl https://<CID>.ipfs.flk-ipfs.xyz > hello-world.txt
 ```
 
 :::
