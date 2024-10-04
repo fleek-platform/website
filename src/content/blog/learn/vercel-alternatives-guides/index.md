@@ -1,6 +1,6 @@
 ---
 title: 'Exploring alternatives to Vercel: A guide for web developers'
-date: 2024-09-13
+date: 2023-01-24
 desc: 'Explore top Vercel alternatives for hosting and deploying web applications. Discover cost-effective, high-performance platforms like Fleek, Netlify, and more.'
 thumbnail: './vercelaltthumb.png'
 image: './vercelaltthumb.png'
