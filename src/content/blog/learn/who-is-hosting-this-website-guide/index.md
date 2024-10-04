@@ -1,6 +1,6 @@
 ---
 title: 'Who is hosting this? A simple guide to identifying a website hosting provider'
-date: 2024-09-09
+date: 2023-02-09
 desc: 'Simple guide to identifying any website hosting provider'
 thumbnail: './whoishostingthis.png'
 image: './whoishostingthis.png'
