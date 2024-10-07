@@ -25,6 +25,7 @@ When importing the SDK (version 3 and above), you should explicitly specify the 
 ```ts
 import { FleekSdk, PersonalAccessTokenService } from '@fleek-platform/sdk/node';
 ```
+
 :::
 
 ## Methods
@@ -150,7 +151,7 @@ To publish an IPNS record, you need to provide the IPNS record name and the IPFS
 ### Function Signature
 
 ```typescript
-async ({ hash, id }: PublishRecordArgs): Promise<IpnsRecord> 
+async ({ hash, id }: PublishRecordArgs): Promise<IpnsRecord>
 ```
 
 ### Parameters
@@ -159,11 +160,10 @@ async ({ hash, id }: PublishRecordArgs): Promise<IpnsRecord>
 type PublishRecordArgs = {
   id: string;
   hash: string;
-}
+};
 ```
 
 ### Returns
-
 
 Returns a Promise which resolves to a IpnsRecord type, containing an id, name and the hash.
 

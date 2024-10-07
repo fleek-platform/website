@@ -25,6 +25,7 @@ When importing the SDK (version 3 and above), you should explicitly specify the 
 ```ts
 import { FleekSdk, PersonalAccessTokenService } from '@fleek-platform/sdk/node';
 ```
+
 :::
 
 ## Methods

@@ -21,6 +21,7 @@ When importing the SDK (version 3 and above), you should explicitly specify the 
 ```ts
 import { FleekSdk, PersonalAccessTokenService } from '@fleek-platform/sdk/node';
 ```
+
 :::
 
 ## Create
@@ -38,7 +39,7 @@ async ({ name }: CreateProjectArgs): Promise<Project>
 ```typescript
 type CreateProjectArgs = {
   name: string;
-}
+};
 ```
 
 ### Returns
@@ -47,14 +48,14 @@ Returns a Promise which resolves to a Project type, to name a few, containing an
 
 ```typescript
 type Project = {
-    avatar: File;
-    backupStorageOnArweave: boolean;
-    backupStorageOnFilecoin: boolean;
-    createdAt: Date;
-    id: string;
-    name: string;
-    updatedAt: Date;
-}
+  avatar: File;
+  backupStorageOnArweave: boolean;
+  backupStorageOnFilecoin: boolean;
+  createdAt: Date;
+  id: string;
+  name: string;
+  updatedAt: Date;
+};
 ```
 
 ### Usage Example
@@ -98,13 +99,13 @@ Returns a Promise which resolves to a list of Project type, to name a few, conta
 
 ```typescript
 type Project = {
-    avatar: File;
-    backupStorageOnArweave: boolean;
-    backupStorageOnFilecoin: boolean;
-    createdAt: Date;
-    id: string;
-    name: string;
-    updatedAt: Date;
+  avatar: File;
+  backupStorageOnArweave: boolean;
+  backupStorageOnFilecoin: boolean;
+  createdAt: Date;
+  id: string;
+  name: string;
+  updatedAt: Date;
 }[];
 ```
 
@@ -134,7 +135,7 @@ Use the `get` method to retrieve a `Project` by its `id`.
 ### Function Signature
 
 ```typescript
-async ({ id }: GetProjectArgs): Promise<Project> 
+async ({ id }: GetProjectArgs): Promise<Project>
 ```
 
 ### Parameters
@@ -142,7 +143,7 @@ async ({ id }: GetProjectArgs): Promise<Project>
 ```typescript
 type GetProjectArgs = {
   id: string;
-}
+};
 ```
 
 ### Returns
@@ -151,13 +152,13 @@ Returns a Promise which resolves to a Project type, to name a few, containing an
 
 ```typescript
 type Project = {
-    avatar: File;
-    backupStorageOnArweave: boolean;
-    backupStorageOnFilecoin: boolean;
-    createdAt: Date;
-    id: string;
-    name: string;
-    updatedAt: Date;
+  avatar: File;
+  backupStorageOnArweave: boolean;
+  backupStorageOnFilecoin: boolean;
+  createdAt: Date;
+  id: string;
+  name: string;
+  updatedAt: Date;
 };
 ```
 
@@ -189,7 +190,7 @@ Use the `update` method by:
 ### Function Signature
 
 ```typescript
-async ({ id }: GetProjectArgs): Promise<Project> 
+async ({ id }: GetProjectArgs): Promise<Project>
 ```
 
 ### Parameters
@@ -197,13 +198,13 @@ async ({ id }: GetProjectArgs): Promise<Project>
 ```typescript
 type UpdateProjectArgs = {
   where: {
-    id: string,
+    id: string;
   };
   data: {
     name?: string;
     avatar?: File;
     backupStorageOnArweave?: boolean;
-    backupStorageOnFilecoin?: boolean,
+    backupStorageOnFilecoin?: boolean;
   };
 };
 ```
@@ -214,13 +215,13 @@ Returns a Promise which resolves to a Project type, to name a few, containing an
 
 ```typescript
 type Project = {
-    avatar: File;
-    backupStorageOnArweave: boolean;
-    backupStorageOnFilecoin: boolean;
-    createdAt: Date;
-    id: string;
-    name: string;
-    updatedAt: Date;
+  avatar: File;
+  backupStorageOnArweave: boolean;
+  backupStorageOnFilecoin: boolean;
+  createdAt: Date;
+  id: string;
+  name: string;
+  updatedAt: Date;
 };
 ```
 
