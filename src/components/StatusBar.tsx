@@ -8,7 +8,7 @@ import Text from '@components/Text';
 type StatusIndicator = 'none' | 'minor' | 'major';
 
 const StatusBar: React.FC = () => {
-  const [description, setDescription] = useState('All System Operational');
+  const [description, setDescription] = useState('All systems operational');
   const [indicator, setIndicator] = useState<StatusIndicator>('none');
 
   useEffect(() => {
@@ -50,7 +50,12 @@ const StatusBar: React.FC = () => {
               'bg-ui-status-operational': indicator === 'none',
             })}
           />
-          <Text style="caption-text">{description}</Text>
+          <Text
+            style="caption-text"
+            className="lowercase first-letter:capitalize"
+          >
+            {description}
+          </Text>
         </div>
       </div>
     </a>

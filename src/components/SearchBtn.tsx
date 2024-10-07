@@ -193,7 +193,7 @@ export default ({
     <div className="search-btn">
       <div className="input-container desktop" onClick={onSearchFocus}>
         <input
-          className="search-input"
+          className="search-input w-full"
           type="text"
           placeholder="Search"
           readOnly={true}

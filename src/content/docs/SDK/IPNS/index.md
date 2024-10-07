@@ -164,6 +164,7 @@ type PublishRecordArgs = {
 
 ### Returns
 
+
 Returns a Promise which resolves to a IpnsRecord type, containing an id, name and the hash.
 
 ```typescript

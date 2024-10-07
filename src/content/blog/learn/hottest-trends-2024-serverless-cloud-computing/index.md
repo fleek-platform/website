@@ -1,6 +1,6 @@
 ---
 title: 'The Hottest Trend of 2024: Serverless Cloud Computing'
-date: 2024-08-23
+date: 2023-03-01
 desc: 'A deep dive into the hottest trend of 2024, serverless cloud computing'
 thumbnail: './serverlesscompute.png'
 image: './serverlesscompute.png'

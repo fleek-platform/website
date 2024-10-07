@@ -5,7 +5,7 @@ date: 2024-09-04
 desc: Welcome to the documentation for the beta of Fleek.xyz. Whether you are an expert or an absolute beginner, you'll find your answers here.
 ---
 
-import ButtonGray from '@components/ButtonGray';
+import { Button } from '@components/Button';
 
 ![](./docs-hero-fleek.svg)
 
@@ -13,7 +13,7 @@ import ButtonGray from '@components/ButtonGray';
 
 Fleek is an onchain edge-optimized cloud platform that allows users to build, host, and deploy websites and applications efficiently, empowering developers to create fast and high-performing apps.
 
-Fleek is powered by the onchain edge-optimized cloud network known called [Fleek Network](/docs/infrastructure/) and it gives access to a variety of features and capabilities that makes it easy to manage cloud infrastructure.
+Fleek is powered by the onchain edge-optimized cloud network known as [Fleek Network](/docs/infrastructure/) and it gives access to a variety of features and capabilities that makes it easy to manage cloud infrastructure.
 
 {/* {{Image mashup showing the platform, sdk and cli vibe or just a short video}} */}
 
@@ -33,63 +33,17 @@ Learn how to host a React app and a Fleek template app in Astro on Fleek using t
 Fleek supports static sites currently. SSR support is a work in progress and is not yet available for deployed sites.
 :::
 
-### Host a React app
-
-1. Create a react app with [Vite](https://vitejs.dev/guide/) or [Create-React-App (CRA)](https://create-react-app.dev/docs/getting-started)
-
-2. If you are using Vite, make sure your Vite config has the base set to "./" as seen below:
-
-   ```ts
-   import { defineConfig } from 'vite';
-   import react from '@vitejs/plugin-react-swc';
-
-   // https://vitejs.dev/config/
-   export default defineConfig({
-     plugins: [react()],
-     base: './',
-   });
-   ```
-
-3. When using Create React App (CRA), ensure that your `package.json` includes the following `homepage` attribute:
-   ```js
-   {
-       // ...
-       "homepage": ".",
-       // ...
-   }
-   ```
-4. Push your app to Github
-5. Go to the [Fleek app](https://app.fleek.xyz/) and go to `Settings` and click on "Git Integrations"
-6. Ensure that you install both of the Github applications and that they both have the "Active" badge as below. They are important for any deployment from Fleek:
+1. **Connect Git Account to Fleek**: In the settings tab under "Git Integrations", you will need to connect your Git account to Fleek
 
    ![Github integration active](./git-integration.png)
 
-7. Go to the "Sites" tab, click on "Add new" and select the Github repository where your app is hosted
-8. Ensure everything is correct with the build settings and click on "Deploy site". The correct build settings for a React app are:
-   - Build command: `npm run dev && npm run build`
-   - Publish directory: `dist`
-9. Your site has been deployed and you can access it by clicking on the "Visit site" button:
-
-   ![deployed website fleek page](./deployed-site.png)
-
-### Host a Fleek template app
-
-Deploy a Fleek template app in Astro on Fleek using the Fleek platform app.
-
-1. Go to the [Fleek app](https://app.fleek.xyz/) and go to the "Sites" tab
-2. Click on "Add new" and from the dropdown, select the "Use a template" option and it takes you to the templates page
-3. Search for the "Astro Boilerplate" template and click on it
-
-   ![Astro template page](./astro-template.png)
-
-4. Select Github. Ensure you have your Github account connected, as in the Github integration step 6 in the React app section
-5. You get a page you can customize the name that Fleek is to create and the account the Github account you connected earlier appears as well. You can choose if you want the repository private or public.
-
-   ![Create and deploy](./create-and-deploy.png)
-
-6. Fleek will start the deployment process and you can see the progress in the "Deploys" tab. Once the deployment is complete, you can access the site by clicking on the "Visit site" button.
-
-   ![deployed astro site](./deployed-astro-site.png)
+2. **Navigate to the "Hosting" tab**
+3. **Click the "Add New" button**
+4. **Select Repository**
+5. **Verify Build Details**
+6. **Deploy**
+7. **View Deployments**
+8. **View Live Site**
 
 <div className="my-12 bg-gray-dark-6 p-[1px]" />
 
@@ -273,6 +227,33 @@ Deploying one is as easy as 4 steps:
 
 <div className="my-12 bg-gray-dark-6 p-[1px]" />
 
+## Fleek storage quickstart
+
+:::info
+There is an option to configure a private gateway for increased rate limits when retrieving resources
+:::
+
+Fleek's storage service enables the decentralized storage of your files by leveraging the edge-optimized Fleek Network. The service supports IPFS as our main storage protocol, complemented by Arweave and Filecoin as a backup layer
+
+To use Fleek storage, you can follow the steps below:
+
+1. **Navigate to the "Storage" tab**
+2. **Click the "Add New" button to upload a file or folder**
+
+### Using the Fleek CLI
+
+With the CLI already installed, you can also access the Fleek storage service.
+
+To add a file "hello_world.txt" to Fleek Storage simply run the command:
+
+```sh
+fleek storage add ~/MyFiles/hello_world.txt
+```
+
+You can also perform other operations listing all the files or directories in the Fleek Storage for the current project and deleting a file or directory from the Fleek Storage. You can find more information on the Fleek CLI storage commands [here](/docs/cli/storage).
+
+<div className="my-12 bg-gray-dark-6 p-[1px]" />
+
 ## Help and tutorials
 
 Find links to useful resources to help get started, understand a concept or to get yourself onboarded
@@ -289,12 +270,22 @@ to using Fleek for building edge-optimized applications.
 
 In this section, you'll find helpful guides designed to assist you with the most commonly-encountered tasks on Fleek. For a deeper understanding and more extensive information, our documentation is available to provide further insights and support.
 
-<div className="typo-btn-l mb-32">
-  <a href="/guides" target="_blank" rel="noopener noreferrer">
-    <ButtonGray className="flex items-center justify-center gap-12">
-      <div>View guides</div>
-    </ButtonGray>
-  </a>
+To get up to speed with deploying your website or application, check out the below guides:
+
+- [Deploy a React app](/docs/platform/frameworks#host-a-react-app)
+- [Deploy an Astro website](/docs/platform/frameworks#host-a-react-app)
+
+For all of our guides and more, visit our guides section:
+
+<div className="w-fit">
+  <Button
+    variant="secondary"
+    href="/guides"
+    target="_blank"
+    rel="noopener noreferrer"
+  >
+    View guides
+  </Button>
 </div>
 
 <div className="my-12 bg-gray-dark-6 p-[1px]" />
@@ -303,24 +294,21 @@ In this section, you'll find helpful guides designed to assist you with the most
 
 Join our community and stay up-to-date with the latest news, features, and insights from our team. Follow us on social media to receive updates, engage with our community, and share your thoughts. Connect with us on Discord for real-time conversations, support, and collaboration. Together, we're shaping the future of our service.
 
-<div className="justify-left mt-12 flex flex-col sm:flex-row gap-16 mb-32">
-  <div className="typo-btn-l">
-    <a href="https://x.com/fleek" target="_blank" rel="noopener noreferrer">
-      <ButtonGray className="flex items-center justify-center gap-12">
-        <div>Follow us on X</div>
-      </ButtonGray>
-    </a>
-  </div>
-
-  <div className="typo-btn-l">
-    <a
-      href="https://discord.gg/fleek"
-      target="_blank"
-      rel="noopener noreferrer"
-    >
-      <ButtonGray className="flex items-center justify-center gap-12">
-        <div>Join our Discord</div>
-      </ButtonGray>
-    </a>
-  </div>
+<div className="justify-left mb-32 mt-12 flex flex-col gap-16 sm:flex-row">
+  <Button
+    variant="secondary"
+    href="https://x.com/fleek"
+    target="_blank"
+    rel="noopener noreferrer"
+  >
+    Follow us on X
+  </Button>
+  <Button
+    variant="secondary"
+    href="https://discord.gg/fleek"
+    target="_blank"
+    rel="noopener noreferrer"
+  >
+    Join our Discord
+  </Button>
 </div>

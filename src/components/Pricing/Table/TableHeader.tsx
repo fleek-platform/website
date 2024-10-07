@@ -1,33 +1,24 @@
-import PricingButton from '@components/PricingButton';
-
+import { Target } from '@components/Link';
 import type { PlanHeader } from './types';
+import { Button } from '@components/Button';
 
-const TableHeader = ({
-  title,
-  titleClassName,
-  subtitle,
-  description,
-  cta,
-  btnBg,
-  fontColor,
-  hoverBtnBg,
-}: PlanHeader) => (
+const TableHeader = ({ title, cta }: PlanHeader) => (
   <div
     className={`flex h-full w-full flex-col items-center justify-between gap-16 border-r-1 border-t-1  ${title == 'Enterprise' ? 'rounded-tr-12' : ''}  border-ui-mid-grey bg-gray-dark-1  px-20 py-20 lg:max-w-[345px]`}
   >
     <div className=" w-full ">
       <h3 className="typo-m-normal text-left">{title}</h3>
     </div>
-    <a
+
+    <Button
       href={cta.href}
-      target="_blank"
+      target={Target.Blank}
       rel="noopener noreferrer"
-      className="typo-btn-l w-full"
+      variant={cta.variant}
+      className="w-full"
     >
-      <PricingButton bg={btnBg} fontColor={fontColor} hoverBtnBg={hoverBtnBg}>
-        <p>{cta.text}</p>
-      </PricingButton>
-    </a>
+      {cta.text}
+    </Button>
   </div>
 );
 

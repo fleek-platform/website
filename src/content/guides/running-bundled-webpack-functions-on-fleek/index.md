@@ -211,7 +211,8 @@ Where “bundled-function” is the name of our Fleek function. The command to d
 ```
 fleek functions deploy \
 --name bundled-function \
---path ./dist/bundle.js --noBundle
+--path ./dist/bundle.js \
+--bundle false
 ```
 
 Where `bundled-function` is the name of our Fleek Function and `./dist.bundle.js` is the path to the bundled file created by webpack when we bundled, If all the steps above go well, you should have:

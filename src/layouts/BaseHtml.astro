@@ -1,12 +1,14 @@
 ---
 import '@styles/globals.css';
-import Announcement from '@components/Announcement';
-import { getSiteUrl } from '@utils/url';
+import { getSiteUrl, hasSecondaryMenuItem } from '@utils/url';
 import settings from '@base/settings.json';
-import Nav from '@components/NavBar';
-import Footer from '@components/Footer';
+import PostHog from '@components/PostHog.astro';
 
 import { Toaster } from 'react-hot-toast';
+import { Announcement } from '@components/Announcement';
+import Footer from '@components/Footer';
+import { Navbar } from '@components/Navbar';
+import SupportMenu from '@components/Support/SupportMenu';
 
 interface Props {
   title: string;
@@ -18,12 +20,13 @@ interface Props {
   };
 }
 
-const { title, ogMeta } = Astro.props;
+const { ogMeta } = Astro.props;
 const baseUrl = getSiteUrl();
+const hasSecondaryMenu = hasSecondaryMenuItem(Astro.url.pathname);
 ---
 
 <!doctype html>
-<html lang="en">
+<html lang="en" class="overflow-x-hidden">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width" />
@@ -103,19 +106,15 @@ const baseUrl = getSiteUrl();
 
     <!-- Google Tag Manager -->
     <script is:inline src="/lib/gtm.js"></script>
+
+    <!-- PostHog -->
+    <PostHog />
   </head>
   <body
-    class="--font-plex-sans --font-plex-mono --font-sans bg-mesh min-h-full bg-black font-sans text-gray-dark-11 selection:bg-yellow-dark-9 selection:text-black"
+    class="relative flex min-h-dvh flex-col overflow-x-hidden bg-black font-sans text-gray-dark-11 selection:bg-yellow-dark-9 selection:text-black"
   >
     <!-- Google Tag Manager (noscript version) -->
     <!-- WARNING: The script version is above see /lib/gtm.js -->
-    <noscript
-      ><iframe
-        src="https://www.googletagmanager.com/ns.html?id=GTM-WMT553Z"
-        height="0"
-        width="0"
-        style="display:none;visibility:hidden"></iframe></noscript
-    >
     <!-- End Google Tag Manager (noscript) -->
     <noscript>
       <iframe
@@ -124,10 +123,22 @@ const baseUrl = getSiteUrl();
         width="0"
         style={{ display: 'none', visibility: 'hidden' }}></iframe>
     </noscript>
-    {settings.site.annoucementMarquee.visible && <Announcement client:load />}
-    <Nav client:load pathname={Astro.url.pathname} />
-    <slot />
+    <Announcement client:load />
+    <Navbar
+      client:load
+      pathname={Astro.url.pathname}
+      className="max-w-[1024px] transition-all xl:max-w-[1066px] 2xl:max-w-[1300px]"
+    />
+    <div
+      class="relative w-full self-center px-24 py-32 xl:max-w-[1066px] xl:px-0 2xl:max-w-[1300px]"
+    >
+      {
+        hasSecondaryMenu && (
+          <SupportMenu client:load currentPagePath={Astro.url.pathname} />
+        )
+      }
+      <slot />
+    </div>
     <Footer client:load />
-    <Toaster client:load position="top-right" reverseOrder={false} />
   </body>
 </html>

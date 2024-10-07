@@ -47,7 +47,7 @@ delete                      Delete a file by CID
 
 The `uploadFile` is an asynchronous function designed to upload a file to Fleek Platform Storage Service.
 
-### Function Signature
+### Function signature
 
 ```typescript
 async ({ file, onUploadProgress }: UploadRawFileArgs): Promise<UploadPinResponse>
@@ -91,7 +91,7 @@ type UploadPinResponse = {
 };
 ```
 
-### Usage Example
+### Usage example
 
 ```typescript
 import { FleekSdk, PersonalAccessTokenService } from '@fleek-platform/sdk/node';
@@ -131,7 +131,7 @@ const onUploadProgress = ({ loadedSize, totalSize }: UploadProgress) => {
 
 The `list` is an asynchronous function designed to get a list of files uploaded to a projects storage.
 
-### Function Signature
+### Function signature
 
 ```typescript
 async (): Promise<StoragePin[]>
@@ -163,7 +163,7 @@ type ArweavePin = {
 };
 ```
 
-### Usage Example
+### Usage example
 
 ```typescript
 import { FleekSdk, PersonalAccessTokenService } from '@fleek-platform/sdk/node';
@@ -297,7 +297,7 @@ The `delete` is an asynchronous function designed to delete a storage file by it
 Given the immutable nature of data in IPFS distributed network—where each piece of content is identified by a unique hash that points to the same content whenever available—we regret to inform you that we cannot offer a traditional deletion option. Despite this fact, rest assured that once we stop pinning certain items, they will no longer be visible in your storage list. Learn more about IPFS [here](https://docs.ipfs.tech)
 :::
 
-### Function Signature
+### Function signature
 
 ```typescript
 async ({ cid }: DeletePinArgs)
@@ -321,7 +321,7 @@ type Response = {
 };
 ```
 
-### Usage Example
+### Usage example
 
 ```typescript
 import { FleekSdk, PersonalAccessTokenService } from '@fleek-platform/sdk/node';
@@ -348,7 +348,7 @@ Upload a directory to Fleek Platform Storage IPFS.
 It's intended for Node.js only, due to file system requirements. Use the [uploadVirtualDirectory](#uploadvirtualdirectory) for browsers, also useful for Nodejs.
 :::
 
-### Function Signature
+### Function signature
 
 ```typescript
 async ({ path, options, onUploadProgress }: UploadDirectoryArgs): Promise<UploadPinResponse>
@@ -380,7 +380,7 @@ type UploadPinResponse = {
 
 Upload a virtual directory to Fleek Platform Storage IPFS.
 
-### Function Signature
+### Function signature
 
 ```typescript
 async ({

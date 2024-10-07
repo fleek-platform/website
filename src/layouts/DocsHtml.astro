@@ -1,0 +1,156 @@
+---
+import '@styles/globals.css';
+import { getSiteUrl } from '@utils/url';
+import settings from '@base/settings.json';
+import { Toaster } from 'react-hot-toast';
+import { Navbar } from '@components/Navbar';
+import PostHog from '@components/PostHog.astro';
+
+interface Props {
+  title: string;
+  ogMeta: {
+    title: string;
+    description: string;
+    image: string;
+    slug: string;
+  };
+}
+
+const { ogMeta } = Astro.props;
+const baseUrl = getSiteUrl();
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.ico" />
+    <link rel="sitemap" href="/sitemap-index.xml" />
+    <link
+      rel="preload"
+      href="/fonts/atyp/AtypDisplay-Regular.woff2"
+      as="font"
+      type="font/woff2"
+      crossorigin
+    />
+    <link
+      rel="preload"
+      href="/fonts/atyp/AtypDisplay-Medium.woff2"
+      as="font"
+      type="font/woff2"
+      crossorigin
+    />
+    <link
+      rel="preload"
+      href="/fonts/atyp/AtypDisplay-Semibold.woff2"
+      as="font"
+      type="font/woff2"
+      crossorigin
+    />
+    <link
+      rel="preload"
+      href="/fonts/atyp/AtypDisplay-Bold.woff2"
+      as="font"
+      type="font/woff2"
+      crossorigin
+    />
+    <meta name="generator" content={Astro.generator} />
+    <!-- HTML Meta Tags -->
+    <title>
+      {`Fleek | ${ogMeta?.title || settings.site.metadata.default.title}`}
+    </title>
+    <meta
+      name="description"
+      content={ogMeta?.description ||
+        settings.site.metadata.default.description}
+    />
+    <!-- Facebook Meta Tags -->
+    <meta property="og:url" content={`${baseUrl}/${ogMeta?.slug || ''}`} />
+    <meta property="og:type" content="website" />
+    <meta
+      property="og:title"
+      content={ogMeta?.title || settings.site.metadata.default.title}
+    />
+    <meta
+      property="og:description"
+      content={ogMeta?.description ||
+        settings.site.metadata.default.description}
+    />
+    <meta
+      property="og:image"
+      content={`${baseUrl}/${ogMeta?.image?.replace(/^\/+/, '') || settings.site.metadata.default.image?.replace(/^\/+/, '')}`}
+    />
+    <!-- Twitter Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta property="twitter:domain" content={baseUrl} />
+    <meta property="twitter:url" content={`${baseUrl}/${ogMeta?.slug || ''}`} />
+    <meta
+      name="twitter:title"
+      content={ogMeta?.title || settings.site.metadata.default.title}
+    />
+    <meta
+      name="twitter:description"
+      content={ogMeta?.description ||
+        settings.site.metadata.default.description}
+    />
+    <meta
+      name="twitter:image"
+      content={`${baseUrl}/${ogMeta?.image?.replace(/^\/+/, '') || settings.site.metadata.default.image?.replace(/^\/+/, '')}`}
+    />
+
+    <!-- Google Tag Manager -->
+    <script is:inline src="/lib/gtm.js"></script>
+
+    <!-- PostHog -->
+    <PostHog />
+  </head>
+  <body
+    class="relative flex flex-col bg-black font-sans text-gray-dark-11 selection:bg-yellow-dark-9 selection:text-black"
+  >
+    <!-- Google Tag Manager (noscript version) -->
+    <!-- WARNING: The script version is above see /lib/gtm.js -->
+    <!-- End Google Tag Manager (noscript) -->
+    <noscript>
+      <iframe
+        src="https://www.googletagmanager.com/ns.html?id=GTM-WMT553Z"
+        height="0"
+        width="0"
+        style={{ display: 'none', visibility: 'hidden' }}></iframe>
+    </noscript>
+    <Navbar
+      client:load
+      variant="fixed"
+      className="max-w-[1452px]"
+      pathname={Astro.url.pathname}
+    />
+    <div class="w-full max-w-[1500px] self-center px-24 md:pt-92">
+      <slot />
+    </div>
+    <Toaster client:load position="bottom-center" reverseOrder={false} />
+    <script is:inline defer>
+      document.addEventListener('DOMContentLoaded', () => {
+        const adjustScrollOffset = () => {
+          const yOffset = -84; // Adjust this value to the navbar height
+          const { hash } = window.location;
+
+          if (hash) {
+            const element = document.querySelector(hash);
+            if (element) {
+              const yPosition =
+                element.getBoundingClientRect().top + window.scrollY + yOffset;
+              window.scrollTo({ top: yPosition, behavior: 'auto' });
+            }
+          }
+        };
+
+        window.addEventListener('hashchange', adjustScrollOffset);
+
+        // Scroll to the hash on initial load if present
+        if (window.location.hash) {
+          adjustScrollOffset();
+        }
+      });
+    </script>
+  </body>
+</html>

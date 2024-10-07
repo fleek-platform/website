@@ -1,16 +1,21 @@
 name: 🚜 Search (Indexer)
 on:
   repository_dispatch:
-    types: release-by-develop-hash-completed
+    types: Release
+  workflow_dispatch:
 
 jobs:
   meilisearch:
     name: MeiliSearch Service
     runs-on: ubuntu-latest
+    env:
+      RELEASE_BRANCH: main
     environment: production
     steps:
       - name: Checkout Repository
         uses: actions/checkout@v4
+        with:
+          ref: ${{ env.RELEASE_BRANCH }}
 
       - name: Install Dependencies
         run: npm ci
@@ -53,6 +58,13 @@ jobs:
       - name: Changelog Indexation
         run: |
           npm run search:index_changelog
+        env:
+          PRIVATE_MEILISEARCH_DOCUMENTS_ADMIN_API_KEY: ${{ secrets.PRIVATE_MEILISEARCH_DOCUMENTS_ADMIN_API_KEY}}
+          PUBLIC_MEILISEARCH_HOST: ${{ vars.PUBLIC_MEILISEARCH_HOST }}
+
+      - name: Billing Indexation
+        run: |
+          npm run search:index_billing
         env:
           PRIVATE_MEILISEARCH_DOCUMENTS_ADMIN_API_KEY: ${{ secrets.PRIVATE_MEILISEARCH_DOCUMENTS_ADMIN_API_KEY}}
           PUBLIC_MEILISEARCH_HOST: ${{ vars.PUBLIC_MEILISEARCH_HOST }}

@@ -3,9 +3,10 @@ import { getCollection } from 'astro:content';
 import BlogPageLayout from '../../layouts/BlogPage.astro';
 import GithubEditLink from '@components/GitHubEditLink.astro';
 import { generateGitHubEditLink } from '@utils/url';
-import ButtonGhost from '@components/ButtonGhost';
 import settings from '@base/settings.json';
 import { generateFullSlug } from '@utils/generateFullSlug';
+import { GoBackButton } from '@components/GoBackButton';
+import { formatDate } from '@utils/date';
 
 export async function getStaticPaths() {
   const docsEntries = await getCollection('references');
@@ -18,6 +19,8 @@ export async function getStaticPaths() {
 const { entry } = Astro.props;
 const { Content } = await entry.render();
 const { collection, id, slug } = entry;
+
+const date = formatDate({ date: entry.data.date });
 
 const githubEditUrlPathname = generateGitHubEditLink({
   collection,
@@ -37,16 +40,10 @@ const fullSlug = generateFullSlug({
   slug={fullSlug}
 >
   <article class="blog">
-    <div class="mb-24 w-fit">
-      <a href="/references">
-        <ButtonGhost>
-          <img
-            src="/svg/caret-left.svg"
-            class="caret border-0 !border-none !outline-none invert filter"
-          />
-          <span class="text-sm mb-2">Go back</span>
-        </ButtonGhost>
-      </a>
+    <div class="space-y-40 pb-16">
+      <GoBackButton client:load />
+      <div></div>
+      <span class="text-[1.4rem]">{date}</span>
     </div>
     <h1>{entry.data.title}</h1>
     {
