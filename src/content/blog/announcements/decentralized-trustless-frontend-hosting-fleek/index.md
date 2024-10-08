@@ -10,7 +10,7 @@ At Fleek, we’ve always been thinking and attempting to bring real decentralize
 
 ## Problem Statement
 
-A name server can lie. Even in the centralized setup, the possibility of a DNS spoofing attack is present, however, [*DNSSEC*](https://datatracker.ietf.org/doc/html/rfc9364) has been introduced to solve this issue by constructing a chain of trust all the way from ICANN at the root of this chain, through the zones, and finally then to the individual owners of the domain. This solves the issue of tying a private key (of some signature scheme supported by *DNSSEC*) into a domain and using that as a way of verifying the integrity of DNS records for your domain.
+A name server can lie. Even in the centralized setup, the possibility of a DNS spoofing attack is present, however, [_DNSSEC_](https://datatracker.ietf.org/doc/html/rfc9364) has been introduced to solve this issue by constructing a chain of trust all the way from ICANN at the root of this chain, through the zones, and finally then to the individual owners of the domain. This solves the issue of tying a private key (of some signature scheme supported by _DNSSEC_) into a domain and using that as a way of verifying the integrity of DNS records for your domain.
 
 Even if you don’t necessarily want a ‘decentralized frontend’, the only way you could currently trust this setup is by running your own authoritative name server and using a self-generated key. In reality, running a DNS server is far from straightforward, and most people prefer using managed name servers, such as Cloudflare.
 
@@ -67,7 +67,7 @@ extern "C" {
     /// the current DNS record. During a call multiple calls to
     /// this function are allowed which allows control over the
     /// DNS record table.
-    /// 
+    ///
     /// For example, a call here could update the records only
     /// for a subdomain.
   #[link(wasm_import_module = "fdns")]
@@ -183,6 +183,7 @@ Until today, decentralized name servers felt like the typical web3 pipe dream �
 By leveraging Trusted Execution Environments, we can enhance trust and transparency in DNS operations, ensuring that updates to DNS records are verifiable and controlled by the domain owner, whether a private key holder or a smart contract. While challenges like selective denial of service and maintaining update integrity remain, our ongoing work on consensus mechanisms, threshold cryptography, and network node rotation offers promising solutions. Stay tuned as we continue to build towards fully decentralized web infrastructure.
 
 ## Additional Resources:
+
 Beginners Guide to SGX- https://fleek.xyz/blog/learn/intel-sgx-beginners-guide/
 
 Fleek Network Intel SGX Integration- https://blog.fleek.network/post/fleek-network-intel-sgx-integration/
