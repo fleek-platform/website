@@ -1,6 +1,6 @@
 ---
 title: 'Unlocking Decentralized & Trustless Front-End Hosting with TEEs'
-date: 2023-10-08
+date: 2024-10-08
 desc: 'Explore how TEEs, such as Intel SGX, enhance DNS Name Server security and enable decentralized front-end hosting with secure domain management.'
 thumbnail: './Fleek_Blog_SGX+DNS_10.07.24_V1.png'
 image: './Fleek_Blog_SGX+DNS_10.07.24_V1.png'
