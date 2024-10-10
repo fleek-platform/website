@@ -58,7 +58,7 @@ Without the prefix, CIDs would lack context, preventing systems from processing 
 
 ## **Role of CIDs in onchain storage and hosting**
 
-CIDs play an integral role in <u>[onchain storage](https://docs.fleek.xyz/docs/Storage)</u> and hosting as they provide a more secure, efficient, and resilient way to store and access content on the web. Here's an expanded look at the roles CIDs play:
+CIDs play an integral role in <u>[onchain storage](/docs/platform/storage/)</u> and hosting as they provide a more secure, efficient, and resilient way to store and access content on the web. Here's an expanded look at the roles CIDs play:
 
 ### **Verification and integrity checks**
 
