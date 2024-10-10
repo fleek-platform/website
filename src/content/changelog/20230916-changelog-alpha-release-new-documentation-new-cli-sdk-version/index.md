@@ -8,7 +8,7 @@ author:
   - 'Fleek'
 ---
 
-Hey there _Fleek Freaks_! The Fleek Alpha is here and new testers are being onboarded every day if you haven’t [gotten access yet to the Alpha](https://fleekxyz.typeform.com/alpha-access), what in Vitalik’s name are you waiting for?
+Hey there _Fleek Freaks_! The application form for the Fleek.xyz Alpha is closed, you can access the platform [here](https://app.fleek.xz) , what in Vitalik’s name are you waiting for?
 
 With the release of the alpha, setting the foundations for the release of V1, we’re bringing back **our frequent release notes updates at a constant cadence** under a new name: **Fleek Release Notes 📔**
 
@@ -79,7 +79,7 @@ And this closes the first update from our team going into our closed Alpha. Expe
 
 ## Useful Links
 
-- [Get a seat to test the alpha of Fleek](https://fleekxyz.typeform.com/alpha-access)
+- [App](https://app.fleek.xyz)
 - [Read our documentation in full](http://fleek.xyz/docs/)
 - [Check out that sweet new homepage](http://fleek.xyz/)
 
