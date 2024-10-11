@@ -29,7 +29,12 @@ npm install @fleek-platform/sdk
 
 ## Authentication
 
-Authentication requires providing an access token. There are currently two methods available: the ApplicationAccessTokenService and PersonalAccessTokenService. These services differ in their application, depending on whether you're deploying them in a client-side or server-side context.
+Authentication requires providing an access token. There are currently two methods available:
+
+- The [ApplicationAccessTokenService](#applicationaccesstokenservice): For public-facing applications, which tokens are generated via the Fleek Platform user account's [dashboard](https://app.fleek.xyz)
+- The [PersonalAccessTokenService](#personalaccesstokenservice): Used typically for server-side applications, which tokens are managed via [CLI](/docs/cli). You must keep these tokens secure and hidden
+
+These services differ in their application, depending on whether you're deploying them in a client-side or server-side context.
 
 ### Available methods
 
@@ -48,7 +53,7 @@ You can create concurrent instances by providing the Personal Access Token and P
 In the example below, we share a Personal Access Token (PAT) and a different Project ID (PID) for each new instance of FleekSdk.
 
 ```typescript
-import { FleekSdk, PersonalAccessTokenService } from '@fleek-platform/sdk';
+import { FleekSdk, PersonalAccessTokenService } from '@fleek-platform/sdk/node';
 
 const accessTokenServiceA = new PersonalAccessTokenService({
   personalAccessToken: <PAT>,
@@ -68,6 +73,15 @@ const fleekSdkInstanceB = new FleekSdk({
   accessTokenService: accessTokenServiceB,
 });
 ```
+
+:::note
+When importing the SDK (version 3 and above), you can explicitly specify the environment:
+
+- For server-side (Node.js): Use @fleek-platform/sdk/node in the import statement
+- For client-side (Browser): USe @fleek-platform/sdk/browser in the import statement
+
+If not specified, the import defaults to the browser version. The browser and Node.js versions have differences due to their respective environments. Choose the appropriate version for your use case.
+:::
 
 Instance method calls are tied to the Project ID designated during the Fleek Platform SDK instantiation. For example, files added to the storage service will appear under the matching instance Project ID.
 
@@ -90,7 +104,7 @@ This method of authentication relies on a `personalAccessToken` which can be obt
 ### Usage example
 
 ```typescript
-import { FleekSdk, PersonalAccessTokenService } from '@fleek-platform/sdk';
+import { FleekSdk, PersonalAccessTokenService } from '@fleek-platform/sdk/node';
 
 const personalAccessTokenService = new PersonalAccessTokenService({
   personalAccessToken: <PAT>,
@@ -123,7 +137,7 @@ This method of authentication relies on a `clientId` which can be obtained after
 ### Usage example
 
 ```typescript copy
-import { FleekSdk, ApplicationAccessTokenService } from '@fleek-platform/sdk';
+import { FleekSdk, ApplicationAccessTokenService } from '@fleek-platform/sdk/node';
 
 const applicationService = new ApplicationAccessTokenService({
   clientId: <CLIENT_ID>,

@@ -1,6 +1,6 @@
 ---
 title: 'The future of front-end: Open source, self-hosted web applications'
-date: 2024-09-23
+date: 2023-02-23
 desc: 'Discover how Fleek integrates open-source and self-hosting with cloud benefits to enhance developer freedom, reduce costs, and boost performance.'
 thumbnail: './self-hosted.png'
 image: './self-hosted.png'
