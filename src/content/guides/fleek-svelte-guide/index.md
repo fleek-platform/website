@@ -53,7 +53,7 @@ Now that we have a fully functional Svelte app we can proceed to the next step �
 
 ### Fleek Account Creation
 
-The first thing we’ll need to do is create a Fleek account: head over to [http://app.fleek.xyz](http://app.fleek.xyz), and click on the `Create a Free Account` button.
+The first thing we’ll need to do is create a Fleek account: head over to [https://app.fleek.xyz](https://app.fleek.xyz), and click on the `Create a Free Account` button.
 
 > 💡 Feel free to skip this step if you already have an account on Fleek.xyz!
 
