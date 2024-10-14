@@ -18,8 +18,8 @@ Next.js is a React framework that simplifies the creation of server-rendered Rea
 
 # Requirements
 
-- [Fleek Account](http://app.fleek.xyz)
-- [GitHub Account](http://github.com)
+- [Fleek Account](https://app.fleek.xyz)
+- [GitHub Account](https://github.com)
 - Repository of the app you’d like to deploy
 
 > 💡 If you don’t have a Next.js app ready to deploy for this guide don’t worry— you can access one through our open-source template repository https://github.com/fleekxyz/nextjs-template, along with a bunch of other framework & protocol templates and boilerplates.
@@ -52,7 +52,7 @@ You’ll also need to head over to http://github.com to create an account. For t
 
 Once we have our repo cloned, the next step is the deployment!
 
-Head over to the dashboard [http://app.fleek.xyz](http://app.fleek.xyz/), Create a new project, give it a name. You’ll automatically get switched to that project.
+Head over to the dashboard [https://app.fleek.xyz](https://app.fleek.xyz/), Create a new project, give it a name. You’ll automatically get switched to that project.
 
 ![](./ghnextjs3.png)
 
@@ -116,7 +116,7 @@ Once your site has been successfully deployed, you should see a `Site is live` n
 
 Click on the URL (For this example it’s https://wailing-action-mammoth.on-fleek.app/ but yours will be different) and it’ll take you to your fully functional static NextJs blog!
 
-From the [Fleek.xyz](http://fleek.xyz/) dashboard, you have the ability to manage a custom domain or ENS address for your site, as well as see deployment history and quickly manage site settings.
+From the [Fleek.xyz](https://fleek.xyz/) dashboard, you have the ability to manage a custom domain or ENS address for your site, as well as see deployment history and quickly manage site settings.
 
 ---
 
