@@ -80,7 +80,7 @@ And this closes the first update from our team going into our closed Alpha. Expe
 ## Useful Links
 
 - [App](https://app.fleek.xyz)
-- [Read our documentation in full](http://fleek.xyz/docs/)
-- [Check out that sweet new homepage](http://fleek.xyz/)
+- [Read our documentation in full](https://fleek.xyz/docs/)
+- [Check out that sweet new homepage](https://fleek.xyz/)
 
 See you soon! ⚡
