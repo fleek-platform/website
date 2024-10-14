@@ -116,7 +116,7 @@ The purpose of this guide is to walk you through the process of compiling your c
 
 Before we get into setting things up, you need to have the following:
 
-1. An account on [app.fleek.xyz](http://app.fleek.xyz/)
+1. An account on [app.fleek.xyz](httpa://app.fleek.xyz/)
 
 2. [Fleek CLI](https://fleek.xyz/docs/cli/)
 
