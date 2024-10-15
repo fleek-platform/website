@@ -71,4 +71,4 @@ See you soon ⚡
 
 - [App](https://app.fleek.xyz)
 - [Read our documentation in full](https://fleek.xyz/docs/)
-- [Bookmark the changelog so you don’t miss a single thing](https://fleek.xyz/blog/changelog/)
+- [Bookmark the changelog so you don’t miss a single thing](/changelog/)
