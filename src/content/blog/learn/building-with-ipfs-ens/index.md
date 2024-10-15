@@ -112,7 +112,7 @@ Integrating IPFS and ENS using Fleek essentially means setting the ENS name's co
 
 To link ENS domains to IPFS-hosted websites now, follow these steps:
 
-1. Navigate to your site deployed on <u>[Fleek.xyz](http://fleek.xyz/)</u>
+1. Navigate to your site deployed on <u>[Fleek.xyz](https://fleek.xyz/)</u>
 
 2. Go to the domains section of the settings, click the **"connect ENS domain" button**.
 
