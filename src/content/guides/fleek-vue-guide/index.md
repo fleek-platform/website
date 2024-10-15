@@ -21,8 +21,8 @@ Before we get started, let’s go over the requirements we’ll need to bring th
 # Requirements
 
 - NodeJs 18+
-- [Fleek Account](http://app.fleek.xyz)
-- [GitHub Account](http://github.com)
+- [Fleek Account](https://app.fleek.xyz)
+- [GitHub Account](https://github.com)
 - Fleek SDK
 - Fleek CLI
 - Repo: https://github.com/fleekxyz/vue-template
@@ -33,7 +33,7 @@ Before we get started, let’s go over the requirements we’ll need to bring th
 
 The first thing we’ll need to do is create a Fleek account: head over to http://app.fleek.xyz, and click on the `Create a Free Account` button.
 
-> 💡 Feel free to skip this step if you already have an account on [Fleek.xyz](http://app.fleek.xyz/)!
+> 💡 Feel free to skip this step if you already have an account on [Fleek.xyz](https://app.fleek.xyz/)!
 
 ![](./ghnextjs1.png)
 
@@ -335,7 +335,7 @@ Fleek will begin uploading the files in our `dist` folder to IPFS. You should 
 
 Your site has been successfully deployed!
 
-Now head over to the dashboard [http://app.fleek.xyz](http://app.fleek.xyz/), and ensure you are on the right project (open the drop-down menu on the top left of the homepage and select the current project).
+Now head over to the dashboard [https://app.fleek.xyz](http://app.fleek.xyz/), and ensure you are on the right project (open the drop-down menu on the top left of the homepage and select the current project).
 
 ![](./vuefleek1.png)
 
@@ -349,7 +349,7 @@ Click on your deployed site. You should be brought to this page:
 
 Click on the URL (For this example it’s https://early-motorcycle-limited.on-fleek.app/ but yours will be different) and it’ll take you to your fully functional UploadIt App!
 
-From the [Fleek.xyz](http://fleek.xyz/) dashboard, you have the ability to manage a custom domain or ENS address for your site, as well as see deployment history and quickly manage site settings.
+From the [Fleek.xyz](https://fleek.xyz/) dashboard, you have the ability to manage a custom domain or ENS address for your site, as well as see deployment history and quickly manage site settings.
 
 ---
 

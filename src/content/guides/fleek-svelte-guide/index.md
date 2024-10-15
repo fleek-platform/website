@@ -53,7 +53,7 @@ Now that we have a fully functional Svelte app we can proceed to the next step �
 
 ### Fleek Account Creation
 
-The first thing we’ll need to do is create a Fleek account: head over to [http://app.fleek.xyz](http://app.fleek.xyz), and click on the `Create a Free Account` button.
+The first thing we’ll need to do is create a Fleek account: head over to [https://app.fleek.xyz](https://app.fleek.xyz), and click on the `Create a Free Account` button.
 
 > 💡 Feel free to skip this step if you already have an account on Fleek.xyz!
 
@@ -160,9 +160,9 @@ Click on your deployed site. You should be brought to this page:
 
 ![](./svelte8.png)
 
-Click on the URL (For this example it’s [narrow-sandwich-raspy.on-fleek.app](http://narrow-sandwich-raspy.on-fleek.app) but yours will be different) and it’ll take you to your fully functional static NextJs blog!
+Click on the URL (For this example it’s [narrow-sandwich-raspy.on-fleek.app](https://narrow-sandwich-raspy.on-fleek.app) but yours will be different) and it’ll take you to your fully functional static NextJs blog!
 
-From the [Fleek.xyz](http://fleek.xyz) dashboard, you have the ability to manage a custom domain or ENS address for your site, as well as see deployment history and quickly manage site settings.
+From the [Fleek.xyz](https://fleek.xyz) dashboard, you have the ability to manage a custom domain or ENS address for your site, as well as see deployment history and quickly manage site settings.
 
 ---
 

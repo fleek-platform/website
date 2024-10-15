@@ -61,7 +61,7 @@ That's not all though– head [here](/changelog/20230922-changelog-ui-fixes-impr
 
 That’s all for this update! See you all in ~2 weeks for the next batch of improvements coming to the Fleek.xyz alpha 🤙
 
-Follow along with the release of the Fleek.xyz platform on [X](https://twitter.com/fleek) and join the community of testers in our [Discord](http://discord.gg/fleek) server!
+Follow along with the release of the Fleek.xyz platform on [X](https://twitter.com/fleek) and join the community of testers in our [Discord](https://discord.gg/fleek) server!
 
 See you soon ⚡
 
@@ -71,4 +71,4 @@ See you soon ⚡
 
 - [App](https://app.fleek.xyz)
 - [Read our documentation in full](https://fleek.xyz/docs/)
-- [Bookmark the changelog so you don’t miss a single thing](https://fleek.xyz/blog/changelog/)
+- [Bookmark the changelog so you don’t miss a single thing](/changelog/)
