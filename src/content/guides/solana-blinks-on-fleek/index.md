@@ -354,4 +354,4 @@ As more developers and businesses recognize the potential of Solana Blinks, we c
 
 By leveraging these tools, developers can create applications that are not only more accessible but also more secure and scalable. Whether you’re facilitating on-chain transactions, enabling seamless NFT trades, or simplifying user interactions with decentralized apps, Solana Blinks and Fleek Functions offer a powerful combination that can elevate your project to the next level.
 
-To learn more about Fleek Functions, and the additional use cases beyond Solana Blinks, check out our [docs](fleek.xyz/docs/)!
+To learn more about Fleek Functions, and the additional use cases beyond Solana Blinks, check out our [docs](/docs/)!
