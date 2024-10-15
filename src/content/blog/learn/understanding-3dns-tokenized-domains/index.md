@@ -44,7 +44,7 @@ With 3DNS, developers and businesses gain absolute control over their online pre
 
 The key superpower of 3DNS is its ICANN compliance which helps it support any traditional domain (.com, .io, .org). Owners can import their traditional domains on-chain as 3DNS domains, and link them to websites and content of their choice.
 
-<u>[Fleek](http://fleek.xyz/)</u> offers a user-friendly interface to simplify access to 3DNS domains and their management.
+<u>[Fleek](https://fleek.xyz/)</u> offers a user-friendly interface to simplify access to 3DNS domains and their management.
 
 More importantly, 3DNS integrates with Ethereum Name Service (ENS), offering decentralized identities. This effectively means every 3DNS domain is an NFT and is identifiable using its ENS name.
 
@@ -80,7 +80,7 @@ Here is a step-by-step guide to connecting a 3DNS domain to Fleek-hosted content
 
 **1. Create an account and deploy**
 
-Sign up on <u>[Fleek.xyz](http://fleek.xyz/)</u>, upload your site or select and deploy a template, and begin with "add new".
+Sign up on <u>[Fleek.xyz](https://fleek.xyz/)</u>, upload your site or select and deploy a template, and begin with "add new".
 
 **2. Navigate to settings**
 

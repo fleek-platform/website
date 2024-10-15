@@ -68,7 +68,7 @@ Here’s how ENS and IPNS can be used in tandem to create a more accessible and 
 
 ### **Using IPNS on Fleek**
 
-There are a few ways you can leverage IPNS on <u>[Fleek](http://fleek.xyz/)</u>.
+There are a few ways you can leverage IPNS on <u>[Fleek](https://fleek.xyz/)</u>.
 
 **1. Fleek SDK**
 

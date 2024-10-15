@@ -114,4 +114,4 @@ To get your IPFS CID, you'll need to add your file to the IPFS network by either
 
 ### **How to access my IPFS CIDs?**
 
-Through <u>[Fleek](http://fleek.xyz/)</u>, users can access, create, and manage all their IPFS CIDs in one dashboard. Furthermore, users can also automate CID updation using Fleek’s IPNS integrations.
+Through <u>[Fleek](https://fleek.xyz/)</u>, users can access, create, and manage all their IPFS CIDs in one dashboard. Furthermore, users can also automate CID updation using Fleek’s IPNS integrations.

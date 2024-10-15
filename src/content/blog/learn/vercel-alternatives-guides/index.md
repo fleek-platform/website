@@ -27,7 +27,7 @@ Fleek is positioning itself as a top-tier **Vercel alternative** by offering a p
 ### **Key features**
 
 - **Minimal DevOps overhead**: Fleek is designed to simplify the deployment of full-stack Next.js applications, reducing the need for extensive DevOps management. This makes it easy for developers to focus on building rather than maintaining infrastructure.
-- **Server-Side Rendering (SSR) at the edge**: [Fleek’s network](http://fleek.network/) edge capabilities enable seamless support for server-side rendering, allowing your Next.js app to scale effortlessly. This ensures quick, responsive experiences for users, no matter where they are located.
+- **Server-Side Rendering (SSR) at the edge**: [Fleek’s network](https://fleek.network/) edge capabilities enable seamless support for server-side rendering, allowing your Next.js app to scale effortlessly. This ensures quick, responsive experiences for users, no matter where they are located.
 - **Intelligent caching**: To optimize performance and prevent server overload, Fleek implements advanced caching strategies. This ensures that your site remains fast and responsive, even under heavy traffic.
 - **Optimized asset delivery**: Fleek optimizes asset delivery to enhance web application performance. Additionally, developers can still apply traditional performance optimization techniques on top of the built-in enhancements Fleek provides, offering flexibility to meet specific project needs.
 
@@ -49,7 +49,7 @@ Fleek is positioning itself as a top-tier **Vercel alternative** by offering a p
 
 **Start building with Fleek**: If you’re seeking a **Vercel alternative** that combines minimal DevOps overhead, performance, and cost-efficiency, Fleek is a powerful choice. Start building with Fleek today and experience the benefits of this streamlined, high-performing platform.
 
-**[Start for free](http://app.fleek.xyz/)**
+**[Start for free](https://app.fleek.xyz/)**
 
 ## **2. [Netlify](https://www.netlify.com/): A popular and feature-rich option**
 
