@@ -22,6 +22,7 @@ const { Content, headings } = await entry.render();
 
 const title = entry.data.title || settings.site.metadata.docs.title;
 const description = entry.data.desc || settings.site.metadata.docs.description;
+const pageSlug = entry.slug;
 ---
 
 <Layout
@@ -29,6 +30,7 @@ const description = entry.data.desc || settings.site.metadata.docs.description;
   description={description}
   headings={headings}
   prevItem={null}
+  pageSlug={pageSlug}
   nextItem={nextItem}
 >
   <Content />

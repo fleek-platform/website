@@ -5,6 +5,7 @@ import settings from '@base/settings.json';
 import { Toaster } from 'react-hot-toast';
 import { Navbar } from '@components/Navbar';
 import PostHog from '@components/PostHog.astro';
+import { generateCanonicalUrl } from '@utils/generateCanonicalUrl';
 
 interface Props {
   title: string;
@@ -18,6 +19,9 @@ interface Props {
 
 const { ogMeta } = Astro.props;
 const baseUrl = getSiteUrl();
+const canonicalUrl = generateCanonicalUrl(baseUrl, ogMeta?.slug);
+
+console.log(canonicalUrl);
 ---
 
 <!doctype html>
@@ -27,6 +31,7 @@ const baseUrl = getSiteUrl();
     <meta name="viewport" content="width=device-width" />
     <link rel="icon" type="image/svg+xml" href="/favicon.ico" />
     <link rel="sitemap" href="/sitemap-index.xml" />
+    <link rel="canonical" href={`${canonicalUrl}`} />
     <link
       rel="preload"
       href="/fonts/atyp/AtypDisplay-Regular.woff2"
@@ -104,8 +109,7 @@ const baseUrl = getSiteUrl();
 
     <!-- PostHog -->
     <PostHog />
-  </head>
-  <body
+  </head><body
     class="relative flex flex-col bg-black font-sans text-gray-dark-11 selection:bg-yellow-dark-9 selection:text-black"
   >
     <!-- Google Tag Manager (noscript version) -->
