@@ -1,5 +1,13 @@
 export function generateCanonicalUrl(baseUrl: string, slug?: string) {
-  if (!slug) return `${baseUrl}/`;
+  const cleanBaseUrl = baseUrl.replace(/\/$/, '');
 
-  return `${baseUrl}/${slug.replace(/^\/|\/$/g, '')}/`;
+  if (!slug) return `${cleanBaseUrl}/`;
+
+  const sanitizedSlug = slug
+    .replace(/^\/|\/$/g, '')
+    .split('/')
+    .map((segment) => encodeURIComponent(segment))
+    .join('/');
+
+  return `${cleanBaseUrl}/${sanitizedSlug}/`;
 }
