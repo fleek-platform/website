@@ -20,7 +20,7 @@ interface Props {
 const { ogMeta } = Astro.props;
 const baseUrl = getSiteUrl();
 const docsPageSlug = ogMeta?.slug || Astro.url.pathname;
-const canonicalUrl = generateCanonicalUrl(baseUrl, docsPageSlug);
+const canonicalUrl = generateCanonicalUrl(docsPageSlug);
 ---
 
 <!doctype html>

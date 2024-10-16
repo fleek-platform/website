@@ -26,7 +26,7 @@ const baseUrl = getSiteUrl();
 const hasSecondaryMenu = hasSecondaryMenuItem(Astro.url.pathname);
 
 const contentSlug = ogMeta?.slug || Astro.url.pathname;
-const canonicalUrl = generateCanonicalUrl(baseUrl, contentSlug);
+const canonicalUrl = generateCanonicalUrl(contentSlug);
 ---
 
 <!doctype html>
