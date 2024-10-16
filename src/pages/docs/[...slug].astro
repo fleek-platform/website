@@ -67,6 +67,7 @@ export async function getStaticPaths() {
 const { entry, prevItem, nextItem, currentCategory } = Astro.props;
 const { Content, headings } = await entry.render();
 const title = handlePageTitle('Docs');
+const pageSlug = entry.slug;
 
 function handlePageTitle(collection: string) {
   if (entry.data.title && currentCategory !== 'root') {
@@ -81,6 +82,7 @@ function handlePageTitle(collection: string) {
 <DocPageLayout
   title={title}
   description={entry.data.desc || ''}
+  pageSlug={pageSlug}
   headings={headings}
   prevItem={prevItem}
   nextItem={nextItem}
