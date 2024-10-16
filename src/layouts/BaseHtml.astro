@@ -9,6 +9,7 @@ import { Announcement } from '@components/Announcement';
 import Footer from '@components/Footer';
 import { Navbar } from '@components/Navbar';
 import SupportMenu from '@components/Support/SupportMenu';
+import { generateCanonicalUrl } from '@utils/generateCanonicalUrl';
 
 interface Props {
   title: string;
@@ -23,6 +24,9 @@ interface Props {
 const { ogMeta } = Astro.props;
 const baseUrl = getSiteUrl();
 const hasSecondaryMenu = hasSecondaryMenuItem(Astro.url.pathname);
+
+const contentSlug = ogMeta?.slug || Astro.url.pathname;
+const canonicalUrl = generateCanonicalUrl(contentSlug);
 ---
 
 <!doctype html>
@@ -31,6 +35,7 @@ const hasSecondaryMenu = hasSecondaryMenuItem(Astro.url.pathname);
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width" />
     <link rel="icon" type="image/svg+xml" href="/favicon.ico" />
+    <link rel="canonical" href={`${canonicalUrl}`} />
     <link rel="sitemap" href="/sitemap-index.xml" />
     <link
       rel="preload"

@@ -3,7 +3,10 @@ import '@styles/globals.css';
 import { getSiteUrl } from '@utils/url';
 import settings from '@base/settings.json';
 import PostHog from '@components/PostHog.astro';
+import { generateCanonicalUrl } from '@utils/generateCanonicalUrl';
+
 const baseUrl = getSiteUrl();
+const canonicalUrl = generateCanonicalUrl();
 ---
 
 <!doctype html>
@@ -14,6 +17,7 @@ const baseUrl = getSiteUrl();
       name="viewport"
       content="width=device-width, height=device-height, initial-scale=1, viewport-fit=cover"
     />
+    <link rel="canonical" href={`${canonicalUrl}`} />
     <link rel="icon" type="image/svg+xml" href="/favicon.ico" />
     <link rel="sitemap" href="/sitemap-index.xml" />
     <link
