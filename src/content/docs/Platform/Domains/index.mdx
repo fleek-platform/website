@@ -20,6 +20,70 @@ Fleek allows you to set up and manage domains for your sites, ensuring your cont
 
 <div className="my-12 bg-gray-dark-6 p-[1px]" />
 
+## DNS
+
+To set up a custom domain, we will create a unique URL for your pull zone, which will point to the last deployed content on your site. You will then need to configure your domain to the pull zone URL using a CNAME record or an ANAME, depending on your DNS provider. This ensures that when someone visits your custom domain, they will be directed to the cached content on our CDN, resulting in faster load times.
+
+In case you want to set up a root domain, you need to user a DNS provider that supports ANAME record or CNAME as a root record. Some of the most popular DNS providers that support this:
+
+- Cloudflare
+- DNS Made Easy
+- DNSimple
+- CONSTELLIX
+- DYN DNS
+- Easy DNS
+- NS1
+
+If your DNS provider does not support ANAME record and you wish to use your root domain with your Fleek site, please consider migrating to one of the providers above.
+
+Each time you make a new deployment on your site, we will automatically update the pull zone with the latest content. This means that your visitors will always see the most up-to-date version of your website, without any additional effort on your part.
+
+:::info
+
+Domains on our CDN are unique. Since we are sharing the same CDN for both platforms (Fleek.co and Fleek.xyz) please avoid using a domain already registered in Fleek.co for the new platform as it will generate a conflict and will not be able to be registered.
+
+:::
+
+## Adding a custom domain
+
+To add a custom domain to your site, first you'll need a site. If you don't have a site yet, please follow the steps in the [Projects](/docs/sdk/projects/) section.
+
+Once you have created a site, go to the 'Site Overview' page and click on the 'Settings' icon. On the 'Settings' page, click on the 'Domains' tab. You will see a list of all the custom domains you have added to the site. To add a new custom domain, type it into the input available in the custom domains section and, after we run some validations (mainly checking that the domain is valid and is not added to another site), you will be able to add it by clicking the 'Add custom domain' button.
+
+Once the custom domain is added, you will see a new row in the 'Custom Domains' table with the domain you added and the status of the domain in `creating`. During this process, we are creating a pull zone for your site and configuring it to use the custom domain you added. This process can take up to 5 minutes. Once the pull zone is created, you will be prompted with the information you need to configure your DNS provider.
+
+![Custom-Domain](./cname.svg)
+
+:::info
+
+When setting up a sub domain in your DNS provider, ensure you add only the subdomain and not the full domain. For example, if you want to set up `foo.example.xyz` you will only need to add `foo` as the sub domain in your DNS provider.
+
+:::
+
+After you configure your DNS provider, you will need to trigger the validation process. To do this, click on the 'OK, I have added it' button in the 'Custom Domains' table. This will trigger the validation process and you will see the status of the domain change to `validating`. Once the validation process is complete, you will see the status of the domain change to `Active`.
+
+## Primary domains
+
+![Manage-Domain](./manage-domains.svg)
+
+When you have correctly set up your first domain, it will be marked with the tag of 'primary'. The 'primary' domain is the main domain for a site and will be used inside of the platform for every action that is related to a site as a source of truth. For example, when you deploy a site, the domain that will be used in the 'View site' button will be the 'primary' domain.
+
+### Changing a primary domain
+
+At any point, as long as you have another 'Active' domain set up for the site you can change the 'primary' domain. To do this, you need to click on the three-dot icon in the 'Custom Domains' table and select the 'Make primary' option. This will change the 'primary' domain to the one you selected. You cannot set a domain as 'primary' if it is not 'active,' meaning that we have verified that the domain is correctly configured in your DNS provider.
+
+## Deleting a custom domain
+
+![Delete-Domain](./delete-domain.svg)
+
+To delete a custom domain, click on the three-dot icon in the 'Custom Domains' table and select the 'Delete' option. This will remove the custom domain from your site and will no longer serve the content of your site. In the case that you are deleting a 'primary' domain, as part of the deletion process if you have another 'active' domains, you will have to select a new 'primary' domain.
+
+:::info
+
+If you remove each of the custom domains from a site, the content of the storage will still be available through the `<site-slug>.on-fleek.app` domain that you can find in your site overview.
+
+:::
+
 ## ENS
 
 [Ethereum Name Service Domains](https://ens.domains) provide a decentralized alternative to DNS domains. These are Ethereum based names followed by the .eth TLD. One of its compelling features is its capability to map multiple records with multiple purposes.
@@ -96,70 +160,6 @@ Normally, trying to add an ENS subdomain or subname of ENS V3 can trigger errors
 2. Unwrap your subname.
 3. Set it as a primary name.
 4. Done! Go back to Fleek, and follow the normal ENS flow.
-
-## DNS
-
-To set up a custom domain, we will create a unique URL for your pull zone, which will point to the last deployed content on your site. You will then need to configure your domain to the pull zone URL using a CNAME record or an ANAME, depending on your DNS provider. This ensures that when someone visits your custom domain, they will be directed to the cached content on our CDN, resulting in faster load times.
-
-In case you want to set up a root domain, you need to user a DNS provider that supports ANAME record or CNAME as a root record. Some of the most popular DNS providers that support this:
-
-- Cloudflare
-- DNS Made Easy
-- DNSimple
-- CONSTELLIX
-- DYN DNS
-- Easy DNS
-- NS1
-
-If your DNS provider does not support ANAME record and you wish to use your root domain with your Fleek site, please consider migrating to one of the providers above.
-
-Each time you make a new deployment on your site, we will automatically update the pull zone with the latest content. This means that your visitors will always see the most up-to-date version of your website, without any additional effort on your part.
-
-:::info
-
-Domains on our CDN are unique. Since we are sharing the same CDN for both platforms (Fleek.co and Fleek.xyz) please avoid using a domain already registered in Fleek.co for the new platform as it will generate a conflict and will not be able to be registered.
-
-:::
-
-## Adding a custom domain
-
-To add a custom domain to your site, first you'll need a site. If you don't have a site yet, please follow the steps in the [Projects](/docs/sdk/projects/) section.
-
-Once you have created a site, go to the 'Site Overview' page and click on the 'Settings' icon. On the 'Settings' page, click on the 'Domains' tab. You will see a list of all the custom domains you have added to the site. To add a new custom domain, type it into the input available in the custom domains section and, after we run some validations (mainly checking that the domain is valid and is not added to another site), you will be able to add it by clicking the 'Add custom domain' button.
-
-Once the custom domain is added, you will see a new row in the 'Custom Domains' table with the domain you added and the status of the domain in `creating`. During this process, we are creating a pull zone for your site and configuring it to use the custom domain you added. This process can take up to 5 minutes. Once the pull zone is created, you will be prompted with the information you need to configure your DNS provider.
-
-![Custom-Domain](./cname.svg)
-
-:::info
-
-When setting up a sub domain in your DNS provider, ensure you add only the subdomain and not the full domain. For example, if you want to set up `foo.example.xyz` you will only need to add `foo` as the sub domain in your DNS provider.
-
-:::
-
-After you configure your DNS provider, you will need to trigger the validation process. To do this, click on the 'OK, I have added it' button in the 'Custom Domains' table. This will trigger the validation process and you will see the status of the domain change to `validating`. Once the validation process is complete, you will see the status of the domain change to `Active`.
-
-## Primary domains
-
-![Manage-Domain](./manage-domains.svg)
-
-When you have correctly set up your first domain, it will be marked with the tag of 'primary'. The 'primary' domain is the main domain for a site and will be used inside of the platform for every action that is related to a site as a source of truth. For example, when you deploy a site, the domain that will be used in the 'View site' button will be the 'primary' domain.
-
-### Changing a primary domain
-
-At any point, as long as you have another 'Active' domain set up for the site you can change the 'primary' domain. To do this, you need to click on the three-dot icon in the 'Custom Domains' table and select the 'Make primary' option. This will change the 'primary' domain to the one you selected. You cannot set a domain as 'primary' if it is not 'active,' meaning that we have verified that the domain is correctly configured in your DNS provider.
-
-## Deleting a custom domain
-
-![Delete-Domain](./delete-domain.svg)
-
-To delete a custom domain, click on the three-dot icon in the 'Custom Domains' table and select the 'Delete' option. This will remove the custom domain from your site and will no longer serve the content of your site. In the case that you are deleting a 'primary' domain, as part of the deletion process if you have another 'active' domains, you will have to select a new 'primary' domain.
-
-:::info
-
-If you remove each of the custom domains from a site, the content of the storage will still be available through the `<site-slug>.on-fleek.app` domain that you can find in your site overview.
-
-:::
 
 ## DNSLink
 
