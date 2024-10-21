@@ -1,7 +1,7 @@
 ---
 title: 'Next.js, Nuxt.js, and Angular: Comparing Three Server-Side Rendering Frameworks'
 date: 2024-10-21
-desc: Comparing Next.js, Nuxt.js, and Angular Universal — three top frameworks for server-side rendering. Explore how Fleek simplifies SSR development. 
+desc: Comparing Next.js, Nuxt.js, and Angular Universal — three top frameworks for server-side rendering. Explore how Fleek simplifies SSR development.
 thumbnail: ./three_ssr_blogimg_blogimg_1280x720.jpg
 image: ./three_ssr_blogimg_blogimg_1280x720.jpg
 ---
@@ -12,13 +12,13 @@ Implementing SSR requires careful management of server resources, intricate hand
 
 This is where SSR frameworks like Next.js, Nuxt.js, and Angular Universal come into play, simplifying the process of building and deploying SSR applications.
 
-***In this blog, we will explore the need for SSR frameworks, compare the three most popular SSR frameworks, and learn best practices for SSR development.***
+**_In this blog, we will explore the need for SSR frameworks, compare the three most popular SSR frameworks, and learn best practices for SSR development._**
 
 ---
 
 ## **Development Complexities of Server-Side Rendering**
 
-Implementing server-side rendering (SSR) presents significant challenges due to architectural complexities arising from resource management and state synchronization between server and client. *Here are five common challenges faced by developers while implementing SSR from scratch*:
+Implementing server-side rendering (SSR) presents significant challenges due to architectural complexities arising from resource management and state synchronization between server and client. _Here are five common challenges faced by developers while implementing SSR from scratch_:
 
 1. SSR can demand data fetching, which can increase server load and response times depending on implementation and optimization strategies.
 2. Implementing isomorphic routing that works consistently on both the server and client sides is complex.
@@ -26,7 +26,7 @@ Implementing server-side rendering (SSR) presents significant challenges due to 
 4. Developers must manage synchronization of client and server states to ensure a seamless user experience.
 5. Setting up caching strategies that bundle server and client code separately while maintaining shared code is challenging.
 
-***SSR frameworks typically abstract these challenges. But what exactly are SSR frameworks?***
+**_SSR frameworks typically abstract these challenges. But what exactly are SSR frameworks?_**
 
 ---
 
@@ -48,7 +48,7 @@ At their core, SSR frameworks:
 - Provide performance optimizations out-of-the-box, such as code splitting, lazy loading, and caching strategies.
 - Offer server-side component rendering, allowing developers to create reusable UI components for faster initial page loads.
 
-***Simply put, SSR frameworks make the process of delivering fast, SEO-friendly content easier. Now, let’s explore the three popular SSR frameworks.***
+**_Simply put, SSR frameworks make the process of delivering fast, SEO-friendly content easier. Now, let’s explore the three popular SSR frameworks._**
 
 ---
 
@@ -119,7 +119,7 @@ Angular Universal is highly suited for large-scale enterprise apps where large-s
 
 Websites that require frequent content updates, like news portals or media platforms, can use Angular Universal for faster delivery and improved SEO indexing.
 
-***Now, we know the complexities faced by developers during SSR development, how frameworks promise to solve them, and three popular SSR frameworks.***
+**_Now, we know the complexities faced by developers during SSR development, how frameworks promise to solve them, and three popular SSR frameworks._**
 
 ---
 
@@ -127,18 +127,18 @@ Websites that require frequent content updates, like news portals or media platf
 
 In this section, we are comparing the three SSR frameworks: Next.js, Nuxt.js, and Angular Universal, based on key factors that matter most when implementing SSR:
 
-| **Factors** | **Nextjs** | **Nuxtjs** | **Angular** |
-| --- | --- | --- | --- |
-| **Rendering modes** | Supports SSR, SSG, ISR, and CSR. | Offers SSR, SSG, CSR, and Hybrid Universal Mode (switch between SSR and CSR seamlessly). | Focuses primarily on SSR but can also be combined with PWA. |
-| **Learning curve** | Easier learning curve with minimal configuration needed. | Slightly higher learning curve than Next.js. | Steeper learning curve due to Angular’s architecture. |
-| **Deployment options** | Simple deployment on Vercel, Node.js servers, and serverless platforms​. | Host-agnostic, can be deployed to any platform that supports Node.js. | Complex deployment for SSR apps, usually requires more specific configuration. |
-| **Integration with tools & libraries** | Extensive integration with third-party tools, APIs, TypeScript, and GraphQL. | Tight integration with Vue and Vuex. | Full integration with Angular's toolset (NgRx, RxJS). |
+| **Factors**                            | **Nextjs**                                                                   | **Nuxtjs**                                                                               | **Angular**                                                                    |
+| -------------------------------------- | ---------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------ |
+| **Rendering modes**                    | Supports SSR, SSG, ISR, and CSR.                                             | Offers SSR, SSG, CSR, and Hybrid Universal Mode (switch between SSR and CSR seamlessly). | Focuses primarily on SSR but can also be combined with PWA.                    |
+| **Learning curve**                     | Easier learning curve with minimal configuration needed.                     | Slightly higher learning curve than Next.js.                                             | Steeper learning curve due to Angular’s architecture.                          |
+| **Deployment options**                 | Simple deployment on Vercel, Node.js servers, and serverless platforms​.     | Host-agnostic, can be deployed to any platform that supports Node.js.                    | Complex deployment for SSR apps, usually requires more specific configuration. |
+| **Integration with tools & libraries** | Extensive integration with third-party tools, APIs, TypeScript, and GraphQL. | Tight integration with Vue and Vuex.                                                     | Full integration with Angular's toolset (NgRx, RxJS).                          |
 
 While each framework offers unique server-side rendering strengths, deploying and managing SSR applications can still present challenges. Server management, resource scaling, ensuring global availability, and reducing latency — SSR development is still not friction-free.
 
-***Platforms like Fleek solve this dilemma by improving the app development process. Fleek provides a unified solution for deploying SSR applications along with features like one-click deployments, automatic HTTPS, global CDN distribution, and decentralized storage options.***
+**_Platforms like Fleek solve this dilemma by improving the app development process. Fleek provides a unified solution for deploying SSR applications along with features like one-click deployments, automatic HTTPS, global CDN distribution, and decentralized storage options._**
 
-This unified solution allows teams to focus on leveraging the strengths of their chosen SSR framework, while Fleek handles the complexities of deployment, scaling, and infrastructure management. ***In the next section, we will see how Fleek improves SSR development.***
+This unified solution allows teams to focus on leveraging the strengths of their chosen SSR framework, while Fleek handles the complexities of deployment, scaling, and infrastructure management. **_In the next section, we will see how Fleek improves SSR development._**
 
 ---
 
