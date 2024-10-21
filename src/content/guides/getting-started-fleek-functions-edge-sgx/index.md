@@ -27,7 +27,7 @@ The purpose of this guide is to walk you through the process of compiling your c
 
 Before we get into setting things up, you need to have the following:
 
-1. An account on [app.fleek.xyz](http://app.fleek.xyz/)
+1. An account on [app.fleek.xyz](https://app.fleek.xyz/)
 2. [Fleek CLI](https://fleek.xyz/docs/cli/)
 3. [Sgxkit](https://github.com/fleek-network/lightning/tree/sgx-alpha/lib/sgxkit)
 4. [Rust](https://www.rust-lang.org/tools/install)
@@ -91,7 +91,7 @@ lto = "fat"
 codegen-units = 1
 ```
 
-The Sgxkit library will be released on [crates.io](http://crates.io/) very soon for public usage.
+The Sgxkit library will be released on [crates.io](https://crates.io/) very soon for public usage.
 
 4. Install the package for the wasm bindings supported by the Fleek Edge SGX integration
 

@@ -6,7 +6,7 @@ thumbnail: './fleekcosunsetting.png'
 image: './fleekcosunsetting.png'
 ---
 
-[At the end of last year](/blog/announcements/introducing-fleek-network-and-fleek-xyz/), we brought many updates to the world of Fleek! Among those updates, our plan to build a new Fleek ([fleek.xyz](http://fleek.xyz/)) with a new fully event-based architecture that is completely modular and extensible. A new foundation upon which Fleek **could grow to offer any folder of infrastructure and development services, out of the constraints of the current platform**.
+[At the end of last year](/blog/announcements/introducing-fleek-network-and-fleek-xyz/), we brought many updates to the world of Fleek! Among those updates, our plan to build a new Fleek ([fleek.xyz](https://fleek.xyz/)) with a new fully event-based architecture that is completely modular and extensible. A new foundation upon which Fleek **could grow to offer any folder of infrastructure and development services, out of the constraints of the current platform**.
 
 Here, we lay out our plans towards the **V1 release of this new platform, and the full sunsetting of Fleek.co and migration into Fleek.xyz**.
 

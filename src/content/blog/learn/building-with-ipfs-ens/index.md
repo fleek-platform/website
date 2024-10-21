@@ -58,7 +58,7 @@ Onchain websites are integral to achieving an open and democratic internet. They
 
 **5. Improving portability:** There are no vendor lock-ins or private algorithms that onchain websites need to abide by. Hence, onchain websites can be moved across protocols and storage providers.
 
-💡Read more to learn how Fleek enables <u>[Progressive web apps (PWAs)](https://blog.fleek.xyz/post/builders-stack-pwas/)</u>
+💡Read more to learn how Fleek enables <u>[Progressive web apps (PWAs)](/guides/builders-stack-pwas/)</u>
 
 ---
 
@@ -98,7 +98,7 @@ The synergy between IPFS and ENS opens up a lot of possibilities like:
 - **Secure messaging platforms** where people are identified using their ENS names.
 - **Estate management** with secure legal documents stored on IPFS, executed via smart contracts.
 
-💡Start hosting websites on IPFS using Fleek <u>[easy-to-deploy templates](https://blog.fleek.xyz/post/fleek-templates-guide/)</u>
+💡Start hosting websites on IPFS using Fleek <u>[easy-to-deploy templates](https://app.fleek.xyz/templates/)</u>
 
 ---
 
@@ -112,7 +112,7 @@ Integrating IPFS and ENS using Fleek essentially means setting the ENS name's co
 
 To link ENS domains to IPFS-hosted websites now, follow these steps:
 
-1. Navigate to your site deployed on <u>[Fleek.xyz](http://fleek.xyz/)</u>
+1. Navigate to your site deployed on <u>[Fleek.xyz](https://fleek.xyz/)</u>
 
 2. Go to the domains section of the settings, click the **"connect ENS domain" button**.
 
@@ -122,7 +122,7 @@ Onchain websites are poised to reshape how information is accessed and transmitt
 
 The current onchain infrastructure is far from being a developer's playground. However, with Fleek, developers can outsource the complexities and focus on building onchain websites, their business logic, and beyond.
 
-**Try out our full suite of IPFS-powered storage, hosting, and publishing tools. Get started with** <u>[Fleek](https://fleek.xyz/)</u> **today.**
+**Try out our full suite of IPFS-powered storage, hosting, and publishing tools. Get started with** <u>[Fleek](https://app.fleek.xyz)</u> **today.**
 
 ---
 

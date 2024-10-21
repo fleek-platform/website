@@ -196,7 +196,7 @@ Click on your **deployed** site. You should be **brought** to this page:
 
 Click on the URL (For this example it’s https://scrawny-lock-most.on-fleek.app/ but yours will be different) and it’ll take you to your fully functional static NextJS blog!
 
-From the [Fleek.xyz](http://Fleek.xyz) dashboard, you have the ability to manage a custom domain or ENS address for your site, as well as see deployment history and quickly manage site settings.
+From the [Fleek.xyz](https://Fleek.xyz) dashboard, you have the ability to manage a custom domain or ENS address for your site, as well as see deployment history and quickly manage site settings.
 
 ---
 

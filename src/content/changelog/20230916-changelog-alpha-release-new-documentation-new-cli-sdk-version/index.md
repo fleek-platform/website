@@ -8,7 +8,7 @@ author:
   - 'Fleek'
 ---
 
-Hey there _Fleek Freaks_! The Fleek Alpha is here and new testers are being onboarded every day if you haven’t [gotten access yet to the Alpha](https://fleekxyz.typeform.com/alpha-access), what in Vitalik’s name are you waiting for?
+Hey there _Fleek Freaks_! The application form for the Fleek.xyz Alpha is closed, you can access the platform [here](https://app.fleek.xz) , what in Vitalik’s name are you waiting for?
 
 With the release of the alpha, setting the foundations for the release of V1, we’re bringing back **our frequent release notes updates at a constant cadence** under a new name: **Fleek Release Notes 📔**
 
@@ -42,7 +42,7 @@ In the new Fleek, we have introduced Projects, a way to organize your sites, fil
 
 In this initial release, users can deploy/host apps via a managed deployment CI/CD in the app, or opt for the the CLI-based deployments(a.k.a. Self-Managed and built deployments). Users can:
 
-- [Deploy sites to IPFS storage by connecting their GitHub account](https://docs.fleek.xyz/docs/Sites/managed)
+- [Deploy sites to IPFS storage by connecting their GitHub account](/docs/cli/sites/)
 - [Create sites to manage via the CLI](https://fleek.xyz/docs/cli/sites/)
 - [Deploy sites from templates created by the Fleek team and the community](https://fleek.xyz/docs/platform/)
 - [Configure a custom domain on their sites via the UI](https://fleek.xyz/docs/platform/domains/)
@@ -79,8 +79,8 @@ And this closes the first update from our team going into our closed Alpha. Expe
 
 ## Useful Links
 
-- [Get a seat to test the alpha of Fleek](https://fleekxyz.typeform.com/alpha-access)
-- [Read our documentation in full](http://fleek.xyz/docs/)
-- [Check out that sweet new homepage](http://fleek.xyz/)
+- [App](https://app.fleek.xyz)
+- [Read our documentation in full](https://fleek.xyz/docs/)
+- [Check out that sweet new homepage](https://fleek.xyz/)
 
 See you soon! ⚡

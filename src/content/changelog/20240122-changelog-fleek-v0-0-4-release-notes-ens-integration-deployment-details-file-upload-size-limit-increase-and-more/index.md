@@ -12,7 +12,7 @@ What’s up Fleek Freaks?
 
 We're back with an update to the Fleek.xyz Alpha! This jam-packed v.0.0.4 update brings us to near-feature parity with the Fleek.co platform, an important goal for the team as we approach the start of the [Fleek.co to Fleek.xyz migration](/blog/announcements/fleek-co-to-fleek-xyz-migration-details/).
 
-If you haven’t been added to the closed alpha yet and you want to try any of the new features we’re rolling out with this release, fill out this [Typeform](https://fleekxyz.typeform.com/alpha-access) and we’ll get you onboarded!
+The application form for the Fleek.xyz Alpha is closed, you can access the platform [here](https://app.fleek.xyz)
 
 Let’s get into everything coming with v0.0.4, starting with ENS:
 
@@ -60,7 +60,7 @@ Along with the above, the devs did their usual bug squashing and fixes including
 - Fixed a problem where the site slug was not clickable after the first deployment.
 - Project name can be changed on Arc Browsers.
 
-You can see a full list of changes included in the v0.0.4 release of the Fleek.xyz alpha in our [docs](https://docs/)!
+You can see a full list of changes included in the v0.0.4 release of the Fleek.xyz alpha in our [docs](/docs/)!
 
 ---
 
@@ -68,7 +68,7 @@ And that’s what’s changed in this v0.0.4 update of the Fleek.xyz alpha. We�
 
 We have more updates coming to the new Fleek.xyz platform in the near future, including community-submitted templates. Stay tuned ⚡
 
-Follow along with all of the coming releases on [X](https://twitter.com/fleek) and join the community of testers in our [Discord](http://discord.gg/fleek) server.
+Follow along with all of the coming releases on [X](https://twitter.com/fleek) and join the community of testers in our [Discord](https://discord.gg/fleek) server.
 
 If you want to try any of the new features we’re debuting with this update and you aren’t a part of the alpha yet, fill out this [Typeform](https://fleekxyz.typeform.com/alpha-access) and we’ll get you onboarded.
 

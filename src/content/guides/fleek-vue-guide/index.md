@@ -8,7 +8,7 @@ author:
   - 'Olayinka Oshidipe'
 ---
 
-In this guide, you’ll learn how to build a file upload web app that takes any file and uploads it to IPFS. With Fleek there are a few ways you could upload files to IPFS, one being that you could use the Fleek CLI — we have a guide on that [here](https://www.youtube.com/watch?v=2OzwtDH7K0A&t=38s). You could also upload files directly from the [platform](https://app.fleek.xyz) or via the [SDK](https://docs.fleek.xyz/docs/SDK).
+In this guide, you’ll learn how to build a file upload web app that takes any file and uploads it to IPFS. With Fleek there are a few ways you could upload files to IPFS, one being that you could use the Fleek CLI — we have a guide on that [here](https://www.youtube.com/watch?v=2OzwtDH7K0A&t=38s). You could also upload files directly from the [platform](https://app.fleek.xyz) or via the [SDK](/docs/sdk/).
 
 ## What is Vue Js?
 
@@ -21,8 +21,8 @@ Before we get started, let’s go over the requirements we’ll need to bring th
 # Requirements
 
 - NodeJs 18+
-- [Fleek Account](http://app.fleek.xyz)
-- [GitHub Account](http://github.com)
+- [Fleek Account](https://app.fleek.xyz)
+- [GitHub Account](https://github.com)
 - Fleek SDK
 - Fleek CLI
 - Repo: https://github.com/fleekxyz/vue-template
@@ -33,7 +33,7 @@ Before we get started, let’s go over the requirements we’ll need to bring th
 
 The first thing we’ll need to do is create a Fleek account: head over to http://app.fleek.xyz, and click on the `Create a Free Account` button.
 
-> 💡 Feel free to skip this step if you already have an account on [Fleek.xyz](http://Fleek.xyzapp.fleek.xyz)!
+> 💡 Feel free to skip this step if you already have an account on [Fleek.xyz](https://app.fleek.xyz/)!
 
 ![](./ghnextjs1.png)
 
@@ -218,7 +218,7 @@ export default {
 </style>
 ```
 
-We’ll need to add a `client_id` before we’re able to make use of the Fleek SDK. To get one, we’ll open up our terminal and run `fleek applications create` this command is going to generate an applicationsTokenService (ATS) ID. You can read more about the ATS on the SDK section of the docs here: [Application Token Service](https://docs.fleek.xyz/docs/SDK#application-access-token)
+We’ll need to add a `client_id` before we’re able to make use of the Fleek SDK. To get one, we’ll open up our terminal and run `fleek applications create` this command is going to generate an applicationsTokenService (ATS) ID. You can read more about the ATS on the SDK section of the docs here: [Application Token Service](/docs/sdk/)
 
 When you run `fleek applications create` you should get a response that looks like this:
 
@@ -335,7 +335,7 @@ Fleek will begin uploading the files in our `dist` folder to IPFS. You should 
 
 Your site has been successfully deployed!
 
-Now head over to the dashboard [http://app.fleek.xyz](http://app.fleek.xyz/), and ensure you are on the right project (open the drop-down menu on the top left of the homepage and select the current project).
+Now head over to the dashboard [https://app.fleek.xyz](http://app.fleek.xyz/), and ensure you are on the right project (open the drop-down menu on the top left of the homepage and select the current project).
 
 ![](./vuefleek1.png)
 
@@ -349,19 +349,19 @@ Click on your deployed site. You should be brought to this page:
 
 Click on the URL (For this example it’s https://early-motorcycle-limited.on-fleek.app/ but yours will be different) and it’ll take you to your fully functional UploadIt App!
 
-From the [Fleek.xyz](http://fleek.xyz/) dashboard, you have the ability to manage a custom domain or ENS address for your site, as well as see deployment history and quickly manage site settings.
+From the [Fleek.xyz](https://fleek.xyz/) dashboard, you have the ability to manage a custom domain or ENS address for your site, as well as see deployment history and quickly manage site settings.
 
 ---
 
 Congratulations! You just deployed your UploadIt Vuejs App to the Fleek.xyz platform. The basics from this guide can be taken and applied to any static VueJs app to deploy on Fleek.xyz
 
-If you’d like to learn more about Fleek, visit our [documentation](https://docs.fleek.xyz/docs) page, join our [Discord server](https://discord.gg/fleek), and stay up to date with us on [X](https://twitter.com/fleek/)!
+If you’d like to learn more about Fleek, visit our [documentation](/docs/) page, join our [Discord server](https://discord.gg/fleek), and stay up to date with us on [X](https://twitter.com/fleek/)!
 
 See you in the next guide 🤙
 
 ## Resources:
 
-- Understanding Projects: https://docs.fleek.xyz/docs/Projects
-- Sites: https://docs.fleek.xyz/docs/Sites
-- Fleek CLI: https://docs.fleek.xyz/docs/CLI
-- Fleek SDK: https://docs.fleek.xyz/docs/SDK
+- Understanding Projects: https://fleek.xyz/docs/cli/projects/
+- Sites: https://fleek.xyz/docs/cli/sites/
+- Fleek CLI: https://fleek.xyz/docs/cli/
+- Fleek SDK: https://fleek.xyz/docs/sdk/

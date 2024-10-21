@@ -58,7 +58,7 @@ Without the prefix, CIDs would lack context, preventing systems from processing 
 
 ## **Role of CIDs in onchain storage and hosting**
 
-CIDs play an integral role in <u>[onchain storage](https://docs.fleek.xyz/docs/Storage)</u> and hosting as they provide a more secure, efficient, and resilient way to store and access content on the web. Here's an expanded look at the roles CIDs play:
+CIDs play an integral role in <u>[onchain storage](/docs/platform/storage/)</u> and hosting as they provide a more secure, efficient, and resilient way to store and access content on the web. Here's an expanded look at the roles CIDs play:
 
 ### **Verification and integrity checks**
 
@@ -114,4 +114,4 @@ To get your IPFS CID, you'll need to add your file to the IPFS network by either
 
 ### **How to access my IPFS CIDs?**
 
-Through <u>[Fleek](http://fleek.xyz/)</u>, users can access, create, and manage all their IPFS CIDs in one dashboard. Furthermore, users can also automate CID updation using Fleek’s IPNS integrations.
+Through <u>[Fleek](https://fleek.xyz/)</u>, users can access, create, and manage all their IPFS CIDs in one dashboard. Furthermore, users can also automate CID updation using Fleek’s IPNS integrations.

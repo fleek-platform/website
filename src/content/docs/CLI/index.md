@@ -241,4 +241,4 @@ fleek site:deploy
 fleek sites deploy
 ```
 
-You can learn about other Sites service features [here](docs/cli/sites).
+You can learn about other Sites service features [here](/docs/cli/sites/).

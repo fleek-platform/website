@@ -36,7 +36,7 @@ At its core, ENS is composed of two main pieces. **Firstly, the ENS registry,**
 
 With those two components we can map the basic ENS architecture and flow. When resolving an ENS address, one first queries the ENS registry for an ENS address → the registry then answers what resolver should be queried for the mapped content → and that resolver in return points the user to the final address or content the domain references.
 
-Right now ENS is growing in popularity and browsers like Opera mobile, MetaMask mobile, or any popular browser using the MetaMask extension supports .eth domains. [Even in Fleek](http://fleek.xyz/), ENS domains are gaining a lot of traction! Over 10% of deployments in Fleek are associated with an ENS domain, and over 4000 sites have added an ENS name already.
+Right now ENS is growing in popularity and browsers like Opera mobile, MetaMask mobile, or any popular browser using the MetaMask extension supports .eth domains. [Even in Fleek](https://fleek.xyz/), ENS domains are gaining a lot of traction! Over 10% of deployments in Fleek are associated with an ENS domain, and over 4000 sites have added an ENS name already.
 
 What’s more, “.eth” is not the only suffix! As of today, some TLDs like .xyz [can be registered](https://docs.ens.domains/dns-registrar-guide) and claimed on ENS, however “.eth” does still benefit from being exclusively blockchain-native.
 
@@ -167,7 +167,7 @@ And that’s it! Once the transaction is verified, you can…
 
 ### **3. Test Your New ENS + IPFS Website!**
 
-If you’re using an ENS-compatible browser, or if you have the **MetaMask extension** **installed** like in the GIF above, you can just type your address in the search bar “address.eth/” (don’t forget the “/”) and it should be automatically resolved: [fleekhq.eth/](http://fleekhq.eth/)
+If you’re using an ENS-compatible browser, or if you have the **MetaMask extension** **installed** like in the GIF above, you can just type your address in the search bar “address.eth/” (don’t forget the “/”) and it should be automatically resolved: [fleekhq.eth/](https://fleekhq.eth/)
 
 Or, if you have none of those, you can always append the “.link” suffix after your domain to visit your IPFS+ENS website on any browser, thanks to a service made available by ENS that makes all the .eth domains accessible via traditional DNS addresses.
 
@@ -181,4 +181,4 @@ Now that you know how to register your first ENS domain, and how to use it toget
 - Join our [Community Chat](https://discord.com/invite/fleek)
 - Follow us on [Twitter](https://twitter.com/fleek)
 - Check out our [Tech Docs](/docs/)
-- Contact us at support@fleek.xyz
+- Contact us at https://fleek.xyz/requests/new/

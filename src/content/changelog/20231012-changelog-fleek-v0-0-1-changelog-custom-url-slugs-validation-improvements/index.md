@@ -8,9 +8,9 @@ author:
   - 'Fleek'
 ---
 
-We’re back with another Alpha update, this time with a focus on laying down the foundation for an even more reliable platform and some new incoming features. Plus, if you’ve been hanging out on our alpha waitlist, we’ve got some good news: **you’ll be approved tomorrow**– keep an eye on your email for onboarding instructions!
+We’re back with another Alpha update, this time with a focus on laying down the foundation for an even more reliable platform and some new incoming features. Plus, if you’ve been hanging out on our alpha waitlist, we’ve got some good news: **you have been approved**.
 
-If this is the first you’re hearing of the alpha, don’t worry our [application form is still open](https://fleekxyz.typeform.com/alpha-access), and we’ll approve the next batch of users with the next release.
+Application form for the Fleek.xyz Alpha is closed, you can access the platform [here](https://app.fleek.xyz)
 
 Let’s get into the changes coming to the Fleek.xyz alpha with v0.0.1:
 
@@ -48,7 +48,7 @@ We’ve given our validation system a little tune-up in this update– now you�
 - Added new AR token balance monitors
 - Streamlined support process now no longer needs users to provide details on things like Private Gateways, Project Members, Filecoin & Arweave file info, and other project/site details, when reaching out for support
 
-That's not all though– head [here](https://fleek.xyz/blog/announcements/fleek-notebook-01/) for a full list of the 50+ other changes and improvements coming to the Fleek.xyz Alpha with this release.
+That's not all though– head [here](/changelog/20230922-changelog-ui-fixes-improvements-dark-mode-as-default/) for a full list of the 50+ other changes and improvements coming to the Fleek.xyz Alpha with this release.
 
 ---
 
@@ -61,9 +61,7 @@ That's not all though– head [here](https://fleek.xyz/blog/announcements/fleek-
 
 That’s all for this update! See you all in ~2 weeks for the next batch of improvements coming to the Fleek.xyz alpha 🤙
 
-Remember: if you applied to become an alpha tester since our last release notes, check your email for onboarding instructions coming in the next day. If you haven’t applied– [the form is still open](https://fleekxyz.typeform.com/alpha-access)!
-
-Follow along with the release of the Fleek.xyz platform on [X](https://twitter.com/fleek) and join the community of testers in our [Discord](http://discord.gg/fleek) server!
+Follow along with the release of the Fleek.xyz platform on [X](https://twitter.com/fleek) and join the community of testers in our [Discord](https://discord.gg/fleek) server!
 
 See you soon ⚡
 
@@ -71,6 +69,6 @@ See you soon ⚡
 
 ## Useful links ⚡
 
-- [Alpha submissions for Fleek are still open](https://fleekxyz.typeform.com/alpha-access)
+- [App](https://app.fleek.xyz)
 - [Read our documentation in full](https://fleek.xyz/docs/)
-- [Bookmark the changelog so you don’t miss a single thing](https://fleek.xyz/blog/changelog/)
+- [Bookmark the changelog so you don’t miss a single thing](/changelog/)
