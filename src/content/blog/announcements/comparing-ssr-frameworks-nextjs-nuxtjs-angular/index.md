@@ -123,7 +123,7 @@ Websites that require frequent content updates, like news portals or media platf
 
 ---
 
-## **Next.js vs Nuxt.js vs Angular Universal: Comparing the top 3 SSR frameworks**
+## **Next.js vs Nuxt.js vs Angular Universal: comparing the top 3 SSR frameworks**
 
 In this section, we are comparing the three SSR frameworks: Next.js, Nuxt.js, and Angular Universal, based on key factors that matter most when implementing SSR:
 
