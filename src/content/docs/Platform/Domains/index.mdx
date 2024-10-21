@@ -12,6 +12,8 @@ tags:
   - Fleek
 ---
 
+import CountriesTable from '@components/Domains/CountriesTable';
+
 # Domains on Fleek
 
 Fleek allows you to set up and manage domains for your sites, ensuring your content is always accessible to users. We support the management of both traditional DNS records and ENS, a decentralized alternative to DNS.
@@ -202,17 +204,6 @@ Fleek blocks any access through our domains and custom domains but not DNSlink s
 
 The following countries are currently restricted on Fleek due to OFAC regulations:
 
-| Country     | Country Code |
-| ----------- | ------------ |
-| Zimbabwe    | ZW           |
-| Iran        | IR           |
-| Myanmar     | MM           |
-| Russia      | RU           |
-| Sudan       | SD           |
-| Iraq        | IQ           |
-| Ivory Coast | CI           |
-| North Korea | KP           |
-| Syria       | SY           |
-| Cuba        | CU           |
-| Belarus     | BY           |
-| Liberia     | LR           |
+<div className="mb-[14px]">
+  <CountriesTable />
+</div>
