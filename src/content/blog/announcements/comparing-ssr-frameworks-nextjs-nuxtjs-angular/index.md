@@ -16,7 +16,7 @@ This is where SSR frameworks like Next.js, Nuxt.js, and Angular Universal come i
 
 ---
 
-## **Development Complexities of Server-Side Rendering**
+## **Development complexities of server-side rendering**
 
 Implementing server-side rendering (SSR) presents significant challenges due to architectural complexities arising from resource management and state synchronization between server and client. _Here are five common challenges faced by developers while implementing SSR from scratch_:
 
@@ -30,7 +30,7 @@ Implementing server-side rendering (SSR) presents significant challenges due to 
 
 ---
 
-## **What are Server-Side Rendering Frameworks?**
+## **What are server-side rendering frameworks?**
 
 **SSR frameworks are development tools designed to simplify the implementation of server-side rendering in web applications.**
 
@@ -52,11 +52,11 @@ At their core, SSR frameworks:
 
 ---
 
-### **Next.js: Basics, Features, and Use Cases**
+### **Next.js: basics, features and use cases**
 
 Next.js is a React-based framework that can enable server-side rendering and static site generation. It allows developers to build modern web applications with hybrid rendering capabilities, supporting both SSR and CSR (client-side rendering).
 
-**Unique features of Next.js are:**
+**Unique features of Next.js**
 
 1. **getServerSideProps** allows developers to fetch data on each request, ensuring that pages are pre-rendered with the most up-to-date information.
 2. Next.js **automatically splits code** into smaller bundles, reducing initial load time and improving overall application performance.
@@ -64,7 +64,7 @@ Next.js is a React-based framework that can enable server-side rendering and sta
 4. **Built-in image optimization** enables loading times with responsive images served in modern formats like WebP.
 5. Next.js offers **native support for CSS and Sass**, enabling developers to style their applications without additional configurations.
 
-**Best use cases to build with Next.js are:**
+**Best use cases to build with Next.js**
 
 1. **Content-heavy websites**
 
@@ -74,13 +74,13 @@ Next.js is ideal for content-rich websites like blogs and news platforms that pr
 
 Next.js's hybrid rendering capabilities make it ideal for e-commerce sites that require fast initial loads (product and price listings) and dynamic client-side updates (inventory, discounts).
 
-### **Nuxt.js: Basics, Benefits, and Use Cases**
+### **Nuxt.js: basics, benefits and use cases**
 
 Nuxt.js is a Vue-based framework designed to simplify the development of server-rendered websites and applications. It supports both server-side rendering (SSR) and client-side rendering (CSR), allowing developers to build high-performance web applications.
 
 The framework's modular architecture and seamless integration with Vue.js make it appealing to developers.
 
-**Unique features of Nuxt.js are:**
+**Unique features of Nuxt.js**
 
 1. Nuxt.js allows developers to switch between **SSR, static site generation (SSG), and CSR (client-side rendering)**, giving them the flexibility to optimize development.
 2. Automatic code splitting for code, Vue components, and routes **optimizes application load times, reduces page size, and improves performance.**
@@ -88,7 +88,7 @@ The framework's modular architecture and seamless integration with Vue.js make i
 4. **Nuxt Modules** system allows easy integration of third-party libraries and custom functionality.
 5. Nuxt.js offers a **pre-configured setup for routing, state management, and rendering**, reducing the boilerplate code needed to build applications.
 
-**Best use cases to build with Nuxt.js are:**
+**Best use cases to build with Nuxt.js**
 
 1. **Single-page applications (SPAs)**
 
@@ -98,18 +98,18 @@ Nuxt.js provides the perfect balance for SPAs with server-rendered pages for imp
 
 Nuxt.js offers built-in PWA support, making it ideal for developing web applications that work offline and provide native app-like experiences.
 
-### **Angular Universal: Basics, Benefits, and Use Cases**
+### **Angular Universal: basics, benefits and use cases**
 
 Angular Universal is the official server-side rendering solution for Angular applications. It allows developers to build and run Angular apps on the server before delivering content to the client. This approach combines the SEO benefits of server-side rendering with the full interactivity of client-side Angular applications.
 
-**Unique features of Angular Universal are:**
+**Unique features of Angular Universal**
 
 1. **Preboot** allows user interactions (such as clicks or form entries) to be captured and replayed after the client-side app is fully loaded, improving interactivity.
 2. **TransferState API** allows efficient sharing of server-side rendered data with the client, reducing duplicate data fetching and improving performance.
 3. Angular **CLI integration** provides a seamless development experience with easy setup and deployment options for Universal apps.
 4. Angular Universal **pre-renders SEO metadata**, such as meta descriptions, tags, and social sharing cards, ensuring that the content is SEO-friendly.
 
-**Best use cases to build with Angular Universal are:**
+**Best use cases to build with Angular Universal**
 
 1. **Enterprise web applications**
 
@@ -123,7 +123,7 @@ Websites that require frequent content updates, like news portals or media platf
 
 ---
 
-## **Next.js vs Nuxt.js vs Angular Universal: Comparing the Top 3 SSR Frameworks**
+## **Next.js vs Nuxt.js vs Angular Universal: Comparing the top 3 SSR frameworks**
 
 In this section, we are comparing the three SSR frameworks: Next.js, Nuxt.js, and Angular Universal, based on key factors that matter most when implementing SSR:
 
@@ -142,35 +142,35 @@ This unified solution allows teams to focus on leveraging the strengths of their
 
 ---
 
-## **Simplifying SSR Deployment with Fleek**
+## **Simplifying SSR deployment with Fleek**
 
 [Fleek Platform](https://fleek.xyz/) is a comprehensive solution for developers who want to simplify their SSR deployment workflow regardless of the framework they choose.
 
 Here's how Fleek tackles common SSR challenges:
 
-1. **Edge-Optimized Rendering**
+1. **Edge-optimized rendering**
 
 Leveraging [Fleek Network](https://fleek.network/), an edge-optimized infrastructure, Fleek distributes server-side rendering across a decentralized network of nodes. This enables SSR to occur on thousands of globally distributed edge locations, ensuring users receive content from the nearest node, reducing latency, and improving page load times.
 
-2. **Unified Deployment Process**
+2. **Unified deployment process**
 
 Fleek removes the need to manually configure and manage cloud infrastructure. With just a Git repository or template, developers can deploy their applications in under a minute, bypassing all the time and effort required for traditional deployments.
 
-3. **Inbuilt Scalability**
+3. **Inbuilt scalability**
 
 Fleek’s infrastructure is scalable by design, offering auto-scaling out of the box for resource-heavy SSR operations. This ensures that your web applications and content are consistently fast and responsive, no matter the traffic volume.
 
-4. **Global Content Delivery**
+4. **Global content delivery**
 
 With Fleek’s edge computing capabilities, content is delivered with low latency to users across the globe. This is valuable for SSR apps that serve dynamic content to a global audience, as Fleek’s edge network ensures that data is served from the nearest node, maintaining quick response times regardless of the user’s location.
 
-5. **Permissionless Development**
+5. **Permissionless development**
 
 Fleek embraces the ethos of permissionless development, allowing developers to build and deploy applications without gatekeeping or vendor lock-ins. Plus, Fleek offers decentralized storage options (IPFS, Filecoin, Arweave), which further reduces centralized control and censorship.
 
 ---
 
-### **Start SSR Development With Fleek**
+### **Start SSR development with Fleek**
 
 Here are a couple of resources to help you get started:
 
