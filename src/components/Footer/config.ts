@@ -104,7 +104,7 @@ export default {
     },
     {
       text: 'Support',
-      url: '/support',
+      url: '/support/',
       rel: 'noopener noreferrer',
     },
     {
