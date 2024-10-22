@@ -21,19 +21,19 @@ export const navbarMenu: NavMenuItem[] = [
       },
       {
         label: 'Infrastructure',
-        url: '/docs/infrastructure',
+        url: '/docs/infrastructure/',
         description: 'The power of Fleek',
         icon: '/svg/infra-navbar-icon.svg',
       },
       {
         label: 'CLI/SDK',
-        url: '/docs/cli',
+        url: '/docs/cli/',
         description: 'Integrate or build locally',
         icon: '/svg/cli-navbar-icon.svg',
       },
       {
         label: 'Templates',
-        url: 'https://app.fleek.xyz/templates',
+        url: 'https://app.fleek.xyz/templates/',
         description: 'Use pre-built apps',
         icon: '/svg/templates-navbar-icon.svg',
       },
@@ -58,7 +58,7 @@ export const navbarMenu: NavMenuItem[] = [
       },
       {
         label: 'Changelog',
-        url: '/changelog',
+        url: '/changelog/',
         description: 'Our latest developments',
         icon: '/svg/blog-navbar-icon.svg',
       },
@@ -76,13 +76,13 @@ export const navbarMenu: NavMenuItem[] = [
     subMenu: [
       {
         label: 'Documentation',
-        url: '/docs',
+        url: '/docs/',
         description: 'Learn about Fleek',
         icon: '/svg/blog-navbar-icon.svg',
       },
       {
         label: 'Guides',
-        url: '/guides',
+        url: '/guides/',
         description: 'Tips and tricks',
         icon: '/svg/guides-navbar-icon.svg',
       },
@@ -95,7 +95,7 @@ export const navbarMenu: NavMenuItem[] = [
       },
       {
         label: 'Support Center',
-        url: '/support',
+        url: '/support/',
         description: 'Get help',
         icon: '/svg/community-navbar-icon.svg',
       },
@@ -103,11 +103,11 @@ export const navbarMenu: NavMenuItem[] = [
   },
   {
     label: 'Docs',
-    url: '/docs',
+    url: '/docs/',
   },
   {
     label: 'Blog',
-    url: '/blog',
+    url: '/blog/',
   },
   {
     label: 'Pricing',
