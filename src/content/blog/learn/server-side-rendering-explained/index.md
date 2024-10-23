@@ -12,7 +12,7 @@ A faster and more reliable digital experience is a must for any business in 2024
 
 Server-side rendering (SSR) helps achieve a smoother user experience by maximizing web performance and accessibility. Be it a landing page or a full-fledged e-commerce website, SSR delivers web apps and content quickly and more consistently in a way that search engines can easily crawl and index pages.
 
-***In this blog, we will explain all you need to know about server-side rendering, how it works, its benefits, and how Fleek can further enhance SSR development.***
+**_In this blog, we will explain all you need to know about server-side rendering, how it works, its benefits, and how Fleek can further enhance SSR development._**
 
 ---
 
@@ -28,7 +28,7 @@ When the server sends a fully-rendered page to the user's browser, it ensures:
 
 The closest alternative to this is client-side rendering, in which a bare-bone HTML file is sent to the user’s browser, and JavaScript renders the content.
 
-***Before we dive deeper into server-side rendering, here’s a quick overview of how the two alternative approaches compare to each other.***
+**_Before we dive deeper into server-side rendering, here’s a quick overview of how the two alternative approaches compare to each other._**
 
 ---
 
@@ -36,17 +36,17 @@ The closest alternative to this is client-side rendering, in which a bare-bone H
 
 Here are five key differences between web development using server-side rendering versus client-side rendering:
 
-| **Factors** | **Server-Side Rendering** | **Client-Side Rendering** |
-| --- | --- | --- |
-| **User Experience** | Faster initial load and easier to discover using search engines | Comparatively slower initial load but better for single-page apps with rich interactivity |
-| **SEO Friendliness** | SEO-friendly because the content is available immediately for search engine crawlers | Less SEO-friendly as content is rendered after JavaScript execution, making it harder for search engines to index |
-| **Server Load** | Higher server load, as the server must render each page request and deliver the content | Lower server load, as rendering happens in the browser (no server requirement with traditional CSR, just static files.) |
-| **Developer Complexities** | More complex setup involving server environments and double focus areas of client and server-sides | Comparatively easier development because the focus is confined to client-side |
-| **Accessibility** | Generally performs better on low-powered devices. Can see mitigated performance from poor network connection. | Enables offline-first PWAs and loading state renders. May struggle on devices with limited processing power since it needs JS for execution. |
+| **Factors**                | **Server-Side Rendering**                                                                                     | **Client-Side Rendering**                                                                                                                    |
+| -------------------------- | ------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------- |
+| **User Experience**        | Faster initial load and easier to discover using search engines                                               | Comparatively slower initial load but better for single-page apps with rich interactivity                                                    |
+| **SEO Friendliness**       | SEO-friendly because the content is available immediately for search engine crawlers                          | Less SEO-friendly as content is rendered after JavaScript execution, making it harder for search engines to index                            |
+| **Server Load**            | Higher server load, as the server must render each page request and deliver the content                       | Lower server load, as rendering happens in the browser (no server requirement with traditional CSR, just static files.)                      |
+| **Developer Complexities** | More complex setup involving server environments and double focus areas of client and server-sides            | Comparatively easier development because the focus is confined to client-side                                                                |
+| **Accessibility**          | Generally performs better on low-powered devices. Can see mitigated performance from poor network connection. | Enables offline-first PWAs and loading state renders. May struggle on devices with limited processing power since it needs JS for execution. |
 
 If you keenly observe the differences, there’s a pattern:
 
-Of the two approaches, ***server-side rendering can often be more performant and user-friendly but requires more effort and resources.***
+Of the two approaches, **_server-side rendering can often be more performant and user-friendly but requires more effort and resources._**
 
 In the next two sections, we will explain how server-side rendering works to help you understand why it is resource-intensive for developers.
 
@@ -64,9 +64,9 @@ The process of server-side rendering can be broken down to understand how a web 
 4. **Page rendering on the server**: The server embeds the fetched data with the pre-defined HTML template. At this stage, the server also prepares any necessary CSS or JavaScript references to be included in the page.
 5. **HTML delivered to the browser**: The server sends the fully-rendered HTML page to the user’s browser. The browser displays the content almost immediately (after the request returns), resulting in a faster page load time for the user.
 6. **Client-side hydration**: After the HTML is displayed, the browser begins downloading and executing the JavaScript files, enabling interactive elements like buttons, forms, or dynamic features.
-7. **Subsequent interactions**: After the initial page load, the app behaves like a single-page application (SPA), with JavaScript loading up to add interactivity to the page. *Note: a user can also return html for each "subpage" without dealing with any framework on the client-side*.
+7. **Subsequent interactions**: After the initial page load, the app behaves like a single-page application (SPA), with JavaScript loading up to add interactivity to the page. _Note: a user can also return html for each "subpage" without dealing with any framework on the client-side_.
 
-In this workflow, the reliance on the server side to do most of the heavy lifting poses challenges like ***higher server load, complex caching, and real-time data fetching.***
+In this workflow, the reliance on the server side to do most of the heavy lifting poses challenges like **_higher server load, complex caching, and real-time data fetching._**
 
 Here's where [Fleek](https://fleek.xyz/) steps in and makes SSR setups faster, more efficient, and scalable with its modular and extensible platform for web development. It brings together a suite of decentralized and permissionless cloud infrastructure that is lightning-fast, low-cost, highly reliable, and auto-scalable.
 
@@ -77,7 +77,7 @@ With Fleek, developers can:
 1. Deploy SSR-based apps in under a minute using a simple Git repository or template.
 2. Use Fleek Edge to run your application from 1,000+ locations globally, ensuring content is served with low latency.
 
-***Now, we understand what server-side rendering is and how it works. Let’s get into the practical side of things and learn why it’s so valuable for the modern web. Alongside, let’s also see how Fleek can improve the SSR development process.***
+**_Now, we understand what server-side rendering is and how it works. Let’s get into the practical side of things and learn why it’s so valuable for the modern web. Alongside, let’s also see how Fleek can improve the SSR development process._**
 
 ## **Importance of Server-Side Rendering in Modern Web Development**
 
@@ -109,7 +109,7 @@ SSR helps maintain consistent performance across various devices and network con
 
 SSR reduces the need for heavy client-side JavaScript execution, which can often be a bottleneck for performance. Furthermore, developers can enjoy the benefits of SSR without worrying about server bottlenecks, high traffic spikes, or complex caching mechanisms, all of which can be easily bypassed by Fleek's edge services.
 
-***Server-side rendering offers many benefits to enterprises, developers, and users alike. However, its scalability remains a question mark. In the next section, we will explore the pain points related to SSR development.***
+**_Server-side rendering offers many benefits to enterprises, developers, and users alike. However, its scalability remains a question mark. In the next section, we will explore the pain points related to SSR development._**
 
 ---
 
@@ -138,29 +138,29 @@ Here's how Fleek Network enhances the SSR experience:
 
 1. **Serverless optimization**
 
-By leveraging a modified version of Open-Next, Fleek enables developers to deploy Next.js applications in a serverless environment. This approach ***reduces the overhead of managing dedicated servers*** while maintaining the benefits of SSR.
+By leveraging a modified version of Open-Next, Fleek enables developers to deploy Next.js applications in a serverless environment. This approach **_reduces the overhead of managing dedicated servers_** while maintaining the benefits of SSR.
 
 2. **Custom runtime for better performance**
 
-Fleek goes beyond traditional Node.js setups by adapting Open-Next to work with a custom runtime optimized for their decentralized infrastructure. This adaptation leads to ***faster load times, improved user experience***, and seamless integration with Fleek’s permissionless development framework.
+Fleek goes beyond traditional Node.js setups by adapting Open-Next to work with a custom runtime optimized for their decentralized infrastructure. This adaptation leads to **_faster load times, improved user experience_**, and seamless integration with Fleek’s permissionless development framework.
 
 3. **Efficient resource management**
 
-Fleek’s on-demand resource allocation reduces the overhead typically associated with SSR. Instead of wasting resources on idle servers, Fleek ***optimizes cost and performance by dynamically scaling*** based on traffic.
+Fleek’s on-demand resource allocation reduces the overhead typically associated with SSR. Instead of wasting resources on idle servers, Fleek **_optimizes cost and performance by dynamically scaling_** based on traffic.
 
 4. **Streamlined SSR deployment**
 
-Fleek’s developer-first platform streamlines the deployment process, enabling developers to deploy Next.js applications in minutes. With Fleek managing the complexities of serverless SSR, developers can focus on ***improving UI/UX without worrying about infrastructure scaling or optimization***.
+Fleek’s developer-first platform streamlines the deployment process, enabling developers to deploy Next.js applications in minutes. With Fleek managing the complexities of serverless SSR, developers can focus on **_improving UI/UX without worrying about infrastructure scaling or optimization_**.
 
 5. **Scalability and censorship resistance**
 
-Fleek’s serverless architecture supports automatic scaling, allowing your SSR application to ***handle traffic surges without manual intervention.*** Additionally, Fleek’s decentralized infrastructure ***ensures censorship resistance***, offering developers a secure, permissionless way to build.
+Fleek’s serverless architecture supports automatic scaling, allowing your SSR application to **_handle traffic surges without manual intervention._** Additionally, Fleek’s decentralized infrastructure **_ensures censorship resistance_**, offering developers a secure, permissionless way to build.
 
-***Now, let’s explore how to get started with SSR development and whether it’s the right choice for you.***
+**_Now, let’s explore how to get started with SSR development and whether it’s the right choice for you._**
 
 ## **Getting Started With Server-Side Rendering**
 
-In this section, we will cover two specific areas: *ideal use cases for using SSR development and the first few actionable steps for developers.*
+In this section, we will cover two specific areas: _ideal use cases for using SSR development and the first few actionable steps for developers._
 
 1. **When To Use Server-Side Rendering**
 
