@@ -33,91 +33,27 @@ Learn how to host a React app and a Fleek template app in Astro on Fleek using t
 Fleek supports static sites currently. SSR support is a work in progress and is not yet available for deployed sites.
 :::
 
-1. **Connect Git Account to Fleek**: In the settings tab under "Git Integrations", you will need to connect your Git account to Fleek
+### Using the Fleek app
 
-   ![Github integration active](./git-integration.png)
+The platform provides seamless integration with Git, allowing you to deploy directly from your repositories. Fleek’s hosting service simplifies the deployment process with just a few clicks.
 
-2. **Navigate to the "Hosting" tab**
-3. **Click the "Add New" button**
-4. **Select Repository**
-5. **Verify Build Details**
-6. **Deploy**
-7. **View Deployments**
-8. **View Live Site**
+For step-by-step instructions on selecting repositories, and deploying your project, you can refer to Fleek platform's [Hosting documentation](/docs/platform/hosting).
+This guide will walk you through the entire process of deploying your live site from the Fleek app.
 
 <div className="my-12 bg-gray-dark-6 p-[1px]" />
 
 ### Using the Fleek CLI
 
-You can also deploy your app using the Fleek CLI. To do this, you need to have the Fleek CLI installed. You can install it by running the following command:
+Fleek CLI provides a streamlined way to deploy your projects, giving you full control from the command line. With simple commands, you can create, configure, and deploy sites directly to the Fleek platform.
 
-```bash
-npm install -g @fleek-platform/cli
-```
+To get started with the Fleek CLI, you'll first need to install it and log in to your account. For detailed instructions on deploying sites, including cloning repositories and initializing projects, refer to [Fleek's CLI Documentation](/docs/cli/sites).
 
-Once you have the Fleek CLI installed, you have to login to your Fleek account by running the following command:
+A quick overview of deploying a site via Fleek CLI is as simple as:
 
-```bash
-fleek login
-```
-
-Cloning and deploying a site using the Fleek CLI is as simple as initializing the site, adding the files, and deploying the site. You can follow the steps [here](/docs/cli/sites).
-
-To deploy a simple site using the Fleek CLI, you can follow the steps below:
-
-1. **Create a project**
-
-   To start, create a new Fleek project by running:
-
-   ```bash
-   fleek projects create
-   ```
-
-2. **Set Up a Simple Page**
-
-   First, create a directory for your project (e.g., ~/fleek-quick-start) and navigate into it:
-
-   ```bash
-   mkdir ~/fleek-quick-start && cd ~/fleek-quick-start
-   ```
-
-   Create a simple HTML page:
-
-   ```bash
-   echo "Hello world" > index.html
-   ```
-
-3. **Set Up a Fleek Site**
-
-   To deploy your page, initialize a Fleek site by running:
-
-   ```bash
-   fleek sites init
-   ```
-
-   Follow the prompts:
-
-   - Enter a site name.
-   - Specify the directory (use . for the current directory).
-   - Skip the build command by typing "n."
-   - Choose your preferred configuration format (e.g., JSON).
-
-   Once completed, you’ll see a success message.
-
-4. **Deploy the Fleek Site**
-
-   Finally, deploy your site::
-
-   ```bash
-    fleek sites deploy
-   ```
-
-   After successful deployment, you'll receive a confirmation with the IPFS CID and a link to access your site:
-
-   ```bash
-   Site IPFS Content Identifier (CID): xxxxx
-   Access via: https://<SLUG>.on-fleek.app
-   ```
+- Create a project
+- Set up pages
+- Initialize a Fleek site
+- Deploy the site
 
 <div className="my-12 bg-gray-dark-6 p-[1px]" />
 
@@ -234,6 +170,8 @@ There is an option to configure a private gateway for increased rate limits when
 :::
 
 Fleek's storage service enables the decentralized storage of your files by leveraging the edge-optimized Fleek Network. The service supports IPFS as our main storage protocol, complemented by Arweave and Filecoin as a backup layer
+
+### Using the Fleek app
 
 To use Fleek storage, you can follow the steps below:
 

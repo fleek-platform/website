@@ -1,6 +1,6 @@
 ---
 order: 2
-title: Sites
+title: Hosting
 date: 2023-01-10
 desc: Set and deploy your site with Fleek. Follow our concise CLI guide to create your site and leverage GitHub Actions to automate IPFS deployments through Continuous Integration.
 keywords: [services, documentation, getting started]
@@ -11,7 +11,7 @@ tags:
   - Fleek
 ---
 
-# Sites
+# Hosting
 
 The Sites Service in the Fleek Platform CLI let users upload and easily maintain static sites powered by Web3 protocols, such as [Fleek Network](https://fleek.network).
 
