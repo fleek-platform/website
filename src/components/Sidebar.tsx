@@ -105,6 +105,7 @@ const SidebarMenu: React.FC<Props> = ({ data, pathname, indexNameDocs }) => {
 
           if (item.category !== ROOT_FALLBACK_CATEGORY) {
             isOpen = isMd ? item.category === activeCategory : true;
+
             return (
               <li key={`${idx}-${item.slug}`}>
                 <details

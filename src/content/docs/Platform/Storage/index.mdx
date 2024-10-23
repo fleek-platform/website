@@ -33,45 +33,47 @@ To guarantee the best performance and availability, we use a combination of thes
 Storage is a service unique for every project. This means that you can have different storage configurations for each of your projects in Fleek.
 
 :::warn
-
-We've introduced daily quotas for file uploads to ensure a smooth experience for everyone. You can upload up to 150 files with a total size of 2GB every 24 hours. If your project requires higher quotas, feel free to contact our Support team.
-
-:::
-
-:::warn
-
-Please note that files larger than 100KB won't be replicated to Arweave's permanent storage, even if you've enabled this option in your project settings
-
+Daily file upload limit: 150 files (2GB) every 24 hours. Contact Support for higher quotas. Files over 100KB won't be stored on Arweave, even if enabled.
 :::
 
 ## Add a file or directory
 
 :::info
-
 We are aware that there is a bug in the UI for some users using Firefox and Linux that prevents the upload dialog box from appearing. We are investigating this issue in the meantime, if you are experiencing this issue, please attempt this operation with another browser.
-
 :::
 
-To add a file to your storage, navigate to the `Files` section in your project dashboard and click on the `Upload File` button. This will open a modal where you can select one or multiple files to upload.
+### Adding a File
 
-This will be uploaded to IPFS and, in the background, it will be uploading to Filecoin and/or Arweave (depending on your configuration.)
+1. Navigate to the Files section in your project dashboard.
+2. Click on the Upload File button.
+3. A modal will open where you can select one or multiple files to upload.
+4. The file(s) will be uploaded to IPFS. In the background, they will be uploaded to Filecoin and/or Arweave, depending on your configuration.
 
-To add a directory, click the `Upload Directory` button and select the directory you want to upload.
+### Adding a Directory
+
+1. Navigate to the Files section in your project dashboard.
+2. Click on the Upload Directory button.
+3. Select the directory you want to upload.
+4. The directory will be uploaded and stored on IPFS and decentralized storage (Filecoin/Arweave).
 
 ## Accessing a file or directory
 
-To access a file or directory, click on the three-dot icon in the file or directory row and select the `Copy URL` option. This will copy the URL to your clipboard, enabling you to access the file or directory. By default, Fleek will be using public gateways to surface the content. If you prefer, you can set up a custom domain to access the content that will allow you to have a more performant and branded experience.
-
-To do this you can follow the steps in the [Gateways](/docs/cli/gateways/) section of our documentation.
+1. Locate the file or directory in the Files section.
+2. Click on the three-dot icon in the row corresponding to the file or directory.
+3. Select the Copy URL option. This will copy the URL to your clipboard, enabling you to access the file or directory via IPFS gateways.
+4. Optionally, you can set up a custom domain for a more performant and branded experience by following the steps in the [Gateways](/docs/cli/gateways/) section of the documentation.
 
 ## Deleting a file or directory
 
-To delete a file or directory, click on the three-dot icon in the file or directory row and click the `Delete` option. This will remove the file or directory from your storage. This action is irreversible.
+1. Locate the file or directory in the Files section.
+2. Click on the three-dot icon in the row of the file or directory.
+3. Select the Delete option. This will remove the file or directory from your storage. Note: This action is irreversible.
 
 ## Content addressing
 
-In Fleek, all files in storage are made content-addressable by using IPFS as the addressability layer, which means all files stored on Fleek are stored on IPFS by default aside from the decentralized-storage layer of choice (Filecoin/Arweave). Each file will receive its unique immutable IPFS content hash to make it addressable under a common denominator/format that is standard in web3.
+All files stored on Fleek are content-addressable using IPFS. Each file will receive a unique, immutable IPFS content hash, making it addressable in a standard web3 format.
 
-- IPFS hashes look like `QmX4XRaPP6jBSDiYr3tK7fEBWSA5QURS8WZ87ZvPRJgAqK`.
+- Example IPFS hash: QmX4XRaPP6jBSDiYr3tK7fEBWSA5QURS8WZ87ZvPRJgAqK
+- Files can be accessed through Fleek's gateways or a public gateway like `ipfs.io/ipfs/<yourhash>`.
 
-They can be accessed either via Fleek's gateways or a public gateway such as `ipfs.io/ipfs/<yourhash>`. While immutable, you can use IPNS to map dynamically changing IPFS hashes to a static hash/record (IPNS). See our [CLI](/docs/cli)/[SDK](/docs/sdk/) section for instructions on managing IPNS records.
+For dynamically changing content, you can use IPNS to map dynamic IPFS hashes to a static record. See the [CLI](/docs/cli) or [SDK](/docs/sdk/) sections for more information on managing IPNS records.

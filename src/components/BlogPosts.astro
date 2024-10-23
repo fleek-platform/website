@@ -3,6 +3,7 @@ import { Image } from 'astro:assets';
 
 import type { ImageMetadata } from 'astro';
 import { formatDate } from '@utils/date';
+import { Tags } from './Tags';
 
 const { allPosts, collection } = Astro.props;
 
@@ -15,6 +16,7 @@ type AllPosts = {
     image: ImageMetadata;
     category: string;
     date: Date;
+    tags?: string[];
   };
 };
 ---
@@ -43,6 +45,8 @@ type AllPosts = {
             <h3 class="pt-12 font-plex-sans text-24 font-medium leading-tight text-gray-dark-12">
               {post.data.title}
             </h3>
+
+            <Tags tags={post.data.tags} className="mt-16 leading-16" />
           </div>
         </article>
       </a>
