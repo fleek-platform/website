@@ -4,8 +4,8 @@ export const frameworks: Framework[] = [
   {
     name: 'Next.js',
     ssg: true,
-    ssr: false,
-    apiRoutes: false,
+    ssr: true,
+    apiRoutes: true,
     isr: false,
     fleekFunctions: true,
     previewDeployments: true,
