@@ -76,7 +76,7 @@ To learn about support for Next.js features on Fleek, see the [documentation](/d
 2. You then copy the name of the Fleek Function you just created because you will use it in the next step. Deploying your Next.js application after all the above steps is as simple as one command:
 
    ```sh
-   fleek functions deploy --noBundle --name '<function_name>' --path .fleek/dist/index.js
+   fleek functions deploy bundle=false --name '<function_name>' --path .fleek/dist/index.js
    ```
 
 The above command deploys a serverless function to Fleek without bundling any additional files. The below is what you should expect to see while deploying:
