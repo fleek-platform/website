@@ -2,8 +2,8 @@
 title: Templates
 desc: Welcome to the documentation for the beta of Fleek Templates. Whether you're building a static website or a smart-contract powered application, you'll find a wide variety of templates to jump-start your project.
 date: 2024-06-02
-image: ./poster.png
-thumbnail: ./poster.png
+image: ./poster.webp
+thumbnail: ./poster.webp
 tags:
   - Templates
   - Help

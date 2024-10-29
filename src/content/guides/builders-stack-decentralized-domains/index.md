@@ -2,8 +2,8 @@
 title: 'Build3rs Stack: Decentralized Domains with ENS, HNS, and Unstoppable Domains.'
 date: 2023-04-21
 desc: 'The builders guide to decentralized domains, including ENS, HNS, and Unstoppable Domains!'
-thumbnail: './web3-domains.png'
-image: './web3-domains.png'
+thumbnail: './web3-domains.webp'
+image: './web3-domains.webp'
 ---
 
 Welcome to the Build3rs Stack, Fleek’s **web3 infrastructure overview series**. This week we will take a look at ENS, Unstoppable Domains and HandShake - decentralized domain provider alternatives!
@@ -42,7 +42,7 @@ While not the exclusive options in decentralized naming, the following three pro
 
 ### Ethereum Name Service (ENS)
 
-![](./twitter-49d4bb2b55c07c5f5900e95860401fd0.png)
+![](./twitter-49d4bb2b55c07c5f5900e95860401fd0.webp)
 
 ENS, or [Ethereum Name Service](https://ens.domains/), is a decentralized domain name service built on the Ethereum blockchain. It enables users to register and manage domain names ending in ".eth" and link them to different services & tools, such as wallets addresses, smart contracts, and decentralized applications (dApps) as their domains.
 
@@ -50,7 +50,7 @@ ENS also allows mapping human-readable names to IPFS content hashes (among other
 
 ### Unstoppable Domains
 
-![](./unstoppable-logo-1200x630.png)
+![](./unstoppable-logo-1200x630.webp)
 
 [Unstoppable Domains](https://unstoppabledomains.com/) is a blockchain-based domain name system that aims to simplify the process of accessing and interacting with decentralized resources. It operates on both the Ethereum and Zilliqa blockchains and offers domain names with extensions such as ".crypto" and ".zil". Compared to ENS, these domains don’t have timed ownerships, but permanent ones.
 
@@ -58,7 +58,7 @@ This allows users to configure domains with various records, such as Ethereum ad
 
 ### Handshake
 
-![](./handshakestack.png)
+![](./handshakestack.webp)
 [Handshake](https://handshake.org/) is a decentralized, permissionless naming protocol that aims to replace the traditional Domain Name System (DNS) with a secure and censorship-resistant alternative. Handshake focuses on the root zone, the top level of the DNS hierarchy, and uses a blockchain-based system to manage top-level domains (TLDs). These names are sold and traded on a permanent ownership basis.
 
 By decentralizing the root zone (the “.com”, “.xyz”, “.here” of domains), Handshake enhances the security and resilience of the entire domain name systems. Based on a proof-of-work (PoW) consensus algorithm, Handshake uses a native cryptocurrency (HNS) to incentivize network participants.

@@ -2,8 +2,8 @@
 title: 'How to Use Fleek SDK to Pin Files on IPFS: A Step-by-Step Integration Guide for Developers'
 date: 2024-03-22
 desc: 'How to build an app that can pin files to IPFS in minutes using the Fleek SDK.'
-thumbnail: './ipfsguide.png'
-image: './ipfsguide.png'
+thumbnail: './ipfsguide.webp'
+image: './ipfsguide.webp'
 author:
   - 'Olayinka Oshidipe'
 ---
@@ -172,8 +172,8 @@ async function uploadFileToIPFS(filename, content) {
 - Run the upload function with your desired file:
 
 ```javascript
-const fileContent = fs.readFileSync('ss.png'); //reads file from root dir
-uploadFileToIPFS('ss.png', fileContent)
+const fileContent = fs.readFileSync('ss.webp'); //reads file from root dir
+uploadFileToIPFS('ss.webp', fileContent)
   .then((result) => {
     console.log('File uploaded to IPFS:', result);
   })
@@ -208,9 +208,9 @@ async function uploadFileToIPFS(filename: string, content: Buffer) {
     return result;
     }
 
-    const fileContent = fs.readFileSync('fleek.jpg');
+    const fileContent = fs.readFileSync('fleek.webp');
 
-    uploadFileToIPFS('fleek.jpg', fileContent).then( result => {
+    uploadFileToIPFS('fleek.webp', fileContent).then( result => {
         console.log('File uploaded to IPFS:', result);
         console.log( 'IPFS URL:', `https://cf-ipfs.io/${result.cid}`)
     }).catch(error => {
@@ -235,7 +235,7 @@ File uploaded to IPFS: {
     cid:
 CID (bafkreicosqi7xwleml3sdrojtitgxq2n52vvw5zeo67nwfnshycenuzmjy),
     size: 81833,
-    path: 'fleek.jpg'
+    path: 'fleek.webp'
 
 }
 IPFS URL: https://cf-ipfs.io/bafkreicosqi7xwleml3sdrojtitgxq2n52vvw5zeo67nwfnshycenuzmjy

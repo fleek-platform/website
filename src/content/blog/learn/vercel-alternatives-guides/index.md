@@ -2,8 +2,8 @@
 title: 'Exploring alternatives to Vercel: A guide for web developers'
 date: 2023-01-24
 desc: 'Explore top Vercel alternatives for hosting and deploying web applications. Discover cost-effective, high-performance platforms like Fleek, Netlify, and more.'
-thumbnail: './vercelaltthumb.png'
-image: './vercelaltthumb.png'
+thumbnail: './vercelaltthumb.webp'
+image: './vercelaltthumb.webp'
 author:
   - 'Fleek'
 ---
@@ -22,7 +22,7 @@ Whether you're looking for cost-effective solutions, more customization options,
 
 Fleek is positioning itself as a top-tier **Vercel alternative** by offering a performant, cost-effective, and open-source solution for hosting Next.js applications. With static Next.js support already, and full Next.js support being added at the end of September, Fleek will provide an ideal environment for developers looking to deploy their applications with minimal overhead and without breaking the bank.
 
-![](./fleekpage.png)
+![](./fleekpage.webp)
 
 ### **Key features**
 
@@ -57,7 +57,7 @@ Fleek is positioning itself as a top-tier **Vercel alternative** by offering a p
 
 Netlify is one of the most popular alternatives to Vercel, offering a comprehensive platform for deploying static sites and modern web applications. With a strong focus on developer experience, Netlify provides powerful features such as serverless functions, continuous deployment, and advanced analytics.
 
-![](./netlify.png)
+![](./netlify.webp)
 
 ### **Key features**
 
@@ -86,7 +86,7 @@ Netlify is one of the most popular alternatives to Vercel, offering a comprehens
 
 Cloudflare Pages is a relatively new entrant in the space, but it has quickly gained traction due to Cloudflare's reputation for performance and security. Cloudflare Pages offers a simple, fast, and scalable platform for deploying static websites.
 
-![](./cloudflare.png)
+![](./cloudflare.webp)
 
 ### **Key features**
 
@@ -115,7 +115,7 @@ Cloudflare Pages is a relatively new entrant in the space, but it has quickly ga
 
 GitHub Pages is a free hosting service provided by GitHub, primarily intended for hosting static sites directly from a GitHub repository. While it lacks some of the advanced features found in other platforms, its simplicity and integration with GitHub make it an attractive option for certain types of projects.
 
-![](./githubpages.png)
+![](./githubpages.webp)
 
 ### **Key features**
 
@@ -144,7 +144,7 @@ GitHub Pages is a free hosting service provided by GitHub, primarily intended fo
 
 AWS Amplify is a powerful platform that goes beyond static site hosting, offering a full suite of tools for building, deploying, and managing modern web and mobile applications. Amplify is part of the broader AWS ecosystem, providing deep integration with other AWS services.
 
-![](./aws.png)
+![](./aws.webp)
 
 ### **Key features**
 

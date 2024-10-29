@@ -2,8 +2,8 @@
 title: 'Fleek Leak 01'
 date: 2023-01-12
 desc: 'Progress update incoming ⚡️ Over the last few weeks we’ve been jamming on our CLI beta (Jan 18th), adding compute to Fleek, and an NFAs MVP. Let’s dive into why & what you can expect!'
-thumbnail: './fleekleakjan12.png'
-image: './fleekleakjan12.png'
+thumbnail: './fleekleakjan12.webp'
+image: './fleekleakjan12.webp'
 ---
 
 Welcome to a new year, Fleek fam! ⚡️ To kickoff 2023 we’re introducing **the Fleek Leak**, a new bi-weekly update segment for us to uncover the veil on all of the awesome things we’re cooking up. The goal is simple: involve everyone in the community more in the development process rather than just the finished product of all things Fleek.xyz.
@@ -27,7 +27,7 @@ Let’s agree to skip all of the fluff and get straight to the point, alright? B
 
 ## Services, Services Everywhere
 
-![Fleek.xyz Platform types and services](https://storageapi.fleek.co/fleek-team-bucket/Blogs/xyz-arch-services.png)
+![Fleek.xyz Platform types and services](https://storageapi.fleek.co/fleek-team-bucket/Blogs/xyz-arch-services.webp)
 
 Fleek.xyz is built with a modular, independent service structure in mind (as mentioned [here](https://blog.fleek.co/posts/fleek-xyz-architecture-overview)) to unlock maximum composability, freedom, and extensibility for web3 developers. Internally, this means the ability to work on multiple services in parallel!
 
@@ -88,7 +88,7 @@ Since this initial release it’s been full steam ahead 🚂 We’ve been gather
 
 In a nutshell, community hosting through NFAs will unlock the ability for web3 app owners to **allow members of their community to run frontends for them**. Similar to what [Liquity](https://www.liquity.org/) has pioneered, this expands the amount of access points to an app, further decentralizing its most vulnerable attack vector.
 
-![Fleek - NFA Roadmap](https://storageapi.fleek.one/fleek-team-bucket/Blogs/nfa-roadmap.png)
+![Fleek - NFA Roadmap](https://storageapi.fleek.one/fleek-team-bucket/Blogs/nfa-roadmap.webp)
 
 In addition to the community hosting MVP, we’ve got a lot more in our backlog such as an EIP submission to fully standardize the usage, management, and consumption of NFAs.
 

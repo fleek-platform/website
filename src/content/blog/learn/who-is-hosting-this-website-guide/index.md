@@ -2,8 +2,8 @@
 title: 'Who is hosting this? A simple guide to identifying a website hosting provider'
 date: 2023-02-09
 desc: 'Simple guide to identifying any website hosting provider'
-thumbnail: './whoishostingthis.png'
-image: './whoishostingthis.png'
+thumbnail: './whoishostingthis.webp'
+image: './whoishostingthis.webp'
 author:
   - 'Fleek'
 ---
@@ -18,15 +18,15 @@ If you’re looking for a fast and straightforward way to discover the **web hos
 
 - **Whois lookup**: Start with a Whois lookup tool, like [Whois.com](https://www.whois.com/whois/?srsltid=AfmBOorV_IAUKEnEOlPVQnx6HTnw5XA5FImIyRHXZL89jiuyngGEexlH). Enter the domain name, and you’ll get a detailed report. Pay attention to the “Registrar” or “Hosting Provider” sections, which often reveal the **web hosting company** or **web host**.
 
-![](./whois.png)
+![](./whois.webp)
 
 - **Hosting checker tools**: Websites like [HostingChecker.com](http://hostingchecker.com/) or [WhoIsHostingThis.com](http://whoishostingthis.com/) are dedicated to identifying **web hosting companies**. Simply enter the URL, and these tools will do the rest, giving you the name of the **web host** in seconds.
 
-![](./hostingchecker.png)
+![](./hostingchecker.webp)
 
 - **Reverse IP lookup**: For a more detailed approach, try a reverse IP lookup using [ViewDNS.info](http://viewdns.info/). This can show you all the domains hosted on the same **web server**, which can sometimes help you identify the **web hosting provider**.
 
-![](./viewdns.png)
+![](./viewdns.webp)
 
 ### **2. Analyze DNS records for clues**
 
@@ -34,7 +34,7 @@ Another method to uncover a **web hosting service provider** is by analyzing its
 
 - **DNS Lookup Tools**: Tools like MXToolbox or DNSstuff can perform DNS lookups for you. Enter the domain name to see its DNS records. The nameservers (NS records) often point directly to the **web hosting company**. For example, if you see ns1.bluehost.com, the site is likely hosted by Bluehost, one of the top **web hosting companies**.
 
-![](./mxtoolbox.png)
+![](./mxtoolbox.webp)
 
 ### **3. Inspect the website’s source code**
 
@@ -49,11 +49,11 @@ For those who are more technically inclined, command-line tools offer another wa
 
 - **Using nslookup**: Open your command line interface and type nslookup followed by the domain name. This will return the IP address and sometimes the **web hosting provider**’s information.
 
-![](./nslookup.png)
+![](./nslookup.webp)
 
 - **Using traceroute**: The traceroute (or tracert on Windows) command shows the path your connection takes to reach the server. This path can sometimes reveal the data center or **web hosting provider** involved.
 
-![](./traceroute.png)
+![](./traceroute.webp)
 
 ### **5. Contact the website owner**
 

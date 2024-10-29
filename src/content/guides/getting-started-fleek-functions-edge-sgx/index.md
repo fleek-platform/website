@@ -2,8 +2,8 @@
 title: 'Getting started with Edge SGX & Fleek Functions: Run, decrypt, and deploy WASM code with Fleek Functions'
 date: 2024-09-10
 desc: 'Learn how to run, decrypt and deploy WASM code with Fleek Functions'
-thumbnail: './functionsandsgx.png'
-image: './functionsandsgx.png'
+thumbnail: './functionsandsgx.webp'
+image: './functionsandsgx.webp'
 author: 'Fleek'
 ---
 
@@ -178,7 +178,7 @@ This stage only involves 3 steps.
 
 1. Go to the Functions tab to obtain the IPFS hash. We will add this to the IPFS URL to fetch the `wasm` file hash.
 
-![](./image1.png)
+![](./image1.webp)
 
 The IPFS URL as in:
 

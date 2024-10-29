@@ -2,8 +2,8 @@
 title: 'Build3rs Stack: XMTP'
 date: 2023-08-16
 desc: "The builder's guide to XMTP- the decentralized protocol providing encrypted, interoperable messaging capabilities to users, wallets, and apps"
-thumbnail: './xmtp_thumbnail.jpg'
-image: './xmtp_thumbnail.jpg'
+thumbnail: './xmtp_thumbnail.webp'
+image: './xmtp_thumbnail.webp'
 author:
   - 'Fleek'
 ---
@@ -14,7 +14,7 @@ Welcome back to Build3rs Stack, our web3 infrastructure overview series! This we
 
 ## TLDR: how does XMTP work?
 
-![](./xmtp-phone.png)
+![](./xmtp-phone.webp)
 
 XMTP is a protocol built across distributed nodes to provide encrypted, interoperable messaging capabilities to users, wallets and apps. XMTP allows users to chat with each other with assurance that their data is safe. Wallets and apps can offer messaging functionality by integrating XMTP into their products.
 
@@ -38,7 +38,7 @@ The client layer is made of XMTP message API clients from apps built with the SD
 
 The final layer is apps building on top of XMTP!
 
-![](./xmtp-layers.png)
+![](./xmtp-layers.webp)
 
 ---
 

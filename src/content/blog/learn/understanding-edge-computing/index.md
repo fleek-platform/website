@@ -2,8 +2,8 @@
 title: 'A Comprehensive Guide to Edge Networks: Making Computation Lightweight'
 date: 2024-07-24
 desc: 'Edge computing, the internet’s backbone, is leaning toward decentralization for more performant and censorship-resistant computation. Learn more'
-thumbnail: './edgenet.png'
-image: './edgenet.png'
+thumbnail: './edgenet.webp'
+image: './edgenet.webp'
 author:
   - 'Fleek'
 ---
@@ -16,7 +16,7 @@ We all know data and digital footprint are valuable resources and their processi
 
 Now, look at the current cloud server locations of Google and how underserved Africa, LATAM, and Asia are. Even a basic Google search in such locations needs to traverse many miles before the data is retrieved and made available to the user.
 
-![](./edgemap.png)
+![](./edgemap.webp)
 
 > Source: <u>[Google](https://cloud.google.com/about/locations#lightbox-regions-map)</u>
 

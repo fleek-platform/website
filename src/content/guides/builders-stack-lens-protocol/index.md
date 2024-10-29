@@ -2,8 +2,8 @@
 title: 'Build3rs Stack: Lens Protocol'
 date: 2023-04-07
 desc: 'The builders guide to Lens Protocol, the decentralized and composable social graph.'
-thumbnail: './lens-builders.png'
-image: './lens-builders.png'
+thumbnail: './lens-builders.webp'
+image: './lens-builders.webp'
 ---
 
 Welcome to the Build3rs Stack, Fleek’s **web3 infrastructure overview series**. This week we will take a look at [Lens Protocol](https://lens.xyz) - A decentralized social media protocol! We will talk in depth about its main features, resources, and all the necessary information you need to get started.
@@ -14,7 +14,7 @@ In a nutshell, Lens Protocol is a **decentralized and composable social graph**,
 
 ## TL;DR: What is Lens Protocol?
 
-![](./banner-lens.png)
+![](./banner-lens.webp)
 
 Lens Protocol is a **Web3-based social graph** implemented on Polygon PoS. The main idea of this is to create a completely composable and **user-owned** social network. Designed with modularity as a core principle, the protocol allows for the seamless addition of new functionalities and improvements while preserving the immutability of user-generated content and social connections.
 

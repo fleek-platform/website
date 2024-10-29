@@ -2,8 +2,8 @@
 title: 'Sites Deployments Release on the CLI Beta.'
 date: 2023-02-01
 desc: 'New features are coming to the CLI! Today we are releasing the Sites Deployments service to the CLI for developers to start testing.'
-thumbnail: './clisitedeployments.png'
-image: './clisitedeployments.png'
+thumbnail: './clisitedeployments.webp'
+image: './clisitedeployments.webp'
 ---
 
 The beta’s growing, and with new testers, new features are coming to the CLI! Today we are releasing the **Sites Deployments service** to the CLI for developers to start testing and [share their feedback](https://discord.gg/fleek) on.
@@ -14,7 +14,7 @@ Step aside, it’s time to host some sites on IPFS! If you want a quick-start, v
 
 ## Static Sites Deployments on the CLI
 
-![Sites Deployment with Fleek promotional banner](https://storage.fleek.ooo/27a60cdd-37d3-480c-ae88-3ad4ca886b13-bucket/imgs/site-demo.png)
+![Sites Deployment with Fleek promotional banner](https://storage.fleek.ooo/27a60cdd-37d3-480c-ae88-3ad4ca886b13-bucket/imgs/site-demo.webp)
 
 The Sites services on Fleek will allow anyone to upload and easily maintain static sites, stored and served by Web3 protocols, starting with IPFS. Visit the [Sites documentation](/docs/cli/sites/) to learn how to get your first project live.
 

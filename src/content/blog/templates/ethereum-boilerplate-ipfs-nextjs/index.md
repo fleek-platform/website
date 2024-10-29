@@ -2,8 +2,8 @@
 title: 'Build a dApp with Fleek’s Ethereum Boilerplate, and Host it on IPFS.'
 date: 2023-02-17
 desc: 'Build an Ethereum dApp end-to-end with a fully open-source boilerplate with no binding dependencies, and a next.js frontend.'
-thumbnail: './osethereumboilerplate.png'
-image: './osethereumboilerplate.png'
+thumbnail: './osethereumboilerplate.webp'
+image: './osethereumboilerplate.webp'
 ---
 
 Juan here from the DevRel team! dApps are gaining popularity due to their decentralized nature, which provides enhanced security and transparency to users. However, **developing a dApp from scratch can be a challenging task**.
@@ -61,7 +61,7 @@ You can see the implementation of the Token contract at contracts/Token.sol, and
 
 ## The Next-js Frontend
 
-![Ethereum transfer example interface](https://storage.fleek.ooo/27a60cdd-37d3-480c-ae88-3ad4ca886b13-bucket/imgs/ethereum-frontend-nextjs.png)
+![Ethereum transfer example interface](https://storage.fleek.ooo/27a60cdd-37d3-480c-ae88-3ad4ca886b13-bucket/imgs/ethereum-frontend-nextjs.webp)
 
 _A simple frontend base with Rainbowkit-enabled authentication and a transfer test._
 
@@ -71,7 +71,7 @@ Next.js was chosen as the framework of choice due to its blazing-fast speed and 
 
 A cool piece is that if you need to access your **contract's ABI or address, you can find them in frontend/contracts/contracts.json**. This file contains a field called contracts, which includes the ABI and the address of each contract. Here's an example of what you can expect in the contracts.json file.
 
-![contracts.json code sample](https://storage.fleek.ooo/27a60cdd-37d3-480c-ae88-3ad4ca886b13-bucket/imgs/abi-code.png)
+![contracts.json code sample](https://storage.fleek.ooo/27a60cdd-37d3-480c-ae88-3ad4ca886b13-bucket/imgs/abi-code.webp)
 
 ---
 
@@ -81,7 +81,7 @@ To customize the boilerplate, **you must check a few files and folders**. You ca
 
 Each contract should include a deployment function located inside the `deploy` folder. Let's check the [001_deploy_t_ken.ts](https://github.com/fleekxyz/ethereum-boilerplate/blob/main/deploy/001_deploy_token.ts) file:
 
-![deploy_token.js file code sample](https://storage.fleek.ooo/27a60cdd-37d3-480c-ae88-3ad4ca886b13-bucket/imgs/deploy-token.png)
+![deploy_token.js file code sample](https://storage.fleek.ooo/27a60cdd-37d3-480c-ae88-3ad4ca886b13-bucket/imgs/deploy-token.webp)
 
 The deploy function receives as a parameter a `HardhatRuntimeEnvironment`, which **comes in handy for accessing things like the network you’re** **deploying to**, and the named accounts (specified on hardhat.config.ts). You can check hardhat’s documentation on the `HardhatRuntimeEnvironment` [here](https://hardhat.org/hardhat-runner/docs/advanced/hardhat-runtime-environment).
 

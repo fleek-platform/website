@@ -2,8 +2,8 @@
 title: 'Fleek Leak 02'
 date: 2023-01-25
 desc: 'Time for a development update ⚡️ Over the last few weeks we’ve been jamming on our CLI beta (Jan 18th), adding compute to Fleek, and an NFAs MVP. Let’s dive into why & what you can expect!'
-thumbnail: './fleekleakjan26.png'
-image: './fleekleakjan26.png'
+thumbnail: './fleekleakjan26.webp'
+image: './fleekleakjan26.webp'
 ---
 
 Issue number two of the Fleek Leak is here fam! ⚡ We’re keeping the bi-weekly pace up: a release one week, and a development update on the other.
@@ -44,7 +44,7 @@ While Sites & Domains are landing on the CLI soon for Beta testing, we are prepa
 
 The team is working on a simple drag and drop interface for the app’s ui, **to allow users to pin files onto IPFS via a simple drag and drop interface**.
 
-![CLI & UI behind the scene SDK funney meme](https://storage.fleek.ooo/27a60cdd-37d3-480c-ae88-3ad4ca886b13-bucket/imgs/meme.png)
+![CLI & UI behind the scene SDK funney meme](https://storage.fleek.ooo/27a60cdd-37d3-480c-ae88-3ad4ca886b13-bucket/imgs/meme.webp)
 
 For that, we are using an early version of the Fleek SDK, which is now powering the CLI. We are working on a node version of the SDK and starting to integrate it into the UI and browsers overall. This work will set the foundation to prepare the SDK for public use, as we remove dependencies to enable client-use and add a user permissioning layer.
 

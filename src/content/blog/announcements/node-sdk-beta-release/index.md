@@ -2,8 +2,8 @@
 title: 'The Fleek Node SDK Beta Has Released!'
 date: 2023-03-24
 desc: 'The Node SDK is now live, integrate Fleek’s services into Node.js applications or environments!'
-thumbnail: './nodesdkbeta.png'
-image: './nodesdkbeta.png'
+thumbnail: './nodesdkbeta.webp'
+image: './nodesdkbeta.webp'
 ---
 
 We’re excited to announce that the beta for our **Node SDK is now live**, and ready for developers to start integrating Fleek’s services!
@@ -14,7 +14,7 @@ Let’s dive into this release, and do a rundown of what you can build and achie
 
 ## The Fleek Node.js SDK
 
-![](./nodejs-code.png)
+![](./nodejs-code.webp)
 
 First in our Beta came the CLI, an interface to use Fleek.xyz’ services from the command-line helping developers do quick storage operations or site deployments through Fleek.
 

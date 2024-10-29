@@ -2,8 +2,8 @@
 title: "My links aren't resolving"
 date: 2023-03-15
 desc: 'This tutorial covers creating a new Next.js App, adding a custom domain, and optimizing your next.config.js file.'
-thumbnail: './links-not-resolving.png'
-image: './links-not-resolving.png'
+thumbnail: './links-not-resolving.webp'
+image: './links-not-resolving.webp'
 ---
 
 ## Fixing Fleek IPFS Resolve Errors with \_redirects

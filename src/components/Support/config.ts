@@ -2,19 +2,19 @@ export const categoryCardItems = [
   {
     id: '1',
     link: '/references',
-    image: '/images/troubleshooting.png',
+    image: '/images/troubleshooting.webp',
     title: 'References',
   },
   {
     id: '2',
     link: '/guides',
-    image: '/images/guides.png',
+    image: '/images/guides.webp',
     title: 'Guides',
   },
   {
     id: '3',
     link: '/billing',
-    image: '/images/billing.png',
+    image: '/images/billing.webp',
     title: 'Billing',
   },
 ];

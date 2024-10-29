@@ -40,7 +40,7 @@ export const iconsCollection = [
     title: 'Cosmos',
   },
   {
-    image: '/images/base-icon.png',
+    image: '/images/base-icon.webp',
     title: 'Base',
   },
   {

@@ -2,8 +2,8 @@
 title: 'Deploying Solana Blinks with Fleek Functions: A Step-by-Step Guide'
 date: 2024-07-17
 desc: 'A deep dive into Solana Blinks and how to deploy them with Fleek Functions'
-thumbnail: './Fleek-Blog-Solana_Blinks-Thumbnail_v1.png'
-image: './Fleek-Blog-Solana_Blinks-Thumbnail_v1.png'
+thumbnail: './Fleek-Blog-Solana_Blinks-Thumbnail_v1.webp'
+image: './Fleek-Blog-Solana_Blinks-Thumbnail_v1.webp'
 author: 'Kanishk Khurana'
 ---
 
@@ -226,7 +226,7 @@ if (method === 'POST') {
 } else {
   const resp = {};
   resp.icon =
-    'https://t3.ftcdn.net/jpg/05/59/27/48/360_F_559274893_O9iSRQwTKIkAooNTglilMgx2yMcXK9Or.jpg';
+    'https://t3.ftcdn.net/jpg/05/59/27/48/360_F_559274893_O9iSRQwTKIkAooNTglilMgx2yMcXK9Or.webp';
   resp.title = 'Actions on Fleek';
   resp.description = 'Deploy your actions on fleek network';
   resp.label = 'Activate Action';
@@ -292,15 +292,15 @@ Finally, head over to [dial.to](https://dial.to/devnet) to unfurl your Fleek Fun
 
 Paste the Fleek Network URL in the input box and press submit.
 
-![](./dialect.png)
+![](./dialect.webp)
 
 Here is what the Solana Blink will look like -
 
-![](./blink.png)
+![](./blink.webp)
 
 After the user clicks the “Activate Action” button, the wallet will get triggered and as the transaction is confirmed, the blockchain links reach their final state as follows -
 
-![](./unfurl.png)
+![](./unfurl.webp)
 
 > ⚠️ : to successfully unfurl these links on apps and websites your Solana Blink must be registered with Dialect. To do that please [fill this form](https://airtable.com/appGlCDHyLzKnyljX/pagIjqCnWiA7jppHM/form).
 

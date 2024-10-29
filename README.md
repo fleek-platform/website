@@ -1,4 +1,4 @@
-![](public/images/repo/repo-banner.png?202404161720)
+![](public/images/repo/repo-banner.webp?202404161720)
 
 # ⚡️Fleek.xyz Website
 
@@ -9,56 +9,56 @@ This repository contains the source code and assets for the Fleek.xyz website, w
 ## 📒 Content
 
 - [Setup](#setup)
-    - [Requirements](#%EF%B8%8F-requirements)
-    - [Install](#-install)
-    - [Develop](#%EF%B8%8Fdevelop)
-      - [EnvVars](#env-vars)
-    - [Build](#%EF%B8%8F-build)
-    - [Preview (locally)](#-preview-locally)
-    - [Preview (staging)](#-preview-staging)
-    - [Code formatter](#-code-formatter)
-    - [Contribution guideline](#-contribution-guideline)
+  - [Requirements](#%EF%B8%8F-requirements)
+  - [Install](#-install)
+  - [Develop](#%EF%B8%8Fdevelop)
+    - [EnvVars](#env-vars)
+  - [Build](#%EF%B8%8F-build)
+  - [Preview (locally)](#-preview-locally)
+  - [Preview (staging)](#-preview-staging)
+  - [Code formatter](#-code-formatter)
+  - [Contribution guideline](#-contribution-guideline)
 - [Instructions](#-instructions)
-    - [Blog](#-blog)
-        - [New post](#new-post)
-        - [Create a Pull request](#-create-a-pull-request)
-        - [Release to production](#🚀-release-to-production)
-    - [Docs](#-docs)
-        - [Sidebar menu item ordering](#-sidebar-menu-item-ordering)
-        - [Override category title](#-override-category-title)
-    - [Spell checker](#-spell-checker)
-    - [Announcement Marquee](#announcement-marquee)
-    - [Admonitions](#-admonitions)
-    - [Navigation bar](#-navigation-bar)
-        - [Configuration](#-configuration)
-    - [Metadata](#metadata)
-        - [Open Graph preview](#open-graph-preview)
-        - [Troubleshooting open graph](#troubleshooting-open-graph)
-        - [Customize Blog Categories](#customize-blog-categories)
+  - [Blog](#-blog)
+    - [New post](#new-post)
+    - [Create a Pull request](#-create-a-pull-request)
+    - [Release to production](#🚀-release-to-production)
+  - [Docs](#-docs)
+    - [Sidebar menu item ordering](#-sidebar-menu-item-ordering)
+    - [Override category title](#-override-category-title)
+  - [Spell checker](#-spell-checker)
+  - [Announcement Marquee](#announcement-marquee)
+  - [Admonitions](#-admonitions)
+  - [Navigation bar](#-navigation-bar)
+    - [Configuration](#-configuration)
+  - [Metadata](#metadata)
+    - [Open Graph preview](#open-graph-preview)
+    - [Troubleshooting open graph](#troubleshooting-open-graph)
+    - [Customize Blog Categories](#customize-blog-categories)
 - [Development](#-development)
-    - [Services](#services)
-      - [Support](#support)
-        - [Setup the Service](#setup-the-service)
-        - [Tokens](#tokens)
-        - [Local API](#local-api)
-        - [Interact with the API](#interact-with-the-api)
-        - [Production Service Setup](#production-service-setup)
-      - [Search](#🔎-search)
-        - [Health Check](#health-check)
-      - [Indexer](#indexer)
-        - [Put markdown content](#put-markdown-content-development)
-        - [Query via cURL](#query-via-curl)
-        - [Multi-Index Search](#multi-index-search)
-        - [Delete Indexes](#💣-delete-indexes)
-        - [Manual Indexation](#manual-indexation-cicd)
-      - [Images (optimization)](#-images-optimization)
+  - [Services](#services)
+    - [Support](#support)
+      - [Setup the Service](#setup-the-service)
+      - [Tokens](#tokens)
+      - [Local API](#local-api)
+      - [Interact with the API](#interact-with-the-api)
+      - [Production Service Setup](#production-service-setup)
+    - [Search](#🔎-search)
+      - [Health Check](#health-check)
+    - [Indexer](#indexer)
+      - [Put markdown content](#put-markdown-content-development)
+      - [Query via cURL](#query-via-curl)
+      - [Multi-Index Search](#multi-index-search)
+      - [Delete Indexes](#💣-delete-indexes)
+      - [Manual Indexation](#manual-indexation-cicd)
+    - [Images (optimization)](#-images-optimization)
 - [Migration](#-migration)
-    - [Migrate Gatsby content](#migrate-gatsby-content)
+  - [Migrate Gatsby content](#migrate-gatsby-content)
 - [Custom data](#custom-data)
-    - [Get latest posts](#get-latest-posts)
+  - [Get latest posts](#get-latest-posts)
 - [Video Content](#video-content)
 - [Changelog Resources](#changelog-resources)
-  
+
 # Setup
 
 ## ⚙️ Requirements
@@ -206,9 +206,9 @@ slug: my-blog-post
 category: Announcements
 date: 2024-01-31
 desc: A short description about my blog post
-thumbnail: "./thumbnail.jpg"
-image: "./main-image.jpg"
-author: "Fleek"
+thumbnail: './thumbnail.webp'
+image: './main-image.webp'
+author: 'Fleek'
 ---
 ```
 
@@ -221,9 +221,9 @@ slug: my-blog-post
 category: Announcements
 date: 2024-01-31
 desc: A short description about my blog post
-thumbnail: "./thumbnail.jpg"
-image: "./main-image.jpg"
-author: "Fleek"
+thumbnail: './thumbnail.webp'
+image: './main-image.webp'
+author: 'Fleek'
 ---
 
 Dive into a world of concise knowledge and thought-provoking ideas. Whether you're a seasoned reader or a curious newcomer, this blog post promises to captivate your mind and leave you pondering long after you've finished reading. So grab your favorite beverage, find a cozy spot, and let's explore together!
@@ -232,7 +232,7 @@ Dive into a world of concise knowledge and thought-provoking ideas. Whether you'
 
 In the world where text is text, I show you an image:
 
-![My image](./my-image.jpg)
+![My image](./my-image.webp)
 ```
 
 💡 Would like to place static video content? Learn how to work with video content [here](#video-content).
@@ -243,7 +243,7 @@ Creating a document in the **Docs** section is similar to **Blog**.Learn how to 
 
 ## 🎰 Sidebar menu item ordering
 
-Editing the menu and sidebar is crucial. These elements serve as the primary navigation for your visitors, guiding them through your content. 
+Editing the menu and sidebar is crucial. These elements serve as the primary navigation for your visitors, guiding them through your content.
 
 To reorder menu items, edit the **docs -> menu -> order** section in the settings file located in **src/settings.json**.
 
@@ -279,7 +279,7 @@ Suppose that you have the directory names:
 ```sh
 ├── CLI
 │   ├── Applications
-│   └── verify-domain.png
+│   └── verify-domain.webp
 ├── My-Menu-Item
 │   ├── index.mdx
 │   └── Sites
@@ -307,14 +307,14 @@ Considering the normalization conventions of the directory names, it'd be much p
 ```sh
 ├── CLI
 │   ├── Applications
-│   └── verify-domain.png
+│   └── verify-domain.webp
 ├── Custom_name
 │   ├── index.mdx
 │   └── Sites
 └── index.mdx
 ```
 
-💡 Bear in mind that underscores (_) are replaced by white-space when humanized by default. The dashes are kept to comply with terms or names, e.g. "pre-release".
+💡 Bear in mind that underscores (\_) are replaced by white-space when humanized by default. The dashes are kept to comply with terms or names, e.g. "pre-release".
 
 ## 🥷 Create a Pull request
 
@@ -332,11 +332,11 @@ Here's how to create a new blog post content using the GitHub web interface:
 src/content/blog
 ├── announcements
 ├── changelog-march-11
-│   ├── fleekchangelog01mar11.png
+│   ├── fleekchangelog01mar11.webp
 │   └── index.md
 └── fleek-release-notes-v004
-    ├── Log-in-connections.png
-    ├── fleekreleasenotes06.jpg
+    ├── Log-in-connections.webp
+    ├── fleekreleasenotes06.webp
     └── index.md
 
 4 directories, 5 files
@@ -346,11 +346,11 @@ src/content/blog
 
 Click on the file tree icon to expand it.
 
-![File tree](public/images/repo/github-file-tree-collapsed.png?202404161822)
+![File tree](public/images/repo/github-file-tree-collapsed.webp?202404161822)
 
 Once expanded you should see the file tree.
 
-![File tree expanded](public/images/repo/github-file-tree-expanded.png?202404161824)
+![File tree expanded](public/images/repo/github-file-tree-expanded.webp?202404161824)
 
 #### 3) Create a branch
 
@@ -358,7 +358,7 @@ Click on the drop-down menu and type a new name. Make sure that you follow the n
 
 For example, in the image we see the creation of a branch named **docs/my-new-branch**
 
-![New branch](public/images/repo/github-new-branch.png?202404161826)
+![New branch](public/images/repo/github-new-branch.webp?202404161826)
 
 Click in the "Create branch docs/my-new-branch from develop".
 
@@ -366,13 +366,13 @@ Click in the "Create branch docs/my-new-branch from develop".
 
 To create a new directory in a repository click “create a new file.” Type your new directory's name in the area where you would write the file name, and at the end of the file name type a "/" to initialize it as a directory. After this you can create a new file in the directory.
 
-![Create directory](public/images/repo/create-new-directory.png?202404161826)
+![Create directory](public/images/repo/create-new-directory.webp?202404161826)
 
 #### 5) Create the "index.md"
 
 Type the name "index.md" for the new filename.
 
-![Create new file](public/images/repo/create-new-file.png?202404161826)
+![Create new file](public/images/repo/create-new-file.webp?202404161826)
 
 #### 6) Commit changes
 
@@ -388,13 +388,13 @@ Select the option "Commit directly to the docs/my-new-branch branch" and commit 
 
 #### 7) Click the filename to open it
 
-![Click filename to open](public/images/repo/click-in-filename-index-md.png?202404161826)
+![Click filename to open](public/images/repo/click-in-filename-index-md.webp?202404161826)
 
 #### 8) Click in the option "Edit this file" to edit
 
 In the right side of the window, locate the pencil icon and click it to start editing the file.
 
-![Edit this file](public/images/repo/edit-this-file.png?202404161826)
+![Edit this file](public/images/repo/edit-this-file.webp?202404161826)
 
 #### 9) Start adding content to the file
 
@@ -407,8 +407,8 @@ slug: "put-a-title-here"
 category: "Name of category"
 date: 2024-03-11
 desc: "A short description"
-thumbnail: "./a-local-image.png"
-image: "./a-local-image.png"
+thumbnail: "./a-local-image.webp"
+image: "./a-local-image.webp"
 author: "Your name"
 ---
 
@@ -427,19 +427,20 @@ You can create a pull request by visiting the [compare](https://github.com/fleek
 
 Use the second drop box to select the branch name you have just created for your post content.
 
-![Use compare to create a new pull request](public/images/repo/use-compare-to-create-pull-request.png?202404161849)
+![Use compare to create a new pull request](public/images/repo/use-compare-to-create-pull-request.webp?202404161849)
 
 Press the "Create pull request" and fill up the following fields by providing a title for your pull request and a description.
 
 To complete select "Create pull request".
 
-![Pull request form](public/images/repo/pull-request-form.png?202404161849)
+![Pull request form](public/images/repo/pull-request-form.webp?202404161849)
 
 ## 🚀 Release to Production
 
 You can release to production following a linear strategy. This assumes that the convention "main" branch is of linear history and is a subset of the "develop" branch commit history. For example, the team is happy to have "develop" as where the latest version of the project exists, that "main" shouldn't diverge and only contain commits from "develop".
 
 Use-case examples:
+
 - The team has merged some feature branches into develop identified as commit hash "abc123" and want to release upto to the commit history hash "abc123" onto "main". By doing this they expect the build process to occur and deploy into the Fleek Platform
 - The team has merged several feature branches into develop identified as commit hashes `commitFeat1`, `commitFeat2` and `commitFeat3` by this historical order. It's decided to release everything in commit history until `commitFeat1`, but not `commitFeat2` and `commitFeat3`. Although, it'd be wiser to keep the feature branches in pending state as "develop" should always be in a ready state for testing and release as the team may want to release some quick hotfixes, etc
 
@@ -455,14 +456,14 @@ Find the spell checker among other checks, under the checks component at the ver
 
 It should be similar to the following:
 
-![Locate the spell checker in CI/CD](public/images/repo/spell-checker-in-cicd.png?202406011433)
+![Locate the spell checker in CI/CD](public/images/repo/spell-checker-in-cicd.webp?202406011433)
 
 ## Announcement Marquee
 
 The Announcement Marquee is placed at the very top of the site. To enable
 
-1) Open the settings file located at `/src/settings.json`.
-2) Locate the `announcementMarquee` under "site"
+1. Open the settings file located at `/src/settings.json`.
+2. Locate the `announcementMarquee` under "site"
 
 ```
 "site": {
@@ -476,8 +477,8 @@ The Announcement Marquee is placed at the very top of the site. To enable
 }
 ```
 
-3) Edit the message and url
-4) Set "visible" to true
+3. Edit the message and url
+4. Set "visible" to true
 
 ## 🎯 Admonitions
 
@@ -632,21 +633,21 @@ You'll find the elements in the HEAD section of the HTML document. For example:
 
 <head>
     ...
-    
+
     <meta property="og:url" content={`${baseUrl}/${ogMeta?.slug || ''}`} />
     <meta property="og:type" content="website" />
     <meta
       property="og:title"
       content={ogMeta?.title || settings.site.metadata.title}
     />
-    
+
     ...
-    
+
     <meta
       name="twitter:title"
       content={ogMeta?.title || settings.site.metadata.title}
     />
-    
+
     ...
 </head>
 ```
@@ -700,7 +701,7 @@ You can extend the category field with any category name. Notice that category n
 The project services have the following naming convention:
 
 ```
-<service-type>-<environment>-<region>-<instance-number>.<domain>  
+<service-type>-<environment>-<region>-<instance-number>.<domain>
 ```
 
 ### Support
@@ -775,7 +776,7 @@ A result ticket could look like:
 ```sh
 subject: Billing | Inquiry Regarding Unprocessed USDC Token Transfer
 description: Dear Fleek, I hope this message finds you well. I am writing to seek clarification regarding an outstanding transaction related to my account. On xxx, I initiated a transfer of xxx USDC tokens from my account to xxx. However, upon checking my transaction history, it appears that this transfer has not been processed.
-attachments: https://fleek-storage/user-file.png
+attachments: https://fleek-storage/user-file.webp
 ```
 
 ### Production Service Setup
@@ -829,7 +830,7 @@ A	meilisearch-prod-eu-lon-1-01.flkservices.io	165.232.41.164
 After editing your configuration options, relaunch the Meilisearch service:
 
 ```
-systemctl restart meilisearch  
+systemctl restart meilisearch
 ```
 
 ### Health check
@@ -933,9 +934,9 @@ npm run search:serve
 
 The indexation service should trigger on `push` to `main` branch. Alternatively, the repo admin can trigger the job manually.
 
-1) Open the Job runner [here](https://github.com/fleek-platform/website/actions/workflows/search-indexer.yml)
+1. Open the Job runner [here](https://github.com/fleek-platform/website/actions/workflows/search-indexer.yml)
 
-2) Locate the row "This workflow has a workflow_dispatch event trigger." and open the **Run workflow** dropdown. In the option "Use workflow from" select `main` branch.
+2. Locate the row "This workflow has a workflow_dispatch event trigger." and open the **Run workflow** dropdown. In the option "Use workflow from" select `main` branch.
 
 The Job will index data that exists in the selected `main` branch. Learn how to release to production (main branch) [here](#🚀-release-to-production).
 
@@ -950,9 +951,9 @@ For astro components (<component-name>.astro) do:
 ```
 ---
 import { Image } from 'astro:assets';
-import localBirdImage from '../../images/subfolder/localBirdImage.png';
+import localBirdImage from '../../images/subfolder/localBirdImage.webp';
 ---
-<Image src={localBirdImage} alt="A bird sitting on a nest of eggs." /> 
+<Image src={localBirdImage} alt="A bird sitting on a nest of eggs." />
 ```
 
 To learn more read [here](https://docs.astro.build/en/guides/images/)
@@ -967,31 +968,31 @@ The import name convention is camel-case and to use the prefix img, e.g. imgMyIm
 
 ```ts
 // @ts-ignore
-import imgFleekLogo from "@images/globe-with-bolt.jpg?w=480&h=480&format=webp";
+import imgFleekLogo from '@images/globe-with-bolt.webp?w=480&h=480&format=webp';
 ```
 
 Place the image in the source field:
 
 ```html
-<img src={imgFleekLogo} alt="Image text replacement" />
+<img src="{imgFleekLogo}" alt="Image text replacement" />
 ```
 
 To generate responsive images, e.g. [SrcSet](https://developer.mozilla.org/en-US/docs/Learn/HTML/Multimedia_and_embedding/Responsive_images):
 
 ```ts
 // @ts-ignore
-import avif from '@images/example.jpg?w=500;900;1200&format=avif&as=srcset'
+import avif from '@images/example.webp?w=500;900;1200&format=avif&as=srcset';
 // @ts-ignore
-import webp from '@images/example.jpg?w=500;900;1200&format=webp&as=srcset'
+import webp from '@images/example.webp?w=500;900;1200&format=webp&as=srcset';
 // @ts-ignore
-import fallback from 'example.jpg?w=700'
+import fallback from 'example.webp?w=700';
 
 const html = `<picture>
     <source srcset="${avif}" type="image/avif" />
     <source srcset="${webp}" type="image/webp" />
     <img src="${fallback}" />
 </picture>
-`
+`;
 ```
 
 Learn more [here](https://github.com/JonasKruckenberg/imagetools/)
@@ -1069,8 +1070,8 @@ A video can be declared in the markdown as follows:
 
 ```html
 <video width="100%" height="auto" autoplay loop>
- <source src="./ens_automatic_setup.mp4" type="video/mp4">
- Your browser does not support the video tag.
+  <source src="./ens_automatic_setup.mp4" type="video/mp4" />
+  Your browser does not support the video tag.
 </video>
 ```
 
@@ -1080,15 +1081,14 @@ When visiting the site content, the file will be surfaced absolutely, e.g. `<sou
 
 ```html
 <video width="100%" height="auto" autoplay loop>
- <source src="ens_automatic_setup.mp4" type="video/mp4">
- Your browser does not support the video tag.
+  <source src="ens_automatic_setup.mp4" type="video/mp4" />
+  Your browser does not support the video tag.
 </video>
 ```
 
 ❌ If missing a trailing slash it'll look for the file in the wrong location. At time of writing, trailing slash is not required to resolve the site sections, thus its best practice to declare the file location with `./` as in `<source src="./my-video-filename.mp4">` to avoid confusion.
 
 💡 At time of writing its assumed that video files are put in the directory of a markdown file named `index.md(x)`, e.g. `src/content/guides/my-guide/index.md` and `src/content/guides/my-guide/my-video.mp4`. It's also expected that the base path is the directory of the content and not cross content. It's important to respect the convention for portability, otherwise you'll find unexpected results.
-
 
 ## Changelog Resources
 

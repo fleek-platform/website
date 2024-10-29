@@ -1,4 +1,4 @@
-import SpinnerImage from '/public/images/spinner.png';
+import SpinnerImage from '/public/images/spinner.webp';
 import clsx from 'clsx';
 
 const Spinner = ({ className }: { className?: string }) => (

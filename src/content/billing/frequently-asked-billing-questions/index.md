@@ -2,8 +2,8 @@
 title: 'Frequently Asked Billing Questions'
 date: 2023-03-18
 desc: 'Comprehensive answers to common billing-related questions, including viewing invoices, updating billing information, accepted payment methods, and resolving billing issues.'
-thumbnail: './frequently-asked-billing-questions.png'
-image: './frequently-asked-billing-questions.png'
+thumbnail: './frequently-asked-billing-questions.webp'
+image: './frequently-asked-billing-questions.webp'
 ---
 
 ## How do I view my billing history and invoices?

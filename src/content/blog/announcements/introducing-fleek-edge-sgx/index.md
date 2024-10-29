@@ -2,8 +2,8 @@
 title: 'Introducing Fleek Edge SGX: decentralized, edge-optimized, and dev friendly SGX capabilities'
 date: 2024-09-05
 desc: Discover Fleek's Edge SGX service—decentralized, edge-optimized, and secure Intel SGX compute solution for privacy-focused applications with WASM support.
-thumbnail: ./sgxservicefleek.png
-image: ./sgxservicefleek.png
+thumbnail: ./sgxservicefleek.webp
+image: ./sgxservicefleek.webp
 ---
 
 # Seamlessly add permissionless, performant, and hassle-free Intel SGX capabilities into any protocol, app, or use case

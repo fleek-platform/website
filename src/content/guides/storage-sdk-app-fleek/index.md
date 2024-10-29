@@ -2,8 +2,8 @@
 title: 'Build an onchain dropbox with Fleek storage'
 date: 2024-08-02
 desc: 'How to build an onchain file storage app with the Fleek SDK and Fleek Functions'
-thumbnail: './dropbox.png'
-image: './dropbox.png'
+thumbnail: './dropbox.webp'
+image: './dropbox.webp'
 author: 'Fleek'
 ---
 

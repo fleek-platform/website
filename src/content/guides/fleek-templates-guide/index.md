@@ -2,8 +2,8 @@
 title: 'Deploying to IPFS with Fleek Templates: Step-by-Step Guide'
 date: 2023-06-14
 desc: "Learn how to effortlessly deploy your web3 projects to IPFS using Fleek's ready-to-use templates and boilerplates. Follow our step-by-step guide."
-thumbnail: './fleek-templates-thumbnail.jpg'
-image: './fleek-templates-thumbnail.jpg'
+thumbnail: './fleek-templates-thumbnail.webp'
+image: './fleek-templates-thumbnail.webp'
 author: 'Fleek'
 ---
 
@@ -71,7 +71,7 @@ This is the part where some people get a little lost, so let’s break it down. 
 
 The CLI takes over from here, uploading the corresponding files and deploying your site to IPFS with a little magic in a few minutes. You will typically get an output like this:
 
-![](./templates-deploy.png)
+![](./templates-deploy.webp)
 
 Paste the URL into your browser and check out your brand new, IPFS-hosted site!
 

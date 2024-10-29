@@ -262,7 +262,12 @@ export const Navbar: React.FC<NavbarProps> = ({
             onFocus={() => setHovering(null)}
             onMouseEnter={() => setHovering(null)}
           >
-            <img src="/svg/fleek-logo.svg" width={66} alt="fleek logo" />
+            <img
+              src="/svg/fleek-logo.svg"
+              width={66}
+              height={25}
+              alt="fleek logo"
+            />
           </Link>
           <section className="hidden md:block">
             <div className="flex items-center">

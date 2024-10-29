@@ -2,15 +2,15 @@
 title: 'The Hottest Trend of 2024: Serverless Cloud Computing'
 date: 2023-03-01
 desc: 'A deep dive into the hottest trend of 2024, serverless cloud computing'
-thumbnail: './serverlesscompute.png'
-image: './serverlesscompute.png'
+thumbnail: './serverlesscompute.webp'
+image: './serverlesscompute.webp'
 author:
   - 'Fleek'
 ---
 
 As developers aim for innovation and efficiency, serverless cloud computing has emerged as a transformative technology in 2024. This approach not only simplifies the deployment of applications but also optimizes costs and enhances scalability. In this comprehensive guide, we will dive into why it has become the hottest trend of the year and how it's reshaping the web development landscape.
 
-![serverless compute infographic](./1.png)
+![serverless compute infographic](./1.webp)
 
 ---
 
@@ -18,7 +18,7 @@ As developers aim for innovation and efficiency, serverless cloud computing has 
 
 Serverless computing is a model that allows developers to build and deploy applications without managing underlying servers. In this environment, developers focus solely on writing code, while the cloud provider handles server management tasks such as resource allocation, scaling, and maintenance. This approach differs from traditional cloud computing models where developers manage the server infrastructure.
 
-![traditional architecture vs serverless architecture](./2.png)
+![traditional architecture vs serverless architecture](./2.webp)
 
 In a serverless architecture, applications are composed of small, stateless functions that are triggered by specific events. These functions are executed only when necessary, meaning businesses pay only for the compute time and computing resources they actually use. This pay-as-you-go model is one of the key reasons why serverless computing is so cost-effective.
 
@@ -28,7 +28,7 @@ Despite its name, "serverless" doesn't mean that servers are absent. Instead, th
 
 ### **Understanding the cloud computing execution model**
 
-![saas vs paas vs iaas](./4.png)
+![saas vs paas vs iaas](./4.webp)
 
 Serverless computing falls within the broader cloud computing execution model, which includes Infrastructure as a Service (IaaS), Platform as a Service (PaaS), and Software as a Service (SaaS). Each model offers different levels of abstraction and control:
 
@@ -44,7 +44,7 @@ An emerging trend within serverless computing is the integration of edge computi
 
 This convergence of this and serverless enables a new wave of innovative cloud computing services, offering unparalleled performance and scalability. Developers can now deploy serverless functions at the edge, ensuring that applications are not only cost-effective but also highly responsive.
 
-## ![serverless cloud computing architecture](./5.png)
+## ![serverless cloud computing architecture](./5.webp)
 
 ## **Why serverless cloud computing is a hot trend in 2024**
 
@@ -130,7 +130,7 @@ A common issue with serverless computing is the "cold start" problem, where func
 
 Debugging and monitoring serverless applications can be more challenging compared to traditional architectures, due to the distributed and stateless nature of serverless functions. However, a growing number of tools and best practices are emerging to address these challenges, helping developers gain better visibility into their serverless environments.
 
-![pros and cons of serverless cloud computing](./3.png)
+![pros and cons of serverless cloud computing](./3.webp)
 
 ---
 
@@ -150,7 +150,7 @@ Fleek is a decentralized edge-optimized cloud computing platform providing an al
 
 All you need to deploy your first app on Fleek is a GitHub repository. Connect the repo to <u>[Fleek.xyz](https://fleek.xyz/)</u>, configure your build settings, and deploy the site to the decentralized web in minutes. Head to <u>[Fleek.xyz](https://fleek.xyz/)</u> to create an account!
 
-![fleek platform serverless cloud computing](./seo-trends-blog.png)
+![fleek platform serverless cloud computing](./seo-trends-blog.webp)
 
 ---
 

@@ -2,8 +2,8 @@
 title: 'Fleek.xyz Platform Update'
 date: 2023-06-30
 desc: 'Get the latest on our summer plans for the incoming Fleek.xyz launch, from NFAs, to Fleek.co Sunsetting, new features, and more!'
-thumbnail: './v1platformupdate.png'
-image: './v1platformupdate.png'
+thumbnail: './v1platformupdate.webp'
+image: './v1platformupdate.webp'
 author: 'Fleek'
 ---
 

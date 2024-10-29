@@ -52,7 +52,12 @@ const fullSlug = generateFullSlug({
     {
       entry.data?.image?.src && (
         <p>
-          <img src={entry.data.image.src} alt={entry.data.title} />
+          <img
+            src={entry.data.image.src}
+            alt={entry.data.title}
+            width={entry.data.image.width}
+            height={entry.data.image.height}
+          />
         </p>
       )
     }

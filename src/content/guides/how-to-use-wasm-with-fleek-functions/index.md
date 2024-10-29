@@ -2,8 +2,8 @@
 title: 'How to use WASM in a Fleek Function'
 date: 2024-07-30
 desc: 'Everything you need to know to get started with WASM and Fleek Functions'
-thumbnail: './wasm.png'
-image: './wasm.png'
+thumbnail: './wasm.webp'
+image: './wasm.webp'
 author:
   - 'Fleek'
 ---

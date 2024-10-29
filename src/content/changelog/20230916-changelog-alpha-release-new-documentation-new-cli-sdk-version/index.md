@@ -2,8 +2,8 @@
 title: 'Fleek Changelog: Alpha Release, New Documentation, New CLI/SDK Version'
 date: 2023-09-16
 desc: 'Take a dive into the first Fleek Release Notes- a knitty-gritty, regular release notes covering Features, Fixes, and Improvements'
-thumbnail: './fleekchangelog0916.png'
-image: './fleekchangelog0916.png'
+thumbnail: './fleekchangelog0916.webp'
+image: './fleekchangelog0916.webp'
 author:
   - 'Fleek'
 ---
@@ -29,7 +29,7 @@ So, without further ado, let’s get into it ⚡
 
 ### Projects
 
-![](./Homepage-alpha.png)
+![](./Homepage-alpha.webp)
 
 In the new Fleek, we have introduced Projects, a way to organize your sites, files, and else. This alpha release allows you to:
 
@@ -38,7 +38,7 @@ In the new Fleek, we have introduced Projects, a way to organize your sites, fil
 
 ### Sites
 
-![](./sites-alpha.png)
+![](./sites-alpha.webp)
 
 In this initial release, users can deploy/host apps via a managed deployment CI/CD in the app, or opt for the the CLI-based deployments(a.k.a. Self-Managed and built deployments). Users can:
 

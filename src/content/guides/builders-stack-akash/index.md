@@ -2,8 +2,8 @@
 title: 'Build3rs Stack: Akash'
 date: 2023-02-24
 desc: 'The builders guide to Akash Network, the most important features, applied use-cases, and why it’s important to understand what you can build with it as a web3 developer.'
-thumbnail: './akash-builders-stack.png'
-image: './akash-builders-stack.png'
+thumbnail: './akash-builders-stack.webp'
+image: './akash-builders-stack.webp'
 ---
 
 Welcome to the Build3rs Stack, our web3 infrastructure overview series! In this piece we will talk in depth about **the [Akash Network](https://akash.network/), its most important features, applied use-cases**, and why it’s important to understand what you can build with it as a web3 developer.
@@ -14,7 +14,7 @@ In a nutshell, Akash is an open, decentralized network where people can **buy an
 
 ## TL;DR: What is Akash Network and How Does it Work?
 
-!["Sovereign Infrastructure that Scales" slogan with black color background](https://storage.fleek.ooo/27a60cdd-37d3-480c-ae88-3ad4ca886b13-bucket/imgs/preview.png)
+!["Sovereign Infrastructure that Scales" slogan with black color background](https://storage.fleek.ooo/27a60cdd-37d3-480c-ae88-3ad4ca886b13-bucket/imgs/preview.webp)
 
 Imagine a **marketplace for cloud computing that operates in a decentralized and open-source environment** - that’s exactly what Akash Network is! The platform provides a solution for developers who want to create decentralized applications (web3 apps) that are also cost-effective, highly efficient, and adaptable cloud-based infrastructure.
 

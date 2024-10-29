@@ -2,8 +2,8 @@
 title: 'Fleek v0.5.0: Custom Domains for Private IPFS Gateways Release'
 date: 2023-07-06
 desc: 'With the latest update to the Fleek CLI & SDK, add a custom domain on top of your private IPFS storage gateway for an extra layer of branding, personalization, and security'
-thumbnail: './betav050.png'
-image: './betav050.png'
+thumbnail: './betav050.webp'
+image: './betav050.webp'
 author:
   - 'Fleek'
 ---

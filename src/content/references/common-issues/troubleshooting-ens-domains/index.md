@@ -2,8 +2,8 @@
 title: 'Troubleshooting ENS domains'
 date: 2023-03-17
 desc: 'This guide takes you step by step through the process of providing a unique hostname, creating a Content Acceleration Zone, and configuring domain settings.'
-thumbnail: './troubleshooting-ens-domains.png'
-image: './troubleshooting-ens-domains.png'
+thumbnail: './troubleshooting-ens-domains.webp'
+image: './troubleshooting-ens-domains.webp'
 ---
 
 ## Verifying your .eth domain was linked properly
@@ -36,7 +36,7 @@ Let's solve this.
 
 Visit the [ENS Domains App](https://app.ens.domains/) and verify your address is the domain's controller. An easy way to check this is to see if the controller address matches the registrant. If that is not the case, then Fleek is possibly still set as the controller.
 
-![registrant image](./registrant.png)
+![registrant image](./registrant.webp)
 
 **2. Change the Controller Back to Your Address**
 

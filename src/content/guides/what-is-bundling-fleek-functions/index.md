@@ -2,8 +2,8 @@
 title: 'Bundling in web development: how it works for Fleek Functions'
 date: 2024-07-22
 desc: 'An overview of how developers can reduce the number of HTTP requests required to load a webpage with Fleek Functions'
-thumbnail: './bundlingthumb.png'
-image: './bundlingthumb.png'
+thumbnail: './bundlingthumb.webp'
+image: './bundlingthumb.webp'
 author: 'Olayinka Oshidipe'
 ---
 
@@ -45,7 +45,7 @@ The <u>[Fleek CLI](https://fleek.xyz/docs/cli/)</u> manages this process with pr
 
 ### How the Fleek CLI handles bundling
 
-![](./bundlegraphic.png)
+![](./bundlegraphic.webp)
 
 1. **Loading the root file**
 

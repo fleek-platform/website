@@ -2,8 +2,8 @@
 title: 'How To Deploy a Vue.js App On Fleek: A Step-by-Step Guide for Developers'
 date: 2024-05-14
 desc: 'How to use the Fleek CLI to deploy a Vue.Js file upload web app to IPFS'
-thumbnail: './vuethumbnew.png'
-image: './vuethumbnew.png'
+thumbnail: './vuethumbnew.webp'
+image: './vuethumbnew.webp'
 author:
   - 'Olayinka Oshidipe'
 ---
@@ -35,13 +35,13 @@ The first thing we’ll need to do is create a Fleek account: head over to http:
 
 > 💡 Feel free to skip this step if you already have an account on [Fleek.xyz](https://app.fleek.xyz/)!
 
-![](./ghnextjs1.png)
+![](./ghnextjs1.webp)
 
 You’ll be prompted to create an account with your wallet or an email address. For the sake of this tutorial, we’ll be making an account using our MetaMask account.
 
 Click on the `Metamask` option from the wallet list and you’ll be presented with a **sign-in** request in your browser extension. This is to verify ownership of your account.
 
-![](./ghnextjs2.png)
+![](./ghnextjs2.webp)
 
 Once you click on the **Sign-In** button, you’ll be redirected to the Fleek Dashboard.
 
@@ -65,7 +65,7 @@ fleek login
 
 Click on the link displayed to log into your Fleek account. You should see a **Success! Logged in.**
 
-![](./svelte3.png)
+![](./svelte3.webp)
 
 Now that we've created our Fleek account and installed the CLI, let's proceed. If you want to follow along, the next step is to clone this GitHub repo. It's a Vue.js template that we'll use as the base for our file upload app: repo
 
@@ -306,7 +306,7 @@ Fill in the prompts with your responses
 
 You’ll get a few prompts, populate them as you wish:
 
-![](./svelte4.png)
+![](./svelte4.webp)
 
 - _Type the name of your site_: › `[site-name]`
   - If there’s an existing site already with this name, it may ask if you want to link to this site. Please note that when you do this, you will overwrite everything on the previous site. Ensure that this is the outcome you desire, otherwise, select **N** and create a new site.
@@ -337,15 +337,15 @@ Your site has been successfully deployed!
 
 Now head over to the dashboard [https://app.fleek.xyz](http://app.fleek.xyz/), and ensure you are on the right project (open the drop-down menu on the top left of the homepage and select the current project).
 
-![](./vuefleek1.png)
+![](./vuefleek1.webp)
 
 Click on Sites. Here, you should see your deployed site. If you’ve deployed more than one site into this project, they’ll all show up here:
 
-![](./vuefleek2.png)
+![](./vuefleek2.webp)
 
 Click on your deployed site. You should be brought to this page:
 
-![](./vuefleek3.png)
+![](./vuefleek3.webp)
 
 Click on the URL (For this example it’s https://early-motorcycle-limited.on-fleek.app/ but yours will be different) and it’ll take you to your fully functional UploadIt App!
 

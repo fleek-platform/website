@@ -2,8 +2,8 @@
 title: 'Decentralized Databases 101: An Overview of the Available Options.'
 date: 2023-03-11
 desc: "Three popular decentralized databases that have gained attention in recent years are Tableland (currently in open beta with a production launch set for 2023), Ceramic's ComposeDB (which recently entered `Beta` status), and Polybase."
-thumbnail: './ddbs.png'
-image: './ddbs.png'
+thumbnail: './ddbs.webp'
+image: './ddbs.webp'
 ---
 
 With the rise of blockchain technology and the need for decentralized systems, decentralized databases have become popular for storing and managing data.
@@ -24,13 +24,13 @@ Traditional databases are often centralized, meaning a single entity controls th
 
 ## Looking into Tableland
 
-![An alian on the mountain with vehicle](https://storage.fleek.ooo/27a60cdd-37d3-480c-ae88-3ad4ca886b13-bucket/imgs/tableland1.png)
+![An alian on the mountain with vehicle](https://storage.fleek.ooo/27a60cdd-37d3-480c-ae88-3ad4ca886b13-bucket/imgs/tableland1.webp)
 
 [Tableland](https://tableland.xyz/) is a decentralized database platform that decomposes traditional relational databases into two components: an on-chain registry with access control logic (ACL) and a network of permissionless databases. Each table is minted as an ERC721 token on the base EVM-compatible layer, with an on-chain table owner who can set ACL privileges.
 
 The off-chain Tableland network manages the creation and mutation of the table. The link between on-chain and off-chain is all handled at the contract level, with the contract pointing to the Tableland network.
 
-![app.js code sample with polygon mumbai testnet database](https://storage.fleek.ooo/27a60cdd-37d3-480c-ae88-3ad4ca886b13-bucket/imgs/code1.png)
+![app.js code sample with polygon mumbai testnet database](https://storage.fleek.ooo/27a60cdd-37d3-480c-ae88-3ad4ca886b13-bucket/imgs/code1.webp)
 
 Tableland allows for read queries through the free gateway, which can come from a simple frontend request or non-EVM blockchains. Those with proper on-chain privileges can write to a specific table. The table owner can set rules for updating/inserting/deleting values and altering data.
 
@@ -43,11 +43,11 @@ Tableland also allows for complex queries that join data from multiple tables to
 
 ## Looking into Ceramic's ComposeDB
 
-![ceramic logo with "The composable data network" message banner](https://assets.website-files.com/63dd4cd234594c8675690ca2/63f67cc47baeccbd3cd626a6_Frame%201.png)
+![ceramic logo with "The composable data network" message banner](https://assets.website-files.com/63dd4cd234594c8675690ca2/63f67cc47baeccbd3cd626a6_Frame%201.webp)
 
 ComposeDB on [Ceramic](https://ceramic.network/) is a powerful tool for building decentralized applications. Composites are groups of data moved that define the graph database schema for an application, **making it easy for different applications to reuse and share data.** Composites are created by developers in the community, and all feed into Ceramic’s ecosystem, allowing for instant interoperability without any integrations needed.
 
-![app.js code sample about ComposeDB client](https://storage.fleek.ooo/27a60cdd-37d3-480c-ae88-3ad4ca886b13-bucket/imgs/code2.png)
+![app.js code sample about ComposeDB client](https://storage.fleek.ooo/27a60cdd-37d3-480c-ae88-3ad4ca886b13-bucket/imgs/code2.webp)
 
 With **ComposeDB, every node must be backed by a SQL database, either SQLite or Postgres,** which will be used to index the data and construct the database for the data models in your Composite. Using the ComposeDB client, developers can easily make GraphQL queries and mutations against their Ceramic node. Composites and their underlying data models are designed to be reusable, making it simple to build complementary and interoperable apps.
 
@@ -58,11 +58,11 @@ With **ComposeDB, every node must be backed by a SQL database, either SQLite or 
 
 ## Looking into Polybase
 
-![Polybase logo with The web3 database slogan](https://framerusercontent.com/images/mEhXNmRzPmQr9t0ScyBfG6xRpM.png)
+![Polybase logo with The web3 database slogan](https://framerusercontent.com/images/mEhXNmRzPmQr9t0ScyBfG6xRpM.webp)
 
 [Polybase](https://polybase.xyz/) uses zk-rollups combined with native indexing. This allows for setting decentralized database rules, fast queries, and scalable writes.
 
-![app.js code sample with polybase/client](https://storage.fleek.ooo/27a60cdd-37d3-480c-ae88-3ad4ca886b13-bucket/imgs/code3.png)
+![app.js code sample with polybase/client](https://storage.fleek.ooo/27a60cdd-37d3-480c-ae88-3ad4ca886b13-bucket/imgs/code3.webp)
 
 It works like a NoSQL database, with validation rules written in JavaScript-like language, with an SDK for interacting with the data, similar to Firestore. You can also do row-level token gating and wallet-based permissions.
 

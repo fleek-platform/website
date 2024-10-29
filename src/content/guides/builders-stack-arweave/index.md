@@ -2,8 +2,8 @@
 title: 'Build3rs Stack: Arweave'
 date: 2023-02-16
 desc: "The builder's guide to Arweave: where it fits in your project's Web3 infra-stack, and what you can achieve with it."
-thumbnail: './arweave-builderstack-2.png'
-image: './arweave-builderstack-2.png'
+thumbnail: './arweave-builderstack-2.webp'
+image: './arweave-builderstack-2.webp'
 ---
 
 **Welcome to the Build3rs Stack**! In this content series we cover the most important parts of the web3 infrastructure stack for builders, and go over their applied use-cases.
@@ -14,7 +14,7 @@ image: './arweave-builderstack-2.png'
 
 ## TL;DR: What is Arweave?
 
-![arweave logo with black color circuit background](https://storage.fleek.ooo/27a60cdd-37d3-480c-ae88-3ad4ca886b13-bucket/imgs/arweave-main.png)
+![arweave logo with black color circuit background](https://storage.fleek.ooo/27a60cdd-37d3-480c-ae88-3ad4ca886b13-bucket/imgs/arweave-main.webp)
 
 While storing contract data might be efficient and possible in blockchains like Ethereum, doing so for larger sized files or bulks of databases, it’s not. Arweave, a permanent and decentralized web platform aims to solve these issues with a **data-preservation network** that decouples many storage needs from other networks (as well as other features like computation, DBs).
 

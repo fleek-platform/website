@@ -2,8 +2,8 @@
 title: 'NFT Metadata: Storage & Formatting Best Practices'
 date: 2023-03-02
 desc: 'In this guide, we go over the basic aspects of NFT metadata, the standards to follow, and some of the available options you have as a developer to store them on decentralized web3 protocols'
-thumbnail: './nft-metadata-ipfs.png'
-image: './nft-metadata-ipfs.png'
+thumbnail: './nft-metadata-ipfs.webp'
+image: './nft-metadata-ipfs.webp'
 ---
 
 NFTs are a popular way to own and trade unique digital assets, and many new applications are also arising for NFTs. However, ensuring the authenticity, ownership, and the characteristics themselves of these assets **requires storing metadata, such as the asset’s creator, transaction history, name, description, and more**. All of which are usually specified in… JSON format!
@@ -22,11 +22,11 @@ It can also raise questions about ownership, privacy, and data control. Since th
 
 A clear example of why NFTs metadata shouldn’t be stored using regular web 2.0 storage solutions is the [FTX NFT issue](https://cointelegraph.com/news/nfts-minted-on-ftx-break-highlighting-web2-hosting-flaws) after FTX crashed. As you can see in the image below, the `uri` property (which refers to the metadata file) points to FTX’s website, **which now only points to the restructuring website, meaning the metadata for this NFT is now lost.** _Image provided via @jacobdotsol on Twitter_.
 
-![NFT FTX Meta data](https://storage.fleek.ooo/27a60cdd-37d3-480c-ae88-3ad4ca886b13-bucket/imgs/nft-ftx-meta.png)
+![NFT FTX Meta data](https://storage.fleek.ooo/27a60cdd-37d3-480c-ae88-3ad4ca886b13-bucket/imgs/nft-ftx-meta.webp)
 
 The owners of this NFT can now not see the image alongside the properties and attributes specified in the metadata file.
 
-![Broken FTX NFT shown on an external NFT platform interface](https://storage.fleek.ooo/27a60cdd-37d3-480c-ae88-3ad4ca886b13-bucket/imgs/nft-broken-ftx.png)
+![Broken FTX NFT shown on an external NFT platform interface](https://storage.fleek.ooo/27a60cdd-37d3-480c-ae88-3ad4ca886b13-bucket/imgs/nft-broken-ftx.webp)
 
 This issue could have been easily avoidable if, instead of using web 2.0 storage, they had used a **decentralized storage solution like [IPFS](https://ipfs.io/) or [Arweave](https://www.arweave.org/) for saving the metadata file**, that way, a central party couldn’t modify them, and their permanence is ensured either by the network itself (e.g. Arweave) or by the Content Addressability of IPFS which makes for more trustworthy file linking.
 
@@ -57,7 +57,7 @@ In order to allow external applications like OpenSea to pull off-chain metadata 
 
 In the end, it might look something like this:
 
-![NFT Metadata Sample Code](https://storage.fleek.ooo/27a60cdd-37d3-480c-ae88-3ad4ca886b13-bucket/imgs/code-1-nft.png)
+![NFT Metadata Sample Code](https://storage.fleek.ooo/27a60cdd-37d3-480c-ae88-3ad4ca886b13-bucket/imgs/code-1-nft.webp)
 
 You can also check the [Official ERC721 metadata standard](https://github.com/ethereum/EIPs/blob/master/EIPS/eip-721.md) and [Open Sea’s guide for Metadata standards](https://docs.opensea.io/docs/metadata-standards), which covers metadata structure, attributes, numeric traits, and general good practices.
 
@@ -77,7 +77,7 @@ You can pin a file on IPFS using Fleek’s CLI by running the command `fleek ipf
     > You can visit through the gateway:
     https://ipfs.io/ipfs/QmNTCRYiZbtzDGEYtsTKwwtDVQF1XgvebudpRzcXVf5dYM
 
-![Fleek ipfs demo code sample](https://storage.fleek.ooo/27a60cdd-37d3-480c-ae88-3ad4ca886b13-bucket/imgs/code-nft-2.png)
+![Fleek ipfs demo code sample](https://storage.fleek.ooo/27a60cdd-37d3-480c-ae88-3ad4ca886b13-bucket/imgs/code-nft-2.webp)
 
 ---
 

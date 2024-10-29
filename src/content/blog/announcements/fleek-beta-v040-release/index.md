@@ -2,8 +2,8 @@
 title: 'Fleek v0.4.0: Unified GraphQL Interface, Automatic IPNS Deployments, App Credentials'
 date: 2023-05-30
 desc: 'Dive into actions you need to take to ensure your apps continue to work as expected, and everything else included in this version, with the roll-out of v0.4.0!'
-thumbnail: './betav040release.png'
-image: './betav040release.png'
+thumbnail: './betav040release.webp'
+image: './betav040release.webp'
 author: 'Fleek'
 ---
 

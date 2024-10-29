@@ -1,5 +1,5 @@
 import Text from '@components/Text';
-import imgFleekBolt from '@images/fleek-bolt.png';
+import imgFleekBolt from '@images/fleek-bolt.webp';
 
 const ActionButton: React.FC<React.PropsWithChildren> = () => {
   return (

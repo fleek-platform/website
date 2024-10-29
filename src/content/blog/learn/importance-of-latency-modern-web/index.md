@@ -2,8 +2,8 @@
 title: 'Latency is King: Why Speed is Critical for Building Apps + How to Speed Up Your App'
 date: 2024-06-06
 desc: 'A look at the importance of Latency on the modern web and tips on how to optimize your apps speed'
-thumbnail: './latencythumb.png'
-image: './latencythumb.png'
+thumbnail: './latencythumb.webp'
+image: './latencythumb.webp'
 author:
   - 'Fleek'
 ---
@@ -26,7 +26,7 @@ Let’s start with some [facts](https://www.webfx.com/blog/seo/site-speed-statis
 - [79% of shoppers](https://huckabuy.com/20-important-page-speed-bounce-rate-and-conversion-rate-statistics/) who experience slow site loading say they won’t return to buy again;
 - Pages that take only 1-2 seconds to load have an [average bounce rate of 9%](https://royal.pingdom.com/page-load-time-really-affect-bounce-rate/), but pages that take 5 seconds to load have an average bounce rate of 38% (322% increase)
 
-![](./slowloading.png)
+![](./slowloading.webp)
 
 ## Slow Loading = Bad SEO
 
@@ -36,7 +36,7 @@ Let’s start with some [facts](https://www.webfx.com/blog/seo/site-speed-statis
 - The #1 search result on Google gets [39.8% of all clicks](https://www.smartinsights.com/search-engine-optimisation-seo/seo-analytics/comparison-of-google-clickthrough-rates-by-position/); #2 gets 18.7%; #3 gets 10.2%; #4 gets 7.2% (75.9% of all clicks across top 4 results);
 - Only [6.6% of Google searchers](https://www.linkedin.com/pulse/how-important-page-one-search-results-2023-dave-meyer/) go beyond page 1
 
-![](./badseo.png)
+![](./badseo.webp)
 
 SEO is super important for most sites/apps because it helps you gain visibility for search queries related to your product or service organically. And with 8.5 billion Google searches a day (2 trillion a year), getting organic search traffic can have a very material impact on the success of your project. But as the data shows, Google has no interest in showing users slow-loading sites/apps, as they know better than anybody how big of an impact slow loading has on user behavior. Google just like everybody else wants their users to have a good experience, so they have no interest in showing them slow-loading sites/apps.
 
@@ -49,7 +49,7 @@ SEO is super important for most sites/apps because it helps you gain visibility 
 
 There are over [5.3 billion mobile internet users globally](https://whatsthebigdata.com/mobile-internet-traffic/) already, and mobile’s share of global internet traffic has witnessed growth of 75% from 2015 to 2024. This trend is almost certain to continue as things like 5G, Starlink, and other connectivity improvements continue to advance, coupled with the behavior and usage preferences of the younger generations. It’s not enough for your site/app to perform well on desktop, it needs to be fully mobile optimized in order to keep up with today's (and tomorrow's) modern internet users.
 
-![](./mobileseo.png)
+![](./mobileseo.webp)
 
 ## How to Speed Up Your App
 

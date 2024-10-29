@@ -2,8 +2,8 @@
 title: 'The Custom Domains Service Arrives to the CLI Beta!'
 date: 2023-03-16
 desc: 'The Domains Service is now live, map any DNS domain to your Fleek-deployed sites with this new feature on the CLI.'
-thumbnail: './customdns.png'
-image: './customdns.png'
+thumbnail: './customdns.webp'
+image: './customdns.webp'
 ---
 
 Thursday’s release day, and today we delivering another key service on the Fleek CLI beta: **the Custom Domains Service, allowing you to map DNS domains to your Fleek sites**!
@@ -14,7 +14,7 @@ Any user can now fully deploy a static website onto IPFS, add a DNS domain to it
 
 ## Configure a DNS Domain with your IPFS Website
 
-![](./IPFS-DNS.png)
+![](./IPFS-DNS.webp)
 
 Fleek’s Custom Domain service is a set-it-and-forget-it feature. Once you configure your domain with your site, the content will be automatically updated without the need of your intervention.
 

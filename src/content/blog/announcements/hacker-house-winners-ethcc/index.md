@@ -2,8 +2,8 @@
 title: 'Building with Fleek Functions: Winners from the First Fleek Hacker House'
 date: 2024-07-16
 desc: 'An overview of winners and projects from the inaugural Fleek Hacker House'
-thumbnail: './hhwinnersthumb.png'
-image: './hhwinnersthumb.png'
+thumbnail: './hhwinnersthumb.webp'
+image: './hhwinnersthumb.webp'
 author: 'Fleek'
 ---
 
@@ -29,9 +29,9 @@ Two hackers built a classic roguelike dungeon crawler and deployed this as a Far
 
 ⚡Source Code - <u>https://github.com/eugenioclrc/fleek-user-dungeons</u> and <u>https://github.com/eugenioclrc/fleek-eggs</u>
 
-![](./image8.png)
+![](./image8.webp)
 
-![](./image5.jpg)
+![](./image5.webp)
 
 ### Cron Jobs and AVS Boilerplate on Fleek
 
@@ -43,9 +43,9 @@ Three hackers built 2 solutions that leverage EigenLayer’s AVS capabilities al
 
 ⚡Source Code - <u>https://github.com/mbcse/fleek-automater</u> and <u>https://github.com/supernovahs/hello-avs-fleek/tree/main</u>
 
-![](./image7.jpg)
+![](./image7.webp)
 
-![](./image1.jpg)
+![](./image1.webp)
 
 ### WASM Bundler and Image Optimizer
 
@@ -57,7 +57,7 @@ One of the coolest things about Fleek is its open source nature where everyone c
 
 ⚡Source Code - <u>https://github.com/BlossomLabs/fleek-image-optimizer</u> and <u>https://github.com/BlossomLabs/fleek-function-wasm-starter</u>
 
-![](./image3.png)
+![](./image3.webp)
 
 ### MEV-aware OrderBook DEX
 
@@ -69,7 +69,7 @@ One hacker built a MEV-aware OrderBook DEX implemented as a micro-rollup using t
 
 ⚡Source Code - <u>https://github.com/eshaan7/orderbook-dex-mru</u>
 
-![](./image2.jpg)
+![](./image2.webp)
 
 ### 2FA on Fleek
 
@@ -81,7 +81,7 @@ One hacker made a tool for Two-Factor Authentication (2FA) that leverages the po
 
 ⚡Source Code - <u>https://github.com/Kourin1996/telegram-2fa</u>
 
-![](./image4.jpg)
+![](./image4.webp)
 
 We were super impressed with all the hackers for coming up with such interesting ideas and solutions. Their feedback also has led to significant improvements to Fleek Functions and the DevEx around them, including the Fleek CLI. Also special shoutout to all the speakers who took out time and came to the hacker house to explain valuable concepts and help the hackers build end-to-end solutions with sound technical architectures. We had talks led by team members from <u>[@eigenlayer](https://x.com/eigenlayer)</u>, <u>[@AvailProject](https://x.com/AvailProject)</u>, <u>[@KakarotZkEvm](https://x.com/KakarotZkEvm)</u>, <u>[@berachain](https://x.com/berachain)</u>, <u>[@inconetwork](https://x.com/inconetwork)</u>, and <u>[@Gaianet_AI](https://x.com/Gaianet_AI)</u>.
 

@@ -2,8 +2,8 @@
 title: 'Introducing Fleek Functions'
 date: 2024-06-06
 desc: 'Fleek Functions are lightning fast, auto-scaling edge functions built on top of Fleek Networks onchain cloud infrastructure.'
-thumbnail: './fleekfunctionsthumb.png'
-image: './fleekfunctionsthumb.png'
+thumbnail: './fleekfunctionsthumb.webp'
+image: './fleekfunctionsthumb.webp'
 author: 'Fleek'
 ---
 
@@ -23,7 +23,7 @@ Now let’s dive straight into everything developers should know about Fleek Fun
 
 There are a few key benefits to consider when evaluating Fleek Functions for use within your application:
 
-![](latencygraphic.png)
+![](latencygraphic.webp)
 
 _Results from previous Fleek Functions early performance test. See full results [here](https://blog.fleek.network/post/fleek-network-testnet-phase-3-results/)_
 

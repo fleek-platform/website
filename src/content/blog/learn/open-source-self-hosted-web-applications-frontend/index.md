@@ -2,8 +2,8 @@
 title: 'The future of front-end: Open source, self-hosted web applications'
 date: 2023-02-23
 desc: 'Discover how Fleek integrates open-source and self-hosting with cloud benefits to enhance developer freedom, reduce costs, and boost performance.'
-thumbnail: './self-hosted.png'
-image: './self-hosted.png'
+thumbnail: './self-hosted.webp'
+image: './self-hosted.webp'
 author:
   - 'Fleek'
 ---
@@ -40,7 +40,7 @@ While self-hosting brings substantial benefits, it also comes with challenges:
 - **Open-source commitment**: One of Fleek’s most exciting initiatives is its commitment to open-source. Fleek is actively working to open-source its platform, which will allow developers not only to contribute to the development of the platform itself but also to inspect, modify, and self-host it entirely in the near future. This level of transparency is critical for developers who value independence and long-term control over their hosting environment.
 - **Self-hosting with cloud benefits**: With Fleek, you don’t have to choose between full self-hosting and cloud services. Fleek gives you the best of both worlds—total control over your application while leveraging the auto-scaling, edge optimization, and reliability typically only available in cloud services. The upcoming option to fully self-host your Fleek instance takes this even further, allowing for an unparalleled level of autonomy.
 
-![](./self-hosted-img.png)
+![](./self-hosted-img.webp)
 
 ### **Preparing for the future: Fleek’s roadmap**
 

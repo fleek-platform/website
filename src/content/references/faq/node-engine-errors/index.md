@@ -2,8 +2,8 @@
 title: 'Node engine errors'
 date: 2023-03-16
 desc: 'Resolving node engine mismatch errors in Docker images'
-thumbnail: './node-engine-errors.png'
-image: './node-engine-errors.png'
+thumbnail: './node-engine-errors.webp'
+image: './node-engine-errors.webp'
 ---
 
 If you are getting node engine mismatch errors, don't worry. It only means the docker image you selected does not have the required node version.

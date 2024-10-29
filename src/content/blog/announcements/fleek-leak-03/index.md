@@ -2,8 +2,8 @@
 title: 'Fleek Leak 03'
 date: 2023-02-16
 desc: 'Issue number three of the Fleek Leak is landing ⚡, with updates on custom domains and our SDK.'
-thumbnail: './fleekleakfeb16.png'
-image: './fleekleakfeb16.png'
+thumbnail: './fleekleakfeb16.webp'
+image: './fleekleakfeb16.webp'
 ---
 
 Issue number three of the Fleek Leak is landing ⚡, coming back after back-to-back release weeks!
@@ -22,7 +22,7 @@ This weeks we focused on expanding our current services with added logic (Deploy
 
 ## Deploy System: Making Our Deploy Flow Smarter
 
-![Three person in wearing jail cloths meme](https://storage.fleek.ooo/27a60cdd-37d3-480c-ae88-3ad4ca886b13-bucket/imgs/image%201.png)
+![Three person in wearing jail cloths meme](https://storage.fleek.ooo/27a60cdd-37d3-480c-ae88-3ad4ca886b13-bucket/imgs/image%201.webp)
 
 But, don’t we have deployments already? Yes! What we are doing right now is expanding the foundations of our system deployment service to offer in-depth deploy management.
 

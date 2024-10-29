@@ -2,8 +2,8 @@
 title: 'Deploy fails with no error message after switching GitHub settings'
 date: 2023-03-12
 desc: 'Troubleshooting silent deployment failures after GitHub setting changes'
-thumbnail: './deploy-fails-no-error-message.png'
-image: './deploy-fails-no-error-message.png'
+thumbnail: './deploy-fails-no-error-message.webp'
+image: './deploy-fails-no-error-message.webp'
 ---
 
 It is possible that your deploy will fail with no error message after you switch GitHub settings like:

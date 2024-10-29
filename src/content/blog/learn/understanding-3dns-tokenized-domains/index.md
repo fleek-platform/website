@@ -2,8 +2,8 @@
 title: 'Understanding 3DNS and Tokenized Domains: A Developers Guide'
 date: 2024-07-24
 desc: '3DNS is tokenizing domains as NFTs, allowing owners to self-custody their domains. Explore how 3DNS is redefining what domains can do.'
-thumbnail: './3dnsdevguide.png'
-image: './3dnsdevguide.png'
+thumbnail: './3dnsdevguide.webp'
+image: './3dnsdevguide.webp'
 author:
   - 'Fleek'
 ---
@@ -86,7 +86,7 @@ Sign up on <u>[Fleek.xyz](https://fleek.xyz/)</u>, upload your site or select an
 
 Go to your site's dashboard settings and look for the **‘domains’** option.
 
-![](./3dnseg.png)
+![](./3dnseg.webp)
 
 **3. Add 3DNS domain**
 

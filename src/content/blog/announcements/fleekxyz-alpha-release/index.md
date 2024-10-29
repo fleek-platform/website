@@ -2,8 +2,8 @@
 title: 'Fleek.xyz, the Closed Alpha Release'
 date: 2023-08-31
 desc: 'We are opening Fleek’s new app early for testers, to prepare for the full V1 release. Get whitelisted, and give us your feedback.'
-thumbnail: './closedalpha.png'
-image: './closedalpha.png'
+thumbnail: './closedalpha.webp'
+image: './closedalpha.webp'
 author: 'Fleek'
 ---
 
@@ -34,7 +34,7 @@ As an alpha tester, get early access to a few familiar features we’ve been imp
 
 ## Closed Alpha Features: Hosting, Templates, Storage, Gateways
 
-![Fleek - Closed Alpha Test features introducing banner](https://storage.fleek-internal.com/27a60cdd-37d3-480c-ae88-3ad4ca886b13-bucket/alpha-feat.png)
+![Fleek - Closed Alpha Test features introducing banner](https://storage.fleek-internal.com/27a60cdd-37d3-480c-ae88-3ad4ca886b13-bucket/alpha-feat.webp)
 
 ### Hosting
 

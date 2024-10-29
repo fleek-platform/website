@@ -2,8 +2,8 @@
 title: 'What is ENS (Ethereum Name Service)? A Beginners Guide'
 date: 2024-07-24
 desc: 'Learn about the Ethereum Name Service (ENS), how it works, and its benefits for onchain hosting and simplifying interactions in the Ethereum ecosystem.'
-thumbnail: './ensbegguide.png'
-image: './ensbegguide.png'
+thumbnail: './ensbegguide.webp'
+image: './ensbegguide.webp'
 author:
   - 'Fleek'
 ---

@@ -87,7 +87,7 @@ const ExplainerBlocks: React.FC = () => {
           );
         })}
         <img
-          src="/images/circles.png"
+          src="/images/circles.webp"
           alt="bg-squiggle"
           className="absolute bottom-0 left-0 right-0 top-[16.5%] -z-1 m-auto hidden w-full max-w-[1500px] sm:block"
           loading="lazy"

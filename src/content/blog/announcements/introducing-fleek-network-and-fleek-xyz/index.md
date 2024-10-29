@@ -2,8 +2,8 @@
 title: 'Introducing Fleek Network & Fleek.xyz ⚡️'
 date: 2022-11-30
 desc: 'We just closed a $25M Series A to build Fleek Network, a decentralized CDN, and Fleek.xyz, the web3 dev platform of the future.'
-thumbnail: './xyz-release.png'
-image: './xyz-release.png'
+thumbnail: './xyz-release.webp'
+image: './xyz-release.webp'
 author: 'Fleek'
 ---
 
@@ -39,7 +39,7 @@ We’re incredibly proud of the technical architecture of Fleek Network, and **a
 
 ### WHY
 
-![Using fleek network protect with web3 promotional banner](https://storageapi.fleek.co/fleek-team-bucket/Blogs/FN-soldier-meme.jpeg)
+![Using fleek network protect with web3 promotional banner](https://storageapi.fleek.co/fleek-team-bucket/Blogs/FN-soldier-meme.webp)
 
 Fleek Network is a huge missing piece of a true web3 future.
 
@@ -115,7 +115,7 @@ More incremental updates to come soon (or just [sign up for our mailing list](ht
 
 Get ready for a 🔥 2023 year from Fleek.
 
-![Fleek Roadmap details introducing banner](https://storageapi.fleek.co/fleek-team-bucket/Blogs/Fleek-Roadmap.png)
+![Fleek Roadmap details introducing banner](https://storageapi.fleek.co/fleek-team-bucket/Blogs/Fleek-Roadmap.webp)
 
 _Note: this does not include a roadmap for Fleek Network, more on that in the coming weeks_.
 

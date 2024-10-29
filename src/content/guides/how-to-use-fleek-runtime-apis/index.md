@@ -2,8 +2,8 @@
 title: 'How to use Fleek runtime APIs'
 date: 2024-08-01
 desc: 'How to build a text-streaming script with Fleek Functions'
-thumbnail: './runtimeapisnew.png'
-image: './runtimeapisnew.png'
+thumbnail: './runtimeapisnew.webp'
+image: './runtimeapisnew.webp'
 author:
   - 'Fleek'
 ---
@@ -16,7 +16,7 @@ Fleek offers support for many runtime APIs that a typical JavaScript runtime sho
 
 In this guide, we'll explore a simple script using Fleek runtime APIs and a Fleek Function.
 
-![](./apis.png)
+![](./apis.webp)
 
 ---
 
@@ -29,7 +29,7 @@ In this guide, we'll explore a simple script using Fleek runtime APIs and a Flee
 
 Setup here is straightforward. You can create a directory on your machine and an `index.js` file within it. You should have something similar to this:
 
-![](./index.png)
+![](./index.webp)
 
 ---
 
@@ -132,7 +132,7 @@ If all goes well, you should have the below in your terminal:
 
 We’re practically done at this point. You can view the Fleek Function <u>[here](https://fleek-runtime-api-demo.functions.on-fleek.app/)</u>. Your output upon visiting the endpoint should look like this:
 
-![](./endpoint.png)
+![](./endpoint.webp)
 
 ---
 

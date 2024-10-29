@@ -2,8 +2,8 @@
 title: 'How To deploy An Astro app To Fleek.xyz: a step-by-step guide for developers'
 date: 2024-05-28
 desc: 'How to deploy a static Astro app using the Fleek CLI and one of our ready-to-use templates'
-thumbnail: './astrothumbnew.png'
-image: './astrothumbnew.png'
+thumbnail: './astrothumbnew.webp'
+image: './astrothumbnew.webp'
 author:
   - 'Olayinka Oshidipe'
 ---
@@ -70,13 +70,13 @@ The first thing we’ll need to do is create a Fleek account: head over to [htt
 
 > 💡 Feel free to skip this step if you already have an account on Fleek.xyz!
 
-![](./welcome.png)
+![](./welcome.webp)
 
 You’ll be prompted to create an account with your wallet or an email address. For the sake of this tutorial, we’ll be making an account using our MetaMask account.
 
 Click on the `MetaMask` option from the wallet list and you’ll be presented with a **sign-in** request in your browser extension. This is to verify ownership of your account.
 
-![](./ghnextjs2.png)
+![](./ghnextjs2.webp)
 
 Once you click on the **Sign in** button, you’ll be redirected to the Fleek dashboard.
 
@@ -100,7 +100,7 @@ fleek login
 
 Click on the link displayed to log into your Fleek account. You should see a **Success! You are now logged in to the Fleek platform.**
 
-![](./fleekloginastro.png)
+![](./fleekloginastro.webp)
 
 ### Configurations
 
@@ -114,7 +114,7 @@ fleek sites init
 
 You’ll get a few prompts. Populate them as you wish.
 
-![](./fleekinitastro.png)
+![](./fleekinitastro.webp)
 
 The following paragraph shows the values entered above:
 
@@ -134,7 +134,7 @@ You should see:
 
 And a `fleek.config.json` file should appear in your root directory.
 
-![](./fleekconfigastro.png)
+![](./fleekconfigastro.webp)
 
 ---
 

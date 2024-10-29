@@ -2,8 +2,8 @@
 title: 'Fleek v0.0.4 Release Notes: ENS Integration, Deployment Details, File Upload Size Limit Increase, and more'
 date: 2024-01-22
 desc: 'Get the latest on the changes coming to the Fleek Alpha with v0.0.4, including ENS Integration, Deployment Details, File Upload Size Limit and more!'
-thumbnail: './fleekchangelog0123.png'
-image: './fleekchangelog0123.png'
+thumbnail: './fleekchangelog0123.webp'
+image: './fleekchangelog0123.webp'
 author:
   - 'Fleek'
 ---
@@ -45,7 +45,7 @@ If you didn't sign up for the Fleek.xyz alpha with a wallet, linking yours is su
 
 Oh, and with v0.0.4, we’ve added the ability to do it the other way around too! If you signed up with a wallet address, you can now link your email address to your profile in your Account Settings.
 
-![Log-In Connection](./Log-in-connections.png)
+![Log-In Connection](./Log-in-connections.webp)
 
 ---
 

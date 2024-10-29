@@ -2,8 +2,8 @@
 title: Introducing Fleek's decentralized IPFS gateway
 date: 2024-08-26
 desc: A decentralized IPFS gateway that will leverage Fleek Network to achieve superior performance, reliability, censorship resistance, and long term sustainability compared to traditional IPFS gateways.
-thumbnail: ./fleekipfsgateway.png
-image: ./fleekipfsgateway.png
+thumbnail: ./fleekipfsgateway.webp
+image: ./fleekipfsgateway.webp
 ---
 
 We are excited to introduce a new product line to the Fleek family: **a decentralized IPFS gateway that will leverage Fleek Network to achieve superior performance, reliability, censorship resistance, and long term sustainability** compared to traditional IPFS gateways. \
@@ -63,9 +63,9 @@ For our performance testing we're using a simple [open source benchmarking tool]
 
 This approach gives us valuable insights into how well the system manages requests from various locations, and how quickly it can serve cached content, ensuring we maintain high performance even under pressure.
 
-![Gateway Performance: Regional Average TTFB Analysis. *Pinata has rate limiting on the gateway which may skew the data. ](./graph1.png)
+![Gateway Performance: Regional Average TTFB Analysis. *Pinata has rate limiting on the gateway which may skew the data. ](./graph1.webp)
 
-![Worldwide Average TTFB Analysis. *Pinata has rate limiting on the gateway which may skew the data.](./graph2.png)
+![Worldwide Average TTFB Analysis. *Pinata has rate limiting on the gateway which may skew the data.](./graph2.webp)
 _Please note: the Pinata gateway is rate-limited; data may be skewed._
 
 ## **How to make use of the public IPFS gateway**

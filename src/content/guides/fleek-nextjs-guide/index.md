@@ -2,8 +2,8 @@
 title: 'How to deploy a NextJS app To Fleek.xyz: a step-by-step guide for developers'
 date: 2024-04-03
 desc: 'How to deploy a static Next.js app using the Fleek CLI.'
-thumbnail: './nextjsguide.png'
-image: './nextjsguide.png'
+thumbnail: './nextjsguide.webp'
+image: './nextjsguide.webp'
 author:
   - 'Olayinka Oshidipe'
   - 'Kanishk Khurana'
@@ -80,7 +80,7 @@ This line of code will create a new folder called `out` for when we build our Ne
 
 Next, run the `npm run build` command. This will compile our NextJS project, and produce the corresponding HTML code into a folder called `out`.
 
-![](./out.png)
+![](./out.webp)
 
 Once we’ve successfully built our app, we can start the deployment process.
 
@@ -94,13 +94,13 @@ The first thing we’ll need to do is create a Fleek account: head over to http:
 
 > 💡 Feel free to skip this step if you already have an account on Fleek.xyz!
 
-![](./welcome.png)
+![](./welcome.webp)
 
 You’ll be prompted to create an account with your wallet or an email address. For the sake of this tutorial, we’ll be making an account using our MetaMask account.
 
 Click on the `Metamask` option from the wallet list and you’ll be presented with a **sign-in** request in your browser extension. This is to verify ownership of your account.
 
-![](./metamask.png)
+![](./metamask.webp)
 
 Once you click on the **Sign in** button, you’ll be redirected to the Fleek dashboard.
 
@@ -124,7 +124,7 @@ fleek login
 
 Click on the link displayed to log into your Fleek account. You should see a **Success! You are now logged in to the Fleek Platform.**
 
-![](./fleekloginnextjs.png)
+![](./fleekloginnextjs.webp)
 
 ### Configurations
 
@@ -138,7 +138,7 @@ fleek sites init
 
 You’ll get a few prompts, populate them as you wish:
 
-![](./fleekinitnextjs.png)
+![](./fleekinitnextjs.webp)
 
 The following paragraph shows the values entered above:
 
@@ -158,7 +158,7 @@ You should see:
 
 And a `fleek.config.json` file should appear in your root directory.
 
-![](./fleekconfignextjs.png)
+![](./fleekconfignextjs.webp)
 
 ### Deployment
 
@@ -184,15 +184,15 @@ Congratulations! Your site has been successfully deployed!
 
 Now head over to the dashboard http://app.fleek.xyz, and ensure you are on the right project (open the drop-down menu on the top left of the homepage and select the current project).
 
-![](./projectscliguide.png)
+![](./projectscliguide.webp)
 
 Click on `Sites`. Here, you should see your deployed site. If you’ve deployed more than one site into this project, they’ll all show up here:
 
-![](./nextjsdemoprojects.png)
+![](./nextjsdemoprojects.webp)
 
 Click on your **deployed** site. You should be **brought** to this page:
 
-![](./deploymentpage.png)
+![](./deploymentpage.webp)
 
 Click on the URL (For this example it’s https://scrawny-lock-most.on-fleek.app/ but yours will be different) and it’ll take you to your fully functional static NextJS blog!
 

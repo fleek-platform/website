@@ -2,8 +2,8 @@
 title: 'Understanding IPFS Content Identifiers (CIDs): A Developers Guide'
 date: 2024-07-24
 desc: 'Explore how content identifiers (CIDs) enable onchain storage, permissionless sharing, and content-based addressing in the IPFS network.'
-thumbnail: './cid.png'
-image: './cid.png'
+thumbnail: './cid.webp'
+image: './cid.webp'
 author:
   - 'Fleek'
 ---

@@ -2,8 +2,8 @@
 title: 'Fleek Changelog: UI Fixes & Improvements, Dark Mode as Default'
 date: 2023-09-22
 desc: 'Explore the range of fixes and improvements made to the Fleek.xyz alpha this week in the latest Fleek Release Notes.'
-thumbnail: './fleekchangelog0922.png'
-image: './fleekchangelog0922.png'
+thumbnail: './fleekchangelog0922.webp'
+image: './fleekchangelog0922.webp'
 author:
   - 'Fleek'
 ---
@@ -24,7 +24,7 @@ We heard your feedback and have spent the week making dark mode the default, wit
 
 1. Dark Mode is now set as the Default UI Theme:
 
-![](./dark-mode-alpha.png)
+![](./dark-mode-alpha.webp)
 
 2. Template pages now render the repository’s Readmes as the description
 

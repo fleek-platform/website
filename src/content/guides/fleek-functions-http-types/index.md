@@ -2,8 +2,8 @@
 title: 'How to use Fleek Function types'
 date: 2024-08-08
 desc: 'Using different types of Fleek Functions for HTTP requests and responses'
-thumbnail: './fftypes.png'
-image: './fftypes.png'
+thumbnail: './fftypes.webp'
+image: './fftypes.webp'
 author:
   - 'Fleek'
 ---

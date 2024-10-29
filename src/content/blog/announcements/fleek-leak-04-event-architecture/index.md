@@ -2,8 +2,8 @@
 title: 'Fleek Leak 04: Diving into Our Event-driven Architecture'
 date: 2023-03-09
 desc: "In this Fleek Leak, we take a look at our new event-driven architecture, and how it enables Fleek's long term expansibility."
-thumbnail: './fleekleakmar9.png'
-image: './fleekleakmar9.png'
+thumbnail: './fleekleakmar9.webp'
+image: './fleekleakmar9.webp'
 ---
 
 Time for another Fleek Leak! This week we are giving our usual approach a little bit of color and a spin! Other than our usual updates, **Fleek Leaks we will start including thematic dives– technical implementations and architecture design choices** of Fleek.xyz!
@@ -16,7 +16,7 @@ Today, the leak is a dive into our **event-driven Architecture,** and how it ena
 
 ## What Does it Mean to Build Fleek to be Event-driven?
 
-![Flow events step by step details for fleek site deploy](https://storage.fleek.ooo/27a60cdd-37d3-480c-ae88-3ad4ca886b13-bucket/imgs/flow-events.png)
+![Flow events step by step details for fleek site deploy](https://storage.fleek.ooo/27a60cdd-37d3-480c-ae88-3ad4ca886b13-bucket/imgs/flow-events.webp)
 
 In a nutshell, **for every key process that occurs or action in Fleek, there will be an event emitted**. If there is an event for every action performed on each flow and feature of Fleek (New deploy, New upload, Failed upload, Domain set, DNS configured), **then there can be listeners waiting to execute a reaction**.
 

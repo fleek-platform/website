@@ -2,8 +2,8 @@
 title: 'Understanding IPFS storage: An in-depth guide'
 date: 2024-07-29
 desc: 'Everything you need to know to get started with IPFS Storage and Fleek'
-thumbnail: './ipfsstorage2.png'
-image: './ipfsstorage2.png'
+thumbnail: './ipfsstorage2.webp'
+image: './ipfsstorage2.webp'
 author:
   - 'Fleek'
 ---

@@ -2,8 +2,8 @@
 title: 'Preparing for Fleek Beta V0.4.0: Actions Needed'
 date: 2023-05-22
 desc: 'Fleek CLI/SDK beta users: prepare for the release of v0.4.0, avoiding any potentially application-breaking changes!'
-thumbnail: './betav040prep.png'
-image: './betav040prep.png'
+thumbnail: './betav040prep.webp'
+image: './betav040prep.webp'
 author: 'Fleek'
 ---
 

@@ -2,8 +2,8 @@
 title: 'Fleek v0.0.1 Changelog: Custom URL Slugs, Validation Improvements'
 date: 2023-10-12
 desc: 'Get the details on the latest changes coming to the Fleek.xyz platform, including Custom URL slugs, Validation Improvements, and more'
-thumbnail: './fleekchangelog1012.png'
-image: './fleekchangelog1012.png'
+thumbnail: './fleekchangelog1012.webp'
+image: './fleekchangelog1012.webp'
 author:
   - 'Fleek'
 ---

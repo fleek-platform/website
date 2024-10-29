@@ -2,8 +2,8 @@
 title: 'GitHub account limitations on Fleek'
 date: 2024-10-11
 desc: 'Keep these limitations in mind when linking a Github account or organization'
-thumbnail: './github-limitations.png'
-image: './github-limitations.png'
+thumbnail: './github-limitations.webp'
+image: './github-limitations.webp'
 ---
 
 At Fleek.xyz, we offer an integration with GitHub for web hosting, but there are a few limitations to keep in mind when linking your GitHub account:

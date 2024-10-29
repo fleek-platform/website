@@ -3,9 +3,9 @@ title: 'How We Built Server-Side Next.js On Fleek'
 category: 'Announcements'
 date: 2024-05-15
 desc: "A look at Fleek's first iteration of server side Next.js"
-thumbnail: './nextjsthumb.png'
+thumbnail: './nextjsthumb.webp'
 alt: 'Fleek server side next.js'
-image: './nextjsthumb.png'
+image: './nextjsthumb.webp'
 author:
   - 'Gabriel Pinto'
 ---
@@ -32,7 +32,7 @@ Open-Next is an adapter that makes the Next.js output deployable to any serverle
 
 Next.js already builds your application for split routes, as you can see from the build output.
 
-![](./next-js-ss.png)
+![](./next-js-ss.webp)
 
 > Next.js build output
 
@@ -111,7 +111,7 @@ That was the easy part. What we now want to do is take all of those functions an
 
 Getting these bundled functions to run on the Fleek Function runtime is easier said than done, as open-next is still working on full edge support and currently only targets Node, which isn’t fully Web API compliant. We can fix this with a fork of open-next and [some tweaks](https://github.com/sst/open-next/compare/main...fleekxyz:open-next:main) to make the tool more friendly for the Fleek Function runtime. We plan to push these tweaks to the open-next repo once they are more polished.
 
-![](./edgy-next-js.png)
+![](./edgy-next-js.webp)
 
 > We're edgy now.
 

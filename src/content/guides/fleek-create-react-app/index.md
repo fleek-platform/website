@@ -2,8 +2,8 @@
 title: 'Create and Deploy a React Application to IPFS in Under Ten Minutes'
 date: 2020-03-16
 desc: 'A React application can be bootstrapped in a matter of minutes with create-react-app. Fleek allows apps to be deployed to IPFS in a matter of minutes.'
-thumbnail: './reactimageupdate.png'
-image: './reactimageupdate.png'
+thumbnail: './reactimageupdate.webp'
+image: './reactimageupdate.webp'
 ---
 
 A React application can be bootstrapped in a matter of minutes with create-react-app. Fleek allows apps to be deployed to IPFS in a matter of minutes. These two go together like peanut butter and jelly, allowing for development and deployment to be complete in a flash.
@@ -24,11 +24,11 @@ We will start by running the following commands to create and preview the react 
 
 Go to [http://localhost:3000](http://localhost:3000/) in your browser and you will see the default create-react-app application.
 
-![](./react2.png)
+![](./react2.webp)
 
 Now, it’s time to develop the app if you wish to do so, or simply use the default application. For this tutorial, I made some slight modifications to the default react app.
 
-![](./react3.png)
+![](./react3.webp)
 
 Finally, we need to make a slight modification to the package.json file by adding the field `homepage: '.'`.
 
@@ -76,21 +76,21 @@ Fleek will grab the application from your GitHub repo, so the next thing to do i
 
 Upon first signing up on Fleek, we are asked to add a new site.
 
-![](./react4.png)
+![](./react4.webp)
 
 Next, we input additional information such as the repo branch, the build commands, and the build directory. Luckily for us, the default values will work perfectly so there is no need to change anything. Clicking the “Deploy Site” button at the bottom will commence the deployment.
 
 Note: The default docker image is `fleek/create-react-app` which runs the latest node.js version (13 as of this writing). If you have an app requiring another version, you can specify it in the docker tag. EG: For node 10, `fleek/create-react-app:node-10`
 
-![](./react5.png)
+![](./react5.webp)
 
 The deployment is in progress! In a few minutes, we’ll have access to our deployed app. The deploy log at the bottom of the page tracks the progress of the deployment.
 
-![](./react6.png)
+![](./react6.webp)
 
 Success! The deployment worked and the yellow indicator at the top turned blue and a clickable URL ending in .tmnl.co appeared. This URL is provided by Fleek and it points to the IPFS deployment.
 
-![](./react7.png)
+![](./react7.webp)
 
 You can also click on the “Verify on IPFS” link which will lead you to an IPFS gateway using the IPFS hash, where the app can be admired in all its distributed, uncensorable glory.
 

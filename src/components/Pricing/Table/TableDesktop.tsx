@@ -96,12 +96,12 @@ const TableDesktop = () => (
                             ? planFeatures[feature]
                             : ''}
                           {planFeatures[feature] === false ? (
-                            <img src="/images/deny.png" alt="available" />
+                            <img src="/images/deny.webp" alt="available" />
                           ) : (
                             ''
                           )}
                           {planFeatures[feature] === true ? (
-                            <img src="/images/check.png" alt="available" />
+                            <img src="/images/check.webp" alt="available" />
                           ) : (
                             ''
                           )}

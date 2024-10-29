@@ -2,8 +2,8 @@
 title: 'How to Deploy a Wordpress Website onto IPFS.'
 date: 2023-02-12
 desc: 'In this tutorial, we will show you how simple it is to export a Wordpress site, host it on IPFS and share it with the world.'
-thumbnail: './wordfinal1.jpg'
-image: './wordfinal1.jpg'
+thumbnail: './wordfinal1.webp'
+image: './wordfinal1.webp'
 ---
 
 Fleek allows websites to easily find a home on IPFS where they can rest readily accessible, permanent, and uncensorable. In this tutorial, we will show you how simple it is to export a Wordpress site, host it on IPFS and share it with the world. First, we will show how to export the site using a plugin and then we will upload the exported site to WordPress.
@@ -12,15 +12,15 @@ Fleek allows websites to easily find a home on IPFS where they can rest readily 
 
 First, we must install a plugin that will allow us to export the site’s HTML, CSS, and JavaScript files. In the Wordpress site’s admin panel go to “Plugins” => “Add New” on the left-hand side menu.
 
-![](./word2.png)
+![](./word2.webp)
 
 Next, search for the plugin called “WP2Static”, download it and activate it.
 
-![](./word3.png)
+![](./word3.webp)
 
 The plugin will create a new menu option on the left-hand side menu name “W2PStatic”.When clicking on it, we must fill the form as shown in the image below by selecting the “Zip archive (.zip)” in the dropdown menu and checking the “Allow offline usage” option. This will create a zip archive with no preset root path which will render the site’s paths compatible with the IPFS deployment. After that, click “Start static site export”, wait until the export is done, and download the file via the “Download ZIP” button.
 
-![](./word4.png)
+![](./word4.webp)
 
 Finally, the downloaded file can be unzipped. The folder contains the totality of the Wordpress Site. The next step is to push it to IPFS!
 
@@ -28,19 +28,19 @@ Finally, the downloaded file can be unzipped. The folder contains the totality o
 
 Fleek will take care of deploying the site to IPFS. To allow Fleek to get the files, we must first push the exported site to [github](https://github.com/). To do so, simply create a new repository and follow the instructions. Once you are done, the result should look similar to the following repo: https://github.com/SamueleA/wordpress-fleek, with the index.html file in the root folder. Then, we log into Fleek and add a new site.
 
-![](./word5.png)
+![](./word5.webp)
 
 We must authenticate with our GitHub account and find the repo containing the Wordpress file.
 
-![](./word6.png)
+![](./word6.webp)
 
 The next step is to input information such as build command and public folder. However, the default values are already good, therefore we can directly click on “Deploy Site” without having to alter the settings.
 
-![](./word7.png)
+![](./word7.webp)
 
 And that is all! Once the site is done deploying, which should take around a minute, the site will be available through the .tmnl.co address in blue. In our case, the blog is now accessible through IPFS at this address: https://flat-hall-3318.on.fleek.co/
 
-![](./word8.png)
+![](./word8.webp)
 
 ## **Share!**
 

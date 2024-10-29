@@ -2,8 +2,8 @@
 title: 'How to Migrate from Cloudflare Web3 to Fleek'
 date: 2024-08-26
 desc: 'As Cloudflare phases out its Web3 product, users are seeking new platforms to host decentralized websites and applications. Fleek offers a user-friendly, robust alternative with a streamlined migration process and minimal downtime. This guide provides step-by-step instructions for smoothly transitioning from Cloudflare Web3 to Fleek.'
-thumbnail: './cftoflk.png'
-image: './cftoflk.png'
+thumbnail: './cftoflk.webp'
+image: './cftoflk.webp'
 ---
 
 With Cloudflare’s recent Web3 product deprecation, many users are looking for alternative platforms to host their decentralized websites and applications. Fleek [now has a powerful, user-friendly option](https://fleek.xyz/guides/cf-web3-to-fleek/) that offers a smooth migration process with minimal downtime. This guide will walk you through the necessary steps to migrate from Cloudflare Web3 to Fleek, ensuring a seamless transition.

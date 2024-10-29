@@ -2,8 +2,8 @@
 title: 'Build3rs Stack: Pocket Network'
 date: 2023-02-09
 desc: "The builder's guide to getting started with Pocket: where it fits in the decentralized Web3 infra-stack, and what you can build with it."
-thumbnail: './builders-2.png'
-image: './builders-2.png'
+thumbnail: './builders-2.webp'
+image: './builders-2.webp'
 cannonical: ''
 ---
 
@@ -17,7 +17,7 @@ The first one we will cover today? [Pocket Network](http://pokt.network) (Pocket
 
 ## TL;DR: What is Pocket and how does it work?
 
-![POKT Logo with blue color background](https://storage.fleek.ooo/27a60cdd-37d3-480c-ae88-3ad4ca886b13-bucket/imgs/Pocket-feature-image.png)
+![POKT Logo with blue color background](https://storage.fleek.ooo/27a60cdd-37d3-480c-ae88-3ad4ca886b13-bucket/imgs/Pocket-feature-image.webp)
 
 Pocket Network is a decentralized protocol that provides a network of remote procedure call (RPC) nodes to relay blockchain data/calls from any supported blockchain to DApps and end-users. Which makes it a great chain-agnostic provider for those uses!
 

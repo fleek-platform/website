@@ -2,8 +2,8 @@
 title: 'How to Deploy A NextJs App Using Fleek.xyz UI'
 date: 2024-04-23
 desc: "How to deploy a static Next.js app using the Fleek UI and your app's GitHub Repo."
-thumbnail: './ghnextjsthumb.png'
-image: './ghnextjsthumb.png'
+thumbnail: './ghnextjsthumb.webp'
+image: './ghnextjsthumb.webp'
 author:
   - 'Olayinka Oshidipe'
 ---
@@ -34,13 +34,13 @@ The first thing we’ll need to do is create a Fleek account: head over to http:
 
 > 💡 Feel free to skip this step if you already have an account on Fleek.xyz!
 
-![](./ghnextjs1.png)
+![](./ghnextjs1.webp)
 
 You’ll be prompted to create an account with your wallet or an email address. For the sake of this tutorial, we’ll be making an account using our MetaMask account.
 
 Click on the `Metamask` option from the wallet list and you’ll be presented with a **sign-in** request in your browser extension. This is to verify ownership of your account.
 
-![](./ghnextjs2.png)
+![](./ghnextjs2.webp)
 
 ### GitHub Account
 
@@ -54,13 +54,13 @@ Once we have our repo cloned, the next step is the deployment!
 
 Head over to the dashboard [https://app.fleek.xyz](https://app.fleek.xyz/), Create a new project, give it a name. You’ll automatically get switched to that project.
 
-![](./ghnextjs3.png)
+![](./ghnextjs3.webp)
 
 Click on the `Add New` button at the top right. Then click on `Deploy my site`
 
 You’ll be brought to this page:
 
-![](./ghnextjs4.png)
+![](./ghnextjs4.webp)
 
 > 💡 Support for Gitlab and Bitbucket are underway!
 
@@ -68,19 +68,19 @@ Click on the GitHub icon. You’ll see a pop-up like this:
 
 Choose the preferred account or organization. This will lead you to a page where you can grant access to either specific repositories or all repositories.
 
-![](./ghnextjs5.png)
-![](./ghnextjs6.png)
+![](./ghnextjs5.webp)
+![](./ghnextjs6.webp)
 
 Once you’ve selected the repo(s) you would like to grant Fleek access to, click on `Save`. You should see this— the image below shows a list of repos Fleek has access to.
 
-![](./ghnextjs7.png)
+![](./ghnextjs7.webp)
 
 > 💡 If you want to grant Fleek access to a different repo, simply click on the ‘**Adjust GitHub App Permission**’ button underneath.
 
 The next step will be to click on the ‘Deploy’ button of the repo you would like to deploy to Fleek.
 
 You’ll then be brought to this page:
-![](./ghnextjs8.png)
+![](./ghnextjs8.webp)
 
 A few things to note about this page.
 
@@ -94,7 +94,7 @@ A few things to note about this page.
 
 When you click on the `Show Advanced Options`
 
-![](./ghnextjs9.png)
+![](./ghnextjs9.webp)
 
 You can make modifications to things like:
 
@@ -106,13 +106,13 @@ Once you are satisfied with the modifications you’ve made, simply click on the
 
 You will be automatically redirected to this page on the Fleek dashboard:
 
-![](./ghnextjs10.png)
+![](./ghnextjs10.webp)
 
 The `Overview` page shows you the status of your site deployment, you can also monitor the status of your deployment by clicking on the `Deploys` tab. The `Audit Log` , `Analytics`, `Settings`, have helpful information about your deployment as well.
 
 Once your site has been successfully deployed, you should see a `Site is live` notification and your site’s URL.
 
-![](./ghnextjs11.png)
+![](./ghnextjs11.webp)
 
 Click on the URL (For this example it’s https://wailing-action-mammoth.on-fleek.app/ but yours will be different) and it’ll take you to your fully functional static NextJs blog!
 

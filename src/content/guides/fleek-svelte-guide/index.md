@@ -2,8 +2,8 @@
 title: 'How to Deploy SvelteJs App on Fleek : A Step-by-Step Guide for Developers'
 date: 2024-05-07
 desc: 'How to use Fleek to deploy your Svelte app to IPFS'
-thumbnail: './sveltethumb.png'
-image: './sveltethumb.png'
+thumbnail: './sveltethumb.webp'
+image: './sveltethumb.webp'
 author:
   - 'Olayinka Oshidipe'
 ---
@@ -57,13 +57,13 @@ The first thing we’ll need to do is create a Fleek account: head over to [htt
 
 > 💡 Feel free to skip this step if you already have an account on Fleek.xyz!
 
-![](./ghnextjs1.png)
+![](./ghnextjs1.webp)
 
 You’ll be prompted to create an account with your wallet or an email address. For the sake of this tutorial, we’ll be making an account using our MetaMask account.
 
 Click on the `Metamask` option from the wallet list and you’ll be presented with a **sign-in** request in your browser extension. This is to verify ownership of your account.
 
-![](./ghnextjs2.png)
+![](./ghnextjs2.webp)
 
 Once you click on the **Sign-In** button, you’ll be redirected to the Fleek Dashboard.
 
@@ -87,7 +87,7 @@ fleek login
 
 Click on the link displayed to log into your Fleek account. You should see a **Success! Logged in.**
 
-![](./svelte3.png)
+![](./svelte3.webp)
 
 We’re going to cd into our `svelte-template` app, and run
 
@@ -105,7 +105,7 @@ Fill in the prompts with your responses
 
 You’ll get a few prompts, populate them as you wish:
 
-![](./svelte4.png)
+![](./svelte4.webp)
 
 - _Type the name of your site_: › `[site-name]`
   - If there’s an existing site already with this name, it may ask if you want to link to this site. Please note that when you do this, you will overwrite everything on the previous site. Ensure that this is the outcome you desire, otherwise, select **N** and create a new site.
@@ -122,7 +122,7 @@ You should then see:
 
 And a `fleek.config.json` file should appear in your root dir.
 
-![](./svelte5.png)
+![](./svelte5.webp)
 
 ---
 
@@ -150,15 +150,15 @@ Your site has been successfully deployed!
 
 Now head over to the dashboard http://app.fleek.xyz, and ensure you are on the right project (open the drop-down menu on the top left of the homepage and select the current project).
 
-![](./svelte6.png)
+![](./svelte6.webp)
 
 Click on Sites. Here, you should see your deployed site. If you’ve deployed more than one site into this project, they’ll all show up here:
 
-![](./svelte7.png)
+![](./svelte7.webp)
 
 Click on your deployed site. You should be brought to this page:
 
-![](./svelte8.png)
+![](./svelte8.webp)
 
 Click on the URL (For this example it’s [narrow-sandwich-raspy.on-fleek.app](https://narrow-sandwich-raspy.on-fleek.app) but yours will be different) and it’ll take you to your fully functional static NextJs blog!
 

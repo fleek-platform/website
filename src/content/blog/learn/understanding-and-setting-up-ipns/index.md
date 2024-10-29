@@ -2,8 +2,8 @@
 title: 'Understanding IPNS — InterPlanetary Name System: A Developers Guide'
 date: 2024-07-24
 desc: 'Learn how IPNS enhances IPFS with mutable content addressing and enables the creation of dynamic websites and applications on the onchain web.'
-thumbnail: './ipnslearn.png'
-image: './ipnslearn.png'
+thumbnail: './ipnslearn.webp'
+image: './ipnslearn.webp'
 author:
   - 'Fleek'
 ---

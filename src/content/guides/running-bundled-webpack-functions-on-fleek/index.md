@@ -2,8 +2,8 @@
 title: 'How To Bundle Your Function With Webpack And Deploy It As A Fleek Function'
 date: 2024-07-18
 desc: 'A step-by-step guide to deploying bundled webpack functions with Fleek Functions'
-thumbnail: './bundlewebpack.png'
-image: './bundlewebpack.png'
+thumbnail: './bundlewebpack.webp'
+image: './bundlewebpack.webp'
 author: 'Tobiloba Adedeji'
 ---
 
@@ -49,7 +49,7 @@ npm install ethers
 
 After running the commands above, your directory should now look like this:
 
-![](./bundle1.png)
+![](./bundle1.webp)
 
 Ensure you have the Fleek CLI installed globally on your machine and log in following the <u>[quickstart guide](https://fleek.xyz/docs/cli/)</u>. Create a JavaScript file within your project's directory using the `touch` command, or create it manually using your preferred code editor within your directory. Let's get started!
 
@@ -71,7 +71,7 @@ We will break this down into 4 steps:
 
 Following the webpack documentation, you can set up your directory by first creating an `src` folder and creating your JavaScript file within it; let’s call our file `index.js`. After this step, your directory should look like this:
 
-![](./bundle2.png)
+![](./bundle2.webp)
 
 ### Writing your JavaScript function in the specified file
 
@@ -180,7 +180,7 @@ Where:
 
 Running the bundle script is straightforward as you can add a script called `build` in your `package.json`. This is what it looks like after adding it:
 
-![](./bundle3.png)
+![](./bundle3.webp)
 
 Now, to run the script, type the following command in your terminal:
 
@@ -190,7 +190,7 @@ npm run build
 
 After running the script above, you should have the following directory, with a new `dist` directory and a new file called `bundle.js` inside it:
 
-![](./bundle4.png)
+![](./bundle4.webp)
 
 There you have it, you have successfully bundled your function!
 
@@ -238,7 +238,7 @@ For more information on deploying Fleek Functions, including step-by-step instru
 
 In this guide, we walked through the process of bundling a JavaScript function using webpack and deploying it as a Fleek Function. By leveraging Fleek's performant, lower cost, easier to maintain, self-sovereign infrastructure, we can create scalable and fast edge functions that can be invoked via URL.
 
-![](./bundle5.png)
+![](./bundle5.webp)
 
 ### Key Takeaways:
 

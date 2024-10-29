@@ -2,8 +2,8 @@
 title: 'How to open a Websocket in a Fleek Function'
 date: 2024-07-25
 desc: 'Learn how to deploy a simple Web3 Function that uses a websocket within a Fleek Function to stream Ethereum smart contract data'
-thumbnail: './websockets.png'
-image: './websockets.png'
+thumbnail: './websockets.webp'
+image: './websockets.webp'
 ---
 
 In this guide, we will show how to open a Websocket in a Fleek Function.
@@ -35,7 +35,7 @@ npm i web3
 
 After running the commands above, your directory should now look like this:
 
-![](./directoryws.png)
+![](./directoryws.webp)
 
 Ensure you have the Fleek CLI installed globally on your machine and log in following the <u>[quickstart guide](https://fleek.xyz/docs/cli/)</u>. Create a JavaScript file within your project’s directory using the touch command, or create it manually using your preferred code editor within your directory. Before we get started, you should set up your `webpack.config.js` to like the below:
 
@@ -159,7 +159,7 @@ npm run build
 
 When all is satisfied you should have your directory looking like this with a new directory called `dist` and a file called `bundle.js` inside it.
 
-![](./demo.png)
+![](./demo.webp)
 
 **Deploying the bundled file as a Fleek Function.**
 

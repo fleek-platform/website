@@ -2,8 +2,8 @@
 title: 'Deprecation of IPFS Gateway and Storage API URL on Fleek.co'
 date: 2023-01-09
 desc: 'We’re starting to take actions to deprecate the legacy Fleek platform (Fleek.co), starting with our IPFS Gateway + Storage API domains.'
-thumbnail: './depricatingdomains.png'
-image: './depricatingdomains.png'
+thumbnail: './depricatingdomains.webp'
+image: './depricatingdomains.webp'
 cannonical: ''
 author:
   - 'Fleek'
@@ -41,7 +41,7 @@ As we flesh out the details for offering this as a true service, feel free to [r
 
 Also in this new year, we will be transitioning away from our current storage API domain. If you use Fleek Storage please read, actions will be required.
 
-Basically, storageapi.fleek.co and storageapi.fleek.one will be sunset to favor custom, per-user API domains. Both domains are currently available and point to the same content (try [this link](https://storageapi.fleek.co/fleek-team-bucket/Blogs/fleek-ahb.jpeg), then [this one](https://storageapi.fleek.one/fleek-team-bucket/Blogs/fleek-ahb.jpeg)).
+Basically, storageapi.fleek.co and storageapi.fleek.one will be sunset to favor custom, per-user API domains. Both domains are currently available and point to the same content (try [this link](https://storageapi.fleek.co/fleek-team-bucket/Blogs/fleek-ahb.webp), then [this one](https://storageapi.fleek.one/fleek-team-bucket/Blogs/fleek-ahb.webp)).
 
 We have decided to sunset both domains gradually, beginning with the application of content-restricting rules. Users can now set their own [custom domains](https://blog.fleek.co/posts/fleek-co-how-to-add-custom-storage-domains) to their storage buckets in Fleek, which will provide higher availability and performance right off the bat, as well as allow for a non-shared API endpoint for each user.
 

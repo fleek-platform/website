@@ -2,8 +2,8 @@
 title: "A beginner's guide to Intel SGX: understanding and leveraging secure enclaves"
 date: 2024-09-27
 desc: 'Discover how Intel SGX enhances security with protected memory enclaves, safeguarding sensitive data across various applications.'
-thumbnail: './sgxbegguide.png'
-image: './sgxbegguide.png'
+thumbnail: './sgxbegguide.webp'
+image: './sgxbegguide.webp'
 author:
   - 'Fleek'
 ---

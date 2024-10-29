@@ -2,8 +2,8 @@
 title: 'An Overview of Fleek.xyz’s Architecture'
 date: 2022-12-05
 desc: 'New architecture who dis? Here’s a high level overview of how our new platform was designed & why it unlocks total freedom, flexibility, and extensibility for web3 developers.'
-thumbnail: './architecture.png'
-image: './architecture.png'
+thumbnail: './architecture.webp'
+image: './architecture.webp'
 ---
 
 TL;DR
@@ -25,7 +25,7 @@ Part two will be released next week, outlining how we are already actively makin
 
 ## A New Way of Doing Things
 
-![Fleek.xyz Platform types](https://storageapi.fleek.co/fleek-team-bucket/Blogs/xyz-arch-blocks.png)
+![Fleek.xyz Platform types](https://storageapi.fleek.co/fleek-team-bucket/Blogs/xyz-arch-blocks.webp)
 
 The new Fleek.xyz platform is all about having the freedom and flexibility to create what you want. We’re releasing four core building blocks to enable you to do so – **a CLI, SDK, open API, and UI.**
 
@@ -37,7 +37,7 @@ When new services/protocols become available (maybe Akash or Arweave 👀), they
 
 ## Peeling Back the Layers
 
-![Fleek.xyz Platform types and services](https://storageapi.fleek.co/fleek-team-bucket/Blogs/xyz-arch-services.png)
+![Fleek.xyz Platform types and services](https://storageapi.fleek.co/fleek-team-bucket/Blogs/xyz-arch-services.webp)
 
 Going one level deeper, we have Fleek services. Each service is independent of each other and together are accesible from all of the four core building blocks (see diagram above).
 

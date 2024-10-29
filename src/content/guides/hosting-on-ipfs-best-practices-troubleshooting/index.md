@@ -2,8 +2,8 @@
 title: 'Best Practices for Building IPFS-hosted Websites'
 date: 2023-02-23
 desc: ' However, there are still some differences and best practices to keep in mind when deploying an IPFS website so that you can ensure your website is working correctly at all times.'
-thumbnail: './best-practices-ipfs.png'
-image: './best-practices-ipfs.png'
+thumbnail: './best-practices-ipfs.webp'
+image: './best-practices-ipfs.webp'
 ---
 
 IPFS-hosted websites are gaining popularity as a way to host your site. Although the technology is still early, there's been some significant progress and it's an exciting to see fully fledged applications and sites performantly living on this technology.
@@ -39,7 +39,7 @@ You can check [mdn web docs](https://developer.mozilla.org/en-US/docs/Mozilla/Ad
 
 When accessing your website from a public gateway, you might encounter a couple of issues when loading assets. The TL;DR? You need to **use relative paths**.
 
-This is because they're probably loaded from an incorrect URL, like `ipfs.io/my-image.jpg` instead of `ipfs.io/ipfs/$hash/my-image.jpg`. Therefore, this error should only occur on IPFS gateways. If you're using a domain for accessing your site, this shouldn't happen.
+This is because they're probably loaded from an incorrect URL, like `ipfs.io/my-image.webp` instead of `ipfs.io/ipfs/$hash/my-image.webp`. Therefore, this error should only occur on IPFS gateways. If you're using a domain for accessing your site, this shouldn't happen.
 
 However, using public gateways might be handy for previewing your site on a Pull request (you can check Fleek's CLI approach for publishing your site from a [GithubAction here](/docs/cli/)). You have to make sure your assets are loaded using relative paths.
 

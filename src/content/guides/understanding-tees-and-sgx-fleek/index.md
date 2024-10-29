@@ -2,8 +2,8 @@
 title: 'Understanding TEEs and SGX'
 date: 2024-08-12
 desc: 'Gain a foundational understanding of TEEs and how it is implemented using Intel SGX processors'
-thumbnail: './teessgx.png'
-image: './teessgx.png'
+thumbnail: './teessgx.webp'
+image: './teessgx.webp'
 author: 'Kanishk Khurana'
 ---
 
@@ -23,7 +23,7 @@ TEEs provide secure multi-party computation (MPC), a critical feature for distri
 
 Remote attestation is another essential feature of TEEs. It ensures that code running within a TEE is verifiable by the network participants. This process involves the generation of a cryptographic report by the TEE, which includes a measurement of the enclave's code and state. This report is signed using a hardware-protected key, ensuring its authenticity. The remote party can then verify this report, ensuring that the enclave is running the expected code on genuine hardware. This capability is crucial in scenarios like cloud computing or distributed networks, where trustless execution needs to be established. By combining hardware-enforced isolation, memory encryption, and remote attestation, TEEs provide a robust platform for executing sensitive operations securely, even in environments where the underlying system cannot be fully trusted. You can also perform local attestation, which helps prove the identity and authenticity of an enclave to another enclave on the same platform
 
-![](./hardware.png)
+![](./hardware.webp)
 
 <u>[Diagram Credit - Javier González](https://www.researchgate.net/publication/297732884_Operating_System_Support_for_Run-Time_Security_with_a_Trusted_Execution_Environment)</u>
 

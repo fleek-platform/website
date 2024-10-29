@@ -2,8 +2,8 @@
 title: 'Fleek v0.0.2 Changelog: Primary Domains, Lens Template, Faster Upload Speeds'
 date: 2023-10-26
 desc: 'Get the latest on the changes coming to the Fleek Alpha with v0.0.2, including Primary Domains, Lens Template, Improved Upload Speeds, and more!'
-thumbnail: './fleekchangelog1026.png'
-image: './fleekchangelog1026.png'
+thumbnail: './fleekchangelog1026.webp'
+image: './fleekchangelog1026.webp'
 author:
   - 'Fleek'
 ---
@@ -35,7 +35,7 @@ Head over to the templates page to try our new Lens template! **Spin up your own
 
 You can access the new template [here](https://app.fleek.xyz/templates/)- give us a tag on [X](https://twitter.com/fleek) with your finished Lens build ⚡
 
-![](./lens-template.png)
+![](./lens-template.webp)
 
 ---
 

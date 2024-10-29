@@ -2,8 +2,8 @@
 title: 'Github Actions CI/CD Support on the CLI Beta'
 date: 2023-02-08
 desc: 'Configure a Github action for your repository that automatically builds and deploy your Fleek site to IPFS upon each commit.'
-thumbnail: './ci-cd-2.png'
-image: './ci-cd-2.png'
+thumbnail: './ci-cd-2.webp'
+image: './ci-cd-2.webp'
 ---
 
 Releases are hitting a weekly cadence over here! ⚡️ And this week, after previously releasing Sites Deployments on the CLI beta, we’re following-up with the first automated **CI/CD deployment flow integration: Github Actions**.
@@ -14,7 +14,7 @@ The TL;DR? With one command, you can configure a Github action for your reposito
 
 ## Automatic Deployments with Github Actions
 
-![](https://storage.fleek.ooo/27a60cdd-37d3-480c-ae88-3ad4ca886b13-bucket/imgs/ci-code.png)
+![](https://storage.fleek.ooo/27a60cdd-37d3-480c-ae88-3ad4ca886b13-bucket/imgs/ci-code.webp)
 
 Today we’re integrating the first managed CI/CD pipeline option with Github Actions. With a quick command, you can **create a configuration .yaml file** that sets up a Github Action on your repository which will trigger **automatic Fleek deployments each time a new commit is sent!**
 

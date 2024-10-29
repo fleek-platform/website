@@ -2,8 +2,8 @@
 title: 'Mass Adoption of Onchain Storage Hinges Solely on Developer Experience'
 date: 2024-07-24
 desc: 'Learn why improving the developer experience is crucial for widespread adoption of onchain storage services'
-thumbnail: './onchainstorage.png'
-image: './onchainstorage.png'
+thumbnail: './onchainstorage.webp'
+image: './onchainstorage.webp'
 author:
   - 'Fleek'
 ---

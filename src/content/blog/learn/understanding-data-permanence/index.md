@@ -2,8 +2,8 @@
 title: 'Data Permanence: The New Way To Mitigate Data Loss, And Corruption'
 date: 2024-07-24
 desc: 'Data permanence offered by onchain storage systems is the answer to data loss and corruption risks. Learn more.'
-thumbnail: './dataperm.png'
-image: './dataperm.png'
+thumbnail: './dataperm.webp'
+image: './dataperm.webp'
 author:
   - 'Fleek'
 ---

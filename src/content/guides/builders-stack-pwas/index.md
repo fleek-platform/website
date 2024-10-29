@@ -2,8 +2,8 @@
 title: 'The Build3rs Stack: Progressive Web Apps (PWAs)'
 date: 2023-10-10
 desc: 'Learn about Progressive Web Apps (PWAs)– what they are, why you should consider turning your app into one, and some best practices in building with PWAs.'
-thumbnail: './pwa-thumb.jpg'
-image: './pwa-thumb.jpg'
+thumbnail: './pwa-thumb.webp'
+image: './pwa-thumb.webp'
 author:
   - 'Fleek'
 ---
@@ -45,7 +45,7 @@ _From the user's P.O.V:_
 
 ### PWA in Features: Merging Desktop and Mobile Experiences
 
-![](./PWA-Perks.png)
+![](./PWA-Perks.webp)
 
 For a more in-depth overview of PWA capabilities, and links to APIs to get started with them today, check out [this article](https://web.dev/learn/pwa/capabilities/) from web.dev.
 

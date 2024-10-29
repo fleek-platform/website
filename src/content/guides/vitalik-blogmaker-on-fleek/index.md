@@ -2,8 +2,8 @@
 title: "Deploying Vitalik's Blogmaker on Fleek"
 date: 2024-07-19
 desc: "Deploy Vitalik's IPFS-hosted blog lightning-fast with this step-by-step guide and ready-to-deploy template"
-thumbnail: './blogmakerthumb.png'
-image: './blogmakerthumb.png'
+thumbnail: './blogmakerthumb.webp'
+image: './blogmakerthumb.webp'
 author: 'Kanishk Khurana'
 ---
 
@@ -13,7 +13,7 @@ author: 'Kanishk Khurana'
 
 <br/>
 
-![](./vitaliktweet.png)
+![](./vitaliktweet.webp)
 
 <br/>
 
@@ -21,7 +21,7 @@ The blog website follows a minimal UI with focus on loading pages quickly and re
 
 <br/>
 
-![](./vitaliksite.png)
+![](./vitaliksite.webp)
 
 <br/>
 
@@ -46,7 +46,7 @@ In this tutorial, we will be showing you how to fork this template and deploy yo
 
 <br/>
 
-![](./repository.png)
+![](./repository.webp)
 
 2. Now in an empty directory, clone the forked blogmaker project as follows-
 
@@ -60,7 +60,7 @@ git clone https://github.com/<your-github-username>/blogmaker.git
 
 <br/>
 
-![](./blogmaker-fork.png)
+![](./blogmaker-fork.webp)
 
 Great job! You now have blogmaker website locally setup on your system.
 
@@ -99,7 +99,7 @@ Each blog post contains the following properties -
 
 ```
 [title]: <> (Vitalik Buterin's website)
-[icon]: <> (http://vitalik.ca/images/icon.png)
+[icon]: <> (http://vitalik.ca/images/icon.webp)
 [domain](http://localhost:5500)
 [posts_directory](./posts)
 ```
@@ -116,7 +116,7 @@ Each blog post contains the following properties -
 
 This will result into a site directory similar to this -
 
-![](./square_directory.png)
+![](./square_directory.webp)
 
 - Commit changes and push to GitHub -
 
@@ -136,11 +136,11 @@ Awesome! You have now explored blogmaker properly and added your own blog post t
 
 <br/>
 
-![](./login.png)
+![](./login.webp)
 
 Enter the OTP and you are good to continue -
 
-![](./otp.png)
+![](./otp.webp)
 
 <br/>
 
@@ -148,7 +148,7 @@ Enter the OTP and you are good to continue -
 
    <br/>
 
-![](./addnew.png)
+![](./addnew.webp)
 
    <br/>
 
@@ -156,7 +156,7 @@ Enter the OTP and you are good to continue -
 
    <br/>
 
-![](./git.png)
+![](./git.webp)
 
  <br/>
 
@@ -164,7 +164,7 @@ Enter the OTP and you are good to continue -
 
  <br/>
 
-![](./deploy.png)
+![](./deploy.webp)
 
  <br/>
 
@@ -183,7 +183,7 @@ Docker Image: `python:3.9-slim`
 
 > ⚠️:  No need to edit any other properties
 
-![](./properties.png)
+![](./properties.webp)
 
  <br/>
 
@@ -191,13 +191,13 @@ Docker Image: `python:3.9-slim`
 
  <br/>
 
-![](./deployed.png)
+![](./deployed.webp)
 
 You will notice the site building has started. It will take a couple minutes and once complete, your blog website will be ready and will look like this -
 
  <br/>
 
-![](./built.png)
+![](./built.webp)
 
  <br/>
 
@@ -217,7 +217,7 @@ You can also deploy the “Blogmaker by Vitalik” template using Fleek’s temp
 
  <br/>
 
-![](./templatedeploy.png)
+![](./templatedeploy.webp)
 
  <br/>
 
@@ -225,7 +225,7 @@ You can also deploy the “Blogmaker by Vitalik” template using Fleek’s temp
 
  <br/>
 
-![](./templategit.png)
+![](./templategit.webp)
 
  <br/>
 
@@ -233,11 +233,11 @@ You can also deploy the “Blogmaker by Vitalik” template using Fleek’s temp
 
  <br/>
 
-![](./permstemplate.png)
+![](./permstemplate.webp)
 
 You will be redirected to the deployment page which is similar to the page we saw before  -
 
-![](./templatedeployment.png)
+![](./templatedeployment.webp)
 
  <br/>
 
@@ -245,7 +245,7 @@ You will be redirected to the deployment page which is similar to the page we sa
 
  <br/>
 
-![](./templatefinish.png)
+![](./templatefinish.webp)
 
  <br/>
 

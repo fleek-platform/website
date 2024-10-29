@@ -2,8 +2,8 @@
 title: 'Everything You Need To Know About Onchain Domains — ENS And 3DNS'
 date: 2024-07-24
 desc: 'Onchain domains are the future of digital identity for apps and websites. ENS and 3DNS are key onchain domain providers. Learn more.'
-thumbnail: './ens3dns.png'
-image: './ens3dns.png'
+thumbnail: './ens3dns.webp'
+image: './ens3dns.webp'
 author:
   - 'Fleek'
 ---
@@ -169,7 +169,7 @@ Here are five key challenges that every developer faces while working with oncha
 
 ## **Fleek: Using onchain domains made easy**
 
-![](./3dnseg.png)
+![](./3dnseg.webp)
 
 Onchain domains represent the future of digital identity for applications, websites, and content. However, the mass adoption of this has been hindered by several roadblocks as discussed above.
 

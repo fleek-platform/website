@@ -2,8 +2,8 @@
 title: 'Fleek Changelog - March 11th, 2024: Automatic Phishing Detection, Application Credentials, Image Improvements'
 date: 2024-03-11
 desc: 'An overview of all the latest changes to the Fleek Open Beta, including new phishing detection measures, in-app application credential creation, and image handling improvements'
-thumbnail: './fleekchangelog01mar11.png'
-image: './fleekchangelog01mar11.png'
+thumbnail: './fleekchangelog01mar11.webp'
+image: './fleekchangelog01mar11.webp'
 author: 'Fleek'
 ---
 

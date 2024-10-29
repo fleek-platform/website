@@ -2,8 +2,8 @@
 title: 'Build3rs Stack: Livepeer'
 date: 2023-03-17
 desc: 'The builders guide to Livepeer, with an overview of this streaming and transcoding protocol, its applied use-cases, and why it’s important to understand what you can build with it as a web3 developer.'
-thumbnail: './livepeer.png'
-image: './livepeer.png'
+thumbnail: './livepeer.webp'
+image: './livepeer.webp'
 ---
 
 Welcome to the Build3rs Stack, our web3 infrastructure overview series! This week we will take a look at **[Livepeer](https://livepeer.org/) – a decentralized video streaming network**! We will talk about the main features, resources to get started and the necessary info!
@@ -16,7 +16,7 @@ Let’s dive in!
 
 ## TL;DR: What is Livepeer?
 
-![](./OG.png)
+![](./OG.webp)
 
 [Livepeer](https://livepeer.org/) was designed to efficiently and securely serve video content through a network of decentralized nodes, introducing many foundational elements to web3 development in the ecosystem!
 
