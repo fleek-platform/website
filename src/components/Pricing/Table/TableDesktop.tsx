@@ -15,6 +15,14 @@ const TableDesktop = () => (
     cellSpacing={0}
     cellPadding={0}
   >
+    <thead>
+      <tr>
+        <th className="w-[20%]" />
+        {Object.values(PRICING_PLANS).map(({ header }, idx) => (
+          <th key={`${idx}-${header.title}-th`} className="w-1/4" />
+        ))}
+      </tr>
+    </thead>
     <tbody className="rounded-b-12">
       {Object.entries(PLAN_SECTIONS).map(
         (
