@@ -124,7 +124,7 @@ export const PRICING_PLANS: Record<PlanKeys, Plan> = {
       },
       compute: {
         requests: '100,000',
-        duration: '100 GB/hours included',
+        duration: '100 GB-hours included',
         vCPU: '$0.00003 / vCPU-Sec',
       },
       onchainFeatures: {
