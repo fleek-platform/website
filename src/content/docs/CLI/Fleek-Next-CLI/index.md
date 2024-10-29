@@ -7,6 +7,10 @@ desc: An overview of the Fleek Next CLI, a tool that simplifies the deployment o
 
 # Fleek Next adapter
 
+:::info
+Install the [Fleek CLI](/docs) locally on your machine to be able to deploy on your application.
+:::
+
 The Fleek Next.js adapter allows you to deploy your server-side Next.js application on Fleek. It lets users host Next.js apps (fullstack and static) directly from the terminal with an efficiency and edge-compatibility. The adapter helps deploy your Next.js app as a [Fleek Function](/docs/cli/functions) and this in turn offers up the edge runtime built on top the [Fleek Network](/docs/infrastructure/) that powers your Next.js applications.
 
 We are going to walk you through the adapter, features it offers, and how to deploy your Next.js app with it on Fleek. This adapter supports both JavaScript and TypeScript Next applications.
