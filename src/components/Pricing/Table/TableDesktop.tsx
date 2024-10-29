@@ -1,7 +1,6 @@
 import { Fragment } from 'react';
 import { PLAN_SECTIONS, PRICING_PLANS } from './constants';
 import TableCell from './TableCell';
-import TableHeader from './TableHeader';
 import './styles.module.css';
 import clsx from 'clsx';
 import TableSubheader from './TableSubheader';
@@ -16,23 +15,6 @@ const TableDesktop = () => (
     cellSpacing={0}
     cellPadding={0}
   >
-    <thead>
-      <tr className="border-b-1 border-ui-mid-grey">
-        <th className="w-[20%]">
-          <div className=" flex h-full w-full flex-col gap-16  rounded-tl-12  border-1 border-b-0 border-ui-mid-grey bg-gray-dark-1  px-20 py-20 lg:max-w-[345px]">
-            <h3 className="typo-m-normal text-left">Plan Breakdown</h3>
-            <p className="typo-s text-left">
-              Explore the different plans we have and how they compare.
-            </p>
-          </div>
-        </th>
-        {Object.values(PRICING_PLANS).map(({ header }, idx) => (
-          <th key={`${idx}-${header.title}-th`} className="w-1/4">
-            <TableHeader {...header} />
-          </th>
-        ))}
-      </tr>
-    </thead>
     <tbody className="rounded-b-12">
       {Object.entries(PLAN_SECTIONS).map(
         (
