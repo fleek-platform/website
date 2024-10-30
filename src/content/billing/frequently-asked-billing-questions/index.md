@@ -24,7 +24,7 @@ We accept ACH transfers and credit card payments.
 
 ## How often will I be billed?
 
-Every user will be charged a bill of 20 USD monthly for the upgraded resource limits provided on the Pro plan.
+Every project will be charged a bill every month for the upgraded resource limits provided on the their respective plan. More information can be found on our [pricing](/pricing) page.
 
 ## Can I get a refund for unused services?
 
