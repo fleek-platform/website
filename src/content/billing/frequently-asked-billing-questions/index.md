@@ -20,23 +20,23 @@ To update your billing information, log into your Fleek account, go to the Billi
 
 ## What payment methods do you accept?
 
-We accept ACH transfers, credit card payments, and crypto in the form of ETH (ether) or USDC (the USD stablecoin from Coinbase).
+We accept ACH transfers and credit card payments.
 
 ## How often will I be billed?
 
-Once an account reaches the threshold for their billing plan, it incurs overage charges. Different tiers will carry with them different usage thresholds and overage pricing. Each month an itemized invoice will be prepared to view and download from the Web app.
+Every user will be charged a bill of 20 USD monthly for the upgraded resource limits provided on the Pro plan.
 
 ## Can I get a refund for unused services?
 
-Refund policies vary depending on the service and subscription plan. Please refer to our Refund Policy for detailed information.
+Please refer to our [support center](/requests/new) for detailed information.
 
 ## What should I do if I see an unauthorized charge on my account?
 
-If you notice an unauthorized charge, please contact our support team immediately. You can submit a ticket here and our staff will investigate the issue and respond within 48 hours.
+If you notice an unauthorized charge, please contact our support team immediately. You can submit a ticket [here](/requests/new) and our staff will investigate the issue and respond within 48 hours.
 
 ## How do I dispute a charge?
 
-To dispute a charge, submit a ticket here with the details of the charge you believe is incorrect. Our billing team will review your request and get back to you within 48 hours.
+To dispute a charge, submit a ticket [here](/requests/new) with the details of the charge you believe is incorrect. Our billing team will review your request and get back to you within 48 hours.
 
 ## Why was my payment declined?
 
