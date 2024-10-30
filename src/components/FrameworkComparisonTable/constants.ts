@@ -16,7 +16,7 @@ export const frameworks: Framework[] = [
   {
     name: 'Astro',
     ssg: true,
-    ssr: true,
+    ssr: false,
     previewDeployments: true,
   },
   {
