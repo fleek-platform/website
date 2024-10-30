@@ -6,21 +6,13 @@ thumbnail: './frequently-asked-billing-questions.png'
 image: './frequently-asked-billing-questions.png'
 ---
 
-## How do I view my billing history and invoices?
-
-You can view your billing history by logging into your Fleek account and navigating to the Billing section. There, you will find a detailed breakdown of all your past invoices and payments.
-
-## Can I receive my invoices directly via email?
-
-Yes, you can navigate to the Billing section and click on 'Update Billing Information.' where you are able to add the email where you want to receive your invoices.
-
 ## How do I update my billing information?
 
-To update your billing information, log into your Fleek account, go to the Billing section, and click on 'Update Billing Information.' You can update your credit card details, billing address, and other relevant information.
+To update your billing information, log into your Fleek account and access your billing details from the Settings menu. You can update your credit card details, billing address, and other relevant information.
 
 ## What payment methods do you accept?
 
-We accept ACH transfers, credit cards and any other form of payment available within Stripe
+We accept ACH transfers, credit cards and any other form of payment available within Stripe.
 
 ## How often will I be billed?
 
