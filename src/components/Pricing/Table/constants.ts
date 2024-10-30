@@ -12,7 +12,7 @@ export const PLAN_SECTIONS: SectionFeatures = {
       duration: 'Duration',
       vCPU: 'vCPU',
     },
-    overage: ['$0.30 / 1M Requests (Overage)'],
+    overage: ['$0.30 / 1mm Requests (Overage)'],
   },
   bandwidth: {
     icon: '/svg/hostingIconPricing.svg',
@@ -123,8 +123,8 @@ export const PRICING_PLANS: Record<PlanKeys, Plan> = {
         support: 'Basic',
       },
       compute: {
-        requests: '3M',
-        duration: '$0.00003 / GB-Sec',
+        requests: '100,000',
+        duration: '100 GB-hours included',
         vCPU: '$0.00003 / vCPU-Sec',
       },
       onchainFeatures: {
@@ -206,7 +206,7 @@ export const PRICING_PLANS: Record<PlanKeys, Plan> = {
         'Pricing that scales with your project. Free $5 included monthly. #WAGMI',
       cta: {
         text: 'Go fast with Pro',
-        href: 'mailto:business@fleek.xyz',
+        href: 'https://app.fleek.xyz/projects/[projectId]/settings/billing',
         variant: 'app-primary',
       },
     },
@@ -240,7 +240,7 @@ export const PRICING_PLANS: Record<PlanKeys, Plan> = {
       description: 'Need high volume or custom requirements? Reach out.',
       cta: {
         text: 'Contact Sales',
-        href: 'mailto:business@fleek.xyz',
+        href: 'https://fleek.typeform.com/fleekinterest',
         variant: 'secondary',
       },
     },
