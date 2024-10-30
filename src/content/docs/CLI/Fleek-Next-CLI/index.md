@@ -36,7 +36,7 @@ npm install @fleek-platform/next -g
 To prepare your Next.js application for deployment on Fleek, follow these steps:
 
 1.  **Configure edge runtime**:
-    For routes with server-side code, add the following code to ensure they run on the edge:
+    For routes with server-side code, add the following code to ensure they are configured to be optimised for edge runtimes:
 
     ```js
     export const runtime = 'edge';
