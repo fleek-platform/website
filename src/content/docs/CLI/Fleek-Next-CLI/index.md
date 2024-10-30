@@ -11,9 +11,9 @@ desc: An overview of the Fleek Next CLI, a tool that simplifies the deployment o
 Install the [Fleek CLI](/docs) and [login](/docs/cli/#login) locally on your machine to be able to deploy your application.
 :::
 
-The Fleek Next.js adapter allows you to deploy your server-side Next.js application on Fleek. It lets users host Next.js apps (fullstack and static) directly from the terminal with an efficiency and edge-compatibility. The adapter helps deploy your Next.js app as a [Fleek Function](/docs/cli/functions) and this in turn offers up the edge runtime built on top the [Fleek Network](/docs/infrastructure/) that powers your Next.js applications.
+The Fleek Next.js adapter allows you to deploy your server-side Next.js application on Fleek. It lets users host fullstack Next.js apps directly from the terminal with an efficiency and edge-compatibility. The adapter helps deploy your Next.js app as a [Fleek Function](/docs/cli/functions) and this in turn offers up the edge runtime built on top the [Fleek Network](/docs/infrastructure/) that powers your Next.js applications.
 
-We are going to walk you through the adapter, features it offers, and how to deploy your Next.js app with it on Fleek. This adapter supports both JavaScript and TypeScript Next applications.
+We are going to walk you through the adapter, features it offers, and how to deploy your Next.js app with it on Fleek. This adapter supports both JavaScript and TypeScript Next applications. You need to make sure that your **Node.js version is at least 18.18.2 and that you have a working Next.js application setup**.
 
 ## Install
 
@@ -44,12 +44,12 @@ To prepare your Next.js application for deployment on Fleek, follow these steps:
 
 2.  **Build the application**: Use the Fleek Next.js adapter to build and deploy your app from the command line
 
-        ```sh
-        npx fleek-next build
+    ```sh
+    npx fleek-next build
 
-        # or if installed globally
-        fleek-next build
-        ```
+    # or if installed globally
+    fleek-next build
+    ```
 
 3.  If running this command outside of your project’s root directory, specify the path with the `-p` or `--projectPath` flag:
 
@@ -111,12 +111,12 @@ The URLs below are for a demo Next.js deployment. You will get your own Fleek UR
 ```bash
 Transforming code: [████████████████████████████████████████] 100% | ETA: 0s | 100/100
 
-Uploading code to IPFS: [████████████████████████████████████████] 100% | ETA: 0s | 40477/40477
+Uploading code to IPFS: [████████████████████████████████████████] 100% | ETA: 0s | 41449/41449
 
 ✅ Success! The deployment has been successfully created.
 
 > You can call this Fleek Function by making a request to the following URL
-🔗 https://narrow-diamond-tinkling.functions.on-fleek.app
+🔗 https://broad-jackal-colossal.functions.stg.on-fleek-test.app
 > You can also call this Fleek Network URL directly for increased performance (please keep in mind you will not be able to deactivate this link)
-🔗 https://fleek-test.network/services/1/ipfs/bafkreidgfl3ub3vwca5lslotpsdbqggkuui7zlucyr5rj7qpg3iqiq3uee
+🔗 https://fleek-test.network/services/1/ipfs/bafkreid5dvgl44xsfixix7xu7k62vjny2cdsay2r3fhqavdbddgpdcmtjy
 ```
