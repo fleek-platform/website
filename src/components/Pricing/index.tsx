@@ -2,7 +2,6 @@ import TableMobile from './Table/TableMobile';
 import TableDesktop from './Table/TableDesktop';
 import { PricingInfo } from '../../content/pricing/config';
 import PricingCard from '@components/PricingCard';
-import Pay from '@components/Pay';
 import { Text } from '@components/LandingPage/Text';
 
 const Pricing = () => {
@@ -27,6 +26,7 @@ const Pricing = () => {
                   cost={item.cost}
                   variant={item.variant}
                   url={item.url}
+                  costOptions={item.costOptions}
                 />
               );
             })}
@@ -35,7 +35,6 @@ const Pricing = () => {
           <TableDesktop />
         </div>
       </div>
-      <Pay />
     </>
   );
 };
