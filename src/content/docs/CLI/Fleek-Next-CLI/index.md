@@ -8,7 +8,7 @@ desc: An overview of the Fleek Next CLI, a tool that simplifies the deployment o
 # Fleek Next adapter
 
 :::info
-Install the [Fleek CLI](/docs) locally on your machine to be able to deploy on your application.
+Install the [Fleek CLI](/docs) and [login](/docs/cli/#login) locally on your machine to be able to deploy your application.
 :::
 
 The Fleek Next.js adapter allows you to deploy your server-side Next.js application on Fleek. It lets users host Next.js apps (fullstack and static) directly from the terminal with an efficiency and edge-compatibility. The adapter helps deploy your Next.js app as a [Fleek Function](/docs/cli/functions) and this in turn offers up the edge runtime built on top the [Fleek Network](/docs/infrastructure/) that powers your Next.js applications.
@@ -77,13 +77,15 @@ To learn about support for Next.js features on Fleek, see the [documentation](/d
    fleek functions create
    ```
 
-2. You then copy the name of the Fleek Function you just created because you will use it in the next step. Deploying your Next.js application after all the above steps is as simple as one command:
+2. You then note the name of the Fleek Function you just created because you will use it in the next step. Deploying your Next.js application after all the above steps is as simple as one command:
 
    ```sh
-   fleek functions deploy bundle=false --name '<function_name>' --path .fleek/dist/index.js
+   fleek functions deploy --bundle=false --path .fleek/dist/index.js --assets .fleek/static
    ```
 
-The above command deploys a serverless function to Fleek without bundling any additional files. The below is what you should expect to see while deploying:
+The above command will prompt you to [login to your Fleek account](/docs/cli/#login) from your CLI if you are not already logged in. If you are logged in, you will be prompted to choose a project on your Fleek account to deploy your application from as well as the Fleek Function to deploy your application to which should match the one you created above.
+
+The below is what you should expect to see while deploying:
 
 :::note
 The URLs below are for a demo Next.js deployment. You will get your own Fleek URL.
