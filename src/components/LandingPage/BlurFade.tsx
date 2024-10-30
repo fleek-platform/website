@@ -1,66 +1,60 @@
-import { useRef } from 'react';
-import {
-  AnimatePresence,
-  motion,
-  useInView,
-  type UseInViewOptions,
-  type Variants,
-} from 'framer-motion';
+import { useEffect, useRef } from 'react';
+import { clsx } from 'clsx';
 
-type MarginType = UseInViewOptions['margin'];
+import styles from './BlurFade.module.css';
 
 type BlurFadeProps = {
   children: React.ReactNode;
   className?: string;
-  variant?: {
-    hidden: { y: number };
-    visible: { y: number };
-  };
   duration?: number;
   delay?: number;
-  yOffset?: number;
-  inView?: boolean;
-  inViewMargin?: MarginType;
-  blur?: string;
+  inViewMargin?: string;
 };
 
 export const BlurFade: React.FC<BlurFadeProps> = ({
   children,
   className,
-  variant,
   duration = 0.4,
   delay = 0,
-  yOffset = 6,
-  inView = false,
   inViewMargin = '-50px',
-  blur = '6px',
 }) => {
-  const ref = useRef(null);
-  const inViewResult = useInView(ref, { once: true, margin: inViewMargin });
-  const isInView = !inView || inViewResult;
-  const defaultVariants: Variants = {
-    hidden: { y: yOffset, opacity: 0, filter: `blur(${blur})` },
-    visible: { y: -yOffset, opacity: 1, filter: `blur(0px)` },
-  };
-  const combinedVariants = variant || defaultVariants;
+  const ref = useRef<HTMLDivElement | null>(null);
 
+  useEffect(() => {
+    const element = ref.current;
+    if (!element) return;
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            element.classList.add(styles.inView);
+            observer.unobserve(element);
+          }
+        });
+      },
+      {
+        rootMargin: inViewMargin,
+        threshold: 0.1,
+      },
+    );
+
+    observer.observe(element);
+
+    return () => {
+      observer.unobserve(element);
+    };
+  }, [inViewMargin]);
   return (
-    <AnimatePresence>
-      <motion.div
-        ref={ref}
-        initial="hidden"
-        animate={isInView ? 'visible' : 'hidden'}
-        exit="hidden"
-        variants={combinedVariants}
-        transition={{
-          delay: 0.04 + delay,
-          duration,
-          ease: 'easeOut',
-        }}
-        className={className}
-      >
-        {children}
-      </motion.div>
-    </AnimatePresence>
+    <div
+      ref={ref}
+      className={clsx(styles.blurFade, className)}
+      style={{
+        transitionDelay: `${delay}s`,
+        transitionDuration: `${duration}s`,
+      }}
+    >
+      {children}
+    </div>
   );
 };

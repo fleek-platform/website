@@ -1,5 +1,5 @@
 ---
-// src/components/PostHog.astro
+// src/components/Trackers.astro
 ---
 
 <script is:inline>
@@ -49,7 +49,23 @@
       }),
       (e.__SV = 1));
   })(document, window.posthog || []);
+
   posthog.init('phc_SdvLWEagL7nAauyEBun0ZF6v59DxMIk8ofzI91gpIUw', {
     api_host: 'https://us.i.posthog.com',
   });
+</script>
+
+<script
+  is:inline
+  defer
+  data-domain="fleek.xyz"
+  src="https://plausible.io/js/script.file-downloads.hash.outbound-links.pageview-props.tagged-events.js"
+></script>
+
+<script is:inline>
+  window.plausible =
+    window.plausible ||
+    function () {
+      (window.plausible.q = window.plausible.q || []).push(arguments);
+    };
 </script>

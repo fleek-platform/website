@@ -6,6 +6,8 @@ thumbnail: './ci-cd-2.webp'
 image: './ci-cd-2.webp'
 ---
 
+import LiteYoutube from '@components/LiteYoutube/LiteYoutube';
+
 Releases are hitting a weekly cadence over here! ⚡️ And this week, after previously releasing Sites Deployments on the CLI beta, we’re following-up with the first automated **CI/CD deployment flow integration: Github Actions**.
 
 The TL;DR? With one command, you can configure a Github action for your repository that automatically builds and deploy your Fleek site to IPFS **upon each commit**, outputting the hash. As always, you can now find a how-to on this at [our documentation](/docs/)!
@@ -24,7 +26,7 @@ Today we’re integrating the first managed CI/CD pipeline option with Github Ac
 
 Just open up your project on the CLI, and use the fleek sites ci command. It will create the .yaml file and a Github workflows directory in your local repository, which you can commit to Github enabling the Action. From there, each commit you do will trigger the action, and generate an IPFS hash for the new deployment. **Here's a quick video on how to use this feature:**
 
-<iframe width="600" height="350" src="https://www.youtube.com/embed/KZvYrllpb-4?controls=0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+<LiteYoutube videoId="KZvYrllpb-4" client:only="react" />
 
 In the future, with the help of the CI you will be able to update domains and other important records that are related to a deployment.
 

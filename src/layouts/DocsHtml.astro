@@ -4,7 +4,7 @@ import { getSiteUrl } from '@utils/url';
 import settings from '@base/settings.json';
 import { Toaster } from 'react-hot-toast';
 import { Navbar } from '@components/Navbar';
-import PostHog from '@components/PostHog.astro';
+import Trackers from '@components/Trackers.astro';
 import { generateCanonicalUrl } from '@utils/generateCanonicalUrl';
 
 interface Props {
@@ -103,25 +103,12 @@ const canonicalUrl = generateCanonicalUrl(docsPageSlug);
       content={`${baseUrl}/${ogMeta?.image?.replace(/^\/+/, '') || settings.site.metadata.default.image?.replace(/^\/+/, '')}`}
     />
 
-    <!-- Google Tag Manager -->
-    <script is:inline src="/lib/gtm.js"></script>
-
-    <!-- PostHog -->
-    <PostHog />
+    <!-- Trackers -->
+    <Trackers />
   </head>
   <body
     class="relative flex flex-col bg-black font-sans text-gray-dark-11 selection:bg-yellow-dark-9 selection:text-black"
   >
-    <!-- Google Tag Manager (noscript version) -->
-    <!-- WARNING: The script version is above see /lib/gtm.js -->
-    <!-- End Google Tag Manager (noscript) -->
-    <noscript>
-      <iframe
-        src="https://www.googletagmanager.com/ns.html?id=GTM-WMT553Z"
-        height="0"
-        width="0"
-        style={{ display: 'none', visibility: 'hidden' }}></iframe>
-    </noscript>
     <Navbar
       client:load
       variant="fixed"
