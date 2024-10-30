@@ -83,7 +83,24 @@ To learn about support for Next.js features on Fleek, see the [documentation](/d
    fleek functions deploy --bundle=false --path .fleek/dist/index.js --assets .fleek/static
    ```
 
-The above command will prompt you to [login to your Fleek account](/docs/cli/#login) from your CLI if you are not already logged in. If you are logged in, you will be prompted to choose a project on your Fleek account to deploy your application from as well as the Fleek Function to deploy your application to which should match the one you created above.
+The above command will prompt you to [login to your Fleek account](/docs/cli/#login) from your CLI if you are not already logged in.
+
+If you are logged in, you will :
+
+1. Be prompted to choose a project on your Fleek account to deploy your application from:
+
+   ```bash
+   ✔ Select a project from the list: › First Project
+
+   ✅ Success! You have switched to project "First Project".
+   ```
+
+2. Choose a Fleek Function to deploy your application to which should match the one you created above:
+
+   ```bash
+   ✔ Select function from the list › stuff
+   ✅ Success! Assets uploaded successfully
+   ```
 
 The below is what you should expect to see while deploying:
 
