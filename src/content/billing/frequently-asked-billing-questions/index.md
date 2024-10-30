@@ -1,6 +1,6 @@
 ---
 title: 'Frequently Asked Billing Questions'
-date: 2023-03-18
+date: 2024-10-30
 desc: 'Comprehensive answers to common billing-related questions, including viewing invoices, updating billing information, accepted payment methods, and resolving billing issues.'
 thumbnail: './frequently-asked-billing-questions.png'
 image: './frequently-asked-billing-questions.png'
@@ -20,15 +20,15 @@ To update your billing information, log into your Fleek account, go to the Billi
 
 ## What payment methods do you accept?
 
-We accept ACH transfers and credit card payments.
+We accept ACH transfers, credit cards and any other form of payment available within Stripe
 
 ## How often will I be billed?
 
-Every project will be charged a bill every month for the upgraded resource limits provided on the their respective plan. More information can be found on our [pricing](/pricing) page.
+Each project will be billed monthly for their respective plan and resources. More information can be found on our [pricing](/pricing) page.
 
 ## Can I get a refund for unused services?
 
-Please refer to our [support center](/requests/new) for detailed information.
+Please write to us through our [Support Center](/requests/new) with detailed information about the circumstances and details related to your refund request, and we will evaluate it on a case-by-case basis.
 
 ## What should I do if I see an unauthorized charge on my account?
 
