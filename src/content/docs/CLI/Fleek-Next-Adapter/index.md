@@ -13,7 +13,9 @@ Install the [Fleek CLI](/docs) and [login](/docs/cli/#login) locally on your mac
 
 The Fleek Next.js adapter enables seamless deployment of server-side Next.js applications on Fleek, allowing users to host fullstack Next.js apps straight from the terminal with optimized performance and edge compatibility. With this adapter, you can deploy your Next.js app as a [Fleek Function](/docs/cli/functions), leveraging the edge runtime of the [Fleek Network](/docs/infrastructure/) to power your application efficiently.
 
-We are going to walk you through the adapter, features it offers, and how to deploy your Next.js app with it on Fleek. This adapter supports both JavaScript and TypeScript Next applications. You need to make sure that your **Node.js version is at least 18 and that you have a working Next.js application setup**.
+We are going to walk you through the adapter, features it offers, and how to deploy your Next.js app with it on Fleek. This adapter supports both JavaScript and TypeScript Next applications.
+
+You need to make sure that your **Node.js version is at least 18, check that your [Fleek CLI version](/docs/cli/#install) is at least version 3 and that you have a working Next.js application setup**.
 
 ## Install
 
