@@ -113,12 +113,12 @@ The URLs below are for a demo Next.js deployment. You will get your own Fleek UR
 ```bash
 Transforming code: [████████████████████████████████████████] 100% | ETA: 0s | 100/100
 
-Uploading code to IPFS: [████████████████████████████████████████] 100% | ETA: 0s | 41449/41449
+Uploading code to IPFS: [████████████████████████████████████████] 100% | ETA: 0s | 1105317/1105317
 
 ✅ Success! The deployment has been successfully created.
 
 > You can call this Fleek Function by making a request to the following URL
-🔗 https://broad-jackal-colossal.functions.stg.on-fleek-test.app
+🔗 https://brief-disease-harsh.functions.on-fleek.app
 > You can also call this Fleek Network URL directly for increased performance (please keep in mind you will not be able to deactivate this link)
-🔗 https://fleek-test.network/services/1/ipfs/bafkreid5dvgl44xsfixix7xu7k62vjny2cdsay2r3fhqavdbddgpdcmtjy
+🔗 https://fleek-test.network/services/1/ipfs/bafybeig3v4ffebr3hnukpfl5mutflxqgqaizn4l4vp2ffkfnvjuhmynj4i
 ```
