@@ -100,8 +100,6 @@ NFTs or non-fungible tokens are digital assets with immense flexibility to repre
 
 This facet of permanence might also unlock innovative functionalities and utilities for NFTs.
 
-Here are some <u>[storage & formatting best practices for NFT metadata](https://blog.fleek.xyz/post/storing-nft-metadata-and-standards/)</u>.
-
 3. **Onchain Identity and Access Management**
 
 By storing identification documents, credentials, and more on an onchain network, individuals and businesses can safeguard their information and streamline online verification processes without relying on vulnerable centralized identity providers.

@@ -15,13 +15,13 @@ tags:
 
 # GitHub Actions
 
-Use custom GitHub Actions to deploy your site to Fleek instead of using the CLI's [Site deploy](/docs/cli/sites#deploy-a-site) command. This approach is suitable if you have an existing repository that you want to deploy on [Fleek Platform](https://fleek.xyz).
+Use custom GitHub Actions to deploy your site to Fleek instead of using the CLI's [Site deploy](/docs/cli/hosting/) command. This approach is suitable if you have an existing repository that you want to deploy on [Fleek Platform](https://fleek.xyz).
 
-The Fleek-platform CLI can generate a GitHub Action (yaml) for deploying a [Fleek Site](/docs/cli/sites/) by automating the process of building and publishing it. It ensures that your latest changes are quickly and consistently pushed whenever you update the repository, e.g. on main branch update.
+The Fleek-platform CLI can generate a GitHub Action (yaml) for deploying a [Fleek Site](/docs/cli/hosting/) by automating the process of building and publishing it. It ensures that your latest changes are quickly and consistently pushed whenever you update the repository, e.g. on main branch update.
 
 ### Create a GitHub Action for Fleek Sites deployment
 
-First, ensure that you have initialized a [Fleek Site](/docs/cli/sites#initialize-the-fleek-site), if you haven't done already you can learn about it [here](/docs/cli/sites#initialize-the-fleek-site).
+First, ensure that you have initialized a [Fleek Site](/docs/hosting/), if you haven't done already you can learn about it [here](/docs/cli/hosting/).
 
 After initializing a Fleek Site, you can run the `ci` (Continuous Integration) command:
 
