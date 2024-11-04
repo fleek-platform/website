@@ -70,6 +70,8 @@ Ready to explore Next.js on Fleek? Join our exclusive builder channel in [Discor
 - [Fleek SDK](https://fleek.xyz/docs/sdk/)
 - [Templates](https://app.fleek.xyz/templates/)
 - [Getting Started with Next.js on Fleek](https://fleek.xyz/docs/cli/fleek-next-adapter/)
+- [Deploying Next Contentlayer with Fullstack Next.js on Fleek](https://fleek.xyz/guides/deploy-nextjs-fullstack-fleek-adapter-guide/)
+- [Deploying Fumadocs with Fullstack Next.js](https://fleek.xyz/guides/deploy-fumadocs-fullstack-nextjs-on-fleek-guide/)
 - [Beginners guide to SSR](https://fleek.xyz/blog/learn/server-side-rendering-explained/)
 - [Edge SGX](https://fleek.xyz/docs/cli/edge-sgx/)
 - [Fleek Functions](https://fleek.xyz/docs/cli/functions/)
