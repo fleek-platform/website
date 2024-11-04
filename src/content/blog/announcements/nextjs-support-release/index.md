@@ -27,12 +27,12 @@ For this release, we’ve focused on the core features that developers require t
 
 ## **How to Get Started**
 
-Get started deploying a Next.js application on Fleek with the `**fleek-next` CLI** tool. Here are the steps to get your app or site up and running:
+Get started deploying a Next.js application on Fleek with the `**fleek-next` CLI\*\* tool. Here are the steps to get your app or site up and running:
 
 1. **Install the [Fleek CLI](https://fleek.xyz/docs/cli/)**: Install the `fleek-next` package, a tailored CLI tool optimized for Fleek’s infrastructure. Simply run `npm i @fleek-platform/next` on your terminal.
 2. **Set Your Edge Runtime**: In your server-side code, set `export const runtime = 'edge';` to ensure compatibility with Fleek’s edge network.
 3. **Build**: Use `fleek-next build` to build your application. If you’re working outside your project’s root directory, simply add the `-p` or `--projectPath` flag to specify your file path.
-4. **Deploy**: Finally deploy your application using ``fleek functions deploy --bundle=false --path .fleek/dist/index.js --assets .fleek/static``. This command will prompt you to add the function name, so ensure that you run `fleek functions create -–name <function-name>` beforehand.
+4. **Deploy**: Finally deploy your application using `fleek functions deploy --bundle=false --path .fleek/dist/index.js --assets .fleek/static`. This command will prompt you to add the function name, so ensure that you run `fleek functions create -–name <function-name>` beforehand.
 
 For more details, check out the Getting Started Guide, GitHub, or [Docs](https://fleek.xyz/docs/platform/frameworks/), or try the setup via [NPM](https://www.npmjs.com/package/@fleek-platform/next).
 
@@ -47,7 +47,7 @@ Here’s what’s coming:
 - **Incremental Static Regeneration (ISR)**: Imagine the best of both worlds—high-speed static performance with real-time updates. ISR will allow your app to serve pre-rendered pages lightning-fast while staying fresh with the latest data on demand. No more full rebuilds; just seamless updates exactly when and where you need them.
 - **Image Optimization**: Fully optimized images, served at edge speed. Next.js on Fleek will handle image resizing, compression, and format conversion automatically, so your media-heavy apps load faster and look sharper. This means smoother UX and a boost in site performance across devices—your users will love it.
 - **Streaming Support**: With Streaming, Fleek takes your app’s interactivity to a new level, sending content to users as it’s generated. This opens the door to interactive experiences that load fast and keep audiences engaged, even with complex or data-rich applications.
-- **Lazy Loading, Caching & More**: Performance is a non-negotiable, and Fleek is working on bringing you even more control with fine-tuned caching strategies, lazy loading for route handlers enabling optimized page loads, and advanced edge configurations. These optimizations mean users won’t just experience your app—they’ll be *immersed* in it.
+- **Lazy Loading, Caching & More**: Performance is a non-negotiable, and Fleek is working on bringing you even more control with fine-tuned caching strategies, lazy loading for route handlers enabling optimized page loads, and advanced edge configurations. These optimizations mean users won’t just experience your app—they’ll be _immersed_ in it.
 
 ---
 
