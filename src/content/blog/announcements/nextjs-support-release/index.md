@@ -1,7 +1,7 @@
 ---
 title: 'Introducing Fullstack Next.js Support on Fleek: Build, Deploy, and Scale Dynamic Apps with Ease'
 date: 2024-11-04
-desc: 
+desc: Fullstack Next.js support is live on Fleek. Deploy apps with SSR and SSG on an edge-optimized platform for top performance and control.
 thumbnail: ./njsthumb.jpeg
 image: ./njsthumb.jpeg
 ---
