@@ -47,6 +47,12 @@
           }
         }
       },
+      "links": {
+        "title": "Links",
+        "slug": "links",
+        "description": "Fleek links",
+        "image": "/images/fleek-meta.png?202406061658"
+      },
       "changelog": {
         "title": "Changelog",
         "slug": "changelog",
