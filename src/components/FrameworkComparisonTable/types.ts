@@ -4,9 +4,6 @@ export interface Framework {
   name: string;
   ssg: FeatureSupport;
   ssr: FeatureSupport;
-  apiRoutes: FeatureSupport;
-  isr: FeatureSupport;
-  fleekFunctions: FeatureSupport;
   previewDeployments: FeatureSupport;
 }
 
