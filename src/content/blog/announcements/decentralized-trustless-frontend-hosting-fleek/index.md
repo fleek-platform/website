@@ -2,8 +2,8 @@
 title: 'Unlocking Decentralized & Trustless Front-End Hosting with TEEs'
 date: 2024-10-08
 desc: 'Explore how TEEs, such as Intel SGX, enhance DNS Name Server security and enable decentralized front-end hosting with secure domain management.'
-thumbnail: './Fleek_Blog_SGX+DNS_10.07.24_V1.png'
-image: './Fleek_Blog_SGX+DNS_10.07.24_V1.png'
+thumbnail: './sgxthumb.jpeg'
+image: './sgxthumb.jpeg'
 ---
 
 At Fleek, we’ve always been thinking and attempting to bring real decentralized front-end hosting to life. In this post, we’re excited to share how we’re planning to leverage the use of TEEs (Trusted Execution Environments), particularly Fleek Network’s [**Intel SGX capabilities**](https://blog.fleek.network/post/fleek-network-intel-sgx-integration/), to power trustless DNS Name Servers. This is **a key step toward realizing the dream of true decentralized front-end hosting**, where domain owners have complete control over their DNS records. While there are additional steps needed to achieve the full vision of decentralized hosting, this innovation brings us much closer to that end goal— Let’s dive in.

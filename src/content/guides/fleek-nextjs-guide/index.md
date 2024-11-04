@@ -196,18 +196,18 @@ Click on your **deployed** site. You should be **brought** to this page:
 
 Click on the URL (For this example it’s https://scrawny-lock-most.on-fleek.app/ but yours will be different) and it’ll take you to your fully functional static NextJS blog!
 
-From the [Fleek.xyz](https://Fleek.xyz) dashboard, you have the ability to manage a custom domain or ENS address for your site, as well as see deployment history and quickly manage site settings.
+From the [Fleek.xyz](https://fleek.xyz) dashboard, you have the ability to manage a custom domain or ENS address for your site, as well as see deployment history and quickly manage site settings.
 
 ---
 
 Congratulations! You just deployed your NextJS blog to the Fleek.xyz platform. The basics from this guide can be taken and applied to any static NextJS app to deploy on Fleek.xyz
 
-If you’d like to learn more about Fleek, visit our [documentation](https://docs.fleek.xyz/docs) page, join our D[iscord server](https://discord.gg/fleek), and stay up to date with us on [X](https://twitter.com/fleek/)!
+If you’d like to learn more about Fleek, visit our [documentation](/docs/) page, join our D[iscord server](https://discord.gg/fleek), and stay up to date with us on [X](https://twitter.com/fleek/)!
 
 See you in the next guide 🤙
 
 ## Resources:
 
 - Understanding projects: https://fleek.xyz/docs/platform/projects/
-- Sites: https://fleek.xyz/docs/cli/sites/
+- Sites: https://fleek.xyz/docs/cli/hosting/
 - Fleek CLI: https://fleek.xyz/docs/cli/

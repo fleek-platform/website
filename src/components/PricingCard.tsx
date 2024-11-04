@@ -10,6 +10,7 @@ export type Props = {
   cta?: string;
   variant: VariantProps<typeof buttonVariants>['variant'];
   url?: string;
+  costOptions?: { prefix?: string; suffix?: string };
 };
 
 const PricingCard: React.FC<Props> = (props) => {
@@ -35,7 +36,9 @@ const PricingCard: React.FC<Props> = (props) => {
         </div>
         <div>
           <p className="typo-m text-left text-gray-dark-12">
-            $ <span className="typo-h5">{props.cost}</span> /mo
+            {props.costOptions?.prefix ?? '$'}{' '}
+            <span className="typo-h5">{props.cost}</span>{' '}
+            {props.costOptions?.suffix ?? '/mo'}{' '}
           </p>
         </div>
         <div className="my-12 bg-gray-dark-6 p-[1px]" />
