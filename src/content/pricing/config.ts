@@ -40,7 +40,7 @@ export const PricingInfo: Props[] = [
       'Everything in Pro Plan',
       'Custom rates for your needs',
       'Custom build tiers',
-      'Enterprise SLA agreements with dedicated support',
+      'Enterprise SLAs, dedicated support',
     ],
     cta: 'Contact Sales',
     variant: 'secondary',

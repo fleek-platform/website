@@ -43,7 +43,7 @@ In the new Fleek, we have introduced Projects, a way to organize your sites, fil
 In this initial release, users can deploy/host apps via a managed deployment CI/CD in the app, or opt for the the CLI-based deployments(a.k.a. Self-Managed and built deployments). Users can:
 
 - [Deploy sites to IPFS storage by connecting their GitHub account](/docs/cli/sites/)
-- [Create sites to manage via the CLI](https://fleek.xyz/docs/cli/sites/)
+- [Create sites to manage via the CLI](https://fleek.xyz/docs/cli/hosting/)
 - [Deploy sites from templates created by the Fleek team and the community](https://fleek.xyz/docs/platform/)
 - [Configure a custom domain on their sites via the UI](https://fleek.xyz/docs/platform/domains/)
 - [Configure ENS domains on their sites via the UI](https://fleek.xyz/docs/platform/domains/)

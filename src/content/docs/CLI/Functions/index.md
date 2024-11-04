@@ -1,5 +1,5 @@
 ---
-order: 6
+order: 7
 title: Fleek Functions
 date: 2024-05-23
 desc: The Fleek Functions are code snippets that are executed server-side using Fleek Network's on-chain cloud infrastructure.

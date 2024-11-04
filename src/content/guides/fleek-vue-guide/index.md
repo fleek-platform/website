@@ -362,6 +362,6 @@ See you in the next guide 🤙
 ## Resources:
 
 - Understanding Projects: https://fleek.xyz/docs/cli/projects/
-- Sites: https://fleek.xyz/docs/cli/sites/
+- Sites: https://fleek.xyz/docs/cli/hosting/
 - Fleek CLI: https://fleek.xyz/docs/cli/
 - Fleek SDK: https://fleek.xyz/docs/sdk/

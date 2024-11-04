@@ -76,7 +76,7 @@ Users can easily take advantage of Fleek’s public IPFS gateway by[ ](https://f
 
 - [https://flk-ipfs.xyz/ipfs/](https://flk-ipfs.xyz/ipfs/)`<CID>`
 
-- [https://`<CID>`.ipfs.flk-ipfs.xyz](null)
+- [https://`<CID>`.ipfs.flk-ipfs.xyz]
 
 Where `<CID>` is the content identifier.
 
