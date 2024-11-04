@@ -10,7 +10,7 @@ Today, we're excited to launch support for fullstack **Next.js apps and sites** 
 
 ## **Why Next.js on Fleek?**
 
-At Fleek, we’re committed to empowering developers with innovative tools that are reliable and cutting-edge. With our new [**Next.js support**](https://fleek.xyz/docs/platform/frameworks/), deploying full-stack applications to Fleek has never been easier. Developers can now build apps and sites leveraging Fleek’s robust infrastructure coupled with Next.js’s powerful framework — simplifying the developer experience while optimizing for performance and cost.
+At Fleek, we’re committed to empowering developers with innovative tools that are reliable and cutting-edge. With our new [**Next.js support**](https://fleek.xyz/docs/cli/fleek-next-adapter/), deploying full-stack applications to Fleek has never been easier. Developers can now build apps and sites leveraging Fleek’s robust infrastructure coupled with Next.js’s powerful framework — simplifying the developer experience while optimizing for performance and cost.
 
 ## **Key Features in This Release**
 
@@ -34,7 +34,7 @@ Get started deploying a Next.js application on Fleek with the `**fleek-next` CLI
 3. **Build**: Use `fleek-next build` to build your application. If you’re working outside your project’s root directory, simply add the `-p` or `--projectPath` flag to specify your file path.
 4. **Deploy**: Finally deploy your application using `fleek functions deploy --bundle=false --path .fleek/dist/index.js --assets .fleek/static`. This command will prompt you to add the function name, so ensure that you run `fleek functions create -–name <function-name>` beforehand.
 
-For more details, check out the Getting Started Guide, GitHub, or [Docs](https://fleek.xyz/docs/platform/frameworks/), or try the setup via [NPM](https://www.npmjs.com/package/@fleek-platform/next).
+For more details, check out the [Getting Started Guide](https://fleek.xyz/docs/cli/fleek-next-adapter/), [GitHub](https://github.com/fleek-tools/fleek-nextjs-boilerplate), or [Docs](https://fleek.xyz/docs/platform/frameworks/), or try the setup via [NPM](https://www.npmjs.com/package/@fleek-platform/next).
 
 ---
 
@@ -63,13 +63,13 @@ Our releases are a testament to our mission of advancing the open web and making
 
 Ready to explore Next.js on Fleek? Join our exclusive builder channel in [Discord](discord.gg/fleek) to share feedback, follow our updates on [X](https://x.com/fleek), and don’t hesitate to show us what you’re cooking up. Together, we’re building the unstoppable future of the internet.
 
-### Get started building on Fleek:
+**### Get started building on Fleek:**
 
 - [Sign Up](https://app.fleek.xyz/)
 - [Fleek CLI](https://fleek.xyz/docs/cli/)
 - [Fleek SDK](https://fleek.xyz/docs/sdk/)
-- Templates
-- Getting Started with Next.js on Fleek
+- [Templates](https://app.fleek.xyz/templates/)
+- [Getting Started with Next.js on Fleek](https://fleek.xyz/docs/cli/fleek-next-adapter/)
 - [Beginners guide to SSR](https://fleek.xyz/blog/learn/server-side-rendering-explained/)
 - [Edge SGX](https://fleek.xyz/docs/cli/edge-sgx/)
 - [Fleek Functions](https://fleek.xyz/docs/cli/functions/)
