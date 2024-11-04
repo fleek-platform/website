@@ -115,8 +115,8 @@
       "templatesUrl": "https://app.fleek.xyz/templates"
     },
     "annoucementMarquee": {
-      "message": "Introducing Fleek Edge SGX: a decentralized, edge-optimized, and developer-friendly SGX tool",
-      "url": "/blog/announcements/introducing-fleek-edge-sgx/",
+      "message": "Deploy fullstack Next.JS apps with SSR, app routing and more",
+      "url": "/blog/announcements/nextjs-support-release/",
       "visible": true
     }
   },
