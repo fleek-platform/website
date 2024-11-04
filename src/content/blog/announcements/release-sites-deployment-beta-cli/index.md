@@ -16,7 +16,7 @@ Step aside, it’s time to host some sites on IPFS! If you want a quick-start, v
 
 ![Sites Deployment with Fleek promotional banner](https://storage.fleek.ooo/27a60cdd-37d3-480c-ae88-3ad4ca886b13-bucket/imgs/site-demo.png)
 
-The Sites services on Fleek will allow anyone to upload and easily maintain static sites, stored and served by Web3 protocols, starting with IPFS. Visit the [Sites documentation](/docs/cli/sites/) to learn how to get your first project live.
+The Sites services on Fleek will allow anyone to upload and easily maintain static sites, stored and served by Web3 protocols, starting with IPFS. Visit the [Sites documentation](/docs/platform/hosting/) to learn how to get your first project live.
 
     > fleek sites init
     ? Choose one of the existing sites or create a new one.
