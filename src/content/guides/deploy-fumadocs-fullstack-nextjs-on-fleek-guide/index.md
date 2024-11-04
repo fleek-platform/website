@@ -31,7 +31,7 @@ The Fleek Next Adapter opens doors to much more than standard Next.js deployment
 
 1. Start by installing the Fleek CLI.
 
-```rust
+```bash
 // local installation
 npm i @fleek-platform/cli
 
@@ -43,7 +43,7 @@ npm i -g @fleek-platform/cli
 
 2. Install the Fleek Next Adapter
 
-```rust
+```bash
 // local installation
 npm i @fleek-platform/next
 
@@ -55,13 +55,13 @@ npm i -g @fleek-platform/next
 
 3. Install fumadocs using the automatic installation flow. Follow the terminal prompts and finish the installation.
 
-```rust
+```bash
 npm create fumadocs-app
 ```
 
 The installation flow should look something like this -
 
-```rust
+```bash
 ┌  Create Fumadocs App
 │
 ◇  Project name
@@ -113,7 +113,7 @@ And, the /docs page will look like this -
 
 1. Add the following code to any routes that run server-side code to ensure they run on the edge.
 
-```rust
+```bash
 export const runtime = 'edge'
 ```
 
@@ -133,7 +133,7 @@ export async function generateStaticParams() {
 
 2. Build the project using the Fleek Next Adapter
 
-```rust
+```bash
 npx fleek-next build
 # or if installed globally
 fleek-next build
@@ -141,13 +141,13 @@ fleek-next build
 
 💡: If you are running the command outside of your project's root dir, you can set the path to it with the project path flag `-p/--projectPath`:
 
-```rust
+```bash
 fleek-next build -p path/to/my/repo
 ```
 
 The build flow should look something like this -
 
-```rust
+```bash
  > Building Next.js App
 ⚡️ @fleek-platform/next-on-fleek CLI v.1.15.0
 ⚡️ Detected Package Manager: npm (9.8.1)
@@ -234,7 +234,7 @@ The build flow should look something like this -
 
 3. Now, Create the Fleek Function using the Fleek CLI
 
-```rust
+```bash
 //syntax
 fleek functions create --name '<name of your function>'
 
@@ -244,7 +244,7 @@ fleek functions create --name fumadocs
 
 4. Finally, deploy using the Fleek CLI
 
-```rust
+```bash
 //syntax
 fleek functions deploy --bundle=false --path .fleek/dist/index.js --assets .fleek/static --name '<name of your function>'
 
