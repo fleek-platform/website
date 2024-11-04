@@ -107,6 +107,8 @@ SUPPORT_RATE_LIMIT_WINDOW_MINUTES=60
 SUPPORT_RATE_LIMIT_MAX_REQ=15
 SUPPORT_RATE_LIMIT_PATHS="/tickets"
 NODE_ENV=develop
+PUBLIC_BEHIIV_API_KEY=***
+PUBLIC_BEHIIV_SUBSCRIBE_URL=***
 ```
 
 💡 The SUPPORT_ALLOW_ORIGIN_ADDR and SUPPORT_RATE_LIMIT_PATHS are comma separated values (csv). the MEILISEARCH_DOCUMENTS_CLIENT_API_KEY is required when querying staging, production environments which should be provided in the headers.
