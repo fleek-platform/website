@@ -1,7 +1,7 @@
 ---
 title: 'Deploying Next Contentlayer with Fullstack Next.js on Fleek: A Step-by-Step Guide'
 date: 2024-10-31
-desc: 'Learn to deploy a fullstack Next.js contentlayer app on Fleek with the Fleek Next Adapter. This guide simplifies setup and deployment for high-performance, server-side applications on Fleek's decentralized infrastructure.'
+desc: "Learn to deploy a fullstack Next.js contentlayer app on Fleek with the Fleek Next Adapter. This guide simplifies setup and deployment for high-performance, server-side applications on Fleek's decentralized infrastructure."
 thumbnail: './stepbystepdeploying-nextcontentlayer_blogimg_1280x720.jpg'
 image: './stepbystepdeploying-nextcontentlayer_blogimg_1280x720.jpg'
 ---

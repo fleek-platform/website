@@ -96,7 +96,7 @@ Run Development Server
 npm run dev | pnpm run dev | yarn dev
 
 You can now open the project and start writing documents
-kanishkkhurana@Kanishks-Air fuma % 
+kanishkkhurana@Kanishks-Air fuma %
 ```
 
 When run locally, the project will look something like this -
@@ -117,7 +117,8 @@ And, the /docs page will look like this -
 export const runtime = 'edge'
 ```
 
-In our case, we will be adding the above code to the following files - 
+In our case, we will be adding the above code to the following files -
+
 - /api/search/route.ts
 - /docs/[[...slug]]/page.tsx
 
@@ -126,9 +127,10 @@ Please ensure that you remove the following code from /docs/[[slug]]/page.tsx
 ```javascript
 // to be commented or removed from /docs/[[slug]]
 export async function generateStaticParams() {
-   return source.generateParams();
- }
+  return source.generateParams();
+}
 ```
+
 2. Build the project using the Fleek Next Adapter
 
 ```rust
@@ -142,6 +144,7 @@ fleek-next build
 ```rust
 fleek-next build -p path/to/my/repo
 ```
+
 The build flow should look something like this -
 
 ```rust
@@ -173,13 +176,13 @@ The build flow should look something like this -
 ▲  Collecting page data ...
 ▲  ⚠ Using edge runtime on a page currently disables static generation for that page
 ▲  Generating static pages (0/4) ...
-▲  Generating static pages (1/4) 
-▲  Generating static pages (2/4) 
+▲  Generating static pages (1/4)
+▲  Generating static pages (2/4)
 ▲  Generating static pages (3/4)
 ▲  ✓ Generating static pages (4/4)
 ▲  Finalizing page optimization ...
 ▲  Collecting build traces ...
-▲  
+▲
 ▲  Route (app)                              Size     First Load JS
 ▲  ┌ ○ /                                    172 B           108 kB
 ▲  ├ ○ /_not-found                          899 B           100 kB
@@ -198,15 +201,15 @@ The build flow should look something like this -
 ⚡️ Completed `npx vercel build`.
 
 ⚡️ Build Summary (@fleek-platform/next-on-fleek v1.15.0)
-⚡️ 
+⚡️
 ⚡️ Edge Function Routes (2)
 ⚡️   ┌ /api/search
 ⚡️   └ /docs/[[...slug]]
-⚡️ 
+⚡️
 ⚡️ Prerendered Routes (2)
 ⚡️   ┌ /
 ⚡️   └ /index.rsc
-⚡️ 
+⚡️
 ⚡️ Other Static Assets (43)
 ⚡️   ┌ /_app.rsc.json
 ⚡️   ├ /_document.rsc.json
@@ -228,6 +231,7 @@ The build flow should look something like this -
  └───────────────────────────────────────────────────────────────────────────────────────────┘
 💡 Make sure to create a function first using `fleek functions create`
 ```
+
 3. Now, Create the Fleek Function using the Fleek CLI
 
 ```rust
@@ -253,16 +257,6 @@ https://hundreds-action-shrilling.functions.on-fleek.app
 
 ---
 
-Congratulations! With this you have completed the tutorial and successfully deployed a fumadocs template on Fleek as a fullstack Next.js app. You can now expand your learning to build interesting use cases on Next.js and execute them as a Fleek Functions for scalable and performant execution and ensure that your apps exist perpetually. 
+Congratulations! With this you have completed the tutorial and successfully deployed a fumadocs template on Fleek as a fullstack Next.js app. You can now expand your learning to build interesting use cases on Next.js and execute them as a Fleek Functions for scalable and performant execution and ensure that your apps exist perpetually.
 
-To learn more about the benefits of building fullstack Next.js apps with Fleek, click here. 
-
-
-
-
-
-
-
-
-
-
+To learn more about the benefits of building fullstack Next.js apps with Fleek, click here.
