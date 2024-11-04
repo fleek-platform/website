@@ -68,7 +68,7 @@ Ready to explore Next.js on Fleek? Join our exclusive builder channel in [Discor
 - [Sign Up](https://app.fleek.xyz/)
 - [Fleek CLI](https://fleek.xyz/docs/cli/)
 - [Fleek SDK](https://fleek.xyz/docs/sdk/)
-- Templates
+- [Templates](https://github.com/fleek-tools/fleek-nextjs-boilerplate)
 - Getting Started with Next.js on Fleek
 - [Beginners guide to SSR](https://fleek.xyz/blog/learn/server-side-rendering-explained/)
 - [Edge SGX](https://fleek.xyz/docs/cli/edge-sgx/)
