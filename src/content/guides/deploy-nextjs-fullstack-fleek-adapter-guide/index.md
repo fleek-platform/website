@@ -67,7 +67,7 @@ When run locally, the project will look something like this:
 
 1. Build the project using the Fleek Next Adapter:
 
-```rust
+```bash
 npx fleek-next build
 or if installed globally
 fleek-next build
@@ -75,7 +75,7 @@ fleek-next build
 
 2. Now, Create the Fleek Function using the Fleek CLI:
 
-```rust
+```bash
 //syntax
 fleek functions create --name '<name of your function>'
 //example
@@ -84,7 +84,7 @@ fleek functions create --name contentlayer
 
 3. Finally, deploy using the Fleek CLI:
 
-```rust
+```bash
 //syntax
 fleek functions deploy --bundle=false --path .fleek/dist/index.js --assets .fleek/static --name '<name of your function>'
 
