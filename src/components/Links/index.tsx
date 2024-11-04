@@ -6,8 +6,9 @@ import BiweeklySubscription from '@components/BiweeklySubscription';
 import { SocialButton } from './SocialButton';
 import settings from '@base/settings.json';
 
-// To change the image, remplace the import banner from '@content/blog/{category}/{blog-folder-name}/{image}.png'; with the new image path. For example,
+// To change the image, replace the import banner from '@content/blog/{category}/{blog-folder-name}/{image}.png'; with the new image path. For example,
 import banner from '@content/blog/announcements/introducing-fleek-edge-sgx/sgxservicefleek.png';
+import { LinkButton } from './LinkButton';
 
 const Links = () => {
   return (
@@ -40,42 +41,16 @@ const Links = () => {
         </SocialButton>
       </div>
 
-      <Button variant="secondary" className="w-full py-7 font-normal" size="sm">
-        <a
-          aria-label="Fleek X/Twitter account"
-          href="https://fleek.xyz"
-          rel="noopener noreferrer"
-          target="_blank"
-          className="flex w-full flex-row items-center justify-between"
-        >
-          <p className="text-white">Website</p>
-          <FaArrowUp className="rotate-45" />
-        </a>
-      </Button>
-      <Button variant="secondary" className="w-full py-7 font-normal" size="sm">
-        <a
-          aria-label="Fleek X/Twitter account"
-          href="https://fleek.xyz/blog/"
-          rel="noopener noreferrer"
-          target="_blank"
-          className="flex w-full flex-row items-center justify-between"
-        >
-          <p className="text-white">Blog</p>
-          <FaArrowUp className="rotate-45	" />
-        </a>
-      </Button>
-      <Button variant="secondary" className="w-full py-7 font-normal" size="sm">
-        <a
-          aria-label="Fleek X/Twitter account"
-          href="https://fleek.xyz/docs/"
-          rel="noopener noreferrer"
-          target="_blank"
-          className="flex w-full flex-row items-center justify-between"
-        >
-          <p className="text-white">Documentation</p>
-          <FaArrowUp className="rotate-45" />
-        </a>
-      </Button>
+      <LinkButton
+        href={settings.site.production.url}
+        ariaLabel="Fleek website"
+        label="Website"
+      />
+
+      <LinkButton href="/blog/" ariaLabel="Fleek Blog" label="Blog" />
+
+      <LinkButton href="/docs/" ariaLabel="Fleek docs" label="Documentation" />
+
       <Button variant="primary-ghost" className="w-full" size="sm">
         <a
           aria-label="Fleek X/Twitter account"
