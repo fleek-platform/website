@@ -56,7 +56,6 @@ export const PLAN_SECTIONS: SectionFeatures = {
     icon: '/svg/functionIconPricing.svg',
     title: 'Platform',
     features: {
-      projects: 'Projects',
       teamMem: 'Team Members',
       GitCon: 'Git Connection',
       ddos: 'DDoS Protection',
@@ -70,7 +69,7 @@ export const PLAN_SECTIONS: SectionFeatures = {
       analytics: 'Analytics',
       support: 'Support',
     },
-    overage: ['', '$19.00 / Team Member'],
+    overage: [''],
   },
   onchainFeatures: {
     icon: '/svg/functionIconPricing.svg',
@@ -108,7 +107,6 @@ export const PRICING_PLANS: Record<PlanKeys, Plan> = {
         bandwidth: '20GB',
       },
       platform: {
-        projects: '1',
         teamMem: '1',
         GitCon: true,
         ddos: true,
@@ -169,8 +167,7 @@ export const PRICING_PLANS: Record<PlanKeys, Plan> = {
         bandwidth: '200GB',
       },
       platform: {
-        projects: '10',
-        teamMem: '1',
+        teamMem: 'Unlimited',
         GitCon: true,
         ddos: true,
         imageOp: true,
