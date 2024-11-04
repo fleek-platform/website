@@ -239,6 +239,10 @@ In the world where text is text, I show you an image:
 
 💡 Would like to place static video content? Learn how to work with video content [here](#video-content).
 
+### 🚩New blog image for links page
+
+Go to the file `src/components/Links/index.tsx` and change the banner import as the comment says. `import banner from '@content/blog/{category}/{blog-folder-name}/{image}.png'`
+
 ## 📝 Docs
 
 Creating a document in the **Docs** section is similar to **Blog**.Learn how to create a document by using the instructions for [blog](#-blog).
