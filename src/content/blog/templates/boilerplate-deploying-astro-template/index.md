@@ -29,7 +29,7 @@ Astro is a lightweight framework that combines the speed and simplicity of a sta
 
 ## How to deploy an Astro site with Fleek?
 
-With the Fleek CLI, you can easily deploy your site to IPFS and IPNS, as well as add custom domains. Learn more about self custodial deployments [here](https://fleek.xyz/docs/cli/sites/).
+With the Fleek CLI, you can easily deploy your site to IPFS and IPNS, as well as add custom domains. Learn more about self custodial deployments [here](/docs/cli/hosting/).
 
 You can deploy your site by running:
 
@@ -39,7 +39,7 @@ fleek sites deploy
 
 You can also automate your deployment process and deploy your site directly from a GitHub action. This makes it easy to keep your site up-to-date and always available to your users.
 
-Check more information about CI deployments [here](https://fleek.xyz/docs/cli/sites/).
+Check more information about CI deployments [here](/docs/cli/hosting/).
 
 To set up the CI you can run:
 
