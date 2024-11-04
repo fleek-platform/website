@@ -9,7 +9,9 @@ export const buttonVariants = cva(
     variants: {
       variant: {
         primary:
-          'bg-yellow-dark-9 hover:bg-yellow-dark-10 active:bg-yellow-dark-9 text-yellow-dark-1 ring-yellow-dark-8',
+          'bg-yellow-dark-9 hover:bg-yellow-dark-10 active:bg-yellow-dark-9 text-yellow-dark-1 ring-yellow-dark-8 disabled:bg-gray-dark-3 disabled:text-gray-dark-8 disabled:ring-gray-dark-3 disabled:cursor-not-allowed',
+        'primary-ghost':
+          'bg-transparent hover:bg-yellow-dark-3 active:bg-yellow-dark-9 text-yellow-dark-11 ring-yellow-dark-8 border-yellow-dark-7 border',
         secondary:
           'bg-gray-dark-3 hover:bg-gray-dark-4 active:bg-gray-dark-3 !text-gray-dark-11 ring-gray-dark-8',
         tertiary:
@@ -42,7 +44,7 @@ type ButtonProps = PropsWithChildren &
     target?: Target;
     rel?: string;
     onClick?: (e?: React.MouseEvent<HTMLButtonElement, MouseEvent>) => void;
-  };
+  } & React.ButtonHTMLAttributes<HTMLButtonElement>;
 
 export const Button: React.FC<ButtonProps> = ({
   id,
@@ -54,6 +56,7 @@ export const Button: React.FC<ButtonProps> = ({
   variant,
   size,
   className,
+  ...props
 }) => {
   if (href)
     return (
@@ -73,6 +76,7 @@ export const Button: React.FC<ButtonProps> = ({
       id={id}
       onClick={onClick}
       className={cn(buttonVariants({ variant, size }), className)}
+      {...props}
     >
       {children}
     </button>

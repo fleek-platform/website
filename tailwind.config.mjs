@@ -49,6 +49,9 @@ export const colors = {
   'yellow-dark-10': '#FFFF57',
   'yellow-dark-11': '#F5E147',
   'yellow-dark-12': '#F6EEB4',
+
+  'red-dark-8':'#B54548',
+  'red-dark-11':'#FF9592'
 };
 
 export default {

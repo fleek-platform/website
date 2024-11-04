@@ -1,0 +1,17 @@
+---
+import Layout from '@layouts/Page.astro';
+import settings from '@base/settings.json';
+import LinksModule from '@components/Links';
+---
+
+<Layout
+  title={settings.site.metadata.links.title}
+  description={settings.site.metadata.links.description}
+  slug={settings.site.metadata.links.slug}
+  image={settings.site.metadata.links.image}
+  singlePage
+>
+  <main class="flex flex-col items-center gap-16 pb-64">
+    <LinksModule />
+  </main>
+</Layout>

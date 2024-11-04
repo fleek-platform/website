@@ -6,6 +6,7 @@ import type React from 'react';
 import { Container } from '../LandingPage/Container';
 import { Text } from '../LandingPage/Text';
 import config from './config';
+import settings from '@base/settings.json';
 
 const { product, developers, company, resources, fleekPlatformOrgUrl } = config;
 
@@ -33,7 +34,7 @@ const Footer: React.FC = () => {
             </a>
             <a
               aria-label="Fleek X/Twitter account"
-              href="https://twitter.com/fleek/"
+              href={settings.site.resources.fleekTwitterUrl}
               rel="noopener noreferrer"
               target="_blank"
             >
@@ -41,7 +42,7 @@ const Footer: React.FC = () => {
             </a>
             <a
               aria-label="Fleek Discord"
-              href="https://discord.gg/fleek"
+              href={settings.site.resources.discordFleekCommunityUrl}
               rel="noopener noreferrer"
               target="_blank"
             >
