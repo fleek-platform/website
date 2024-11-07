@@ -33,11 +33,11 @@ The use cases for Fleek Next Adapter go way beyond just deploying basic Next.js 
 
 // local installation
 
-npm i @fleek-platform/cli
+`npm i @fleek-platform/cli`
 
 // global installation
 
-npm i -g @fleek-platform/cli
+`npm i -g @fleek-platform/cli`
 
 💡You can check the Fleek CLI version by running fleek -v. Any version >= 2.10.1 should be good.
 
@@ -45,17 +45,17 @@ npm i -g @fleek-platform/cli
 
 // local installation
 
-npm i @fleek-platform/next
+`npm i @fleek-platform/next`
 
 // global installation
 
-npm i -g @fleek-platform/next
+`npm i -g @fleek-platform/next`
 
 💡You can check the Fleek Next Adapter version by running fleek-next -v. Any version >= 1.0.6 should be good.
 
 3. Fork the contentlayer repository, and then clone it
 
-git clone https://github.com/<your-id>/fleek-contentlayer.git
+`git clone https://github.com/<your-id>/fleek-contentlayer.git`
 
 When run locally, the project will look something like this:
 
