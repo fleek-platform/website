@@ -101,10 +101,7 @@ fleek functions deploy --bundle=false --path .fleek/dist/index.js --assets .flee
 💡If you’re running the command outside of your project's root dir, you can set the path to it with the project path flag -p/--projectPath:
 
 As you complete all the steps successfully here, you will be able to access your fullstack Next.js app using a link that looks like this:
-
-```
-https://scarce-ram-skinny.functions.stg.on-fleek.app/
-```
+[https://billions-parrot-rhythmic.functions.on-fleek.app/](https://billions-parrot-rhythmic.functions.on-fleek.app/)
 
 ---
 
