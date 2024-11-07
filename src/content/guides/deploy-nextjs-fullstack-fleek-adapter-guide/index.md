@@ -31,31 +31,37 @@ The use cases for Fleek Next Adapter go way beyond just deploying basic Next.js 
 
 1. Start by installing the Fleek CLI.
 
+```bash
 // local installation
 
-`npm i @fleek-platform/cli`
+npm i @fleek-platform/cli
 
 // global installation
 
-`npm i -g @fleek-platform/cli`
+npm i -g @fleek-platform/cli
+```
 
 💡You can check the Fleek CLI version by running fleek -v. Any version >= 2.10.1 should be good.
 
 2. Install the Fleek Next Adapter
 
+```bash
 // local installation
 
-`npm i @fleek-platform/next`
+npm i @fleek-platform/next
 
 // global installation
 
-`npm i -g @fleek-platform/next`
+npm i -g @fleek-platform/next
+```
 
 💡You can check the Fleek Next Adapter version by running fleek-next -v. Any version >= 1.0.6 should be good.
 
-3. Fork the contentlayer repository, and then clone it
+3. Fork the [contentlayer repository](https://github.com/fleek-tools/contentlayer-blog-on-fleek-nextjs), and then clone it.
 
-`git clone https://github.com/<your-id>/fleek-contentlayer.git`
+```bash
+git clone https://github.com/<your-id>/fleek-contentlayer.git
+```
 
 When run locally, the project will look something like this:
 
@@ -95,8 +101,7 @@ fleek functions deploy --bundle=false --path .fleek/dist/index.js --assets .flee
 💡If you’re running the command outside of your project's root dir, you can set the path to it with the project path flag -p/--projectPath:
 
 As you complete all the steps successfully here, you will be able to access your fullstack Next.js app using a link that looks like this:
-
-https://scarce-ram-skinny.functions.stg.on-fleek-test.app/
+[https://billions-parrot-rhythmic.functions.on-fleek.app/](https://billions-parrot-rhythmic.functions.on-fleek.app/)
 
 ---
 
