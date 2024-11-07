@@ -31,37 +31,37 @@ The use cases for Fleek Next Adapter go way beyond just deploying basic Next.js 
 
 1. Start by installing the Fleek CLI.
 
-```bash
-// local installation
+   ```bash
+   // local installation
 
-npm i @fleek-platform/cli
+   npm i @fleek-platform/cli
 
-// global installation
+   // global installation
 
-npm i -g @fleek-platform/cli
-```
+   npm i -g @fleek-platform/cli
+   ```
 
 💡You can check the Fleek CLI version by running fleek -v. Any version >= 2.10.1 should be good.
 
 2. Install the Fleek Next Adapter
 
-```bash
-// local installation
+   ```bash
+   // local installation
 
-npm i @fleek-platform/next
+   npm i @fleek-platform/next
 
-// global installation
+   // global installation
 
-npm i -g @fleek-platform/next
-```
+   npm i -g @fleek-platform/next
+   ```
 
 💡You can check the Fleek Next Adapter version by running fleek-next -v. Any version >= 1.0.6 should be good.
 
 3. Fork the [contentlayer repository](https://github.com/fleek-tools/contentlayer-blog-on-fleek-nextjs), and then clone it.
 
-```bash
-git clone https://github.com/<your-id>/fleek-contentlayer.git
-```
+   ```bash
+   git clone https://github.com/<your-id>/fleek-contentlayer.git
+   ```
 
 When run locally, the project will look something like this:
 
@@ -73,32 +73,32 @@ When run locally, the project will look something like this:
 
 1. Build the project using the Fleek Next Adapter:
 
-```bash
-npx fleek-next build
+   ```bash
+   npx fleek-next build
 
-// or if installed globally
-fleek-next build
-```
+   // or if installed globally
+   fleek-next build
+   ```
 
 2. Now, Create the Fleek Function using the Fleek CLI:
 
-```bash
-//syntax
-fleek functions create --name '<name of your function>'
+   ```bash
+   //syntax
+   fleek functions create --name '<name of your function>'
 
-//example
-fleek functions create --name contentlayer
-```
+   //example
+   fleek functions create --name contentlayer
+   ```
 
 3. Finally, deploy using the Fleek CLI:
 
-```bash
-//syntax
-fleek functions deploy --bundle=false --path .fleek/dist/index.js --assets .fleek/static --name '<name of your function>'
+   ```bash
+   //syntax
+   fleek functions deploy --bundle=false --path .fleek/dist/index.js --assets .fleek/static --name '<name of your function>'
 
-//example
-fleek functions deploy --bundle=false --path .fleek/dist/index.js --assets .fleek/static --name contentlayer
-```
+   //example
+   fleek functions deploy --bundle=false --path .fleek/dist/index.js --assets .fleek/static --name contentlayer
+   ```
 
 💡If you’re running the command outside of your project's root dir, you can set the path to it with the project path flag -p/--projectPath:
 
