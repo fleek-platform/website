@@ -94,6 +94,7 @@ fleek functions create --name contentlayer
 //syntax
 fleek functions deploy --bundle=false --path .fleek/dist/index.js --assets .fleek/static --name '<name of your function>'
 
+
 //example
 fleek functions deploy --bundle=false --path .fleek/dist/index.js --assets .fleek/static --name contentlayer
 ```
