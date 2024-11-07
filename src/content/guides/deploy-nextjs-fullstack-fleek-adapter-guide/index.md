@@ -29,15 +29,13 @@ The use cases for Fleek Next Adapter go way beyond just deploying basic Next.js 
 
 ### Setup
 
-1. Start by installing the Fleek CLI.
+1. Start by installing the Fleek CLI:
 
 ```bash
 // local installation
-
 npm i @fleek-platform/cli
 
 // global installation
-
 npm i -g @fleek-platform/cli
 ```
 
@@ -47,17 +45,15 @@ npm i -g @fleek-platform/cli
 
 ```bash
 // local installation
-
 npm i @fleek-platform/next
 
 // global installation
-
 npm i -g @fleek-platform/next
 ```
 
 💡You can check the Fleek Next Adapter version by running fleek-next -v. Any version >= 1.0.6 should be good.
 
-3. Fork the [contentlayer repository](https://github.com/fleek-tools/contentlayer-blog-on-fleek-nextjs), and then clone it.
+3. Fork the contentlayer repository from https://github.com/fleek-tools/contentlayer-blog-on-fleek-nextjs, and then clone it: 
 
 ```bash
 git clone https://github.com/<your-id>/fleek-contentlayer.git
@@ -75,26 +71,26 @@ When run locally, the project will look something like this:
 
 ```bash
 npx fleek-next build
-or if installed globally
+// or, if installed globally
 fleek-next build
 ```
 
-2. Now, Create the Fleek Function using the Fleek CLI:
+2. Now, create the Fleek Function using the Fleek CLI:
 
 ```bash
-//syntax
+// syntax
 fleek functions create --name '<name of your function>'
-//example
+// example
 fleek functions create --name contentlayer
 ```
 
 3. Finally, deploy using the Fleek CLI:
 
 ```bash
-//syntax
+// syntax
 fleek functions deploy --bundle=false --path .fleek/dist/index.js --assets .fleek/static --name '<name of your function>'
 
-//example
+// example
 fleek functions deploy --bundle=false --path .fleek/dist/index.js --assets .fleek/static --name contentlayer
 ```
 
