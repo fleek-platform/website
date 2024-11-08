@@ -9,7 +9,7 @@ author: 'Tobiloba Adedeji'
 
 What’s going on, Fleek community?
 
-The team’s been hard at work throughout September and early October, bringing tons of exciting updates your way! We’re thrilled to share the latest developments in our changelog, packed with features and enhancements we know you’ll love. The highlights of this release are Next.js SSR support (full Next.js support) along with many cool Next.js templates, Platform billing, IPFS gateway comparison tool, an app redesign and migration from [fleek.co](https://fleek.co/) to [fleek.xyz](https://fleek.xyz/).
+The team’s been hard at work throughout September and October, bringing tons of exciting updates your way! We’re thrilled to share the latest developments in our changelog, packed with features and enhancements we know you’ll love. The highlights of this release are Next.js SSR support (full Next.js support) along with many cool Next.js templates, Platform billing, IPFS gateway comparison tool, an app redesign and migration from [fleek.co](https://fleek.co/) to [fleek.xyz](https://fleek.xyz/).
 
 ## Full Next.js support
 
@@ -56,7 +56,7 @@ Every piece of content uploaded to IPFS is assigned a unique ID during the uploa
 
 Additionally, on that page you can evaluate the performance of Fleek’s own public IPFS gateway, or check it directly at `flk-ipfs.xyz/[CONTENT_ID]` where [CONTENT_ID] is your IPFS content hash (e.g. https://flk-ipfs.xyz/bafybeic3nmuprwqqgbpzskmihjyjcbojz7phir47rdwcknklixcbppp7e4.)
 
-We maintain a globally-distributed set of nodes to ensure our gateway performance is competitive even with IPFS’s own public gateway offering. Want to check for yourself? Simply plug this `CONTENT_ID` into the search input of our new tool and compare response times between our gateway and others.
+We maintain a globally-distributed set of nodes to ensure our gateway performance is competitive even with IPFS’s own public gateway offering. Want to check for yourself? Simply plug this `CONTENT_ID` into the search input of our new tool and compare response times between our gateway and others. In the next few weeks, we plan to position this page as an independent community resource rather than an in-house tool.
 
 ![ipfs gateway tool](./ipfs-gateway-tool.png)
 
