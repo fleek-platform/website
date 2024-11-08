@@ -9,6 +9,9 @@
     "development": {
       "url": "http://localhost:4321"
     },
+    "develop": {
+      "url": "http://localhost:4321"
+    },
     "metadata": {
       "default": {
         "title": "Fleek | Build and deploy performant apps",
@@ -126,7 +129,8 @@
       "h2": "Fleek makes it easy to ship performant apps in minutes. Deploy instantly, run globally, scale automatically.",
       "primaryCta": "Get started",
       "secondaryCta": "Read our docs",
-      "image": "/images/landing-page/hero/hero.webp"
+      "imageDesktop": "/images/landing-page/hero/hero-desktop.webp",
+      "imageMobile": "/images/landing-page/hero/hero-mobile.webp"
     },
     "partners": [
       {

@@ -3,6 +3,8 @@ import { getCollection } from 'astro:content';
 import BlogPageLayout from '../../layouts/BlogPage.astro';
 import GithubEditLink from '@components/GitHubEditLink.astro';
 import { generateGitHubEditLink } from '@utils/url';
+import { Image } from 'astro:assets';
+import { loadDynamicImage } from '@utils/dynamicLoadImage';
 
 export async function getStaticPaths() {
   const docsEntries = await getCollection('legal');
@@ -20,15 +22,17 @@ const githubEditUrlPathname = generateGitHubEditLink({
   collection,
   id,
 });
+
+const image = loadDynamicImage(entry.data.image);
 ---
 
 <BlogPageLayout title={entry.data.title}>
   <article class="blog">
     <h1>{entry.data.title}</h1>
     {
-      entry.data?.image?.src && (
+      image && (
         <p>
-          <img src={entry.data.image.src} alt={entry.data.title} />
+          <Image src={image} alt={entry.data.title} />
         </p>
       )
     }
