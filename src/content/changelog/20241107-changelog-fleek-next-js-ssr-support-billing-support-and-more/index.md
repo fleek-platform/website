@@ -85,6 +85,7 @@ We are automatically migrating all accounts, sites, and files from Fleek.co to F
 
 - Introduced Functions SGX support with SDK v3.
 - Replaced the flag `noBundle` with `bundle`, allowing you to better control when you need a Fleek Function to be bundled.
+- Introduced the `assets` flag for functions, to support SSR use cases like Next.js.
 
 **SDK:**
 
