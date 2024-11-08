@@ -47,18 +47,6 @@ Check out our [pricing page](https://fleek.xyz/pricing/) for more information on
 
 ![pricing information](./billing.png)
 
-## IPFS comparison tool
-
-Every piece of content uploaded to IPFS is assigned a unique ID during the upload process. This allows anyone with that ID to access it using a number of public gateways. Our new IPFS gateway comparison tool allows you to check which public gateways serve your content most quickly. Try out our custom IPFS gateway comparison tool at https://app.fleek.xyz/ipfs/. This tool allows you to:
-
-- **Check the availability** of any specific IPFS hash across multiple public gateways.
-- **Compare the response speeds** of these gateways to see which one performs best.
-
-Additionally, on that page you can evaluate the performance of Fleek’s own public IPFS gateway, or check it directly at `flk-ipfs.xyz/[CONTENT_ID]` where [CONTENT_ID] is your IPFS content hash (e.g. https://flk-ipfs.xyz/bafybeic3nmuprwqqgbpzskmihjyjcbojz7phir47rdwcknklixcbppp7e4.)
-
-We maintain a globally-distributed set of nodes to ensure our gateway performance is competitive even with IPFS’s own public gateway offering. Want to check for yourself? Simply plug this `CONTENT_ID` into the search input of our new tool and compare response times between our gateway and others. In the next few weeks, we plan to position this page as an independent community resource rather than an in-house tool.
-
-![ipfs gateway tool](./ipfs-gateway-tool.png)
 
 ## App redesign
 
