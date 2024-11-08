@@ -19,6 +19,8 @@ Fleek now fully supports Next.js, including SSR for dynamic apps, enabling you t
 - **Middleware support**: Ideal for authentication, redirects, or any custom processing.
 - **App Router support**: Now, Fleek handles dynamic page routing seamlessly, allowing you to create rich web applications like marketplaces, Generative AI apps, and much more. _(Note: Static Site Generation (SSG) support is coming soon)_
 
+![pricing information](./nextjs-ssr.jpg)
+
 ## Next.js templates
 
 We expanded our templates collection and included templates for Next.js SSR apps that you can just deploy directly from the Fleek platform to see the full extent of the new Next.js support we just released.
