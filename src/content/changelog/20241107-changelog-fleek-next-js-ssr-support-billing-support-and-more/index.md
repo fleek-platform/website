@@ -11,6 +11,8 @@ What’s going on, Fleek community?
 
 The team’s been hard at work throughout September and October, bringing tons of exciting updates your way! We’re thrilled to share the latest developments in our changelog, packed with features and enhancements we know you’ll love. The highlights of this release are Next.js SSR support (full Next.js support) along with many cool Next.js templates, Platform billing, an app redesign and migration from [fleek.co](https://fleek.co/) to [fleek.xyz](https://fleek.xyz/).
 
+---
+
 ## Full Next.js support
 
 Fleek now fully supports Next.js, including SSR for dynamic apps, enabling you to deploy applications that interact in real time with your data and adapt based on user activity. All of this is powered by the [fleek-next adapter](https://fleek.xyz/docs/cli/fleek-next-adapter/) we released. Here’s what’s new:
@@ -20,6 +22,8 @@ Fleek now fully supports Next.js, including SSR for dynamic apps, enabling you t
 - **App Router support**: Now, Fleek handles dynamic page routing seamlessly, allowing you to create rich web applications like marketplaces, Generative AI apps, and much more. _(Note: Static Site Generation (SSG) support is coming soon)_
 
 ![pricing information](./nextjs-ssr.jpg)
+
+---
 
 ## Next.js templates
 
@@ -31,6 +35,8 @@ You can start building and shipping with the Next.js templates we have [here](ht
   <source src="./nextjs-templates.mp4" type="video/mp4" />
   Your browser does not support the video tag
 </video>
+
+---
 
 ## Platform billing
 
@@ -49,6 +55,8 @@ Check out our [pricing page](https://fleek.xyz/pricing/) for more information on
 
 ![pricing information](./billing.png)
 
+---
+
 ## App redesign
 
 We’ve revamped Fleek’s app for a cleaner, smoother user experience! The app is now enhanced with a refreshed design, letting you easily:
@@ -60,6 +68,8 @@ We’ve revamped Fleek’s app for a cleaner, smoother user experience! The app 
 
 ![sidebar tool](./app-redesign.png)
 
+---
+
 ## Migration from [fleek.co](https://fleek.co/) to [fleek.xyz](https://fleek.xyz/)
 
 We recently started moving users from **fleek.co** to our new platform, **fleek.xyz**. This migration is seamless, supported by a new workflow designed for an effortless transition. We’ve also begun deprecating the old Fleek.co SDK and CLI.
@@ -67,6 +77,8 @@ We recently started moving users from **fleek.co** to our new platform, **fleek.
 We are automatically migrating all accounts, sites, and files from Fleek.co to Fleek.xyz well in advance of the official sunset date. Accessing or managing your accounts, sites, and files on Fleek.xyz will be identical to the analogous workflows on Fleek.co.
 
 ![fleek app migration](./fleek-migration.jpg)
+
+---
 
 ## **Other updates across Fleek:**
 
@@ -80,6 +92,8 @@ We are automatically migrating all accounts, sites, and files from Fleek.co to F
 
 - Added SGX to support functions proxy
 - Introduced Blake3Hash field
+
+---
 
 Each new feature is built with your experience in mind, and we can’t wait to see what you create with these updates. Let us know what you think and stay tuned for more as we keep building Fleek together!
 
