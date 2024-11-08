@@ -6,6 +6,7 @@ export const PricingInfo: Props[] = [
     description: 'For those just starting out. Get on Fleek today, on us.',
     cost: 0,
     features: [
+      '1 member',
       'Deploy in seconds',
       'Custom domain',
       'Fleek Functions',
@@ -20,6 +21,7 @@ export const PricingInfo: Props[] = [
     description: 'Our most popular option for teams and growing projects.',
     cost: 20,
     features: [
+      'Unlimited members',
       'Everything in Free Plan',
       'Invite team members to collaborate',
       'Additional custom domains',
@@ -40,7 +42,8 @@ export const PricingInfo: Props[] = [
       'Everything in Pro Plan',
       'Custom rates for your needs',
       'Custom build tiers',
-      'Enterprise SLAs, dedicated support',
+      'Enterprise SLAs',
+      'Dedicated support',
     ],
     cta: 'Contact Sales',
     variant: 'secondary',

@@ -8,6 +8,9 @@ import { RxHamburgerMenu } from 'react-icons/rx';
 import { isActivePath } from '@utils/url';
 import { Button } from '../Button';
 
+import FleekLogo from './fleek-logo.svg';
+import { Image } from 'astro:assets';
+
 const NavbarMobileItem: React.FC<NavMenuItem> = ({
   label,
   subMenu,
@@ -65,7 +68,7 @@ const NavbarMobile: React.FC = () => {
       {isOpen && (
         <section className="fixed inset-0 flex animate-fade-in flex-col bg-gray-dark-1/95 p-[37px] pt-0 text-gray-dark-11 backdrop-blur">
           <div className="sticky top-0 -mx-[37px] flex items-center justify-between px-[37px] py-27">
-            <img src="/svg/fleek-logo.svg" width={66} alt="fleek logo" />
+            <Image src={FleekLogo} width={66} alt="fleek logo" />
             <Button variant="ghost" size="sm" onClick={toggle}>
               <FaXmark className="size-20 cursor-pointer" />
             </Button>
@@ -262,7 +265,12 @@ export const Navbar: React.FC<NavbarProps> = ({
             onFocus={() => setHovering(null)}
             onMouseEnter={() => setHovering(null)}
           >
-            <img src="/svg/fleek-logo.svg" width={66} alt="fleek logo" />
+            <img
+              src="/svg/fleek-logo.svg"
+              width={66}
+              height={25}
+              alt="fleek logo"
+            />
           </Link>
           <section className="hidden md:block">
             <div className="flex items-center">
