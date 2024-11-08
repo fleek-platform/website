@@ -9,7 +9,7 @@ author: 'Tobiloba Adedeji'
 
 What’s going on, Fleek community?
 
-The team’s been hard at work throughout September and October, bringing tons of exciting updates your way! We’re thrilled to share the latest developments in our changelog, packed with features and enhancements we know you’ll love. The highlights of this release are Next.js SSR support (full Next.js support) along with many cool Next.js templates, Platform billing, IPFS gateway comparison tool, an app redesign and migration from [fleek.co](https://fleek.co/) to [fleek.xyz](https://fleek.xyz/).
+The team’s been hard at work throughout September and October, bringing tons of exciting updates your way! We’re thrilled to share the latest developments in our changelog, packed with features and enhancements we know you’ll love. The highlights of this release are Next.js SSR support (full Next.js support) along with many cool Next.js templates, Platform billing, an app redesign and migration from [fleek.co](https://fleek.co/) to [fleek.xyz](https://fleek.xyz/).
 
 ## Full Next.js support
 
@@ -46,7 +46,6 @@ To add team members and additional resources, you can upgrade your project to th
 Check out our [pricing page](https://fleek.xyz/pricing/) for more information on this.
 
 ![pricing information](./billing.png)
-
 
 ## App redesign
 
