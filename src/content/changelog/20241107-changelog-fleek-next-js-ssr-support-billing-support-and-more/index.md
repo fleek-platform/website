@@ -2,8 +2,8 @@
 title: 'Fleek changelog - November 07, 2024'
 date: 2024-11-07
 desc: 'An overview of all the latest changes to the Fleek app, including Next.js SSR support, billing support, migration from fleek.co to fleek.xyz and more'
-thumbnail: './fleekchangelog1107.png'
-image: './fleekchangelog1107.png'
+thumbnail: './fleekchangelogrelease1107.png'
+image: './fleekchangelogrelease1107.png'
 author: 'Tobiloba Adedeji'
 ---
 
