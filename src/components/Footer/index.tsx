@@ -17,6 +17,7 @@ const Footer: React.FC = () => {
           <img
             src="/svg/fleek-logo.svg"
             width={82}
+            height={31}
             alt="fleek logo"
             className="mb-24"
             loading="lazy"
