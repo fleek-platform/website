@@ -9,7 +9,7 @@ author: 'Tobiloba Adedeji'
 
 What’s going on, Fleek community?
 
-The team’s been hard at work throughout September and early October, bringing tons of exciting updates your way! We’re thrilled to share the latest developments in our changelog, packed with features and enhancements we know you’ll love. The highlights of this release are Next.js SSR support (full Next.js support) along with many cool Next.js templates, Platform billing, IPFS gateway comparison tool, an app redesign and migration from [fleek.co](http://fleek.co) to [fleek.xyz](http://fleek.xyz).
+The team’s been hard at work throughout September and early October, bringing tons of exciting updates your way! We’re thrilled to share the latest developments in our changelog, packed with features and enhancements we know you’ll love. The highlights of this release are Next.js SSR support (full Next.js support) along with many cool Next.js templates, Platform billing, IPFS gateway comparison tool, an app redesign and migration from [fleek.co](https://fleek.co/) to [fleek.xyz](https://fleek.xyz/).
 
 ## Full Next.js support
 
@@ -23,7 +23,7 @@ Fleek now fully supports Next.js, including SSR for dynamic apps, enabling you t
 
 We expanded our templates collection and included templates for Next.js SSR apps that you can just deploy directly from the Fleek platform to see the full extent of the new Next.js support we just released.
 
-You can start building and shipping with the Next.js templates we have [here](https://app.fleek.xyz).
+You can start building and shipping with the Next.js templates we have [here](https://app.fleek.xyz/).
 
 <video width="100%" height="auto" autoplay loop controls>
   <source src="./nextjs-templates.mp4" type="video/mp4" />
@@ -43,7 +43,7 @@ To add team members and additional resources, you can upgrade your project to th
 - Additional build tiers to scale as needed
 - Email support
 
-Check out our [pricing page](https://fleek.xyz/pricing) for more information on this.
+Check out our [pricing page](https://fleek.xyz/pricing/) for more information on this.
 
 ![pricing information](./billing.png)
 
@@ -71,11 +71,11 @@ We’ve revamped Fleek’s app for a cleaner, smoother user experience! The app 
 
 ![sidebar tool](./app-redesign.png)
 
-## Migration from [fleek.co](http://fleek.co) to [fleek.xyz](http://fleek.xyz)
+## Migration from [fleek.co](https://fleek.co/) to [fleek.xyz](https://fleek.xyz/)
 
 We recently started moving users from **fleek.co** to our new platform, **fleek.xyz**. This migration is seamless, supported by a new workflow designed for an effortless transition. We’ve also begun deprecating the old Fleek.co SDK and CLI.
 
-We are automatically migrating all accounts, sites, and files from [Fleek.co](http://fleek.co/) to Fleek.xyz well in advance of the official sunset date. Accessing or managing your accounts, sites, and files on Fleek.xyz will be identical to the analogous workflows on [Fleek.co](http://fleek.co/).
+We are automatically migrating all accounts, sites, and files from Fleek.co to Fleek.xyz well in advance of the official sunset date. Accessing or managing your accounts, sites, and files on Fleek.xyz will be identical to the analogous workflows on Fleek.co.
 
 ![fleek app migration](./fleek-migration.jpg)
 
