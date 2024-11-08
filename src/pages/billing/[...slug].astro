@@ -7,6 +7,8 @@ import settings from '@base/settings.json';
 import { generateFullSlug } from '@utils/generateFullSlug';
 import { GoBackButton } from '@components/GoBackButton';
 import { formatDate } from '@utils/date';
+import { Image } from 'astro:assets';
+import { loadDynamicImage } from '@utils/dynamicLoadImage';
 
 export async function getStaticPaths() {
   const docsEntries = await getCollection('billing');
@@ -31,6 +33,8 @@ const fullSlug = generateFullSlug({
   basePath: settings.site.metadata.billing.slug,
   slug,
 });
+
+const image = loadDynamicImage(entry.data.image);
 ---
 
 <BlogPageLayout
@@ -47,9 +51,9 @@ const fullSlug = generateFullSlug({
     </div>
     <h1>{entry.data.title}</h1>
     {
-      entry.data?.image?.src && (
+      image && (
         <p>
-          <img src={entry.data.image.src} alt={entry.data.title} />
+          <Image src={image} alt={entry.data.title} />
         </p>
       )
     }

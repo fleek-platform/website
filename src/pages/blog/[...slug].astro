@@ -8,6 +8,8 @@ import { generateFullSlug } from '@utils/generateFullSlug';
 import settings from '@base/settings.json';
 import { GoBackButton } from '@components/GoBackButton';
 import { Tags } from '@components/Tags';
+import { Image } from 'astro:assets';
+import { loadDynamicImage } from '@utils/dynamicLoadImage';
 
 export async function getStaticPaths() {
   const docsEntries = await getCollection('blog');
@@ -32,6 +34,7 @@ const fullSlug = generateFullSlug({
   basePath: settings.site.metadata.blog.slug,
   slug,
 });
+const image = loadDynamicImage(entry.data.image);
 ---
 
 <BlogPageLayout
@@ -52,9 +55,14 @@ const fullSlug = generateFullSlug({
     </h1>
     <Tags tags={entry.data.tags} className="mb-32" />
     {
-      entry.data?.image?.src && (
+      image && entry.data.image && (
         <p>
-          <img src={entry.data.image.src} alt={entry.data.title} />
+          <Image
+            src={image}
+            alt={entry.data.title}
+            width={entry.data.image.width}
+            height={entry.data.image.height}
+          />
         </p>
       )
     }

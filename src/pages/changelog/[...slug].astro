@@ -7,6 +7,8 @@ import { formatDate } from '@utils/date';
 import { generateFullSlug } from '@utils/generateFullSlug';
 import settings from '@base/settings.json';
 import { GoBackButton } from '@components/GoBackButton';
+import { Image } from 'astro:assets';
+import { loadDynamicImage } from '@utils/dynamicLoadImage';
 
 export async function getStaticPaths() {
   const changelogEntries = await getCollection('changelog');
@@ -31,6 +33,8 @@ const fullSlug = generateFullSlug({
   basePath: settings.site.metadata.changelog.slug,
   slug,
 });
+
+const image = loadDynamicImage(entry.data.image);
 ---
 
 <Layout
@@ -47,9 +51,9 @@ const fullSlug = generateFullSlug({
     </div>
     <h1>{entry.data.title}</h1>
     {
-      entry.data?.image?.src && (
+      image && (
         <figure class="pb-24">
-          <img src={entry.data.image.src} alt={entry.data.title} />
+          <Image src={image} alt={entry.data.title} />
         </figure>
       )
     }
