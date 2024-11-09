@@ -5,7 +5,14 @@ date: 2024-05-23
 desc: A description of Fleek Functions, code snippets that are executed server-side using Fleek Network's on-chain cloud infrastructure.
 ---
 
+import FleekFunction from '@components/FleekFunctions';
+
 # Fleek Functions
+
+<FleekFunction
+  client:load
+  functionUrl={'https://massive-rocket-late.functions.on-fleek.app'}
+/>
 
 :::warn
 This alpha feature runs on a testnet version of Fleek Network. We advise against using Fleek Functions in production,
