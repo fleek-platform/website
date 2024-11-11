@@ -58,3 +58,11 @@ ol {
   list-style-type: decimal;
   padding-left: 30px;
 }
+
+.accordion-toggle:checked + label span {
+  transform: rotate(270deg);
+}
+
+.accordion-toggle:checked ~ .accordion-content {
+  @apply max-h-80;
+}

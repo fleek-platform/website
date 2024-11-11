@@ -11,7 +11,7 @@ const availablePlans = Object.keys(PRICING_PLANS);
 
 const TableDesktop = () => (
   <table
-    className="hidden w-full border-collapse lg:table lg:rounded-br-12"
+    className="mb-30 hidden w-full border-collapse lg:table lg:rounded-br-12"
     cellSpacing={0}
     cellPadding={0}
   >
