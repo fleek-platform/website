@@ -6,14 +6,14 @@ import { Text } from '@components/LandingPage/Text';
 import Accordion from '@components/Accordion';
 import settings from '@base/settings.json';
 import data from './data.json';
-import { splitContentIntoElements } from '@utils/splitContentIntoElements';
+import { parseContentWithLinkPlaceholders } from '@utils/parseContentWithLinkPlaceholders';
 
 const resources = settings.support.resources || {};
 
 const processedFaqs = data.faqs.map(
   ({ label, content }: { label: string; content: string }) => ({
     label,
-    contentElements: splitContentIntoElements(content, resources),
+    contentElements: parseContentWithLinkPlaceholders(content, resources),
   }),
 );
 
