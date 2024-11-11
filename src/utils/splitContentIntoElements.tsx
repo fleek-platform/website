@@ -2,7 +2,7 @@ interface Resources {
   [key: string]: string;
 }
 
-export function splitContentIntoElements(
+export function parseContentWithLinkPlaceholders(
   content: string,
   resources: Resources,
 ): (string | JSX.Element)[] {
