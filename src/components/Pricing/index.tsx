@@ -3,6 +3,19 @@ import TableDesktop from './Table/TableDesktop';
 import { PricingInfo } from '../../content/pricing/config';
 import PricingCard from '@components/PricingCard';
 import { Text } from '@components/LandingPage/Text';
+import Accordion from '@components/Accordion';
+import settings from '@base/settings.json';
+import data from './data.json';
+import { parseContentWithLinkPlaceholders } from '@utils/parseContentWithLinkPlaceholders';
+
+const resources = settings.support.resources || {};
+
+const processedFaqs = data.faqs.map(
+  ({ label, content }: { label: string; content: string }) => ({
+    label,
+    contentElements: parseContentWithLinkPlaceholders(content, resources),
+  }),
+);
 
 const Pricing = () => {
   return (
@@ -33,6 +46,13 @@ const Pricing = () => {
           </div>
           <TableMobile />
           <TableDesktop />
+
+          <div className="mt-30">
+            <Text as="h3" className="mb-24 text-left">
+              Pricing FAQs
+            </Text>
+            <Accordion items={processedFaqs} />
+          </div>
         </div>
       </div>
     </>
