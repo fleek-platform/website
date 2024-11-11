@@ -6,22 +6,16 @@ import { Text } from '@components/LandingPage/Text';
 import Accordion from '@components/Accordion';
 import settings from '@base/settings.json';
 import data from './data.json';
-
-function replacePlaceholders(
-  content: string,
-  resources: { [key: string]: string },
-): string {
-  return content.replace(/\$([a-zA-Z0-9]+)/g, (match, key) => {
-    return resources[key] || match;
-  });
-}
+import { splitContentIntoElements } from '@utils/splitContentIntoElements';
 
 const resources = settings.support.resources || {};
 
-const processedFaqs = data.faqs.map((faq) => ({
-  ...faq,
-  content: replacePlaceholders(faq.content, resources),
-}));
+const processedFaqs = data.faqs.map(
+  ({ label, content }: { label: string; content: string }) => ({
+    label,
+    contentElements: splitContentIntoElements(content, resources),
+  }),
+);
 
 const Pricing = () => {
   return (

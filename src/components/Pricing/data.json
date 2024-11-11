@@ -14,15 +14,15 @@
     },
     {
       "label": "Can I get a refund for unused services?",
-      "content": "Please write to us through our $newRequest with detailed information about the circumstances and details related to your refund request, and we will evaluate it on a case-by-case basis."
+      "content": "Please write to us through our support center at $newRequest with detailed information about the circumstances and details related to your refund request, and we will evaluate it on a case-by-case basis."
     },
     {
       "label": "What should I do if I see an unauthorized charge on my account?",
-      "content": "If you notice an unauthorized charge, please contact our support team immediately. You can submit a ticket $newRequest and our staff will investigate the issue and respond within 48 hours."
+      "content": "If you notice an unauthorized charge, please contact our support team immediately. You can submit a ticket at $newRequest and our staff will investigate the issue and respond within 48 hours."
     },
     {
       "label": "How do I dispute a charge?",
-      "content": "To dispute a charge, submit a ticket $newRequest with the details of the charge you believe is incorrect. Our billing team will review your request and get back to you within 48 hours."
+      "content": "To dispute a charge, submit a ticket at $newRequest with the details of the charge you believe is incorrect. Our billing team will review your request and get back to you within 48 hours."
     },
     {
       "label": "Why was my payment declined?",
