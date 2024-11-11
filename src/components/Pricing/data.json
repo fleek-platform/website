@@ -30,7 +30,7 @@
     },
     {
       "label": "How do I cancel my subscription?",
-      "content": "To cancel your subscription, log into your Fleek account, go to the Billing section, and click on 'Cancel Subscription.' Follow the prompts to complete the cancellation process. If you encounter any issues, submit a ticket here."
+      "content": "To cancel your subscription, log into your Fleek account, go to the Billing section, and click on 'Cancel Subscription.' Follow the prompts to complete the cancellation process. If you encounter any issues, submit a ticket at $newRequest."
     }
   ]
 }
