@@ -5,6 +5,23 @@ import PricingCard from '@components/PricingCard';
 import { Text } from '@components/LandingPage/Text';
 import Accordion from '@components/Accordion';
 import settings from '@base/settings.json';
+import data from './data.json';
+
+function replacePlaceholders(
+  content: string,
+  resources: { [key: string]: string },
+): string {
+  return content.replace(/\$([a-zA-Z0-9]+)/g, (match, key) => {
+    return resources[key] || match;
+  });
+}
+
+const resources = settings.support.resources || {};
+
+const processedFaqs = data.faqs.map((faq) => ({
+  ...faq,
+  content: replacePlaceholders(faq.content, resources),
+}));
 
 const Pricing = () => {
   return (
@@ -40,7 +57,7 @@ const Pricing = () => {
             <Text as="h3" className="mb-24 text-left">
               Pricing FAQs
             </Text>
-            <Accordion items={settings.faqs} />
+            <Accordion items={processedFaqs} />
           </div>
         </div>
       </div>

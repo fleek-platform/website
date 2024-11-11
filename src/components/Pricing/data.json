@@ -1,0 +1,36 @@
+{
+  "faqs": [
+    {
+      "label": "How do I update my billing information?",
+      "content": "To update your billing information, log into your Fleek account and access your billing details from the Settings menu. You can update your credit card details, billing address, and other relevant information."
+    },
+    {
+      "label": "What payment methods do you accept?",
+      "content": "We accept ACH transfers, credit cards and any other form of payment available within Stripe."
+    },
+    {
+      "label": "How often will I be billed?",
+      "content": "Each project will be billed monthly for their respective plan and resources. More information can be found in the table above."
+    },
+    {
+      "label": "Can I get a refund for unused services?",
+      "content": "Please write to us through our $newRequest with detailed information about the circumstances and details related to your refund request, and we will evaluate it on a case-by-case basis."
+    },
+    {
+      "label": "What should I do if I see an unauthorized charge on my account?",
+      "content": "If you notice an unauthorized charge, please contact our support team immediately. You can submit a ticket $newRequest and our staff will investigate the issue and respond within 48 hours."
+    },
+    {
+      "label": "How do I dispute a charge?",
+      "content": "To dispute a charge, submit a ticket $newRequest with the details of the charge you believe is incorrect. Our billing team will review your request and get back to you within 48 hours."
+    },
+    {
+      "label": "Why was my payment declined?",
+      "content": "Payments can be declined for various reasons, such as insufficient funds, incorrect billing information, or issues with your bank. Please check your billing details and try again. If the issue persists, contact your bank or our support team for assistance."
+    },
+    {
+      "label": "How do I cancel my subscription?",
+      "content": "To cancel your subscription, log into your Fleek account, go to the Billing section, and click on 'Cancel Subscription.' Follow the prompts to complete the cancellation process. If you encounter any issues, submit a ticket here."
+    }
+  ]
+}

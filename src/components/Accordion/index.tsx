@@ -1,4 +1,4 @@
-import ContentWithLinks from '@components/ContentWithLinks';
+import settings from '@base/settings.json';
 
 interface AccordionItem {
   label: string;
@@ -34,9 +34,7 @@ const Accordion: React.FC<AccordionProps> = ({ items = [] }) => {
               </span>
             </label>
             <div className="accordion-content checked: max-h-0 overflow-hidden bg-gray-dark-3 text-left transition-all duration-300">
-              <p className="px-10 py-6 text-15 text-white">
-                <ContentWithLinks content={item.content} />
-              </p>
+              <p className="px-10 py-6 text-15 text-white">{item.content}</p>
             </div>
           </div>
         </div>
