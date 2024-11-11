@@ -3,6 +3,8 @@ import TableDesktop from './Table/TableDesktop';
 import { PricingInfo } from '../../content/pricing/config';
 import PricingCard from '@components/PricingCard';
 import { Text } from '@components/LandingPage/Text';
+import Accordion from '@components/Accordion';
+import settings from '@base/settings.json';
 
 const Pricing = () => {
   return (
@@ -33,6 +35,13 @@ const Pricing = () => {
           </div>
           <TableMobile />
           <TableDesktop />
+
+          <div className="mt-30">
+            <Text as="h3" className="mb-24 text-left">
+              Pricing FAQs
+            </Text>
+            <Accordion items={settings.faqs} />
+          </div>
         </div>
       </div>
     </>
