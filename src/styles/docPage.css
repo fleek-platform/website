@@ -109,7 +109,8 @@
   }
 
   [data-menu-item='cli'],
-  [data-menu-item='sdk'] {
+  [data-menu-item='sdk'],
+  [data-menu-item='faq'] {
     text-transform: uppercase;
   }
 }

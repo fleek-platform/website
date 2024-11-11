@@ -79,6 +79,8 @@ This would make the agent immediately print its login details when it started. A
 
 The main takeaway is that if you cannot reproducibly build a program running in an enclave you probably shouldn’t trust the remote attestation. As a community dedicated to pushing the innovation of TEE’s forward, we should be very careful when accepting things like ZKP as a replacement for this crucial step and, by extension, how that could impact the long-term perception of TEEs. Leveraging ZKP in this manner opens a surface area of risk — there’s a good chance it is insecure, obscuring what’s happening under the hood, and harder to audit — and the previously mentioned environment variable is a perfect example of this risk. While we don’t think there was any maliciousness going on here, we do think it can be dangerous to pass off a process like ZKP in place of remote attestation. Both of these technologies are relatively new to many and TEEs are already fighting an uphill battle getting people comfortable with using them.
 
+---
+
 ## **Tee-Hee-He Makeover: Remote Attestation Edition**
 
 Luckily all these issues can be addressed with proper remote attestation. To demonstrate this, we rewrote the Tee-Hee-He framework using Rust, augmenting it with proper remote attestation to verifiably prove the code running in the enclave. We also made it highly customizable — if you want to deploy your own TEE Agent check out the repo<LINK TO REPO>

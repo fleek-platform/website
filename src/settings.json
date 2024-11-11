@@ -179,6 +179,10 @@
         {
           "category": "SDK",
           "order": 4
+        },
+        {
+          "category": "FAQ",
+          "order": 5
         }
       ],
       "customTitlesByDirectoryName": {}
