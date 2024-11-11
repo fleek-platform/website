@@ -64,5 +64,5 @@ ol {
 }
 
 .accordion-toggle:checked ~ .accordion-content {
-  @apply max-h-80;
+  @apply h-full;
 }
