@@ -61,7 +61,7 @@ Our releases are a testament to our mission of advancing the open web and making
 
 ## **Join the Fleek Community**
 
-Ready to explore Next.js on Fleek? Join our exclusive builder channel in [Discord](discord.gg/fleek) to share feedback, follow our updates on [X](https://x.com/fleek), and don’t hesitate to show us what you’re cooking up. Together, we’re building the unstoppable future of the internet.
+Ready to explore Next.js on Fleek? Join our exclusive builder channel in [Discord](https://discord.com/invite/fleek) to share feedback, follow our updates on [X](https://x.com/fleek), and don’t hesitate to show us what you’re cooking up. Together, we’re building the unstoppable future of the internet.
 
 **### Get started building on Fleek:**
 
