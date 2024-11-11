@@ -59,7 +59,7 @@ We believe in an internet where developers retain full control of their IP, non-
 
 Our releases are a testament to our mission of advancing the open web and making powerful, open-source tools accessible to all builders, innovators, and dreamers. Join us in shaping the future of the internet—one open, unstoppable, and developer-first deployment at a time. We’d also like to give a special shout out to [OpenNext](https://opennext.js.org/), [next-on-pages](https://github.com/cloudflare/next-on-pages), and [Vercel](https://vercel.com/) for enabling us to bring fullstack Next.js to Fleek.
 
-## **Join the Fleek Community**
+## **Join the Fleek community**
 
 Ready to explore Next.js on Fleek? Join our exclusive builder channel in [Discord](discord.gg/fleek) to share feedback, follow our updates on [X](https://x.com/fleek), and don’t hesitate to show us what you’re cooking up. Together, we’re building the unstoppable future of the internet.
 
