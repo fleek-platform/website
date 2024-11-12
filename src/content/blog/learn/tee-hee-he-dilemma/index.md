@@ -89,4 +89,4 @@ We set up a build and deploy flow with Gramine, check the readme in the enclave 
 
 If you want to deploy your own version of the agent you can fork the repo, modify the prompts.toml to give your bot personality, modify the config.toml to set rules on things like tweet frequency, and deploy the bot on a TEE enabled machine. Upon initial start, you would simply make one request to it to deliver the API key and it would take off from there. Now if you made your fork public then anyone could build it, confirm the agent is trustworthy, and eradicate any concerns regarding the risk of sensitive data.
 
-For more information about how the remote attestation is done check this readme<LINK TO CURRENTLY UNFINISHED README>
+For more information about how the remote attestation is done check [this readme](https://github.com/daltoncoder/Henchman/blob/main/README.md)
