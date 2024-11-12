@@ -13,7 +13,7 @@ export const PricingInfo: Props[] = [
       'Community support',
     ],
     cta: 'Start with Free',
-    variant: 'app-success',
+    variant: 'primary-outline',
     url: 'https://app.fleek.xyz',
   },
   {
@@ -28,15 +28,15 @@ export const PricingInfo: Props[] = [
       'Priority support',
     ],
     cta: 'Go fast with Pro',
-    variant: 'app-primary',
+    variant: 'primary',
     url: 'https://app.fleek.xyz/projects/[projectId]/settings/billing',
   },
   {
     title: 'Enterprise Plan',
     description: "Have a big project or custom needs? We've got you.",
-    cost: '1000',
+    cost: 1000,
     costOptions: {
-      prefix: 'Starting at $',
+      suffix: '+ /mo',
     },
     features: [
       'Everything in Pro Plan',
@@ -46,7 +46,7 @@ export const PricingInfo: Props[] = [
       'Dedicated support',
     ],
     cta: 'Contact Sales',
-    variant: 'secondary',
+    variant: 'primary-outline',
     url: 'https://fleek.typeform.com/fleekinterest',
   },
 ];
