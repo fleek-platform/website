@@ -1,4 +1,6 @@
+import { loadDynamicImage } from '@utils/dynamicLoadImage';
 import { categoryCardItems } from './config';
+import { Image } from 'astro:assets';
 
 export type CategoryCardsProps = {
   link: string;

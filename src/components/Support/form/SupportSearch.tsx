@@ -96,11 +96,6 @@ const MultiSearch: React.FC = () => {
               q: query,
               limit: 5,
             },
-            {
-              indexUid: 'fleekxyz_website_billing',
-              q: query,
-              limit: 5,
-            },
           ],
         }),
       });
