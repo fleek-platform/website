@@ -17,7 +17,7 @@ Fleek Functions are code snippets that are executed server-side using Fleek Netw
 
 These aim to offer a more economical, high-performance, and scalable solution for running server-side code compared to well-known options like Lambda functions, thanks to the [Fleek Network](https://fleek.network) architecture.
 
-Fleek Functions make it possible for users to create serverless apps with lightning-fast performance at a much lower cost. Fleek Functions support TypeScript and JavaScript based functions.
+Fleek Functions make it possible for users to create serverless apps with lightning-fast performance at a much lower cost. Fleek Functions support TypeScript and JavaScript-based functions.
 
 ## Create a draft function
 
@@ -98,7 +98,7 @@ The `--name` flag takes a new unique identifier of your project list. It should 
 > Fleek functions deploy
 ```
 
-A few examples of valid syntax identifier names are calculator, my-custom-function or add_2. A name does not have to be the same as the function file name, or the export name. A good practice can be to name in accordance to your project conventions.
+A few examples of valid syntax identifier names are calculator, my-custom-function or add_2. A name does not have to be the same as the function file name, or the export name. A good practice can be to name it in accordance to your project conventions.
 
 ## Deploy a Fleek Function
 
@@ -142,11 +142,11 @@ To display all the Fleek Functions you've deployed in your Fleek project, execut
 fleek functions list
 ```
 
-This command will output a table showing the ID, Name, Slug, and Fleek Function invocation URL for each of your Fleek Functions.
+This command will output a table showing the `ID`, `name`, `slug`, and `Fleek Function invocation URL` for each of your Fleek Functions.
 
 ## Update Fleek Functions
 
-To update the source-code for a Fleek Function, you'll have to edit the draft file and re-deploy it, preferencly to the same Fleek Function name. It's expected, to push edits to the same Fleek Function name to work iteratively.
+To update the source code for a Fleek Function, you'll have to edit the draft file and re-deploy it, preferencly to the same Fleek Function name. It's expected, to push edits to the same Fleek Function name to work iteratively.
 
 But since the code for a particular _deployment_ of a Fleek Function is immutable, every update will cause the Fleek Function ID to change. Although, the Slug URL associated to access the resource will remain the same.
 
