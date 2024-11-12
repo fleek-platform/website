@@ -86,6 +86,10 @@ export default {
           'linear-gradient(135deg, rgba(23, 23, 23, 0.40) 0%, rgba(23, 23, 23, 0.30) 100%)',
         'gradient-grey':
           'linear-gradient(180deg, rgba(75, 75, 75, 0.8) 0%, rgba(75, 75, 75, 0.2) 100%)',
+        'pricing-card':
+          'linear-gradient(148.41deg, #191919 0%, #111111 100%)',
+        'pro-pricing-card':
+          'linear-gradient(147.94deg, #FFE629 -454.44%, rgba(0, 0, 0, 0) 100%)',
       },
       spacing: {
         '80vh': '80vh',
