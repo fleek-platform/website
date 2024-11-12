@@ -83,7 +83,7 @@ The main takeaway is that if you cannot reproducibly build a program running in 
 
 ## **Tee-Hee-He makeover: Remote attestation edition**
 
-Luckily all these issues can be addressed with proper remote attestation. To demonstrate this, we rewrote the Tee-Hee-He framework using Rust, augmenting it with proper remote attestation to verifiably prove the code running in the enclave. We also made it highly customizable — if you want to deploy your own TEE Agent check out the repo<LINK TO REPO>
+Luckily all these issues can be addressed with proper remote attestation. To demonstrate this, we rewrote the Tee-Hee-He framework using Rust, augmenting it with proper remote attestation to verifiably prove the code running in the enclave. We also made it highly customizable — if you want to deploy your own TEE Agent check out [the repo](https://github.com/daltoncoder/Henchman)
 
 We set up a build and deploy flow with Gramine, check the readme in the enclave for instructions. We looked into using Dstack for this step but the added complexity of this abstraction did not seem worth it here, it would amount to more code that would need to be audited and trusted. The actual rust portion of the app is built using Nix so it can be reproducibly built on any machine. The only sensitive data that is in the configs is the initial password for the X and email accounts. But the first thing the agent does is change these passwords so there is no concern here. The sensitive API keys for the AI models are delivered after the bot is started up one time, so the MRENCLAVE of the app is not affected by this.
 
