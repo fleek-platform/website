@@ -16,6 +16,8 @@ export const buttonVariants = cva(
           'bg-gray-dark-12 text-gray-dark-1 hover:bg-gray-dark-11 active:bg-gray-dark-12 ring-gray-dark-8',
         ghost:
           'bg-transparent hover:bg-gray-dark-3 active:bg-gray-dark-2 text-gray-dark-11 ring-gray-dark-8',
+        'primary-outline':
+          'bg-transparent hover:bg-yellow-dark-3 active:bg-yellow-dark-2 text-yellow-dark-11 ring-yellow-dark-8 ring-1',
         'app-primary':
           'bg-yellow-dark-3 hover:bg-yellow-dark-4 active:bg-yellow-dark-3 text-yellow-dark-11 ring-yellow-dark-8',
         'app-success':
