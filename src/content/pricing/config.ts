@@ -4,7 +4,7 @@ export const PricingInfo: Props[] = [
   {
     title: 'Free Plan',
     description:
-      'For those just starting out on Fleek.\n Get on Fleek today, on us.',
+      'For those just starting out on Fleek.\n Go live today, on us.',
     splitDescription: true,
     cost: {
       amount: 'Free',
@@ -16,7 +16,7 @@ export const PricingInfo: Props[] = [
     features: [
       'Git integration & CI/CD',
       'Preview URLs & global deployments',
-      'DNS, SSL, CDN & DDOS',
+      'DNS, SSL, CDN & DDoS',
       'Community support',
     ],
     cta: 'Start with Free',
