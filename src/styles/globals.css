@@ -59,6 +59,21 @@ ol {
   padding-left: 30px;
 }
 
+.BigDocIntroCard:hover .SmallDocIntroCard {
+  @apply bg-yellow;
+}
+
+.BigDocIntroCard .SmallDocIntroCard {
+  @apply bg-gray-dark-7;
+}
+
+.BigDocIntroCard .arrow {
+  @apply hidden;
+}
+
+.BigDocIntroCard:hover .arrow {
+  @apply inline text-yellow;
+}
 .accordion-toggle:checked + label span {
   transform: rotate(270deg);
 }
