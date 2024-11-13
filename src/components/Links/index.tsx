@@ -11,6 +11,8 @@ import banner from '@content/blog/announcements/introducing-fleek-edge-sgx/sgxse
 import { LinkButton } from './LinkButton';
 
 const Links = () => {
+  const newsletterFeatureFlag = false;
+
   return (
     <div className="text flex max-w-[348px] flex-col gap-10 rounded-[0.75rem] border-ui-mid-grey bg-[#111] p-10">
       <p className="text-[12px]">Featured post</p>
@@ -63,9 +65,13 @@ const Links = () => {
         </a>
       </Button>
 
-      <hr className="border-ui-mid-grey" />
+      {newsletterFeatureFlag && (
+        <>
+          <hr className="border-ui-mid-grey" />
 
-      <BiweeklySubscription />
+          <BiweeklySubscription />
+        </>
+      )}
     </div>
   );
 };
