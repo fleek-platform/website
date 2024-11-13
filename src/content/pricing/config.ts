@@ -3,13 +3,20 @@ import type { Props } from '../../components/PricingCard';
 export const PricingInfo: Props[] = [
   {
     title: 'Free Plan',
-    description: 'For those just starting out. Get on Fleek today, on us.',
-    cost: 0,
+    description:
+      'For those just starting out on Fleek.\n Get on Fleek today, on us.',
+    splitDescription: true,
+    cost: {
+      amount: 'Free',
+      prefix: '',
+      suffix: '',
+      bottomText: 'with resource limits',
+    },
+    featuresDescription: 'Our base resources, including:',
     features: [
-      '1 team member',
-      'Deploy in seconds',
-      'Custom domain',
-      'Fleek Functions',
+      'Git integration & CI/CD',
+      'Preview URLs & global deployments',
+      'DNS, SSL, CDN & DDOS',
       'Community support',
     ],
     cta: 'Start with Free',
@@ -18,13 +25,17 @@ export const PricingInfo: Props[] = [
   },
   {
     title: 'Pro Plan',
-    description: 'Our most popular option for teams and growing projects.',
-    cost: 20,
+    description: 'Our most popular option for teams\n and growing projects.',
+    splitDescription: true,
+    cost: {
+      amount: 20,
+      bottomText: '+ resource usage',
+    },
+    featuresDescription: 'Everything in Free Plan, plus:',
     features: [
-      'Everything in Free Plan, plus:',
       'Unlimited team members',
-      'Up to 100 sites',
-      'Additional custom domains',
+      'Unlimited custom domains',
+      'Unlimited sites',
       'Email support',
     ],
     cta: 'Go fast with Pro',
@@ -33,15 +44,18 @@ export const PricingInfo: Props[] = [
   },
   {
     title: 'Enterprise Plan',
-    description: "Have a big project or custom needs? We've got you.",
-    cost: 1000,
-    costOptions: {
-      suffix: '+ /mo',
+    description: "Have a big project or custom needs?\n We've got you.",
+    splitDescription: true,
+    cost: {
+      amount: 'Custom',
+      prefix: '',
+      suffix: '',
+      bottomText: 'starting at $1000 /month',
     },
+    featuresDescription: 'Everything in Pro Plan, plus:',
     features: [
-      'Everything in Pro Plan, plus:',
-      'Custom rates for your needs',
-      'Custom build tiers',
+      'Custom billing',
+      'Custom build resources',
       'Enterprise SLAs',
       'Dedicated support',
     ],
