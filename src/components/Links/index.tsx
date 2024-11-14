@@ -5,21 +5,36 @@ import { FaXTwitter } from 'react-icons/fa6';
 import BiweeklySubscription from '@components/BiweeklySubscription';
 import { SocialButton } from './SocialButton';
 import settings from '@base/settings.json';
-
-// To change the image, replace the import banner from '@content/blog/{category}/{blog-folder-name}/{image}.png'; with the new image path. For example,
-import banner from '@content/blog/announcements/introducing-fleek-edge-sgx/sgxservicefleek.png';
 import { LinkButton } from './LinkButton';
+import type { CollectionEntry } from 'astro:content';
+import Link from '@components/Link';
 
-const Links = () => {
+interface LinksProps {
+  featuredPost: CollectionEntry<'blog'>;
+}
+
+const Links: React.FC<LinksProps> = ({ featuredPost }) => {
   const newsletterFeatureFlag = false;
 
   return (
     <div className="text flex max-w-[348px] flex-col gap-10 rounded-[0.75rem] border-ui-mid-grey bg-[#111] p-10">
       <p className="text-[12px]">Featured post</p>
-      <img
-        src={banner.src}
-        className="rounded-[0.75rem] border border-ui-mid-grey"
-      />
+      {featuredPost.data.thumbnail && (
+        <Link
+          href={featuredPost.slug}
+          className="relative overflow-hidden rounded-[0.75rem] border border-ui-mid-grey"
+        >
+          <img
+            src={featuredPost.data.thumbnail.src}
+            alt={featuredPost.data.title}
+            height={featuredPost.data.thumbnail.height}
+            width={featuredPost.data.thumbnail.width}
+          />
+          <h3 className="absolute bottom-0 mt-2 bg-[rgba(0,0,0,0.65)] p-10 text-right text-[12px] font-semibold text-gray-dark-12 ">
+            {featuredPost.data.title}
+          </h3>
+        </Link>
+      )}
       <div className="flex flex-row gap-10">
         <SocialButton
           href={settings.site.resources.discordFleekCommunityUrl}
@@ -42,17 +57,13 @@ const Links = () => {
           <FaYoutube fontSize={19} className="mt-2 text-gray-dark-11" />
         </SocialButton>
       </div>
-
       <LinkButton
         href={settings.site.production.url}
         ariaLabel="Fleek website"
         label="Website"
       />
-
       <LinkButton href="/blog/" ariaLabel="Fleek Blog" label="Blog" />
-
       <LinkButton href="/docs/" ariaLabel="Fleek docs" label="Documentation" />
-
       <Button variant="primary-ghost" className="w-full" size="sm">
         <a
           aria-label="Fleek X/Twitter account"
@@ -64,7 +75,6 @@ const Links = () => {
           Sign up for Fleek
         </a>
       </Button>
-
       {newsletterFeatureFlag && (
         <>
           <hr className="border-ui-mid-grey" />

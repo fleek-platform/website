@@ -2,6 +2,16 @@
 import Layout from '@layouts/Page.astro';
 import settings from '@base/settings.json';
 import LinksModule from '@components/Links';
+import { getCollection } from 'astro:content';
+import type { CollectionEntry } from 'astro:content';
+
+// To change the featured post, replace the target post slug
+const FEATURED_POST_SLUG = 'announcements/introducing-fleek-edge-sgx';
+
+const posts = await getCollection('blog');
+const featuredPost = posts.find(
+  (post) => post.slug === FEATURED_POST_SLUG,
+) as CollectionEntry<'blog'>;
 ---
 
 <Layout
@@ -12,6 +22,6 @@ import LinksModule from '@components/Links';
   singlePage
 >
   <main class="flex flex-col items-center gap-16 pb-64">
-    <LinksModule />
+    <LinksModule featuredPost={featuredPost} />
   </main>
 </Layout>

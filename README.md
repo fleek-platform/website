@@ -241,7 +241,11 @@ In the world where text is text, I show you an image:
 
 ### 🚩New blog image for links page
 
-Go to the file `src/components/Links/index.tsx` and change the banner import as the comment says. `import banner from '@content/blog/{category}/{blog-folder-name}/{image}.png'`
+Go to the file `src/pages/links.astro` and change the following line to the slug of the post you would like to feature:
+
+```typescript
+const FEATURED_POST_SLUG = 'announcements/introducing-fleek-edge-sgx';
+```
 
 ## 📝 Docs
 
