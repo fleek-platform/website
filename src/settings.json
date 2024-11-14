@@ -403,5 +403,8 @@
         "title": "Submit a request"
       }
     ]
+  },
+  "linksPage": {
+    "featuredPostSlug": "announcements/introducing-fleek-edge-sgx"
   }
 }

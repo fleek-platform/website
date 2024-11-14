@@ -241,10 +241,12 @@ In the world where text is text, I show you an image:
 
 ### 🚩New blog image for links page
 
-Go to the file `src/pages/links.astro` and change the following line to the slug of the post you would like to feature:
+Go to the file `src/settings.json` and change the following line to the slug of the post you would like to feature:
 
-```typescript
-const FEATURED_POST_SLUG = 'announcements/introducing-fleek-edge-sgx';
+```json
+  "linksPage": {
+    "featuredPostSlug": "announcements/introducing-fleek-edge-sgx"
+  }
 ```
 
 ## 📝 Docs
