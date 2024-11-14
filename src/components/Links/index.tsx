@@ -66,7 +66,7 @@ const Links: React.FC<LinksProps> = ({ featuredPost }) => {
       <LinkButton href="/docs/" ariaLabel="Fleek docs" label="Documentation" />
       <Button variant="primary-ghost" className="w-full" size="sm">
         <a
-          aria-label="Fleek X/Twitter account"
+          aria-label="Fleek Platform"
           href="https://app.fleek.xyz/"
           rel="noopener noreferrer"
           target="_blank"
