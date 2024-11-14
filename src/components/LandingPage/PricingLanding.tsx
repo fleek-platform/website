@@ -14,18 +14,7 @@ const PricingLanding: React.FC = () => {
         <Text as="h3">Best pricing. Period.</Text>
         <div className="mt-44 flex flex-col justify-center gap-20 lg:flex-row">
           {PricingInfo.map((item, index) => {
-            return (
-              <PricingCard
-                key={index}
-                title={item.title}
-                description={item.description}
-                features={item.features}
-                cta={item.cta}
-                cost={item.cost}
-                variant={item.variant}
-                url={item.url}
-              />
-            );
+            return <PricingCard key={index} {...item} />;
           })}
         </div>
       </div>
