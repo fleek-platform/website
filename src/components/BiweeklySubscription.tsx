@@ -39,23 +39,16 @@ const BiweeklySubscription = () => {
   const handleSubscription = async () => {
     setIsSubscribing(true);
     try {
-      if (url && apiKey) {
-        const response = await fetch(url, {
-          method: 'POST',
-          headers: {
-            Authorization: `Bearer ${apiKey}`,
-            'Content-Type': 'application/json',
-          },
-          body: JSON.stringify({
-            email,
-          }),
-        });
-
-        console.log(response);
-        return;
-      }
-
-      throw new Error('Missing environment variables');
+      const response = await fetch(url, {
+        method: 'POST',
+        headers: {
+          Authorization: `Bearer ${apiKey}`,
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          email,
+        }),
+      });
     } catch (error) {
       console.log('Request failed', error);
     } finally {
