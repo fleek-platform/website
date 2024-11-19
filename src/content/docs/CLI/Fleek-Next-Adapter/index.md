@@ -44,7 +44,7 @@ To prepare your Next.js application for deployment on Fleek, follow these steps:
     export const runtime = 'edge';
     ```
 
-2.  **Build the application**: Use the Fleek Next.js adapter to build and deploy your app from the command line
+2.  **Build the application**: Use the Fleek Next.js adapter to build and deploy your app from the command line.
 
     ```sh
     npx fleek-next build
@@ -58,6 +58,10 @@ To prepare your Next.js application for deployment on Fleek, follow these steps:
     ```sh
      fleek-next build -p path/to/my/repo
     ```
+
+The Fleek Next.js adapter does not currently support **runtime environment variables** (e.g., `process.env.VARIABLE_NAME`). If your application relies on such variables for functionality, you may need to explore alternative methods to pass configuration values during build time.
+
+We are actively working on addressing this limitation and will update the adapter to include support for runtime environment variables in the future.
 
 ### Build command options:
 
@@ -122,3 +126,5 @@ Uploading code to IPFS: [██████████████████�
 > You can also call this Fleek Network URL directly for increased performance (please keep in mind you will not be able to deactivate this link)
 🔗 https://fleek-test.network/services/1/ipfs/bafybeig3v4ffebr3hnukpfl5mutflxqgqaizn4l4vp2ffkfnvjuhmynj4i
 ```
+
+## Limitations
