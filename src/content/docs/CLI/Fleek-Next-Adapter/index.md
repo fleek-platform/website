@@ -88,7 +88,8 @@ To learn about support for Next.js features on Fleek, see the [documentation](/d
    :::warn
    Fleek Functions do not support runtime environment variables yet. Use build-time variables instead.
    :::
-   The above command will prompt you to [login to your Fleek account](/docs/cli/#login) from your CLI if you are not already logged in.
+
+The above command will prompt you to [login to your Fleek account](/docs/cli/#login) from your CLI if you are not already logged in.
 
 If you are logged in, you will :
 
