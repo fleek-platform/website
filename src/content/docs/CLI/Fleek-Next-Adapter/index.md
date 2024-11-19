@@ -125,5 +125,3 @@ Uploading code to IPFS: [██████████████████�
 > You can also call this Fleek Network URL directly for increased performance (please keep in mind you will not be able to deactivate this link)
 🔗 https://fleek-test.network/services/1/ipfs/bafybeig3v4ffebr3hnukpfl5mutflxqgqaizn4l4vp2ffkfnvjuhmynj4i
 ```
-
-## Limitations
