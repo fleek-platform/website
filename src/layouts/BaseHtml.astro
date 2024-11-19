@@ -23,6 +23,7 @@ interface Props {
 
 const { ogMeta } = Astro.props;
 const singlePage = Astro.props.singlePage || false;
+
 const baseUrl = getSiteUrl();
 const hasSecondaryMenu = hasSecondaryMenuItem(Astro.url.pathname);
 
@@ -159,7 +160,7 @@ const canonicalUrl = generateCanonicalUrl(contentSlug);
     class="relative flex min-h-dvh flex-col overflow-x-hidden bg-black font-sans text-gray-dark-11 selection:bg-yellow-dark-9 selection:text-black"
   >
     {
-      singlePage && (
+      !singlePage && (
         <>
           <Announcement client:load />
           <Navbar
@@ -180,6 +181,6 @@ const canonicalUrl = generateCanonicalUrl(contentSlug);
       }
       <slot />
     </div>
-    {singlePage && <Footer client:load />}
+    {!singlePage && <Footer client:load />}
   </body>
 </html>
