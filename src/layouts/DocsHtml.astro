@@ -2,7 +2,6 @@
 import '@styles/globals.css';
 import { getSiteUrl } from '@utils/url';
 import settings from '@base/settings.json';
-import { Toaster } from 'react-hot-toast';
 import { Navbar } from '@components/Navbar';
 import Trackers from '@components/Trackers.astro';
 import { generateCanonicalUrl } from '@utils/generateCanonicalUrl';
@@ -160,7 +159,6 @@ const canonicalUrl = generateCanonicalUrl(docsPageSlug);
     <div class="w-full max-w-[1500px] self-center px-24 md:pt-92">
       <slot />
     </div>
-    <Toaster client:load position="bottom-center" reverseOrder={false} />
     <script is:inline defer>
       document.addEventListener('DOMContentLoaded', () => {
         const adjustScrollOffset = () => {
