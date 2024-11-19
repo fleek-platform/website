@@ -59,10 +59,6 @@ To prepare your Next.js application for deployment on Fleek, follow these steps:
      fleek-next build -p path/to/my/repo
     ```
 
-The Fleek Next.js adapter does not currently support **runtime environment variables** (e.g., `process.env.VARIABLE_NAME`). If your application relies on such variables for functionality, you may need to explore alternative methods to pass configuration values during build time.
-
-We are actively working on addressing this limitation and will update the adapter to include support for runtime environment variables in the future.
-
 ### Build command options:
 
 - **-p, --project-path <path>**: Path to your Next.js project’s root directory. Defaults to the current directory.
@@ -89,7 +85,10 @@ To learn about support for Next.js features on Fleek, see the [documentation](/d
    fleek functions deploy --bundle=false --path .fleek/dist/index.js --assets .fleek/static
    ```
 
-The above command will prompt you to [login to your Fleek account](/docs/cli/#login) from your CLI if you are not already logged in.
+   :::warn
+   Fleek Functions do not support runtime environment variables yet. Use build-time variables instead.
+   :::
+   The above command will prompt you to [login to your Fleek account](/docs/cli/#login) from your CLI if you are not already logged in.
 
 If you are logged in, you will :
 
