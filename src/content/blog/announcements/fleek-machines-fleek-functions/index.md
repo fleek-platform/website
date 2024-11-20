@@ -1,7 +1,7 @@
 ---
-title: ' Introducing Fleek Machines (Early Access): One Click Verified and Private Compute'
+title: 'Introducing Fleek Machines (Early Access): One Click Verified and Private Compute'
 date: 2024-11-20
-desc: 'Discover Fleek Network's Fleek Machines for effortless serverless and long-running server solutions. Boost your product's performance, scalability, and efficiency at a fraction of the traditional cloud cost.'
+desc: "Discover Fleek Network's Fleek Machines for effortless serverless and long-running server solutions. Boost your product's performance, scalability, and efficiency at a fraction of the traditional cloud cost."
 thumbnail: './4417135.png'
 image: './4417135.png'
 ---
