@@ -19,6 +19,12 @@
         "description": "Fleek makes it easy to ship performant apps in minutes. Deploy instantly, run globally, scale automatically.",
         "image": "/images/fleek-meta.png?202406061658"
       },
+      "about": {
+        "title": "About",
+        "slug": "about",
+        "description": "About Fleek",
+        "image": "/images/fleek-meta.png?202406061658"
+      },
       "blog": {
         "title": "Blog",
         "slug": "blog",
@@ -415,5 +421,57 @@
       { "href": "/blog/", "label": "Blog", "ariaLabel": "Fleek Blog" },
       { "href": "/docs/", "label": "Documentation", "ariaLabel": "Fleek docs" }
     ]
+  },
+  "aboutPage": {
+    "hero": {
+      "title": "What is Fleek?",
+      "subText": [
+        "Fleek is an open source, trustless cloud platform built on Fleek Network’s next-gen permissionless cloud infrastructure. Picture Cloudflare meets Uber, but more secure, reliable, verifiable, and without the data tampering, price gouging and censorship plaguing Big Cloud.",
+        "The result is a high-performance modern cloud platform where builders can run their software and apps with lower costs, enhanced security and privacy, and better guarantees, all while maintaining best in class speed, scalability, and developer experience."
+      ],
+      "content": [
+        {
+          "icon": "vision",
+          "title": "Our vision",
+          "text": "To restore the internet to its original vision: an open, accessible, and equitable space that empowers users to control their data, connect freely, and create without limitations."
+        },
+        {
+          "icon": "mission",
+          "title": "Our mission",
+          "text": "Our mission is to create cloud infrastructure that respects privacy and promotes autonomy. Fleek offers a community-driven alternative to corporate providers, aligning with the values of a user-controlled internet."
+        }
+      ]
+    },
+    "why_exists": {
+      "title": "Why Fleek exists?",
+      "subText": [
+        "Our mission is to return the web to its initial vision: open, permissionless, and free of gatekeepers.",
+        "Today’s dominance of corporate cloud platforms results in internet censorship, data exploitation, and price gouging. With software at the core of our digital lives, especially in the AI age, we’re creating a future-proof cloud that values freedom and privacy"
+      ]
+    },
+    "why_choose": {
+      "title": "Why choose Fleek?",
+      "subText": [
+        "With Fleek, you’re more than just a customer but a supporter of our mission and values.",
+        "Fleek champions your autonomy, respects your data, and empowers you to create without compromise, helping build the free web."
+      ]
+    },
+    "open_source": {
+      "title": "Open source at our core",
+      "subText": [],
+      "repos": [
+        { "url": "fleek-network/lightning" },
+        { "url": "fleek-platform/cli" },
+        { "url": "fleek-platform/sdk" }
+      ]
+    },
+    "call_to_action": {
+      "title": "Ready to be on Fleek?",
+      "subText": [
+        "Escape Big Cloud and take back control. Fleek offers everything you love about using public cloud platforms, without the constraints of corporate controlled web infrastructure.",
+        "We look forward to having you on Fleek."
+      ],
+      "button": "Get started with Fleek"
+    }
   }
 }
