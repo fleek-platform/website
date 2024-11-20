@@ -26,7 +26,7 @@ Here’s why builders should be excited about Fleek Machines:
 
 ---
 
-## Real Use Cases
+## Real use cases
 
 Fleek Machines are already being tested by early adopters for different applications and use cases. Here are a few examples of some of the things builders are exploring:
 
@@ -58,10 +58,10 @@ As part of the Early Access Program, you will have the opportunity to build, tes
 - **Roadmap Influence:** Help shape features and capabilities to suit your needs.
 - **Growth Opportunities:** Showcase your work with case studies, blog posts, and more.
 
-### Ready to Build with Fleek Machines?
+### Ready to build with Fleek Machines?
 
 Apply for the Early Access Program and unlock the future of verifiable and confidential compute with Fleek Machines.
 
-**Button**: Request Early Access [[Link](https://fleek.typeform.com/machinesaccess)]
+[Request early access](https://fleek.typeform.com/machinesaccess)]
 
 Let’s build the future of the web together. 🚀
