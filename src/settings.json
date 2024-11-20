@@ -119,7 +119,7 @@
     },
     "annoucementMarquee": {
       "message": "Introducing Fleek Machines (Early access): One-click verified and private compute",
-      "url": "/blog/announcements/fleek-machines-fleek-functions",
+      "url": "/blog/announcements/fleek-machines-fleek-functions/",
       "visible": true
     }
   },
