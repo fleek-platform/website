@@ -23,8 +23,14 @@ pnpm-debug.log*
 # jetbrains setting folder
 .idea/
 
+# vscode settings folder
+.vscode/
+
 # search
 meili_data
 
 # vscode settings folder
 .vscode/
+
+#fleek
+fleek.config.json

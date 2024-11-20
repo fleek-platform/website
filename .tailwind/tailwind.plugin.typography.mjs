@@ -85,6 +85,10 @@ export default plugin(({ addComponents }) => {
       "@apply font-plex-sans text-13 font-normal uppercase leading-[150%] tracking-[0.096rem]":
         {},
     },
+    ".typo-btn-s-normal": {
+      "@apply font-plex-sans text-13 font-normal leading-[150%] tracking-[0.096rem]":
+        {},
+    },
     ".typo-btn-l": {
       "@apply font-plex-sans text-16 font-medium uppercase leading-[150%] tracking-[0.192rem]":
         {},

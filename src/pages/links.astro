@@ -1,0 +1,24 @@
+---
+import Layout from '@layouts/Page.astro';
+import settings from '@base/settings.json';
+import LinksModule from '@components/Links';
+import { getCollection } from 'astro:content';
+import type { CollectionEntry } from 'astro:content';
+
+const posts = await getCollection('blog');
+const featuredPost = posts.find(
+  (post) => post.slug === settings.linksPage.featuredPostSlug,
+) as CollectionEntry<'blog'>;
+---
+
+<Layout
+  title={settings.site.metadata.links.title}
+  description={settings.site.metadata.links.description}
+  slug={settings.site.metadata.links.slug}
+  image={settings.site.metadata.links.image}
+  singlePage
+>
+  <main class="flex flex-col items-center gap-16 pb-64">
+    <LinksModule featuredPost={featuredPost} />
+  </main>
+</Layout>

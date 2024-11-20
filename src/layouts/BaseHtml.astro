@@ -2,9 +2,8 @@
 import '@styles/globals.css';
 import { getSiteUrl, hasSecondaryMenuItem } from '@utils/url';
 import settings from '@base/settings.json';
-import PostHog from '@components/PostHog.astro';
+import Trackers from '@components/Trackers.astro';
 
-import { Toaster } from 'react-hot-toast';
 import { Announcement } from '@components/Announcement';
 import Footer from '@components/Footer';
 import { Navbar } from '@components/Navbar';
@@ -19,9 +18,12 @@ interface Props {
     image: string;
     slug: string;
   };
+  singlePage?: boolean;
 }
 
 const { ogMeta } = Astro.props;
+const singlePage = Astro.props.singlePage || false;
+
 const baseUrl = getSiteUrl();
 const hasSecondaryMenu = hasSecondaryMenuItem(Astro.url.pathname);
 
@@ -37,6 +39,48 @@ const canonicalUrl = generateCanonicalUrl(contentSlug);
     <link rel="icon" type="image/svg+xml" href="/favicon.ico" />
     <link rel="canonical" href={`${canonicalUrl}`} />
     <link rel="sitemap" href="/sitemap-index.xml" />
+    <link
+      rel="preload"
+      href="/fonts/ibm-plex-mono/IBMPlexMono-Regular.woff2"
+      as="font"
+      type="font/woff2"
+      crossorigin
+    />
+    <link
+      rel="preload"
+      href="/fonts/ibm-plex-mono/IBMPlexMono-Medium.woff2"
+      as="font"
+      type="font/woff2"
+      crossorigin
+    />
+    <link
+      rel="preload"
+      href="/fonts/ibm-plex-mono/IBMPlexMono-Bold.woff2"
+      as="font"
+      type="font/woff2"
+      crossorigin
+    />
+    <link
+      rel="preload"
+      href="/fonts/ibm-plex-sans/IBMPlexSans-Regular.woff2"
+      as="font"
+      type="font/woff2"
+      crossorigin
+    />
+    <link
+      rel="preload"
+      href="/fonts/ibm-plex-sans/IBMPlexSans-Medium.woff2"
+      as="font"
+      type="font/woff2"
+      crossorigin
+    />
+    <link
+      rel="preload"
+      href="/fonts/ibm-plex-sans/IBMPlexSans-Bold.woff2"
+      as="font"
+      type="font/woff2"
+      crossorigin
+    />
     <link
       rel="preload"
       href="/fonts/atyp/AtypDisplay-Regular.woff2"
@@ -109,31 +153,24 @@ const canonicalUrl = generateCanonicalUrl(contentSlug);
       content={`${baseUrl}/${ogMeta?.image?.replace(/^\/+/, '') || settings.site.metadata.default.image?.replace(/^\/+/, '')}`}
     />
 
-    <!-- Google Tag Manager -->
-    <script is:inline src="/lib/gtm.js"></script>
-
-    <!-- PostHog -->
-    <PostHog />
+    <!-- Trackers -->
+    <Trackers />
   </head>
   <body
     class="relative flex min-h-dvh flex-col overflow-x-hidden bg-black font-sans text-gray-dark-11 selection:bg-yellow-dark-9 selection:text-black"
   >
-    <!-- Google Tag Manager (noscript version) -->
-    <!-- WARNING: The script version is above see /lib/gtm.js -->
-    <!-- End Google Tag Manager (noscript) -->
-    <noscript>
-      <iframe
-        src="https://www.googletagmanager.com/ns.html?id=GTM-WMT553Z"
-        height="0"
-        width="0"
-        style={{ display: 'none', visibility: 'hidden' }}></iframe>
-    </noscript>
-    <Announcement client:load />
-    <Navbar
-      client:load
-      pathname={Astro.url.pathname}
-      className="max-w-[1024px] transition-all xl:max-w-[1066px] 2xl:max-w-[1300px]"
-    />
+    {
+      !singlePage && (
+        <>
+          <Announcement client:load />
+          <Navbar
+            client:load
+            pathname={Astro.url.pathname}
+            className="max-w-[1024px] transition-all xl:max-w-[1066px] 2xl:max-w-[1300px]"
+          />
+        </>
+      )
+    }
     <div
       class="relative w-full self-center px-24 py-32 xl:max-w-[1066px] xl:px-0 2xl:max-w-[1300px]"
     >
@@ -144,6 +181,6 @@ const canonicalUrl = generateCanonicalUrl(contentSlug);
       }
       <slot />
     </div>
-    <Footer client:load />
+    {!singlePage && <Footer client:load />}
   </body>
 </html>

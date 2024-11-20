@@ -19,6 +19,8 @@ jobs:
       PUBLIC_MEILISEARCH_DOCUMENTS_CLIENT_API_KEY: dry.run
       PUBLIC_MEILISEARCH_HOST: dry.run
       PUBLIC_SUPPORT_API_HOST: dry.run
+      PUBLIC_BEHIIV_API_KEY: dry.run
+      PUBLIC_BEHIIV_SUBSCRIBE_URL: dry.run
     steps:
       - name: Checkout
         uses: actions/checkout@v4
