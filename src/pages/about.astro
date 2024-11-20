@@ -12,12 +12,12 @@ import Footer from '@components/Footer';
   slug={settings.site.metadata.about.slug}
   image={settings.site.metadata.about.image}
 >
-  <main class="flex flex-col gap-16 pb-64">
+  <main class="flex flex-col pb-64">
     <Navbar pathname={Astro.url.pathname} client:load />
     <AboutModule.Hero />
     <AboutModule.WhyExists />
-    <AboutModule.WhyChoose />
     <AboutModule.OpenSourceCore client:load />
+    <AboutModule.WhyChoose />
     <AboutModule.CallToAction />
     <Footer />
   </main>

@@ -3,37 +3,56 @@ import settings from '@base/settings.json';
 
 import ContentBox from './ContentBox';
 import Section from './Section';
+import { useGetRepos } from 'Services/Github/api';
+import { Target } from '@components/Link';
 
 import HeroBackground from './images/circles.webp';
-import VisionIcon from './images/vision-icon.svg';
-import MissionIcon from './images/mission-icon.svg';
+import HeroImage from './images/hero-image.svg';
+
+import EyeIcon from './images/eye-icon.svg';
+import TargetIcon from './images/target-icon.svg';
+import FLKCoinIcon from './images/FLK-coin-icon.svg';
+
 import GithubIcon from './images/github-icon.svg';
 import GlobeBackground from './images/globe.webp';
+import LightningBackground from './images/lightning.webp';
 import ArrowUpright from './images/arrow-up-right.svg';
-import { useGetRepos } from 'Services/Github/api';
 
 const AboutModule = {
   Hero: () => (
     <Section
       title={settings.aboutPage.hero.title}
       subText={settings.aboutPage.hero.subText}
+      headerClassName="md:!max-w-[450px] lg:!max-w-[660px]"
+      align="left"
+      image={
+        <img
+          src={HeroImage.src}
+          alt={'Fleek About Hero image'}
+          className="absolute right-[50px] hidden max-w-none md:right-0 md:block md:max-h-[75%] md:max-w-[35vw]"
+        />
+      }
+      gradientClassName="!-top-[70px]"
       backgroundElement={
         <img
           src={HeroBackground.src}
           alt="Hero background image"
-          className="z-0 absolute -left-[4vw] -right-[4vw] top-[50%] h-full max-h-[228px] w-[108vw] max-w-none -translate-y-1/2 transform object-cover"
+          className="z-0 absolute -left-[4vw] -right-[4vw] bottom-[40vh] h-full max-h-[95px] w-[108vw] max-w-none md:bottom-[125px]"
         />
       }
     >
-      <div className="mt-[76px] flex w-full flex-row gap-[16px]">
+      <div className="mt-[16px] flex w-full flex-col gap-[16px] md:mt-[56px] md:flex-row">
         {settings.aboutPage.hero.content.map((item, index) => {
           let icon;
           switch (item.icon) {
             case 'mission':
-              icon = MissionIcon;
+              icon = TargetIcon;
               break;
-            case 'vision':
-              icon = VisionIcon;
+            case 'open-source':
+              icon = EyeIcon;
+              break;
+            case 'community':
+              icon = FLKCoinIcon;
               break;
           }
           return (
@@ -44,14 +63,11 @@ const AboutModule = {
                   alt={item.title}
                   width={icon.width}
                   height={icon.height}
-                  className="pb-[16px]"
+                  className="m-auto pb-[16px]"
                 />
               )}
-              <h4 className="font-sans text-[38px] font-semibold text-white">
+              <p className="font-medium3 text-center font-sans text-[20px] leading-[20px] text-white md:text-[28px] md:leading-[28px]">
                 {item.title}
-              </h4>
-              <p className="font-plex-sans text-[16px] leading-[24px] text-neutral-11">
-                {item.text}
               </p>
             </ContentBox>
           );
@@ -64,12 +80,13 @@ const AboutModule = {
     <Section
       title={settings.aboutPage.why_exists.title}
       subText={settings.aboutPage.why_exists.subText}
+      headerClassName="!max-w-[545px]"
       align="left"
-      backgroundElement={
+      image={
         <img
           src={GlobeBackground.src}
-          alt="Hero background image"
-          className="z-0 absolute -right-[50px] left-auto h-full object-cover"
+          alt="Globe background image"
+          className="absolute left-auto right-0 max-h-[100%] max-w-none sm:max-h-[111%] md:max-h-[135%]"
         />
       }
     />
@@ -79,23 +96,20 @@ const AboutModule = {
     <Section
       title={settings.aboutPage.why_choose.title}
       subText={settings.aboutPage.why_choose.subText}
-      align="right"
-      backgroundElement={
+      headerClassName="!max-w-[500px]"
+      align="left"
+      image={
         <img
-          src={GlobeBackground.src}
-          alt="Hero background image"
-          className="z-0 absolute h-full object-cover"
+          src={LightningBackground.src}
+          alt="Lightning background image"
+          className="absolute left-auto right-0 max-h-[100%] max-w-none sm:max-h-[111%] md:max-h-[140%]"
         />
       }
     />
   ),
 
   OpenSourceCore: () => {
-    const {
-      data: repos,
-      error,
-      loading,
-    } = useGetRepos(
+    const { data: repos } = useGetRepos(
       settings.aboutPage.open_source.repos.map((repo) => repo.url),
     );
 
@@ -103,8 +117,9 @@ const AboutModule = {
       <Section
         title={settings.aboutPage.open_source.title}
         subText={settings.aboutPage.open_source.subText}
+        gradientLocation="right"
       >
-        <div className="mt-[20px] flex w-full flex-row gap-[16px]">
+        <div className="mt-[20px] flex w-full flex-col gap-[16px] md:flex-row">
           {repos.map((repo) => (
             <ContentBox
               variant="narrow"
@@ -124,7 +139,7 @@ const AboutModule = {
                       />
                     ))}
                   {repo.contributors && repo.contributors.length > 5 && (
-                    <span className="text-neutral-8 ml-2 text-[12px] leading-[22px]">
+                    <span className="ml-2 text-[12px] leading-[22px] text-neutral-11">
                       + more
                     </span>
                   )}
@@ -133,27 +148,26 @@ const AboutModule = {
             >
               <Button
                 variant="secondary-ghost"
-                className="absolute right-[16px] top-[16px]"
+                className="absolute right-[16px] top-[16px] flex flex-row"
                 size="sm"
+                aria-label={settings.aboutPage.call_to_action.button}
+                href={repo.html_url}
+                rel="noopener noreferrer"
+                target={Target.Blank}
               >
-                <a
-                  aria-label={settings.aboutPage.call_to_action.button}
-                  href={repo.html_url}
-                  rel="noopener noreferrer"
-                  target="_blank"
-                  className="flex w-full flex-row"
-                >
-                  View repo <img src={ArrowUpright.src} alt="" />
-                </a>
+                <span>View repo</span>
+                <img src={ArrowUpright.src} height={16} width={16} alt="" />
               </Button>
               <img
+                height={22}
+                width={22}
                 src={GithubIcon.src}
                 alt="Github icon"
                 className="mb-[16px]"
               />
-              <h4 className="mb-[12px] font-plex-sans text-[20px] font-semibold capitalize leading-[28px] text-neutral-11">
+              <p className="mb-[12px] font-plex-sans text-[20px] font-semibold capitalize leading-[28px] text-neutral-11">
                 {repo.name}
-              </h4>
+              </p>
               <p className="line-clamp-2 font-plex-sans text-[16px] leading-[22px] text-neutral-11">
                 {repo.description}
               </p>
@@ -170,16 +184,15 @@ const AboutModule = {
       subText={settings.aboutPage.call_to_action.subText}
       className="border-b-0"
     >
-      <Button variant="primary" className="mt-[45px] w-full p-[16px]">
-        <a
-          aria-label={settings.aboutPage.call_to_action.button}
-          href="https://app.fleek.xyz/"
-          rel="noopener noreferrer"
-          target="_blank"
-          className="w-full"
-        >
-          {settings.aboutPage.call_to_action.button}
-        </a>
+      <Button
+        variant="app-primary"
+        className="m-auto mt-[45px] w-full max-w-[215px] p-[16px]"
+        aria-label={settings.aboutPage.call_to_action.button}
+        href="https://app.fleek.xyz/"
+        rel="noopener noreferrer"
+        target={Target.Blank}
+      >
+        {settings.aboutPage.call_to_action.button}
       </Button>
     </Section>
   ),

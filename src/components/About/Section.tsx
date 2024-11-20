@@ -9,6 +9,10 @@ interface SectionProps {
   children?: React.ReactNode;
   backgroundElement?: React.ReactNode;
   className?: string;
+  gradientClassName?: string;
+  gradientLocation?: 'left' | 'right';
+  image?: React.ReactNode;
+  headerClassName?: string;
 }
 
 const Section: React.FC<SectionProps> = ({
@@ -16,9 +20,13 @@ const Section: React.FC<SectionProps> = ({
   title,
   titleH1,
   subText,
+  headerClassName,
   align = 'center',
   backgroundElement,
   className,
+  gradientClassName,
+  gradientLocation = 'left',
+  image,
 }) => {
   return (
     <div className={clsx(styles.wrapper, className)}>
@@ -27,6 +35,7 @@ const Section: React.FC<SectionProps> = ({
           {backgroundElement}
         </div>
       )}
+
       <div
         className={clsx(
           styles.innerWrapper,
@@ -34,7 +43,18 @@ const Section: React.FC<SectionProps> = ({
           align === 'right' && styles.alignRight,
         )}
       >
-        <div className={styles.header}>
+        {image && <div className={styles.image}>{image}</div>}
+
+        <div
+          className={clsx(
+            gradientLocation === 'left'
+              ? styles.gradientLeft
+              : styles.gradientRight,
+            gradientClassName,
+          )}
+        />
+
+        <div className={clsx(styles.header, headerClassName)}>
           {titleH1 ? (
             <h1 className={styles.titleText}>{title}</h1>
           ) : (
@@ -49,8 +69,8 @@ const Section: React.FC<SectionProps> = ({
               </p>
             ))}
         </div>
-        {children && <div className={styles.content}>{children}</div>}
       </div>
+      {children && <div className={styles.content}>{children}</div>}
     </div>
   );
 };

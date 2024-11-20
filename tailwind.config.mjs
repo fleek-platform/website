@@ -130,7 +130,7 @@ export default {
           overflow: 'hidden',
           '-webkit-line-clamp': '2',
           'line-clamp': '2',
-          'max-height': 'calc(2 * 1.2em)',
+          'max-height': 'calc(2 * 1.3em)',
         },
       });
     },

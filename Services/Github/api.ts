@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef } from 'react';
+import { useState, useEffect, useCallback, useRef } from 'react';
 
 interface Contributor {
   login: string;
@@ -22,84 +22,28 @@ const DEFAULT_DATA: Repo[] = [
       'https://api.github.com/repos/fleek-network/lightning/contributors',
     contributors: [
       {
-        login: 'ozwaldorf',
-        avatar_url: 'https://avatars.githubusercontent.com/u/8976745?v=4',
+        login: 'contributor1',
+        avatar_url: '/images/github-avatar.webp',
       },
       {
-        login: 'kckeiks',
-        avatar_url: 'https://avatars.githubusercontent.com/u/24687641?v=4',
+        login: 'contributor2',
+        avatar_url: '/images/github-avatar.webp',
       },
       {
-        login: 'qti3e',
-        avatar_url: 'https://avatars.githubusercontent.com/u/13242052?v=4',
+        login: 'contributor3',
+        avatar_url: '/images/github-avatar.webp',
       },
       {
-        login: 'matthias-wright',
-        avatar_url: 'https://avatars.githubusercontent.com/u/25928722?v=4',
+        login: 'contributor4',
+        avatar_url: '/images/github-avatar.webp',
       },
       {
-        login: 'snormore',
-        avatar_url: 'https://avatars.githubusercontent.com/u/182290?v=4',
+        login: 'contributor5',
+        avatar_url: '/images/github-avatar.webp',
       },
       {
-        login: 'daltoncoder',
-        avatar_url: 'https://avatars.githubusercontent.com/u/71679972?v=4',
-      },
-      {
-        login: 'bidzyyys',
-        avatar_url: 'https://avatars.githubusercontent.com/u/25967634?v=4',
-      },
-      {
-        login: 'theBeardA',
-        avatar_url: 'https://avatars.githubusercontent.com/u/35360097?v=4',
-      },
-      {
-        login: 'heldrida',
-        avatar_url: 'https://avatars.githubusercontent.com/u/236752?v=4',
-      },
-      {
-        login: 'nhtyy',
-        avatar_url: 'https://avatars.githubusercontent.com/u/15225385?v=4',
-      },
-      {
-        login: 'scott-dn',
-        avatar_url: 'https://avatars.githubusercontent.com/u/26348060?v=4',
-      },
-      {
-        login: 'andrcmdr',
-        avatar_url: 'https://avatars.githubusercontent.com/u/7407420?v=4',
-      },
-      {
-        login: 'qx-nico',
-        avatar_url: 'https://avatars.githubusercontent.com/u/73345016?v=4',
-      },
-      {
-        login: 'jsonsivar',
-        avatar_url: 'https://avatars.githubusercontent.com/u/18757934?v=4',
-      },
-      {
-        login: 'jproyo',
-        avatar_url: 'https://avatars.githubusercontent.com/u/1112854?v=4',
-      },
-      {
-        login: 'gabrielmpinto',
-        avatar_url: 'https://avatars.githubusercontent.com/u/10453270?v=4',
-      },
-      {
-        login: 'Qwuke',
-        avatar_url: 'https://avatars.githubusercontent.com/u/8070097?v=4',
-      },
-      {
-        login: 'berryhill',
-        avatar_url: 'https://avatars.githubusercontent.com/u/2887364?v=4',
-      },
-      {
-        login: 'osrm',
-        avatar_url: 'https://avatars.githubusercontent.com/u/90407222?v=4',
-      },
-      {
-        login: 'rollsmorr1',
-        avatar_url: 'https://avatars.githubusercontent.com/u/55561695?v=4',
+        login: 'contributor5',
+        avatar_url: '/images/github-avatar.webp',
       },
     ],
   },
@@ -113,25 +57,24 @@ const DEFAULT_DATA: Repo[] = [
 
     contributors: [
       {
-        login: 'heldrida',
-        avatar_url: 'https://avatars.githubusercontent.com/u/236752?v=4',
+        login: 'contributor1',
+        avatar_url: '/images/github-avatar.webp',
       },
       {
-        login: 'github-actions[bot]',
-        avatar_url: 'https://avatars.githubusercontent.com/in/15368?v=4',
+        login: 'contributor2',
+        avatar_url: '/images/github-avatar.webp',
       },
       {
-        login: 'gabrielmpinto',
-
-        avatar_url: 'https://avatars.githubusercontent.com/u/10453270?v=4',
+        login: 'contributor3',
+        avatar_url: '/images/github-avatar.webp',
       },
       {
-        login: 'theBeardA',
-        avatar_url: 'https://avatars.githubusercontent.com/u/35360097?v=4',
+        login: 'contributor4',
+        avatar_url: '/images/github-avatar.webp',
       },
       {
-        login: 'daltoncoder',
-        avatar_url: 'https://avatars.githubusercontent.com/u/71679972?v=4',
+        login: 'contributor5',
+        avatar_url: '/images/github-avatar.webp',
       },
     ],
   },
@@ -145,24 +88,24 @@ const DEFAULT_DATA: Repo[] = [
 
     contributors: [
       {
-        login: 'heldrida',
-        avatar_url: 'https://avatars.githubusercontent.com/u/236752?v=4',
+        login: 'contributor1',
+        avatar_url: '/images/github-avatar.webp',
       },
       {
-        login: 'github-actions[bot]',
-        avatar_url: 'https://avatars.githubusercontent.com/in/15368?v=4',
+        login: 'contributor2',
+        avatar_url: '/images/github-avatar.webp',
       },
       {
-        login: 'gabrielmpinto',
-        avatar_url: 'https://avatars.githubusercontent.com/u/10453270?v=4',
+        login: 'contributor3',
+        avatar_url: '/images/github-avatar.webp',
       },
       {
-        login: 'kkudryaev',
-        avatar_url: 'https://avatars.githubusercontent.com/u/16938595?v=4',
+        login: 'contributor4',
+        avatar_url: '/images/github-avatar.webp',
       },
       {
-        login: 'angarita-dev',
-        avatar_url: 'https://avatars.githubusercontent.com/u/44899916?v=4',
+        login: 'contributor5',
+        avatar_url: '/images/github-avatar.webp',
       },
     ],
   },
@@ -171,66 +114,73 @@ const DEFAULT_DATA: Repo[] = [
 export const useGetRepos = (repos: string[]) => {
   const [data, setData] = useState<Repo[]>(DEFAULT_DATA);
   const [error, setError] = useState<string | null>(null);
-  const [loading, setLoading] = useState<boolean>(true);
+  const [isLoading, setIsLoading] = useState<boolean>(true);
   const hasFetched = useRef(false);
+
+  const fetchRepos = useCallback(async () => {
+    try {
+      const result = await Promise.all(
+        repos.map(async (repo) => {
+          try {
+            const repoResponse = await fetch(
+              `https://api.github.com/repos/${repo}`,
+            );
+
+            let repoData: Repo;
+            if (repoResponse.ok) {
+              repoData = await repoResponse.json();
+            } else {
+              repoData = DEFAULT_DATA.find((el) => el.html_url.includes(repo))!;
+              console.error(`Failed to fetch repo: ${repo}`);
+            }
+
+            if (!repoData?.contributors) {
+              const contributorsResponse = await fetch(
+                repoData.contributors_url,
+              );
+
+              if (contributorsResponse.ok) {
+                repoData.contributors = await contributorsResponse.json();
+              } else {
+                repoData.contributors =
+                  DEFAULT_DATA.find((el) => el.html_url.includes(repo))
+                    ?.contributors || [];
+                console.error(`Failed to fetch contributors for repo: ${repo}`);
+              }
+            }
+
+            return repoData;
+          } catch (error) {
+            console.error(`Error fetching repo ${repo}:`, error);
+            return DEFAULT_DATA.find((el) => el.html_url.includes(repo))!;
+          }
+        }),
+      );
+
+      const reposData = result.filter(Boolean);
+      setData(reposData as Repo[]);
+    } catch (error) {
+      console.error('Error fetching repositories:', error);
+      setError('Failed to fetch repositories');
+    } finally {
+      setIsLoading(false);
+      hasFetched.current = true;
+    }
+  }, []);
 
   useEffect(() => {
     if (typeof window === 'undefined') {
-      setLoading(false);
+      setIsLoading(false);
       return;
     }
 
     if (hasFetched.current) {
-      setLoading(false);
+      setIsLoading(false);
       return;
     }
-
-    const fetchRepos = async () => {
-      try {
-        const result = await Promise.all(
-          repos.map(async (repo) => {
-            try {
-              const repoResponse = await fetch(
-                `https://api.github.com/repos/${repo}`,
-              );
-              if (!repoResponse.ok) {
-                throw new Error(`Failed to fetch repo: ${repo}`);
-              }
-              const repoData: Repo = await repoResponse.json();
-
-              const contributorsResponse = await fetch(
-                repoData.contributors_url,
-              );
-              if (!contributorsResponse.ok) {
-                throw new Error(
-                  `Failed to fetch contributors for repo: ${repo}`,
-                );
-              }
-              const contributorsData: Contributor[] =
-                await contributorsResponse.json();
-
-              return { ...repoData, contributors: contributorsData };
-            } catch (error) {
-              console.error(`Error fetching repo ${repo}:`, error);
-              return null;
-            }
-          }),
-        );
-
-        const reposData = result.filter(Boolean);
-
-        setData((reposData.length ? reposData : DEFAULT_DATA) as Repo[]);
-      } catch (error) {
-        console.error('Error fetching repositories:', error);
-        setError('Failed to fetch repositories');
-      } finally {
-        setLoading(false);
-        hasFetched.current = true;
-      }
-    };
 
     fetchRepos();
   }, [repos]);
 
-  return { data, error, loading };
+  return { data, error, isLoading };
 };

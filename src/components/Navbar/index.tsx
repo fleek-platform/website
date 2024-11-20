@@ -60,7 +60,12 @@ const NavbarMobile: React.FC = () => {
 
   return (
     <>
-      <Button variant="ghost" size="sm" onClick={toggle}>
+      <Button
+        variant="ghost"
+        size="sm"
+        onClick={toggle}
+        aria-label="Toggle menu button"
+      >
         <RxHamburgerMenu className="size-20 cursor-pointer text-gray-dark-11" />
       </Button>
       {isOpen && (

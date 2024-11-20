@@ -7,7 +7,7 @@
 }
 
 .innerWrapper {
-  @apply px-[24px] py-[32px];
+  @apply px-[12px] py-[16px] md:px-[24px] md:py-[32px];
 }
 
 .innerWrapperNarrow {
@@ -15,5 +15,5 @@
 }
 
 .footer {
-  @apply bg-neutral-1 border-t-1 border-t-neutral-6 px-[16px] py-[16px];
+  @apply border-t-1 border-t-neutral-6 bg-neutral-1 px-[16px] py-[16px];
 }
