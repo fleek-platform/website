@@ -62,6 +62,6 @@ As part of the Early Access Program, you will have the opportunity to build, tes
 
 Apply for the Early Access Program and unlock the future of verifiable and confidential compute with Fleek Machines.
 
-[Request early access](https://fleek.typeform.com/machinesaccess)]
+[Request early access](https://fleek.typeform.com/machinesaccess)
 
 Let’s build the future of the web together. 🚀
