@@ -1,0 +1,89 @@
+---
+order: 6
+title: Fleek SDK
+date: 2024-11-10
+desc: Leanr how to navigate through problems and issues that may appear as you use Fleek and bring more of your stack to Fleek.
+keywords: [Fleek-Functions, Storage, CLI, SDK, Hosting, Gateway]
+tags:
+  - Accounts
+  - Guide
+  - Learn
+  - Fleek
+---
+
+## What can I do with Fleek Functions?
+
+:::warn
+This alpha feature runs on a testnet version of Fleek Network. We advise against using Fleek Functions in production for now, as changes are expected during the ongoing development.
+:::
+
+Put simply, you can call Fleek Functions from the front-end of your application just as you would invoke any code that returns a response from a server. Among other things, you can use Fleek Functions to:
+
+- Call APIs to retrieve or populate data on the user interface
+- Make routing requests
+- Implement server-side rendering (SSR) for your entire application
+- Build use cases like Next.js hosting
+- Perform image optimization and resize images
+- Replace any existing serverless, edge, or cloud functions you currently use in your stack
+
+And countless other things. There isn’t much you can’t build with serverless compute frameworks these days.
+
+### Architectural benefits provided by Fleek Functions
+
+While building Fleek Functions we kept the following software design factors in mind to help you build performant application with minimal devops overhead -
+
+1. **Lightning Fast Speed**: Fleek Functions deliver ultra-low latency through edge-optimized infrastructure, bringing your code closer to users.
+
+2. **Effortless Maintenance**: Focus solely on your code—no server upkeep needed, with functions running only as required.
+
+3. **Dynamic Scaling**: Adapt to traffic seamlessly with auto-scaling that adjusts resources in real-time for cost efficiency.
+
+4. **Transparent, Lower Costs**: Enjoy competitive, usage-based pricing, free from traditional cloud platform markups.
+
+5. **Total Control**: Retain self-sovereignty over your applications on a censorship-resistant, permissionless network.
+
+Now that we understand the value proposition of Fleek Functions, Let's dive right in and create our own!
+
+<div className="my-12 bg-gray-dark-6 p-[1px]" />
+
+## Do I need to use Fleek Functions for my Fleek project, or is Fleek able to support dynamic sites that do not use Fleek Functions?
+
+Prior to the release of Fleek Functions, Fleek was able to support users’ dynamic sites, but by necessity users were required to manage their back-end services outside of Fleek.
+
+Fleek can now support dynamic sites without requiring users to manage this aspect of their application elsewhere, but even in the wake of Fleek Functions’ release, it is not required.
+
+Users still have the option of self-managing their servers or managing their back-end code through another provider. We believe Fleek Functions offer benefits over these alternatives, but do not require their exclusive use or prevent users from exploring other solutions.
+
+<div className="my-12 bg-gray-dark-6 p-[1px]" />
+
+## Moving Fleek Functions from alpha to production
+
+While this feature is in alpha, there are some important caveats about its functionality, chiefly that this feature is not yet accessible within the platform UI.
+
+### Where to use Fleek Functions in alpha
+
+Today Fleek Functions can only be created and managed within Fleek's CLI and SDK, but soon we plan to integrate this functionality into the platform UI as well. When we do roll out Fleek Functions within the platform UI, you will find this functionality under the “Functions” tab of your project page, which currently serves as a placeholder and directs users to the information found here.
+
+### How to use Fleek Functions in alpha
+
+While the Fleek Functions feature is in alpha and until a future date when its functionality has been finalized, we do not recommend relying on Fleek Functions within production applications. In the interim, we encourage our users to experiment with the addition of Fleek Functions to hobby projects or sandboxes. We invite users to preview the performance and cost benefits of Fleek Functions in a controlled environment such as this to assuage any doubts about its future value to a production application.
+
+### Later: supporting common use cases with communal Fleek Functions
+
+We plan to improve and solidify this feature based on feedback from the community, but to also explore ways that the community can directly contribute shared communal Fleek Functions. Developers building on Fleek often require custom back-end code to facilitate the bespoke needs of their application and users, but just as certain utility `npm` packages like `lodash` attract installs into millions of unique repos, some Fleek Functions will fulfill a need shared by a preponderance of Fleek users. An example of one such Fleek Function might be one that call the OpenWeatherMap API and returns the current temperature of the requested city.
+
+If these functions were created in isolation, they would often duplicate the work of other community members. One might be a less battle-tested, elegant solution to the same problem another user has encountered.
+
+Users are under no obligation to publish Fleek Functions, but we plan to highlight open-source contributions from Fleek users that we believe may be valuable to our community at large. Just as we currently highlight useful templates for users building their applications with specific frameworks and an [`awesome-fleek`](https://github.com/fleekxyz/awesome-fleek) directory of useful tools built on Fleek, we anticipate there may be value in organizing a directory of boilerplate but configurable Fleek Functions that have widespread applicability to our users’ projects.
+
+<div className="my-12 bg-gray-dark-6 p-[1px]" />
+
+## Release timeline for Fleek Functions
+
+We look forward to seeing the Fleek Functions our users create and share. We believe Fleek Functions collectively represent one of the more significant value unlocks for our users since Fleek’s inception, given that it is one of the first of our features to leverage the Fleek Network.
+
+As of today, Fleek Functions will move through the following phases:
+
+- **Alpha release**: Fleek Functions can be created and managed through the Fleek CLI and SDK, but cannot be accessed through the Fleek Platform UI. They are not recommended for production-grade applications.
+- **Beta release**: Following rigorous testing, we will move Fleek Functions to a beta state. We will still advise caution when integrating Fleek Functions into production applications at this stage, but they will be nearing their production release and thus will be less likely to change or produce unexpected side effects.
+- **Production release**: The Fleek Platform UI will support the creation and management of Fleek Functions. Fleek Functions will leave beta and be recommended for production applications. We will begin facilitating a community-created directory of open-source Fleek Functions.
