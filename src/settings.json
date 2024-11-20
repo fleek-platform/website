@@ -118,8 +118,8 @@
       "templatesUrl": "https://app.fleek.xyz/templates"
     },
     "annoucementMarquee": {
-      "message": "Deploy fullstack Next.JS apps with SSR, app routing and more",
-      "url": "/blog/announcements/nextjs-support-release/",
+      "message": "Introducing Fleek Machines (Early access): One-click verified and private compute",
+      "url": "/blog/announcements/fleek-machines-fleek-functions/",
       "visible": true
     }
   },
