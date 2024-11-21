@@ -6,19 +6,19 @@ thumbnail: ./usecasebuildonfleeknetwork.png
 image: ./usecasebuildonfleeknetwork.png
 ---
 
-Decentralization, the central thesis of web3, can be seen in action with decentralized social media, governance platforms, financial markets/trading platforms, and more. Yet each *decentralized* application still relies on centralized infrastructure at some layer of their stack, meaning they’re only one outage or corporate decision away from going dark.
+Decentralization, the central thesis of web3, can be seen in action with decentralized social media, governance platforms, financial markets/trading platforms, and more. Yet each _decentralized_ application still relies on centralized infrastructure at some layer of their stack, meaning they’re only one outage or corporate decision away from going dark.
 
 With more businesses and services going digital, the need for trustless, verifiable, and censorship-resistant web services has never been more critical.
 
-Fleek Network is engineered to serve this exact need where developers can build and run any web service they can imagine, powered by a decentralized network of edge nodes. *No DevOps headaches. No vendor lock-in. Just pure, performant, permissionless infrastructure.*
+Fleek Network is engineered to serve this exact need where developers can build and run any web service they can imagine, powered by a decentralized network of edge nodes. _No DevOps headaches. No vendor lock-in. Just pure, performant, permissionless infrastructure._
 
-The goal is simple: ***Build permissionless and verifiable infra that developers use to achieve web-grade performance in a decentralized setting.***
+The goal is simple: **_Build permissionless and verifiable infra that developers use to achieve web-grade performance in a decentralized setting._**
 
 ![](./image8.png)
 
-In the pursuit of this goal, we are closing in on a comprehensive suite of services, from trustless hosting, compute, CDN, DNS, and global deployments. All of these running on a decentralized edge network canvas means we are pushing the boundaries of what’s possible. *Fleek already leverages several Fleek Network services and use cases, and there are tons more developers can build.*
+In the pursuit of this goal, we are closing in on a comprehensive suite of services, from trustless hosting, compute, CDN, DNS, and global deployments. All of these running on a decentralized edge network canvas means we are pushing the boundaries of what’s possible. _Fleek already leverages several Fleek Network services and use cases, and there are tons more developers can build._
 
-***In this resource, we present 50 practical examples of web services possible with Fleek Network being the foundational stack. Honestly, we are just scratching the surface.***
+**_In this resource, we present 50 practical examples of web services possible with Fleek Network being the foundational stack. Honestly, we are just scratching the surface._**
 
 ---
 
@@ -30,7 +30,7 @@ Web infrastructure and cloud services are the backbone of today’s internet, en
 
 However, traditional, centralized infrastructure introduces risks like vendor lock-in, downtime from single points of failure, and corporate control over data access. And Fleek Network provides a decentralized canvas for these core services to be built with high performance while not sacrificing control, privacy, or availability.
 
-This section will explore the following web infra & cloud services: ***decentralized CDNs, edge caching, image optimization, decentralized API gateways, and real-time WebSocket connections.***
+This section will explore the following web infra & cloud services: **_decentralized CDNs, edge caching, image optimization, decentralized API gateways, and real-time WebSocket connections._**
 
 1. ### **Decentralized CDN**
 
