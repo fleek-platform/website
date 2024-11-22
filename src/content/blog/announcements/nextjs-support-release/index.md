@@ -27,7 +27,7 @@ For this release, we’ve focused on the core features that developers require t
 
 ## **How to Get Started**
 
-Get started deploying a Next.js application on Fleek with the `**fleek-next` CLI\*\* tool. Here are the steps to get your app or site up and running:
+Get started deploying a Next.js application on Fleek with the **`fleek-next` CLI tool**. Here are the steps to get your app or site up and running:
 
 1. **Install the [Fleek CLI](https://fleek.xyz/docs/cli/)**: Install the `fleek-next` package, a tailored CLI tool optimized for Fleek’s infrastructure. Simply run `npm i @fleek-platform/next` on your terminal.
 2. **Set Your Edge Runtime**: In your server-side code, set `export const runtime = 'edge';` to ensure compatibility with Fleek’s edge network.
