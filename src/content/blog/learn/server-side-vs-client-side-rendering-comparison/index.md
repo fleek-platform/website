@@ -194,6 +194,4 @@ Here are a couple of resources to help you get started:
 4. Read how Fleek made [server-side rendering](https://fleek.xyz/blog/announcements/server-side-nextjs-on-fleek/) with Next.js possible
 5. Fleek’s [Github documentation](https://github.com/fleek-platform/fleek-next) of the Fleek Next adapter
 
-Stay updated with the latest SSR trends and Fleek features on our
-
-[blog](http://fleek.xyz/blog/)
+Stay updated with the latest SSR trends and Fleek features on our [blog](http://fleek.xyz/blog/).
