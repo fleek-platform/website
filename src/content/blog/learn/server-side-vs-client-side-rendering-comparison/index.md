@@ -10,7 +10,7 @@ author:
 
 In modern web development, the way web pages are rendered plays a crucial role in determining the overall performance, user experience, and search engine optimization (SEO) of a website. There are two popular approaches: **Server-side rendering (SSR) and Client-side rendering (CSR)**.
 
-***This blog will help you understand server-side and client-side rendering, explore their advantages and limitations, and provide examples of when and where each method shines, with insights on how Fleek enhances performance and scalability in both approaches***
+**_This blog will help you understand server-side and client-side rendering, explore their advantages and limitations, and provide examples of when and where each method shines, with insights on how Fleek enhances performance and scalability in both approaches_**
 
 ## **What is Server-Side Rendering?**
 
@@ -99,13 +99,13 @@ Below are some of the most common use cases for client-side rendering:
 
 ## **Key Differences Between Server-Side Rendering and Client-Side Rendering**
 
-| **Aspect** | **Server-Side Rendering (SSR)** | **Client-Side Rendering (CSR)** |
-| --- | --- | --- |
-| **Initial Page Load Time** | Typically offers quicker First Contentful Paint (FCP) | Longer initial load, but faster subsequent navigation |
-| **SEO-Friendliness** | More SEO-friendly out of the box | Requires additional considerations for SEO |
-| **Server Load** | Puts more load on the server | Shifts more of the workload to the client |
-| **User Experience and Interactivity** | Feels more like traditional web browsing | Provides a more app-like, interactive experience |
-| **Maintenance and Scalability** | Can be challenging to scale as server resources must handle rendering for each incoming request | Easy to deploy and scale with static files, but more complex to maintain due to client-side state management |
+| **Aspect**                            | **Server-Side Rendering (SSR)**                                                                 | **Client-Side Rendering (CSR)**                                                                              |
+| ------------------------------------- | ----------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------ |
+| **Initial Page Load Time**            | Typically offers quicker First Contentful Paint (FCP)                                           | Longer initial load, but faster subsequent navigation                                                        |
+| **SEO-Friendliness**                  | More SEO-friendly out of the box                                                                | Requires additional considerations for SEO                                                                   |
+| **Server Load**                       | Puts more load on the server                                                                    | Shifts more of the workload to the client                                                                    |
+| **User Experience and Interactivity** | Feels more like traditional web browsing                                                        | Provides a more app-like, interactive experience                                                             |
+| **Maintenance and Scalability**       | Can be challenging to scale as server resources must handle rendering for each incoming request | Easy to deploy and scale with static files, but more complex to maintain due to client-side state management |
 
 ## **Choosing Between SSR and CSR: 3 Factors to Consider**
 
@@ -129,7 +129,7 @@ SSR typically offers faster initial page loads, while CSR may have a longer init
 
 Simply put, static and content-heavy sites (like blogs or news sites) often benefit more from SSR because it delivers the content faster on initial load. Highly interactive applications (like social media platforms or complex web apps) tend to favor CSR for its dynamic capabilities.
 
-***While each approach has its strengths and trade-offs, Fleek Functions bridges the gap between them by offering a unified, edge-optimized solution that enhances the performance and scalability of both. The next section dives into how Fleek Functions improves SSR and CSR capabilities.***
+**_While each approach has its strengths and trade-offs, Fleek Functions bridges the gap between them by offering a unified, edge-optimized solution that enhances the performance and scalability of both. The next section dives into how Fleek Functions improves SSR and CSR capabilities._**
 
 ## **Fleek Functions: Transforming Server-Side and Client-Side Rendering**
 
