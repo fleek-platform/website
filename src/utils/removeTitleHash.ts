@@ -1,1 +1,1 @@
-export const sanitizeText = (text: string) => text.replace(/#/g, '');
+export const removeTitleHash = (text: string) => text.replace(/#/g, '');
