@@ -4,6 +4,7 @@ import type { MarkdownHeading } from 'astro';
 import { throttle } from 'lodash-es';
 import { cn } from '@utils/cn';
 import { FaChevronRight } from 'react-icons/fa6';
+import { sanitizeText } from '@utils/removeTitleHash';
 
 type ItemOffsets = {
   id: string;
@@ -116,8 +117,6 @@ const TableOfContents: FC<Props> = ({ headings = [] }) => {
   const onClickHandler = (activeId: string) => {
     setActiveId(activeId);
   };
-
-  const sanitizeText = (text: string) => text.replace(/#/g, '');
 
   return (
     <ul className="flex flex-col gap-4">

@@ -79,10 +79,10 @@ export default defineConfig({
             type: 'element',
             tagName: 'span',
             properties: { className: ['anchor-icon'] },
-            children: [{ type: 'text', value: '#' }]
-          }
-        }
-      ]
+            children: [{ type: 'text', value: '#' }],
+          },
+        },
+      ],
     ],
     shikiConfig: {
       // List of themes https://shiki.matsu.io/themes
@@ -91,6 +91,7 @@ export default defineConfig({
     },
   },
   redirects: {
-    '/blog/learn/hottest-tends-2024-serverless-cloud-computing/': '/blog/learn/hottest-trends-2024-serverless-cloud-computing/',   
+    '/blog/learn/hottest-tends-2024-serverless-cloud-computing/':
+      '/blog/learn/hottest-trends-2024-serverless-cloud-computing/',
   },
 });

@@ -11,22 +11,6 @@
     h3,
     h4 {
       @apply break-words py-10 font-sans font-semibold leading-40;
-
-      & > a > span {
-        @apply hidden;
-      }
-
-      &:hover > a > span {
-        @apply inline pl-4;
-      }
-
-      & > a {
-        @apply cursor-pointer text-gray-dark-12;
-      }
-
-      &:hover > a {
-        @apply text-yellow;
-      }
     }
 
     h1 {
@@ -74,6 +58,22 @@
 
       li {
         @apply list-disc pb-10;
+      }
+    }
+
+    .anchor-link {
+      @apply cursor-pointer text-gray-dark-12;
+
+      & .anchor-icon {
+        @apply hidden;
+      }
+    }
+
+    .anchor-link:hover {
+      @apply text-yellow;
+
+      & .anchor-icon {
+        @apply inline pl-4;
       }
     }
 
