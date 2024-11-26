@@ -11,6 +11,22 @@
     h3,
     h4 {
       @apply break-words py-10 font-sans font-semibold leading-40;
+
+      & > a > span {
+        @apply hidden;
+      }
+
+      &:hover > a > span {
+        @apply inline pl-4;
+      }
+
+      & > a {
+        @apply text-gray-dark-12;
+      }
+
+      &:hover > a {
+        @apply text-yellow;
+      }
     }
 
     h1 {
