@@ -1,4 +1,5 @@
 import { Button } from '@components/Button';
+import { Target } from '@components/Link';
 
 type SocialButtonProps = {
   href: string;
@@ -12,16 +13,15 @@ export const SocialButton: React.FC<SocialButtonProps> = ({
   ariaLabel,
 }) => {
   return (
-    <Button variant="secondary" className="text-neu flex-1" size="sm">
-      <a
-        aria-label={ariaLabel}
-        href={href}
-        rel="noopener noreferrer"
-        target="_blank"
-        className="flex w-full items-center justify-center"
-      >
-        {children}
-      </a>
+    <Button
+      variant="secondary"
+      className="text-neu flex w-full flex-1 items-center justify-center"
+      aria-label={ariaLabel}
+      href={href}
+      rel="noopener noreferrer"
+      target={Target.Blank}
+    >
+      {children}
     </Button>
   );
 };

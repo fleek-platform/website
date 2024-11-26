@@ -405,6 +405,15 @@
     ]
   },
   "linksPage": {
-    "featuredPostSlug": "announcements/introducing-fleek-edge-sgx"
+    "featuredPostSlug": "announcements/introducing-fleek-edge-sgx",
+    "links": [
+      {
+        "href": "https://fleek.xyz/",
+        "label": "Website",
+        "ariaLabel": "Fleek Website"
+      },
+      { "href": "/blog/", "label": "Blog", "ariaLabel": "Fleek Blog" },
+      { "href": "/docs/", "label": "Documentation", "ariaLabel": "Fleek docs" }
+    ]
   }
 }
