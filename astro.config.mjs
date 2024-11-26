@@ -7,6 +7,8 @@ import sitemap from '@astrojs/sitemap';
 import settings from './src/settings.json';
 import { imagetools } from 'vite-imagetools';
 import mdx from '@astrojs/mdx';
+import rehypeSlug from 'rehype-slug';
+import rehypeAutolinkHeadings from 'rehype-autolink-headings';
 
 const configRemarkCalloutDirectives = {
   callouts: {
@@ -63,6 +65,24 @@ export default defineConfig({
     remarkPlugins: [
       remarkDirective,
       [remarkCalloutDirectives, configRemarkCalloutDirectives],
+    ],
+    rehypePlugins: [
+      rehypeSlug,
+      [
+        rehypeAutolinkHeadings,
+        {
+          behavior: 'append',
+          properties: {
+            className: ['anchor-link'],
+          },
+          content: {
+            type: 'element',
+            tagName: 'span',
+            properties: { className: ['anchor-icon'] },
+            children: [{ type: 'text', value: '#' }]
+          }
+        }
+      ]
     ],
     shikiConfig: {
       // List of themes https://shiki.matsu.io/themes
