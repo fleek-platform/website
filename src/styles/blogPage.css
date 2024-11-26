@@ -26,7 +26,7 @@
     }
 
     .anchor-link {
-      @apply cursor-pointer text-gray-dark-12;
+      @apply cursor-pointer pl-4 text-gray-dark-12;
 
       & .anchor-icon {
         @apply hidden;
@@ -34,8 +34,6 @@
     }
 
     .anchor-link:hover {
-      @apply text-yellow;
-
       & .anchor-icon {
         @apply inline pl-4;
       }
