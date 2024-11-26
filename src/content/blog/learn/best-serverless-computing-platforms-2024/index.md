@@ -34,7 +34,7 @@ So, we’ve listed platforms that stand out for their robust features and help d
 
 1. **Fleek Functions**
 
-![](<./image(9).png>)
+![](./fleek-functions.png)
 
 [Fleek Functions](https://fleek.xyz/docs/platform/fleek-functions/) is a serverless compute solution built on [Fleek Network](http://fleek.network/)'s edge-optimized infra. They enable on-demand code execution with edge optimization for minimal latency, cost-efficiency, and scalability. More importantly, Functions are permissionless computing i.e. unstoppable and uncensorable.
 
@@ -64,7 +64,7 @@ Ideally, using Functions, developers can replace any existing serverless, edge, 
 
 2. **Vercel Functions**
 
-![](<./image(10).png>)
+![](./vercel-functions.png)
 
 [Vercel Functions](https://vercel.com/docs/functions) are serverless functions that execute server-side logic without the developers needing to manage servers or infrastructure. They are particularly suited for front-end developers aiming to create highly performant applications with a simplified deployment workflow.
 
@@ -83,7 +83,7 @@ Ideally, using Functions, developers can replace any existing serverless, edge, 
 
 3. **AWS Lambda**
 
-![](<./image(11).png>)
+![](./aws-lambda.png)
 
 [AWS Lambda](https://serverless.com/aws-lambda) is an event-driven, serverless compute service that allows developers to execute code in response to various triggers without managing servers. Its integration with services like [S3](https://aws.amazon.com/s3/) and [DynamoDB](https://aws.amazon.com/dynamodb/) within the AWS ecosystem makes it highly versatile for a range of use cases.
 
@@ -102,7 +102,7 @@ Ideally, using Functions, developers can replace any existing serverless, edge, 
 
 4. **Netlify Functions**
 
-![](<./image(12).png>)
+![](./netlify-functions.png)
 
 [Netlify Functions](https://www.netlify.com/platform/core/functions/) is a serverless computing layer built on AWS Lambda, designed specifically for web applications and [Jamstack](https://jamstack.org/) architectures. It provides server-side execution capabilities directly integrated with Netlify's deployment and hosting platform.
 
