@@ -70,7 +70,7 @@ We’ve revamped Fleek’s app for a cleaner, smoother user experience! The app 
 
 ---
 
-## Migration from [fleek.co](https://fleek.co/) to [fleek.xyz](https://fleek.xyz/)
+## Migration from fleek.co to fleek.xyz
 
 We recently started moving users from **fleek.co** to our new platform, **fleek.xyz**. This migration is seamless, supported by a new workflow designed for an effortless transition. We’ve also begun deprecating the old Fleek.co SDK and CLI.
 
