@@ -117,6 +117,8 @@ const TableOfContents: FC<Props> = ({ headings = [] }) => {
     setActiveId(activeId);
   };
 
+  const sanitizeText = (text: string) => text.replace(/#/g, '');
+
   return (
     <ul className="flex flex-col gap-4">
       <li className="leading-normal">
@@ -141,7 +143,7 @@ const TableOfContents: FC<Props> = ({ headings = [] }) => {
               onClick={() => onClickHandler(heading.slug)}
             >
               <a className="font-plex-sans text-13" href={`#${heading.slug}`}>
-                {heading.text}
+                {sanitizeText(heading.text)}
               </a>
             </li>
           ) : (
@@ -170,7 +172,7 @@ const TableOfContents: FC<Props> = ({ headings = [] }) => {
                     >
                       •
                     </span>
-                    {heading.text}
+                    {sanitizeText(heading.text)}
                   </a>
                 </li>
               </ul>

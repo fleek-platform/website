@@ -21,7 +21,7 @@
       }
 
       & > a {
-        @apply text-gray-dark-12;
+        @apply cursor-pointer text-gray-dark-12;
       }
 
       &:hover > a {
