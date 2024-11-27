@@ -77,21 +77,22 @@ const ImpressUsers: React.FC = () => {
         ref={videoRef}
       >
         <div className="relative hidden md:block">
-          {isVideoVisible && (
-            <video
-              className="pointer-events-none absolute left-[25%] -z-1 hidden -translate-x-1/2 -translate-y-1/2 scale-[2.4] transform-gpu mix-blend-screen sm:block md:top-[65%] lg:top-[70%] xl:left-[35%]"
-              width={520}
-              height={480}
-              autoPlay
-              muted
-              loop
-            >
+          <video
+            className="pointer-events-none absolute left-[25%] -z-1 hidden -translate-x-1/2 -translate-y-1/2 scale-[2.4] transform-gpu mix-blend-screen sm:block md:top-[65%] lg:top-[70%] xl:left-[35%]"
+            width={520}
+            height={480}
+            autoPlay
+            muted
+            loop
+            poster="/images/landing-page/globe.webp"
+          >
+            {isVideoVisible && (
               <source
                 src="https://fleek.network/media/globe_animation.mp4"
                 type="video/mp4"
               />
-            </video>
-          )}
+            )}
+          </video>
         </div>
         <div>
           <div className="space-y-24">

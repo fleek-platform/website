@@ -1,15 +1,17 @@
-.blurFade {
-  opacity: 0;
-  transform: translateY(6px);
-  filter: blur(6px);
-  transition:
-    opacity 0.4s ease-out,
-    transform 0.4s ease-out,
-    filter 0.4s ease-out;
+@keyframes blurFadeIn {
+  0% {
+    filter: blur(6px);
+    transform: translateY(6px);
+  }
+  100% {
+    opacity: 1;
+    filter: blur(0);
+    transform: translateY(-6px);
+  }
 }
 
-.blurFade.inView {
-  opacity: 1;
-  transform: translateY(-6px);
-  filter: blur(0);
+.blurFade {
+  opacity: 0;
+  animation: blurFadeIn var(--animation-duration, 0.4s) ease-out forwards;
+  animation-delay: var(--animation-delay, 0s);
 }
