@@ -106,10 +106,6 @@ export const navbarMenu: NavMenuItem[] = [
     url: '/docs',
   },
   {
-    label: 'About',
-    url: '/about',
-  },
-  {
     label: 'Blog',
     url: '/blog',
   },
