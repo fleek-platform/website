@@ -8,7 +8,7 @@ author:
   - 'Fleek'
 ---
 
-Making the case for edge computing in 2024 is no longer a challenge. Centralized cloud computing — the status quo, is falling gradually behind edge computing. Businesses and enterprises are looking at edge computing as a canvas for building more resilient, reliable, and efficient services and applications.
+Making the case for edge computing in 2024 is no longer a challenge. Centralized cloud computing — the status quo, is falling gradually behind edge computing. Businesses and enterprises are looking at edge computing as a canvas for building more resilient, reliable, and efficient services and applications. 
 
 The change in preferences, both at a developer and enterprise level, hinges on three simple yet critical factors:
 
