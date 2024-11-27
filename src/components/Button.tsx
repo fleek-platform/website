@@ -14,6 +14,8 @@ export const buttonVariants = cva(
           'bg-transparent hover:bg-yellow-dark-3 active:bg-yellow-dark-9 text-yellow-dark-11 ring-yellow-dark-8 border-yellow-dark-7 border',
         secondary:
           'bg-gray-dark-3 hover:bg-gray-dark-4 active:bg-gray-dark-3 !text-gray-dark-11 ring-gray-dark-8',
+        'secondary-ghost':
+          'bg-transparent hover:bg-gray-dark-4 active:bg-gray-dark-3 !text-gray-dark-11 ring-gray-dark-8 border-neutral-8 border',
         tertiary:
           'bg-gray-dark-12 text-gray-dark-1 hover:bg-gray-dark-11 active:bg-gray-dark-12 ring-gray-dark-8',
         ghost:
