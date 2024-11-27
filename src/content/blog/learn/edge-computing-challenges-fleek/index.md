@@ -8,7 +8,7 @@ author:
   - 'Fleek'
 ---
 
-Making the case for edge computing in 2024 is no longer a challenge. Centralized cloud computing — the status quo, is falling gradually behind edge computing. Businesses and enterprises are looking at edge computing as a canvas for building more resilient, reliable, and efficient services and applications. 
+Making the case for edge computing in 2024 is no longer a challenge. Centralized cloud computing — the status quo, is falling gradually behind edge computing. Businesses and enterprises are looking at edge computing as a canvas for building more resilient, reliable, and efficient services and applications.
 
 The change in preferences, both at a developer and enterprise level, hinges on three simple yet critical factors:
 
@@ -20,7 +20,7 @@ All three factors are naturally aligned with edge computing's distributed nature
 
 However, a major friction point of edge computing is developers' implementation challenges.
 
-***In this blog, we will discuss seven edge computing challenges that developers face during implementation. We will also explore how Fleek provides a comprehensive solution, bridging infrastructure and developer experience with products like Fleek Functions (serverless compute) and Fleek Machines (compute with long-running servers), empowering developers to adopt edge computing without the operational overhead.***
+**_In this blog, we will discuss seven edge computing challenges that developers face during implementation. We will also explore how Fleek provides a comprehensive solution, bridging infrastructure and developer experience with products like Fleek Functions (serverless compute) and Fleek Machines (compute with long-running servers), empowering developers to adopt edge computing without the operational overhead._**
 
 ## **Poor Developer Experience is Hampering The Growth of Edge Computing**
 
@@ -100,7 +100,7 @@ And scalability isn’t an issue only with new development teams who struggle to
 
 Here’s a classic instance of major companies failing to accommodate spikes in traffic:
 
-*“Netflix and YouTube will reduce streaming quality in Europe for at least the next month to prevent the internet collapsing under the strain of unprecedented usage due to the coronavirus pandemic.”*
+_“Netflix and YouTube will reduce streaming quality in Europe for at least the next month to prevent the internet collapsing under the strain of unprecedented usage due to the coronavirus pandemic.”_
 
 In the early days of the pandemic (March 2020), CNN reported the above news and funnily, they mentioned the above measures were to [keep the internet from breaking](https://edition.cnn.com/2020/03/19/tech/netflix-internet-overload-eu/index.html).
 
@@ -142,7 +142,7 @@ Fleek’s epoch-based node rotation, smart work allocation, and reputation syste
 
 Verifying computations at the edge is a critical challenge for developers. When computation is distributed across multiple edge nodes, developers need to guarantee that each node executes the code correctly and returns valid results.
 
-Traditional approaches either *sacrifice performance* for verification or skip verification entirely, *creating security vulnerabilities*.
+Traditional approaches either _sacrifice performance_ for verification or skip verification entirely, _creating security vulnerabilities_.
 
 Fleek addresses this through two aspects,
 
@@ -153,9 +153,9 @@ Delivery acknowledgment SNARKs allows every computation performed by a node to b
 
 In addition to these two mechanisms, Fleek reputation system tracks computational accuracy across nodes, further upholding nodes to a quality standard.
 
-***While these challenges may seem daunting, they highlight a crucial insight: the barrier to edge computing adoption isn't technological limitations – it's developer experience. Each challenge represents a layer of complexity that pulls developers away from their core focus of building and shipping features.***
+**_While these challenges may seem daunting, they highlight a crucial insight: the barrier to edge computing adoption isn't technological limitations – it's developer experience. Each challenge represents a layer of complexity that pulls developers away from their core focus of building and shipping features._**
 
-***But with the emergence of Fleek Functions & Fleek Machines, these issues can be mitigated to create a more seamless and efficient development experience.***
+**_But with the emergence of Fleek Functions & Fleek Machines, these issues can be mitigated to create a more seamless and efficient development experience._**
 
 ## **Bridging Edge Infrastructure and Seamless Developer Experience with Fleek**
 
@@ -196,27 +196,26 @@ Fleek Machines complement Fleek Functions by providing dedicated edge servers, e
 ### **How Fleek Machines Enhance Edge Computing**
 
 1. **Dedicated Edge Servers**
-    
-    Fleek Machines allow developers to deploy applications on dedicated servers at the edge, offering more control and flexibility for specialized workloads.
-    
-2. **Custom Configurations**
-    
-    Developers can configure Fleek Machines to meet their specific requirements, whether for data-intensive applications, secure environments, or real-time analytics.
-    
-3. **Seamless Integration with Fleek Functions**
-    
-    Fleek Machines integrate seamlessly with Fleek Functions, allowing hybrid deployments that combine serverless and dedicated edge compute.
-    
-4. **Optimized for Performance and Cost**
-    
-    By leveraging Fleek’s intelligent resource allocation and decentralized architecture, Fleek Machines deliver cost-effective solutions without compromising performance.
-    
-5. **Robust Security Framework**
-    
-    Like Fleek Functions, Fleek Machines are built on Fleek’s secure architecture, featuring Intel SGX TEEs and cryptographic protections to ensure data integrity and computation privacy.
-    
 
-***Simply put, Fleek makes sure developers can focus on writing code rather than managing infrastructure.***
+   Fleek Machines allow developers to deploy applications on dedicated servers at the edge, offering more control and flexibility for specialized workloads.
+
+2. **Custom Configurations**
+
+   Developers can configure Fleek Machines to meet their specific requirements, whether for data-intensive applications, secure environments, or real-time analytics.
+
+3. **Seamless Integration with Fleek Functions**
+
+   Fleek Machines integrate seamlessly with Fleek Functions, allowing hybrid deployments that combine serverless and dedicated edge compute.
+
+4. **Optimized for Performance and Cost**
+
+   By leveraging Fleek’s intelligent resource allocation and decentralized architecture, Fleek Machines deliver cost-effective solutions without compromising performance.
+
+5. **Robust Security Framework**
+
+   Like Fleek Functions, Fleek Machines are built on Fleek’s secure architecture, featuring Intel SGX TEEs and cryptographic protections to ensure data integrity and computation privacy.
+
+**_Simply put, Fleek makes sure developers can focus on writing code rather than managing infrastructure._**
 
 ### **Use Edge Computing Powered By Fleek**
 
