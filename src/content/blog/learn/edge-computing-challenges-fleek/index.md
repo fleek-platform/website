@@ -2,8 +2,8 @@
 title: '7 Common Edge Computing Challenges Faced by Developers'
 date: 2024-11-27
 desc: '7 common edge computing challenges developers face and how Fleek simplifies deployment and scaling with protocol-level solutions'
-thumbnail: './topframeworksthumb.jpg'
-image: './topframeworksthumb.jpg'
+thumbnail: './thumbnailchallenge.jpg'
+image: './thumbnailchallenge.jpg'
 author:
   - 'Fleek'
 ---
