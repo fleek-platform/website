@@ -146,7 +146,7 @@ Traditional approaches either *sacrifice performance* for verification or skip v
 
 Fleek addresses this through two aspects,
 
-1. Cryptographic proof system centered around Delivery Acknowledgement SNARKs.
+1. Cryptographic proof system centered around Delivery Acknowledgment SNARKs.
 2. [Robust attestation system](https://blog.fleek.network/post/cost-effective-onchain-attestation-eip-2537-fleek-network-consensus/) through the Intel SGX Trusted Execution Environments (TEEs).
 
 Delivery acknowledgment SNARKs allows every computation performed by a node to be verified and validated before being accepted by the network. The Intel SGX attestations verify enclave-to-enclave communications, ensuring computation integrity across nodes.
