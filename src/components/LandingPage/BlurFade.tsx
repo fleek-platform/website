@@ -8,7 +8,6 @@ type BlurFadeProps = {
   className?: string;
   duration?: number;
   delay?: number;
-  inViewMargin?: string;
 };
 
 export const BlurFade: React.FC<BlurFadeProps> = ({
@@ -16,43 +15,16 @@ export const BlurFade: React.FC<BlurFadeProps> = ({
   className,
   duration = 0.4,
   delay = 0,
-  inViewMargin = '-50px',
 }) => {
-  const ref = useRef<HTMLDivElement | null>(null);
-
-  useEffect(() => {
-    const element = ref.current;
-    if (!element) return;
-
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            element.classList.add(styles.inView);
-            observer.unobserve(element);
-          }
-        });
-      },
-      {
-        rootMargin: inViewMargin,
-        threshold: 0.1,
-      },
-    );
-
-    observer.observe(element);
-
-    return () => {
-      observer.unobserve(element);
-    };
-  }, [inViewMargin]);
   return (
     <div
-      ref={ref}
       className={clsx(styles.blurFade, className)}
-      style={{
-        transitionDelay: `${delay}s`,
-        transitionDuration: `${duration}s`,
-      }}
+      style={
+        {
+          '--animation -duration': `${duration}s`,
+          '--animation-delay': `${delay}s`,
+        } as React.CSSProperties
+      }
     >
       {children}
     </div>
