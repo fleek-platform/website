@@ -7,6 +7,7 @@ image: './topframeworksthumb.jpg'
 author:
   - 'Fleek'
 ---
+
 Common approaches to app development are shifting to a more agile architecture with serverless frameworks being the fulcrum. These frameworks enable developers to maintain agility and scalability in their app development processes without getting bogged down by deployment, scaling, and infra management.
 
 Serverless frameworks, in short, allow teams to:
@@ -16,11 +17,11 @@ Serverless frameworks, in short, allow teams to:
 3. Pay only for the compute resources actually used
 4. Focus on writing code rather than maintaining servers
 
-***In this article, we'll explore five serverless frameworks, ranging from established solutions to innovative solutions like Fleek Functions. We'll explore their unique strengths, practical limitations, and key factors to consider when choosing the right serverless framework to build on.***
+**_In this article, we'll explore five serverless frameworks, ranging from established solutions to innovative solutions like Fleek Functions. We'll explore their unique strengths, practical limitations, and key factors to consider when choosing the right serverless framework to build on._**
 
 ## **Fleek Functions**
 
-Fleek Functions is a serverless framework that enables permissionless edge computing through a developer-first approach. With a single command, *fleek functions deploy*, developers can ship code globally without managing infrastructure or worrying about other overheads.
+Fleek Functions is a serverless framework that enables permissionless edge computing through a developer-first approach. With a single command, _fleek functions deploy_, developers can ship code globally without managing infrastructure or worrying about other overheads.
 
 ### **Why Should Developers Consider Fleek Functions?**
 
@@ -119,6 +120,7 @@ What should a developer look for?
 - Global request routing optimization
 - Bandwidth management
 - Caching strategies
+
 2. **Transparency in pricing and policies**
 
 Hidden costs and opaque pricing models can lead to unexpected budget overruns. Similarly, policies related to lock-ins, compute credits or limits, plugin costs, and more needs to be as transparent as possible. Simply put, a reliable serverless framework should be cost-effective and straightforward.
@@ -154,7 +156,7 @@ Here are five things that would improve the developer experience drastically:
 - Custom runtime support via Docker
 - Intuitive debugging and monitoring
 
-***These factors represent the core requirements for modern serverless computing. A truly effective framework needs to deliver across all these dimensions to support today's demanding applications.***
+**_These factors represent the core requirements for modern serverless computing. A truly effective framework needs to deliver across all these dimensions to support today's demanding applications._**
 
 ## **Making Serverless Computing Easy with Fleek Functions**
 
@@ -164,12 +166,12 @@ Why?
 
 1. **Fleek Functions makes serverless deployment very simple, abstracting all complexities into a simple command of: fleek functions deploy.**
 2. **Fleek Functions adapts to your development style rather than forcing specific patterns:**
-    1. Works with any JavaScript framework
-    2. Supports custom runtimes through Docker
-    3. Integrates with existing CI/CD pipelines
+   1. Works with any JavaScript framework
+   2. Supports custom runtimes through Docker
+   3. Integrates with existing CI/CD pipelines
 3. **Fleek Functions brings transparency to serverless costs, ranging from compute usage to scaling costs.**
 
-***With Fleek Functions, serverless computing becomes not only easier but also more resilient, intuitive, and productive — making it an ideal framework for anyone looking to employ serverless computing.***
+**_With Fleek Functions, serverless computing becomes not only easier but also more resilient, intuitive, and productive — making it an ideal framework for anyone looking to employ serverless computing._**
 
 ### **Here are a couple of resources to help you get started:**
 
