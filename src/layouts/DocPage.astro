@@ -27,12 +27,15 @@ import { Announcement } from '@components/Announcement';
 type Props = {
   title: string;
   description: string;
+  pageSlug: string;
   headings: MarkdownHeading[];
   prevItem: DocsLink | null;
   nextItem: DocsLink | null;
 };
 
-const { title, description, headings, prevItem, nextItem } = Astro.props;
+const { title, description, headings, prevItem, nextItem, pageSlug } =
+  Astro.props;
+
 const {
   collection,
   id,
@@ -52,7 +55,7 @@ const {
 
   return {
     collection: entries[0] as keyof ContentEntryMap,
-    id: entries[1],
+    id: entries.slice(1).join('/'),
   };
 })();
 
@@ -76,9 +79,11 @@ const indexNameDocs = import.meta.env.PUBLIC_MEILISEARCH_INDEX_DOCS;
 // TODO: Fails after prod build
 const isHome = Astro.url.pathname === '/docs';
 
+const isDocsHomepage = data.slug === 'index' && pageSlug === 'index';
+
 const slug = generateFullSlug({
   basePath: settings.site.metadata.docs.slug,
-  slug: data.slug === 'index' ? '' : data.slug,
+  slug: isDocsHomepage ? '' : pageSlug,
 });
 
 const image = settings.site.metadata.docs.image;

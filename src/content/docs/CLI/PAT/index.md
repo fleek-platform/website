@@ -1,6 +1,6 @@
 ---
-order: 8
-title: Personal access token
+order: 9
+title: Personal Access Token
 date: 2023-01-10
 desc: Learn to manage Personal Access Tokens
 keywords: [services, documentation, getting started]

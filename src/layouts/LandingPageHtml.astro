@@ -2,8 +2,11 @@
 import '@styles/globals.css';
 import { getSiteUrl } from '@utils/url';
 import settings from '@base/settings.json';
-import PostHog from '@components/PostHog.astro';
+import Trackers from '@components/Trackers.astro';
+import { generateCanonicalUrl } from '@utils/generateCanonicalUrl';
+
 const baseUrl = getSiteUrl();
+const canonicalUrl = generateCanonicalUrl();
 ---
 
 <!doctype html>
@@ -14,6 +17,7 @@ const baseUrl = getSiteUrl();
       name="viewport"
       content="width=device-width, height=device-height, initial-scale=1, viewport-fit=cover"
     />
+    <link rel="canonical" href={`${canonicalUrl}`} />
     <link rel="icon" type="image/svg+xml" href="/favicon.ico" />
     <link rel="sitemap" href="/sitemap-index.xml" />
     <link
@@ -40,6 +44,48 @@ const baseUrl = getSiteUrl();
     <link
       rel="preload"
       href="/fonts/atyp/AtypDisplay-Bold.woff2"
+      as="font"
+      type="font/woff2"
+      crossorigin
+    />
+    <link
+      rel="preload"
+      href="/fonts/ibm-plex-mono/IBMPlexMono-Regular.woff2"
+      as="font"
+      type="font/woff2"
+      crossorigin
+    />
+    <link
+      rel="preload"
+      href="/fonts/ibm-plex-mono/IBMPlexMono-Medium.woff2"
+      as="font"
+      type="font/woff2"
+      crossorigin
+    />
+    <link
+      rel="preload"
+      href="/fonts/ibm-plex-mono/IBMPlexMono-Bold.woff2"
+      as="font"
+      type="font/woff2"
+      crossorigin
+    />
+    <link
+      rel="preload"
+      href="/fonts/ibm-plex-sans/IBMPlexSans-Regular.woff2"
+      as="font"
+      type="font/woff2"
+      crossorigin
+    />
+    <link
+      rel="preload"
+      href="/fonts/ibm-plex-sans/IBMPlexSans-Medium.woff2"
+      as="font"
+      type="font/woff2"
+      crossorigin
+    />
+    <link
+      rel="preload"
+      href="/fonts/ibm-plex-sans/IBMPlexSans-Bold.woff2"
       as="font"
       type="font/woff2"
       crossorigin
@@ -77,25 +123,12 @@ const baseUrl = getSiteUrl();
       content={settings.site.metadata.default.image?.replace(/^\/+/, '')}
     />
 
-    <!-- Google Tag Manager -->
-    <script is:inline src="/lib/gtm.js"></script>
-
-    <!-- PostHog -->
-    <PostHog />
+    <!-- Trackers -->
+    <Trackers />
   </head>
   <body
     class="relative flex min-h-dvh flex-col overflow-x-hidden bg-black font-sans text-gray-dark-11 selection:bg-yellow-dark-9 selection:text-black"
   >
-    <!-- Google Tag Manager (noscript version) -->
-    <!-- WARNING: The script version is above see /lib/gtm.js -->
-    <noscript>
-      <iframe
-        src="https://www.googletagmanager.com/ns.html?id=GTM-WMT553Z"
-        height="0"
-        width="0"
-        style={{ display: 'none', visibility: 'hidden' }}></iframe>
-    </noscript>
-    <!-- End Google Tag Manager (noscript) -->
     <slot />
   </body>
 </html>

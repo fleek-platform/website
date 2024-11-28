@@ -1,0 +1,81 @@
+.wrapper {
+  @apply relative w-full border-b-1 border-b-neutral-6 p-[20px] md:p-[60px];
+}
+
+.backgroundElement {
+  @apply absolute bottom-0 left-0 right-0 top-0;
+}
+
+.gradientLeft {
+  background: radial-gradient(
+    circle at top left,
+    rgba(20, 20, 20, 1) 0%,
+    rgba(20, 20, 20, 0.75) 30%,
+    rgba(20, 20, 20, 0.5) 50%,
+    rgba(20, 20, 20, 0.25) 70%,
+    transparent 100%
+  );
+  @apply absolute bottom-0 left-0 right-0 top-0 z-5;
+}
+
+.gradientRight {
+  background: radial-gradient(
+    circle at top right,
+    rgba(20, 20, 20, 1) 0%,
+    rgba(20, 20, 20, 0.75) 30%,
+    rgba(20, 20, 20, 0.5) 50%,
+    rgba(20, 20, 20, 0.25) 70%,
+    transparent 100%
+  );
+  @apply absolute bottom-0 left-0 right-0 top-0 z-5;
+}
+
+.innerWrapper {
+  @apply m-auto flex max-w-[1024px] flex-col;
+}
+
+.header {
+  @apply z-10 m-auto  px-[20px] md:px-[58px];
+}
+
+.title {
+  @apply relative mb-[24px] text-center font-sans text-[40px] font-semibold leading-normal text-neutral-12 md:text-[52px];
+}
+
+.subText {
+  @apply relative pb-[24px] text-left font-plex-sans text-[16px] font-medium leading-[24px] text-neutral-11 last:pb-0 md:text-[18px];
+}
+
+.image {
+  @apply relative z-1 flex items-center justify-center opacity-35 md:opacity-100;
+}
+
+.content {
+  @apply relative z-15 m-auto w-full max-w-[1024px] pb-[20px];
+}
+
+.alignLeft {
+  @apply flex-row-reverse;
+
+  .subText,
+  .title {
+    @apply text-left;
+  }
+
+  .header {
+    @apply ml-0 max-w-[660px] p-[24px];
+  }
+}
+
+.alignRight {
+  @apply flex-row;
+
+  .subText,
+  .title {
+    @apply text-left;
+  }
+
+  .header {
+    @apply mr-0 max-w-[660px] p-[24px];
+  }
+}

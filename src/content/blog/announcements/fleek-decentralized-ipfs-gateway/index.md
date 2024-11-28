@@ -2,8 +2,8 @@
 title: Introducing Fleek's decentralized IPFS gateway
 date: 2024-08-26
 desc: A decentralized IPFS gateway that will leverage Fleek Network to achieve superior performance, reliability, censorship resistance, and long term sustainability compared to traditional IPFS gateways.
-thumbnail: ./fleekipfsgateway.png
-image: ./fleekipfsgateway.png
+thumbnail: ./introipfsgateway.jpeg
+image: ./introipfsgateway.jpeg
 ---
 
 We are excited to introduce a new product line to the Fleek family: **a decentralized IPFS gateway that will leverage Fleek Network to achieve superior performance, reliability, censorship resistance, and long term sustainability** compared to traditional IPFS gateways. \
@@ -76,7 +76,7 @@ Users can easily take advantage of Fleek’s public IPFS gateway by[ ](https://f
 
 - [https://flk-ipfs.xyz/ipfs/](https://flk-ipfs.xyz/ipfs/)`<CID>`
 
-- [https://`<CID>`.ipfs.flk-ipfs.xyz](null)
+- [https://`<CID>`.ipfs.flk-ipfs.xyz]
 
 Where `<CID>` is the content identifier.
 

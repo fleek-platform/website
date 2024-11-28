@@ -24,6 +24,10 @@ All platform usage will be tied to a project, so it is mandatory to have a proje
 
 ## Creating a new project
 
+:::note
+Our current billing implementation is at the project level. You can learn more [here](/docs/platform/billing/).
+:::
+
 As soon as you sign up, an initial project is created for you by default. This project starts with a placeholder name and remains blank until you decide otherwise. You're free to alter the project's name whenever you wish. In the application you will find your project in the top left corner of the screen, next to the Fleek logo. Clicking on the project name will open a dropdown with all the projects you have access to. The selected project will be marked with a checkmark.
 
 To create a new project, click on the 'Projects' dropdown and select the 'Create project' option. You will be prompted to enter a name for the project. Once you have entered the name, click on the 'Create' button and the project will be created. You will be redirected to the project dashboard.
@@ -77,7 +81,9 @@ This is a unique link that will grant project access to a single user. Once the 
 
 The Fleek platform uses a role-based system for managing permissions. Certain features are only accessible to users with specific roles. For a detailed breakdown of these permissions, see the table provided below.
 
-<PermissionsTable />
+<div className="mb-[10px]">
+  <PermissionsTable />
+</div>
 
 ## Application credentials
 

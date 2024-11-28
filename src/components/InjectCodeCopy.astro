@@ -1,28 +1,37 @@
 <script>
-  import toast from 'react-hot-toast';
-
   document.querySelectorAll('pre.astro-code').forEach((pre) => {
     if (pre.querySelector('button')) {
       return;
     }
+
+    const copyContent = {
+      before: {
+        class:
+          'absolute z-1 p-4 text-[1rem] group hover:bg-glass rounded-bl-[.8rem] rounded-tr-[.8rem]',
+        icon: '<img src="/svg/copy-icon.svg" class="group-active:scale-90" alt="copy" />',
+      },
+      after: {
+        class:
+          'absolute z-1 p-4 text-[1rem] cursor-default rounded-bl-[.8rem] rounded-tr-[.8rem] pointer-events-none',
+        icon: '<img src="/svg/check.svg" class="scale-[0.8]" alt="check" />',
+      },
+    };
+
     pre.classList.add('relative');
+
     const copyBtn = document.createElement('button');
-    copyBtn.className =
-      'absolute z-1 p-4 text-[1rem] group hover:bg-glass rounded-bl-[.8rem] rounded-tr-[.8rem]';
-    copyBtn.innerHTML =
-      '<img src="/svg/copy-icon.svg" class="group-active:scale-90" alt="copy" />';
+    copyBtn.className = copyContent.before.class;
+    copyBtn.innerHTML = copyContent.before.icon;
 
     copyBtn.addEventListener('click', () => {
-      navigator.clipboard.writeText(pre.textContent!);
-      toast.success('Copied!');
+      copyBtn.className = copyContent.after.class;
+      copyBtn.innerHTML = copyContent.after.icon;
+      navigator.clipboard.writeText(pre.textContent || '');
 
-      const selection = window.getSelection();
-      if (selection) {
-        selection.removeAllRanges();
-        const range = document.createRange();
-        range.selectNodeContents(pre.querySelector('code')!);
-        selection.addRange(range);
-      }
+      setTimeout(() => {
+        copyBtn.className = copyContent.before.class;
+        copyBtn.innerHTML = copyContent.before.icon;
+      }, 3000);
     });
 
     const copyContainer = document.createElement('div');
