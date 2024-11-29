@@ -111,6 +111,6 @@ export const navbarMenu: NavMenuItem[] = [
   },
   {
     label: 'Pricing',
-    url: '/pricing',
+    url: '/pricing/',
   },
 ];

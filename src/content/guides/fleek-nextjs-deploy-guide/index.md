@@ -125,5 +125,5 @@ Congratulations! You’ve successfully deployed your Next.js App on Fleek!
 ### Resources:
 
 - Understanding Projects: https://fleek.xyz/docs/platform/projects/
-- Sites: https://fleek.xyz/docs/cli/sites/
+- Sites: https://fleek.xyz/docs/cli/hostiing/
 - Fleek CLI: https://fleek.xyz/docs/cli/

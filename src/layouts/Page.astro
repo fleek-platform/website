@@ -7,6 +7,7 @@ interface Props {
   description: string;
   image: string;
   slug: string;
+  singlePage?: boolean;
 }
 
 const { title, description, image, slug } = Astro.props;
@@ -20,6 +21,7 @@ const { title, description, image, slug } = Astro.props;
     image,
     slug,
   }}
+  singlePage={Astro.props.singlePage}
 >
   <main>
     <slot />

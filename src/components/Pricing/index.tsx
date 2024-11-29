@@ -2,8 +2,20 @@ import TableMobile from './Table/TableMobile';
 import TableDesktop from './Table/TableDesktop';
 import { PricingInfo } from '../../content/pricing/config';
 import PricingCard from '@components/PricingCard';
-import Pay from '@components/Pay';
 import { Text } from '@components/LandingPage/Text';
+import Accordion from '@components/Accordion';
+import settings from '@base/settings.json';
+import data from './data.json';
+import { parseContentWithLinkPlaceholders } from '@utils/parseContentWithLinkPlaceholders';
+
+const resources = settings.support.resources || {};
+
+const processedFaqs = data.faqs.map(
+  ({ label, content }: { label: string; content: string }) => ({
+    label,
+    contentElements: parseContentWithLinkPlaceholders(content, resources),
+  }),
+);
 
 const Pricing = () => {
   return (
@@ -17,25 +29,20 @@ const Pricing = () => {
           </Text>
           <div className="mb-24 mt-44 flex flex-col justify-between gap-20 lg:flex-row">
             {PricingInfo.map((item, index) => {
-              return (
-                <PricingCard
-                  key={index}
-                  title={item.title}
-                  description={item.description}
-                  features={item.features}
-                  cta={item.cta}
-                  cost={item.cost}
-                  variant={item.variant}
-                  url={item.url}
-                />
-              );
+              return <PricingCard key={index} {...item} />;
             })}
           </div>
           <TableMobile />
           <TableDesktop />
+
+          <div className="mt-30">
+            <Text as="h3" className="mb-24 text-left">
+              Pricing FAQs
+            </Text>
+            <Accordion items={processedFaqs} />
+          </div>
         </div>
       </div>
-      <Pay />
     </>
   );
 };
