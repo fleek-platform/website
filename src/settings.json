@@ -167,11 +167,11 @@
           "order": 1
         },
         {
-          "category": "Infrastructure",
+          "category": "Hosting",
           "order": 2
         },
         {
-          "category": "CLI",
+          "category": "Fleek_Network",
           "order": 3
         },
         {
@@ -179,8 +179,28 @@
           "order": 4
         },
         {
-          "category": "FAQ",
+          "category": "Storage_Management",
           "order": 5
+        },
+        {
+          "category": "Fleek_Functions",
+          "order": 6
+        },
+        {
+          "category": "Edge_SGX_and_Security",
+          "order": 7
+        },
+        {
+          "category": "Integrations",
+          "order": 8
+        },
+        {
+          "category": "FAQ",
+          "order": 9
+        },
+        {
+          "category": "Community_and_Support",
+          "order": 10
         }
       ],
       "customTitlesByDirectoryName": {}

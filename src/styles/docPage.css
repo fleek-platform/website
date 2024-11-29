@@ -110,7 +110,8 @@
 
   [data-menu-item='cli'],
   [data-menu-item='sdk'],
-  [data-menu-item='faq'] {
+  [data-menu-item='faq'],
+  [data-menu-item='Edge_SGX_and_Security'] {
     text-transform: uppercase;
   }
 }
