@@ -199,7 +199,7 @@ fleek logout
 
 The Fleek.co's [CLI](https://www.npmjs.com/package/@fleekhq/cli) features are part of Fleek Platform CLI, which brings enhanced performance, new features, and broader support for all your development needs.
 
-If you use [Fleek CLI](https://www.npmjs.com/package/@fleekhq/cli) to interact with Fleek.co's Services, migrate to the Fleek Platform, familiarizing yourself with the following changes or consult our [CLI docs](/docs/cli) for a deep dive.
+If you use [Fleek CLI](https://www.npmjs.com/package/@fleekhq/cli) to interact with Fleek.co's Services, migrate to the Fleek Platform, familiarizing yourself with the following changes or consult our [CLI docs](/docs/cli/) for a deep dive.
 
 ### Global installation
 
@@ -217,7 +217,7 @@ npm install -g @fleekhq/fleek-cli
 npm install -g @fleek-platform/cli
 ```
 
-Learn more by reading the CLI documentation [here](/docs/cli).
+Learn more by reading the CLI documentation [here](/docs/cli/).
 
 ### Sites Init & Deploy
 
@@ -241,4 +241,4 @@ fleek site:deploy
 fleek sites deploy
 ```
 
-You can learn about other Sites service features [here](/docs/cli/sites/).
+You can learn about other Sites service features [here](/docs/cli/hosting/).

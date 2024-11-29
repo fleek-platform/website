@@ -10,7 +10,8 @@
     h2,
     h3,
     h4 {
-      @apply text-balance pb-32 font-sans text-24 font-semibold leading-[1.125] text-gray-dark-12;
+      @apply pb-32 font-sans text-24 font-semibold leading-[1.125] text-gray-dark-12;
+      overflow-wrap: break-word;
     }
 
     strong {
@@ -23,6 +24,20 @@
 
     h2 {
       @apply text-32;
+    }
+
+    .anchor-link {
+      @apply cursor-pointer text-gray-dark-12 no-underline;
+
+      & .anchor-icon {
+        @apply hidden;
+      }
+    }
+
+    .anchor-link:hover {
+      & .anchor-icon {
+        @apply inline pl-4;
+      }
     }
 
     img,

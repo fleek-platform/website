@@ -55,7 +55,7 @@ const {
 
   return {
     collection: entries[0] as keyof ContentEntryMap,
-    id: entries[1],
+    id: entries.slice(1).join('/'),
   };
 })();
 
