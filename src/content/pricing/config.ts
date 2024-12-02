@@ -40,7 +40,7 @@ export const PricingInfo: Props[] = [
     ],
     cta: 'Go fast with Pro',
     variant: 'primary',
-    url: 'https://app.fleek.xyz/projects/[projectId]/settings/billing',
+    url: 'https://app.fleek.xyz/projects/[projectId]/billing',
   },
   {
     title: 'Enterprise Plan',

@@ -154,12 +154,12 @@ export const PRICING_PLANS: Record<PlanKeys, Plan> = {
         storage: '200GB',
       },
       hosting: {
-        sites: '100',
+        sites: 'Unlimited',
         buildMin: '2,000',
         buildTier: 'Premium',
         conBuild: '5',
         autogenSubDomain: true,
-        domain: '3',
+        domain: 'Unlimited',
         ssl: true,
         customssl: true,
       },
@@ -203,7 +203,7 @@ export const PRICING_PLANS: Record<PlanKeys, Plan> = {
         'Pricing that scales with your project. Free $5 included monthly. #WAGMI',
       cta: {
         text: 'Go fast with Pro',
-        href: 'https://app.fleek.xyz/projects/[projectId]/settings/billing',
+        href: 'https://app.fleek.xyz/projects/[projectId]/billing',
         variant: 'app-primary',
       },
     },
