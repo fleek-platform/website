@@ -105,10 +105,7 @@ const canonicalUrl = generateCanonicalUrl();
       property="og:description"
       content={settings.site.metadata.default.description}
     />
-    <meta
-      property="og:image"
-      content={settings.site.metadata.default.image?.replace(/^\/+/, '')}
-    />
+    <meta property="og:image" content={settings.site.metadata.default.image} />
     <!-- Twitter Meta Tags -->
     <meta name="twitter:card" content="summary_large_image" />
     <meta property="twitter:domain" content={baseUrl} />
@@ -118,10 +115,7 @@ const canonicalUrl = generateCanonicalUrl();
       name="twitter:description"
       content={settings.site.metadata.default.description}
     />
-    <meta
-      name="twitter:image"
-      content={settings.site.metadata.default.image?.replace(/^\/+/, '')}
-    />
+    <meta name="twitter:image" content={settings.site.metadata.default.image} />
 
     <!-- Trackers -->
     <Trackers />
