@@ -107,10 +107,10 @@ const TableOfContents: FC<Props> = ({ headings = [] }) => {
       setActiveSectionId(currentActiveSectionId);
     }, THROTTLE_MS);
 
-    window.addEventListener('scroll', update);
+    document.body.addEventListener('scroll', update);
 
     return () => {
-      window.removeEventListener('scroll', update);
+      document.body.removeEventListener('scroll', update);
     };
   }, []);
 

@@ -97,7 +97,7 @@ const image = settings.site.metadata.docs.image;
     slug,
   }}
   customNavbarClass="max-w-[1452px] xl:max-w-[1452px] 2xl:max-w-[1452px]"
-  customContentWrapperClass="max-w-[1452px] xl:max-w-[1452px] 2xl:max-w-[1452px] md:pt-46"
+  customContentWrapperClass="max-w-[1500px] xl:max-w-[1500px] 2xl:max-w-[1500px] md:pt-24 pb-0"
   hideAnnouncement
   hideFooter
 >
@@ -110,6 +110,7 @@ const image = settings.site.metadata.docs.image;
         indexNameDocs={indexNameDocs}
       />
     </aside>
+
     <article class="doc w-full min-w-0 flex-1 pb-64">
       <slot />
       <div class="mt-12 flex flex-row gap-20">
@@ -118,6 +119,7 @@ const image = settings.site.metadata.docs.image;
       </div>
       <GithubEditLink pathname={githubEditUrlPathname} />
     </article>
+
     <div class="relative">
       <aside
         class="sticky top-[92px] hidden h-full max-h-[calc(100vh-96px)] w-208 shrink-0 flex-col justify-between gap-24 overflow-auto pb-14 md:flex"

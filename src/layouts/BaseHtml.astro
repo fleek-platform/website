@@ -1,5 +1,5 @@
 ---
-import clsx from 'clsx';
+import { cn } from '@utils/cn';
 import '@styles/globals.css';
 import { getSiteUrl, hasSecondaryMenuItem } from '@utils/url';
 import settings from '@base/settings.json';
@@ -170,7 +170,7 @@ const canonicalUrl = generateCanonicalUrl(contentSlug);
     <Trackers />
   </head>
   <body
-    class={clsx(
+    class={cn(
       'relative flex min-h-dvh flex-col overflow-x-hidden bg-black font-sans text-gray-dark-11 selection:bg-yellow-dark-9 selection:text-black',
       customBodyClass,
     )}
@@ -182,7 +182,7 @@ const canonicalUrl = generateCanonicalUrl(contentSlug);
           <Navbar
             client:load
             pathname={Astro.url.pathname}
-            className={clsx(
+            className={cn(
               'max-w-[1024px] transition-all xl:max-w-[1066px] 2xl:max-w-[1300px]',
               customNavbarClass,
             )}
@@ -191,8 +191,8 @@ const canonicalUrl = generateCanonicalUrl(contentSlug);
       )
     }
     <div
-      class={clsx(
-        'relative w-full self-center px-24 py-32 xl:max-w-[1066px] xl:px-0 2xl:max-w-[1300px]',
+      class={cn(
+        'relative w-full self-center px-24 py-32 xl:max-w-[1066px] 2xl:max-w-[1300px]',
         customContentWrapperClass,
       )}
     >
