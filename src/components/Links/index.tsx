@@ -1,13 +1,13 @@
+import type { CollectionEntry } from 'astro:content';
+
+import settings from '@base/settings.json';
 import { Button } from '@components/Button';
 import IconSocial from '@components/IconSocial';
-import { FaArrowUp, FaYoutube } from 'react-icons/fa6';
-import { FaXTwitter } from 'react-icons/fa6';
 import BiweeklySubscription from '@components/BiweeklySubscription';
+import Link, { Target } from '@components/Link';
+
 import { SocialButton } from './SocialButton';
-import settings from '@base/settings.json';
 import { LinkButton } from './LinkButton';
-import type { CollectionEntry } from 'astro:content';
-import Link from '@components/Link';
 
 interface LinksProps {
   featuredPost: CollectionEntry<'blog'>;
@@ -17,12 +17,14 @@ const Links: React.FC<LinksProps> = ({ featuredPost }) => {
   const newsletterFeatureFlag = false;
 
   return (
-    <div className="text flex max-w-[348px] flex-col gap-10 rounded-[0.75rem] border-ui-mid-grey bg-[#111] p-10">
-      <p className="text-[12px]">Featured post</p>
-      {featuredPost.data.thumbnail && (
+    <div className="text flex max-w-[348px] flex-col gap-10 rounded-[0.75rem] border-ui-mid-grey bg-[#111] p-10 md:max-w-[1024px] md:p-[24px]">
+      <p className="text-[12px] md:text-[28px] md:font-semibold">
+        Featured post
+      </p>
+      {featuredPost?.data?.thumbnail && (
         <Link
           href={`blog/${featuredPost.slug}`}
-          className="relative overflow-hidden rounded-[0.75rem] border border-ui-mid-grey"
+          className="relative max-h-[300px] max-w-[535px] overflow-hidden rounded-[0.75rem] border border-ui-mid-grey"
         >
           <img
             src={featuredPost.data.thumbnail.src}
@@ -30,51 +32,66 @@ const Links: React.FC<LinksProps> = ({ featuredPost }) => {
             height={featuredPost.data.thumbnail.height}
             width={featuredPost.data.thumbnail.width}
           />
-          <h3 className="absolute bottom-0 mt-2 bg-[rgba(0,0,0,0.65)] p-10 text-right text-[12px] font-semibold text-gray-dark-12 ">
+          <h3 className="absolute bottom-0 mt-2 w-full bg-[rgba(0,0,0,0.65)] p-10 text-left text-[12px] font-semibold text-gray-dark-12 md:p-15 md:text-[24px]">
             {featuredPost.data.title}
           </h3>
         </Link>
       )}
+
       <div className="flex flex-row gap-10">
         <SocialButton
           href={settings.site.resources.discordFleekCommunityUrl}
           ariaLabel="Fleek Discord"
         >
-          <IconSocial icon="discord" />
+          <IconSocial
+            icon="discord"
+            className="mt-2 text-[19px] text-gray-dark-11 md:h-48 md:w-48 md:p-[4px] md:text-[30px]"
+          />
         </SocialButton>
 
         <SocialButton
           href={settings.site.resources.fleekTwitterUrl}
           ariaLabel="Fleek X/Twitter account"
         >
-          <FaXTwitter fontSize={19} className="mt-2 text-gray-dark-11" />
+          <IconSocial
+            icon="twitter"
+            className="mt-8 text-[19px] text-gray-dark-11 md:mx-auto md:mt-[20px] md:h-48 md:w-fit md:text-[30px]"
+          />
         </SocialButton>
 
         <SocialButton
           href="https://www.youtube.com/@fleekxyz/videos"
           ariaLabel="Fleek Youtube account"
         >
-          <FaYoutube fontSize={19} className="mt-2 text-gray-dark-11" />
+          <IconSocial
+            icon="youtube"
+            className="mt-8 text-[19px] text-gray-dark-11 md:mx-auto md:mt-[20px] md:h-48 md:w-fit md:text-[30px]"
+          />
         </SocialButton>
       </div>
-      <LinkButton
-        href={settings.site.production.url}
-        ariaLabel="Fleek website"
-        label="Website"
-      />
-      <LinkButton href="/blog/" ariaLabel="Fleek Blog" label="Blog" />
-      <LinkButton href="/docs/" ariaLabel="Fleek docs" label="Documentation" />
-      <Button variant="primary-ghost" className="w-full" size="sm">
-        <a
-          aria-label="Fleek Platform"
-          href="https://app.fleek.xyz/"
-          rel="noopener noreferrer"
-          target="_blank"
-          className="w-full"
-        >
-          Sign up for Fleek
-        </a>
+
+      {settings.linksPage.links &&
+        settings.linksPage.links.map((link) => (
+          <LinkButton
+            href={link.href}
+            ariaLabel={link.ariaLabel}
+            label={link.label}
+            className="md:h-38 md:p-[14px] md:text-[16px]"
+          />
+        ))}
+
+      <Button
+        variant="primary-ghost"
+        className="w-full md:h-[48px] md:text-[18px]"
+        size="sm"
+        aria-label="Fleek Platform"
+        href="https://app.fleek.xyz/"
+        rel="noopener noreferrer"
+        target={Target.Blank}
+      >
+        Sign up for Fleek
       </Button>
+
       {newsletterFeatureFlag && (
         <>
           <hr className="border-ui-mid-grey" />
