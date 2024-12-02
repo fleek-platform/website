@@ -38,7 +38,7 @@ export const Hero = () => {
               </Button>
             </BlurFade>
             <BlurFade delay={calculateDelay(3.5)}>
-              <Button variant="ghost" href="/docs">
+              <Button variant="ghost" href="/docs/">
                 {settings.landingPage.hero.secondaryCta}
                 <FaChevronRight className="size-12" />
               </Button>

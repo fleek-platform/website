@@ -24,7 +24,7 @@ const Links: React.FC<LinksProps> = ({ featuredPost }) => {
       {featuredPost?.data?.thumbnail && (
         <Link
           href={`blog/${featuredPost.slug}`}
-          className="relative overflow-hidden rounded-[0.75rem] border border-ui-mid-grey"
+          className="relative max-h-[300px] max-w-[535px] overflow-hidden rounded-[0.75rem] border border-ui-mid-grey"
         >
           <img
             src={featuredPost.data.thumbnail.src}
