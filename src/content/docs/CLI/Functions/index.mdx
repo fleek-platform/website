@@ -257,6 +257,30 @@ https://my-unique-slug.functions.stg.on-fleek-test.app
   functionUrl={'https://my-unique-slug.functions.stg.on-fleek-test.app'}
 />
 
+## Assets
+
+Assets are files that are uploaded alongside your Fleek Function to IPFS and can be accessed by your function code. You can access the IPFS CID of the assets using the `fleek.env.ASSETS_CID` environment variable.
+
+These assets are useful for storing static files that your function code needs to access, such as images, videos, or other resources. You can upload assets by passing the path to the assets directory using the `--assets <path>` flag when deploying your Fleek Function.
+
+```sh
+fleek functions deploy --name my-function --path ./function.js --assets ./assets
+```
+
+To fetch the assets in your function code, you can make a simple HTTP request to our IPFS gateway:
+
+```ts
+// Example: Fetching an image from your assets
+const response = await fetch(
+  `https://${fleek.env.ASSETS_CID}.flk-ipfs.xyz/images/logo.png`,
+);
+const imageData = await response.arrayBuffer();
+```
+
+:::note
+The assets are stored on IPFS, so they are publicly accessible by default. Support for private assets is coming soon.
+:::
+
 ## Using private data with Fleek Functions
 
 You can make use of environment variables through any combination of the following:
