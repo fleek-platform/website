@@ -22,7 +22,7 @@
       "about": {
         "title": "About",
         "slug": "about",
-        "description": "About Fleek",
+        "description": "Fleek is an open-source cloud platform built on permissionless infrastructure, offering secure, scalable, and censorship-free services for builders. Learn More.",
         "image": "/images/fleek-meta.png?202406061658"
       },
       "blog": {

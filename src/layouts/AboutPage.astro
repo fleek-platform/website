@@ -1,0 +1,23 @@
+---
+import '@styles/globals.css';
+import '@styles/blogPage.css';
+
+import BaseHtml from './BaseHtml.astro';
+
+const { title, description, slug, image } = Astro.props;
+---
+
+<BaseHtml
+  title={title}
+  ogMeta={{
+    title,
+    description,
+    image,
+    slug,
+  }}
+  customContentWrapperClass="max-w-none xl:max-w-none py-[0px]"
+>
+  <main class="min-h-container">
+    <slot />
+  </main>
+</BaseHtml>

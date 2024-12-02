@@ -1,4 +1,5 @@
 ---
+import clsx from 'clsx';
 import '@styles/globals.css';
 import { getSiteUrl, hasSecondaryMenuItem } from '@utils/url';
 import settings from '@base/settings.json';
@@ -19,10 +20,22 @@ interface Props {
     slug: string;
   };
   singlePage?: boolean;
+  customBodyClass?: string;
+  customContentWrapperClass?: string;
+  customNavbarClass?: string;
+  hideFooter?: boolean;
+  hideAnnouncement?: boolean;
 }
 
-const { ogMeta } = Astro.props;
-const singlePage = Astro.props.singlePage || false;
+const {
+  ogMeta,
+  singlePage = false,
+  customBodyClass,
+  customContentWrapperClass,
+  customNavbarClass,
+  hideFooter = false,
+  hideAnnouncement = false,
+} = Astro.props;
 
 const baseUrl = getSiteUrl();
 const hasSecondaryMenu = hasSecondaryMenuItem(Astro.url.pathname);
@@ -157,22 +170,31 @@ const canonicalUrl = generateCanonicalUrl(contentSlug);
     <Trackers />
   </head>
   <body
-    class="relative flex min-h-dvh flex-col overflow-x-hidden bg-black font-sans text-gray-dark-11 selection:bg-yellow-dark-9 selection:text-black"
+    class={clsx(
+      'relative flex min-h-dvh flex-col overflow-x-hidden bg-black font-sans text-gray-dark-11 selection:bg-yellow-dark-9 selection:text-black',
+      customBodyClass,
+    )}
   >
     {
       !singlePage && (
         <>
-          <Announcement client:load />
+          {!hideAnnouncement && <Announcement client:load />}
           <Navbar
             client:load
             pathname={Astro.url.pathname}
-            className="max-w-[1024px] transition-all xl:max-w-[1066px] 2xl:max-w-[1300px]"
+            className={clsx(
+              'max-w-[1024px] transition-all xl:max-w-[1066px] 2xl:max-w-[1300px]',
+              customNavbarClass,
+            )}
           />
         </>
       )
     }
     <div
-      class="relative w-full self-center px-24 py-32 xl:max-w-[1066px] xl:px-0 2xl:max-w-[1300px]"
+      class={clsx(
+        'relative w-full self-center px-24 py-32 xl:max-w-[1066px] xl:px-0 2xl:max-w-[1300px]',
+        customContentWrapperClass,
+      )}
     >
       {
         hasSecondaryMenu && (
@@ -181,6 +203,6 @@ const canonicalUrl = generateCanonicalUrl(contentSlug);
       }
       <slot />
     </div>
-    {!singlePage && <Footer client:load />}
+    {!singlePage && !hideFooter && <Footer client:load />}
   </body>
 </html>

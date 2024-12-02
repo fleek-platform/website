@@ -1,24 +1,18 @@
 ---
 import settings from '@base/settings.json';
 import AboutModule from '@components/About';
-import { Navbar } from '@components/Navbar';
-import LandingPageHtml from '@layouts/LandingPageHtml.astro';
-import Footer from '@components/Footer';
+import Layout from '@layouts/AboutPage.astro';
 ---
 
-<LandingPageHtml
+<Layout
   title={settings.site.metadata.about.title}
   description={settings.site.metadata.about.description}
   slug={settings.site.metadata.about.slug}
   image={settings.site.metadata.about.image}
 >
-  <main class="flex flex-col pb-64">
-    <Navbar pathname={Astro.url.pathname} client:load />
-    <AboutModule.Hero />
-    <AboutModule.WhyExists />
-    <AboutModule.OpenSourceCore client:load />
-    <AboutModule.WhyChoose />
-    <AboutModule.CallToAction />
-    <Footer />
-  </main>
-</LandingPageHtml>
+  <AboutModule.Hero />
+  <AboutModule.WhyExists />
+  <AboutModule.OpenSourceCore client:load />
+  <AboutModule.WhyChoose />
+  <AboutModule.CallToAction />
+</Layout>
