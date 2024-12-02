@@ -57,7 +57,7 @@ const SidebarMenu: React.FC<Props> = ({ data, pathname, indexNameDocs }) => {
         <li>
           <a
             ref={isHome ? activeItemRef : null}
-            href="/docs"
+            href="/docs/"
             className={cn(
               'group flex items-center gap-8 font-semibold hover:text-gray-dark-12',
               {
