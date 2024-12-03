@@ -1,0 +1,21 @@
+---
+import BaseHtml from '@layouts/BaseHtml.astro';
+import settings from '@base/settings.json';
+
+const { title, description, image, slug } = settings.site.metadata.templates;
+---
+
+<BaseHtml
+  title={title}
+  ogMeta={{
+    title,
+    description,
+    image,
+    slug,
+  }}
+>
+  <main>
+    <Templates.Header />
+    <Templates.Cards />
+  </main>
+</BaseHtml>

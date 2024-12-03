@@ -1,0 +1,91 @@
+---
+import { getCollection } from 'astro:content';
+import DocPageLayout from '../../layouts/DocPage.astro';
+
+import settings from '@base/settings.json';
+import { generateSidebarDSByUserOrder } from '@utils/generateSidebarDS';
+import { capitalizeFirstLetter } from '@utils/capitalizeFirstLetter';
+export interface DocsLink {
+  category: string;
+  title: string;
+  slug: string;
+}
+
+export async function getStaticPaths() {
+  // Get all the docs and sort them the same way as the Sidebar
+  const docsEntries = await getCollection('docs');
+  const orderBy = settings.docs.menu.order;
+  const sidebarSorted = generateSidebarDSByUserOrder(docsEntries, orderBy);
+
+  // Flatten the sidebarSorted structure
+  const flatSidebar = sidebarSorted.reduce((acc: DocsLink[], category) => {
+    // If there are subroutes for this category
+    if (category.list.length) {
+      category.list.forEach((item) => {
+        acc.push({
+          category: category.category,
+          slug:
+            category.slug === item.slug
+              ? `${item.slug}`
+              : `${category.slug}/${item.slug}`,
+          title: item.title,
+        });
+      });
+    } else {
+      // If it's a standalone page with no subroutes
+      acc.push({
+        category: category.category,
+        slug: category.slug,
+        title: category.title as string,
+      });
+    }
+
+    return acc;
+  }, []);
+
+  return docsEntries.map((entry) => {
+    const currentIndex = flatSidebar.findIndex(
+      (item) => item.slug === entry.slug,
+    );
+
+    // Determine previous and next items
+    const prevItem = currentIndex > 0 ? flatSidebar[currentIndex - 1] : null;
+    const nextItem =
+      currentIndex < flatSidebar.length - 1
+        ? flatSidebar[currentIndex + 1]
+        : null;
+
+    const currentCategory = flatSidebar[currentIndex]?.category;
+
+    return {
+      params: { slug: entry.slug },
+      props: { entry, prevItem, nextItem, currentCategory },
+    };
+  });
+}
+
+const { entry, prevItem, nextItem, currentCategory } = Astro.props;
+const { Content, headings } = await entry.render();
+const title = handlePageTitle('Docs');
+const pageSlug = entry.slug;
+
+function handlePageTitle(collection: string) {
+  if (entry.data.title && currentCategory !== 'root') {
+    const currentPageTitleCapitalized = capitalizeFirstLetter(currentCategory);
+    return ` ${collection} | ${currentPageTitleCapitalized} - ${entry.data.title}`;
+  } else {
+    return `${collection} - ${entry.data.title}`;
+  }
+}
+---
+
+<DocPageLayout
+  title={title}
+  description={entry.data.desc || ''}
+  pageSlug={pageSlug}
+  headings={headings}
+  prevItem={prevItem}
+  nextItem={nextItem}
+>
+  <Content />
+</DocPageLayout>
