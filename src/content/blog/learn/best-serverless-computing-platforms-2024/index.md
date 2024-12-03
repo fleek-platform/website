@@ -6,6 +6,7 @@ thumbnail: './thumbnail.jpg'
 image: './thumbnail.jpg'
 author:
   - 'Fleek'
+isSeoPost: true
 ---
 
 As developers strive to create lightweight, responsive apps and websites, serverless computing platforms are becoming integral to the modern tech stack.
