@@ -6,6 +6,7 @@ thumbnail: './topframeworksthumb.jpg'
 image: './topframeworksthumb.jpg'
 author:
   - 'Fleek'
+isSeoPost: true
 ---
 
 Common approaches to app development are shifting to a more agile architecture with serverless frameworks being the fulcrum. These frameworks enable developers to maintain agility and scalability in their app development processes without getting bogged down by deployment, scaling, and infra management.

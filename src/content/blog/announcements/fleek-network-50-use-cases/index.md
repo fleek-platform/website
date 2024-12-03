@@ -4,6 +4,7 @@ date: 2024-11-21
 desc: Explore 50 groundbreaking use cases for building on Fleek Network, ranging from decentralized CDNs, edge compute, to DeAI, and more.
 thumbnail: ./usecasebuildonfleeknetwork.png
 image: ./usecasebuildonfleeknetwork.png
+isSeoPost: true
 ---
 
 Decentralization, the central thesis of web3, can be seen in action with decentralized social media, governance platforms, financial markets/trading platforms, and more. Yet each _decentralized_ application still relies on centralized infrastructure at some layer of their stack, meaning they’re only one outage or corporate decision away from going dark.
