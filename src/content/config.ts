@@ -27,7 +27,10 @@ const schema = ({ image }: { image: ImageFunction }) =>
 
 const docsCollection = createCollection('content', z.object({}));
 
-const blogCollection = createCollection('content', z.object({}));
+const blogCollection = createCollection(
+  'content',
+  z.object({ isSeoPost: z.boolean().optional() }),
+);
 
 const guidesCollection = createCollection('content', z.object({}));
 
