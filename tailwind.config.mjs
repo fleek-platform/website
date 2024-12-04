@@ -56,6 +56,7 @@ export const colors = {
   'neutral-1': '#111111',
   'neutral-6': '#3a3a3a',
   'neutral-8': '#606060',
+  'neutral-9': '#6e6e6e',
   'neutral-11': '#B4B4B4',
   'neutral-12': '#EEE',
 };
@@ -130,7 +131,7 @@ export default {
           overflow: 'hidden',
           '-webkit-line-clamp': '2',
           'line-clamp': '2',
-          'max-height': 'calc(2 * 1.3em)',
+          'max-height': 'calc(2 * 1.5em)',
         },
       });
     },

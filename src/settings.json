@@ -493,9 +493,9 @@
         "slug": "astro-boilerplate",
         "description": "Start your next project with this Astro boilerplate, designed for seamless development.",
         "href": "/templates/clx3f5nem000333n7acqcxiwj/",
-        "poster_image_src": "https://assets.on-fleek.app/cid?token=eyJhbGciOiJIUzI1NiJ9.eyJjaWQiOiJRbVFhd2RTd0pKR0ZDNjU0UnlEc2FKMW50aVkyQWZYMTgyVGpYNFVlazl6MVk5IiwiZXhwIjoxNzMzMjI0MTYxfQ.Mx8sLLl7kFF8VaVpfjB19qaqEAi7fa3yx_WakNtZZIM",
-        "icon_image_src": "https://assets.on-fleek.app/cid?token=eyJhbGciOiJIUzI1NiJ9.eyJjaWQiOiJiYWZ5YmVpYjU1MmdmY2xjemI0N2lncWFlcHppdWhnN2EyaG50cHR4N2l4d2RreWFmcXl4bHkyMjZyNCIsImV4cCI6MTczMzIyNDE2MX0._1etNFTeUJ0xr8gfPeIX9oIeA8bkanosm_BDC6FWBHw",
-        "author_profile_image_src": "https://assets.on-fleek.app/cid?token=eyJhbGciOiJIUzI1NiJ9.eyJjaWQiOiJRbVlHdWdMTDVjZXJ6U3hLMU02MVhES2N3Qml5UWtxRkw2UVI0eXpBSkY1TDV2IiwiZXhwIjoxNzMzMjI0MTYyfQ.lHRAdiw72d4___zGC0lKTKKCLBPH8mxATVBlHQq6zb0",
+        "poster_image_src": "/images/templates/astro-boilerplate.webp",
+        "icon_image_src": "/svg/templates/astro-icon.svg",
+        "author_profile_image_src": "/images/templates/authors/fleek.webp",
         "added_by": "Fleek"
       },
       {
@@ -503,19 +503,55 @@
         "slug": "blogmaker-by-vitalik",
         "description": "Simple and minimal blog template by Vitalik Buterin",
         "href": "/templates/clyqjmjng0001q94by3huy892/",
-        "poster_image_src": "https://assets.on-fleek.app/cid?token=eyJhbGciOiJIUzI1NiJ9.eyJjaWQiOiJRbVc3WDhaWWF1ZzhXbldneFZ4V293eWg3dGViQzZlQnhaNEh5QllWZjJOdEJmIiwiZXhwIjoxNzMzMjI0MTYxfQ.7VLCaXmrt-g3B2B8mzmASj-qDOVBZPOg2P9SbkXAouk",
-        "icon_svg": "<svg viewBox=\"0 0 20 20\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\" class=\"PJLV\"><path d=\"M10 11.875C11.0356 11.875 11.875 11.0355 11.875 10C11.875 8.96447 11.0356 8.125 10 8.125C8.96448 8.125 8.12502 8.96447 8.12502 10C8.12502 11.0355 8.96448 11.875 10 11.875Z\" fill=\"currentColor\"></path><path d=\"M18.3746 11.7188L18.3563 11.7039L17.1235 10.7371C17.0454 10.6753 16.9831 10.5959 16.9417 10.5054C16.9002 10.4149 16.8809 10.3159 16.8852 10.2164V9.76484C16.8813 9.66602 16.9009 9.56768 16.9423 9.47791C16.9838 9.38814 17.046 9.30949 17.1238 9.24844L18.3563 8.28125L18.3746 8.26641C18.5647 8.10807 18.6922 7.88729 18.7345 7.64354C18.7767 7.3998 18.7308 7.14898 18.6051 6.93594L16.9367 4.04922C16.9348 4.0465 16.9331 4.04362 16.9317 4.04063C16.8052 3.83053 16.6092 3.67135 16.3777 3.59071C16.1461 3.51008 15.8937 3.51309 15.6641 3.59922L15.6504 3.6043L14.2012 4.1875C14.1097 4.22448 14.0108 4.2392 13.9125 4.23044C13.8142 4.22168 13.7194 4.18969 13.636 4.13711C13.5078 4.05638 13.3776 3.98008 13.2453 3.9082C13.1596 3.86169 13.0859 3.79567 13.0303 3.71547C12.9748 3.63527 12.9388 3.54313 12.9254 3.44648L12.707 1.9L12.7024 1.87187C12.6548 1.63234 12.5263 1.41647 12.3383 1.26054C12.1504 1.10462 11.9145 1.01813 11.6703 1.01562H8.32971C8.08208 1.01642 7.84267 1.10458 7.65366 1.26457C7.46465 1.42457 7.33817 1.64613 7.2965 1.89023L7.29299 1.91211L7.07541 3.46172C7.06206 3.55809 7.0264 3.65001 6.97127 3.73017C6.91614 3.81032 6.84305 3.8765 6.75783 3.92344C6.62424 3.99531 6.49377 4.07148 6.36721 4.15078C6.28387 4.20304 6.18933 4.23479 6.09134 4.24341C5.99335 4.25203 5.89472 4.23729 5.80353 4.20039L4.35314 3.61445L4.33947 3.60898C4.10957 3.52276 3.85672 3.51987 3.62491 3.6008C3.3931 3.68173 3.197 3.84138 3.07072 4.05195L3.06564 4.06055L1.39494 6.94922C1.26901 7.16248 1.22305 7.41357 1.26528 7.65761C1.3075 7.90164 1.43515 8.1227 1.62541 8.28125L1.64377 8.29609L2.87658 9.26289C2.95465 9.32465 3.01696 9.40405 3.05838 9.49457C3.0998 9.58509 3.11916 9.68414 3.11486 9.78359V10.2352C3.11877 10.334 3.09918 10.4323 3.05769 10.5221C3.0162 10.6119 2.95399 10.6905 2.87619 10.7516L1.64377 11.7188L1.62541 11.7336C1.43534 11.8919 1.30779 12.1127 1.26557 12.3565C1.22335 12.6002 1.2692 12.851 1.39494 13.0641L3.0633 15.9508C3.06522 15.9535 3.06692 15.9564 3.06838 15.9594C3.19479 16.1695 3.3908 16.3287 3.62235 16.4093C3.85391 16.4899 4.10639 16.4869 4.33596 16.4008L4.34963 16.3957L5.79768 15.8125C5.88914 15.7755 5.98809 15.7608 6.08637 15.7696C6.18464 15.7783 6.27942 15.8103 6.36291 15.8629C6.49103 15.9439 6.62124 16.0202 6.75353 16.0918C6.83931 16.1383 6.91295 16.2043 6.96852 16.2845C7.02409 16.3647 7.06004 16.4569 7.07346 16.5535L7.29064 18.1L7.29533 18.1281C7.34295 18.368 7.47183 18.5842 7.66025 18.7402C7.84868 18.8962 8.08511 18.9824 8.32971 18.9844H11.6703C11.918 18.9836 12.1574 18.8954 12.3464 18.7354C12.5354 18.5754 12.6619 18.3539 12.7035 18.1098L12.707 18.0879L12.9246 16.5383C12.9382 16.4417 12.9741 16.3497 13.0296 16.2695C13.0851 16.1893 13.1586 16.1233 13.2442 16.0766C13.3778 16.0047 13.5082 15.9285 13.6348 15.8492C13.7181 15.797 13.8127 15.7652 13.9107 15.7566C14.0086 15.748 14.1073 15.7627 14.1985 15.7996L15.6488 16.3836L15.6625 16.3891C15.8924 16.4754 16.1453 16.4784 16.3772 16.3975C16.609 16.3165 16.8051 16.1568 16.9313 15.9461C16.9328 15.9431 16.9345 15.9403 16.9363 15.9375L18.6047 13.0512C18.7309 12.8379 18.777 12.5868 18.7348 12.3426C18.6927 12.0985 18.565 11.8773 18.3746 11.7188ZM13.1215 10.1469C13.0931 10.7518 12.8895 11.3354 12.5355 11.8268C12.1815 12.3181 11.6924 12.696 11.1276 12.9145C10.5628 13.1331 9.94671 13.1828 9.3542 13.0576C8.76168 12.9325 8.2183 12.6379 7.79011 12.2097C7.36193 11.7814 7.06739 11.238 6.94232 10.6455C6.81726 10.0529 6.86704 9.43685 7.08563 8.87209C7.30422 8.30734 7.68219 7.81826 8.17358 7.46434C8.66498 7.11041 9.24862 6.90689 9.85353 6.87852C10.2878 6.8594 10.7213 6.93085 11.1265 7.08834C11.5317 7.24583 11.8996 7.48591 12.207 7.79331C12.5144 8.10071 12.7544 8.4687 12.9118 8.87389C13.0693 9.27908 13.1407 9.7126 13.1215 10.1469Z\" fill=\"currentColor\"></path></svg>",
-        "author_profile_image_src": "https://assets.on-fleek.app/cid?token=eyJhbGciOiJIUzI1NiJ9.eyJjaWQiOiJRbVlHdWdMTDVjZXJ6U3hLMU02MVhES2N3Qml5UWtxRkw2UVI0eXpBSkY1TDV2IiwiZXhwIjoxNzMzMjI0MTYyfQ.lHRAdiw72d4___zGC0lKTKKCLBPH8mxATVBlHQq6zb0",
+        "poster_image_src": "/images/templates/blogmaker-by-vitalik.webp",
+        "icon_image_src": "/svg/templates/cog-icon.svg",
+        "author_profile_image_src": "/images/templates/authors/fleek.webp",
         "added_by": "Fleek"
+      },
+      {
+        "title": "Chess on Fleek",
+        "slug": "chess-on-fleek",
+        "description": "Chess on Fleek is perfect for developers looking to deploy real-time, interactive applications. This template utilizes Next.js for a fullstck development experience, rendering, ensuring optimal performance with each move.",
+        "poster_image_src": "/images/templates/chess-on-fleek.webp",
+        "icon_image_src": "/svg/templates/nextjs-icon.svg",
+        "author_profile_image_src": "/images/templates/authors/kanishk_khurana.webp",
+        "added_by": "Kanishk Khurana"
+      },
+      {
+        "slug": "fullstack-nextjs-template",
+        "title": "Fullstack Nextjs Template",
+        "description": "This is the boilerplate code generated directly from running npx create-next-app. Utilize this template to harness Fleek’s optimized hosting for dynamic and performance-driven web applications.",
+        "poster_image_src": "/images/templates/fullstack-nextjs-template.webp",
+        "icon_image_src": "/svg/templates/nextjs-icon.svg",
+        "author_profile_image_src": "/images/templates/authors/kanishk_khurana.webp",
+        "added_by": "Kanishk Khurana"
+      },
+      {
+        "slug": "fullstack-nextra-on-nextjs",
+        "title": "Fullstack Nextra on Nextjs",
+        "description": "This is a Next.js application generated with Create Nextra. Nextra is a minimalist, fully customizable documentation site built for easy deployment on Fleek. Perfect for showcasing project documentation, this template uses Next.js to deliver a smooth experience.",
+        "poster_image_src": "/images/templates/fullstack-nextra-on-nextjs.webp",
+        "icon_image_src": "/svg/templates/nextjs-icon.svg",
+        "author_profile_image_src": "/images/templates/authors/kanishk_khurana.webp",
+        "added_by": "Kanishk Khurana"
+      },
+      {
+        "slug": "fumadocs-on-fleek",
+        "title": "Fumadocs on Fleek",
+        "description": "This is a Next.js application generated with Create Fumadocs. Fumadocs is a minimalist, fully customizable documentation site built for easy deployment on Fleek. Perfect for showcasing project documentation, this template uses Next.js to deliver a smooth, server-rendered experience.",
+        "poster_image_src": "/images/templates/fumadocs-on-fleek.webp",
+        "icon_image_src": "/svg/templates/nextjs-icon.svg",
+        "author_profile_image_src": "/images/templates/authors/kanishk_khurana.webp",
+        "added_by": "Kanishk Khurana"
       },
       {
         "title": "Gatsby Boilerplate",
         "slug": "gatsby-boilerplate",
         "description": "Kick off your Gatsby projects with this boilerplate, equipped to handle your development needs.",
         "href": "/templates/clx3g0ol70001oewqgw7k7knx/",
-        "poster_image_src": "https://assets.on-fleek.app/cid?token=eyJhbGciOiJIUzI1NiJ9.eyJjaWQiOiJRbVdvYUFFemREaTlrdU5tUkFGdUZhS0hzakVMV3o3M3lXVGVVaHlzM3V4bThkIiwiZXhwIjoxNzMzMjI0MTYxfQ.tNjU4Ay3gFr3d1SmPmvUqyS4mgi70YNLzK0Te94hmHk",
-        "icon_image_src": "https://assets.on-fleek.app/cid?token=eyJhbGciOiJIUzI1NiJ9.eyJjaWQiOiJiYWZ5YmVpZXA3N2Zxc3dzZGt1ZmdxNW9kenliczZwdG1mMmZtbGNvdHd4NG5odnNzYXRmbHFkNXN6YSIsImV4cCI6MTczMzIyNDE2MX0.eEvlksxCBbQrgHCDC0s31rzoyral2aOJLm7RjrYT7ak",
-        "author_profile_image_src": "https://assets.on-fleek.app/cid?token=eyJhbGciOiJIUzI1NiJ9.eyJjaWQiOiJRbVlHdWdMTDVjZXJ6U3hLMU02MVhES2N3Qml5UWtxRkw2UVI0eXpBSkY1TDV2IiwiZXhwIjoxNzMzMjI0MTYyfQ.lHRAdiw72d4___zGC0lKTKKCLBPH8mxATVBlHQq6zb0",
+        "poster_image_src": "/images/templates/gatsby-boilerplate.webp",
+        "icon_image_src": "/svg/templates/gatsby-icon.svg",
+        "author_profile_image_src": "/images/templates/authors/fleek.webp",
         "added_by": "Fleek"
       },
       {
@@ -523,9 +559,9 @@
         "slug": "hugo-boilerplate",
         "description": "This Hugo boilerplate provides a solid foundation for static sites, simplified for a fast turnaround on project setup.",
         "href": "/templates/clx3g1cgx0008oewqi0e1cb1x/",
-        "poster_image_src": "https://assets.on-fleek.app/cid?token=eyJhbGciOiJIUzI1NiJ9.eyJjaWQiOiJRbVpxUVpVMzR2aWRWYzh0Wm5pdllBeUV3VTR1VmVpZUJGdXNwZzY4ZEF1dkpXIiwiZXhwIjoxNzMzMjI0MTYxfQ.BoKD-FRRCzWY2EY-iM5TcLhzVQgQvfC2RDFJN1vv-6g",
-        "icon_image_src": "https://assets.on-fleek.app/cid?token=eyJhbGciOiJIUzI1NiJ9.eyJjaWQiOiJiYWZ5YmVpZGxjMmd5cGhqc2xubDdocXFxZjZiNnFpNm1iejN3cmdyNDc0bTc1b292am5wd2toZmlydSIsImV4cCI6MTczMzIyNDE2MX0.x8BmetFIkFHEMhhmqnXq2UyWkguJmKRUQw0ykILl31g",
-        "author_profile_image_src": "https://assets.on-fleek.app/cid?token=eyJhbGciOiJIUzI1NiJ9.eyJjaWQiOiJRbVlHdWdMTDVjZXJ6U3hLMU02MVhES2N3Qml5UWtxRkw2UVI0eXpBSkY1TDV2IiwiZXhwIjoxNzMzMjI0MTYyfQ.lHRAdiw72d4___zGC0lKTKKCLBPH8mxATVBlHQq6zb0",
+        "poster_image_src": "/images/templates/hugo-boilerplate.webp",
+        "icon_image_src": "/svg/templates/hugo-icon.svg",
+        "author_profile_image_src": "/images/templates/authors/fleek.webp",
         "added_by": "Fleek"
       },
       {
@@ -533,9 +569,9 @@
         "slug": "nextjs-boilerplate",
         "description": "Begin your Next.js project with confidence using this boilerplate, tailored for efficient development.",
         "href": "/templates/clx3fnwmh0006qy2i55l3vc2c/",
-        "poster_image_src": "https://assets.on-fleek.app/cid?token=eyJhbGciOiJIUzI1NiJ9.eyJjaWQiOiJRbVBxYVY5aWY1TVBqTUZ4U3g0dDVSckt1OTdGY3VLdHFMaTdTOEFjMVZoU3QyIiwiZXhwIjoxNzMzMjI0MTYxfQ.kvZQPuWA7HCRczyMxVnOr9Ltw1qzXYjuiDU8yfA314s",
-        "icon_image_src": "https://assets.on-fleek.app/cid?token=eyJhbGciOiJIUzI1NiJ9.eyJjaWQiOiJiYWZ5YmVpZXlleTZsa2tnNDc1eWhmbGduZnNwaHN1eWt5djNia2I3eHl0Y3Y1dGh4ZWpkc3Z1bXdhZSIsImV4cCI6MTczMzIyNDE2MX0.BDPfZFQTu7KoLWBSm-YaqIQEeyxpKtyTko4c22M5Nj4",
-        "author_profile_image_src": "https://assets.on-fleek.app/cid?token=eyJhbGciOiJIUzI1NiJ9.eyJjaWQiOiJRbVlHdWdMTDVjZXJ6U3hLMU02MVhES2N3Qml5UWtxRkw2UVI0eXpBSkY1TDV2IiwiZXhwIjoxNzMzMjI0MTYyfQ.lHRAdiw72d4___zGC0lKTKKCLBPH8mxATVBlHQq6zb0",
+        "poster_image_src": "/images/templates/nextjs-boilerplate.webp",
+        "icon_image_src": "/svg/templates/nextjs-icon.svg",
+        "author_profile_image_src": "/images/templates/authors/fleek.webp",
         "added_by": "Fleek"
       },
       {
@@ -543,9 +579,9 @@
         "slug": "nuxt-boilerplate",
         "description": "Accelerate your Nuxt development with this boilerplate, designed to integrate smoothly into your project workflow.",
         "href": "/templates/clx3hq2e20001vm7ee9wd81o4/",
-        "poster_image_src": "https://assets.on-fleek.app/cid?token=eyJhbGciOiJIUzI1NiJ9.eyJjaWQiOiJRbVNXaWhENzhuaXhVc3IzWkg4dGNzMVZhVU12TDkzcFRoaFN5TDNTanpDajFMIiwiZXhwIjoxNzMzMjI0MTYxfQ.ZDBSjeoG1DfV_d2Bx53ube0LFQPqFJqOpCW6Ltf0FsY",
-        "icon_image_src": "https://assets.on-fleek.app/cid?token=eyJhbGciOiJIUzI1NiJ9.eyJjaWQiOiJiYWZ5YmVpZ2NmeXFkaXgydm9lenRpYXplbHY0a2J1NnJnZ2hpaDM1Nnd4dHBtZzU2ZWV6anZ3Nmt6eSIsImV4cCI6MTczMzIyNDE2Mn0.qC44GHAEmEC0HjSAtaN0AWNLY4tf5FM6WGjLoKVbjgc",
-        "author_profile_image_src": "https://assets.on-fleek.app/cid?token=eyJhbGciOiJIUzI1NiJ9.eyJjaWQiOiJRbVlHdWdMTDVjZXJ6U3hLMU02MVhES2N3Qml5UWtxRkw2UVI0eXpBSkY1TDV2IiwiZXhwIjoxNzMzMjI0MTYyfQ.lHRAdiw72d4___zGC0lKTKKCLBPH8mxATVBlHQq6zb0",
+        "poster_image_src": "/images/templates/nuxt-boilerplate.webp",
+        "icon_image_src": "/svg/templates/nuxt-icon.svg",
+        "author_profile_image_src": "/images/templates/authors/fleek.webp",
         "added_by": "Fleek"
       },
       {
@@ -553,9 +589,9 @@
         "slug": "react-boilerplate",
         "description": "Initialize your React applications quickly using this ready-to-use boilerplate, optimized for fast setup.",
         "href": "/templates/clx3g4dwk0008qy2i5d6aobe4/",
-        "poster_image_src": "https://assets.on-fleek.app/cid?token=eyJhbGciOiJIUzI1NiJ9.eyJjaWQiOiJRbVZTRVJwYWJ4N01kVTdFNnM2a0JEZ0o0U3l3OHk5ZkVSOTFoUjQ4UTQyYlhHIiwiZXhwIjoxNzMzMjI0MTYxfQ.8g_JZQmIts79R-75OYnT2rfl0YRuTz4Hrl6j3Tg3wsY",
-        "icon_image_src": "https://assets.on-fleek.app/cid?token=eyJhbGciOiJIUzI1NiJ9.eyJjaWQiOiJiYWZ5YmVpaGpmcDRuM2Rwd2FpdWdpa29hYnVicjJvcDJxazJvdmRydG9ycHpweGdra2ZmeXVhY3hudSIsImV4cCI6MTczMzIyNDE2MX0.qtHSbJGHLGSKFt5O5zoV8g3VvpdhvZpFKsdKYGkLVMc",
-        "author_profile_image_src": "https://assets.on-fleek.app/cid?token=eyJhbGciOiJIUzI1NiJ9.eyJjaWQiOiJRbVlHdWdMTDVjZXJ6U3hLMU02MVhES2N3Qml5UWtxRkw2UVI0eXpBSkY1TDV2IiwiZXhwIjoxNzMzMjI0MTYyfQ.lHRAdiw72d4___zGC0lKTKKCLBPH8mxATVBlHQq6zb0",
+        "poster_image_src": "/images/templates/react-boilerplate.webp",
+        "icon_image_src": "/svg/templates/cra-icon.svg",
+        "author_profile_image_src": "/images/templates/authors/fleek.webp",
         "added_by": "Fleek"
       },
       {
@@ -563,9 +599,9 @@
         "slug": "remix-boilerplate",
         "description": "Utilize this Remix boilerplate to structure your projects for an optimal build experience.",
         "href": "/templates/clx3hzhax00078zh3hrrwnexh/",
-        "poster_image_src": "https://assets.on-fleek.app/cid?token=eyJhbGciOiJIUzI1NiJ9.eyJjaWQiOiJRbVQ4Wml5OERMTGtweTNvdEh0cGU2S3kzVVhiZktmY2pYdzZERmNmWHFkU29yIiwiZXhwIjoxNzMzMjI0MTYxfQ.H4VWa8PH5MXyb6JsV6mXOjUFDeq7VsUVYWM1Cyq4dSA",
-        "icon_image_src": "https://assets.on-fleek.app/cid?token=eyJhbGciOiJIUzI1NiJ9.eyJjaWQiOiJiYWZ5YmVpYnRvbWJqaTR4Nmt2cXRodTdnM29ncmZ1Z243cmNybnlvYWVhaTZ4c2F5em1iZHhiZ2lxbSIsImV4cCI6MTczMzIyNDE2Mn0.QLyLwONYGurp2kfFVaH1pJmLEPgHM8UN8ObcvmW8umM",
-        "author_profile_image_src": "https://assets.on-fleek.app/cid?token=eyJhbGciOiJIUzI1NiJ9.eyJjaWQiOiJRbVlHdWdMTDVjZXJ6U3hLMU02MVhES2N3Qml5UWtxRkw2UVI0eXpBSkY1TDV2IiwiZXhwIjoxNzMzMjI0MTYyfQ.lHRAdiw72d4___zGC0lKTKKCLBPH8mxATVBlHQq6zb0",
+        "poster_image_src": "/images/templates/remix-boilerplate.webp",
+        "icon_image_src": "/svg/templates/vite-icon.svg",
+        "author_profile_image_src": "/images/templates/authors/fleek.webp",
         "added_by": "Fleek"
       },
       {
@@ -573,9 +609,9 @@
         "slug": "svelte-boilerplate",
         "description": "Adopt this Svelte boilerplate to streamline your app development, enhanced for easy integration.",
         "href": "/templates/clx3hm85q000ibyl7d17cuufu/",
-        "poster_image_src": "https://assets.on-fleek.app/cid?token=eyJhbGciOiJIUzI1NiJ9.eyJjaWQiOiJRbVZiQ21DZnpaRkt4SmU2QmdOdE1tUVludEdnN0hnc241RXA4bU5lTHo3RmVjIiwiZXhwIjoxNzMzMjI0MTYxfQ.sd_Sa1WH0O3EVpxyDV1AKNH56OEspgLLvoxRA4lpBeo",
-        "icon_image_src": "https://assets.on-fleek.app/cid?token=eyJhbGciOiJIUzI1NiJ9.eyJjaWQiOiJiYWZ5YmVpZjN0bGs3ZWpkNWdtZHFiN21zaHVkZHFmdXloaXl0dzRudzNvNjQ2dHN2N3RzenR5YWNiaSIsImV4cCI6MTczMzIyNDE2Mn0.VfPTG55_2d99L605ZuzId2TmWUCxTEyUr-1draJefVc",
-        "author_profile_image_src": "https://assets.on-fleek.app/cid?token=eyJhbGciOiJIUzI1NiJ9.eyJjaWQiOiJRbVlHdWdMTDVjZXJ6U3hLMU02MVhES2N3Qml5UWtxRkw2UVI0eXpBSkY1TDV2IiwiZXhwIjoxNzMzMjI0MTYyfQ.lHRAdiw72d4___zGC0lKTKKCLBPH8mxATVBlHQq6zb0",
+        "poster_image_src": "/images/templates/svelte-boilerplate.webp",
+        "icon_image_src": "/svg/templates/svelte-icon.svg",
+        "author_profile_image_src": "/images/templates/authors/fleek.webp",
         "added_by": "Fleek"
       },
       {
@@ -583,9 +619,9 @@
         "slug": "vue-boilerplate",
         "description": "Leverage this Vue.js boilerplate to kickstart your web projects, with pre-configurations for immediate use.",
         "href": "/templates/clx3gdagl0001byl7romw0ynd/",
-        "poster_image_src": "https://assets.on-fleek.app/cid?token=eyJhbGciOiJIUzI1NiJ9.eyJjaWQiOiJRbWQyRVlDenY4alBRTmROck5ING41VmhmTHZyMmdlUlNla1phRktQQ2RXblBwIiwiZXhwIjoxNzMzMjI0MTYxfQ.oPw9fc8a_rSOUMmm0IzewCJi8HG5MHnogWqzym40fqY",
-        "icon_image_src": "https://assets.on-fleek.app/cid?token=eyJhbGciOiJIUzI1NiJ9.eyJjaWQiOiJiYWZ5YmVpZHc0dmszaDVxNG5xYzZ0azNsZm5heWJ0cmJhNml3aTQzcjUyY2x3dHpqbGp0d2ozcXVvcSIsImV4cCI6MTczMzIyNDE2Mn0.rcdV4Mp_LlFnP5sQhsOyY43NYijn6QYie7hVz9pS9p0",
-        "author_profile_image_src": "https://assets.on-fleek.app/cid?token=eyJhbGciOiJIUzI1NiJ9.eyJjaWQiOiJRbVlHdWdMTDVjZXJ6U3hLMU02MVhES2N3Qml5UWtxRkw2UVI0eXpBSkY1TDV2IiwiZXhwIjoxNzMzMjI0MTYyfQ.lHRAdiw72d4___zGC0lKTKKCLBPH8mxATVBlHQq6zb0",
+        "poster_image_src": "/images/templates/vue-boilerplate.webp",
+        "icon_image_src": "/svg/templates/vue-icon.svg",
+        "author_profile_image_src": "/images/templates/authors/fleek.webp",
         "added_by": "Fleek"
       }
     ]
