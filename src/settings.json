@@ -486,6 +486,7 @@
     "subTitle": "Begin with a template",
     "description": "Use a template to kick start your application. Pick from just a framework or a full web3 starter kit, the possibilities are limitless.",
     "ctaLabel": "Learn more",
+    "ctaTargetUrl": "/docs/platform/frameworks/#using-framework-templates-to-get-started/",
     "data": [
       {
         "title": "Astro Boilerplate",
