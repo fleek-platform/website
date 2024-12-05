@@ -1,5 +1,5 @@
 ---
-order: 8
+order: 9
 title: Edge SGX
 date: 2024-09-11
 desc: Get started with using the SGX service integrated into Fleek Network from the CLI and unlock a new level of security features

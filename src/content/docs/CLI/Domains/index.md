@@ -1,5 +1,5 @@
 ---
-order: 5
+order: 8
 title: Domains
 date: 2023-01-10
 desc: Set up a custom domain for your Fleek site easily with our CLI guide. Add, verify, and manage effortlessly.

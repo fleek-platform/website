@@ -1,5 +1,5 @@
 ---
-order: 6
+order: 8
 title: Gateway
 date: 2023-01-10
 desc: Learn how to set up and configure a private gateway on Fleek, serving content from your storage via a custom domain.

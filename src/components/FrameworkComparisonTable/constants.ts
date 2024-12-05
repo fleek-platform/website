@@ -10,7 +10,7 @@ export const frameworks: Framework[] = [
   {
     name: 'SvelteKit',
     ssg: true,
-    ssr: false,
+    ssr: true,
     previewDeployments: true,
   },
   {
