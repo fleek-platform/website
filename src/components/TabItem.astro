@@ -1,0 +1,15 @@
+---
+
+export interface Props{
+  title: string
+}
+
+const { title = 'title' } = Astro.props;
+---
+
+
+
+<button slot="tab"  class="inline-flex whitespace-nowrap border-b-2 border-transparent py-2 px-24 text-sm font-medium text-gray-300 transition-all duration-200 ease-in-out hover:border-b-gray-dark-6 hover:bg-yellow-dark-2 hover:rounded-t-10 hover:text-yellow aria-selected:border-b-yellow aria-selected:text-yellow"> {title} </button>
+<div slot="panel" class="border-t-2 border-gray-dark-6 pt-6 -mt-[2px]">
+  <slot />
+</div>
