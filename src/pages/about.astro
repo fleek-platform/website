@@ -1,0 +1,18 @@
+---
+import settings from '@base/settings.json';
+import AboutModule from '@components/About';
+import Layout from '@layouts/AboutPage.astro';
+---
+
+<Layout
+  title={settings.site.metadata.about.title}
+  description={settings.site.metadata.about.description}
+  slug={settings.site.metadata.about.slug}
+  image={settings.site.metadata.about.image}
+>
+  <AboutModule.Hero />
+  <AboutModule.WhyExists />
+  <AboutModule.OpenSourceCore client:load />
+  <AboutModule.WhyChoose />
+  <AboutModule.CallToAction />
+</Layout>

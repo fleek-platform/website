@@ -1,10 +1,10 @@
 ---
+import { cn } from '@utils/cn';
 import '@styles/globals.css';
 import { getSiteUrl, hasSecondaryMenuItem } from '@utils/url';
 import settings from '@base/settings.json';
 import Trackers from '@components/Trackers.astro';
 
-import { Toaster } from 'react-hot-toast';
 import { Announcement } from '@components/Announcement';
 import Footer from '@components/Footer';
 import { Navbar } from '@components/Navbar';
@@ -19,9 +19,24 @@ interface Props {
     image: string;
     slug: string;
   };
+  singlePage?: boolean;
+  customBodyClass?: string;
+  customContentWrapperClass?: string;
+  customNavbarClass?: string;
+  hideFooter?: boolean;
+  hideAnnouncement?: boolean;
 }
 
-const { ogMeta } = Astro.props;
+const {
+  ogMeta,
+  singlePage = false,
+  customBodyClass,
+  customContentWrapperClass,
+  customNavbarClass,
+  hideFooter = false,
+  hideAnnouncement = false,
+} = Astro.props;
+
 const baseUrl = getSiteUrl();
 const hasSecondaryMenu = hasSecondaryMenuItem(Astro.url.pathname);
 
@@ -155,16 +170,31 @@ const canonicalUrl = generateCanonicalUrl(contentSlug);
     <Trackers />
   </head>
   <body
-    class="relative flex min-h-dvh flex-col overflow-x-hidden bg-black font-sans text-gray-dark-11 selection:bg-yellow-dark-9 selection:text-black"
+    class={cn(
+      'relative flex min-h-dvh flex-col overflow-x-hidden bg-black font-sans text-gray-dark-11 selection:bg-yellow-dark-9 selection:text-black',
+      customBodyClass,
+    )}
   >
-    <Announcement client:load />
-    <Navbar
-      client:load
-      pathname={Astro.url.pathname}
-      className="max-w-[1024px] transition-all xl:max-w-[1066px] 2xl:max-w-[1300px]"
-    />
+    {
+      !singlePage && (
+        <>
+          {!hideAnnouncement && <Announcement client:load />}
+          <Navbar
+            client:load
+            pathname={Astro.url.pathname}
+            className={cn(
+              'max-w-[1024px] transition-all xl:max-w-[1066px] 2xl:max-w-[1300px]',
+              customNavbarClass,
+            )}
+          />
+        </>
+      )
+    }
     <div
-      class="relative w-full self-center px-24 py-32 xl:max-w-[1066px] xl:px-0 2xl:max-w-[1300px]"
+      class={cn(
+        'relative w-full self-center px-24 py-32 xl:max-w-[1066px] 2xl:max-w-[1300px]',
+        customContentWrapperClass,
+      )}
     >
       {
         hasSecondaryMenu && (
@@ -173,6 +203,6 @@ const canonicalUrl = generateCanonicalUrl(contentSlug);
       }
       <slot />
     </div>
-    <Footer client:load />
+    {!singlePage && !hideFooter && <Footer client:load />}
   </body>
 </html>

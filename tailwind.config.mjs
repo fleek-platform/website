@@ -49,6 +49,15 @@ export const colors = {
   'yellow-dark-10': '#FFFF57',
   'yellow-dark-11': '#F5E147',
   'yellow-dark-12': '#F6EEB4',
+
+  'red-dark-8': '#B54548',
+  'red-dark-11': '#FF9592',
+
+  'neutral-1': '#111111',
+  'neutral-6': '#3a3a3a',
+  'neutral-8': '#606060',
+  'neutral-11': '#B4B4B4',
+  'neutral-12': '#EEE',
 };
 
 export default {
@@ -86,6 +95,9 @@ export default {
           'linear-gradient(135deg, rgba(23, 23, 23, 0.40) 0%, rgba(23, 23, 23, 0.30) 100%)',
         'gradient-grey':
           'linear-gradient(180deg, rgba(75, 75, 75, 0.8) 0%, rgba(75, 75, 75, 0.2) 100%)',
+        'pricing-card': 'linear-gradient(148.41deg, #191919 0%, #111111 100%)',
+        'pro-pricing-card':
+          'linear-gradient(147.94deg, #FFE629 -454.44%, rgba(0, 0, 0, 0) 100%)',
       },
       spacing: {
         '80vh': '80vh',
@@ -108,5 +120,19 @@ export default {
       },
     },
   },
-  plugins: [tailwindPluginTypography],
+  plugins: [
+    tailwindPluginTypography,
+    function ({ addUtilities }) {
+      addUtilities({
+        '.line-clamp-2': {
+          display: '-webkit-box',
+          '-webkit-box-orient': 'vertical',
+          overflow: 'hidden',
+          '-webkit-line-clamp': '2',
+          'line-clamp': '2',
+          'max-height': 'calc(2 * 1.3em)',
+        },
+      });
+    },
+  ],
 };

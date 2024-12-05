@@ -29,19 +29,7 @@ const Pricing = () => {
           </Text>
           <div className="mb-24 mt-44 flex flex-col justify-between gap-20 lg:flex-row">
             {PricingInfo.map((item, index) => {
-              return (
-                <PricingCard
-                  key={index}
-                  title={item.title}
-                  description={item.description}
-                  features={item.features}
-                  cta={item.cta}
-                  cost={item.cost}
-                  variant={item.variant}
-                  url={item.url}
-                  costOptions={item.costOptions}
-                />
-              );
+              return <PricingCard key={index} {...item} />;
             })}
           </div>
           <TableMobile />
