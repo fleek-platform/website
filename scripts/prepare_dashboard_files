@@ -1,0 +1,26 @@
+#!/bin/bash
+
+if [[ -z "$1" || -z "$2" ]]; then
+  echo "👹 Oops! Missing arguments. Have you provided a filename and output path?"
+  exit 1
+fi
+
+artifact_filename="$1"
+output_path="$2"
+
+if ! unzip -o "$artifact_filename"; then
+  echo "👹 Oops! Failed to unzip $artifact_filename"
+  exit 1
+fi
+
+echo "✅ Unziped $artifact_filename"
+
+if ! rm "$artifact_filename"; then
+  echo "👹 Oops! Failed to delete $artifact_filename"
+  exit 1
+fi
+
+echo "✅ Deleted $artifact_filename"
+
+echo "🤖 The file content generated the following file tree..."
+tree -L 3 -I "$output_path"

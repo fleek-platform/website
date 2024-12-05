@@ -1,0 +1,112 @@
+name: ⚡️ Deploy site (Common)
+
+on:
+  workflow_dispatch:
+  workflow_call:
+    inputs:
+      environment:
+        required: true
+        type: string
+
+jobs:
+  deploy-to-fleek:
+    runs-on: ubuntu-latest
+    environment: ${{ inputs.environment }}
+    env:
+      FLEEK_TOKEN: ${{ secrets.FLEEK_TOKEN }}
+      FLEEK_PROJECT_ID: ${{ secrets.FLEEK_PROJECT_ID }}
+      FLEEK_SLUG: ${{ secrets.FLEEK_SLUG }}
+      DOPPLER_TOKEN: ${{ secrets.DOPPLER_TOKEN }}
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - uses: oven-sh/setup-bun@v2
+        with:
+          bun-version: latest
+
+      - uses: ./.github/actions/setup-nodejs
+
+      - name: Install Doppler CLI
+        uses: dopplerhq/cli-action@v3
+
+      - name: Setup Doppler
+        run: |
+          doppler configure set token ${{ secrets.DOPPLER_TOKEN }}
+          doppler configure set project ${{ secrets.DOPPLER_PROJECT }}
+          doppler configure set config ${{ secrets.DOPPLER_CONFIG }}
+
+      - name: Env vars health check
+        run: |
+          if ! doppler run -- printenv | grep -q 'NEXT_PUBLIC_SDK__AUTHENTICATION_URL'; then
+            echo "👹 Oops! Missing required environment variable during health check..."
+            exit 1           
+          fi
+
+          echo "🚑 Doppler envVars seem healthy!"
+
+      - name: Setup dotenv
+        run: |
+          scripts/setup-ci-dotenv
+
+      - name: Install Fleek CLI
+        run: npm i -g @fleek-platform/cli
+
+      - name: Install Packages
+        run: npm install
+
+      - name: Setup fleek.config.json
+        run: |
+          DIST="out"
+          BUILD="pnpm run build"
+          
+          .scripts/setup-fleek-config \
+            "$FLEEK_SLUG" \
+            "$DIST" \
+            "$BUILD"
+
+      - name: Build & deploy
+        run: |
+          fleek sites deploy
+
+      # The build output can be downloaded
+      # by external processes, e.g. website
+      # Obs: The output contains a set of hard-typed
+      # values computed  from envVars. For example,
+      # the application base URL.
+      # - name: Store build output
+      #   uses: actions/upload-artifact@v4
+      #   with:
+      #     name: build-output-${{ env.FLEEK_SLUG }}
+      #     path: out
+      #     retention-days: 90
+
+      - name: Download Dashboard artifact
+        id: download_dashboard_artifact
+        run: |
+          github_token="$GITHUB_TOKEN"
+          source_repo="fleek-platform/dashboard"
+          dashboard_build_output_filename="build-output-fleek-dashboard-staging"
+          latest_artifact_file="$dashboard_build_output_filename.zip"
+
+          .scripts/download_artifact \
+            "$github_token" \
+            "$source_repo" \
+            "$dashboard_build_output_filename" \
+            "$latest_artifact_file"
+
+          echo "latest_dashboard_artifact=$latest_artifact_file" >> "$GITHUB_OUTPUT"
+
+      - name: Prepare Dashboard files
+        env:
+          ARTIFACT: ${{ steps.download_dashboard_artifact.outputs.latest_dashboard_artifact }}
+          OUTPUT_PATH: "dist"
+        run: |
+          if ! scripts/prepare_dashboard_files "$ARTIFACT" "$OUTPUT_PATH"; then
+            echo "👹 Oops! Failed to prepare the dashboard files for some reason..."
+            exit 1
+          fi
+        
+      - name: Clear
+        run: |
+          rm .env

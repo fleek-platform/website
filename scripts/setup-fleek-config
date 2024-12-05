@@ -1,0 +1,35 @@
+#!/bin/bash
+
+
+if [[ -z "$1" || -z "$2" || -z "$3" ]]; then
+  echo "👹 Oops! Missing arguments required for slug, distDir and buildCommand."
+  exit 1
+fi
+
+fleekConfigPath="./fleek.config.json"
+temp="$fleekConfigPath.tmp"
+
+if ! jq --arg slug "$1" --arg distDir "$2" --arg buildCommand "$3" '
+  .sites[0].slug = $slug |
+  .sites[0].distDir = $distDir |
+  .sites[0].buildCommand = $buildCommand
+' "$fleekConfigPath" > "$temp"; then
+  echo "👹 Oops! Failed to set $fleekConfigPath for some reason..."
+  exit 1
+fi
+
+if ! mv "$fleekConfigPath.tmp" "$fleekConfigPath"; then
+  echo "👹 Oops! Failed to override the $fleekConfigPath"
+  exit 1
+fi
+
+if ! rm "$temp"; then
+  echo "⚠️ WARNING: Failed to remove $temp file"
+fi
+
+echo "🔍 The $fleekConfigPath content is:"
+cat "$fleekConfigPath"
+echo
+
+echo "✅ Completed fleek config setup!"
+

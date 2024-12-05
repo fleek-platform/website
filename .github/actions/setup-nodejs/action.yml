@@ -1,0 +1,17 @@
+name: 🤖 Setup Nodejs
+
+runs:
+  using: 'composite'
+  steps:
+    - uses: pnpm/action-setup@v3
+      name: Install pnpm
+      id: pnpm-install
+      with:
+        version: 9
+        run_install: false
+
+    - name: Setup node
+      uses: actions/setup-node@v4
+      with:
+        node-version: 20
+        cache: 'pnpm'

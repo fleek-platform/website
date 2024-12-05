@@ -1,0 +1,67 @@
+#!/bin/bash
+
+ghToken="$1"
+orgRepo="$2"
+targetArtifactFilename="$3"
+outputFilename="$4"
+
+if [[ -z "$1" || -z "$2" || -z "$3" || -z "$4" ]]; then
+  echo "👹 Oops! Missing arguments, e.g. github token, organisation repository, artifact name, etc"
+  exit 1
+fi
+
+result=$(curl -sL \
+  -H "Accept: application/vnd.github+json" \
+  -H "Authorization: Bearer $ghToken" \
+  -H "X-GitHub-Api-Version: 2022-11-28" \
+  "https://api.github.com/repos/$orgRepo/actions/artifacts")
+
+if [[ -z "$result" ]]; then
+  echo "👹 Oops! The request for artifacts API has an unexpected response $result"
+  exit 1
+fi
+
+countMatchingFilename=$(echo "$result" | jq "[.artifacts[] | select(.name == \"$targetArtifactFilename\")] | length")
+
+if [[ "$countMatchingFilename" -eq 0 ]]; then
+  echo "👹 Oops! Didn't find any artifacts of name $targetArtifactFilename"
+  exit 1
+fi
+
+echo "✅ Found $countMatchingFilename artifact matches for name $targetArtifactFilename"
+
+filteredByFilename=$(echo "$result" | jq "[.artifacts[] | select(.name == \"$targetArtifactFilename\")]")
+
+if [[ -z "$filteredByFilename" ]]; then
+  echo "👹 Oops! Failed to get the latest artifact from response $result"
+  exit 1
+fi
+
+latestArtifact=$(echo "$filteredByFilename" | jq 'sort_by(.created_at) | reverse | .[0]')
+
+if [[ -z "$latestArtifact" ]]; then
+  echo "👹 Oops! Failed to get the latest artifact from response $result"
+  exit 1
+fi
+
+latestArtifactId=$(echo "$latestArtifact" | jq '.id')
+latestArtifactName=$(echo "$latestArtifact" | jq '.name')
+
+if [[ -z "$latestArtifactId" ]]; then
+  echo "👹 Oops! Failed to get the latest artifact id from response $latestArtifact"
+  exit 1
+fi
+
+echo "✅ Got artifact id $latestArtifactId of name $latestArtifactName"
+
+if ! curl -sL \
+  -H "Accept: application/vnd.github+json" \
+  -H "Authorization: Bearer $ghToken" \
+  -H "X-GitHub-Api-Version: 2022-11-28" \
+  "https://api.github.com/repos/$orgRepo/actions/artifacts/$latestArtifactId/zip" \
+  --output "$outputFilename"; then
+  echo "👹 Oops! Failed download the artifact id $latestArtifactId"
+  exit 1
+fi
+
+echo "✅ Downloaded artifact $outputFilename"
