@@ -54,7 +54,10 @@ export const colors = {
   'red-dark-11': '#FF9592',
 
   'neutral-1': '#111111',
+  'neutral-2': '#222222',
+  'neutral-4': '#2a2a2a',
   'neutral-6': '#3a3a3a',
+  'neutral-7': '#424242',
   'neutral-8': '#606060',
   'neutral-9': '#6e6e6e',
   'neutral-11': '#B4B4B4',
@@ -67,6 +70,9 @@ export default {
   content: ['./src/**/*.{astro,html,js,jsx,md,mdx,ts,tsx}'],
   theme: {
     extend: {
+      rotate: {
+        135: '135deg',
+      },
       minHeight: {
         container: 'calc(50vh + 6rem)',
       },
