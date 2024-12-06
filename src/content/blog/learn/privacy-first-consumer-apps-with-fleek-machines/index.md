@@ -105,8 +105,8 @@ Fleek Machines are redefining what’s possible in privacy-first computing. Be a
 
 Let’s build a better internet together, one application at a time. 🚀
 
-**More Resources:**
+**More Resources**
 
-Fleek Machines: https://fleek.xyz/blog/announcements/fleek-machines-fleek-functions/
-Fleek Functions: https://fleek.xyz/docs/platform/fleek-functions/
-Docs: https://fleek.xyz/docs/
+- Fleek Machines: https://fleek.xyz/blog/announcements/fleek-machines-fleek-functions/
+- Fleek Functions: https://fleek.xyz/docs/platform/fleek-functions/
+- Docs: https://fleek.xyz/docs/
