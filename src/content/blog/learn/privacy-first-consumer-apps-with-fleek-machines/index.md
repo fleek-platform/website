@@ -1,4 +1,3 @@
-
 ---
 title: 'Building Privacy-First Consumer Apps with Fleek Machines'
 date: 2024-12-05
