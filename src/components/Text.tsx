@@ -7,13 +7,15 @@ type TextStyle =
   | 'h3'
   | 'h4'
   | 'h5'
+  | '3xl'
+  | '2xl'
   | 'xl'
   | 'l'
   | 'm-strong'
   | 'm'
   | 'm-mid'
   | 's'
-  //   | "xs"
+  | 'xs'
   //   | "caption-text-m"
   //   | "caption-text-s"
   | 'caption-l'
@@ -43,12 +45,15 @@ const textStyles: Record<TextStyle, string> = {
   h3: 'font-sans text-40 font-medium leading-[100%] lg:text-[7.6rem]',
   h4: 'font-sans text-39 font-medium leading-[100%] lg:text-[6.1rem]',
   h5: 'font-sans text-20 md:text-25 2xl:text-39 font-medium leading-[100%]',
+  '3xl': 'text-20 font-plex-sans font-bold leading-[150%] lg:text-34',
+  '2xl': 'text-18 font-plex-sans font-bold leading-[150%] lg:text-26',
   xl: 'text-16 font-plex-sans font-normal leading-[150%] lg:text-25',
   l: 'text-16 font-plex-sans leading-[150%] lg:text-20',
   m: 'text-13 font-plex-sans leading-[150%] lg:text-16',
   'm-mid': 'text-13 font-plex-sans leading-[150%] lg:text-14 xl:text-16',
   'm-strong': 'font-plex-sans text-16 leading-[150%] font-medium',
   s: 'font-plex-sans text-10 font-medium leading-[150%] lg:text-13 lg:font-normal',
+  xs: 'text-10 font-plex-sans font-medium leading-[125%] lg:text-12',
   'caption-l':
     'font-plex-sans text-16 tracking-[0.32rem] font-medium leading-[150%] uppercase lg:tracking-[0.4rem] lg:text-20',
   'caption-m':

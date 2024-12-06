@@ -1,3 +1,4 @@
+import { cn } from '@utils/cn';
 import { Fragment } from 'react';
 
 interface AccordionItem {
@@ -6,9 +7,13 @@ interface AccordionItem {
 }
 interface AccordionProps {
   items: AccordionItem[];
+  headerClassName?: string;
 }
 
-const Accordion: React.FC<AccordionProps> = ({ items = [] }) => {
+const Accordion: React.FC<AccordionProps> = ({
+  items = [],
+  headerClassName,
+}) => {
   if (!items || items.length === 0) {
     return null;
   }
@@ -25,7 +30,10 @@ const Accordion: React.FC<AccordionProps> = ({ items = [] }) => {
             />
             <label
               htmlFor={`cb-${index}`}
-              className="group typo-m flex min-h-52 border-collapse cursor-pointer items-center justify-between px-2 text-gray-dark-11"
+              className={cn(
+                'group typo-m flex min-h-52 border-collapse cursor-pointer items-center justify-between px-2 text-gray-dark-11',
+                headerClassName,
+              )}
             >
               {item.label}
               <span className="rotate-90 transform transition-transform duration-300">

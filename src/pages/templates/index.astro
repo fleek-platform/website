@@ -1,9 +1,11 @@
 ---
 import BaseHtml from '@layouts/BaseHtml.astro';
 import settings from '@base/settings.json';
-import Templates from '@components/Templates';
+import templates from '@base/templates.json';
+import Templates, { type Template } from '@components/Templates';
 
 const { title, description, image, slug } = settings.site.metadata.templates;
+const templatesArray = Object.values(templates) as Template[];
 ---
 
 <BaseHtml
@@ -17,6 +19,6 @@ const { title, description, image, slug } = settings.site.metadata.templates;
 >
   <main>
     <Templates.Header />
-    <Templates.Cards />
+    <Templates.Cards client:load templates={templatesArray} />
   </main>
 </BaseHtml>

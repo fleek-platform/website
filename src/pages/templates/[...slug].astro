@@ -1,91 +1,97 @@
 ---
-import { getCollection } from 'astro:content';
-import DocPageLayout from '../../layouts/DocPage.astro';
-
 import settings from '@base/settings.json';
-import { generateSidebarDSByUserOrder } from '@utils/generateSidebarDS';
-import { capitalizeFirstLetter } from '@utils/capitalizeFirstLetter';
-export interface DocsLink {
-  category: string;
-  title: string;
-  slug: string;
-}
+import templates from '@base/templates.json';
+import BaseHtml from '@layouts/BaseHtml.astro';
+import Templates, { type Template } from '@components/Templates';
 
 export async function getStaticPaths() {
-  // Get all the docs and sort them the same way as the Sidebar
-  const docsEntries = await getCollection('docs');
-  const orderBy = settings.docs.menu.order;
-  const sidebarSorted = generateSidebarDSByUserOrder(docsEntries, orderBy);
-
-  // Flatten the sidebarSorted structure
-  const flatSidebar = sidebarSorted.reduce((acc: DocsLink[], category) => {
-    // If there are subroutes for this category
-    if (category.list.length) {
-      category.list.forEach((item) => {
-        acc.push({
-          category: category.category,
-          slug:
-            category.slug === item.slug
-              ? `${item.slug}`
-              : `${category.slug}/${item.slug}`,
-          title: item.title,
-        });
-      });
-    } else {
-      // If it's a standalone page with no subroutes
-      acc.push({
-        category: category.category,
-        slug: category.slug,
-        title: category.title as string,
-      });
-    }
-
-    return acc;
-  }, []);
-
-  return docsEntries.map((entry) => {
-    const currentIndex = flatSidebar.findIndex(
-      (item) => item.slug === entry.slug,
-    );
-
-    // Determine previous and next items
-    const prevItem = currentIndex > 0 ? flatSidebar[currentIndex - 1] : null;
-    const nextItem =
-      currentIndex < flatSidebar.length - 1
-        ? flatSidebar[currentIndex + 1]
-        : null;
-
-    const currentCategory = flatSidebar[currentIndex]?.category;
-
-    return {
-      params: { slug: entry.slug },
-      props: { entry, prevItem, nextItem, currentCategory },
-    };
-  });
+  const templatesArray: Template[] = Object.values(templates) as Template[];
+  return templatesArray.map((template) => ({
+    params: { slug: template.slug },
+    props: { template },
+  }));
 }
 
-const { entry, prevItem, nextItem, currentCategory } = Astro.props;
-const { Content, headings } = await entry.render();
-const title = handlePageTitle('Docs');
-const pageSlug = entry.slug;
+const { template } = Astro.props;
+const { name, description, banner, slug, screenshots, fleekDeploymentUrl } =
+  template;
 
-function handlePageTitle(collection: string) {
-  if (entry.data.title && currentCategory !== 'root') {
-    const currentPageTitleCapitalized = capitalizeFirstLetter(currentCategory);
-    return ` ${collection} | ${currentPageTitleCapitalized} - ${entry.data.title}`;
-  } else {
-    return `${collection} - ${entry.data.title}`;
+// Function to fetch and decode README content
+async function fetchReadmeContent(repoOwner: string, repoSlug: string) {
+  const url = `https://api.github.com/repos/${repoOwner}/${repoSlug}/readme`;
+  const headers = {
+    'User-Agent': 'octokit.js/2.1.0 octokit-core.js/4.2.4 Mozilla/5.0',
+    Accept: 'application/vnd.github.v3+json',
+  };
+
+  const response = await fetch(url, { headers });
+  if (!response.ok) {
+    console.error(`HTTP error! status: ${response.status}`);
+    return '';
   }
+  const data = await response.json();
+  const decodedContent = Buffer.from(data.content, 'base64').toString('utf-8');
+  return decodedContent;
 }
+
+const similarTemplates = (Object.values(templates) as Template[]).filter((el) =>
+  template.similarTemplateIds.includes(el.slug),
+);
+
+// Fetch README content during build
+const readmeContent = await fetchReadmeContent(
+  template.repository.owner ?? '',
+  template.repository.slug ?? '',
+);
 ---
 
-<DocPageLayout
-  title={title}
-  description={entry.data.desc || ''}
-  pageSlug={pageSlug}
-  headings={headings}
-  prevItem={prevItem}
-  nextItem={nextItem}
+<BaseHtml
+  title={name}
+  ogMeta={{
+    title: name,
+    description,
+    image: banner,
+    slug,
+  }}
 >
-  <Content />
-</DocPageLayout>
+  <main class="container flex flex-col gap-20 sm:flex-row sm:flex-wrap">
+    <div class="flex-1">
+      <Templates.TemplateDetails.TopActions
+        templateDeploymentUrl={fleekDeploymentUrl}
+      />
+      <Templates.TemplateDetails.TemplateHero template={template} />
+    </div>
+
+    <div class="flex max-w-full flex-col gap-20 overflow-hidden sm:flex-row">
+      <div
+        class="flex min-w-0 flex-1 flex-col gap-20 sm:flex-shrink sm:flex-grow"
+      >
+        {
+          readmeContent && (
+            <Templates.TemplateDetails.TemplateReadme
+              readmeContent={readmeContent}
+            />
+          )
+        }
+        {
+          screenshots.length > 0 && (
+            <Templates.TemplateDetails.TemplateScreenshot
+              screenShotUrl={screenshots[0]}
+            />
+          )
+        }
+      </div>
+
+      <div class="flex-none sm:max-w-[242px]">
+        <Templates.TemplateDetails.TemplateSpecs template={template} />
+      </div>
+    </div>
+
+    <div class="flex-1">
+      <div class="separator my-60 border-b-1 border-b-neutral-8"></div>
+      <Templates.TemplateDetails.SimilarTemplates
+        templates={similarTemplates}
+      />
+    </div>
+  </main>
+</BaseHtml>

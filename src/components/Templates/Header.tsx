@@ -4,7 +4,7 @@ import { Button } from '@components/Button';
 
 const Header: React.FC = () => {
   return (
-    <div className="flex w-full flex-col items-center justify-center gap-[1rem]">
+    <div className="flex w-full flex-col items-center justify-center gap-[1rem] pt-[30px]">
       <Text
         as="h1"
         className="text-[16px] font-medium leading-[22px] text-neutral-11 lg:text-[16px]"
