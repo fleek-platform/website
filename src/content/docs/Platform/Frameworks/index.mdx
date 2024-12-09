@@ -46,6 +46,34 @@ Incremental Static Regeneration (ISR), Partial Prerendering and Streaming suppor
 
 We shipped [templates](https://app.fleek.xyz/templates) to get you started with building your Next.js apps on Fleek. You can also learn how about the Fleek Next.js adapter we built and how to deploy your fullstack Next.js apps with it [here](/docs/cli/fleek-next-adapter/).
 
+### Sveltekit on Fleek
+
+SvelteKit is a framework built on top of Svelte that helps you create web applications with features like routing, server-side rendering (SSR), and static site generation (SSG).
+
+#### Getting Started
+
+Deploying a SvelteKit project on Fleek is straightforward:
+
+1. Install the [`@fleek-platform/svelte-adapter`](/docs/cli/fleek-svelte-adapter) in your project.
+2. Configure the adapter in your `svelte.config.js` file.
+3. Build your app for production using `npm run build`.
+4. Deploy to Fleek Functions using the `fleek functions deploy` command.
+5. Get your Fleek URL and access your live site!
+
+#### Features of SvelteKit on Fleek
+
+:::info
+Templates for SvelteKit are also available at [Fleek templates](https://app.fleek.xyz/templates).
+:::
+
+For a smooth build and deployment, keep the following in mind:
+
+- **Pre-rendered Pages**: Static routes are pre-rendered and stored in `.fleek/static`.
+- **SSR**: Dynamic pages and APIs are bundled into `.fleek/dist` for serverless execution.
+- **Routing**: Supports both client-side navigation and server-side routing.
+- **TypeScript**: Automatically compiles TypeScript into JavaScript.
+- **Base Path**: Handles custom base paths for subdirectories or custom URLs.
+
 ### Infrastructure compatibility for popular frameworks on Fleek
 
 Below you see a table that shows infrastructure support for some of the most popular frameworks:
