@@ -7,7 +7,7 @@
     "url": "git+https://github.com/fleekxyz/fleekxyz-website.git"
   },
   "scripts": {
-    "dev": "astro dev",
+    "dev": "astro dev --port 3000",
     "start": "astro dev",
     "build": "rm -rf dist && npm run check:strict && npm run check:json && astro build && ./scripts/build/copy-video-content-src-to-dist",
     "preview": "astro preview",
@@ -51,9 +51,13 @@
     "@astrojs/react": "^3.3.2",
     "@astrojs/sitemap": "^3.1.4",
     "@astrojs/tailwind": "^5.1.0",
+    "@dynamic-labs/ethereum": "^3.9.4",
+    "@dynamic-labs/sdk-react-core": "^3.9.4",
+    "@fleek-platform/utils-token": "^0.2.2",
     "@fleekxyz/sdk": "^0.7.3",
     "@meilisearch/instant-meilisearch": "^0.17.0",
     "@microflash/remark-callout-directives": "^4.1.0",
+    "@monaco-editor/react": "^4.6.0",
     "@radix-ui/react-checkbox": "^1.1.2",
     "@tailwindcss/aspect-ratio": "^0.4.2",
     "@types/react": "^18.2.74",
@@ -77,7 +81,8 @@
     "swiper": "^11.1.0",
     "tailwind-merge": "^2.5.2",
     "tailwindcss": "^3.4.3",
-    "typescript": "^5.4.3"
+    "typescript": "^5.4.3",
+    "viem": "^2.21.55"
   },
   "devDependencies": {
     "@astrojs/ts-plugin": "^1.6.1",
@@ -112,5 +117,6 @@
   "engines": {
     "bun": ">=0.5.8",
     "node": ">=18.18.2"
-  }
+  },
+  "packageManager": "pnpm@7.32.4+sha512.82570163e98c1ff15e93e7c220416dd87eae3eac048fe406e0fd598c755cd5a4589dfd63cd42c1dfacd805cb817d0753d7c7f1739d41a159a6f3220a35c08627"
 }
