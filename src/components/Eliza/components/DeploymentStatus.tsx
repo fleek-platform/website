@@ -46,7 +46,7 @@ const DeploymentStatus: React.FC<DeploymentStatusProps> = ({
           </div>
         </>
       )}
-      {!isDeploymentComplete && deploymentStatus && (
+      {!isDeploymentComplete && (
         <div className="flex w-full flex-col gap-[16px] rounded-[12px] border-1 border-[#343434] p-[16px]">
           {Object.entries(deploymentStatus).map((entry) => {
             const [key, value] = entry;

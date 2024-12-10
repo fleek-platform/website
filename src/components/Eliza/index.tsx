@@ -1,5 +1,5 @@
-import React, { useCallback, useMemo, useRef } from 'react';
-import toast, { Toaster } from 'react-hot-toast';
+import React from 'react';
+import { Toaster } from 'react-hot-toast';
 
 import ChooseCharacterFile from './components/ChooseCharacterFile';
 import EditCharacterFile from './components/EditCharacterFile';
@@ -9,123 +9,9 @@ import ChooseEnvFile from './components/ChooseEnvFile';
 import ConfirmAgentDetails from './components/ConfirmAgentDetails.tsx';
 import DeploymentStatus from './components/DeploymentStatus.tsx';
 import DeploymentFailed from './components/DeploymentFailed.tsx';
-import {
-  useDeployAIAgent,
-  type UseDeployAIAgentProps,
-} from './hooks/useDeployAIAgent.ts';
-import {
-  getDeploymentStatus,
-  mockGetDeploymentStatus,
-  mockTriggerDeployment,
-  triggerDeployment,
-} from './api/api.ts';
-import { getCookie, setCookie } from './utils/cookies.ts';
-import {
-  SubscriptionModal,
-  useSubscriptionModal,
-} from './components/SubscriptionModal.tsx';
-import { delay } from './utils/delay.ts';
-import { useElizaFeatureFlags } from './hooks/useElizaFeatureFlags.ts';
+import { useDeployAIAgent } from './hooks/useDeployAIAgent.tsx';
 
-const AUTH_TOKEN_NAME = 'accessToken';
-
-interface StepConfig {
-  id: string;
-  condition: boolean;
-  content: React.ReactElement;
-}
-
-interface ElizaCoreProps {}
-
-const Eliza: React.FC<ElizaCoreProps> = () => {
-  const subscriptionModalCallbackRef = useRef<(value?: boolean) => void>();
-  const featureFlags = useElizaFeatureFlags([
-    'subscriptionEnabled',
-    'mocksEnabled',
-  ]);
-  const {
-    isSubscriptionModalVisible,
-    setIsSubscriptionModalVisible,
-    onlyAiModule,
-    setOnlyAiModule,
-  } = useSubscriptionModal();
-
-  const elizaIntegrations: UseDeployAIAgentProps = {
-    isUserLoggedIn: async (): Promise<boolean> => {
-      const isLoggedIn = getCookie(AUTH_TOKEN_NAME);
-      return !!isLoggedIn;
-    },
-    triggerUserLogin: async (): Promise<boolean> => {
-      // TODO: Implement actual login functionality here
-      // Import and trigger login functionality when ready
-      toast.success('You are logged in! - Pending implementation');
-      setCookie(AUTH_TOKEN_NAME, 'dummy-token', 1);
-      await delay(1000);
-
-      return true;
-    },
-    checkUserSubscription: async (): Promise<{
-      ok: boolean;
-      missingSubscription: boolean;
-      missingAiModule: boolean;
-    }> => {
-      if (!featureFlags.subscriptionEnabled) {
-        return {
-          ok: true,
-          missingSubscription: false,
-          missingAiModule: false,
-        };
-      }
-      // TODO: Implement actual subscription check here
-      // Import and trigger request to check user subscription
-      toast.error('Your subscription is invalid :( - Pending implementation');
-
-      await delay(1000);
-
-      return {
-        ok: false,
-        missingSubscription: true,
-        missingAiModule: true,
-      };
-    },
-    triggerUserSubscription: async (params?: {
-      onlyAiModule?: boolean;
-    }): Promise<boolean> => {
-      if (!featureFlags.subscriptionEnabled) {
-        return true;
-      }
-      setOnlyAiModule(params?.onlyAiModule ?? false);
-      setIsSubscriptionModalVisible(true);
-
-      const result = await new Promise<boolean | undefined>((resolve) => {
-        subscriptionModalCallbackRef.current = resolve;
-      });
-
-      return !!result;
-    },
-    triggerAgentDeployment: async (characterfile, env) => {
-      const token = getCookie(AUTH_TOKEN_NAME);
-      if (!token) return { ok: false };
-
-      const res = featureFlags.mocksEnabled
-        ? await mockTriggerDeployment(characterfile, env, token)
-        : await triggerDeployment(characterfile, env, token);
-
-      return {
-        ok: res.ok,
-        deploymentId: res?.data?.deploymentId ?? undefined,
-      };
-    },
-    getDeploymentStatus: async (deploymentId: string) => {
-      const token = getCookie(AUTH_TOKEN_NAME);
-      if (!token) throw new Error('User is not authenticated.');
-
-      return featureFlags.mocksEnabled
-        ? mockGetDeploymentStatus(deploymentId, token)
-        : getDeploymentStatus(deploymentId, token);
-    },
-  };
-
+const Eliza: React.FC = () => {
   const {
     activeStep,
     goToPreviousStep,
@@ -139,7 +25,17 @@ const Eliza: React.FC<ElizaCoreProps> = () => {
     cancelDeployment,
     deploymentStatus,
     fleekMachineUrl,
-  } = useDeployAIAgent(elizaIntegrations);
+  } = useDeployAIAgent();
+
+  const handleCharacterFileUpload = (content: string) => {
+    setCharacterFile(content);
+    goToNextStep();
+  };
+
+  const handleEnvFileUpload = (content: string) => {
+    setEnvFile(content);
+    goToNextStep();
+  };
 
   const GoBackButton = (
     <button
@@ -159,29 +55,10 @@ const Eliza: React.FC<ElizaCoreProps> = () => {
     </button>
   );
 
-  const onUploadCharacterFile = useCallback(
-    (content: string) => {
-      setCharacterFile(content);
-      goToNextStep();
-    },
-    [setCharacterFile, goToNextStep],
-  );
-
-  const onUploadEnvFile = useCallback(
-    (content: string) => {
-      setEnvFile(content);
-      goToNextStep();
-    },
-    [setEnvFile, goToNextStep],
-  );
-
-  const steps = useMemo<StepConfig[]>(
-    () => [
-      /* STEP 1 - UPLOAD characterfile */
-      {
-        id: 'upload-characterfile',
-        condition: activeStep === 1,
-        content: (
+  return (
+    <>
+      <>
+        {activeStep === 1 && (
           <Step
             title="Get started"
             description={
@@ -201,17 +78,12 @@ const Eliza: React.FC<ElizaCoreProps> = () => {
             customTopElement="Deploy an AI agent"
           >
             <ChooseCharacterFile
-              handleCharacterFileChange={onUploadCharacterFile}
+              handleCharacterFileChange={handleCharacterFileUpload}
             />
           </Step>
-        ),
-      },
+        )}
 
-      /* STEP 2 - EDIT characterfile */
-      {
-        id: 'edit-characterfile',
-        condition: activeStep === 2,
-        content: (
+        {activeStep === 2 && (
           <Step
             title="Edit characterfile"
             description="Make final edits to your characterfile. In the next step, you’ll add environment variables."
@@ -224,14 +96,9 @@ const Eliza: React.FC<ElizaCoreProps> = () => {
               className="max-w-screen-md"
             />
           </Step>
-        ),
-      },
+        )}
 
-      /* UPLOAD .env file */
-      {
-        id: 'upload-envfile',
-        condition: activeStep === 3,
-        content: (
+        {activeStep === 3 && (
           <Step
             title="Set up .env variables"
             description={
@@ -250,16 +117,11 @@ const Eliza: React.FC<ElizaCoreProps> = () => {
             }
             customTopElement={GoBackButton}
           >
-            <ChooseEnvFile handleEnvFileChange={onUploadEnvFile} />
+            <ChooseEnvFile handleEnvFileChange={handleEnvFileUpload} />
           </Step>
-        ),
-      },
+        )}
 
-      /* EDIT .env file */
-      {
-        id: 'edit-envfile',
-        condition: activeStep === 4,
-        content: (
+        {activeStep === 4 && (
           <Step
             title="Edit .env variables"
             description="Make final edits to your .env file. In the next step, you’ll confirm details ahead of a deployment."
@@ -271,14 +133,9 @@ const Eliza: React.FC<ElizaCoreProps> = () => {
               onSubmitClick={goToNextStep}
             />
           </Step>
-        ),
-      },
+        )}
 
-      /* REVIEW characterfile and .env file */
-      {
-        id: 'review-characterfile-and-envfile',
-        condition: activeStep === 5,
-        content: (
+        {activeStep === 5 && (
           <Step
             title="Confirm agent details"
             description="You'll be deploying an agent with the information below. This is the final step before your agent is deployed."
@@ -292,14 +149,9 @@ const Eliza: React.FC<ElizaCoreProps> = () => {
               onSubmitClick={goToNextStep}
             />
           </Step>
-        ),
-      },
+        )}
 
-      /* HANDLE deployment and show results */
-      {
-        id: 'handle-deployment',
-        condition: !isDeploymentFailed && activeStep === 6,
-        content: (
+        {activeStep === 6 && !isDeploymentFailed && (
           <Step
             title={
               !isDeploymentSuccessful
@@ -325,62 +177,32 @@ const Eliza: React.FC<ElizaCoreProps> = () => {
               fleekMachineUrl={fleekMachineUrl}
             />
           </Step>
-        ),
-      },
+        )}
+      </>
 
-      /* HANDLE deployment failure */
-      {
-        id: 'handle-deployment-failure',
-        condition: isDeploymentFailed && activeStep === 6,
-        content: (
-          <Step
-            title={
-              deploymentStatus &&
-              !Object.values(deploymentStatus).some(
-                (status) => status === 'failed',
-              )
-                ? 'Deployment failed'
-                : 'We found an issue'
-            }
-            description={
-              deploymentStatus &&
-              !Object.values(deploymentStatus).some(
-                (status) => status === 'failed',
-              )
-                ? 'There was an issue with the deployment of your AI agent. Please try again, edit info from a previous step or contact Fleek support.'
-                : 'Refer to the below error to continue with your deployment. If the error requires an edit, return to a previous step before retrying.'
-            }
-            customTopElement={GoBackButton}
-          >
-            <DeploymentFailed
-              onRetryClick={goToPreviousStep}
-              deploymentStatus={deploymentStatus}
-            />
-          </Step>
-        ),
-      },
-    ],
-    [
-      activeStep,
-      isDeploymentFailed,
-      onUploadCharacterFile,
-      onUploadEnvFile,
-      setCharacterFile,
-      setEnvFile,
-      goToNextStep,
-      goToPreviousStep,
-      deploymentStatus,
-      fleekMachineUrl,
-    ],
-  );
-
-  return (
-    <>
-      {steps.map(
-        (step) =>
-          step.condition && (
-            <React.Fragment key={step.id}>{step.content}</React.Fragment>
-          ),
+      {activeStep === 6 && isDeploymentFailed && (
+        <Step
+          title={
+            !Object.values(deploymentStatus).some(
+              (status) => status === 'failed',
+            )
+              ? 'Deployment failed'
+              : 'We found an issue'
+          }
+          description={
+            !Object.values(deploymentStatus).some(
+              (status) => status === 'failed',
+            )
+              ? 'There was an issue with the deployment of your AI agent. Please try again, edit info from a previous step or contact Fleek support.'
+              : 'Refer to the below error to continue with your deployment. If the error requires an edit, return to a previous step before retrying.'
+          }
+          customTopElement={GoBackButton}
+        >
+          <DeploymentFailed
+            onRetryClick={goToPreviousStep}
+            deploymentStatus={deploymentStatus}
+          />
+        </Step>
       )}
       <Toaster
         position="bottom-right"
@@ -391,12 +213,6 @@ const Eliza: React.FC<ElizaCoreProps> = () => {
             fontSize: '12px',
           },
         }}
-      />
-      <SubscriptionModal
-        isVisible={isSubscriptionModalVisible}
-        setIsVisible={setIsSubscriptionModalVisible}
-        onlyAiModule={onlyAiModule}
-        onSuccess={subscriptionModalCallbackRef.current}
       />
     </>
   );

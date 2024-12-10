@@ -52,11 +52,15 @@ const FileUpload: React.FC<FileUploadProps> = ({
     setErrorMessage(null);
     const extensionRegex = getFileExtension(fileType);
 
-    if (fileType === 'json' && !extensionRegex.test(file.name)) {
-      setErrorMessage('Please upload a valid characterfile.');
+    // Check if the file's MIME type is allowed
+    if (!allowedMimeTypes[fileType].includes(file.type)) {
+      setErrorMessage(`Please upload a valid ${fileType.toUpperCase()} file.`);
       return;
-    } else if (!allowedMimeTypes[fileType].includes(file.type)) {
-      setErrorMessage(`Please upload a valid .${fileType} file.`);
+    }
+
+    // Only enforce the extension for JSON files
+    if (fileType === 'json' && !extensionRegex.test(file.name)) {
+      setErrorMessage('Please upload a valid JSON file.');
       return;
     }
 
@@ -103,10 +107,7 @@ const FileUpload: React.FC<FileUploadProps> = ({
     setIsDragging(false);
   };
 
-  const handleButtonClick = (
-    e: React.MouseEvent<HTMLDivElement | HTMLButtonElement>,
-  ) => {
-    e?.stopPropagation?.();
+  const handleButtonClick = () => {
     fileInputRef.current?.click();
   };
 
@@ -115,9 +116,8 @@ const FileUpload: React.FC<FileUploadProps> = ({
       onDrop={handleDrop}
       onDragOver={handleDragOver}
       onDragLeave={handleDragLeave}
-      onClick={handleButtonClick}
       className={cn(
-        `mb-4 flex min-h-[200px] w-full cursor-pointer flex-col items-center justify-center gap-[12px] rounded-[12px] border-2 border-dashed px-50 py-50 text-center text-[#EEE] md:min-h-[372px]`,
+        `mb-4 flex min-h-[200px] w-full flex-col items-center justify-center gap-[12px] rounded-[12px] border-2 border-dashed px-50 py-50 text-center text-[#EEE] md:min-h-[372px]`,
         isDragging
           ? 'border-[#FFD700] bg-[#1A1A1A]'
           : 'border-[#F5E147] bg-transparent',

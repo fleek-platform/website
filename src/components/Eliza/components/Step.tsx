@@ -36,9 +36,7 @@ const Step: React.FC<StepProps> = ({
         {description}
       </h2>
 
-      <div className="flex w-full flex-col items-center font-plex-sans">
-        {children}
-      </div>
+      <div className="flex w-full flex-col items-center">{children}</div>
     </div>
   );
 };

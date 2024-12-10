@@ -27,13 +27,13 @@ const DeploymentFailed: React.FC<DeploymentFailedProps> = ({
       <div className="flex w-full flex-col gap-[10px]">
         <button
           onClick={onRetryClick}
-          className="h-[40px] w-full rounded-[12px] bg-[#2D2305] text-[16px] font-medium leading-[40px] text-[#F5E147]"
+          className="text-medium h-[32px] w-full rounded-[8px] bg-[#2D2305] text-[#F5E147]"
         >
           Retry deployment
         </button>
         <a
           href="/support/"
-          className="h-[40px] w-full rounded-[12px] border-1 border-[#606060] text-center text-[16px] font-medium leading-[40px]"
+          className="text-medium h-[32px] w-full rounded-[8px] border-1 border-[#606060] text-center leading-[30px]"
         >
           Contact support
         </a>

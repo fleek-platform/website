@@ -3,24 +3,6 @@ import Editor, { type Monaco } from '@monaco-editor/react';
 import { cn } from '@utils/cn';
 import { Expand } from './Icons';
 
-interface Marker {
-  severity: number;
-  message: string;
-  startLineNumber: number;
-  startColumn: number;
-  endLineNumber: number;
-  endColumn: number;
-}
-
-interface CodeAction {
-  title: string;
-  diagnostics: Marker[];
-  edit: {
-    edits: any[];
-  };
-  kind: string;
-}
-
 const DEFAULT_EDITOR_HEIGHT = 40; //vh
 const COLLAPSED_EDITOR_HEIGHT = 226; //px
 
@@ -51,10 +33,17 @@ const FileEditor: React.FC<FileEditorProps> = ({
 
   const editorHeight = useMemo(() => {
     if (variant === 'narrow') {
-      return isExpanded ? `${contentHeight}px` : `${COLLAPSED_EDITOR_HEIGHT}px`;
+      const currentContentHeight =
+        editorRef?.current?.getContentHeight &&
+        `${editorRef?.current?.getContentHeight() + 10}px`;
+
+      return !isExpanded
+        ? COLLAPSED_EDITOR_HEIGHT
+        : (currentContentHeight ?? `${DEFAULT_EDITOR_HEIGHT}vh`);
     }
+
     return `${DEFAULT_EDITOR_HEIGHT}vh`;
-  }, [isExpanded, variant, contentHeight]);
+  }, [isExpanded, variant]);
 
   const handleEditorWillMount = (monaco: Monaco) => {
     registerFleekTheme(monaco);
@@ -72,12 +61,12 @@ const FileEditor: React.FC<FileEditorProps> = ({
 
     updateContentHeight();
 
-    const contentSizeChangeSubscription = editor.onDidContentSizeChange(() => {
+    editor.onDidChangeModelContent(() => {
       updateContentHeight();
     });
 
     if (fileType === 'env') {
-      registerEnvLanguage(monaco);
+      registerEnvLanguage(monaco, editor);
     }
 
     const model = editor.getModel();
@@ -95,17 +84,10 @@ const FileEditor: React.FC<FileEditorProps> = ({
           console.error('Error formatting document on mount:', error);
         });
     }
-
-    return () => {
-      contentSizeChangeSubscription.dispose();
-    };
   };
 
-  const handleValidation = (markers: Marker[]) => {
-    const MarkerSeverityError = 8;
-    const hasErrors = markers.some(
-      (marker) => marker.severity === MarkerSeverityError,
-    );
+  const handleValidation = (markers: any[]) => {
+    const hasErrors = markers.some((marker) => marker.severity === 8);
     onValidation?.(!hasErrors);
   };
 
@@ -144,12 +126,12 @@ const FileEditor: React.FC<FileEditorProps> = ({
       {variant === 'narrow' && contentHeight > COLLAPSED_EDITOR_HEIGHT && (
         <button
           onClick={() => setIsExpanded((prev) => !prev)}
-          className="absolute bottom-[18px] right-[18px] flex h-[24px] flex-row items-center gap-[4px] rounded-[8px] bg-[#222222] px-[8px] text-[12px] leading-[16px] text-[#b4b4b4] hover:bg-[#282828] hover:text-[#e2e2e2]"
-          aria-label={isExpanded ? 'Collapse editor' : 'Expand editor'}
+          className="absolute bottom-[18px] right-[18px] flex h-[24px] flex-row items-center gap-[4px]  rounded-[8px]  bg-[#222222] px-[8px] text-[12px] leading-[16px] text-[#b4b4b4] hover:bg-[#282828] hover:text-[#e2e2e2]"
         >
           <Expand />
-
-          {isExpanded ? expandedButtonLabel : collapsedButtonLabel}
+          <span className="pt-4">
+            {isExpanded ? expandedButtonLabel : collapsedButtonLabel}
+          </span>
         </button>
       )}
     </div>
@@ -177,17 +159,14 @@ const registerFleekTheme = (monaco: Monaco) => {
   });
 };
 
-const registerEnvLanguage = (monaco: Monaco) => {
+const registerEnvLanguage = (monaco: Monaco, editor: Monaco) => {
   monaco.languages.register({ id: 'env' });
 
   monaco.languages.setMonarchTokensProvider('env', {
     tokenizer: {
       root: [
         [/^\s*#.*$/, 'comment'],
-        [/^\s*[A-Za-z_][A-Za-z0-9_]*\s*=\s*.*$/, 'key.value.env'],
-        [/[A-Za-z_][A-Za-z0-9_]*/, 'variable.env'],
-        [/=/, 'operator.env'],
-        [/.*/, 'invalid.env'],
+        [/^\s*[A-Z_]+\s*=\s*.*$/, 'variable'],
       ],
     },
   });
@@ -198,8 +177,8 @@ const registerEnvLanguage = (monaco: Monaco) => {
         .getValue()
         .split('\n')
         .map((line) => {
-          const match = line.match(/^(\s*[A-Za-z_][A-Za-z0-9_]*\s*)=(\s*.*)$/);
-          return match ? `${match[1].trim()}=${match[2].trim()}` : line;
+          const [key, value] = line.split('=');
+          return key && value ? `${key.trim()}=${value.trim()}` : line;
         })
         .join('\n');
       return [{ range: model.getFullModelRange(), text: formatted }];
@@ -208,66 +187,35 @@ const registerEnvLanguage = (monaco: Monaco) => {
 
   monaco.languages.registerCodeActionProvider('env', {
     provideCodeActions: (model, range, context, token) => {
-      const markers: Marker[] = [];
-      const codeActions: CodeAction[] = [];
+      const markers: any[] = [];
       const lines = model.getValue().split('\n');
-
-      const meaningfulLines = lines.filter(
-        (line) => line.trim() && !line.trim().startsWith('#'),
-      );
-
-      if (meaningfulLines.length === 0) {
-        return { actions: codeActions, dispose: () => {} };
-      }
-
-      meaningfulLines.forEach((line, index) => {
+      lines.forEach((line, index) => {
         const trimmedLine = line.trim();
         if (
           trimmedLine &&
           !trimmedLine.startsWith('#') &&
           !trimmedLine.includes('=')
         ) {
-          const lineLength = line.length;
           markers.push({
             severity: monaco.MarkerSeverity.Error,
             message: 'Missing "=" in key-value pair',
             startLineNumber: index + 1,
             startColumn: 1,
             endLineNumber: index + 1,
-            endColumn: lineLength + 1,
-          });
-
-          codeActions.push({
-            title: 'Insert "="',
-            diagnostics: [
-              {
-                ...markers[markers.length - 1],
-              },
-            ],
-            edit: {
-              edits: [
-                {
-                  resource: model.uri,
-                  edits: [
-                    {
-                      range: new monaco.Range(
-                        index + 1,
-                        lineLength + 1,
-                        index + 1,
-                        lineLength + 1,
-                      ),
-                      text: '=',
-                    },
-                  ],
-                },
-              ],
-            },
-            kind: 'quickfix',
+            endColumn: line.length + 1,
           });
         }
       });
-
       monaco.editor.setModelMarkers(model, 'env', markers);
+
+      const codeActions = markers.map((marker) => ({
+        title: marker.message,
+        diagnostics: [marker],
+        edit: {
+          edits: [],
+        },
+        kind: 'quickfix',
+      }));
 
       return {
         actions: codeActions,
