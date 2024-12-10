@@ -8,6 +8,8 @@ import { RxHamburgerMenu } from 'react-icons/rx';
 import { isActivePath } from '@utils/url';
 import { Button } from '../Button';
 import FleekLogo from './fleek-logo.svg';
+import { AuthProvider } from '@components/AuthProvider/AuthProvider';
+import { useAuthentication } from '@components/AuthProvider/useAuthentication';
 
 const NavbarMobileItem: React.FC<NavMenuItem> = ({
   label,
@@ -293,29 +295,38 @@ export const Navbar: React.FC<NavbarProps> = ({
           </section>
         </div>
         <section className="flex items-center gap-8">
-          <Button
-            variant="secondary"
-            size="sm"
-            href="https://app.fleek.xyz"
-            rel="noopener noreferrer"
-            target={Target.Blank}
-          >
-            Log in
-          </Button>
-          <Button
-            variant="tertiary"
-            size="sm"
-            href="https://app.fleek.xyz"
-            rel="noopener noreferrer"
-            target={Target.Blank}
-          >
-            Sign up
-          </Button>
+          <AuthProvider>
+            <SessionManagementActions />
+          </AuthProvider>
           <div className="md:hidden">
             <NavbarMobile />
           </div>
         </section>
       </nav>
     </div>
+  );
+};
+
+const SessionManagementActions: React.FC = () => {
+  const { isAuthenticated, logout, triggerUserLogin, isAuthenticating } =
+    useAuthentication();
+  return (
+    <>
+      {isAuthenticated && (
+        <Button variant="ghost" size="sm" onClick={logout}>
+          Logout
+        </Button>
+      )}
+      {(!isAuthenticated || isAuthenticating) && (
+        <>
+          <Button variant="secondary" size="sm" onClick={triggerUserLogin}>
+            Log in
+          </Button>
+          <Button variant="tertiary" size="sm" onClick={triggerUserLogin}>
+            Sign up
+          </Button>
+        </>
+      )}
+    </>
   );
 };
