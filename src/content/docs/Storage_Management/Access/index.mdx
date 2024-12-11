@@ -7,168 +7,95 @@ desc: Welcome to the documentation of Fleek.xyz. Whether you are an expert or an
 
 import { Button } from '@components/Button';
 import DocIntroCard from '@components/DocIntroCard';
+import Tabs from '@components/Tabs.astro';
+import TabItem from '@components/TabItem.astro';
 
-# ![](./docs-hero-fleek.svg)
+## List your Fleek Functions
 
-## Welcome to Fleek
+Learn how to list all the Fleek Functions that you have created.
 
-Fleek is an edge-optimized cloud platform that allows users to build, host, and deploy websites and applications efficiently, empowering developers to create fast and high-performing apps.
+<Tabs>
+<TabItem title="Platform">
+## Accessing a file or directory
 
-Fleek is powered by the edge-optimized cloud network known as [Fleek Network](/docs/infrastructure/) and it gives access to a variety of features and capabilities that makes it easy to manage cloud infrastructure.
+1. Locate the file or directory in the Files section.
+2. Click on the three-dot icon in the row corresponding to the file or directory.
+3. Select the Copy URL option. This will copy the URL to your clipboard, enabling you to access the file or directory via IPFS gateways.
+4. Optionally, you can set up a custom domain for a more performant and branded experience by following the steps in the [Gateways](/docs/cli/gateways/) section of the documentation.
 
-{/* {{Image mashup showing the platform, sdk and cli vibe or just a short video}} */}
+## Content addressing
 
-<div className="my-12 bg-gray-dark-6 p-[1px]" />
+All files stored on Fleek are content-addressable using IPFS. Each file will receive a unique, immutable IPFS content hash, making it addressable in a standard web3 format.
 
-## Quickstart
+- Example IPFS hash: QmX4XRaPP6jBSDiYr3tK7fEBWSA5QURS8WZ87ZvPRJgAqK
+- Files can be accessed through Fleek's gateways or a public gateway like `ipfs.io/ipfs/<yourhash>`.
 
-Pick your learning path and choose from the various products, frameworks and guides Fleek offers.
+For dynamically changing content, you can use IPNS to map dynamic IPFS hashes to a static record. See the [CLI](/docs/cli) or [SDK](/docs/sdk/) sections for more information on managing IPNS records.
 
-### Features
+</TabItem>
 
-<div className='grid grid-cols-1 lg:grid-cols-2 gap-12 mb-12'>
+<TabItem title="CLI">
 
-<DocIntroCard
-  title="Hosting on Fleek"
-  description="Easily upload, maintain, store and serve apps on one unified interface"
-  href="/docs/platform/hosting"
-/>
-<DocIntroCard
-  title="Fleek Functions"
-  description="Execute server-side code using Fleek Network’s on-chain cloud infrastructure"
-  href="/docs/platform/fleek-functions"
-/>
-<DocIntroCard
-  title="Fullstack Next.js on Fleek"
-  description="Enables seamless deployment of server-side Next.js applications on Fleek"
-  href="/docs/cli/fleek-next-adapter"
-/>
-<DocIntroCard
-  title="Fleek Edge SGX"
-  description="Enable secure compute capabilities using Trusted Execution Environments (TEEs)"
-  href="/docs/cli/edge-sgx"
-/>
-<DocIntroCard
-  title="Fleek CLI"
-  description="Interact with all our product services directly from your terminal"
-  href="/docs/cli/"
-/>
-<DocIntroCard
-  title="Fleek SDK"
-  description="TypeScript library that allows you to interact with Fleek’s services"
-  href="/docs/sdk/"
-/>
+The **list** command gives the user a list of files or directories in the Fleek Storage for the current project.
 
-</div>
-### Frameworks
+To view the table run the command:
 
-<div className="mb-12 grid grid-cols-2 gap-12 lg:grid-cols-3">
-  <DocIntroCard
-    title="Next.js"
-    href="https://app.fleek.xyz/templates/cm337u3fd000d5dlytu1llarf/"
-    icon="/svg/nextjs-icon.svg"
-  />
-  <DocIntroCard
-    title="Astro"
-    href="https://app.fleek.xyz/templates/clx3f5nem000333n7acqcxiwj/"
-    icon="/svg/astro-icon.svg"
-  />
-  <DocIntroCard
-    title="Gatsby"
-    href="https://app.fleek.xyz/templates/clx3g0ol70001oewqgw7k7knx/"
-    icon="/svg/gatsby-icon.svg"
-  />
-  <DocIntroCard
-    title="Nuxt"
-    href="https://app.fleek.xyz/templates/clx3hq2e20001vm7ee9wd81o4/"
-    icon="/svg/nuxt-icon.svg"
-  />
-  <DocIntroCard
-    title="Vue"
-    href="https://app.fleek.xyz/templates/clx3gdagl0001byl7romw0ynd/"
-    icon="/svg/vue-icon.svg"
-  />
-  <DocIntroCard
-    title="Hugo"
-    href="https://app.fleek.xyz/templates/clx3f5nem000333n7acqcxiwj/"
-    icon="/svg/hugo-icon.svg"
-  />
-</div>
+```sh
+fleek storage list
+```
 
-[Click here](https://app.fleek.xyz/templates) to explore more frameworks and templates on Fleek.
-You can also submit your own templates to be used and followed by developers on Fleek.
+You should get table similar to:
 
-<div className="my-12 bg-gray-dark-6 p-[1px]" />
+```sh
+filename            cid        filecoin id      arweave id      link
+----------------------------------------------------------------------------------------------------
+hello-world.txt     baf...x3a  -                -               https://<CID>.ipfs.cf-ipfs.com
+hello-world.txt     baf...kia  -                -               https://<CID>.ipfs.cf-ipfs.com
+john-coltrane.mp3   baf...yu2  -                -               https://<CID>.custom-domain.xyz
+```
 
-## Help and Tutorials
+## Get a storage file
 
-Find links to useful resources to help get started, understand a concept or to get yourself onboarded
-to using Fleek for building edge-optimized applications.
+You can retrieve files or directories from Fleek Storage by providing a Name or a CID. Use the list table to identify the files you are interested in.
 
-{/* ### Videos to help you with Fleek */}
+:::note
+Currently, the data isn't downloaded, a table is presented instead. For single files, you can lookup for the content URL and use cURL and pipe to a local file.
 
-- [Quickly Deploy A Next.js App To IPFS Using Fleek CLI](https://www.youtube.com/watch?v=ZR6hoLODDvI)
-- [Deploy an Astro App to IPFS Using Fleek CLI](https://www.youtube.com/watch?v=PejRu-zaJtY)
-- [Fleek & Fleek Network in 10 Minutes - Explainer](https://www.youtube.com/watch?v=1zwwyTQ8JIM)
-- [Pin Files on IPFS Using the Fleek SDK In Minutes](https://www.youtube.com/watch?v=2OzwtDH7K0A)
+```sh
+curl https://<CID>.ipfs.flk-ipfs.xyz > hello-world.txt
+```
 
-### Guides
+:::
 
-In this section, you'll find helpful guides designed to assist you with the most commonly-encountered tasks on Fleek. For a deeper understanding and more extensive information, our documentation is available to provide further insights and support.
+Use the flag --cid to retrieve a file by its CID.
 
-To get up to speed with deploying your website or application, check out the below guides:
+```sh
+fleek storage \
+  get --cid <CID>
+```
 
-- [Deploy a React app](/docs/platform/frameworks#host-a-react-app)
-- [Deploy an Astro website](/docs/platform/frameworks#host-a-react-app)
+Use the flag --name to retrieve a file by its Name.
 
-For all of our guides and more, visit our guides section:
+```sh
+fleek storage \
+  get --name <FILENAME>
+```
 
-<div className="w-fit">
-  <Button
-    variant="secondary"
-    href="/guides"
-    target="_blank"
-    rel="noopener noreferrer"
-  >
-    View guides
-  </Button>
-</div>
+For example, let's say that we'd like to retrieve the file of the pseudo CID xyz:
 
-### Support Center
+```sh
+fleek storage \
+  get --cid xyz
+```
 
-Explore the Fleek Support Center for solutions to common development challenges and direct assistance, ensuring your projects run smoothly and efficiently.
+You should get table similar to:
 
-<div className="w-fit">
-  <Button
-    variant="secondary"
-    href="/support"
-    target="_blank"
-    rel="noopener noreferrer"
-  >
-    View Support Center
-  </Button>
-</div>
+```sh
+filename            cid        filecoin id      arweave id      link
+----------------------------------------------------------------------------------------------------
+john-coltrane.mp3   baf...yu2  -                -               https://<CID>.custom-domain.xyz
+```
 
-<div className="my-12 bg-gray-dark-6 p-[1px]" />
-## Connect with Us
+</TabItem>
 
-Join our community and stay up-to-date with the latest news, features, and insights from our team. Follow us on social media to receive updates, engage with our community, and share your thoughts. Connect with us on Discord for real-time conversations, support, and collaboration. Together, we're shaping the future of our service.
-
-<div className="justify-left mb-32 mt-12 flex flex-col gap-16 sm:flex-row">
-  <Button
-    variant="secondary"
-    href="https://x.com/fleek"
-    target="_blank"
-    rel="noopener noreferrer"
-  >
-    Follow us on X
-  </Button>
-  <Button
-    variant="secondary"
-    href="https://discord.gg/fleek"
-    target="_blank"
-    rel="noopener noreferrer"
-  >
-    Join our Discord
-  </Button>
-</div>
+</Tabs>

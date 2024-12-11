@@ -1,5 +1,5 @@
 ---
-order: 3
+order: 4
 title: IPFS
 date: 2023-01-10
 desc: Learn how to pin a file on IPFS using the service's primary methods. Upload files individually, in bulk, or directly from your local system.

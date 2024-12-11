@@ -1,5 +1,5 @@
 ---
-order: 1
+order: 2
 title: Projects
 date: 2023-01-10
 desc: Create, list, and retrieve project details using the SDK, ensuring seamless integration with IPFS storage & IPNS services.

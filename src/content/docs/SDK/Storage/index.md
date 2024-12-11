@@ -1,5 +1,5 @@
 ---
-order: 2
+order: 3
 title: Storage
 date: 2023-01-10
 desc: Learn how to use the Storage service via the Fleek Platform SDK.
@@ -128,7 +128,7 @@ const onUploadProgress = ({ loadedSize, totalSize }: UploadProgress) => {
 };
 ```
 
-## list
+## List
 
 The `list` is an asynchronous function designed to get a list of files uploaded to a projects storage.
 
