@@ -163,44 +163,40 @@
     "menu": {
       "order": [
         {
-          "category": "Platform",
+          "category": "Hosting",
           "order": 1
         },
         {
-          "category": "Hosting",
+          "category": "Fleek_Functions",
           "order": 2
         },
         {
-          "category": "Fleek_Network",
+          "category": "Frameworks",
           "order": 3
         },
         {
-          "category": "SDK",
+          "category": "Storage_Management",
           "order": 4
         },
         {
-          "category": "Storage_Management",
+          "category": "SDK",
           "order": 5
         },
         {
-          "category": "Fleek_Functions",
+          "category": "Fleek_Network",
           "order": 6
         },
         {
-          "category": "Edge_SGX_and_Security",
+          "category": "Other_Features",
           "order": 7
         },
         {
-          "category": "Integrations",
+          "category": "FAQ",
           "order": 8
         },
         {
-          "category": "FAQ",
-          "order": 9
-        },
-        {
           "category": "Community_and_Support",
-          "order": 10
+          "order": 9
         }
       ],
       "customTitlesByDirectoryName": {}

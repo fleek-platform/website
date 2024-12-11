@@ -1,0 +1,138 @@
+---
+order: 6
+title: Git Integrations
+date: 2024-07-31
+desc: An overview of Git Integrations on Fleek
+---
+
+import Tabs from '@components/Tabs.astro';
+import TabItem from '@components/TabItem.astro';
+
+# Git integrations with Fleek
+
+Fleek allows for automatic deployment on push to your repository, and provides a variety of tools to manage your application from your preferred interface.
+Updates pushed to the project-linked repository are automatically deployed through Fleek, and the triggers behind this can be controlled on a granular level through Fleek platform settings.
+
+<Tabs>
+<TabItem title="Platform">
+
+Fleek allows for automatic deployments on every branch push and merges onto the production branch of your GitHub projects.
+
+Using Git with Fleek offers numerous benefits which includes:
+
+- Automatic deployments on every branch push and merges onto the production branch of your GitHub projects.
+- The ability to manage your deployments from an interface you are already familiar with. With insights on details and deployment logs.
+- Settings for deployment like managing environment variables, custom domains, and more.
+
+The supported provider for now is [GitHub](https://github.com/), but we are working on adding support for other Git providers in the future.
+
+## Fleek CI and Fleek Templates applications
+
+The **Fleek CI** and **Fleek Templates** are the two applications that you need to install on your Github when you set up integrations with Fleek.
+
+The Fleek CI app is used for automatic deployments on every branch push and merges onto the production branch of your GitHub projects. The Fleek Templates app is used for managing your deployments of website templates from the Fleek collection of templates.
+
+## Managing Git integrations
+
+:::info
+The Github application buttons have 3 states - "Install App", "Authorize App", and "Active".
+:::
+
+1. Go to your Fleek dashboard and click on the 'Settings' button at the top of the page.
+
+2. Click on the 'Git Integrations' tab on the left sidebar.
+
+3. Click on the "Install App" buttons. You will be redirected to Github to install and authorize the Fleek applications.
+
+4. After authorizing the Fleek application, you will be redirected back to Fleek. The "Install App" button will now be replaced with an "Active" button.
+
+That's it! You have successfully set up Git Integrations with Fleek. You can now manage your deployments from your Github repository within Fleek!
+
+## Removing Git integrations
+
+### From GitHub
+
+You may want to remove the Git integrations from your Fleek account. To do this, Go to your [Github profile settings](https://github.com/settings/profile) and click on the 'Applications' tab on the left sidebar, you will see a list with all your installed Github applications.
+
+You can click to go to any of the Fleek applications ("Fleek Templates DEV" or "Fleek CI DEV") and click on the "Uninstall" button to remove the Fleek application.
+
+</TabItem>
+<TabItem title="CLI">
+
+# GitHub Actions
+
+Use custom GitHub Actions to deploy your site to Fleek instead of using the CLI's [Site deploy](/docs/cli/hosting/) command. This approach is suitable if you have an existing repository that you want to deploy on [Fleek Platform](https://fleek.xyz).
+
+The Fleek-platform CLI can generate a GitHub Action (yaml) for deploying a [Fleek Site](/docs/cli/hosting/) by automating the process of building and publishing it. It ensures that your latest changes are quickly and consistently pushed whenever you update the repository, e.g. on main branch update.
+
+### Create a GitHub Action for Fleek Sites deployment
+
+First, ensure that you have initialized a [Fleek Site](/docs/hosting/), if you haven't done already you can learn about it [here](/docs/cli/hosting/).
+
+After initializing a Fleek Site, you can run the `ci` (Continuous Integration) command:
+
+```sh
+fleek sites ci
+```
+
+A wizard will guide you to create a GitHub Action configuration file of type `json`, `js` or `ts`, e.g. `fleek.config.json`.
+
+The process saves the file in the local GitHub Workflows directory. You can optionally customize the path.
+
+```sh
+.github/workflows/fleek-deploy.yaml
+```
+
+### Configure the GitHub repository settings
+
+On [Create a GitHub Action](#create-a-github-action) completion, the wizard will display the `token` and `projectId` to have configured in the GitHub repository settings, e.g. [GitHub Secrets](https://docs.github.com/en/actions/security-for-github-actions/security-guides/using-secrets-in-github-actions).
+
+Here's an example:
+
+```sh
+Name              Value
+-------------------------------------------
+FLEEK_TOKEN       <PERSONAL-ACCESS-TOKEN>
+FLEEK_PROJECT_ID  <PROJECT-ID>
+```
+
+:::note
+You can create your own GitHub Action with any necessary customizations; The Fleek-platform CLI's generated GitHub Action provides a starting point for deploying your site to Fleek.
+:::
+
+Next, you can navigate to the GitHub's Actions tab. Commit and push a change to your repository in order to trigger the Fleek CI to be executed.
+
+You can access the Actions tab of you repository at `https://github.com/<ORGANIZATION>/<REPOSITORY-NAME>`, e.g. for the Fleek's Website [repository](https://github.com/fleek-platform/website) you'd access it [here](https://github.com/fleek-platform/website/actions).
+
+### Migrating from Fleek.co to Fleek-platform CLI
+
+Users migrating from Fleek.co should adapt their setup to use the Fleek Platform instructions described [here](#create-a-github-action-for-fleek-sites-deployment).
+
+Alternatively, you can use the following as a reference to perform the required changes.
+
+1. Backup the original Fleek deploy yaml file.
+
+```sh
+git mv .github/workflows/deploy.yml .github/workflows/deploy.yml.bak
+```
+
+You can delete this file later. But keep it as a reference to move any customization to the new GitHub Action.
+
+2. Remove the secret `FLEEK_API_KEY` from GitHub's repository secrets, read the documentation [here](https://docs.github.com/en/actions/security-for-github-actions/security-guides/using-secrets-in-github-actions)
+
+3. Generate a new GitHub Action as instructed [here](#create-a-github-action-for-fleek-sites-deployment)
+
+4. Use the step 1's backup file to copy any custom steps or commands onto the new GitHub Action file
+
+Next, you can navigate to the GitHub's Actions tab. Commit and push a change to your repository in order to trigger the Fleek CI to be executed.
+
+You can access the Actions tab of you repository at `https://github.com/<ORGANIZATION>/<REPOSITORY-NAME>`, e.g. for the Fleek's Website [repository](https://github.com/fleek-platform/website) you'd access it [here](https://github.com/fleek-platform/website/actions).
+
+5. When happy, feel free to delete the backup file
+
+```sh
+git rm .github/workflows/deploy.yml.bak
+```
+
+</TabItem>
+</Tabs>
