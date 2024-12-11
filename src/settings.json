@@ -163,40 +163,44 @@
     "menu": {
       "order": [
         {
-          "category": "Hosting",
+          "category": "Setup",
           "order": 1
         },
         {
-          "category": "Fleek_Functions",
+          "category": "Hosting",
           "order": 2
         },
         {
-          "category": "Frameworks",
+          "category": "Fleek_Functions",
           "order": 3
         },
         {
-          "category": "Storage_Management",
+          "category": "Frameworks",
           "order": 4
         },
         {
-          "category": "SDK",
+          "category": "Storage_Management",
           "order": 5
         },
         {
-          "category": "Fleek_Network",
+          "category": "SDK",
           "order": 6
         },
         {
-          "category": "Other_Features",
+          "category": "Fleek_Network",
           "order": 7
         },
         {
-          "category": "FAQ",
+          "category": "Other_Features",
           "order": 8
         },
         {
-          "category": "Community_and_Support",
+          "category": "FAQ",
           "order": 9
+        },
+        {
+          "category": "Community_and_Support",
+          "order": 10
         }
       ],
       "customTitlesByDirectoryName": {}

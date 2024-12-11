@@ -7,6 +7,8 @@ desc: Welcome to the documentation of Fleek.xyz. Whether you are an expert or an
 
 import { Button } from '@components/Button';
 import DocIntroCard from '@components/DocIntroCard';
+import Tabs from '@components/Tabs.astro';
+import TabItem from '@components/TabItem.astro';
 
 ![](./docs-hero-fleek.svg)
 
@@ -22,7 +24,16 @@ Fleek is powered by the edge-optimized cloud network known as [Fleek Network](/d
 
 ## Quickstart
 
-Pick your learning path and choose from the various products, frameworks and guides Fleek offers.
+Get started and pick your learning path and choose from the various products, frameworks and guides Fleek offers.
+
+### Setup and Installation
+
+It's extremely important for users to sign up on the Platform and install the CLI before moving forward:
+
+<div className="mb-12 grid grid-cols-1 gap-12 lg:grid-cols-2">
+  <DocIntroCard title="Setup Platform" href="/docs/setup/platform" />
+  <DocIntroCard title="Install CLI" href="/docs/setup/cli" />
+</div>
 
 ### Features
 
@@ -31,27 +42,27 @@ Pick your learning path and choose from the various products, frameworks and gui
 <DocIntroCard
   title="Hosting on Fleek"
   description="Easily upload, maintain, store and serve apps on one unified interface"
-  href="/docs/platform/hosting"
+  href="/docs/hosting"
 />
 <DocIntroCard
   title="Fleek Functions"
   description="Execute server-side code using Fleek Network’s on-chain cloud infrastructure"
-  href="/docs/platform/fleek-functions"
+  href="/docs/fleek_functions"
 />
 <DocIntroCard
   title="Fullstack Next.js on Fleek"
   description="Enables seamless deployment of server-side Next.js applications on Fleek"
-  href="/docs/cli/fleek-next-adapter"
+  href="/docs/frameworks/fullstack_nextjs"
 />
 <DocIntroCard
   title="Fleek Edge SGX"
   description="Enable secure compute capabilities using Trusted Execution Environments (TEEs)"
-  href="/docs/cli/edge-sgx"
+  href="/docs/fleek_functions/edge-sgx"
 />
 <DocIntroCard
   title="Fleek CLI"
   description="Interact with all our product services directly from your terminal"
-  href="/docs/cli/"
+  href="/docs/setup/cli"
 />
 <DocIntroCard
   title="Fleek SDK"
