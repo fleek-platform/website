@@ -7,166 +7,93 @@ desc: Welcome to the documentation of Fleek.xyz. Whether you are an expert or an
 
 import { Button } from '@components/Button';
 import DocIntroCard from '@components/DocIntroCard';
+import Tabs from '@components/Tabs.astro';
+import TabItem from '@components/TabItem.astro';
 
-## Welcome to Fleek
+## Delete or Deactivate your Fleek Functions
 
-Fleek is an edge-optimized cloud platform that allows users to build, host, and deploy websites and applications efficiently, empowering developers to create fast and high-performing apps.
+Functions can be run or stopped in the settings of the current Fleek Function. This however, does not delete the deployment of the Fleek Function from IPFS (Interplanetary File System), it just stops it from running as a Fleek Function.
 
-Fleek is powered by the edge-optimized cloud network known as [Fleek Network](/docs/infrastructure/) and it gives access to a variety of features and capabilities that makes it easy to manage cloud infrastructure.
+There are two states:
 
-{/* {{Image mashup showing the platform, sdk and cli vibe or just a short video}} */}
+- **Running**: The Fleek Function is running and live.
 
-<div className="my-12 bg-gray-dark-6 p-[1px]" />
+- **Stopped**: The Fleek Function has been taken down as a Fleek Function and can only be accessed by the Content ID (CID) from IPFS.
 
-## Quickstart
+<Tabs>
+<TabItem title="Platform">
+Fleek Functions can be deleted from the settings as well by scrolling to the bottom section of the settings page and clicking on the “Delete Function” button.
 
-Pick your learning path and choose from the various products, frameworks and guides Fleek offers.
+This surfaces a modal that prompts the user to enter the Fleek Function name and confirm the action with the “Delete function” button that is active when the name the user enters matches the one in the modal window.
 
-### Features
+</TabItem>
 
-<div className='grid grid-cols-1 lg:grid-cols-2 gap-12 mb-12'>
+<TabItem title="CLI">
 
-<DocIntroCard
-  title="Hosting on Fleek"
-  description="Easily upload, maintain, store and serve apps on one unified interface"
-  href="/docs/platform/hosting"
-/>
-<DocIntroCard
-  title="Fleek Functions"
-  description="Execute server-side code using Fleek Network’s on-chain cloud infrastructure"
-  href="/docs/platform/fleek-functions"
-/>
-<DocIntroCard
-  title="Fullstack Next.js on Fleek"
-  description="Enables seamless deployment of server-side Next.js applications on Fleek"
-  href="/docs/cli/fleek-next-adapter"
-/>
-<DocIntroCard
-  title="Fleek Edge SGX"
-  description="Enable secure compute capabilities using Trusted Execution Environments (TEEs)"
-  href="/docs/cli/edge-sgx"
-/>
-<DocIntroCard
-  title="Fleek CLI"
-  description="Interact with all our product services directly from your terminal"
-  href="/docs/cli/"
-/>
-<DocIntroCard
-  title="Fleek SDK"
-  description="TypeScript library that allows you to interact with Fleek’s services"
-  href="/docs/sdk/"
-/>
+## Delete a Fleek Function
 
-</div>
-### Frameworks
+If you determine that a Fleek Function is no longer useful to you or your project, you can delete it outright by running the following command:
 
-<div className="mb-12 grid grid-cols-2 gap-12 lg:grid-cols-3">
-  <DocIntroCard
-    title="Next.js"
-    href="https://app.fleek.xyz/templates/cm337u3fd000d5dlytu1llarf/"
-    icon="/svg/nextjs-icon.svg"
-  />
-  <DocIntroCard
-    title="Astro"
-    href="https://app.fleek.xyz/templates/clx3f5nem000333n7acqcxiwj/"
-    icon="/svg/astro-icon.svg"
-  />
-  <DocIntroCard
-    title="Gatsby"
-    href="https://app.fleek.xyz/templates/clx3g0ol70001oewqgw7k7knx/"
-    icon="/svg/gatsby-icon.svg"
-  />
-  <DocIntroCard
-    title="Nuxt"
-    href="https://app.fleek.xyz/templates/clx3hq2e20001vm7ee9wd81o4/"
-    icon="/svg/nuxt-icon.svg"
-  />
-  <DocIntroCard
-    title="Vue"
-    href="https://app.fleek.xyz/templates/clx3gdagl0001byl7romw0ynd/"
-    icon="/svg/vue-icon.svg"
-  />
-  <DocIntroCard
-    title="Hugo"
-    href="https://app.fleek.xyz/templates/clx3f5nem000333n7acqcxiwj/"
-    icon="/svg/hugo-icon.svg"
-  />
-</div>
+```js
+fleek functions delete --name <fleek_function_name>
+```
 
-[Click here](https://app.fleek.xyz/templates) to explore more frameworks and templates on Fleek.
-You can also submit your own templates to be used and followed by developers on Fleek.
+Should you decide that a Fleek Function is no longer useful to your project, you can delete it by executing the following command:
 
-<div className="my-12 bg-gray-dark-6 p-[1px]" />
+```sh
+fleek functions delete \
+  --name <NAME>
+```
 
-## Help and Tutorials
+For example, let's delete the Fleek Function named "my-first-function":
 
-Find links to useful resources to help get started, understand a concept or to get yourself onboarded
-to using Fleek for building edge-optimized applications.
+```sh
+fleek functions delete \
+  --name my-first-function
+```
 
-{/* ### Videos to help you with Fleek */}
+On completion, you'd get a confirmation message:
 
-- [Quickly Deploy A Next.js App To IPFS Using Fleek CLI](https://www.youtube.com/watch?v=ZR6hoLODDvI)
-- [Deploy an Astro App to IPFS Using Fleek CLI](https://www.youtube.com/watch?v=PejRu-zaJtY)
-- [Fleek & Fleek Network in 10 Minutes - Explainer](https://www.youtube.com/watch?v=1zwwyTQ8JIM)
-- [Pin Files on IPFS Using the Fleek SDK In Minutes](https://www.youtube.com/watch?v=2OzwtDH7K0A)
+```sh
+✅ Success! The function has been successfully deleted.
+```
 
-### Guides
+## Deactivate functions
 
-In this section, you'll find helpful guides designed to assist you with the most commonly-encountered tasks on Fleek. For a deeper understanding and more extensive information, our documentation is available to provide further insights and support.
+To _deactivate_ such a Fleek Function, you can run the command below, replacing `<fleek_function_name>` with the name of the Fleek Function you’re deactivating.
 
-To get up to speed with deploying your website or application, check out the below guides:
+To deactivate a Fleek Function, use the command below:
 
-- [Deploy a React app](/docs/platform/frameworks#host-a-react-app)
-- [Deploy an Astro website](/docs/platform/frameworks#host-a-react-app)
+```sh
+fleek functions update \
+  --functionName <NAME> \
+  --status <STATUS>
+```
 
-For all of our guides and more, visit our guides section:
+As demonstrated in the [Managing Fleek Functions](#managing-fleek-functions) table, the available status are **ACTIVE** or **INACTIVE**. So, let's say that we'd like to _deactivate_ the "my-first-function".
 
-<div className="w-fit">
-  <Button
-    variant="secondary"
-    href="/guides"
-    target="_blank"
-    rel="noopener noreferrer"
-  >
-    View guides
-  </Button>
-</div>
+You'd want to run:
 
-### Support Center
+```sh
+fleek functions update \
+  --functionName my-fleek-function \
+  --status INACTIVE
+```
 
-Explore the Fleek Support Center for solutions to common development challenges and direct assistance, ensuring your projects run smoothly and efficiently.
+If successful, a response should be expected, as follows:
 
-<div className="w-fit">
-  <Button
-    variant="secondary"
-    href="/support"
-    target="_blank"
-    rel="noopener noreferrer"
-  >
-    View Support Center
-  </Button>
-</div>
+```sh
+✅ Success! The function has been successfully updated.
+```
 
-<div className="my-12 bg-gray-dark-6 p-[1px]" />
-## Connect with Us
+Through this action, we've deactivated a Fleek Function, choosing not to delete it.
 
-Join our community and stay up-to-date with the latest news, features, and insights from our team. Follow us on social media to receive updates, engage with our community, and share your thoughts. Connect with us on Discord for real-time conversations, support, and collaboration. Together, we're shaping the future of our service.
+:::note
+These update commands will update the _existing deployment_ of a Fleek Function rather than triggering an additional deployment.
+:::
 
-<div className="justify-left mb-32 mt-12 flex flex-col gap-16 sm:flex-row">
-  <Button
-    variant="secondary"
-    href="https://x.com/fleek"
-    target="_blank"
-    rel="noopener noreferrer"
-  >
-    Follow us on X
-  </Button>
-  <Button
-    variant="secondary"
-    href="https://discord.gg/fleek"
-    target="_blank"
-    rel="noopener noreferrer"
-  >
-    Join our Discord
-  </Button>
-</div>
+To _reactivate_ a Fleek Function you previously activated, simply run the same command but with the status set to `ACTIVE`.
+
+</TabItem>
+
+</Tabs>

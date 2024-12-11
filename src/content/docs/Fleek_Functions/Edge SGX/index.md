@@ -15,6 +15,8 @@ tags:
 
 :::warn
 The Fleek Edge SGX service is still in alpha and not recommended for production use. Currently, only Rust-based WASM modules are officially supported through the [sgxkit](https://github.com/fleek-network/lightning/tree/main/lib/sgxkit) runtime library; custom bindings are required to support additional languages.
+
+You can only access Fleek Edge SGX via the Fleek CLI.
 :::
 
 ## What is Fleek Edge SGX?
