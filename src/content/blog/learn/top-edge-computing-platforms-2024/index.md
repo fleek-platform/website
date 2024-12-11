@@ -63,24 +63,10 @@ Fleek Machines are designed for a decentralized future, with planned integration
 
 By combining the immediacy of Fleek Functions with the robust capabilities of Fleek Machines, developers can choose the perfect solution for their edge computing needs. Whether you’re building fast, serverless applications or tackling complex verifiable computations, Fleek provides the tools to succeed.
 
-<div className="py-[2rem] px-10 bg-[#d1f0d3] border border-black rounded mb-16 sm:mb-20">
-      <div className="space-y-6 sm:space-y-10">
-        <div className="flex items-center gap-2 sm:gap-3">
-          <span role="img" aria-label="lightbulb" className="text-2xl sm:text-3xl">💡</span>
-          <span className="text-black text-sm sm:text-base md:text-lg">
-            Read Fleek's official documentation of
-            <a target="_blank" href="https://fleek.xyz/docs/platform/fleek-functions/" className="!text-blue-600 hover:underline !decoration-blue-600">Functions</a>
-          </span>
-        </div>
-        <div className="flex items-center gap-2 sm:gap-3">
-          <span role="img" aria-label="link" className="text-2xl sm:text-3xl">🔗</span>
-          <span className="text-black text-sm sm:text-base md:text-lg">
-            Sign up for Fleek Machines
-            <a target="_blank" href="https://fleek.typeform.com/machinesaccess" className="!text-blue-600 underline !decoration-blue-600">early access</a>
-          </span>
-        </div>
-      </div>
-  </div>
+- Read Fleek's official documentation of [Fleek Functions]("https://fleek.xyz/docs/platform/fleek-functions/)
+- Sign up for Fleek Machines [early access](https://fleek.typeform.com/machinesaccess)
+
+---
 
 ## **Microsoft Azure Edge Services**
 
