@@ -1,5 +1,5 @@
 ---
-title: 'Building Privacy-First Consumer Apps with Fleek Machines'
+title: 'Building Privacy-First Consumer Apps with Fleek Machines | Fleek'
 date: 2024-12-05
 desc: 'Discover how Fleek Machines leverage TEEs to enable private, verified compute in consumer apps. Explore secure, scalable, and developer-friendly solutions to build privacy-first applications that protect user data.'
 thumbnail: './thumbnail.jpg'
@@ -11,15 +11,6 @@ author:
 ### **Introduction: Addressing the Internet’s Data Privacy Crisis**
 
 Today’s internet is built on the backbone of sensitive user data. From social and streaming apps to e-commerce platforms, user data powers personalization, advertising, and analytics. However, this innovation comes at a steep cost: user privacy. Rampant data collection practices have eroded trust, exposing sensitive information to leaks, unauthorized sharing, and unintended consequences like algorithmic manipulation.
-
-**Meta Title:**
-"Build Secure, Privacy-First Apps with Fleek Machines | Fleek"
-
-**Meta Description:**
-"Discover how Fleek Machines leverage Trusted Execution Environments (TEEs) to ensure data privacy in consumer apps. Explore secure, scalable, and developer-friendly solutions to build privacy-first applications that protect user data."
-
-**URL Slug:**
-"privacy-first-consumer-apps-with-fleek-machines"
 
 Trusted Execution Environments (TEEs) are the focal point in a shifting approach to data privacy, offering a path to reclaim user data privacy without compromising functionality. Fleek Machines elevate the promise of TEEs, making them accessible, dynamic, and developer-friendly. Here’s how Fleek Machines can transform the future of privacy-first consumer apps.
 
