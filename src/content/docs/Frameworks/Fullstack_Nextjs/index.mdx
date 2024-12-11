@@ -1,11 +1,22 @@
 ---
 order: 3
-title: Fleek Next Adapter
+title: Fullstack Next.js
 date: 2023-01-10
 desc: An overview of the Fleek Next Adapter, a tool that simplifies the deployment of Next.js applications to Fleek.
 ---
 
-# Fleek Next adapter
+import Tabs from '@components/Tabs.astro';
+import TabItem from '@components/TabItem.astro';
+
+# Fullstack Next.js
+
+Fleek Supports fullstack Next.js apps with the help of Fleek Next Adapter. In the following section, you will learn how using the Fleek Platform and Fleek CLI, you can leverage these capabilities to build fullstack and performant Next.js apps.
+
+<Tabs>
+
+<TabItem title="Platform">TODO: add docs</TabItem>
+
+<TabItem title="CLI">
 
 :::info
 Install the [Fleek CLI](/docs) and [login](/docs/cli/#login) locally on your machine to be able to deploy your application.
@@ -61,11 +72,11 @@ To prepare your Next.js application for deployment on Fleek, follow these steps:
 
 ### Build command options:
 
-- **-p, --project-path <path>**: Path to your Next.js project’s root directory. Defaults to the current directory.
-- **-s, --skipBuild**: Skips the build step, allowing you to build the application separately if needed. Default is false.
-- **-i, --skipInstallation**: Skips dependency installation. Default is false.
-- **-c, --clean**: Clears any previous build artifacts before building.
-- **-v, --verbose**: Enables detailed logging.
+- **`-p, --project-path <path>`**: Path to your Next.js project’s root directory. Defaults to the current directory.
+- **`-s, --skipBuild`**: Skips the build step, allowing you to build the application separately if needed. Default is false.
+- **`-i, --skipInstallation`**: Skips dependency installation. Default is false.
+- **`-c, --clean`**: Clears any previous build artifacts before building.
+- **`-v, --verbose`**: Enables detailed logging.
 
 ## Deploying your Next.js application
 
@@ -122,3 +133,7 @@ Uploading code to IPFS: [██████████████████�
 > You can also call this Fleek Network URL directly for increased performance (please keep in mind you will not be able to deactivate this link)
 🔗 https://fleek-test.network/services/1/ipfs/bafybeig3v4ffebr3hnukpfl5mutflxqgqaizn4l4vp2ffkfnvjuhmynj4i
 ```
+
+</TabItem>
+
+</Tabs>
