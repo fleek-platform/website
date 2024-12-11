@@ -13,7 +13,7 @@ Edge computing is a fundamental evolution in building the next generation of dig
 
 As demand and adoption grow, various edge computing providers are emerging to simplify the process of building and deploying applications on the edge.
 
-***In this article, we'll examine five leading edge computing platforms in 2024, explore their key features and also suggest factors to look out for to help you choose the right edge computing platform for your needs.***
+**_In this article, we'll examine five leading edge computing platforms in 2024, explore their key features and also suggest factors to look out for to help you choose the right edge computing platform for your needs._**
 
 ## **Fleek**
 
@@ -63,11 +63,24 @@ Fleek Machines are designed for a decentralized future, with planned integration
 
 By combining the immediacy of Fleek Functions with the robust capabilities of Fleek Machines, developers can choose the perfect solution for their edge computing needs. Whether you’re building fast, serverless applications or tackling complex verifiable computations, Fleek provides the tools to succeed.
 
-💡Read Fleek’s official documentation of [Functions](https://fleek.xyz/docs/platform/fleek-functions/)
-
-🔗 Sign up for Fleek Machines [early access](https://fleek.typeform.com/machinesaccess)
-
----
+<div className="py-[2rem] px-10 bg-[#d1f0d3] border border-black rounded mb-16 sm:mb-20">
+      <div className="space-y-6 sm:space-y-10">
+        <div className="flex items-center gap-2 sm:gap-3">
+          <span role="img" aria-label="lightbulb" className="text-2xl sm:text-3xl">💡</span>
+          <span className="text-black text-sm sm:text-base md:text-lg">
+            Read Fleek's official documentation of
+            <a target="_blank" href="https://fleek.xyz/docs/platform/fleek-functions/" className="!text-blue-600 hover:underline">Functions</a>
+          </span>
+        </div>
+        <div className="flex items-center gap-2 sm:gap-3">
+          <span role="img" aria-label="link" className="text-2xl sm:text-3xl">🔗</span>
+          <span className="text-black text-sm sm:text-base md:text-lg">
+            Sign up for Fleek Machines
+            <a target="_blank" href="https://fleek.typeform.com/machinesaccess" className="!text-blue-600 hover:underline">early access</a>
+          </span>
+        </div>
+      </div>
+  </div>
 
 ## **Microsoft Azure Edge Services**
 
@@ -194,7 +207,7 @@ Key features that matter:
 - Language and framework support
 - Debugging capabilities
 
-***These factors represent the core requirements for an edge computing platform. A truly effective platform needs to deliver across all these dimensions.***
+**_These factors represent the core requirements for an edge computing platform. A truly effective platform needs to deliver across all these dimensions._**
 
 ## **Edge Computing Made Simple Using Fleek**
 
