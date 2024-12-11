@@ -69,14 +69,14 @@ By combining the immediacy of Fleek Functions with the robust capabilities of Fl
           <span role="img" aria-label="lightbulb" className="text-2xl sm:text-3xl">💡</span>
           <span className="text-black text-sm sm:text-base md:text-lg">
             Read Fleek's official documentation of
-            <a target="_blank" href="https://fleek.xyz/docs/platform/fleek-functions/" className="!text-blue-600 hover:underline">Functions</a>
+            <a target="_blank" href="https://fleek.xyz/docs/platform/fleek-functions/" className="!text-blue-600 hover:underline !decoration-blue-600">Functions</a>
           </span>
         </div>
         <div className="flex items-center gap-2 sm:gap-3">
           <span role="img" aria-label="link" className="text-2xl sm:text-3xl">🔗</span>
           <span className="text-black text-sm sm:text-base md:text-lg">
             Sign up for Fleek Machines
-            <a target="_blank" href="https://fleek.typeform.com/machinesaccess" className="!text-blue-600 hover:underline">early access</a>
+            <a target="_blank" href="https://fleek.typeform.com/machinesaccess" className="!text-blue-600 underline !decoration-blue-600">early access</a>
           </span>
         </div>
       </div>
