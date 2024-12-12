@@ -175,7 +175,7 @@
     "menu": {
       "order": [
         {
-          "category": "Setup",
+          "category": "Set_Up",
           "order": 1
         },
         {
@@ -191,28 +191,32 @@
           "order": 4
         },
         {
-          "category": "Storage_Management",
+          "category": "Fleek_Machines",
           "order": 5
         },
         {
-          "category": "SDK",
+          "category": "Storage_Management",
           "order": 6
         },
         {
-          "category": "Fleek_Network",
+          "category": "SDK",
           "order": 7
         },
         {
-          "category": "Other_Features",
+          "category": "Fleek_Network",
           "order": 8
         },
         {
-          "category": "FAQ",
+          "category": "Other_Features",
           "order": 9
         },
         {
-          "category": "Community_and_Support",
+          "category": "FAQ",
           "order": 10
+        },
+        {
+          "category": "Community_and_Support",
+          "order": 11
         }
       ],
       "customTitlesByDirectoryName": {}
