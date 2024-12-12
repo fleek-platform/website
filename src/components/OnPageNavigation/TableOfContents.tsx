@@ -4,6 +4,7 @@ import type { MarkdownHeading } from 'astro';
 import { throttle } from 'lodash-es';
 import { cn } from '@utils/cn';
 import { FaChevronRight } from 'react-icons/fa6';
+import { removeTitleHash } from '@utils/removeTitleHash';
 
 type ItemOffsets = {
   id: string;
@@ -106,10 +107,10 @@ const TableOfContents: FC<Props> = ({ headings = [] }) => {
       setActiveSectionId(currentActiveSectionId);
     }, THROTTLE_MS);
 
-    window.addEventListener('scroll', update);
+    document.body.addEventListener('scroll', update);
 
     return () => {
-      window.removeEventListener('scroll', update);
+      document.body.removeEventListener('scroll', update);
     };
   }, []);
 
@@ -141,7 +142,7 @@ const TableOfContents: FC<Props> = ({ headings = [] }) => {
               onClick={() => onClickHandler(heading.slug)}
             >
               <a className="font-plex-sans text-13" href={`#${heading.slug}`}>
-                {heading.text}
+                {removeTitleHash(heading.text)}
               </a>
             </li>
           ) : (
@@ -170,7 +171,7 @@ const TableOfContents: FC<Props> = ({ headings = [] }) => {
                     >
                       •
                     </span>
-                    {heading.text}
+                    {removeTitleHash(heading.text)}
                   </a>
                 </li>
               </ul>

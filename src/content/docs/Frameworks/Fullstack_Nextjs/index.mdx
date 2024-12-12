@@ -93,7 +93,7 @@ To prepare your Next.js application for deployment on Fleek, follow these steps:
     export const runtime = 'edge';
     ```
 
-2.  **Build the application**: Use the Fleek Next.js adapter to build and deploy your app from the command line
+2.  **Build the application**: Use the Fleek Next.js adapter to build and deploy your app from the command line.
 
     ```sh
     npx fleek-next build
@@ -133,6 +133,10 @@ To learn about support for Next.js features on Fleek, see the [documentation](/d
    ```sh
    fleek functions deploy --bundle=false --path .fleek/dist/index.js --assets .fleek/static
    ```
+
+   :::warn
+   Fleek Functions do not support runtime environment variables yet. Use build-time variables instead.
+   :::
 
 The above command will prompt you to [login to your Fleek account](/docs/cli/#login) from your CLI if you are not already logged in.
 

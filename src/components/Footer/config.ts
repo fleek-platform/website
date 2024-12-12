@@ -55,6 +55,10 @@ export default {
       rel: 'noopener noreferrer',
     },
     {
+      text: 'About',
+      url: '/about/',
+    },
+    {
       text: 'Terms of Service',
       url: '/legal/terms-of-service/',
     },
@@ -104,7 +108,7 @@ export default {
     },
     {
       text: 'Support',
-      url: '/support',
+      url: '/support/',
       rel: 'noopener noreferrer',
     },
     {

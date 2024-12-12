@@ -1,0 +1,19 @@
+.wrapper {
+  @apply relative flex w-full flex-col justify-between overflow-hidden rounded-[32px] border-1 border-neutral-6 bg-black shadow-lg;
+}
+
+.wrapperNarrow {
+  @apply rounded-[8px];
+}
+
+.innerWrapper {
+  @apply px-[12px] py-[16px] md:px-[24px] md:py-[32px];
+}
+
+.innerWrapperNarrow {
+  @apply px-[16px] py-[16px];
+}
+
+.footer {
+  @apply border-t-1 border-t-neutral-6 bg-neutral-1 px-[16px] py-[16px];
+}

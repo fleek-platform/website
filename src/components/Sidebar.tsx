@@ -45,7 +45,7 @@ const SidebarMenu: React.FC<Props> = ({ data, pathname, indexNameDocs }) => {
 
   return (
     <div
-      className="relative top-[92px] shrink-0 overflow-y-auto md:sticky md:max-h-[calc(100vh-96px)] md:w-232 md:pr-12"
+      className="relative shrink-0 overflow-y-auto md:sticky md:top-[92px] md:max-h-[calc(100vh-96px)] md:w-232 md:pr-12"
       ref={scrollableContainerRef}
     >
       <div className="sticky top-0 z-10 w-full">
@@ -53,11 +53,11 @@ const SidebarMenu: React.FC<Props> = ({ data, pathname, indexNameDocs }) => {
         <div className="absolute h-24 w-full bg-gradient-to-b from-black to-transparent"></div>
         <div className="fixed bottom-0 h-24 w-[233px] bg-gradient-to-t from-black to-transparent" />
       </div>
-      <ul className="flex flex-col gap-20 px-8 pb-64 pt-24 font-plex-sans text-14 text-gray-dark-11">
+      <ul className="flex flex-col gap-20 px-8 pb-8 pt-24 font-plex-sans text-14 text-gray-dark-11 md:pb-64">
         <li>
           <a
             ref={isHome ? activeItemRef : null}
-            href="/docs"
+            href="/docs/"
             className={cn(
               'group flex items-center gap-8 font-semibold hover:text-gray-dark-12',
               {

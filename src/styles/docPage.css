@@ -61,6 +61,20 @@
       }
     }
 
+    .anchor-link {
+      @apply cursor-pointer pl-4 text-gray-dark-12;
+
+      & .anchor-icon {
+        @apply hidden;
+      }
+    }
+
+    .anchor-link:hover {
+      & .anchor-icon {
+        @apply inline pl-4;
+      }
+    }
+
     table {
       @apply w-full border-collapse border border-gray-dark-7;
       border-spacing: 0;
