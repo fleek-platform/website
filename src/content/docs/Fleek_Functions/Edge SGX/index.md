@@ -13,15 +13,13 @@ tags:
 
 # Fleek Edge SGX
 
+Fleek's Edge SGX service is a decentralized, edge-optimized tool that provides secure compute capabilities using Intel's SGX Trusted Execution Environments (TEEs). It allows developers to seamlessly integrate private, encrypted data processing into their applications without worrying about hardware or complex infrastructure management.
+
 :::warn
 The Fleek Edge SGX service is still in alpha and not recommended for production use. Currently, only Rust-based WASM modules are officially supported through the [sgxkit](https://github.com/fleek-network/lightning/tree/main/lib/sgxkit) runtime library; custom bindings are required to support additional languages.
 
 You can only access Fleek Edge SGX via the Fleek CLI.
 :::
-
-## What is Fleek Edge SGX?
-
-Fleek's Edge SGX service is a decentralized, edge-optimized tool that provides secure compute capabilities using Intel's SGX Trusted Execution Environments (TEEs). It allows developers to seamlessly integrate private, encrypted data processing into their applications without worrying about hardware or complex infrastructure management.
 
 ## Why Fleek Edge SGX?
 
