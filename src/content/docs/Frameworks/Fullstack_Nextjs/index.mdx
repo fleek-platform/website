@@ -14,7 +14,45 @@ Fleek Supports fullstack Next.js apps with the help of Fleek Next Adapter. In th
 
 <Tabs>
 
-<TabItem title="Platform">TODO: add docs</TabItem>
+<TabItem title="Platform">
+Deploying fullstack Next.js applications directly from the platform is a seamless process. You have to ensure you have the below in place first:
+
+1.  **Configure edge runtime**:
+    For routes with server-side code, add the following code to ensure they are configured to be optimised for edge runtimes:
+
+    ```js
+    export const runtime = 'edge';
+    ```
+
+2.  **The code already pushed to a remote repository on Github**.
+
+## Deploying your Next.js application
+
+On the platform's dashboard, click on the "Hosting" tab on the sidebar and then click on the "Add new" button. You will see a dropdown appear, click on the "Deploy my site" button. Then follow the below steps:
+
+1. Select Github to connect your account on Github to the Fleek platfom. You will be prompted to authorize Fleek to access your Github repositories:
+
+![connect github](./connect-github.png)
+
+2. Next you choose repository that contains your Next.js application
+3. Click on "Show advanced options" to ensure all the details are correct including the environment variables:
+
+   - **Environment variables**: You can add environment variables to your Next.js application here.
+   - **Build command**: The build command for your Next.js application.
+   - **Publish directory**: The directory where your Next.js application is built.
+
+![deploy details](./deploy-details.png)
+
+4. Click on "Deploy site" to deploy your Next.js application:
+5. The deployment starts and you are navigated to the overview page for the deployment:
+
+![deploying](./deploying.png)
+
+Your deployment completes and you can go to the overview page for the deployment to see the details of the deployment. You can also view the deployment URL for your Next.js application:
+
+![deployed](./deployed.png)
+
+</TabItem>
 
 <TabItem title="CLI">
 
