@@ -12,19 +12,73 @@ import TabItem from '@components/TabItem.astro';
 
 ## Create and Deploy Fleek Functions
 
+:::info
+Ensure you have the Fleek CLI installed on your machine. Run `npm install -g @fleek-platform/cli` to install
+:::
+
 Learn how to create and deploy Fleek Functions using the Fleek Platform and the Fleek CLI. While you can create Fleek Functions using the Platform, you can access a broader set of features here using the Fleek CLI.
 
 <Tabs>
 <TabItem title="Platform">
-To create a Fleek Function within a project:
+To create and deploy a Fleek Function from the platform's web application we start by creating any directory in our machine, and then we create a file named "my-first-function.js" within that directory. You can choose any name for the file:
 
-1. On the project's dashboard, click on the "Functions" button on the secondary navigation:
+```sh
+touch my-first-function.js
+```
 
-2. The "Functions" page looks like below. Click on the "Create function" button on the extreme right-hand of the secondary navigation
+Open your favourite text editor and declare a function. We'll write a simple function that returns the text "Hello world!" -
 
-3. A modal appears and asks for the desired name for the Fleek Function. Type it in and click on "Create."
+```js
+export const main = (params) => {
+  return 'hello world';
+};
+```
 
-4. We are navigated to the Fleek Function's "Overview" page. There we see a couple of information about the function including three "Pending" states in the first section. In the second section you see information about how to deploy to the function you just created.
+You are obligated to export a **main** function. The **main** signifies the entry point for computations or declarations within the file scope. It'll not compute or operate if you neglect to declare and export it.
+
+## Create a Fleek Function from the Platform
+
+To create a Fleek Function within your project:
+
+1. On your project's dashboard, click on the "Functions" button on the sidebar.
+
+2. The "Functions" page looks like below. Click on the "Add new function" button on the top right-hand side of the page:
+   {/* Image here */}
+
+3. A modal appears on the screen. Type in the desired name of your Fleek Function. In this guide, we will be using "my-first-function" and click on "Create.":
+   {/* Image here */}
+
+4. After that, we should see a badge on the function that says "Not deployed" on the Functions page as well as a URL for the function:
+   {/* Image here */}
+
+5. Click on the function to view the function details.
+
+6. On the function details page, we should see multi-step with instructions on how to deploy the function from the Fleek CLI.
+   {/* Image here */}
+
+7. Following the four steps on the page to deploy the function:
+   - We ensure that we have the Fleek CLI installed
+   - Login to your Fleek account from your machine with the below command:
+     ```sh
+     fleek login
+     ```
+   - Copy the command from "Step 2" on the function details page and run it in your terminal. This command helps switch to your project where you created the Fleek Function from your terminal:
+     ```sh
+     fleek switch --id=<project-id>
+     ```
+   - Since we already have the function we want to deploy, go ahead and create the function locally:
+     ```sh
+     fleek functions create --name my-first-function
+     ```
+   - Final step is to deploy the function with the below command:
+     ```sh
+     fleek functions deploy --name my-first-function --path ~/some/path/my-first-function.js
+     ```
+
+The function has been deployed now and you can refresh the page of your function overview to see the status of the function as "active". The "my-first-function" page should look like this now:
+{/* Image here */}
+
+Then you can click on the URL to invoke the function and see the results in your browser.
 
 </TabItem>
 
