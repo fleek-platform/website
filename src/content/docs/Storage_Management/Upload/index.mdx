@@ -1,0 +1,74 @@
+---
+order: 1
+title: Upload
+date: 2024-09-04
+desc: Welcome to the documentation of Fleek.xyz. Whether you are an expert or an absolute beginner, you'll find your answers here.
+---
+
+import { Button } from '@components/Button';
+import DocIntroCard from '@components/DocIntroCard';
+import Tabs from '@components/Tabs.astro';
+import TabItem from '@components/TabItem.astro';
+
+## Store a File or a Directory
+
+Learn how to upload files or directories to Fleek using the Platform or the CLI.
+
+<Tabs>
+<TabItem title="Platform">
+### Adding a File
+
+1. Navigate to the Files section in your project dashboard.
+2. Click on the Upload File button.
+3. A modal will open where you can select one or multiple files to upload.
+4. The file(s) will be uploaded to IPFS. In the background, they will be uploaded to Filecoin and/or Arweave, depending on your configuration.
+
+### Adding a Directory
+
+1. Navigate to the Files section in your project dashboard.
+2. Click on the Upload Directory button.
+3. Select the directory you want to upload.
+4. The directory will be uploaded and stored on IPFS and decentralized storage (Filecoin/Arweave).
+
+</TabItem>
+
+<TabItem title="CLI">
+### Add a file or directory
+
+Add file via Fleek Storage to ipfs and backup on filecoin or arweave or both
+
+To add a file to Fleek Storage run the command:
+
+```sh
+fleek storage add <PATH>
+```
+
+For example, let's say that you have a file "~/MyFiles/hello_world.txt", that contains the following:
+
+```sh
+Hello World!
+```
+
+To upload the file to Fleek Platform Storage service, you'd run the command **storage**:
+
+```sh
+fleek storage \
+  add ~/MyFiles/hello_world.txt
+```
+
+```sh
+Upload Progress [████████████████████████████████████████] 100% | ETA: 0s
+```
+
+Once complete, you'll get a confirmation message, including a gateway URL to access the content of the file:
+
+```sh
+✅ Success! The Storage IPFS CID is <CID>
+
+> You can access it through your private gateway
+🔗 https://flk-ipfs.xyz/ipfs/<CID>
+```
+
+</TabItem>
+
+</Tabs>

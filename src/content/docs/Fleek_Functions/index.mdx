@@ -1,0 +1,101 @@
+---
+order: 0
+title: Overview
+date: 2024-09-04
+desc: Welcome to the documentation of Fleek.xyz. Whether you are an expert or an absolute beginner, you'll find your answers here.
+---
+
+import { Button } from '@components/Button';
+import DocIntroCard from '@components/DocIntroCard';
+import FleekFunction from '@components/FleekFunctions';
+
+# Fleek Functions
+
+Fleek Functions are code snippets that are executed server-side using Fleek Network’s on-chain cloud infrastructure.
+
+Run the function below to see Fleek Functions in action 👇
+
+<FleekFunction
+  client:load
+  functionUrl={'https://rapping-memory-tinkling.functions.on-fleek.app/'}
+/>
+
+These functions are a cost-effective, performant and scalable option for executing server-side code than popular alternatives such as Lambda functions, due to the architecture of the Fleek Network.
+
+<div className="my-12 bg-gray-dark-6 p-[1px]" />
+
+## Quickstart
+
+We recommend that you create and deploy a function to get started and then access the other features. Fleek Functions can now be accessed via the Fleek Platform CLI and Fleek Platform app.
+
+<div className='grid grid-cols-1 lg:grid-cols-2 gap-12 mb-12'>
+
+<DocIntroCard
+  title="Create and Deploy"
+  description="Easily create and deploy JST/TS based edge functions"
+  href="/docs/fleek_functions/create_and_deploy"
+/>
+<DocIntroCard
+  title="List"
+  description="Fetch all the Fleek Functions created for a particular project"
+  href="/docs/fleek_functions/list"
+/>
+<DocIntroCard
+  title="Update"
+  description="Update and modify Fleek Functions that are already deployed"
+  href="/docs/fleek_functions/update"
+/>
+<DocIntroCard
+  title="Private Data"
+  description="Learn how to handle sensitive data with Fleek Functions"
+  href="/docs/fleek_functions/private_data"
+/>
+<DocIntroCard
+  title="Delete or Deactivate"
+  description="Learn how to control the liveness of your Fleek Function"
+  href="/docs/fleek_functions/delete_or_deactivate"
+/>
+<DocIntroCard
+  title="Edge SGX"
+  description="Add confidential compute capabilities to Fleek Functions using TEEs"
+  href="/docs/fleek_functions/edge-sgx"
+/>
+
+</div>
+
+<div className="my-12 bg-gray-dark-6 p-[1px]" />
+
+## Connect with Us
+
+Join our community and stay up-to-date with the latest news, features, and insights from our team. Follow us on social media to receive updates, engage with our community, and share your thoughts. Connect with us on Discord for real-time conversations, support, and collaboration. Together, we're shaping the future of our service.
+
+<div className="justify-left mb-32 mt-12 flex flex-col gap-16 sm:flex-row">
+  <Button
+    variant="secondary"
+    href="https://x.com/fleek"
+    target="_blank"
+    rel="noopener noreferrer"
+  >
+    Follow us on X
+  </Button>
+  <Button
+    variant="secondary"
+    href="https://discord.gg/fleek"
+    target="_blank"
+    rel="noopener noreferrer"
+  >
+    Join our Discord
+  </Button>
+
+{' '}
+
+<Button
+  variant="secondary"
+  href="/support"
+  target="_blank"
+  rel="noopener noreferrer"
+>
+  View Support Center
+</Button>
+
+</div>

@@ -1,0 +1,192 @@
+---
+order: 3
+title: Projects
+date: 2023-01-10
+desc: Create, manage and personalize Projects. Dive into the core of project handling on Fleek, from your first auto-generated project to organizing your next idea.
+category: Documentation
+keywords: [services, documentation, getting started]
+tags:
+  - Accounts
+  - Guide
+  - Learn
+  - Fleek
+---
+
+import TabItem from '@components/TabItem.astro';
+import Tabs from '@components/Tabs.astro';
+import PermissionsTable from '@components/Permissions/PermissionsTable';
+
+# Projects on Fleek
+
+All usage will be tied to a project, so it is mandatory to have a project selected. Any user can create a project, and access can be granted to any user by providing an email address. An account can be the owner of one or more projects and, at the same time, can belong to projects owned by other accounts.
+
+<Tabs>
+<TabItem title="Platform">
+
+![](./projects-overview.svg)
+
+<div className="my-12 bg-gray-dark-6 p-[1px]" />
+
+## Creating a new project
+
+:::note
+Our current billing implementation is at the project level. You can learn more [here](/docs/platform/billing/).
+:::
+
+As soon as you sign up, an initial project is created for you by default. This project starts with a placeholder name and remains blank until you decide otherwise. You're free to alter the project's name whenever you wish. In the application you will find your project in the top left corner of the screen, next to the Fleek logo. Clicking on the project name will open a dropdown with all the projects you have access to. The selected project will be marked with a checkmark.
+
+To create a new project, click on the 'Projects' dropdown and select the 'Create project' option. You will be prompted to enter a name for the project. Once you have entered the name, click on the 'Create' button and the project will be created. You will be redirected to the project dashboard.
+
+## Changing project name
+
+To change the project name you can click on the 'Settings' icon in the project dashboard. You will be prompted to enter a new name for the project. Once you have entered the name, click on the 'Save' button and the project name will be updated.
+
+## Deleting a project
+
+To remove a project, navigate to the project dashboard and click the 'Settings' icon. All of the data inside the project will be removed from the platform, including:
+
+- All of the sites
+- All of the domains linked to the sites
+- All of the IPNS keys linked to the sites
+- All of the private gateways
+- All of the domains linked to the private gateways
+- All of the files stored
+
+![](./project-delete.svg)
+
+Once you have confirmed the deletion, the project will be deleted. This action is irreversible.
+
+:::info
+The deletion of a project is an asynchronous process. We recommend always removing any DNS configuration pointing to the project before deleting it.
+:::
+
+## Invitations
+
+![](./project-invite.svg)
+
+Invitations are a way to grant access to a another user to one of your projects. The invited users will be able to perform most of the actions that the owner of the project can take, such as:
+
+- Managing sites
+- Managing domains
+- Managing files
+- Managing gateways
+
+...but will be restricted from taking other actions, such as:
+
+- Deleting the project
+- Inviting new members
+
+### Inviting a new user
+
+To invite a new user into your project, go to the project's 'Settings' page and select the 'Teams' tab. There you will find a list of members in the project and a button to generate a link to invite a new user.
+
+This is a unique link that will grant project access to a single user. Once the user has used the link to access the project, the link will be invalidated and a new link will need to be generated to invite a new user. This link is not tied to the authentication method used to access the project, so the user can choose to use their wallet or e-mail account to access the project.
+
+### Permissions
+
+The Fleek platform uses a role-based system for managing permissions. Certain features are only accessible to users with specific roles. For a detailed breakdown of these permissions, see the table provided below.
+
+<div className="mb-[10px]">
+  <PermissionsTable />
+</div>
+
+## Application credentials
+
+![](./app-creds.svg)
+
+Application credentials are the keys to your project. They are used to authenticate your application with the Fleek Storage. Their use is currently limited to uploading files and directories.
+
+### Whitelist domains
+
+You can whitelist domains for each application credential. This means that the application credential will only be able to make requests to the domains that are whitelisted. This is useful from a security standpoint, as it prevents unauthorized access to your project.
+
+## Creating application credentials
+
+To create an application credential, follow these steps:
+
+![](./create-app-creds.svg)
+
+1. Go to the [Fleek dashboard](https://app.fleek.xyz/).
+2. Select the project you want to create an application credential for.
+3. Click on the `Settings` tab.
+4. Click on the `Application Credentials` tab.
+5. Click on the `Create Application Credential` button.
+6. Enter a name for the application credential.
+7. Whitelist domains for the application credential.
+8. Click on the `Create` button.
+9. Copy the application token.
+
+You can now use the application token to authenticate your application with Fleek's services like the [SDK](/docs/sdk/).
+
+### Managing application credentials
+
+You can manage your application credentials by going to the `Application Credentials` tab in the `Settings` page of your project, within the [Fleek dashboard](https://app.fleek.xyz/). Here you can view, edit, and delete your application credentials.
+
+### Updating whitelisted domains
+
+You can update, add or remove whitelisted domains for an application credential by clicking on the `Edit` button next to the application credential in the `Application Credentials` tab in the `Settings` page of your project, within the [Fleek dashboard](https://app.fleek.xyz/).
+
+![](./edit-app-creds.svg)
+
+</TabItem>
+<TabItem title="CLI">
+
+A Project on Fleek Platform is essentially a folder to help you manage your application settings.
+
+Every interaction with the Fleek Platform requires a project to be selected. A user must create at least one project, to access and utilize any of the Fleek Platform services features, e.g. Site deployment or File Storage. User can initiate their own projects, or grant access to others simply by supplying an email address.
+
+A user account can take on the role of owning several projects and still be part of projects belonging to other user accounts.
+
+## Create a project
+
+As soon as you create a new user account on the Fleek Platform, an initial Project is immediately created for you, with a temporary name and left blank. You have the option to personalize the project name at your convenience.
+
+Creating a project is as simple as running:
+
+```sh
+fleek projects create
+```
+
+If you enter a valid name, you'll be automatically switched to it.
+
+## List projects
+
+Show a list of all projects where the user is a member by running:
+
+```sh
+fleek projects list
+```
+
+You'll get a table containing the project list:
+
+```sh
+ID        Name               Created At        Current
+------------------------------------------------------
+xxxx      First Project      2024-03-20        ✅
+xxxx      Quick Start        2024-05-10
+```
+
+## Select a project
+
+Selecting a project can be accomplished using the **switch** command. Running it opens a simple selection menu:
+
+```sh
+fleek projects switch
+```
+
+For example, here we have switched to the project "Quick start":
+
+```sh
+✅ Success! You have switched to project "Quick start"
+```
+
+Remember, you can always append help to any command to learn more:
+
+```sh
+fleek projects help
+```
+
+From this point onwards, all interactions with the Fleek Platform services will be tied to the selected Project. Whenever required, you can switch and select a different project.
+
+</TabItem>
+</Tabs>

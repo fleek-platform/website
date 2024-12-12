@@ -1,0 +1,99 @@
+---
+order: 6
+title: Delete or Deactivate
+date: 2024-09-04
+desc: Welcome to the documentation of Fleek.xyz. Whether you are an expert or an absolute beginner, you'll find your answers here.
+---
+
+import { Button } from '@components/Button';
+import DocIntroCard from '@components/DocIntroCard';
+import Tabs from '@components/Tabs.astro';
+import TabItem from '@components/TabItem.astro';
+
+## Delete or Deactivate your Fleek Functions
+
+Functions can be run or stopped in the settings of the current Fleek Function. This however, does not delete the deployment of the Fleek Function from IPFS (Interplanetary File System), it just stops it from running as a Fleek Function.
+
+There are two states:
+
+- **Running**: The Fleek Function is running and live.
+
+- **Stopped**: The Fleek Function has been taken down as a Fleek Function and can only be accessed by the Content ID (CID) from IPFS.
+
+<Tabs>
+<TabItem title="Platform">
+Fleek Functions can be deleted from the settings as well by scrolling to the bottom section of the settings page and clicking on the “Delete Function” button.
+
+This surfaces a modal that prompts the user to enter the Fleek Function name and confirm the action with the “Delete function” button that is active when the name the user enters matches the one in the modal window.
+
+</TabItem>
+
+<TabItem title="CLI">
+
+## Delete a Fleek Function
+
+If you determine that a Fleek Function is no longer useful to you or your project, you can delete it outright by running the following command:
+
+```js
+fleek functions delete --name <fleek_function_name>
+```
+
+Should you decide that a Fleek Function is no longer useful to your project, you can delete it by executing the following command:
+
+```sh
+fleek functions delete \
+  --name <NAME>
+```
+
+For example, let's delete the Fleek Function named "my-first-function":
+
+```sh
+fleek functions delete \
+  --name my-first-function
+```
+
+On completion, you'd get a confirmation message:
+
+```sh
+✅ Success! The function has been successfully deleted.
+```
+
+## Deactivate functions
+
+To _deactivate_ such a Fleek Function, you can run the command below, replacing `<fleek_function_name>` with the name of the Fleek Function you’re deactivating.
+
+To deactivate a Fleek Function, use the command below:
+
+```sh
+fleek functions update \
+  --functionName <NAME> \
+  --status <STATUS>
+```
+
+As demonstrated in the [Managing Fleek Functions](#managing-fleek-functions) table, the available status are **ACTIVE** or **INACTIVE**. So, let's say that we'd like to _deactivate_ the "my-first-function".
+
+You'd want to run:
+
+```sh
+fleek functions update \
+  --functionName my-fleek-function \
+  --status INACTIVE
+```
+
+If successful, a response should be expected, as follows:
+
+```sh
+✅ Success! The function has been successfully updated.
+```
+
+Through this action, we've deactivated a Fleek Function, choosing not to delete it.
+
+:::note
+These update commands will update the _existing deployment_ of a Fleek Function rather than triggering an additional deployment.
+:::
+
+To _reactivate_ a Fleek Function you previously activated, simply run the same command but with the status set to `ACTIVE`.
+
+</TabItem>
+
+</Tabs>

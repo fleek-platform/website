@@ -1,0 +1,101 @@
+---
+order: 2
+title: Access
+date: 2024-09-04
+desc: Welcome to the documentation of Fleek.xyz. Whether you are an expert or an absolute beginner, you'll find your answers here.
+---
+
+import { Button } from '@components/Button';
+import DocIntroCard from '@components/DocIntroCard';
+import Tabs from '@components/Tabs.astro';
+import TabItem from '@components/TabItem.astro';
+
+## Access a File or a Directory
+
+Learn how to access files or directories to Fleek using the Platform or the CLI.
+
+<Tabs>
+<TabItem title="Platform">
+## Accessing a file or directory
+
+1. Locate the file or directory in the Files section.
+2. Click on the three-dot icon in the row corresponding to the file or directory.
+3. Select the Copy URL option. This will copy the URL to your clipboard, enabling you to access the file or directory via IPFS gateways.
+4. Optionally, you can set up a custom domain for a more performant and branded experience by following the steps in the [Gateways](/docs/other_features/gateways) section of the documentation.
+
+## Content addressing
+
+All files stored on Fleek are content-addressable using IPFS. Each file will receive a unique, immutable IPFS content hash, making it addressable in a standard web3 format.
+
+- Example IPFS hash: QmX4XRaPP6jBSDiYr3tK7fEBWSA5QURS8WZ87ZvPRJgAqK
+- Files can be accessed through Fleek's gateways or a public gateway like `ipfs.io/ipfs/<yourhash>`.
+
+For dynamically changing content, you can use IPNS to map dynamic IPFS hashes to a static record. See the [CLI](/docs/set_up/cli) or [SDK](/docs/sdk/) sections for more information on managing IPNS records.
+
+</TabItem>
+
+<TabItem title="CLI">
+
+The **list** command gives the user a list of files or directories in the Fleek Storage for the current project.
+
+To view the table run the command:
+
+```sh
+fleek storage list
+```
+
+You should get table similar to:
+
+```sh
+filename            cid        filecoin id      arweave id      link
+----------------------------------------------------------------------------------------------------
+hello-world.txt     baf...x3a  -                -               https://<CID>.ipfs.cf-ipfs.com
+hello-world.txt     baf...kia  -                -               https://<CID>.ipfs.cf-ipfs.com
+john-coltrane.mp3   baf...yu2  -                -               https://<CID>.custom-domain.xyz
+```
+
+## Get a storage file
+
+You can retrieve files or directories from Fleek Storage by providing a Name or a CID. Use the list table to identify the files you are interested in.
+
+:::note
+Currently, the data isn't downloaded, a table is presented instead. For single files, you can lookup for the content URL and use cURL and pipe to a local file.
+
+```sh
+curl https://<CID>.ipfs.flk-ipfs.xyz > hello-world.txt
+```
+
+:::
+
+Use the flag --cid to retrieve a file by its CID.
+
+```sh
+fleek storage \
+  get --cid <CID>
+```
+
+Use the flag --name to retrieve a file by its Name.
+
+```sh
+fleek storage \
+  get --name <FILENAME>
+```
+
+For example, let's say that we'd like to retrieve the file of the pseudo CID xyz:
+
+```sh
+fleek storage \
+  get --cid xyz
+```
+
+You should get table similar to:
+
+```sh
+filename            cid        filecoin id      arweave id      link
+----------------------------------------------------------------------------------------------------
+john-coltrane.mp3   baf...yu2  -                -               https://<CID>.custom-domain.xyz
+```
+
+</TabItem>
+
+</Tabs>

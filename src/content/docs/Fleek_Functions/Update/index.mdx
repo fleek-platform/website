@@ -1,0 +1,161 @@
+---
+order: 4
+title: Update
+date: 2024-09-04
+desc: Welcome to the documentation of Fleek.xyz. Whether you are an expert or an absolute beginner, you'll find your answers here.
+---
+
+import { Button } from '@components/Button';
+import DocIntroCard from '@components/DocIntroCard';
+import Tabs from '@components/Tabs.astro';
+import TabItem from '@components/TabItem.astro';
+import FleekFunction from '@components/FleekFunctions';
+
+## Update and Modify your Fleek Functions
+
+Learn how to update and modify the Fleek Functions you have created. Methods described here will help you modify the function URL slug, redeploy function logic and more.
+
+<Tabs>
+<TabItem title="Platform">
+
+### Edit the function name
+
+From the "Settings" of the current Fleek Function as well, you can change the name of the Fleek Function on demand to any name deemed fit based on requirements.
+
+### Edit the function slug
+
+A Fleek Function's slug is contained within the URL (Uniform Resource Locator) of the Fleek Function and can be changed to a custom name based on requirements or preferences.
+
+To illustrate the above, we consider the below Fleek Function:
+
+```bash
+https://brief-byte-shrilling.functions.on-fleek.app/
+```
+
+<FleekFunction
+  client:load
+  functionUrl={'https://brief-byte-shrilling.functions.on-fleek.app/'}
+/>
+
+`brief-byte-shrilling` represents the Fleek Function's slug within the URL and we can edit that within the Fleek Function's settings on the Fleek Platform.
+
+</TabItem>
+
+<TabItem title="CLI">
+
+### Update the name or slug
+
+You might find it necessary to rename an existing Fleek Function, e.g. if the code it executes now diverges from its initial purpose or to improve clarity.
+
+To modify the name, run:
+
+```sh
+fleek functions update \
+  --functionName <NAME> \
+  --name <NEW-NAME>
+```
+
+As an example, we can modify the name we opted for this demo "my-first-function" to "my-function".
+
+```sh
+fleek functions update \
+  --functionName my-first-function \
+  --name my-function
+```
+
+Similarly, you can modify the "slug" of the Fleek Function by utilizing the flag --slug instead of --name.
+
+```sh
+fleek functions update \
+  --functionName <NAME> \
+  --slug <NEW-SLUG>
+```
+
+For example, let's say that the Fleek Function URL we got for the demo "my-first-function" is:
+
+```sh
+https://big-coffeeshop-little.functions.stg.on-fleek-test.app
+```
+
+<FleekFunction
+  client:load
+  functionUrl={'https://big-coffeeshop-little.functions.stg.on-fleek-test.app'}
+/>
+
+If we'd like to modify the slug "big-coffeeshop-little" to another available name, we'd run:
+
+```sh
+fleek functions update \
+  --functionName my-first-function \
+  --slug my-unique-slug
+```
+
+Afterwards, we could interface with our Fleek Function via the URL:
+
+```sh
+https://my-unique-slug.functions.stg.on-fleek-test.app
+```
+
+<FleekFunction
+  client:load
+  functionUrl={'https://my-unique-slug.functions.stg.on-fleek-test.app'}
+/>
+
+### Modify function logic
+
+To update the source code for a Fleek Function, you'll have to edit the draft file and re-deploy it, preferencly to the same Fleek Function name. It's expected, to push edits to the same Fleek Function name to work iteratively.
+
+But since the code for a particular _deployment_ of a Fleek Function is immutable, every update will cause the Fleek Function ID to change. Although, the Slug URL associated to access the resource will remain the same.
+
+Thus, to view a list of all deployments for a function, run the following command:
+
+```sh
+fleek function deployments --name <Fleek Function Name>
+```
+
+For our example, we'd run:
+
+```sh
+fleek function deployments --name my-first-function
+```
+
+We can verify that the ID and [CID](https://docs.ipfs.tech/concepts/content-addressing/) change per deployment of different function iterations.
+
+```sh
+ID            CID               Created At
+------------------------------------------
+clv...1ex     baf...h1z         2024-04-22
+clv...qb2     baf...un2         2024-02-14
+clv...y3l     baf...3st         2024-01-06
+```
+
+Content addressing is where we use a hash to access the content, and it allows us to verify that the content we received is the content we asked for. This is one of the principles that help us provide guarantees to end-users who require a high ability for content verification; As a consequence, the immutability of files is critical to this system powered by [Fleek Network](https://fleek.network).
+
+Thus, it's crucial to remember that the functions are deployed into IPFS, requiring a period for propagation.
+
+## Interact with Fleek Functions
+
+To interact with Fleek Functions, you can send requests to the Fleek Function URL using a variety of HTTP methods, such as GET and POST.
+
+Here's the syntax for simple HTTP GET request via [cURL](https://curl.se):
+
+```sh
+curl -X GET \
+  https://<SLUG>.functions.stg.on-fleek-test.app
+```
+
+### Limitations
+
+When writing code for your functions, please keep in mind Fleek Functions currently have a timeout of 15 seconds, and a memory limit of 50 MiB during execution.
+
+## Modify properties
+
+After the deployment of a Fleek Function, you can edit the following properties:
+
+- Status: Can switch between ACTIVE or INACTIVE state
+- Name: Modify the unique identifier term listed in the project
+- Slug: The alias utilized to access the specific function resource
+
+</TabItem>
+
+</Tabs>
