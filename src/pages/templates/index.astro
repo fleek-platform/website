@@ -1,0 +1,25 @@
+---
+import BaseHtml from '@layouts/BaseHtml.astro';
+import settings from '@base/settings.json';
+import templates from '@base/templates.json';
+import Templates, { type Template } from '@components/Templates';
+
+const { title, description, image, slug } = settings.site.metadata.templates;
+const templatesArray = Object.values(templates) as Template[];
+---
+
+<BaseHtml
+  title={title}
+  ogMeta={{
+    title,
+    description,
+    image,
+    slug,
+  }}
+  customContentWrapperClass="px-32 xl:px-0"
+>
+  <main>
+    <Templates.Header />
+    <Templates.List client:load templates={templatesArray} />
+  </main>
+</BaseHtml>

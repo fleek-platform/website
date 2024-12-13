@@ -1,9 +1,7 @@
 import { Button } from '@components/Button';
 import settings from '@base/settings.json';
 
-import ContentBox from './ContentBox';
 import Section from './Section';
-import { useGetRepos } from 'Services/Github/api';
 import { Target } from '@components/Link';
 
 import HeroBackground from './images/circles.webp';
@@ -17,6 +15,8 @@ import GithubIcon from './images/github-icon.svg';
 import GlobeBackground from './images/globe.webp';
 import LightningBackground from './images/lightning.webp';
 import ArrowUpright from './images/arrow-up-right.svg';
+import ContentBox from '@components/ContentBox';
+import { useGetRepos } from '@hooks/useGetRepos';
 
 const AboutModule = {
   Hero: () => (
