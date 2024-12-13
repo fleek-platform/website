@@ -6,7 +6,7 @@ thumbnail: './ipfsstorage2.png'
 image: './ipfsstorage2.png'
 author:
   - 'Fleek'
-isSeoPost: true
+is_seo: true
 ---
 
 <u>[InterPlanetary File System](https://ipfs.tech/)</u> (IPFS) represents a paradigm shift in data storage and retrieval, offering a distributed approach that enhances data security, integrity, and availability. As data storage needs evolve, IPFS presents a robust alternative to traditional centralized systems, aligning with the growing trend towards going onchain in the digital world.
