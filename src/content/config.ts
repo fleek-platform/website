@@ -23,6 +23,7 @@ const schema = ({ image }: { image: ImageFunction }) =>
     author: z.union([z.string(), z.array(z.string())]).optional(),
     order: z.number().optional(),
     tags: z.array(z.string()).optional(),
+    customMetaTitle: z.string().optional(),
   });
 
 const docsCollection = createCollection('content', z.object({}));
