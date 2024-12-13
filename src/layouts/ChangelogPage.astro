@@ -6,7 +6,7 @@ import '@styles/blogPage.css';
 import BaseHtml from './BaseHtml.astro';
 import InjectCodeCopy from '@components/InjectCodeCopy.astro';
 
-const { title, description, slug, image, customMetaTitle } = Astro.props;
+const { title, description, slug, image, custom_title } = Astro.props;
 ---
 
 <BaseHtml
@@ -16,7 +16,7 @@ const { title, description, slug, image, customMetaTitle } = Astro.props;
     description,
     image,
     slug,
-    customMetaTitle,
+    custom_title,
   }}
 >
   <main class="container min-h-container">

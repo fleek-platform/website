@@ -18,7 +18,7 @@ interface Props {
     description: string;
     image: string;
     slug: string;
-    customMetaTitle?: string;
+    custom_title?: string;
   };
   singlePage?: boolean;
   customBodyClass?: string;
@@ -43,7 +43,7 @@ const hasSecondaryMenu = hasSecondaryMenuItem(Astro.url.pathname);
 
 const contentSlug = ogMeta?.slug || Astro.url.pathname;
 const canonicalUrl = generateCanonicalUrl(contentSlug);
-const metaTitle = ogMeta?.customMetaTitle ?? ogMeta?.title;
+const metaTitle = ogMeta['custom_title'] ?? ogMeta?.title;
 ---
 
 <!doctype html>

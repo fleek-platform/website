@@ -6,7 +6,7 @@ thumbnail: './vercelaltthumb.png'
 image: './vercelaltthumb.png'
 author:
   - 'Fleek'
-isSeoPost: true
+is_seo: true
 ---
 
 # **Why consider alternatives to Vercel for your next web project?**

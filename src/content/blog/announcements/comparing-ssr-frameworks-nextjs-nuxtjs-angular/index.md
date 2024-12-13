@@ -4,7 +4,7 @@ date: 2024-10-21
 desc: Comparing Next.js, Nuxt.js, and Angular Universal — three top frameworks for server-side rendering. Explore how Fleek simplifies SSR development.
 thumbnail: ./three_ssr_blogimg_blogimg_1280x720.jpg
 image: ./three_ssr_blogimg_blogimg_1280x720.jpg
-isSeoPost: true
+is_seo: true
 ---
 
 Server-side rendering (SSR) can enhance modern web performance, load times, and user experience for web apps and sites. Along with performance improvements, SSR simplifies web discoverability and can be beneficial in poor networking conditions. However, these compelling benefits come with technical challenges for developers.

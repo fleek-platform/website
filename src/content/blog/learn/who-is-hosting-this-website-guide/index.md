@@ -6,7 +6,7 @@ thumbnail: './whoishostingthis.png'
 image: './whoishostingthis.png'
 author:
   - 'Fleek'
-isSeoPost: true
+is_seo: true
 ---
 
 Ever wondered: _“Who is hosting this website?”._ Understanding the internet domain is crucial as it helps identify the web hosting provider behind a website. Whether you’re a curious web user, a budding developer, or someone interested in discovering more about the digital landscape, knowing the **web hosting** provider behind a website can be insightful and useful.
