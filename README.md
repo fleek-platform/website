@@ -186,7 +186,7 @@ A blog post is organized as a directory that should include all the necessary im
 
 The directory should be named after the slug, a system-friendly name, e.g. "My short title" would become "my-short-title". Additionally, the markdown filename containing all the text should be named as "index.md".
 
-For example, let's assume the creation of an hypothetical blog post named "My Blog post".
+For example, let's assume the creation of a hypothetical blog post named "My Blog post".
 
 #### 1) Create the directory with corresponding slug "my-blog-post" in the `src/content/blog` location, as follows:
 
