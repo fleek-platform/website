@@ -12,7 +12,7 @@ const indexNameBlog = import.meta.env.PUBLIC_MEILISEARCH_INDEX_BLOG;
 const collection = 'blog';
 
 const allPosts: CollectionEntry<'blog'>[] = (await getCollection('blog'))
-  .filter((post) => !post.data.isSeoPost)
+  .filter((post) => !post.data['is_seo'])
   .sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf());
 ---
 

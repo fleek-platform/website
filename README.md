@@ -35,6 +35,9 @@ This repository contains the source code and assets for the Fleek.xyz website, w
     - [Open Graph preview](#open-graph-preview)
     - [Troubleshooting open graph](#troubleshooting-open-graph)
     - [Customize Blog Categories](#customize-blog-categories)
+  - [Templates](#templates)
+    - [Manage templates](#manage-templates)
+    - [Validate templates](#validate-templates)
 - [Development](#-development)
   - [Services](#services)
     - [Support](#support)
@@ -183,7 +186,7 @@ A blog post is organized as a directory that should include all the necessary im
 
 The directory should be named after the slug, a system-friendly name, e.g. "My short title" would become "my-short-title". Additionally, the markdown filename containing all the text should be named as "index.md".
 
-For example, let's assume the creation of an hypothetical blog post named "My Blog post".
+For example, let's assume the creation of a hypothetical blog post named "My Blog post".
 
 #### 1) Create the directory with corresponding slug "my-blog-post" in the `src/content/blog` location, as follows:
 
@@ -705,6 +708,38 @@ You can extend the category field with any category name. Notice that category n
     }
   }
 ```
+
+## Templates
+
+This section provides guidance on managing and validating templates within the system.
+
+### Manage Templates
+
+Managing templates involves adding, updating, and removing templates from the system. Follow these steps to manage templates effectively:
+
+- Adding a Template:
+
+  - Clone an existing template in `src/templates.json` and add all required fields.
+  - Ensure all necessary assets (e.g., banner images, icons) are placed in the correct directories.
+
+- Updating a Template:
+
+  - Locate the existing template entry in `src/templates.json`.
+  - Update the necessary fields, such as description or URLs.
+  - Replace or update any associated assets as needed.
+
+- Removing a Template:
+  - Delete the template entry from `src/templates.json`.
+  - Remove all associated assets from the file system.
+  - Update any references to the template in other parts of the system.
+
+### Validate Templates
+
+- Build the project to make sure there are no building issues.
+- Run a local dev server to preview
+- Verify that the template appears in the listing and all assets load correctly.
+- Ensure all links (e.g., demo, deployment) are functional.
+- Confirm that filtering and similar templates display correctly.
 
 # 👷‍♀️Development
 

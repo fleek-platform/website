@@ -6,7 +6,7 @@ thumbnail: './thumbnail.jpg'
 image: './thumbnail.jpg'
 author:
   - 'Fleek'
-isSeoPost: true
+is_seo: true
 ---
 
 Edge computing is a fundamental evolution in building the next generation of digital infrastructure. The undeniable benefits of reduced latency and improved user experience have attracted businesses, enterprises, and even indie developers to use edge computing in their web development efforts

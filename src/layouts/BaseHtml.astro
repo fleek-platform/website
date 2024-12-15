@@ -18,6 +18,7 @@ interface Props {
     description: string;
     image: string;
     slug: string;
+    custom_title?: string;
   };
   singlePage?: boolean;
   customBodyClass?: string;
@@ -42,6 +43,7 @@ const hasSecondaryMenu = hasSecondaryMenuItem(Astro.url.pathname);
 
 const contentSlug = ogMeta?.slug || Astro.url.pathname;
 const canonicalUrl = generateCanonicalUrl(contentSlug);
+const metaTitle = ogMeta['custom_title'] ?? ogMeta?.title;
 ---
 
 <!doctype html>
@@ -125,7 +127,7 @@ const canonicalUrl = generateCanonicalUrl(contentSlug);
     <meta name="generator" content={Astro.generator} />
     <!-- HTML Meta Tags -->
     <title>
-      {`Fleek | ${ogMeta?.title || settings.site.metadata.default.title}`}
+      {`Fleek | ${metaTitle || settings.site.metadata.default.title}`}
     </title>
     <meta
       name="description"
@@ -137,7 +139,7 @@ const canonicalUrl = generateCanonicalUrl(contentSlug);
     <meta property="og:type" content="website" />
     <meta
       property="og:title"
-      content={ogMeta?.title || settings.site.metadata.default.title}
+      content={`Fleek | ${metaTitle || settings.site.metadata.default.title}`}
     />
     <meta
       property="og:description"
@@ -154,7 +156,7 @@ const canonicalUrl = generateCanonicalUrl(contentSlug);
     <meta property="twitter:url" content={`${baseUrl}/${ogMeta?.slug || ''}`} />
     <meta
       name="twitter:title"
-      content={ogMeta?.title || settings.site.metadata.default.title}
+      content={`Fleek | ${metaTitle || settings.site.metadata.default.title}`}
     />
     <meta
       name="twitter:description"

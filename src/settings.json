@@ -108,11 +108,18 @@
           "description": "If you're encountering issues with Fleek's platform, we're here to assist! Please fill out the form with details about your issue to receive help from our support team.",
           "image": "/images/fleek-meta.png?202406061658"
         }
+      },
+      "templates": {
+        "title": "Templates - Fleek",
+        "slug": "templates",
+        "description": "Start building faster with our templates! Pick a simple framework setup or dive into a full web3 starter kit.",
+        "image": "/images/fleek-meta.png?202406061658"
       }
     },
     "resources": {
       "careersUrl": "https://wellfound.com/company/fleekhq",
       "reportAbuseUrl": "https://support.fleek.xyz/hc/en-us/requests/new?ticket_form_id=16807535390093",
+      "reportTemplateAbuseUrl": "https://support.fleek.xyz/hc/en-us/requests/new?ticket_form_id=20459864851469",
       "fleekNetworkWebsiteUrl": "https://fleek.network",
       "discordFleekCommunityUrl": "https://discord.gg/fleek",
       "supportExternalUrl": "https://support.fleek.xyz/hc/en-us",
@@ -474,5 +481,12 @@
       ],
       "button": "Get started with Fleek"
     }
+  },
+  "templatesPage": {
+    "title": "TEMPLATES",
+    "subTitle": "Begin with a template",
+    "description": "Use a template to kick start your application. Pick from just a framework or a full web3 starter kit, the possibilities are limitless.",
+    "ctaLabel": "Learn more",
+    "ctaTargetUrl": "/docs/platform/frameworks/#using-framework-templates-to-get-started/"
   }
 }

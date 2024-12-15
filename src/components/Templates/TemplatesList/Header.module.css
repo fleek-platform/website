@@ -1,0 +1,19 @@
+.wrapper {
+  @apply flex w-full flex-col items-center justify-center gap-[1rem] pt-[10px] lg:pt-[24px];
+}
+
+.title {
+  @apply text-[13px] font-medium leading-[18px] text-neutral-11 lg:text-[16px] lg:leading-[22px];
+}
+
+.subtitle {
+  @apply text-[27px] font-bold leading-[32px] text-neutral-12 lg:text-[34px] lg:leading-[42px];
+}
+
+.description {
+  @apply max-w-[640px] text-center text-[15px] font-normal leading-[20px] text-neutral-11 lg:text-[18px] lg:leading-[24px];
+}
+
+.cta {
+  @apply mt-[18px] h-26 text-[11px] lg:h-32 lg:text-[14px];
+}
