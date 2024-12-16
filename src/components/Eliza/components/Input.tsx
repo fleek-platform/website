@@ -1,4 +1,4 @@
-import Text from '@components/Text';
+import { Text } from '@components/LandingPage/Text';
 import { cn } from '@utils/cn';
 import { cva, type VariantProps } from 'class-variance-authority';
 import { forwardRef, type PropsWithChildren } from 'react';
@@ -8,10 +8,10 @@ const inputVariants = cva(
   {
     variants: {
       size: {
-        xs: 'min-h-24 px-8 text-xs gap-6 rounded-4',
-        sm: 'min-h-[2rem] px-8 text-sm gap-6 rounded-8',
-        md: 'min-h-[2.5rem] px-3 gap-6 rounded-8',
-        lg: 'min-h-24 text-lg px-4 gap-3 rounded-12',
+        xs: 'min-h-[24px] px-8 text-xs gap-6 rounded-4',
+        sm: 'min-h-[32px] px-8 text-sm gap-6 rounded-8',
+        md: 'min-h-[40px] px-3 gap-6 rounded-8',
+        lg: 'min-h-[48px] text-lg px-4 gap-3 rounded-12',
       },
       variant: {
         outline:
@@ -134,14 +134,13 @@ export type InputTextareaProps =
   };
 
 const Textarea = forwardRef<HTMLTextAreaElement, InputTextareaProps>(
-  ({ minHeight = 100, maxHeight = 300, className, ...props }, ref) => {
+  ({ className, ...props }, ref) => {
     return (
       <textarea
         ref={ref}
         autoComplete="off"
-        style={{ minHeight, maxHeight }}
         className={cn(
-          'h-full w-full resize-none bg-transparent py-8 placeholder-neutral-8 outline-none [field-sizing:content] disabled:cursor-not-allowed',
+          'h-full min-h-[100px] w-full resize-none bg-transparent py-8 placeholder-neutral-8 outline-none [field-sizing:content] disabled:cursor-not-allowed',
           className,
         )}
         {...props}
@@ -185,6 +184,8 @@ export type InputHintProps = React.HTMLAttributes<HTMLParagraphElement> &
 const Hint: React.FC<InputHintProps> = ({ error, children, className }) => {
   return (
     <Text
+      variant="primary"
+      size="sm"
       className={cn(
         'text-xs flex items-center gap-1 text-neutral-11',
         { 'text-danger-11': error },

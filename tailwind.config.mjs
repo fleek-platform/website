@@ -54,14 +54,18 @@ export const colors = {
   'red-dark-11': '#FF9592',
 
   'neutral-1': '#111111',
-  'neutral-2': '#222222',
-  'neutral-4': '#2a2a2a',
+  'neutral-2': '#191919',
+  'neutral-3': '#222222',
+  'neutral-4': '#2A2A2A',
+  'neutral-5': '#313131',
   'neutral-6': '#3a3a3a',
-  'neutral-7': '#424242',
+  'neutral-7': '#484848',
   'neutral-8': '#606060',
-  'neutral-9': '#6e6e6e',
   'neutral-11': '#B4B4B4',
   'neutral-12': '#EEE',
+
+  'danger-8': '#B54548',
+  'danger-11': '#FF9592',
 };
 
 export default {
@@ -70,9 +74,6 @@ export default {
   content: ['./src/**/*.{astro,html,js,jsx,md,mdx,ts,tsx}'],
   theme: {
     extend: {
-      rotate: {
-        135: '135deg',
-      },
       minHeight: {
         container: 'calc(50vh + 6rem)',
       },
@@ -137,7 +138,7 @@ export default {
           overflow: 'hidden',
           '-webkit-line-clamp': '2',
           'line-clamp': '2',
-          'max-height': 'calc(2 * 1.5em)',
+          'max-height': 'calc(2 * 1.3em)',
         },
       });
     },

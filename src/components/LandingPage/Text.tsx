@@ -16,15 +16,15 @@ const textVariants = cva([], {
       tertiary: 'text-neutral-10',
     },
     size: {
-      '2xs': 'text-2xs',
-      xs: 'text-xs',
-      sm: 'text-sm',
-      md: 'text-md',
-      lg: 'text-lg',
-      xl: 'text-xl',
-      '2xl': 'text-2xl',
-      '3xl': 'text-3xl',
-      '4xl': 'text-4xl',
+      '2xs': 'text-[1rem]',
+      xs: 'text-[1.2rem]',
+      sm: 'text-[1.4rem]',
+      md: 'text-[1.6rem]',
+      lg: 'text-[1.8rem]',
+      xl: 'text-[2.0rem]',
+      '2xl': 'text-[2.6rem]',
+      '3xl': 'text-[3.4rem]',
+      '4xl': 'text-[5.8rem]',
     },
     weight: {
       400: 'font-normal',
@@ -57,12 +57,12 @@ type TextProps = PropsWithChildren &
   };
 
 export const Text = forwardRef<HTMLParagraphElement, TextProps>(
-  ({ children, as = 'p', variant, className, ...props }, ref) => {
+  ({ children, as = 'p', variant, size, weight, className, ...props }, ref) => {
     return createElement(
       as,
       {
         ref,
-        className: cn(textVariants({ variant }), className),
+        className: cn(textVariants({ variant, size, weight }), className),
         ...props,
       },
       children,
