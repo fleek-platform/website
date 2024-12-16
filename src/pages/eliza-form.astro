@@ -1,0 +1,42 @@
+---
+import settings from '@base/settings.json';
+import { Button } from '@components/Button';
+import { FaChevronLeft } from 'react-icons/fa6';
+import { Text } from '@components/LandingPage/Text';
+import Link, { Target } from '@components/Link';
+import BaseHtml from '@layouts/BaseHtml.astro';
+---
+
+<BaseHtml
+  title={settings.site.metadata.eliza.title}
+  ogMeta={{
+    title: settings.site.metadata.eliza.title,
+    description: settings.site.metadata.eliza.description,
+    image: settings.site.metadata.eliza.image,
+    slug: settings.site.metadata.eliza.slug,
+  }}
+>
+  <main
+    class="mx-auto flex w-full max-w-[590px] flex-col gap-38 py-32 font-plex-sans text-14"
+  >
+    <div class="flex flex-col items-start gap-16">
+      <Button variant="ghost" size="sm" className="text-yellow-dark-11"
+        ><FaChevronLeft className="size-14" /> Go back</Button
+      >
+      <Text>Create characterfile</Text>
+      <Text variant="description" className="text-wrap"
+        >Using the inputs below, craft a unique and engaging personality for
+        your AI agent. Click <Link
+          href=""
+          className="underline hover:text-white"
+          target={Target.Blank}>here</Link
+        > to view a characterfile example.
+      </Text>
+    </div>
+    <form class="flex flex-col gap-38">
+      <section>
+        <label for="name" class="text-20 text-white">Name</label>
+      </section>
+    </form>
+  </main>
+</BaseHtml>
