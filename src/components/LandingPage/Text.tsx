@@ -11,6 +11,25 @@ const textVariants = cva([], {
         'text-balance font-plex-sans text-[1.8rem] font-medium text-gray-dark-11',
       feature:
         'font-plex-sans text-[1.2rem] font-medium uppercase tracking-[0.256rem] text-gray-dark-11',
+      primary: 'text-neutral-12',
+      secondary: 'text-neutral-11',
+      tertiary: 'text-neutral-10',
+    },
+    size: {
+      '2xs': 'text-2xs',
+      xs: 'text-xs',
+      sm: 'text-sm',
+      md: 'text-md',
+      lg: 'text-lg',
+      xl: 'text-xl',
+      '2xl': 'text-2xl',
+      '3xl': 'text-3xl',
+      '4xl': 'text-4xl',
+    },
+    weight: {
+      400: 'font-normal',
+      500: 'font-medium',
+      700: 'font-bold',
     },
   },
   defaultVariants: {
