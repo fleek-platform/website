@@ -1,7 +1,7 @@
 ---
 title: 'Essential Skills for Building and Using AI Agents: A Comprehensive Guide'
 date: 2024-05-10
-desc: 'Discover which React-based framework best suits your Web3 project needs, with detailed comparisons on performance, developer experience, and ecosystem support.'
+desc: 'Master AI agent skills and simplify deployment with Fleek. Learn how to build, deploy, and scale autonomous tools for smarter automation.'
 thumbnail: './thumbnail.png'
 image: './thumbnail.png'
 cusotomMetaTitle: 'AI Agent Skills: A Developer's Guide to Building Smarter Apps'
