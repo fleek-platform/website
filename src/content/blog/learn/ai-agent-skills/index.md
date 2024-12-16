@@ -4,7 +4,7 @@ date: 2024-05-10
 desc: 'Master AI agent skills and simplify deployment with Fleek. Learn how to build, deploy, and scale autonomous tools for smarter automation.'
 thumbnail: './thumbnail.png'
 image: './thumbnail.png'
-cusotomMetaTitle: 'AI Agent Skills: A Developer's Guide to Building Smarter Apps'
+customMetaTitle: "AI Agent Skills: A Developer's Guide to Building Smarter Apps"
 author:
   - 'Fleek'
 is_seo: true
