@@ -122,6 +122,9 @@ export const CreateCharacterfile: React.FC = () => {
             <Input.Textarea placeholder="Agent adjectives" />
           </Input.Root>
         </FormField>
+        <Button size="sm" disabled>
+          Continue
+        </Button>
       </form>
     </main>
   );
