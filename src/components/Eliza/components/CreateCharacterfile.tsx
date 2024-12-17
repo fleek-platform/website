@@ -6,17 +6,26 @@ import { FormField } from './FormField';
 import { Input } from './Input';
 import FileEditor from './FileEditor';
 import { isServer } from '@utils/common';
-import { SETTINGS_JSON_EXAMPLE, type ModelProviderName } from '../constants';
+import {
+  SETTINGS_JSON_EXAMPLE,
+  type Client,
+  type ModelProviderName,
+} from '../constants';
 import { useState } from 'react';
 import { ModelProviderDropdown } from './ModelProviderDropdown';
+import { ClientsDropdown } from './ClientsDropdown';
 
 export const CreateCharacterfile: React.FC = () => {
   const [modelProvider, setModelProvider] = useState<ModelProviderName | null>(
     null,
   );
 
+  const [clients, setClients] = useState<Client[]>([]);
+
   const onModelProviderSelect = (provider: ModelProviderName) =>
     setModelProvider(provider);
+
+  const onClientSelect = (clients: Client[]) => setClients(clients);
 
   return (
     <main className="mx-auto flex w-full max-w-[590px] flex-col gap-38 pb-96 pt-32 font-plex-sans text-14">
@@ -45,7 +54,7 @@ export const CreateCharacterfile: React.FC = () => {
           description="The character's display name for identification and in conversations"
         >
           <Input.Root>
-            <Input.Field placeholder="Character display name, i.e: Trump" />
+            <Input.Field placeholder="Character display name, i.e: TechAI" />
           </Input.Root>
         </FormField>
         <FormField
@@ -61,7 +70,7 @@ export const CreateCharacterfile: React.FC = () => {
           label="Clients"
           description="Array of supported client types, such as Discord or X"
         >
-          To come
+          <ClientsDropdown clients={clients} onClientSelect={onClientSelect} />
         </FormField>
         <FormField
           label="Settings"

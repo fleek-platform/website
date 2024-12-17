@@ -23,12 +23,12 @@ export const modelProviderNames = [
 
 export type ModelProviderName = (typeof modelProviderNames)[number];
 
-type ModelProvider = {
+type LabelAndIcon = {
   label: string;
   icon: string;
 };
 
-export const modelProviderNamesMap: Record<ModelProviderName, ModelProvider> = {
+export const modelProviderNamesMap: Record<ModelProviderName, LabelAndIcon> = {
   openai: {
     label: 'OpenAI',
     icon: '',
@@ -71,6 +71,54 @@ export const modelProviderNamesMap: Record<ModelProviderName, ModelProvider> = {
   },
   heurist: {
     label: 'Heurist',
+    icon: '',
+  },
+};
+
+export const clientNames = [
+  'discord',
+  'direct',
+  'twitter',
+  'telegram',
+  'farcaster',
+  'lens',
+  'auto',
+  'slack',
+] as const;
+
+export type Client = (typeof clientNames)[number];
+
+export const clientsMap: Record<Client, LabelAndIcon> = {
+  discord: {
+    label: 'Discord',
+    icon: '',
+  },
+  direct: {
+    label: 'Direct',
+    icon: '',
+  },
+  twitter: {
+    label: 'Twitter',
+    icon: '',
+  },
+  telegram: {
+    label: 'Telegram',
+    icon: '',
+  },
+  farcaster: {
+    label: 'Farcaster',
+    icon: '',
+  },
+  lens: {
+    label: 'Lens',
+    icon: '',
+  },
+  auto: {
+    label: 'Auto',
+    icon: '',
+  },
+  slack: {
+    label: 'Slack',
     icon: '',
   },
 };
