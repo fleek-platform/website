@@ -13,7 +13,7 @@ const Trigger: React.FC<DropdownMenu.DropdownMenuTriggerProps> = ({
   return (
     <DropdownMenu.Trigger
       className={cn(
-        'group flex h-32 select-none items-center justify-between rounded-8 border border-neutral-6 bg-transparent px-8 outline-none transition-colors hover:bg-neutral-1 focus:ring-2 focus:ring-neutral-4',
+        'group flex h-32 select-none items-center justify-between rounded-8 border border-neutral-6 bg-transparent px-8 text-white outline-none transition-colors hover:bg-neutral-1 focus:ring-2 focus:ring-neutral-4',
         className,
       )}
       {...props}
@@ -35,7 +35,7 @@ const Content: React.FC<DropdownMenu.DropdownMenuContentProps> = ({
         sideOffset={props.sideOffset || 6}
         align={props.align || 'start'}
         className={cn(
-          'w-[var(--radix-dropdown-menu-trigger-width)] rounded-8 border border-neutral-6 bg-neutral-1 p-4 data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0 data-[state=closed]:zoom-out-[.97] data-[state=open]:zoom-in-[.97]',
+          'w-[var(--radix-dropdown-menu-trigger-width)] rounded-8 border border-neutral-6 bg-neutral-1 p-4 data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0 data-[state=closed]:zoom-out-[.98] data-[state=open]:zoom-in-[.98]',
           className,
         )}
         {...props}
@@ -54,7 +54,7 @@ const Item: React.FC<DropdownMenu.DropdownMenuItemProps> = ({
   return (
     <DropdownMenu.Item
       className={cn(
-        'cursor-pointer rounded-6 px-5 py-3 font-plex-sans text-14 outline-none hover:bg-neutral-2 focus:bg-neutral-2',
+        'cursor-pointer rounded-6 px-5 py-3 font-plex-sans text-14 outline-none hover:bg-neutral-3 focus:bg-neutral-3',
         className,
       )}
       {...props}
@@ -82,6 +82,27 @@ const CheckboxItem: React.FC<DropdownMenu.DropdownMenuCheckboxItemProps> = ({
         <FaCheck className="size-14 opacity-50" />
       </DropdownMenu.ItemIndicator>
     </DropdownMenu.CheckboxItem>
+  );
+};
+
+const RadioItem: React.FC<DropdownMenu.DropdownMenuRadioItemProps> = ({
+  children,
+  className,
+  ...props
+}) => {
+  return (
+    <DropdownMenu.RadioItem
+      className={cn(
+        'cursor-pointer rounded-6 px-5 py-3 font-plex-sans text-14 hover:bg-neutral-2',
+        className,
+      )}
+      {...props}
+    >
+      {children}
+      <DropdownMenu.ItemIndicator className="ml-auto">
+        <FaCheck className="size-14 opacity-50" />
+      </DropdownMenu.ItemIndicator>
+    </DropdownMenu.RadioItem>
   );
 };
 

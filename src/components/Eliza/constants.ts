@@ -8,17 +8,17 @@ export const SETTINGS_JSON_EXAMPLE = `{
   }`;
 
 export const modelProviderNames = [
-  'OPENAI',
-  'ANTHROPIC',
-  'CLAUDE_VERTEX',
-  'GROK',
-  'GROQ',
-  'LLAMACLOUD',
-  'LLAMALOCAL',
-  'GOOGLE',
-  'REDPILL',
-  'OPENROUTER',
-  'HEURIST',
+  'openai',
+  'anthropic',
+  'claude_vertex',
+  'grok',
+  'groq',
+  'llamacloud',
+  'llamalocal',
+  'google',
+  'redpill',
+  'openrouter',
+  'heurist',
 ] as const;
 
 export type ModelProviderName = (typeof modelProviderNames)[number];
@@ -29,47 +29,47 @@ type ModelProvider = {
 };
 
 export const modelProviderNamesMap: Record<ModelProviderName, ModelProvider> = {
-  OPENAI: {
+  openai: {
     label: 'OpenAI',
     icon: '',
   },
-  ANTHROPIC: {
+  anthropic: {
     label: 'Anthropic',
     icon: '',
   },
-  CLAUDE_VERTEX: {
+  claude_vertex: {
     label: 'Claude Vertex',
     icon: '',
   },
-  GROK: {
+  grok: {
     label: 'Grok',
     icon: '',
   },
-  GROQ: {
+  groq: {
     label: 'Groq',
     icon: '',
   },
-  LLAMACLOUD: {
+  llamacloud: {
     label: 'LlamaCloud',
     icon: '',
   },
-  LLAMALOCAL: {
+  llamalocal: {
     label: 'LlamaLocal',
     icon: '',
   },
-  GOOGLE: {
+  google: {
     label: 'Google',
     icon: '',
   },
-  REDPILL: {
+  redpill: {
     label: 'Red Pill',
     icon: '',
   },
-  OPENROUTER: {
+  openrouter: {
     label: 'Open Router',
     icon: '',
   },
-  HEURIST: {
+  heurist: {
     label: 'Heurist',
     icon: '',
   },

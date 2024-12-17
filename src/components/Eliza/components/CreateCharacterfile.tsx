@@ -6,19 +6,17 @@ import { FormField } from './FormField';
 import { Input } from './Input';
 import FileEditor from './FileEditor';
 import { isServer } from '@utils/common';
-import { Dropdown } from '@components/Dropdown';
-import {
-  modelProviderNames,
-  modelProviderNamesMap,
-  SETTINGS_JSON_EXAMPLE,
-  type ModelProviderName,
-} from '../constants';
+import { SETTINGS_JSON_EXAMPLE, type ModelProviderName } from '../constants';
 import { useState } from 'react';
+import { ModelProviderDropdown } from './ModelProviderDropdown';
 
 export const CreateCharacterfile: React.FC = () => {
-  const [modelProvider, setModelProvider] = useState<ModelProviderName>(
-    modelProviderNames[0],
+  const [modelProvider, setModelProvider] = useState<ModelProviderName | null>(
+    null,
   );
+
+  const onModelProviderSelect = (provider: ModelProviderName) =>
+    setModelProvider(provider);
 
   return (
     <main className="mx-auto flex w-full max-w-[590px] flex-col gap-38 pb-96 pt-32 font-plex-sans text-14">
@@ -47,28 +45,17 @@ export const CreateCharacterfile: React.FC = () => {
           description="The character's display name for identification and in conversations"
         >
           <Input.Root>
-            <Input.Field placeholder="Character display name" />
+            <Input.Field placeholder="Character display name, i.e: Trump" />
           </Input.Root>
         </FormField>
         <FormField
           label="Model provider"
           description="Specifies the AI model provider"
         >
-          <Dropdown.Root>
-            <Dropdown.Trigger>
-              {modelProviderNamesMap[modelProvider].label}
-            </Dropdown.Trigger>
-            <Dropdown.Content>
-              {modelProviderNames.map((provider) => (
-                <Dropdown.Item
-                  key={provider}
-                  onClick={() => setModelProvider(provider)}
-                >
-                  {modelProviderNamesMap[provider].label}
-                </Dropdown.Item>
-              ))}
-            </Dropdown.Content>
-          </Dropdown.Root>
+          <ModelProviderDropdown
+            modelProvider={modelProvider}
+            onModelProviderSelect={onModelProviderSelect}
+          />
         </FormField>
         <FormField
           label="Clients"
