@@ -14,15 +14,15 @@
     },
     "metadata": {
       "default": {
-        "title": "Fleek | Build & deploy autonomous apps & AI agents",
+        "title": "Fleek | Build and deploy autonomous apps and AI agents",
         "slug": "",
-        "description": "Fleek: Build next-gen apps & AI agents in minutes on an open-source, verifiable, auto-scalable cloud platform. Start for free!",
+        "description": "Fleek: Build next-gen apps and AI agents in minutes on an open-source, verifiable, auto-scalable cloud platform. Start for free!",
         "image": "/images/fleek-meta-image.png?202406061658"
       },
       "about": {
         "title": "About",
         "slug": "about",
-        "description": "Fleek: Build next-gen apps & AI agents in minutes on an open-source, verifiable, auto-scalable cloud platform. Start for free!",
+        "description": "Fleek: Build next-gen apps and AI agents in minutes on an open-source, verifiable, auto-scalable cloud platform. Start for free!",
         "image": "/images/fleek-meta-image.png?202406061658"
       },
       "blog": {
@@ -138,7 +138,7 @@
   },
   "landingPage": {
     "hero": {
-      "h1": "Build and deploy autonomous apps & AI agents",
+      "h1": "Build and deploy autonomous apps and AI agents",
       "h2": "Fleek makes it easy to build and deploy next-generation apps and AI agents in minutes on an open-source, verifiable, auto-scalable cloud platform.",
       "primaryCta": "Get started",
       "secondaryCta": "Read our docs",
