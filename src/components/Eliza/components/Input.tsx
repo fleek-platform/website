@@ -140,7 +140,7 @@ const Textarea = forwardRef<HTMLTextAreaElement, InputTextareaProps>(
         ref={ref}
         autoComplete="off"
         className={cn(
-          'h-full min-h-[100px] w-full resize-none bg-transparent py-8 placeholder-neutral-8 outline-none [field-sizing:content] disabled:cursor-not-allowed',
+          'h-full w-full resize-none bg-transparent py-8 placeholder-neutral-8 outline-none [field-sizing:content] disabled:cursor-not-allowed',
           className,
         )}
         {...props}

@@ -1,25 +1,28 @@
 import { Button } from '@components/Button';
 import { Text } from '@components/LandingPage/Text';
 import Link, { Target } from '@components/Link';
-import { FaChevronLeft } from 'react-icons/fa6';
+import { FaChevronLeft, FaPlus, FaTrash } from 'react-icons/fa6';
 import { FormField } from './FormField';
 import { Input } from './Input';
 import FileEditor from './FileEditor';
 import { isServer } from '@utils/common';
 import {
+  EMPTY_CHARACTERFILE_FORM,
   SETTINGS_JSON_EXAMPLE,
+  type CharacterfileForm,
   type Client,
   type ModelProviderName,
 } from '../constants';
 import { useState } from 'react';
 import { ModelProviderDropdown } from './ModelProviderDropdown';
 import { ClientsDropdown } from './ClientsDropdown';
+import { TextAreaWithAdditionalFields } from './TextAreaWithAdditionalFields';
 
 export const CreateCharacterfile: React.FC = () => {
+  const [form, setForm] = useState<CharacterfileForm>(EMPTY_CHARACTERFILE_FORM);
   const [modelProvider, setModelProvider] = useState<ModelProviderName | null>(
     null,
   );
-
   const [clients, setClients] = useState<Client[]>([]);
 
   const onModelProviderSelect = (provider: ModelProviderName) =>
@@ -48,7 +51,7 @@ export const CreateCharacterfile: React.FC = () => {
           to view a characterfile example.
         </Text>
       </div>
-      <form className="flex flex-col gap-38">
+      <div className="flex flex-col gap-38">
         <FormField
           label="Name"
           description="The character's display name for identification and in conversations"
@@ -91,54 +94,70 @@ export const CreateCharacterfile: React.FC = () => {
           label="Bio"
           description="Character background as a string or array of statements. Includes biographical details about the character, either as one complete biography or several statements that vary."
         >
-          <Input.Root>
-            <Input.Textarea placeholder="Agent biography" />
-          </Input.Root>
+          <TextAreaWithAdditionalFields
+            formFieldArray={form.bio}
+            onUpdate={(updatedBio) => setForm({ ...form, bio: updatedBio })}
+            placeholder="Agent biography"
+          />
         </FormField>
         <FormField
           label="Lore"
           description="Backstory elements and unique character traits. These help define personality and can be randomly sampled in conversations."
         >
-          <Input.Root>
-            <Input.Textarea placeholder="Agent background lore" />
-          </Input.Root>
+          <TextAreaWithAdditionalFields
+            formFieldArray={form.lore}
+            onUpdate={(updatedBio) => setForm({ ...form, lore: updatedBio })}
+            placeholder="Agent background lore"
+          />
         </FormField>
         <FormField
           label="Knowledge"
           description="Array used for Retrieval Augmented Generation (RAG), containing facts or references to ground the character's responses."
         >
-          <Input.Root>
-            <Input.Textarea placeholder="Agent knowledge" />
-          </Input.Root>
+          <TextAreaWithAdditionalFields
+            formFieldArray={form.knowledge}
+            onUpdate={(updatedBio) =>
+              setForm({ ...form, knowledge: updatedBio })
+            }
+            placeholder="Agent knowledge"
+          />
         </FormField>
         <FormField
           label="Topics"
           description="List of subjects the character is interested in or knowledgeable about, used to guide conversations and generate relevant content. Helps maintain character consistency."
         >
-          <Input.Root>
-            <Input.Textarea placeholder="Agent topics" />
-          </Input.Root>
+          <TextAreaWithAdditionalFields
+            formFieldArray={form.topics}
+            onUpdate={(updatedBio) => setForm({ ...form, topics: updatedBio })}
+            placeholder="Agent topics"
+          />
         </FormField>
         <FormField
           label="Style"
           description="List of subjects the character is interested in or knowledgeable about, used to guide conversations and generate relevant content. Helps maintain character consistency."
         >
-          <Input.Root>
-            <Input.Textarea placeholder="Agent style" />
-          </Input.Root>
+          <TextAreaWithAdditionalFields
+            formFieldArray={form.style}
+            onUpdate={(updatedBio) => setForm({ ...form, style: updatedBio })}
+            placeholder="Agent style"
+          />
         </FormField>
         <FormField
           label="Adjectives"
           description={`Words that describe the character's traits and personality, used for generating responses with consistent tone. Can be used in "Mad Libs" style content generation`}
         >
-          <Input.Root>
-            <Input.Textarea placeholder="Agent adjectives" />
-          </Input.Root>
+          <TextAreaWithAdditionalFields
+            formFieldArray={form.adjectives}
+            onUpdate={(updatedBio) =>
+              setForm({ ...form, adjectives: updatedBio })
+            }
+            placeholder="Agent adjectives"
+          />
         </FormField>
         <Button size="sm" disabled>
           Continue
         </Button>
-      </form>
+      </div>
     </main>
   );
 };

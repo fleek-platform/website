@@ -122,3 +122,21 @@ export const clientsMap: Record<Client, LabelAndIcon> = {
     icon: '',
   },
 };
+
+export type CharacterfileForm = {
+  bio: string[];
+  lore: string[];
+  knowledge: string[];
+  topics: string[];
+  style: string[];
+  adjectives: string[];
+};
+
+export const EMPTY_CHARACTERFILE_FORM: CharacterfileForm = {
+  bio: [''],
+  lore: [''],
+  knowledge: [''],
+  topics: [''],
+  style: [''],
+  adjectives: [''],
+};
