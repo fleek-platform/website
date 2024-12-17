@@ -66,9 +66,9 @@ const AboutModule = {
                   className="m-auto pb-[16px]"
                 />
               )}
-              <p className="font-medium3 text-center font-sans text-[20px] leading-[20px] text-white md:text-[28px] md:leading-[28px]">
+              <h1 className="font-medium3 text-center font-sans text-[20px] leading-[20px] text-white md:text-[28px] md:leading-[28px]">
                 {item.title}
-              </p>
+              </h1>
             </ContentBox>
           );
         })}
