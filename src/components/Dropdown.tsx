@@ -13,13 +13,13 @@ const Trigger: React.FC<DropdownMenu.DropdownMenuTriggerProps> = ({
   return (
     <DropdownMenu.Trigger
       className={cn(
-        'group flex h-32 select-none items-center justify-between rounded-8 border border-neutral-6 bg-transparent px-8 text-white outline-none hover:bg-neutral-1 focus:bg-neutral-1 focus:ring-2 focus:ring-neutral-4',
+        'group flex h-32 select-none items-center gap-4 rounded-8 border border-neutral-6 bg-transparent px-8 text-white outline-none hover:bg-neutral-1 focus:bg-neutral-1 focus:ring-2 focus:ring-neutral-4',
         className,
       )}
       {...props}
     >
       {children}
-      <FaChevronDown className="size-14 opacity-50 transition-all group-data-[state=open]:rotate-180" />
+      <FaChevronDown className="ml-auto size-14 opacity-50 transition-all group-data-[state=open]:rotate-180" />
     </DropdownMenu.Trigger>
   );
 };

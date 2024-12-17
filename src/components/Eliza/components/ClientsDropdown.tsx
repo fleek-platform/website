@@ -1,5 +1,6 @@
 import { Dropdown } from '@components/Dropdown';
 import { clientNames, clientsMap, type Client } from '../constants';
+import { Badge } from '@components/Badge';
 
 type ClientsDropdownProps = {
   clients: Client[];
@@ -11,16 +12,14 @@ export const ClientsDropdown: React.FC<ClientsDropdownProps> = ({
   onClientSelect,
 }) => {
   const triggerLabel =
-    clients.length === 0 ? clients : 'Select one or multiple clients';
+    clients.length > 0
+      ? clients.map((c) => <Badge key={c}>{clientsMap[c].label}</Badge>)
+      : 'Select one or multiple clients';
 
   const handleCheckedChange = (isChecked: boolean, client: Client) => {
-    let newClients: Client[] = [...clients];
-
-    if (isChecked) {
-      newClients.push(client);
-    } else {
-      newClients = clients.filter((c) => c !== client);
-    }
+    const newClients = isChecked
+      ? [...clients, client]
+      : clients.filter((c) => c !== client);
 
     onClientSelect(newClients);
   };
@@ -33,11 +32,11 @@ export const ClientsDropdown: React.FC<ClientsDropdownProps> = ({
           return (
             <Dropdown.CheckboxItem
               key={client}
+              onSelect={(e) => e.preventDefault()}
               checked={clients.some((c) => c === client)}
               onCheckedChange={(isChecked) =>
                 handleCheckedChange(isChecked, client)
               }
-              onSelect={(e) => e.preventDefault()}
             >
               {clientsMap[client].label}
             </Dropdown.CheckboxItem>

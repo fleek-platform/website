@@ -98,7 +98,7 @@ export const clientsMap: Record<Client, LabelAndIcon> = {
     icon: '',
   },
   twitter: {
-    label: 'Twitter',
+    label: 'X',
     icon: '',
   },
   telegram: {
