@@ -7,17 +7,19 @@ import { Input } from './Input';
 import FileEditor from './FileEditor';
 import { isServer } from '@utils/common';
 import { Dropdown } from '@components/Dropdown';
-
-const SETTINGS_JSON = `{
-  "settings": {
-    "voice": {
-      "model": "voice-model-id",
-      "url": "voice-service-url"
-    }
-  }
-}`;
+import {
+  modelProviderNames,
+  modelProviderNamesMap,
+  SETTINGS_JSON_EXAMPLE,
+  type ModelProviderName,
+} from '../constants';
+import { useState } from 'react';
 
 export const CreateCharacterfile: React.FC = () => {
+  const [modelProvider, setModelProvider] = useState<ModelProviderName>(
+    modelProviderNames[0],
+  );
+
   return (
     <main className="mx-auto flex w-full max-w-[590px] flex-col gap-38 pb-96 pt-32 font-plex-sans text-14">
       <div className="flex flex-col items-start gap-16">
@@ -53,10 +55,18 @@ export const CreateCharacterfile: React.FC = () => {
           description="Specifies the AI model provider"
         >
           <Dropdown.Root>
-            <Dropdown.Trigger>openai</Dropdown.Trigger>
+            <Dropdown.Trigger>
+              {modelProviderNamesMap[modelProvider].label}
+            </Dropdown.Trigger>
             <Dropdown.Content>
-              <Dropdown.Item>openai</Dropdown.Item>
-              <Dropdown.Item>blep</Dropdown.Item>
+              {modelProviderNames.map((provider) => (
+                <Dropdown.Item
+                  key={provider}
+                  onClick={() => setModelProvider(provider)}
+                >
+                  {modelProviderNamesMap[provider].label}
+                </Dropdown.Item>
+              ))}
             </Dropdown.Content>
           </Dropdown.Root>
         </FormField>
@@ -76,7 +86,7 @@ export const CreateCharacterfile: React.FC = () => {
             <FileEditor
               variant="narrow"
               fileType="json"
-              fileContent={SETTINGS_JSON}
+              fileContent={SETTINGS_JSON_EXAMPLE}
               onChange={() => {}}
             />
           )}

@@ -13,7 +13,7 @@ const Trigger: React.FC<DropdownMenu.DropdownMenuTriggerProps> = ({
   return (
     <DropdownMenu.Trigger
       className={cn(
-        'group flex h-32 items-center justify-between rounded-8 border border-neutral-6 bg-transparent px-8 outline-none transition-colors hover:bg-neutral-1 focus:ring-2 focus:ring-neutral-4',
+        'group flex h-32 select-none items-center justify-between rounded-8 border border-neutral-6 bg-transparent px-8 outline-none transition-colors hover:bg-neutral-1 focus:ring-2 focus:ring-neutral-4',
         className,
       )}
       {...props}
@@ -35,7 +35,7 @@ const Content: React.FC<DropdownMenu.DropdownMenuContentProps> = ({
         sideOffset={props.sideOffset || 6}
         align={props.align || 'start'}
         className={cn(
-          'w-[var(--radix-dropdown-menu-trigger-width)] rounded-8 border border-neutral-6 bg-neutral-1 p-8 transition-all data-[state=closed]:opacity-0 data-[state=open]:opacity-100',
+          'w-[var(--radix-dropdown-menu-trigger-width)] rounded-8 border border-neutral-6 bg-neutral-1 p-4 data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0 data-[state=closed]:zoom-out-[.97] data-[state=open]:zoom-in-[.97]',
           className,
         )}
         {...props}
@@ -54,7 +54,7 @@ const Item: React.FC<DropdownMenu.DropdownMenuItemProps> = ({
   return (
     <DropdownMenu.Item
       className={cn(
-        'rounded-8 text-14 outline-none hover:bg-neutral-2 focus:bg-neutral-2',
+        'cursor-pointer rounded-6 px-5 py-3 font-plex-sans text-14 outline-none hover:bg-neutral-2 focus:bg-neutral-2',
         className,
       )}
       {...props}
@@ -71,7 +71,10 @@ const CheckboxItem: React.FC<DropdownMenu.DropdownMenuCheckboxItemProps> = ({
 }) => {
   return (
     <DropdownMenu.CheckboxItem
-      className={cn('rounded-8 text-14 hover:bg-neutral-2', className)}
+      className={cn(
+        'cursor-pointer rounded-6 px-5 py-3 font-plex-sans text-14 hover:bg-neutral-2',
+        className,
+      )}
       {...props}
     >
       {children}

@@ -1,3 +1,4 @@
+import tailwindAnimate from "tailwindcss-animate";
 import tailwindCustomConfig from './.tailwind/tailwind.custom.config';
 import tailwindPluginTypography from './.tailwind/tailwind.plugin.typography';
 
@@ -129,6 +130,7 @@ export default {
     },
   },
   plugins: [
+    tailwindAnimate,
     tailwindPluginTypography,
     function ({ addUtilities }) {
       addUtilities({
