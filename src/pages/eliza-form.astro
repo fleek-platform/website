@@ -1,12 +1,7 @@
 ---
 import settings from '@base/settings.json';
-import { Button } from '@components/Button';
-import { FaChevronLeft } from 'react-icons/fa6';
-import { Text } from '@components/LandingPage/Text';
-import Link, { Target } from '@components/Link';
 import BaseHtml from '@layouts/BaseHtml.astro';
-import { Input } from '@components/Eliza/components/Input';
-import { FormField } from '@components/Eliza/components/FormField';
+import { CreateCharacterfile } from '@components/Eliza/components/CreateCharacterfile';
 ---
 
 <BaseHtml
@@ -18,41 +13,5 @@ import { FormField } from '@components/Eliza/components/FormField';
     slug: settings.site.metadata.eliza.slug,
   }}
 >
-  <main
-    class="mx-auto flex w-full max-w-[590px] flex-col gap-38 py-32 font-plex-sans text-14"
-  >
-    <div class="flex flex-col items-start gap-16">
-      <Button variant="ghost" size="sm" className="text-yellow-dark-11"
-        ><FaChevronLeft className="size-12" /> Go back</Button
-      >
-      <Text>Create characterfile</Text>
-      <Text variant="description" className="text-wrap"
-        >Using the inputs below, craft a unique and engaging personality for
-        your AI agent. Click <Link
-          href="https://ai16z.github.io/eliza/docs/core/characterfile/#example-complete-character-file"
-          rel="noopener noreferrer"
-          className="underline hover:text-white"
-          target={Target.Blank}>here</Link
-        > to view a characterfile example.
-      </Text>
-    </div>
-    <form class="flex flex-col gap-38">
-      <FormField
-        label="Name"
-        description="The character's display name for identification and in conversations"
-      >
-        <Input.Root>
-          <Input.Field placeholder="Character display name" />
-        </Input.Root>
-      </FormField>
-      <FormField
-        label="Bio"
-        description="Character background as a string or array of statements. Includes biographical details about the character, either as one complete biography or several statements that vary."
-      >
-        <Input.Root>
-          <Input.Textarea placeholder="Agent biography" />
-        </Input.Root>
-      </FormField>
-    </form>
-  </main>
+  <CreateCharacterfile client:load />
 </BaseHtml>
