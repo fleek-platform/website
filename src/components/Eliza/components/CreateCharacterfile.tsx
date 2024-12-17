@@ -6,6 +6,7 @@ import { FormField } from './FormField';
 import { Input } from './Input';
 import FileEditor from './FileEditor';
 import { isServer } from '@utils/common';
+import { Dropdown } from '@components/Dropdown';
 
 const SETTINGS_JSON = `{
   "settings": {
@@ -51,7 +52,13 @@ export const CreateCharacterfile: React.FC = () => {
           label="Model provider"
           description="Specifies the AI model provider"
         >
-          To come
+          <Dropdown.Root>
+            <Dropdown.Trigger>openai</Dropdown.Trigger>
+            <Dropdown.Content>
+              <Dropdown.Item>openai</Dropdown.Item>
+              <Dropdown.Item>blep</Dropdown.Item>
+            </Dropdown.Content>
+          </Dropdown.Root>
         </FormField>
         <FormField
           label="Clients"
