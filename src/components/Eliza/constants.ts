@@ -91,7 +91,7 @@ export type Client = (typeof clientNames)[number];
 export const clientsMap: Record<Client, LabelAndIcon> = {
   discord: {
     label: 'Discord',
-    icon: '',
+    icon: '/images/eliza/clients/discord.svg',
   },
   direct: {
     label: 'Direct',
@@ -99,11 +99,11 @@ export const clientsMap: Record<Client, LabelAndIcon> = {
   },
   twitter: {
     label: 'X',
-    icon: '',
+    icon: '/images/eliza/clients/x.svg',
   },
   telegram: {
     label: 'Telegram',
-    icon: '',
+    icon: '/images/eliza/clients/telegram.svg',
   },
   farcaster: {
     label: 'Farcaster',

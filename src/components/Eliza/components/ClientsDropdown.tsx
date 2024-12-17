@@ -1,6 +1,51 @@
 import { Dropdown } from '@components/Dropdown';
 import { clientNames, clientsMap, type Client } from '../constants';
 import { Badge } from '@components/Badge';
+import { FaImage } from 'react-icons/fa6';
+
+type ImageProps = {
+  client: Client;
+};
+
+const Image: React.FC<ImageProps> = ({ client }) => {
+  if (!clientsMap[client].icon) {
+    return (
+      <div className="flex size-14 items-center justify-center overflow-hidden rounded-full bg-neutral-3">
+        <FaImage className="size-8 text-neutral-8" />
+      </div>
+    );
+  }
+
+  return (
+    <img
+      width={14}
+      height={14}
+      className="size-14"
+      src={clientsMap[client].icon}
+      alt={`${clientsMap[client].label} logo`}
+    />
+  );
+};
+
+type TriggerLabelProps = {
+  clients: Client[];
+};
+
+const TriggerLabel: React.FC<TriggerLabelProps> = ({ clients }) => {
+  if (clients.length === 0) return <>Select one or multiple clients</>;
+
+  return (
+    <>
+      {clients.slice(0, 3).map((c) => (
+        <Badge key={c}>
+          <Image client={c} />
+          {clientsMap[c].label}
+        </Badge>
+      ))}
+      {clients.length > 3 && <Badge>+{clients.length - 3}</Badge>}
+    </>
+  );
+};
 
 type ClientsDropdownProps = {
   clients: Client[];
@@ -11,11 +56,6 @@ export const ClientsDropdown: React.FC<ClientsDropdownProps> = ({
   clients,
   onClientSelect,
 }) => {
-  const triggerLabel =
-    clients.length > 0
-      ? clients.map((c) => <Badge key={c}>{clientsMap[c].label}</Badge>)
-      : 'Select one or multiple clients';
-
   const handleCheckedChange = (isChecked: boolean, client: Client) => {
     const newClients = isChecked
       ? [...clients, client]
@@ -26,7 +66,9 @@ export const ClientsDropdown: React.FC<ClientsDropdownProps> = ({
 
   return (
     <Dropdown.Root>
-      <Dropdown.Trigger>{triggerLabel}</Dropdown.Trigger>
+      <Dropdown.Trigger>
+        <TriggerLabel clients={clients} />
+      </Dropdown.Trigger>
       <Dropdown.Content>
         {clientNames.map((client) => {
           return (
@@ -38,7 +80,10 @@ export const ClientsDropdown: React.FC<ClientsDropdownProps> = ({
                 handleCheckedChange(isChecked, client)
               }
             >
-              {clientsMap[client].label}
+              <div className="flex items-center gap-4">
+                <Image client={client} />
+                {clientsMap[client].label}
+              </div>
             </Dropdown.CheckboxItem>
           );
         })}
