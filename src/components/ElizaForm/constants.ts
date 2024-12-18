@@ -1,3 +1,5 @@
+import { Discord } from './components/ClientIcons';
+
 export const SETTINGS_JSON_EXAMPLE = `{
     "voice": {
       "model": "voice-model-id",
@@ -21,9 +23,9 @@ export const modelProviderNames = [
 
 export type ModelProviderName = (typeof modelProviderNames)[number];
 
-type LabelAndIcon = {
+export type LabelAndIcon = {
   label: string;
-  icon: string;
+  icon: React.ReactNode;
 };
 
 export const modelProviderNamesMap: Record<ModelProviderName, LabelAndIcon> = {
@@ -85,41 +87,6 @@ export const clientNames = [
 ] as const;
 
 export type Client = (typeof clientNames)[number];
-
-export const clientsMap: Record<Client, LabelAndIcon> = {
-  discord: {
-    label: 'Discord',
-    icon: '/images/eliza/clients/discord.svg',
-  },
-  direct: {
-    label: 'Direct',
-    icon: '',
-  },
-  twitter: {
-    label: 'X',
-    icon: '/images/eliza/clients/x.svg',
-  },
-  telegram: {
-    label: 'Telegram',
-    icon: '/images/eliza/clients/telegram.svg',
-  },
-  farcaster: {
-    label: 'Farcaster',
-    icon: '',
-  },
-  lens: {
-    label: 'Lens',
-    icon: '',
-  },
-  auto: {
-    label: 'Auto',
-    icon: '',
-  },
-  slack: {
-    label: 'Slack',
-    icon: '',
-  },
-};
 
 export type CharacterfileForm = {
   bio: string[];
