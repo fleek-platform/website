@@ -1,14 +1,50 @@
 import { Dropdown } from '@components/ElizaForm/components/Dropdown';
-import { clientNames, clientsMap, type Client } from '../constants';
+import { clientNames, type Client, type LabelAndIcon } from '../constants';
 import { Badge } from '@components/ElizaForm/components/Badge';
 import { FaImage } from 'react-icons/fa6';
+import { Discord, Telegram, X } from './ClientIcons';
+
+const CLIENTS_MAP: Record<Client, LabelAndIcon> = {
+  discord: {
+    label: 'Discord',
+    icon: <Discord className="size-14" />,
+  },
+  direct: {
+    label: 'Direct',
+    icon: '',
+  },
+  twitter: {
+    label: 'X',
+    icon: <X className="size-14" />,
+  },
+  telegram: {
+    label: 'Telegram',
+    icon: <Telegram className="size-14" />,
+  },
+  farcaster: {
+    label: 'Farcaster',
+    icon: '',
+  },
+  lens: {
+    label: 'Lens',
+    icon: '',
+  },
+  auto: {
+    label: 'Auto',
+    icon: '',
+  },
+  slack: {
+    label: 'Slack',
+    icon: '',
+  },
+};
 
 type ImageProps = {
   client: Client;
 };
 
 const Image: React.FC<ImageProps> = ({ client }) => {
-  if (!clientsMap[client].icon) {
+  if (!CLIENTS_MAP[client].icon) {
     return (
       <div className="bg-elz-neutral-5 flex size-14 items-center justify-center overflow-hidden rounded-full">
         <FaImage className="text-elz-neutral-8 size-8" />
@@ -16,15 +52,7 @@ const Image: React.FC<ImageProps> = ({ client }) => {
     );
   }
 
-  return (
-    <img
-      width={14}
-      height={14}
-      className="size-14"
-      src={clientsMap[client].icon}
-      alt={`${clientsMap[client].label} logo`}
-    />
-  );
+  return CLIENTS_MAP[client].icon;
 };
 
 type TriggerLabelProps = {
@@ -32,14 +60,14 @@ type TriggerLabelProps = {
 };
 
 const TriggerLabel: React.FC<TriggerLabelProps> = ({ clients }) => {
-  if (clients.length === 0) return <>Select one or multiple clients</>;
+  if (clients.length === 0) return 'Select one or multiple clients';
 
   return (
     <>
       {clients.slice(0, 3).map((c) => (
         <Badge key={c}>
           <Image client={c} />
-          {clientsMap[c].label}
+          {CLIENTS_MAP[c].label}
         </Badge>
       ))}
       {clients.length > 3 && <Badge>+{clients.length - 3}</Badge>}
@@ -82,7 +110,7 @@ export const ClientsDropdown: React.FC<ClientsDropdownProps> = ({
             >
               <div className="flex items-center gap-4">
                 <Image client={client} />
-                {clientsMap[client].label}
+                {CLIENTS_MAP[client].label}
               </div>
             </Dropdown.CheckboxItem>
           );
