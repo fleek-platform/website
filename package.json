@@ -59,6 +59,7 @@
     "@microflash/remark-callout-directives": "^4.1.0",
     "@monaco-editor/react": "^4.6.0",
     "@radix-ui/react-checkbox": "^1.1.2",
+    "@radix-ui/react-dropdown-menu": "^2.1.4",
     "@tailwindcss/aspect-ratio": "^0.4.2",
     "@types/react": "^18.2.74",
     "@types/react-dom": "^18.2.24",
