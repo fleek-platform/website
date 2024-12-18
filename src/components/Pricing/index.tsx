@@ -7,6 +7,7 @@ import Accordion from '@components/Accordion';
 import settings from '@base/settings.json';
 import data from './data.json';
 import { parseContentWithLinkPlaceholders } from '@utils/parseContentWithLinkPlaceholders';
+import Calculator from './Calculator';
 
 const resources = settings.support.resources || {};
 
@@ -34,6 +35,7 @@ const Pricing = () => {
               return <PricingCard key={index} {...item} />;
             })}
           </div>
+          <Calculator />
           <TableMobile />
           <TableDesktop />
 
