@@ -117,7 +117,7 @@ export default {
       },
       colors: {
         ...colors,
-        ...elzColors
+        ...elzColors,
       },
       animation: {
         float: 'float 5s cubic-bezier(0.5,50,0.6,-50) infinite',

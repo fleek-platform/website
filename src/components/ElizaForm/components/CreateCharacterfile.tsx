@@ -32,7 +32,7 @@ export const CreateCharacterfile: React.FC = () => {
   return (
     <main className="mx-auto flex w-full max-w-[590px] flex-col gap-38 pb-96 pt-32 font-plex-sans text-14">
       <div className="flex flex-col items-start gap-16">
-        <Button variant="ghost" size="sm" className="text-yellow-dark-11">
+        <Button variant="ghost" className="text-yellow-dark-11">
           <FaChevronLeft className="size-12" /> Go back
         </Button>
         <Text>Create characterfile</Text>
