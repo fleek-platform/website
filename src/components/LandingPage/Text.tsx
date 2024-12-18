@@ -2,15 +2,14 @@ import { cn } from '@utils/cn';
 import { cva, type VariantProps } from 'class-variance-authority';
 import { createElement, forwardRef, type PropsWithChildren } from 'react';
 
-const textVariants = cva([], {
+const textVariants = cva('font-plex-sans', {
   variants: {
     variant: {
       title:
         'text-balance font-sans text-[3.6rem] font-semibold leading-[1.125] -tracking-2 text-gray-dark-12 md:text-[5.2rem]',
-      description:
-        'text-balance font-plex-sans text-[1.8rem] font-medium text-gray-dark-11',
+      description: 'text-balance text-[1.8rem] font-medium text-gray-dark-11',
       feature:
-        'font-plex-sans text-[1.2rem] font-medium uppercase tracking-[0.256rem] text-gray-dark-11',
+        'text-[1.2rem] font-medium uppercase tracking-[0.256rem] text-gray-dark-11',
       primary: 'text-neutral-12',
       secondary: 'text-neutral-11',
       tertiary: 'text-neutral-10',

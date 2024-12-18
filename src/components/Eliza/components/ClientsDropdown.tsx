@@ -1,7 +1,8 @@
 import { Dropdown } from '@components/Dropdown';
 import { clientNames, clientsMap, type Client } from '../constants';
 import { Badge } from '@components/Badge';
-import { FaImage } from 'react-icons/fa6';
+import { FaImage, FaXmark } from 'react-icons/fa6';
+import type { MouseEvent } from 'react';
 
 type ImageProps = {
   client: Client;
@@ -29,10 +30,21 @@ const Image: React.FC<ImageProps> = ({ client }) => {
 
 type TriggerLabelProps = {
   clients: Client[];
+  handleCheckedChange: (isChecked: boolean, client: Client) => void;
 };
 
-const TriggerLabel: React.FC<TriggerLabelProps> = ({ clients }) => {
+const TriggerLabel: React.FC<TriggerLabelProps> = ({
+  clients,
+  handleCheckedChange,
+}) => {
   if (clients.length === 0) return <>Select one or multiple clients</>;
+
+  const handleRemove = (e: MouseEvent, client: Client) => {
+    console.log('rodei');
+    e.preventDefault();
+    e.stopPropagation();
+    handleCheckedChange(false, client);
+  };
 
   return (
     <>
@@ -40,6 +52,12 @@ const TriggerLabel: React.FC<TriggerLabelProps> = ({ clients }) => {
         <Badge key={c}>
           <Image client={c} />
           {clientsMap[c].label}
+          <div
+            onClick={(e) => handleRemove(e, c)}
+            className="flex size-14 items-center justify-center rounded-full bg-neutral-5 hover:bg-neutral-6"
+          >
+            <FaXmark className="size-10" />
+          </div>
         </Badge>
       ))}
       {clients.length > 3 && <Badge>+{clients.length - 3}</Badge>}
@@ -67,7 +85,10 @@ export const ClientsDropdown: React.FC<ClientsDropdownProps> = ({
   return (
     <Dropdown.Root>
       <Dropdown.Trigger>
-        <TriggerLabel clients={clients} />
+        <TriggerLabel
+          clients={clients}
+          handleCheckedChange={handleCheckedChange}
+        />
       </Dropdown.Trigger>
       <Dropdown.Content>
         {clientNames.map((client) => {

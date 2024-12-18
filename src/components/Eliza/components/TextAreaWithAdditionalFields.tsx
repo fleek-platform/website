@@ -3,7 +3,6 @@ import type { CharacterfileForm } from '../constants';
 import { Input } from './Input';
 import { FaTrash } from 'react-icons/fa';
 import { FaPlus } from 'react-icons/fa6';
-import type { ChangeEvent } from 'react';
 
 type TextAreaWithAdditionalFieldsProps<T extends keyof CharacterfileForm> = {
   formFieldArray: CharacterfileForm[T];

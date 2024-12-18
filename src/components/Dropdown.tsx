@@ -54,7 +54,7 @@ const Item: React.FC<DropdownMenu.DropdownMenuItemProps> = ({
   return (
     <DropdownMenu.Item
       className={cn(
-        'cursor-pointer rounded-6 px-5 py-3 font-plex-sans text-14 outline-none hover:bg-neutral-3 focus:bg-neutral-3',
+        'cursor-pointer select-none rounded-6 px-5 py-3 font-plex-sans text-14 outline-none hover:bg-neutral-3 focus:bg-neutral-3',
         className,
       )}
       {...props}
@@ -72,7 +72,7 @@ const CheckboxItem: React.FC<DropdownMenu.DropdownMenuCheckboxItemProps> = ({
   return (
     <DropdownMenu.CheckboxItem
       className={cn(
-        'flex cursor-pointer items-center justify-between rounded-6 px-5 py-3 font-plex-sans text-14 outline-none hover:bg-neutral-3 focus:bg-neutral-3 data-[state=checked]:text-white',
+        'flex cursor-pointer select-none items-center justify-between rounded-6 px-5 py-3 font-plex-sans text-14 outline-none hover:bg-neutral-3 focus:bg-neutral-3 data-[state=checked]:text-white',
         className,
       )}
       {...props}
