@@ -15,6 +15,7 @@ type TextStyle =
   | 'm'
   | 'm-mid'
   | 's'
+  | 's-mid'
   | 'xs'
   //   | "caption-text-m"
   //   | "caption-text-s"
@@ -53,6 +54,7 @@ const textStyles: Record<TextStyle, string> = {
   'm-mid': 'text-13 font-plex-sans leading-[150%] lg:text-14 xl:text-16',
   'm-strong': 'font-plex-sans text-16 leading-[150%] font-medium',
   s: 'font-plex-sans text-10 font-medium leading-[150%] lg:text-13 lg:font-normal',
+  's-mid': 'font-plex-sans text-10 font-medium leading-[150%] lg:text-13',
   xs: 'text-10 font-plex-sans font-medium leading-[125%] lg:text-12',
   'caption-l':
     'font-plex-sans text-16 tracking-[0.32rem] font-medium leading-[150%] uppercase lg:tracking-[0.4rem] lg:text-20',
