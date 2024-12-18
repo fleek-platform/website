@@ -1,6 +1,4 @@
 import { Button } from '@components/Button';
-import { Text } from '@components/LandingPage/Text';
-import Link, { Target } from '@components/Link';
 import { FaChevronLeft } from 'react-icons/fa6';
 import { FormField } from './FormField';
 import { Input } from './Input';
@@ -17,6 +15,8 @@ import { useState } from 'react';
 import { ModelProviderDropdown } from './ModelProviderDropdown';
 import { ClientsDropdown } from './ClientsDropdown';
 import { TextAreaWithAdditionalFields } from './TextAreaWithAdditionalFields';
+import { Text } from './Text';
+import Link, { Target } from './Link';
 
 export const CreateCharacterfile: React.FC = () => {
   const [form, setForm] = useState<CharacterfileForm>(EMPTY_CHARACTERFILE_FORM);
@@ -42,7 +42,6 @@ export const CreateCharacterfile: React.FC = () => {
           your AI agent. Click{' '}
           <Link
             href="https://ai16z.github.io/eliza/docs/core/characterfile/#example-complete-character-file"
-            rel="noopener noreferrer"
             className="underline hover:text-white"
             target={Target.Blank}
           >

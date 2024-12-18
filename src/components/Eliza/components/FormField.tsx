@@ -1,5 +1,5 @@
-import { Text } from '@components/LandingPage/Text';
 import type { PropsWithChildren } from 'react';
+import { Text } from './Text';
 
 type FormFieldProps = PropsWithChildren & {
   label: string;

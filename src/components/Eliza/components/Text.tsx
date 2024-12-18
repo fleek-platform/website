@@ -10,9 +10,8 @@ const textVariants = cva('font-elz-plex-sans', {
       description: 'text-balance text-[1.8rem] font-medium text-elz-neutral-11',
       feature:
         'text-[1.2rem] font-medium uppercase tracking-[0.256rem] text-elz-neutral-11',
-      primary: 'text-neutral-12',
-      secondary: 'text-neutral-11',
-      tertiary: 'text-neutral-10',
+      primary: 'text-elz-neutral-12',
+      secondary: 'text-elz-neutral-11',
     },
     size: {
       '2xs': 'text-[1rem]',
