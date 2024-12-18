@@ -46,8 +46,8 @@ type ImageProps = {
 const Image: React.FC<ImageProps> = ({ client }) => {
   if (!CLIENTS_MAP[client].icon) {
     return (
-      <div className="bg-elz-neutral-5 flex size-14 items-center justify-center overflow-hidden rounded-full">
-        <FaImage className="text-elz-neutral-8 size-8" />
+      <div className="flex size-14 items-center justify-center overflow-hidden rounded-full bg-elz-neutral-5">
+        <FaImage className="size-8 text-elz-neutral-8" />
       </div>
     );
   }
