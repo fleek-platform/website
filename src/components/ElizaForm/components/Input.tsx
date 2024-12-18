@@ -118,7 +118,7 @@ const Field = forwardRef<HTMLInputElement, InputFieldProps>(
         ref={ref}
         autoComplete="off"
         className={cn(
-          'placeholder-elz-neutral-8 h-full w-full bg-transparent outline-none disabled:cursor-not-allowed',
+          'h-full w-full bg-transparent placeholder-elz-neutral-8 outline-none disabled:cursor-not-allowed',
           className,
         )}
         {...props}
@@ -140,7 +140,7 @@ const Textarea = forwardRef<HTMLTextAreaElement, InputTextareaProps>(
         ref={ref}
         autoComplete="off"
         className={cn(
-          'placeholder-elz-neutral-8 h-full w-full resize-none bg-transparent py-8 outline-none [field-sizing:content] disabled:cursor-not-allowed',
+          'h-full w-full resize-none bg-transparent py-8 placeholder-elz-neutral-8 outline-none [field-sizing:content] disabled:cursor-not-allowed',
           className,
         )}
         {...props}
@@ -165,7 +165,7 @@ const Label: React.FC<InputLabelProps> = ({
   return (
     <label
       className={cn(
-        'text-xs text-elz-neutral-11 flex items-center gap-1',
+        'text-xs flex items-center gap-1 text-elz-neutral-11',
         { 'text-danger-11': error },
         className,
       )}
@@ -187,7 +187,7 @@ const Hint: React.FC<InputHintProps> = ({ error, children, className }) => {
       variant="primary"
       size="sm"
       className={cn(
-        'text-xs text-elz-neutral-11 flex items-center gap-1',
+        'text-xs flex items-center gap-1 text-elz-neutral-11',
         { 'text-danger-11': error },
         className,
       )}
