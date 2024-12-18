@@ -1,4 +1,3 @@
-import { Button } from '@components/Button';
 import { FaChevronLeft } from 'react-icons/fa6';
 import { FormField } from './FormField';
 import { Input } from './Input';
@@ -16,6 +15,7 @@ import { ClientsDropdown } from './ClientsDropdown';
 import { TextareaWithAdditionalFields } from './TextareaWithAdditionalFields';
 import { Text } from './Text';
 import Link, { Target } from './Link';
+import { Button } from './Button';
 
 export const CreateCharacterfile: React.FC = () => {
   const [form, setForm] = useState<CharacterfileForm>(EMPTY_CHARACTERFILE_FORM);
@@ -152,9 +152,7 @@ export const CreateCharacterfile: React.FC = () => {
             placeholder="Agent adjectives"
           />
         </FormField>
-        <Button size="sm" disabled>
-          Continue
-        </Button>
+        <Button disabled>Continue</Button>
       </div>
     </main>
   );
