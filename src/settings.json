@@ -182,24 +182,28 @@
     "menu": {
       "order": [
         {
-          "category": "Platform",
+          "category": "Deploy_AI_Agents",
           "order": 1
         },
         {
-          "category": "Infrastructure",
+          "category": "Platform",
           "order": 2
         },
         {
-          "category": "CLI",
+          "category": "Infrastructure",
           "order": 3
         },
         {
-          "category": "SDK",
+          "category": "CLI",
           "order": 4
         },
         {
-          "category": "FAQ",
+          "category": "SDK",
           "order": 5
+        },
+        {
+          "category": "FAQ",
+          "order": 6
         }
       ],
       "customTitlesByDirectoryName": {}
