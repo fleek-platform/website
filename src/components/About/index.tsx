@@ -139,7 +139,7 @@ const AboutModule = {
                       />
                     ))}
                   {repo.contributors && repo.contributors.length > 5 && (
-                    <span className="ml-2 text-[12px] leading-[22px] text-neutral-11">
+                    <span className="text-neutral-11 ml-2 text-[12px] leading-[22px]">
                       + more
                     </span>
                   )}
@@ -165,10 +165,10 @@ const AboutModule = {
                 alt="Github icon"
                 className="mb-[16px]"
               />
-              <p className="mb-[12px] font-plex-sans text-[20px] font-semibold capitalize leading-[28px] text-neutral-11">
+              <p className="text-neutral-11 mb-[12px] font-plex-sans text-[20px] font-semibold capitalize leading-[28px]">
                 {repo.name}
               </p>
-              <p className="line-clamp-2 font-plex-sans text-[16px] leading-[22px] text-neutral-11">
+              <p className="text-neutral-11 line-clamp-2 font-plex-sans text-[16px] leading-[22px]">
                 {repo.description}
               </p>
             </ContentBox>

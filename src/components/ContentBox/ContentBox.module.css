@@ -1,5 +1,5 @@
 .wrapper {
-  @apply relative flex w-full flex-col justify-between overflow-hidden rounded-[32px] border-1 border-neutral-6 bg-black shadow-lg;
+  @apply border-neutral-6 relative flex w-full flex-col justify-between overflow-hidden rounded-[32px] border-1 bg-black shadow-lg;
 }
 
 .wrapperNarrow {
@@ -15,5 +15,5 @@
 }
 
 .footer {
-  @apply border-t-1 border-t-neutral-6 bg-neutral-1 px-[16px] py-[16px];
+  @apply border-t-neutral-6 bg-neutral-1 border-t-1 px-[16px] py-[16px];
 }

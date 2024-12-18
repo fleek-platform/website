@@ -1,5 +1,5 @@
 .wrapper {
-  @apply relative w-full border-b-1 border-b-neutral-6 p-[20px] md:p-[60px];
+  @apply border-b-neutral-6 relative w-full border-b-1 p-[20px] md:p-[60px];
 }
 
 .backgroundElement {
@@ -39,11 +39,11 @@
 }
 
 .title {
-  @apply relative mb-[24px] text-center font-sans text-[40px] font-semibold leading-normal text-neutral-12 md:text-[52px];
+  @apply text-neutral-12 relative mb-[24px] text-center font-sans text-[40px] font-semibold leading-normal md:text-[52px];
 }
 
 .subText {
-  @apply relative pb-[24px] text-left font-plex-sans text-[16px] font-medium leading-[24px] text-neutral-11 last:pb-0 md:text-[18px];
+  @apply text-neutral-11 relative pb-[24px] text-left font-plex-sans text-[16px] font-medium leading-[24px] last:pb-0 md:text-[18px];
 }
 
 .image {

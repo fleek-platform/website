@@ -1,5 +1,5 @@
 import { Button } from '@components/Button';
-import type { CharacterfileForm } from '../constants';
+import type { CharacterfileForm } from '../utils/constants';
 import { Input } from './Input';
 import { FaTrash } from 'react-icons/fa';
 import { FaPlus } from 'react-icons/fa6';

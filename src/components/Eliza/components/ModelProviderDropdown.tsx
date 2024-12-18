@@ -1,9 +1,9 @@
-import { Dropdown } from '@components/Dropdown';
+import { Dropdown } from '@components/Eliza/components/Dropdown';
 import {
   modelProviderNames,
   modelProviderNamesMap,
   type ModelProviderName,
-} from '../constants';
+} from '../utils/constants';
 import { Text } from '@components/LandingPage/Text';
 import { FaCheck } from 'react-icons/fa6';
 

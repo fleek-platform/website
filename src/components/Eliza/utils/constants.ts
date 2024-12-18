@@ -1,11 +1,9 @@
 export const SETTINGS_JSON_EXAMPLE = `{
-    "settings": {
-      "voice": {
-        "model": "voice-model-id",
-        "url": "voice-service-url"
-      }
-    }
-  }`;
+  "voice": {
+    "model": "voice-model-id",
+    "url": "voice-service-url"
+  }
+}`;
 
 export const modelProviderNames = [
   'openai',

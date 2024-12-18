@@ -1,8 +1,7 @@
-import { Dropdown } from '@components/Dropdown';
-import { clientNames, clientsMap, type Client } from '../constants';
-import { Badge } from '@components/Badge';
-import { FaImage, FaXmark } from 'react-icons/fa6';
-import type { MouseEvent } from 'react';
+import { Dropdown } from '@components/Eliza/components/Dropdown';
+import { clientNames, clientsMap, type Client } from '../utils/constants';
+import { Badge } from '@components/Eliza/components/Badge';
+import { FaImage } from 'react-icons/fa6';
 
 type ImageProps = {
   client: Client;
@@ -11,8 +10,8 @@ type ImageProps = {
 const Image: React.FC<ImageProps> = ({ client }) => {
   if (!clientsMap[client].icon) {
     return (
-      <div className="flex size-14 items-center justify-center overflow-hidden rounded-full bg-neutral-3">
-        <FaImage className="size-8 text-neutral-8" />
+      <div className="flex size-14 items-center justify-center overflow-hidden rounded-full bg-elz-neutral-5">
+        <FaImage className="size-8 text-elz-neutral-8" />
       </div>
     );
   }
@@ -30,21 +29,10 @@ const Image: React.FC<ImageProps> = ({ client }) => {
 
 type TriggerLabelProps = {
   clients: Client[];
-  handleCheckedChange: (isChecked: boolean, client: Client) => void;
 };
 
-const TriggerLabel: React.FC<TriggerLabelProps> = ({
-  clients,
-  handleCheckedChange,
-}) => {
+const TriggerLabel: React.FC<TriggerLabelProps> = ({ clients }) => {
   if (clients.length === 0) return <>Select one or multiple clients</>;
-
-  const handleRemove = (e: MouseEvent, client: Client) => {
-    console.log('rodei');
-    e.preventDefault();
-    e.stopPropagation();
-    handleCheckedChange(false, client);
-  };
 
   return (
     <>
@@ -52,12 +40,6 @@ const TriggerLabel: React.FC<TriggerLabelProps> = ({
         <Badge key={c}>
           <Image client={c} />
           {clientsMap[c].label}
-          <div
-            onClick={(e) => handleRemove(e, c)}
-            className="flex size-14 items-center justify-center rounded-full bg-neutral-5 hover:bg-neutral-6"
-          >
-            <FaXmark className="size-10" />
-          </div>
         </Badge>
       ))}
       {clients.length > 3 && <Badge>+{clients.length - 3}</Badge>}
@@ -85,10 +67,7 @@ export const ClientsDropdown: React.FC<ClientsDropdownProps> = ({
   return (
     <Dropdown.Root>
       <Dropdown.Trigger>
-        <TriggerLabel
-          clients={clients}
-          handleCheckedChange={handleCheckedChange}
-        />
+        <TriggerLabel clients={clients} />
       </Dropdown.Trigger>
       <Dropdown.Content>
         {clientNames.map((client) => {

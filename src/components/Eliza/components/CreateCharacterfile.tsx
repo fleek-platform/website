@@ -1,7 +1,7 @@
 import { Button } from '@components/Button';
 import { Text } from '@components/LandingPage/Text';
 import Link, { Target } from '@components/Link';
-import { FaChevronLeft, FaPlus, FaTrash } from 'react-icons/fa6';
+import { FaChevronLeft } from 'react-icons/fa6';
 import { FormField } from './FormField';
 import { Input } from './Input';
 import FileEditor from './FileEditor';
@@ -12,7 +12,7 @@ import {
   type CharacterfileForm,
   type Client,
   type ModelProviderName,
-} from '../constants';
+} from '../utils/constants';
 import { useState } from 'react';
 import { ModelProviderDropdown } from './ModelProviderDropdown';
 import { ClientsDropdown } from './ClientsDropdown';
@@ -80,7 +80,7 @@ export const CreateCharacterfile: React.FC = () => {
           description="The settings object defines additional configurations like secrets and voice models. Note: We recommend adding your API keys during the .env upload step later in the flow. "
         >
           {isServer ? (
-            <div className="flex h-[228px] animate-pulse flex-col items-center justify-center rounded-12 border border-neutral-6 bg-neutral-1" />
+            <div className="border-neutral-6 bg-neutral-1 flex h-[228px] animate-pulse flex-col items-center justify-center rounded-12 border" />
           ) : (
             <FileEditor
               variant="narrow"
