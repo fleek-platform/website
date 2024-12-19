@@ -16,6 +16,7 @@ import { TextareaWithAdditionalFields } from './TextareaWithAdditionalFields';
 import { Text } from './Text';
 import Link, { Target } from './Link';
 import { Button } from './Button';
+import { AdjectivesTags } from './AdjectivesTags';
 
 export const CreateCharacterfile: React.FC = () => {
   const [form, setForm] = useState<CharacterfileForm>(EMPTY_CHARACTERFILE_FORM);
@@ -94,7 +95,7 @@ export const CreateCharacterfile: React.FC = () => {
         >
           <TextareaWithAdditionalFields
             formFieldArray={form.bio}
-            onUpdate={(updatedBio) => setForm({ ...form, bio: updatedBio })}
+            onUpdate={(bio) => setForm({ ...form, bio })}
             placeholder="Agent biography"
           />
         </FormField>
@@ -104,7 +105,7 @@ export const CreateCharacterfile: React.FC = () => {
         >
           <TextareaWithAdditionalFields
             formFieldArray={form.lore}
-            onUpdate={(updatedBio) => setForm({ ...form, lore: updatedBio })}
+            onUpdate={(lore) => setForm({ ...form, lore })}
             placeholder="Agent background lore"
           />
         </FormField>
@@ -114,9 +115,7 @@ export const CreateCharacterfile: React.FC = () => {
         >
           <TextareaWithAdditionalFields
             formFieldArray={form.knowledge}
-            onUpdate={(updatedBio) =>
-              setForm({ ...form, knowledge: updatedBio })
-            }
+            onUpdate={(knowledge) => setForm({ ...form, knowledge })}
             placeholder="Agent knowledge"
           />
         </FormField>
@@ -126,7 +125,7 @@ export const CreateCharacterfile: React.FC = () => {
         >
           <TextareaWithAdditionalFields
             formFieldArray={form.topics}
-            onUpdate={(updatedBio) => setForm({ ...form, topics: updatedBio })}
+            onUpdate={(topics) => setForm({ ...form, topics })}
             placeholder="Agent topics"
           />
         </FormField>
@@ -136,7 +135,7 @@ export const CreateCharacterfile: React.FC = () => {
         >
           <TextareaWithAdditionalFields
             formFieldArray={form.style}
-            onUpdate={(updatedBio) => setForm({ ...form, style: updatedBio })}
+            onUpdate={(style) => setForm({ ...form, style })}
             placeholder="Agent style"
           />
         </FormField>
@@ -144,12 +143,9 @@ export const CreateCharacterfile: React.FC = () => {
           label="Adjectives"
           description={`Words that describe the character's traits and personality, used for generating responses with consistent tone. Can be used in "Mad Libs" style content generation`}
         >
-          <TextareaWithAdditionalFields
+          <AdjectivesTags
             formFieldArray={form.adjectives}
-            onUpdate={(updatedBio) =>
-              setForm({ ...form, adjectives: updatedBio })
-            }
-            placeholder="Agent adjectives"
+            onUpdate={(adjectives) => setForm({ ...form, adjectives })}
           />
         </FormField>
         <Button disabled>Continue</Button>

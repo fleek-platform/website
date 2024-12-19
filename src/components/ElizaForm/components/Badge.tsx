@@ -7,7 +7,7 @@ export const Badge: React.FC<
   return (
     <div
       className={cn(
-        'flex min-h-18 items-center gap-4 rounded-full bg-elz-neutral-3 pl-4 pr-6 text-13 text-elz-neutral-11',
+        'flex min-h-18 items-center gap-4 rounded-full bg-elz-neutral-3 px-4 text-13 text-elz-neutral-11',
         className,
       )}
       {...props}

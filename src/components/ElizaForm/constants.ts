@@ -1,5 +1,3 @@
-import { Discord } from './components/ClientIcons';
-
 export const SETTINGS_JSON_EXAMPLE = `{
     "voice": {
       "model": "voice-model-id",
@@ -103,5 +101,5 @@ export const EMPTY_CHARACTERFILE_FORM: CharacterfileForm = {
   knowledge: [''],
   topics: [''],
   style: [''],
-  adjectives: [''],
+  adjectives: [],
 };
