@@ -58,7 +58,7 @@ export const TextareaWithAdditionalFields: React.FC<
   };
 
   return (
-    <>
+    <div className="flex flex-col gap-8">
       {formFieldArray.map((item, idx) => (
         <div key={`${item} ${idx}`} className="flex items-stretch gap-8">
           <Field
@@ -74,7 +74,7 @@ export const TextareaWithAdditionalFields: React.FC<
                 size="sm"
                 onClick={() => handleFieldDelete(idx)}
               >
-                <FaTrash className="size-14" />
+                <FaTrash className="size-12" />
               </Button>
             )}
           </div>
@@ -88,6 +88,6 @@ export const TextareaWithAdditionalFields: React.FC<
       >
         <FaPlus className="size-14" /> Add more
       </Button>
-    </>
+    </div>
   );
 };

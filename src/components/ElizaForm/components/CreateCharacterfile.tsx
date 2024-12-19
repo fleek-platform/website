@@ -16,14 +16,32 @@ import type { Character } from '../types';
 export const CreateCharacterfile: React.FC = () => {
   const [form, setForm] = useState<Character>(EXAMPLE_CHARACTERFILE);
 
-  const onFormChange = <T extends keyof Character>(
+  const onFormChange = <
+    T extends keyof Character,
+    K extends keyof Character[T],
+  >(
     formSection: T,
-    updatedData: Character[T],
+    nestedKeyOrData: K | Character[T],
+    data?: Character[T][K],
   ) => {
-    setForm((prevForm) => ({
-      ...prevForm,
-      [formSection]: updatedData,
-    }));
+    setForm((prevForm) => {
+      if (typeof nestedKeyOrData === 'string' && data !== undefined) {
+        const section = prevForm[formSection];
+
+        return {
+          ...prevForm,
+          [formSection]: {
+            ...((typeof section === 'object' && section) || {}),
+            [nestedKeyOrData]: data,
+          },
+        };
+      } else {
+        return {
+          ...prevForm,
+          [formSection]: nestedKeyOrData as Character[T],
+        };
+      }
+    });
   };
 
   return (
@@ -79,21 +97,20 @@ export const CreateCharacterfile: React.FC = () => {
             onClientSelect={(data) => onFormChange('clients', data)}
           />
         </FormField>
-        <FormField
+        {/*         <FormField
           label="Settings"
           description="The settings object defines additional configurations like secrets and voice models. Note: We recommend adding your API keys during the .env upload step later in the flow. "
         >
-          {/* {isServer ? (
+          {isServer ? (
             <div className="flex h-[228px] animate-pulse flex-col items-center justify-center rounded-12 border border-neutral-6 bg-neutral-1" />
           ) : (
             <FileEditor
               variant="narrow"
               fileType="json"
               fileContent={SETTINGS_JSON_EXAMPLE}
-              onChange={() => {}}
             />
-          )} */}
-        </FormField>
+          )}
+        </FormField> */}
         <FormField
           label="Bio"
           description="Character background as a string or array of statements. Includes biographical details about the character, either as one complete biography or several statements that vary."
@@ -115,6 +132,54 @@ export const CreateCharacterfile: React.FC = () => {
           />
         </FormField>
         <FormField
+          label="Style"
+          description="List of subjects the character is interested in or knowledgeable about, used to guide conversations and generate relevant content. Helps maintain character consistency."
+        >
+          <div className="flex flex-col gap-16 border-l-4 border-neutral-1 pl-16">
+            <div className="flex flex-col gap-8 rounded-12 bg-neutral-1 p-12">
+              <Text size="lg" variant="primary" weight={700}>
+                All
+              </Text>
+              <Text variant="secondary">
+                These are directions for how the agent should speak or write
+              </Text>
+              <TextareaWithAdditionalFields
+                formFieldArray={form.style.all}
+                onFormChange={(data) => onFormChange('style', 'all', data)}
+                placeholder="Agent background lore"
+              />
+            </div>
+            <div className="flex flex-col gap-8 rounded-12 bg-neutral-1 p-12">
+              <Text size="lg" variant="primary" weight={700}>
+                Chat
+              </Text>
+              <Text variant="secondary">
+                These directions are specifically injected into chat contexts,
+                like Discord
+              </Text>
+              <TextareaWithAdditionalFields
+                formFieldArray={form.style.chat}
+                onFormChange={(data) => onFormChange('style', 'chat', data)}
+                placeholder="Agent background lore"
+              />
+            </div>
+            <div className="flex flex-col gap-8 rounded-12 bg-neutral-1 p-12">
+              <Text size="lg" variant="primary" weight={700}>
+                Post
+              </Text>
+              <Text variant="secondary">
+                These directions are specifically injected into post contexts,
+                like X (Twitter)
+              </Text>
+              <TextareaWithAdditionalFields
+                formFieldArray={form.style.post}
+                onFormChange={(data) => onFormChange('style', 'post', data)}
+                placeholder="Agent background lore"
+              />
+            </div>
+          </div>
+        </FormField>
+        <FormField
           label="Topics"
           description="List of subjects the character is interested in or knowledgeable about, used to guide conversations and generate relevant content. Helps maintain character consistency."
         >
@@ -123,12 +188,6 @@ export const CreateCharacterfile: React.FC = () => {
             onFormChange={(data) => onFormChange('topics', data)}
             placeholder="add topic..."
           />
-        </FormField>
-        <FormField
-          label="Style"
-          description="List of subjects the character is interested in or knowledgeable about, used to guide conversations and generate relevant content. Helps maintain character consistency."
-        >
-          Style to come
         </FormField>
         <FormField
           label="Adjectives"
