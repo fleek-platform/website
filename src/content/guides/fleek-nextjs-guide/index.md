@@ -36,7 +36,7 @@ To create a new NextJs project open your terminal, `cd` into the directory of 
 git clone https://github.com/fleekxyz/nextjs-template.git
 ```
 
-> 💡 This code takes the NextJS template from the Fleek.xyz template library and automatically kickstarts your project. You can access an expanding library of other application and framework templates, including Lens, Astro, React, and more [here](https://app.fleek.xyz/templates/).
+> 💡 This code takes the NextJS template from the Fleek.xyz template library and automatically kickstarts your project. You can access an expanding library of other application and framework templates, including Lens, Astro, React, and more [here](https://fleek.xyz/templates/).
 
 ### Start Up Your Dev Server
 

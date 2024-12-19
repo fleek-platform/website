@@ -1,7 +1,7 @@
 .Root {
   all: unset;
-  width: 15px;
-  height: 15px;
+  width: 10px;
+  height: 10px;
   background-color: transparent;
   border-radius: 0.25rem;
   border: 1px solid #484848;
@@ -10,6 +10,13 @@
   justify-content: center;
   transition: '$all-75';
   margin-top: 3px;
+}
+
+@media (min-width: 1024px) {
+  .Root {
+    width: 15px;
+    height: 15px;
+  }
 }
 
 .Root:hover {
