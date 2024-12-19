@@ -399,5 +399,5 @@ Together, we’re building the unstoppable future of the internet.
 - [Getting Started with Next.js on Fleek](https://fleek.xyz/docs/cli/fleek-next-adapter/)
 - [Fleek CLI](https://fleek.xyz/docs/cli/)
 - [Fleek SDK](https://fleek.xyz/docs/sdk/)
-- [Templates](https://app.fleek.xyz/templates/)
+- [Templates](https://fleek.xyz/templates/)
 - [Fleek Functions](https://fleek.xyz/docs/cli/functions/)

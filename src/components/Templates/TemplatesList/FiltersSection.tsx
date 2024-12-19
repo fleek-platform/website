@@ -34,16 +34,16 @@ const FilterLabel: React.FC<{ item: FilterItem }> = ({ item }) => {
   const icon = item.avatar;
 
   return (
-    <div className="ml-10 flex flex-row items-center justify-center">
+    <div className="ml-6 flex flex-row items-center justify-center lg:ml-10">
       {icon && (
         <img
-          className="mr-10 inline-block h-16 w-16 rounded-full bg-neutral-6 lg:h-20 lg:w-20"
+          className="mr-6 inline-block h-16 w-16 rounded-full bg-neutral-6 lg:mr-10 lg:h-20 lg:w-20"
           src={icon}
           alt={item.name}
         />
       )}
-      <span className="text-[12px] lg:text-[14px]">{item.name}</span>
-      <span className="ml-10 h-16 w-16 rounded-full bg-neutral-4 text-center text-[10px] leading-16 lg:h-20 lg:w-20 lg:leading-20">
+      <span className="text-[11px] lg:text-[14px]">{item.name}</span>
+      <span className="ml-6 h-16 w-16 rounded-full bg-neutral-4 text-center text-[8px] leading-16 lg:ml-10 lg:h-20 lg:w-20 lg:text-[10px] lg:leading-20">
         {item.amount}
       </span>
     </div>
@@ -84,7 +84,7 @@ export const FiltersSection: React.FC<FiltersSectionProps> = ({
       </Text>
 
       <Accordion
-        headerClassName="min-h-38 text-[12px] md:text-[14px]"
+        headerClassName="min-h-24 lg:min-h-38 text-[12px] lg:text-[14px]"
         items={[
           {
             label: 'Frameworks',

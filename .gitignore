@@ -34,3 +34,4 @@ meili_data
 
 #fleek
 fleek.config.json
+fleek.*.config.json
