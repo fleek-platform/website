@@ -11,7 +11,7 @@ const inputVariants = cva(
         xs: 'min-h-[24px] px-8 text-xs gap-6 rounded-4',
         sm: 'min-h-[32px] px-8 text-sm gap-6 rounded-8',
         md: 'min-h-[40px] px-3 gap-6 rounded-8',
-        lg: 'min-h-[48px] text-lg px-4 gap-3 rounded-12',
+        lg: 'min-h-[48px] text-[1.8rem] px-4 gap-12 rounded-12',
       },
       variant: {
         outline:
@@ -21,7 +21,7 @@ const inputVariants = cva(
       status: {
         isLoading: 'border-elz-neutral-4 animate-pulse bg-elz-neutral-4',
         error:
-          'border-danger-8 focus-within:border-elz-danger-8 focus-within:outline-elz-danger-8',
+          'border-elz-danger-8 focus-within:border-elz-danger-8 focus-within:outline-elz-danger-8',
         disabled: 'cursor-not-allowed bg-elz-neutral-3 border-elz-neutral-7',
       },
     },
@@ -165,7 +165,7 @@ const Label: React.FC<InputLabelProps> = ({
   return (
     <label
       className={cn(
-        'text-xs flex items-center gap-1 text-elz-neutral-11',
+        'flex items-center gap-4 text-[1.2rem] text-elz-neutral-11',
         { 'text-elz-danger-11': error },
         className,
       )}
@@ -187,7 +187,7 @@ const Hint: React.FC<InputHintProps> = ({ error, children, className }) => {
       variant="primary"
       size="sm"
       className={cn(
-        'text-xs flex items-center gap-1 text-elz-neutral-11',
+        'flex items-center gap-4 text-[1.2rem] text-elz-neutral-11',
         { 'text-elz-danger-11': error },
         className,
       )}

@@ -65,10 +65,7 @@ const TriggerLabel: React.FC<TriggerLabelProps> = ({ clients }) => {
   return (
     <>
       {clients.slice(0, 3).map((c) => (
-        <Badge key={c}>
-          <Image client={c} />
-          {CLIENTS_MAP[c].label}
-        </Badge>
+        <Badge key={c}>{CLIENTS_MAP[c].label}</Badge>
       ))}
       {clients.length > 3 && <Badge>+{clients.length - 3}</Badge>}
     </>
@@ -109,7 +106,6 @@ export const ClientsDropdown: React.FC<ClientsDropdownProps> = ({
               }
             >
               <div className="flex items-center gap-4">
-                <Image client={client} />
                 {CLIENTS_MAP[client].label}
               </div>
             </Dropdown.CheckboxItem>
