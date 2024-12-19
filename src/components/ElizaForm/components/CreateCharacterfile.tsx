@@ -2,13 +2,7 @@ import { FaChevronLeft } from 'react-icons/fa6';
 import { FormField } from './FormField';
 import { Input } from './Input';
 // import FileEditor from './FileEditor';
-import {
-  EMPTY_CHARACTERFILE_FORM,
-  SETTINGS_JSON_EXAMPLE,
-  type CharacterfileForm,
-  type Client,
-  type ModelProviderName,
-} from '../constants';
+import { EXAMPLE_CHARACTERFILE } from '../constants';
 import { useState } from 'react';
 import { ModelProviderDropdown } from './ModelProviderDropdown';
 import { ClientsDropdown } from './ClientsDropdown';
@@ -17,18 +11,20 @@ import { Text } from './Text';
 import Link, { Target } from './Link';
 import { Button } from './Button';
 import { AdjectivesTags } from './AdjectivesTags';
+import type { Character } from '../types';
 
 export const CreateCharacterfile: React.FC = () => {
-  const [form, setForm] = useState<CharacterfileForm>(EMPTY_CHARACTERFILE_FORM);
-  const [modelProvider, setModelProvider] = useState<ModelProviderName | null>(
-    null,
-  );
-  const [clients, setClients] = useState<Client[]>([]);
+  const [form, setForm] = useState<Character>(EXAMPLE_CHARACTERFILE);
 
-  const onModelProviderSelect = (provider: ModelProviderName) =>
-    setModelProvider(provider);
-
-  const onClientSelect = (clients: Client[]) => setClients(clients);
+  const onFormChange = <T extends keyof Character>(
+    formSection: T,
+    updatedData: Character[T],
+  ) => {
+    setForm((prevForm) => ({
+      ...prevForm,
+      [formSection]: updatedData,
+    }));
+  };
 
   return (
     <main className="mx-auto flex w-full max-w-[590px] flex-col gap-38 pb-96 pt-32 font-plex-sans text-14">
@@ -41,7 +37,7 @@ export const CreateCharacterfile: React.FC = () => {
           Using the inputs below, craft a unique and engaging personality for
           your AI agent. Click{' '}
           <Link
-            href="https://ai16z.github.io/eliza/docs/core/characterfile/#example-complete-character-file"
+            href="https://github.com/ai16z/eliza/blob/main/packages/core/src/defaultCharacter.ts"
             className="underline hover:text-white"
             target={Target.Blank}
           >
@@ -56,7 +52,11 @@ export const CreateCharacterfile: React.FC = () => {
           description="The character's display name for identification and in conversations"
         >
           <Input.Root>
-            <Input.Field placeholder="Character display name, i.e: TechAI" />
+            <Input.Field
+              placeholder="Character display name, i.e: TechAI"
+              value={form.name}
+              onChange={(e) => onFormChange('name', e.target.value)}
+            />
           </Input.Root>
         </FormField>
         <FormField
@@ -64,15 +64,20 @@ export const CreateCharacterfile: React.FC = () => {
           description="Specifies the AI model provider"
         >
           <ModelProviderDropdown
-            modelProvider={modelProvider}
-            onModelProviderSelect={onModelProviderSelect}
+            modelProvider={form.modelProvider}
+            onModelProviderSelect={(data) =>
+              onFormChange('modelProvider', data)
+            }
           />
         </FormField>
         <FormField
           label="Clients"
           description="Array of supported client types, such as Discord or X"
         >
-          <ClientsDropdown clients={clients} onClientSelect={onClientSelect} />
+          <ClientsDropdown
+            clients={form.clients}
+            onClientSelect={(data) => onFormChange('clients', data)}
+          />
         </FormField>
         <FormField
           label="Settings"
@@ -95,7 +100,7 @@ export const CreateCharacterfile: React.FC = () => {
         >
           <TextareaWithAdditionalFields
             formFieldArray={form.bio}
-            onUpdate={(bio) => setForm({ ...form, bio })}
+            onFormChange={(data) => onFormChange('bio', data)}
             placeholder="Agent biography"
           />
         </FormField>
@@ -105,18 +110,8 @@ export const CreateCharacterfile: React.FC = () => {
         >
           <TextareaWithAdditionalFields
             formFieldArray={form.lore}
-            onUpdate={(lore) => setForm({ ...form, lore })}
+            onFormChange={(data) => onFormChange('lore', data)}
             placeholder="Agent background lore"
-          />
-        </FormField>
-        <FormField
-          label="Knowledge"
-          description="Array used for Retrieval Augmented Generation (RAG), containing facts or references to ground the character's responses."
-        >
-          <TextareaWithAdditionalFields
-            formFieldArray={form.knowledge}
-            onUpdate={(knowledge) => setForm({ ...form, knowledge })}
-            placeholder="Agent knowledge"
           />
         </FormField>
         <FormField
@@ -125,7 +120,7 @@ export const CreateCharacterfile: React.FC = () => {
         >
           <TextareaWithAdditionalFields
             formFieldArray={form.topics}
-            onUpdate={(topics) => setForm({ ...form, topics })}
+            onFormChange={(data) => onFormChange('topics', data)}
             placeholder="Agent topics"
           />
         </FormField>
@@ -133,11 +128,7 @@ export const CreateCharacterfile: React.FC = () => {
           label="Style"
           description="List of subjects the character is interested in or knowledgeable about, used to guide conversations and generate relevant content. Helps maintain character consistency."
         >
-          <TextareaWithAdditionalFields
-            formFieldArray={form.style}
-            onUpdate={(style) => setForm({ ...form, style })}
-            placeholder="Agent style"
-          />
+          Style to come
         </FormField>
         <FormField
           label="Adjectives"
@@ -145,7 +136,7 @@ export const CreateCharacterfile: React.FC = () => {
         >
           <AdjectivesTags
             formFieldArray={form.adjectives}
-            onUpdate={(adjectives) => setForm({ ...form, adjectives })}
+            onFormChange={(data) => onFormChange('adjectives', data)}
           />
         </FormField>
         <Button disabled>Continue</Button>

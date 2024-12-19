@@ -1,38 +1,69 @@
 import { Button } from '@components/Button';
-import type { CharacterfileForm } from '../constants';
 import { Input } from './Input';
 import { FaTrash } from 'react-icons/fa';
 import { FaPlus } from 'react-icons/fa6';
+import React, { useState } from 'react';
 
-type TextareaWithAdditionalFieldsProps<T extends keyof CharacterfileForm> = {
-  formFieldArray: CharacterfileForm[T];
-  onUpdate: (newArray: CharacterfileForm[T]) => void;
+type FieldProps = {
+  placeholder: string;
+  item: string;
+  onChange: (newValue: string) => void;
+};
+
+const Field: React.FC<FieldProps> = ({ placeholder, item, onChange }) => {
+  const [value, setValue] = useState(item || '');
+
+  const handleChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
+    setValue(e.target.value);
+    onChange(e.target.value);
+  };
+
+  return (
+    <Input.Root>
+      <Input.Textarea
+        placeholder={placeholder}
+        value={value}
+        onChange={handleChange}
+      />
+    </Input.Root>
+  );
+};
+
+type TextareaWithAdditionalFieldsProps = {
+  formFieldArray: string[];
+  onFormChange: (newArray: string[]) => void;
   placeholder: string;
 };
 
-export const TextareaWithAdditionalFields = <
-  T extends keyof CharacterfileForm,
->({
-  formFieldArray,
-  onUpdate,
-  placeholder,
-}: TextareaWithAdditionalFieldsProps<T>) => {
+export const TextareaWithAdditionalFields: React.FC<
+  TextareaWithAdditionalFieldsProps
+> = ({ formFieldArray, onFormChange, placeholder }) => {
+  if (!formFieldArray || !Array.isArray(formFieldArray)) return null;
+
   const handleAddNewField = () => {
-    onUpdate([...formFieldArray, '']);
+    onFormChange([...formFieldArray, '']);
   };
 
   const handleDeleteClick = (idx: number) => {
-    const updatedArray = formFieldArray.filter((_, id) => id !== idx);
-    onUpdate(updatedArray);
+    const updatedArray = formFieldArray.filter((_, index) => index !== idx);
+    onFormChange(updatedArray);
+  };
+
+  const handleFieldChange = (idx: number, newValue: string) => {
+    const updatedArray = [...formFieldArray];
+    updatedArray[idx] = newValue;
+    onFormChange(updatedArray);
   };
 
   return (
     <>
       {formFieldArray.map((item, idx) => (
         <div key={idx} className="flex items-stretch gap-8">
-          <Input.Root>
-            <Input.Textarea placeholder={placeholder} defaultValue={item} />
-          </Input.Root>
+          <Field
+            item={item}
+            placeholder={placeholder}
+            onChange={(data) => handleFieldChange(idx, data)}
+          />
           <div className="shrink-0">
             {formFieldArray.length > 1 && (
               <Button

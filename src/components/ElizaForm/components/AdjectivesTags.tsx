@@ -1,31 +1,31 @@
 import { useState } from 'react';
-import type { CharacterfileForm } from '../constants';
 import { Badge } from './Badge';
 import { Input } from './Input';
 import { FaXmark } from 'react-icons/fa6';
 import { Button } from './Button';
 import { PiWarning } from 'react-icons/pi';
+import type { Character } from '../types';
 
 type AdjectivesTagsProps = {
-  formFieldArray: CharacterfileForm['adjectives'];
-  onUpdate: (newArray: CharacterfileForm['adjectives']) => void;
+  formFieldArray: Character['adjectives'];
+  onFormChange: (newArray: Character['adjectives']) => void;
 };
 
 const SUBMIT_KEYS = ['Enter', ' ', ','];
 
 export const AdjectivesTags: React.FC<AdjectivesTagsProps> = ({
   formFieldArray,
-  onUpdate,
+  onFormChange,
 }) => {
   const [adjective, setAdjective] = useState('');
   const [error, setError] = useState(false);
 
   const deleteLastFormFieldArrayEntry = () => {
-    onUpdate(formFieldArray.slice(0, -1));
+    onFormChange(formFieldArray.slice(0, -1));
   };
 
   const deleteEntryFromFormFieldArray = (idx: number) => {
-    onUpdate(formFieldArray.filter((_, i) => i !== idx));
+    onFormChange(formFieldArray.filter((_, i) => i !== idx));
   };
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -37,7 +37,7 @@ export const AdjectivesTags: React.FC<AdjectivesTagsProps> = ({
     if (formFieldArray.includes(newAdjective)) {
       setError(true);
     } else {
-      onUpdate([...formFieldArray, newAdjective]);
+      onFormChange([...formFieldArray, newAdjective]);
       setAdjective('');
       setError(false);
     }
@@ -84,7 +84,7 @@ export const AdjectivesTags: React.FC<AdjectivesTagsProps> = ({
     );
 
     if (newAdjectives.length) {
-      onUpdate([...formFieldArray, ...newAdjectives]);
+      onFormChange([...formFieldArray, ...newAdjectives]);
       setAdjective('');
     }
   };
