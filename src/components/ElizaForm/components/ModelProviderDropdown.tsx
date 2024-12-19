@@ -1,11 +1,9 @@
 import { Dropdown } from './Dropdown';
-import {
-  modelProviderNames,
-  modelProviderNamesMap,
-  type ModelProviderName,
-} from '../constants';
+import { MODEL_PROVIDER_NAMES, MODEL_PROVIDER_NAMES_MAP } from '../constants';
 import { Text } from './Text';
 import { FaCheck } from 'react-icons/fa6';
+import { useState } from 'react';
+import type { ModelProviderName } from '../types';
 
 type ModelProviderDropdownProps = {
   modelProvider: ModelProviderName | null;
@@ -16,24 +14,29 @@ export const ModelProviderDropdown: React.FC<ModelProviderDropdownProps> = ({
   modelProvider,
   onModelProviderSelect,
 }) => {
-  const triggerLabel = modelProvider
-    ? modelProviderNamesMap[modelProvider].label
+  const [currentModalProvider, setCurrentModelProvider] =
+    useState<ModelProviderName | null>(modelProvider || null);
+
+  const triggerLabel = currentModalProvider
+    ? MODEL_PROVIDER_NAMES_MAP[currentModalProvider].label
     : 'Select a provider';
+
+  const handleClick = (provider: ModelProviderName) => {
+    setCurrentModelProvider(provider);
+    onModelProviderSelect(provider);
+  };
 
   return (
     <Dropdown.Root>
       <Dropdown.Trigger>{triggerLabel}</Dropdown.Trigger>
       <Dropdown.Content>
-        {modelProviderNames.map((provider) => {
-          const isSelected = modelProvider === provider;
+        {MODEL_PROVIDER_NAMES.map((provider) => {
+          const isSelected = currentModalProvider === provider;
           return (
-            <Dropdown.Item
-              key={provider}
-              onClick={() => onModelProviderSelect(provider)}
-            >
+            <Dropdown.Item key={provider} onClick={() => handleClick(provider)}>
               <div className="flex items-center justify-between">
                 <Text variant={isSelected ? 'primary' : 'secondary'}>
-                  {modelProviderNamesMap[provider].label}
+                  {MODEL_PROVIDER_NAMES_MAP[provider].label}
                 </Text>
                 {isSelected && <FaCheck className="size-14" />}
               </div>

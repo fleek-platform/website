@@ -1,43 +1,9 @@
 import { Dropdown } from '@components/ElizaForm/components/Dropdown';
-import { clientNames, type Client, type LabelAndIcon } from '../constants';
+import { CLIENT_NAMES, CLIENTS_MAP } from '../constants';
 import { Badge } from '@components/ElizaForm/components/Badge';
 import { FaImage } from 'react-icons/fa6';
-import { Discord, Telegram, X } from './ClientIcons';
-
-const CLIENTS_MAP: Record<Client, LabelAndIcon> = {
-  discord: {
-    label: 'Discord',
-    icon: <Discord className="size-14" />,
-  },
-  direct: {
-    label: 'Direct',
-    icon: '',
-  },
-  twitter: {
-    label: 'X',
-    icon: <X className="size-14" />,
-  },
-  telegram: {
-    label: 'Telegram',
-    icon: <Telegram className="size-14" />,
-  },
-  farcaster: {
-    label: 'Farcaster',
-    icon: '',
-  },
-  lens: {
-    label: 'Lens',
-    icon: '',
-  },
-  auto: {
-    label: 'Auto',
-    icon: '',
-  },
-  slack: {
-    label: 'Slack',
-    icon: '',
-  },
-};
+import type { Client } from '../types';
+import { useState } from 'react';
 
 type ImageProps = {
   client: Client;
@@ -81,21 +47,24 @@ export const ClientsDropdown: React.FC<ClientsDropdownProps> = ({
   clients,
   onClientSelect,
 }) => {
+  const [currentClients, setCurrentClients] = useState<Client[]>(clients || []);
+
   const handleCheckedChange = (isChecked: boolean, client: Client) => {
     const newClients = isChecked
       ? [...clients, client]
       : clients.filter((c) => c !== client);
 
+    setCurrentClients(newClients);
     onClientSelect(newClients);
   };
 
   return (
     <Dropdown.Root>
       <Dropdown.Trigger>
-        <TriggerLabel clients={clients} />
+        <TriggerLabel clients={currentClients} />
       </Dropdown.Trigger>
       <Dropdown.Content>
-        {clientNames.map((client) => {
+        {CLIENT_NAMES.map((client) => {
           return (
             <Dropdown.CheckboxItem
               key={client}
