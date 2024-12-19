@@ -6,16 +6,18 @@ import { Button } from './Button';
 import { PiWarning } from 'react-icons/pi';
 import type { Character } from '../types';
 
-type AdjectivesTagsProps = {
+type TagsFormProps = {
   formFieldArray: Character['adjectives'];
   onFormChange: (newArray: Character['adjectives']) => void;
+  placeholder: string;
 };
 
-const SUBMIT_KEYS = ['Enter', ' ', ','];
+const SUBMIT_KEYS = ['Enter', ','];
 
-export const AdjectivesTags: React.FC<AdjectivesTagsProps> = ({
+export const TagsForm: React.FC<TagsFormProps> = ({
   formFieldArray,
   onFormChange,
+  placeholder,
 }) => {
   const [adjective, setAdjective] = useState('');
   const [error, setError] = useState(false);
@@ -74,7 +76,7 @@ export const AdjectivesTags: React.FC<AdjectivesTagsProps> = ({
       }
     } catch {
       newAdjectives = pasteData
-        .split(/[\s,]+/)
+        .split(/,|\r?\n/)
         .map((item) => item.trim().replace(/^['"]+|['"]+$/g, ''))
         .filter(Boolean);
     }
@@ -91,9 +93,15 @@ export const AdjectivesTags: React.FC<AdjectivesTagsProps> = ({
 
   return (
     <>
-      <Input.Root className="min-h-[3.5rem] flex-wrap gap-4 py-6" error={error}>
+      <Input.Root
+        className="min-h-[3.5rem] flex-wrap gap-x-5 gap-y-6 py-6"
+        error={error}
+      >
         {formFieldArray.map((field, idx) => (
-          <Badge key={idx} className="items-center">
+          <Badge
+            key={idx}
+            className="cursor-default items-center hover:bg-elz-neutral-5"
+          >
             {field}
             <Button
               variant="ghost"
@@ -105,7 +113,7 @@ export const AdjectivesTags: React.FC<AdjectivesTagsProps> = ({
           </Badge>
         ))}
         <Input.Field
-          placeholder="enter adjective..."
+          placeholder={placeholder}
           className="min-w-fit flex-1"
           value={adjective}
           onChange={handleChange}

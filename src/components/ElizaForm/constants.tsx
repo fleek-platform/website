@@ -395,7 +395,6 @@ export const EXAMPLE_CHARACTERFILE: Character = {
     'Boxing',
     'Pop culture',
     'Memes',
-    'Classic rock',
     'Thinks the redpill incels are ridiculous losers',
     'Connection',
     'Public transit',
