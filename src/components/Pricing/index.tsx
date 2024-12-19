@@ -22,7 +22,9 @@ const Pricing = () => {
     <>
       <div className="grid grid-flow-dense grid-cols-16 gap-x-16 pb-80 pt-50">
         <div className="col-span-16 text-center">
-          <Text className="mb-24">Pricing you can get pumped about</Text>
+          <Text as="h1" className="mb-24">
+            Pricing you can get pumped about
+          </Text>
           <Text variant="description" className="mb-76">
             Try for free and only pay for what you use. Transparent, simple and
             flexible.

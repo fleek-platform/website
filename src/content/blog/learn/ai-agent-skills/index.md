@@ -1,6 +1,6 @@
 ---
 title: 'Essential Skills for Building and Using AI Agents: A Comprehensive Guide'
-date: 2024-05-10
+date: 2024-12-16
 desc: 'Master AI agent skills and simplify deployment with Fleek. Learn how to build, deploy, and scale autonomous tools for smarter automation.'
 thumbnail: './thumbnail.png'
 image: './thumbnail.png'
