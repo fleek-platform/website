@@ -1,5 +1,5 @@
 ---
-order: 3
+order: 4
 title: Fleek Next Adapter
 date: 2023-01-10
 desc: An overview of the Fleek Next Adapter, a tool that simplifies the deployment of Next.js applications to Fleek.
