@@ -71,6 +71,12 @@
         "description": "Kickstart your Fleek journey with our documentation, detailed guides and references. Browse our platform resources for a deep dive into our features.",
         "image": "/images/fleek-meta-image.png?202406061658"
       },
+      "eliza": {
+        "title": "Eliza",
+        "slug": "eliza",
+        "description": "Deploy your AI agent personally using the Eliza framework.",
+        "image": "/images/fleek-meta.png?202406061658"
+      },
       "guides": {
         "title": "Guides",
         "slug": "guides",
