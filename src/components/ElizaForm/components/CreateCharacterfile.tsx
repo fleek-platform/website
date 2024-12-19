@@ -10,7 +10,7 @@ import { TextareaWithAdditionalFields } from './TextareaWithAdditionalFields';
 import { Text } from './Text';
 import Link, { Target } from './Link';
 import { Button } from './Button';
-import { AdjectivesTags } from './AdjectivesTags';
+import { TagsForm } from './TagsForm';
 import type { Character } from '../types';
 
 export const CreateCharacterfile: React.FC = () => {
@@ -118,10 +118,10 @@ export const CreateCharacterfile: React.FC = () => {
           label="Topics"
           description="List of subjects the character is interested in or knowledgeable about, used to guide conversations and generate relevant content. Helps maintain character consistency."
         >
-          <TextareaWithAdditionalFields
+          <TagsForm
             formFieldArray={form.topics}
             onFormChange={(data) => onFormChange('topics', data)}
-            placeholder="Agent topics"
+            placeholder="add topic..."
           />
         </FormField>
         <FormField
@@ -134,9 +134,10 @@ export const CreateCharacterfile: React.FC = () => {
           label="Adjectives"
           description={`Words that describe the character's traits and personality, used for generating responses with consistent tone. Can be used in "Mad Libs" style content generation`}
         >
-          <AdjectivesTags
+          <TagsForm
             formFieldArray={form.adjectives}
             onFormChange={(data) => onFormChange('adjectives', data)}
+            placeholder="add adjective..."
           />
         </FormField>
         <Button disabled>Continue</Button>

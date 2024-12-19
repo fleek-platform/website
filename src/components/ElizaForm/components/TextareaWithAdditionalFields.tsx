@@ -15,7 +15,10 @@ const Field: React.FC<FieldProps> = ({ placeholder, item, onChange }) => {
 
   const handleChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
     setValue(e.target.value);
-    onChange(e.target.value);
+  };
+
+  const handleBlur = () => {
+    onChange(value);
   };
 
   return (
@@ -24,6 +27,7 @@ const Field: React.FC<FieldProps> = ({ placeholder, item, onChange }) => {
         placeholder={placeholder}
         value={value}
         onChange={handleChange}
+        onBlur={handleBlur}
       />
     </Input.Root>
   );
@@ -38,13 +42,11 @@ type TextareaWithAdditionalFieldsProps = {
 export const TextareaWithAdditionalFields: React.FC<
   TextareaWithAdditionalFieldsProps
 > = ({ formFieldArray, onFormChange, placeholder }) => {
-  if (!formFieldArray || !Array.isArray(formFieldArray)) return null;
-
-  const handleAddNewField = () => {
+  const addNewField = () => {
     onFormChange([...formFieldArray, '']);
   };
 
-  const handleDeleteClick = (idx: number) => {
+  const handleFieldDelete = (idx: number) => {
     const updatedArray = formFieldArray.filter((_, index) => index !== idx);
     onFormChange(updatedArray);
   };
@@ -58,7 +60,7 @@ export const TextareaWithAdditionalFields: React.FC<
   return (
     <>
       {formFieldArray.map((item, idx) => (
-        <div key={idx} className="flex items-stretch gap-8">
+        <div key={`${item} ${idx}`} className="flex items-stretch gap-8">
           <Field
             item={item}
             placeholder={placeholder}
@@ -70,7 +72,7 @@ export const TextareaWithAdditionalFields: React.FC<
                 className="h-full"
                 variant="ghost"
                 size="sm"
-                onClick={() => handleDeleteClick(idx)}
+                onClick={() => handleFieldDelete(idx)}
               >
                 <FaTrash className="size-14" />
               </Button>
@@ -82,7 +84,7 @@ export const TextareaWithAdditionalFields: React.FC<
         variant="ghost"
         size="sm"
         className="mr-auto"
-        onClick={handleAddNewField}
+        onClick={addNewField}
       >
         <FaPlus className="size-14" /> Add more
       </Button>
