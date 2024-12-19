@@ -1,0 +1,17 @@
+---
+import Layout from '@layouts/AboutPage.astro';
+import settings from '@base/settings.json';
+import ElizaModule from '@components/Eliza';
+---
+
+<Layout
+  title={settings.site.metadata.eliza.title}
+  description={settings.site.metadata.eliza.description}
+  slug={settings.site.metadata.eliza.slug}
+  image={settings.site.metadata.eliza.image}
+  singlePage
+>
+  <main class="container">
+    <ElizaModule client:load />
+  </main>
+</Layout>
