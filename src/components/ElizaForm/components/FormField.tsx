@@ -15,13 +15,19 @@ const Field: React.FC<Field> = ({ value, onChange }) => {
 
   if (!value || !onChange) return null;
 
+  const handleBlur = () => {
+    if (value !== currentValue) {
+      onChange(currentValue);
+    }
+  };
+
   return (
     <Input.Root>
       <Input.Field
         placeholder="Character display name, i.e: TechAI"
         value={currentValue}
         onChange={(e) => setCurrentValue(e.target.value)}
-        onBlur={() => onChange(currentValue)}
+        onBlur={handleBlur}
       />
     </Input.Root>
   );

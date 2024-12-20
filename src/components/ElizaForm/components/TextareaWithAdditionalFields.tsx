@@ -18,7 +18,9 @@ const Field: React.FC<FieldProps> = ({ placeholder, item, onChange }) => {
   };
 
   const handleBlur = () => {
-    onChange(value);
+    if (value !== item) {
+      onChange(value);
+    }
   };
 
   return (
