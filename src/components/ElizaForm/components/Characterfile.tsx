@@ -13,9 +13,9 @@ import { Layout } from './Layout';
 import { Box } from './Box';
 import type { GoToProps, Template } from '../types';
 
-type CharacterFileProps = GoToProps & { template?: Template };
+type CharacterfileProps = GoToProps & { template?: Template };
 
-export const CharacterFile: React.FC<CharacterFileProps> = ({
+export const Characterfile: React.FC<CharacterfileProps> = ({
   goTo,
   template,
 }) => {
