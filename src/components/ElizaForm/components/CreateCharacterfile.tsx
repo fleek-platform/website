@@ -1,6 +1,5 @@
 import { FaChevronLeft } from 'react-icons/fa6';
 import { FormField } from './FormField';
-// import FileEditor from './FileEditor';
 import { ModelProviderDropdown } from './ModelProviderDropdown';
 import { ClientsDropdown } from './ClientsDropdown';
 import { TextareaWithAdditionalFields } from './TextareaWithAdditionalFields';
@@ -9,6 +8,7 @@ import Link, { Target } from './Link';
 import { Button } from './Button';
 import { TagsForm } from './TagsForm';
 import { useElizaBuilderForm } from '../hooks/useElizaBuilderForm';
+import { SettingsJson } from './SettingsJson';
 
 export const CreateCharacterfile: React.FC = () => {
   const { form, onFormChange } = useElizaBuilderForm();
@@ -60,20 +60,15 @@ export const CreateCharacterfile: React.FC = () => {
             onClientSelect={(data) => onFormChange('clients', data)}
           />
         </FormField>
-        {/*         <FormField
+        <FormField
           label="Settings"
           description="The settings object defines additional configurations like secrets and voice models. Note: We recommend adding your API keys during the .env upload step later in the flow. "
         >
-          {isServer ? (
-            <div className="flex h-[228px] animate-pulse flex-col items-center justify-center rounded-12 border border-neutral-6 bg-neutral-1" />
-          ) : (
-            <FileEditor
-              variant="narrow"
-              fileType="json"
-              fileContent={SETTINGS_JSON_EXAMPLE}
-            />
-          )}
-        </FormField> */}
+          <SettingsJson
+            settings={form.settings}
+            onChange={(data) => onFormChange('settings', data)}
+          />
+        </FormField>
         <FormField
           label="Bio"
           description="Character background as a string or array of statements. Includes biographical details about the character, either as one complete biography or several statements that vary."
