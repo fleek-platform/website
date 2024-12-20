@@ -1,6 +1,5 @@
 import { FaChevronLeft } from 'react-icons/fa6';
 import { FormField } from './FormField';
-import { Input } from './Input';
 // import FileEditor from './FileEditor';
 import { ModelProviderDropdown } from './ModelProviderDropdown';
 import { ClientsDropdown } from './ClientsDropdown';
