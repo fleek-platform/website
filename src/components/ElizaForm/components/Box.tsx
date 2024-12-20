@@ -6,7 +6,7 @@ export const boxVariants = cva('flex flex-col', {
   variants: {
     variant: {
       container:
-        'bg-elz-neutral-1 p-16 gap-16 rounded-lg border border-elz-neutral-6 overflow-hidden',
+        'bg-elz-neutral-1 p-16 gap-16 rounded-12 border border-elz-neutral-6 overflow-hidden',
     },
   },
 });
