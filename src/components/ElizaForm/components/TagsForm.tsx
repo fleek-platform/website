@@ -35,11 +35,16 @@ export const TagsForm: React.FC<TagsFormProps> = ({
     setAdjective(e.target.value);
   };
 
+  const normalize = (str: string) => str.toLowerCase();
+
   const addAdjective = (newAdjective: string) => {
-    if (formFieldArray.includes(newAdjective)) {
+    const lowerCaseAdjective = normalize(newAdjective);
+    const normalizedFormFieldArray = formFieldArray.map(normalize);
+
+    if (normalizedFormFieldArray.includes(lowerCaseAdjective)) {
       setError(true);
     } else {
-      onFormChange([...formFieldArray, newAdjective]);
+      onFormChange([...formFieldArray, lowerCaseAdjective]);
       setAdjective('');
       setError(false);
     }
@@ -69,7 +74,7 @@ export const TagsForm: React.FC<TagsFormProps> = ({
       const parsed = JSON.parse(pasteData);
 
       if (Array.isArray(parsed)) {
-        newAdjectives = parsed.map((item) => item.trim());
+        newAdjectives = parsed.map((item) => normalize(item.trim()));
       } else {
         setError(true);
         return;
@@ -77,12 +82,13 @@ export const TagsForm: React.FC<TagsFormProps> = ({
     } catch {
       newAdjectives = pasteData
         .split(/,|\r?\n/)
-        .map((item) => item.trim().replace(/^['"]+|['"]+$/g, ''))
+        .map((item) => normalize(item.trim().replace(/^['"]+|['"]+$/g, '')))
         .filter(Boolean);
     }
 
+    const normalizedFormFieldArray = formFieldArray.map(normalize);
     newAdjectives = newAdjectives.filter(
-      (item) => !formFieldArray.includes(item),
+      (item) => !normalizedFormFieldArray.includes(item),
     );
 
     if (newAdjectives.length) {
@@ -100,7 +106,7 @@ export const TagsForm: React.FC<TagsFormProps> = ({
         {formFieldArray.map((field, idx) => (
           <Badge
             key={idx}
-            className="cursor-default items-center hover:bg-elz-neutral-5"
+            className="cursor-default items-center lowercase hover:bg-elz-neutral-5"
           >
             {field}
             <Button

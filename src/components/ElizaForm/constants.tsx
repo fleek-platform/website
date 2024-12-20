@@ -60,11 +60,11 @@ export const MODEL_PROVIDER_NAMES_MAP: Record<ModelProviderName, LabelAndIcon> =
       icon: '',
     },
     redpill: {
-      label: 'Red Pill',
+      label: 'RedPill',
       icon: '',
     },
     openrouter: {
-      label: 'Open Router',
+      label: 'OpenRouter',
       icon: '',
     },
     heurist: {
