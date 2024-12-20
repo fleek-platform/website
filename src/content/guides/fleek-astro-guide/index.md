@@ -34,7 +34,7 @@ To create a new Astro project open your terminal, `cd` into the directory of y
 git clone https://github.com/fleekxyz/astro-template.git
 ```
 
-> 💡 This code takes the Astro template from the Fleek.xyz template library and automatically kickstarts your project. You can access an expanding library of other application and framework templates, including Lens, React, and more [here](https://app.fleek.xyz/templates/).
+> 💡 This code takes the Astro template from the Fleek.xyz template library and automatically kickstarts your project. You can access an expanding library of other application and framework templates, including Lens, React, and more [here](https://fleek.xyz/templates/).
 
 ### Start up your dev server
 

@@ -128,7 +128,7 @@
       "statusURl": "https://status.fleek.xyz/",
       "fleekTwitterUrl": "https://twitter.com/fleek",
       "mediaKit": "https://fleek.notion.site/Fleek-Brand-Kit-9a2bcf7eb40740a9b7e951fc951b478a",
-      "templatesUrl": "https://app.fleek.xyz/templates"
+      "templatesUrl": "https://fleek.xyz/templates/"
     },
     "annoucementMarquee": {
       "message": "Introducing Fleek Machines (Early access): One-click verified and private compute",
@@ -182,24 +182,28 @@
     "menu": {
       "order": [
         {
-          "category": "Platform",
+          "category": "Deploy_AI_Agents",
           "order": 1
         },
         {
-          "category": "Infrastructure",
+          "category": "Platform",
           "order": 2
         },
         {
-          "category": "CLI",
+          "category": "Infrastructure",
           "order": 3
         },
         {
-          "category": "SDK",
+          "category": "CLI",
           "order": 4
         },
         {
-          "category": "FAQ",
+          "category": "SDK",
           "order": 5
+        },
+        {
+          "category": "FAQ",
+          "order": 6
         }
       ],
       "customTitlesByDirectoryName": {}
