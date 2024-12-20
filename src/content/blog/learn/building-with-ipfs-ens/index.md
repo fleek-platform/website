@@ -98,7 +98,7 @@ The synergy between IPFS and ENS opens up a lot of possibilities like:
 - **Secure messaging platforms** where people are identified using their ENS names.
 - **Estate management** with secure legal documents stored on IPFS, executed via smart contracts.
 
-💡Start hosting websites on IPFS using Fleek <u>[easy-to-deploy templates](https://app.fleek.xyz/templates/)</u>
+💡Start hosting websites on IPFS using Fleek <u>[easy-to-deploy templates](https://fleek.xyz/templates/)</u>
 
 ---
 

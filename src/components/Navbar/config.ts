@@ -33,7 +33,7 @@ export const navbarMenu: NavMenuItem[] = [
       },
       {
         label: 'Templates',
-        url: 'https://app.fleek.xyz/templates/',
+        url: 'https://fleek.xyz/templates/',
         description: 'Use pre-built apps',
         icon: '/svg/templates-navbar-icon.svg',
       },

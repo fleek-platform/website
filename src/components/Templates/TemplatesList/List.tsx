@@ -41,8 +41,8 @@ export const List: React.FC<CardsProps> = ({ templates }) => {
 
   return (
     <>
-      <div className="mt-50 flex w-full flex-col gap-40 md:flex-row">
-        <aside className="min-w-[220px]">
+      <div className="mt-50 flex w-full flex-col gap-20 md:flex-row lg:gap-40">
+        <aside className="min-w-[180px] lg:min-w-[220px]">
           <FiltersSection
             filters={filters}
             updateFilter={updateFilter}
@@ -79,7 +79,7 @@ export const List: React.FC<CardsProps> = ({ templates }) => {
           )}
 
           {filteredTemplates.length > 0 && (
-            <div className="grid flex-grow grid-cols-1 justify-center gap-[30px] sm:grid-cols-2 lg:grid-cols-3">
+            <div className="grid flex-grow grid-cols-1 justify-center gap-[15px] sm:grid-cols-3 lg:grid-cols-3 lg:gap-[30px]">
               {filteredTemplates.map((template) => (
                 <TemplateCard key={template.id} template={template} />
               ))}
