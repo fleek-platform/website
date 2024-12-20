@@ -1,8 +1,15 @@
 import type {
   CLIENT_NAMES,
   MODEL_PROVIDER_NAMES,
+  PAGES,
   TEMPLATES,
 } from './constants';
+
+export type Page = (typeof PAGES)[number];
+
+export type GoToProps = {
+  goTo: (page: Page) => void;
+};
 
 export type Template = (typeof TEMPLATES)[number];
 
