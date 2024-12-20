@@ -13,7 +13,7 @@ type FormFieldProps = PropsWithChildren &
 const Field: React.FC<Field> = ({ value, onChange }) => {
   const [currentValue, setCurrentValue] = useState(value || '');
 
-  if (!value || !onChange) return null;
+  if (!onChange) return null;
 
   const handleBlur = () => {
     if (value !== currentValue) {
@@ -48,7 +48,7 @@ export const FormField: React.FC<FormFieldProps> = ({
         </Text>
         <Text variant="secondary">{description}</Text>
       </div>
-      {value && onChange && <Field value={value} onChange={onChange} />}
+      {onChange && <Field value={value} onChange={onChange} />}
       {children}
     </section>
   );

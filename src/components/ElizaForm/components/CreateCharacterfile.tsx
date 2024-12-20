@@ -9,12 +9,13 @@ import { Button } from './Button';
 import { TagsForm } from './TagsForm';
 import { useElizaBuilderForm } from '../hooks/useElizaBuilderForm';
 import { SettingsJson } from './SettingsJson';
+import { Layout } from './Layout';
 
 export const CreateCharacterfile: React.FC = () => {
   const { form, onFormChange } = useElizaBuilderForm();
 
   return (
-    <main className="mx-auto flex w-full max-w-[590px] flex-col gap-38 pb-96 pt-32 font-plex-sans text-14">
+    <Layout>
       <div className="flex flex-col items-start gap-16">
         <Button variant="ghost" className="text-yellow-dark-11">
           <FaChevronLeft className="size-12" /> Go back
@@ -159,6 +160,6 @@ export const CreateCharacterfile: React.FC = () => {
         </FormField>
         <Button disabled>Continue</Button>
       </div>
-    </main>
+    </Layout>
   );
 };
