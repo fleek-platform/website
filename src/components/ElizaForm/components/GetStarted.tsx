@@ -31,7 +31,9 @@ export const GetStarted: React.FC<GoToProps> = ({ goTo }) => {
           description="Create an agent by entering details into a form."
         />
         <ActionBox
-          onClick={() => {}}
+          onClick={() =>
+            goTo('characterfile', { forwardProps: { template: 'eliza' } })
+          }
           icon={<FaCloud className="size-24 shrink-0" />}
           title="Start with template"
           description="Create an agent by customizing an existing template."
