@@ -2,6 +2,7 @@
 import settings from '@base/settings.json';
 import BaseHtml from '@layouts/BaseHtml.astro';
 import { CreateCharacterfile } from '@components/ElizaForm/components/CreateCharacterfile';
+import { GetStarted } from '@components/ElizaForm/components/GetStarted';
 ---
 
 <BaseHtml
@@ -13,5 +14,6 @@ import { CreateCharacterfile } from '@components/ElizaForm/components/CreateChar
     slug: settings.site.metadata.eliza.slug,
   }}
 >
+  <GetStarted />
   <CreateCharacterfile client:load />
 </BaseHtml>

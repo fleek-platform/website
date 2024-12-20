@@ -1,9 +1,11 @@
 import { useState } from 'react';
-import type { Character } from '../types';
-import { EXAMPLE_CHARACTERFILE } from '../constants';
+import type { Character, Template } from '../types';
+import { EXAMPLE_CHARACTERFILE, INITIAL_FORM } from '../constants';
 
-export const useElizaBuilderForm = () => {
-  const [form, setForm] = useState<Character>(EXAMPLE_CHARACTERFILE);
+export const useElizaBuilderForm = (template?: Template) => {
+  const [form, setForm] = useState<Character>(
+    template ? EXAMPLE_CHARACTERFILE : INITIAL_FORM,
+  );
 
   const onFormChange = <
     T extends keyof Character,
