@@ -7,8 +7,14 @@ import type {
 
 export type Page = (typeof PAGES)[number];
 
+export type Options = {
+  forwardProps: {
+    template: Template;
+  };
+};
+
 export type GoToProps = {
-  goTo: (page: Page) => void;
+  goTo: (page: Page, options?: Options) => void;
 };
 
 export type Template = (typeof TEMPLATES)[number];

@@ -11,12 +11,15 @@ import { useElizaBuilderForm } from '../hooks/useElizaBuilderForm';
 import { SettingsJson } from './SettingsJson';
 import { Layout } from './Layout';
 import { Box } from './Box';
-import type { GoToProps } from '../types';
+import type { GoToProps, Template } from '../types';
 
-type CharacterFileProps = GoToProps & {};
+type CharacterFileProps = GoToProps & { template?: Template };
 
-export const CharacterFile: React.FC<CharacterFileProps> = ({ goTo }) => {
-  const { form, onFormChange } = useElizaBuilderForm();
+export const CharacterFile: React.FC<CharacterFileProps> = ({
+  goTo,
+  template,
+}) => {
+  const { form, onFormChange } = useElizaBuilderForm(template);
 
   return (
     <Layout>
