@@ -6,7 +6,7 @@ import type {
   ModelProviderName,
 } from './types';
 
-export const TEMPLATES = ['eliza', 'trump', 'c3po', 'dobby'];
+export const TEMPLATES = ['eliza', 'trump', 'c3po', 'dobby'] as const;
 
 export const MODEL_PROVIDER_NAMES = [
   'openai',
@@ -134,8 +134,8 @@ export const INITIAL_FORM: Character = {
     },
   },
   system: '',
-  bio: [],
-  lore: [],
+  bio: [''],
+  lore: [''],
   messageExamples: [
     [
       {
@@ -163,15 +163,14 @@ export const INITIAL_FORM: Character = {
         },
       },
     ],
-    // Repeat for all messageExamples
   ],
-  postExamples: [],
+  postExamples: [''],
   topics: [],
   adjectives: [],
   style: {
-    all: [],
-    chat: [],
-    post: [],
+    all: [''],
+    chat: [''],
+    post: [''],
   },
 };
 
