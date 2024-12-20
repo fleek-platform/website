@@ -2,7 +2,7 @@ import { useMemo, useState } from 'react';
 import { GetStarted } from './GetStarted';
 import { Layout } from './Layout';
 import type { Options, Page, Template } from '../types';
-import { CharacterFile } from './CharacterFile';
+import { CharacterFile } from './aa';
 
 export const Navigation = () => {
   const [page, setPage] = useState<Page>('get-started');

@@ -1,4 +1,4 @@
-import { FaCloud } from 'react-icons/fa6';
+import { FaCloud, FaFile, FaPuzzlePiece } from 'react-icons/fa6';
 import { ActionBox } from './ActionBox';
 import { Layout } from './Layout';
 import { Text } from './Text';
@@ -26,7 +26,7 @@ export const GetStarted: React.FC<GoToProps> = ({ goTo }) => {
         />
         <ActionBox
           onClick={() => goTo('characterfile')}
-          icon={<FaCloud className="size-24 shrink-0" />}
+          icon={<FaFile className="size-24 shrink-0" />}
           title="Build from scratch"
           description="Create an agent by entering details into a form."
         />
@@ -34,7 +34,7 @@ export const GetStarted: React.FC<GoToProps> = ({ goTo }) => {
           onClick={() =>
             goTo('characterfile', { forwardProps: { template: 'eliza' } })
           }
-          icon={<FaCloud className="size-24 shrink-0" />}
+          icon={<FaPuzzlePiece className="size-24 shrink-0" />}
           title="Start with template"
           description="Create an agent by customizing an existing template."
         />
