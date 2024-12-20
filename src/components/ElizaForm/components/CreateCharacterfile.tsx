@@ -38,15 +38,9 @@ export const CreateCharacterfile: React.FC = () => {
         <FormField
           label="Name"
           description="The character's display name for identification and in conversations"
-        >
-          <Input.Root>
-            <Input.Field
-              placeholder="Character display name, i.e: TechAI"
-              value={form.name}
-              onChange={(e) => onFormChange('name', e.target.value)}
-            />
-          </Input.Root>
-        </FormField>
+          value={form.name}
+          onChange={(data) => onFormChange('name', data)}
+        />
         <FormField
           label="Model provider"
           description="Specifies the AI model provider"
