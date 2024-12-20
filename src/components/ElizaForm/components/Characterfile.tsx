@@ -11,14 +11,21 @@ import { useElizaBuilderForm } from '../hooks/useElizaBuilderForm';
 import { SettingsJson } from './SettingsJson';
 import { Layout } from './Layout';
 import { Box } from './Box';
+import type { GoToProps } from '../types';
 
-export const CreateCharacterfile: React.FC = () => {
+type CharacterFileProps = GoToProps & {};
+
+export const CharacterFile: React.FC<CharacterFileProps> = ({ goTo }) => {
   const { form, onFormChange } = useElizaBuilderForm();
 
   return (
     <Layout>
       <Box className="items-start gap-16">
-        <Button variant="ghost" className="text-yellow-dark-11">
+        <Button
+          variant="ghost"
+          className="text-yellow-dark-11"
+          onClick={() => goTo('get-started')}
+        >
           <FaChevronLeft className="size-12" /> Go back
         </Button>
         <Text>Create characterfile</Text>
