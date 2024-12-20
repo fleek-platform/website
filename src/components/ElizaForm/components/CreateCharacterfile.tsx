@@ -2,8 +2,6 @@ import { FaChevronLeft } from 'react-icons/fa6';
 import { FormField } from './FormField';
 import { Input } from './Input';
 // import FileEditor from './FileEditor';
-import { EXAMPLE_CHARACTERFILE } from '../constants';
-import { useState } from 'react';
 import { ModelProviderDropdown } from './ModelProviderDropdown';
 import { ClientsDropdown } from './ClientsDropdown';
 import { TextareaWithAdditionalFields } from './TextareaWithAdditionalFields';
@@ -11,38 +9,10 @@ import { Text } from './Text';
 import Link, { Target } from './Link';
 import { Button } from './Button';
 import { TagsForm } from './TagsForm';
-import type { Character } from '../types';
+import { useElizaBuilderForm } from '../hooks/useElizaBuilderForm';
 
 export const CreateCharacterfile: React.FC = () => {
-  const [form, setForm] = useState<Character>(EXAMPLE_CHARACTERFILE);
-
-  const onFormChange = <
-    T extends keyof Character,
-    K extends keyof Character[T],
-  >(
-    formSection: T,
-    nestedKeyOrData: K | Character[T],
-    data?: Character[T][K],
-  ) => {
-    setForm((prevForm) => {
-      if (typeof nestedKeyOrData === 'string' && data !== undefined) {
-        const section = prevForm[formSection];
-
-        return {
-          ...prevForm,
-          [formSection]: {
-            ...((typeof section === 'object' && section) || {}),
-            [nestedKeyOrData]: data,
-          },
-        };
-      } else {
-        return {
-          ...prevForm,
-          [formSection]: nestedKeyOrData as Character[T],
-        };
-      }
-    });
-  };
+  const { form, onFormChange } = useElizaBuilderForm();
 
   return (
     <main className="mx-auto flex w-full max-w-[590px] flex-col gap-38 pb-96 pt-32 font-plex-sans text-14">
