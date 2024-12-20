@@ -2,6 +2,7 @@ import { useMemo, useState } from 'react';
 import { GetStarted } from './GetStarted';
 import { Layout } from './Layout';
 import type { Options, Page, Template } from '../types';
+import { Characterfile } from './Characterfile';
 
 export const Navigation = () => {
   const [page, setPage] = useState<Page>('get-started');
@@ -19,8 +20,7 @@ export const Navigation = () => {
   const pages: Record<Page, React.ReactNode> = useMemo(
     () => ({
       'get-started': <GetStarted goTo={goTo} />,
-      characterfile: '',
-      // characterfile: <Characterfile goTo={goTo} template={template} />,
+      characterfile: <Characterfile goTo={goTo} template={template} />,
       review: <></>,
       env: <></>,
     }),
