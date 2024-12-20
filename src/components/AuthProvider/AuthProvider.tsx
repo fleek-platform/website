@@ -15,7 +15,7 @@ export const AuthProvider: FC<{ children: React.ReactNode }> = ({
       settings={{
         environmentId: settings.site.auth.dynamicEnvironmentId,
         walletConnectors: [EthereumWalletConnectors],
-        cssOverrides: '.modal__items { scale: 1.625 }',
+        cssOverrides: '.modal__items { scale: 1.5 }',
       }}
     >
       {children}
