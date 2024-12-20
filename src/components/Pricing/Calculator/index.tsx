@@ -181,20 +181,46 @@ const Invoice = ({ total }: { total: number }) => {
   return (
     <ContentBox
       className="h-full"
-      contentClassName="h-full bg-neutral-2 justify-items-center"
+      contentClassName="h-full bg-neutral-2 justify-items-center flex flex-col"
+      variant="narrow"
     >
-      <Text style="m-mid" className="font-medium text-neutral-12">
+      <Text style="m-mid" className="text-neutral-12">
         Example Invoice
       </Text>
-      <span className="flex flex-row items-baseline gap-6 text-yellow">
-        <Text as="span" style="m" className="font-medium">
-          $
+
+      <div className="my-10 flex w-full flex-col gap-6 border border-x-transparent border-y-neutral-600 py-10">
+        <div className="flex w-full flex-row items-center justify-between">
+          <Text style="m-mid">From...</Text>
+          <img
+            src="/svg/fleek-logo.svg"
+            width={48}
+            height={18}
+            alt="fleek logo"
+            loading="lazy"
+          />
+        </div>
+        <div className="flex w-full flex-row items-center justify-between">
+          <Text style="m-mid">To...</Text>
+          <Text style="m-mid" className="text-neutral-12">
+            Our favorite user
+          </Text>
+        </div>
+      </div>
+
+      <div className="flex w-full flex-grow flex-col items-center justify-center">
+        <Text as="span" style="s">
+          Estimated monthly cost
         </Text>
-        <Text style="2xl">{total.toFixed(2)}</Text>
-        <Text as="span" style="m" className="font-medium">
-          /mo
-        </Text>
-      </span>
+        <span className="flex flex-row items-baseline gap-6 text-yellow">
+          <Text as="span" style="m" className="font-medium">
+            $
+          </Text>
+          <Text style="2xl">{total.toFixed(2)}</Text>
+          <Text as="span" style="m" className="font-medium">
+            /mo
+          </Text>
+        </span>
+      </div>
     </ContentBox>
   );
 };
@@ -253,7 +279,16 @@ const Calculator = () => {
         <style type="text/css">{`#calculator { display: none; }`}</style>
         <div className="noscriptmsg">You don't have javascript enabled :)</div>
       </noscript>
-      <div id="calculator" className="container">
+      <div id="calculator" className="flex flex-col gap-27 py-64">
+        <div className="gap-7">
+          <Text style="2xl" className="text-left text-neutral-12">
+            Pricing Calculator
+          </Text>
+          <Text style="m" className="text-left">
+            These costs are estimated based on similar projects hosted on Fleek.
+          </Text>
+        </div>
+
         <ContentBox contentClassName="bg-neutral-1">
           <div className="flex flex-col gap-20">
             <div className="flex flex-row gap-10">
