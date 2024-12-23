@@ -14,6 +14,7 @@ import type React from 'react';
 import { TEMPLATES, TEMPLATES_MAP } from '../constants';
 import { GoBackButton } from './GoBackButton';
 import { FileEditorWrapper } from './FileEditorWrapper';
+import { MessageExamples } from './MessageExamples';
 
 type TemplateSelectorProps = {
   selectedTemplate?: Template;
@@ -147,11 +148,41 @@ export const Characterfile: React.FC<CharacterfileProps> = ({
           />
         </FormField>
         <FormField
+          label="Knowledge (optional)"
+          description="Array used for Retrieval Augmented Generation (RAG), containing facts or references to ground the character's responses."
+        >
+          <TextareaWithAdditionalFields
+            formFieldArray={form.knowledge || ['']}
+            onFormChange={(data) => onFormChange('knowledge', data)}
+            placeholder="Agent background knowledge"
+          />
+        </FormField>
+        <FormField
+          label="Message examples"
+          description="Sample conversations for establishing interaction patterns, helps establish the character's conversational style."
+        >
+          <MessageExamples
+            agentName={form.name}
+            messageExamples={form.messageExamples}
+            onFormChange={(data) => onFormChange('messageExamples', data)}
+          />
+        </FormField>
+        <FormField
+          label="Post examples"
+          description="Sample social media posts to guide content style."
+        >
+          <TextareaWithAdditionalFields
+            formFieldArray={form.postExamples}
+            onFormChange={(data) => onFormChange('postExamples', data)}
+            placeholder="Agent post examples"
+          />
+        </FormField>
+        <FormField
           label="Style"
           description="List of subjects the character is interested in or knowledgeable about, used to guide conversations and generate relevant content. Helps maintain character consistency."
         >
-          <Box className="gap-16 border-l-4 border-neutral-1 pl-16">
-            <Box className="gap-8 rounded-12 bg-neutral-1 p-12">
+          <Box className="gap-16 border-l-4 border-elz-neutral-1 pl-16">
+            <Box className="gap-8 rounded-12 bg-elz-neutral-1 p-12">
               <Text size="lg" variant="primary" weight={700}>
                 All
               </Text>
@@ -161,10 +192,10 @@ export const Characterfile: React.FC<CharacterfileProps> = ({
               <TextareaWithAdditionalFields
                 formFieldArray={form.style.all}
                 onFormChange={(data) => onFormChange('style', 'all', data)}
-                placeholder="Agent background lore"
+                placeholder="Agent style for: All"
               />
             </Box>
-            <Box className="gap-8 rounded-12 bg-neutral-1 p-12">
+            <Box className="gap-8 rounded-12 bg-elz-neutral-1 p-12">
               <Text size="lg" variant="primary" weight={700}>
                 Chat
               </Text>
@@ -175,10 +206,10 @@ export const Characterfile: React.FC<CharacterfileProps> = ({
               <TextareaWithAdditionalFields
                 formFieldArray={form.style.chat}
                 onFormChange={(data) => onFormChange('style', 'chat', data)}
-                placeholder="Agent background lore"
+                placeholder="Agent style for: Chat"
               />
             </Box>
-            <Box className="gap-8 rounded-12 bg-neutral-1 p-12">
+            <Box className="gap-8 rounded-12 bg-elz-neutral-1 p-12">
               <Text size="lg" variant="primary" weight={700}>
                 Post
               </Text>
@@ -189,7 +220,7 @@ export const Characterfile: React.FC<CharacterfileProps> = ({
               <TextareaWithAdditionalFields
                 formFieldArray={form.style.post}
                 onFormChange={(data) => onFormChange('style', 'post', data)}
-                placeholder="Agent background lore"
+                placeholder="Agent style for: Post"
               />
             </Box>
           </Box>

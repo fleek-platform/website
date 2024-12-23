@@ -156,28 +156,17 @@ export const INITIAL_FORM: Character = {
   system: '',
   bio: [''],
   lore: [''],
+  knowledge: [''],
   messageExamples: [
     [
       {
-        user: '',
+        user: '{{user1}}',
         content: {
           text: '',
         },
       },
       {
-        user: '',
-        content: {
-          text: '',
-        },
-      },
-    ],
-    [
-      {
-        user: '',
-        content: { text: '' },
-      },
-      {
-        user: '',
+        user: 'Character',
         content: {
           text: '',
         },
