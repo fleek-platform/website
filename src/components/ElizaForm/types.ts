@@ -1,4 +1,23 @@
-import type { CLIENT_NAMES, MODEL_PROVIDER_NAMES } from './constants';
+import type {
+  CLIENT_NAMES,
+  MODEL_PROVIDER_NAMES,
+  PAGES,
+  TEMPLATES,
+} from './constants';
+
+export type Page = (typeof PAGES)[number];
+
+export type Options = {
+  forwardProps: {
+    template: Template;
+  };
+};
+
+export type GoToProps = {
+  goTo: (page: Page, options?: Options) => void;
+};
+
+export type Template = (typeof TEMPLATES)[number];
 
 export type ModelProviderName = (typeof MODEL_PROVIDER_NAMES)[number];
 
