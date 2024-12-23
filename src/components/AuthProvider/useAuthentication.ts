@@ -5,6 +5,16 @@ import settings from '@base/settings.json';
 import { clearCookie, setCookie, getCookie } from '@utils/cookies';
 import { useRef } from 'react';
 
+const isTokenValid = (token: string): boolean => {
+  try {
+    const decoded = decodeAccessToken({ token });
+    const currentTime = Math.floor(Date.now() / 1000);
+    return decoded.exp > currentTime;
+  } catch (error) {
+    return false;
+  }
+};
+
 export const useAuthentication = () => {
   const { user, setShowAuthFlow, authToken, handleLogOut } =
     useDynamicContext();
@@ -15,16 +25,6 @@ export const useAuthentication = () => {
     resolve: (value: boolean) => void;
     reject: (reason?: any) => void;
   } | null>(null);
-
-  const isTokenValid = (token: string): boolean => {
-    try {
-      const decoded = decodeAccessToken({ token });
-      const currentTime = Math.floor(Date.now() / 1000);
-      return decoded.exp > currentTime;
-    } catch (error) {
-      return false;
-    }
-  };
 
   const fetchGraphQLToken = async (): Promise<boolean> => {
     setIsAuthenticating(true);
@@ -73,7 +73,6 @@ export const useAuthentication = () => {
       }
 
       const graphQLToken = getCookie(settings.site.auth.authTokenName);
-
       const isAuthTokenValid = isTokenValid(authToken);
       const isGraphQLTokenValid = graphQLToken && isTokenValid(graphQLToken);
 
