@@ -4,7 +4,7 @@ date: 2024-12-23
 desc: 'Discover how TEEs can secure your apps, payments, and AI agents. Learn the basics, real-world use cases, and how Fleek Machines simplify TEE adoption.'
 thumbnail: './thumbnail.png'
 image: './thumbnail.png'
-customMetaTitle: "Beginner’s guide to TEEs – Secure computing simplified"
+customMetaTitle: 'Beginner’s guide to TEEs – Secure computing simplified'
 author:
   - 'Fleek'
 is_seo: true
@@ -134,7 +134,6 @@ TEEs are not just abstract ideas—they’re already used in many familiar appli
 ### **Fleek’s Potential Role in TEE Implementation**
 
 ![](./fleek-machines.png)
-
 
 Fleek simplifies TEE adoption with [Fleek Machines](https://fleek.xyz/blog/announcements/fleek-machines-fleek-functions/) — lightweight, Docker-supported virtual machines designed for secure and verifiable compute. With one-click deployments, developers can focus on building apps without worrying about hardware or infrastructure complexity.
 
