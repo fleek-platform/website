@@ -10,6 +10,8 @@ import { Button } from '../Button';
 import FleekLogo from './fleek-logo.svg';
 import { AuthProvider } from '@components/AuthProvider/AuthProvider';
 import { useAuthentication } from '@components/AuthProvider/useAuthentication';
+import { ProjectDropdown } from './ProjectDropdown/ProjectDropdown';
+import type { Project } from '@fleekxyz/sdk/dist-types/generated/graphqlClient/schema';
 
 const NavbarMobileItem: React.FC<NavMenuItem> = ({
   label,
@@ -308,21 +310,39 @@ export const Navbar: React.FC<NavbarProps> = ({
 };
 
 const SessionManagementActions: React.FC = () => {
-  const { isAuthenticated, logout, triggerUserLogin, isAuthenticating } =
-    useAuthentication();
+  const {
+    isLoggedIn,
+    logout,
+    login,
+    userProjects,
+    setActiveProject,
+    getActiveProjectId,
+  } = useAuthentication();
+  const activeProject = userProjects.find(
+    (project) => project.id === getActiveProjectId(),
+  );
+
   return (
     <>
-      {isAuthenticated && (
-        <Button variant="ghost" size="sm" onClick={logout}>
-          Logout
-        </Button>
-      )}
-      {(!isAuthenticated || isAuthenticating) && (
+      {isLoggedIn() ? (
         <>
-          <Button variant="secondary" size="sm" onClick={triggerUserLogin}>
+          {userProjects && activeProject && (
+            <ProjectDropdown
+              projects={userProjects}
+              selectedProject={activeProject}
+              onProjectChange={setActiveProject}
+            />
+          )}
+          <Button variant="ghost" size="sm" onClick={logout}>
+            Log out
+          </Button>
+        </>
+      ) : (
+        <>
+          <Button variant="secondary" size="sm" onClick={login}>
             Log in
           </Button>
-          <Button variant="tertiary" size="sm" onClick={triggerUserLogin}>
+          <Button variant="tertiary" size="sm" onClick={login}>
             Sign up
           </Button>
         </>

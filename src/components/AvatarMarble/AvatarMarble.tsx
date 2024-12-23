@@ -1,6 +1,6 @@
 import React from 'react';
 
-const AVATAR_SIZE = 24;
+const AVATAR_SIZE = 80;
 
 import { generateColors } from './avatarColor';
 
@@ -19,6 +19,7 @@ export const AvatarMarble: React.FC<AvatarMarbleProps> = ({
 
   return (
     <svg
+      className="h-[26px] w-[26px] rounded-[50%]"
       viewBox={`0 0 ${AVATAR_SIZE} ${AVATAR_SIZE}`}
       fill="none"
       role="img"
