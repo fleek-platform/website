@@ -19,7 +19,7 @@ export type GoToProps = {
 
 export type Template = (typeof TEMPLATES)[number];
 
-export type ModelProviderName = (typeof MODEL_PROVIDER_NAMES)[number];
+export type ModelProviderName = (typeof MODEL_PROVIDER_NAMES)[number] | '';
 
 export type LabelAndIcon = {
   label: string;

@@ -14,18 +14,17 @@ import type { GoToProps, Template } from '../types';
 import type React from 'react';
 import { TEMPLATES, TEMPLATES_MAP } from '../constants';
 import { GoBackButton } from './GoBackButton';
-import { FaCheck } from 'react-icons/fa6';
 
 type TemplateSelectorProps = {
-  currentTemplate?: Template;
+  selectedTemplate?: Template;
   onTemplateChange: (template: Template) => void;
 };
 
 const TemplateSelector: React.FC<TemplateSelectorProps> = ({
-  currentTemplate,
+  selectedTemplate,
   onTemplateChange,
 }) => {
-  if (!currentTemplate) return null;
+  if (!selectedTemplate) return null;
 
   return (
     <Box className="w-full border-b border-elz-neutral-6 pb-38 pt-24">
@@ -40,7 +39,7 @@ const TemplateSelector: React.FC<TemplateSelectorProps> = ({
         </Box>
         <Box className="flex-row gap-16">
           {TEMPLATES.map((template) => {
-            const isSelected = template === currentTemplate;
+            const isSelected = template === selectedTemplate;
             return (
               <Button
                 key={template}
@@ -48,7 +47,6 @@ const TemplateSelector: React.FC<TemplateSelectorProps> = ({
                 onClick={() => onTemplateChange(template)}
                 className="flex-1"
               >
-                {isSelected && <FaCheck />}
                 {TEMPLATES_MAP[template]}
               </Button>
             );
@@ -65,7 +63,7 @@ export const Characterfile: React.FC<CharacterfileProps> = ({
   goTo,
   template,
 }) => {
-  const { form, onFormChange, onTemplateChange } =
+  const { form, selectedTemplate, onFormChange, onTemplateChange } =
     useElizaBuilderForm(template);
 
   return (
@@ -88,7 +86,7 @@ export const Characterfile: React.FC<CharacterfileProps> = ({
           to view a characterfile example.
         </Text>
         <TemplateSelector
-          currentTemplate={template}
+          selectedTemplate={selectedTemplate}
           onTemplateChange={onTemplateChange}
         />
       </Box>

@@ -1,4 +1,4 @@
-import { useState, type PropsWithChildren } from 'react';
+import { useEffect, useState, type PropsWithChildren } from 'react';
 import { Text } from './Text';
 import { Input } from './Input';
 
@@ -10,8 +10,12 @@ type FormFieldProps = PropsWithChildren &
     description?: string;
   };
 
-const Field: React.FC<Field> = ({ value, onChange }) => {
-  const [currentValue, setCurrentValue] = useState(value || '');
+const Field: React.FC<Field> = ({ value = '', onChange }) => {
+  const [currentValue, setCurrentValue] = useState(value);
+
+  useEffect(() => {
+    setCurrentValue(value);
+  }, [value]);
 
   if (!onChange) return null;
 

@@ -6,6 +6,9 @@ export const useElizaBuilderForm = (template?: Template) => {
   const [form, setForm] = useState<Character>(
     template ? TEMPLATE_CHARACTERFILES_MAP[template] : INITIAL_FORM,
   );
+  const [selectedTemplate, setSelectedTemplate] = useState<
+    Template | undefined
+  >(template);
 
   const onFormChange = <
     T extends keyof Character,
@@ -37,7 +40,8 @@ export const useElizaBuilderForm = (template?: Template) => {
 
   const onTemplateChange = (template: Template) => {
     setForm(TEMPLATE_CHARACTERFILES_MAP[template]);
+    setSelectedTemplate(template);
   };
 
-  return { form, onFormChange, onTemplateChange };
+  return { form, selectedTemplate, onFormChange, onTemplateChange };
 };

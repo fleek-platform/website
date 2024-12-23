@@ -11,20 +11,14 @@ export const SettingsJson: React.FC<SettingsJson> = ({
   settings,
   onChange,
 }) => {
-  const [hasMounted, setHasMounted] = useState(false);
-  const [currentSettings, setCurrentSettings] = useState(
-    JSON.stringify(settings, null, 2),
-  );
+  const settingsString = JSON.stringify(settings, null, 2);
+  const [currentSettings, setCurrentSettings] = useState(settingsString);
 
   useEffect(() => {
-    // avoid hydration errors
-    setHasMounted(true);
-  }, []);
-
-  if (!hasMounted)
-    return (
-      <div className="flex h-[228px] animate-pulse flex-col items-center justify-center rounded-12 border border-neutral-6 bg-neutral-1" />
-    );
+    if (currentSettings !== settingsString) {
+      setCurrentSettings(settingsString);
+    }
+  }, [settings]);
 
   return (
     <FileEditor

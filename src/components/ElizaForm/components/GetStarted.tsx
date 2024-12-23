@@ -12,7 +12,7 @@ import {
 
 export const GetStarted: React.FC<GoToProps> = ({ goTo }) => {
   return (
-    <Layout className="animate-in zoom-in-105">
+    <Layout className="animate-in zoom-in-[1.025]">
       <Box className="items-start gap-16">
         <Text variant="secondary" className="flex h-32 items-center">
           Deploy an AI agent
@@ -25,7 +25,6 @@ export const GetStarted: React.FC<GoToProps> = ({ goTo }) => {
       </Box>
       <Box className="gap-22">
         <ActionBox
-          // href="/eliza"
           onClick={() => goTo('upload')}
           icon={<CloudUploadIcon className="size-34 shrink-0" />}
           title="Upload characterfile"

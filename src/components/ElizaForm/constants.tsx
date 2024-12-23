@@ -20,7 +20,7 @@ export const TEMPLATES = ['eliza', 'trump', 'c3po', 'dobby'] as const;
 export const TEMPLATES_MAP: Record<Template, string> = {
   eliza: 'Eliza',
   trump: 'Trump',
-  c3po: 'C3PO',
+  c3po: 'C-3PO',
   dobby: 'Dobby',
 };
 
@@ -39,57 +39,61 @@ export const MODEL_PROVIDER_NAMES = [
   'heurist',
 ] as const;
 
-export const MODEL_PROVIDER_NAMES_MAP: Record<ModelProviderName, LabelAndIcon> =
-  {
-    openai: {
-      label: 'OpenAI',
-      icon: '',
-    },
-    anthropic: {
-      label: 'Anthropic',
-      icon: '',
-    },
-    claude_vertex: {
-      label: 'Claude Vertex',
-      icon: '',
-    },
-    grok: {
-      label: 'Grok',
-      icon: '',
-    },
-    groq: {
-      label: 'Groq',
-      icon: '',
-    },
-    llama_cloud: {
-      label: 'LlamaCloud',
-      icon: '',
-    },
-    llama_local: {
-      label: 'LlamaLocal',
-      icon: '',
-    },
-    ollama: {
-      label: 'Ollama',
-      icon: '',
-    },
-    google: {
-      label: 'Google',
-      icon: '',
-    },
-    redpill: {
-      label: 'RedPill',
-      icon: '',
-    },
-    openrouter: {
-      label: 'OpenRouter',
-      icon: '',
-    },
-    heurist: {
-      label: 'Heurist',
-      icon: '',
-    },
-  };
+type NonEmptyModelProviderName = Exclude<ModelProviderName, ''>;
+
+export const MODEL_PROVIDER_NAMES_MAP: Record<
+  NonEmptyModelProviderName,
+  LabelAndIcon
+> = {
+  openai: {
+    label: 'OpenAI',
+    icon: '',
+  },
+  anthropic: {
+    label: 'Anthropic',
+    icon: '',
+  },
+  claude_vertex: {
+    label: 'Claude Vertex',
+    icon: '',
+  },
+  grok: {
+    label: 'Grok',
+    icon: '',
+  },
+  groq: {
+    label: 'Groq',
+    icon: '',
+  },
+  llama_cloud: {
+    label: 'LlamaCloud',
+    icon: '',
+  },
+  llama_local: {
+    label: 'LlamaLocal',
+    icon: '',
+  },
+  ollama: {
+    label: 'Ollama',
+    icon: '',
+  },
+  google: {
+    label: 'Google',
+    icon: '',
+  },
+  redpill: {
+    label: 'RedPill',
+    icon: '',
+  },
+  openrouter: {
+    label: 'OpenRouter',
+    icon: '',
+  },
+  heurist: {
+    label: 'Heurist',
+    icon: '',
+  },
+};
 
 export const CLIENT_NAMES = [
   'discord',
@@ -142,7 +146,7 @@ export const INITIAL_FORM: Character = {
   username: '',
   plugins: [],
   clients: [],
-  modelProvider: 'openai',
+  modelProvider: '',
   settings: {
     secrets: {},
     voice: {
@@ -194,8 +198,8 @@ const ELIZA: Character = {
   name: 'Eliza',
   username: 'eliza',
   plugins: [],
-  clients: ['twitter', 'telegram', 'discord'],
-  modelProvider: 'openai',
+  clients: [],
+  modelProvider: '',
   settings: {
     secrets: {},
     voice: {
@@ -633,9 +637,9 @@ const ELIZA: Character = {
 };
 
 const TRUMP: Character = {
-  name: 'trump',
+  name: 'Trump',
   clients: [],
-  modelProvider: 'openai',
+  modelProvider: '',
   settings: {
     secrets: {},
     voice: {
@@ -985,8 +989,9 @@ const TRUMP: Character = {
 const C3PO: Character = {
   name: 'C-3PO',
   clients: [],
-  modelProvider: 'anthropic',
+  modelProvider: '',
   settings: {
+    secrets: {},
     voice: {
       model: 'en_GB-alan-medium',
     },
@@ -1045,7 +1050,7 @@ const C3PO: Character = {
     'Oh my! Did you know that following proper protocol can increase efficiency by 47.3%? How fascinating!',
     'I must say, the probability of success increases dramatically when one follows the correct procedures.',
   ],
-  topics: [''],
+  topics: ['star wars'],
   style: {
     all: [
       'Proper',
@@ -1077,8 +1082,9 @@ const C3PO: Character = {
 const DOBBY: Character = {
   name: 'Dobby',
   clients: [],
-  modelProvider: 'anthropic',
+  modelProvider: '',
   settings: {
+    secrets: {},
     voice: {
       model: 'en_GB-danny-low',
     },
@@ -1137,7 +1143,7 @@ const DOBBY: Character = {
     'Dobby reminds friends that even the smallest helper can make the biggest difference!',
     "Dobby says: 'When in doubt, try the unconventional solution!' (But Dobby advises to be careful with flying cars)",
   ],
-  topics: [''],
+  topics: ['harry potter'],
   style: {
     all: [
       'Enthusiastic',
