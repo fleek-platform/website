@@ -2,9 +2,9 @@
 title: 'TEEs, But Make It Simple*'
 date: 2024-12-23
 desc: 'Discover how TEEs can secure your apps, payments, and AI agents. Learn the basics, real-world use cases, and how Fleek Machines simplify TEE adoption.'
-thumbnail: './thumbnail.png'
-image: './thumbnail.png'
-customMetaTitle: "Beginner’s guide to TEEs – Secure computing simplified"
+thumbnail: './thumbnail.jpg'
+image: './thumbnail.jpg'
+customMetaTitle: 'Beginner’s guide to TEEs – Secure computing simplified'
 author:
   - 'Fleek'
 is_seo: true
