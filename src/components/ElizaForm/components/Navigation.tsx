@@ -1,7 +1,7 @@
-import { useMemo, useState } from 'react';
+import { useState } from 'react';
 import { GetStarted } from './GetStarted';
 import { Layout } from './Layout';
-import type { Options, Page, Template } from '../types';
+import type { Options, Page } from '../types';
 import { Characterfile } from './Characterfile';
 
 export const Navigation = () => {

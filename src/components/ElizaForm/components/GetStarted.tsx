@@ -8,9 +8,11 @@ import type { GoToProps } from '../types';
 
 export const GetStarted: React.FC<GoToProps> = ({ goTo }) => {
   return (
-    <Layout>
+    <Layout className="animate-in zoom-in-105">
       <Box className="items-start gap-16">
-        <Text variant="secondary">Deploy an AI agent</Text>
+        <Text variant="secondary" className="flex h-32 items-center">
+          Deploy an AI agent
+        </Text>
         <Text>Get started</Text>
         <Text variant="description" className="text-wrap">
           To start developing your AI agent, please select one of the options
