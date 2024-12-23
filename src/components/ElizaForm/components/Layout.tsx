@@ -8,7 +8,7 @@ export const Layout: React.FC<
   return (
     <main
       className={cn(
-        'mx-auto flex w-full max-w-[590px] flex-col gap-38 pb-64 pt-32 font-plex-sans text-14',
+        'mx-auto flex w-full max-w-[590px] flex-col gap-38 font-plex-sans text-14 sm:pb-56 sm:pt-16',
         className,
       )}
     >

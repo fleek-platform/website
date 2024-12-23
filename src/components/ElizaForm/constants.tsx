@@ -1,4 +1,4 @@
-import { Discord, Telegram, X } from './components/ClientIcons';
+import { Discord, Telegram, X } from './components/CustomIcons';
 import type {
   Character,
   Client,
