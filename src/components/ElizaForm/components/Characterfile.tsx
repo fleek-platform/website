@@ -14,6 +14,7 @@ import type { GoToProps, Template } from '../types';
 import type React from 'react';
 import { TEMPLATES, TEMPLATES_MAP } from '../constants';
 import { GoBackButton } from './GoBackButton';
+import { FaCheck } from 'react-icons/fa6';
 
 type TemplateSelectorProps = {
   currentTemplate?: Template;
@@ -27,27 +28,31 @@ const TemplateSelector: React.FC<TemplateSelectorProps> = ({
   if (!currentTemplate) return null;
 
   return (
-    <Box className="w-full border-b border-elz-neutral-6 py-38">
+    <Box className="w-full border-b border-elz-neutral-6 pb-38 pt-24">
       <Box variant="container">
         <Box className="items-center gap-8">
           <Text variant="primary" size="xl" weight={700}>
-            Use template character
+            Templates
           </Text>
           <Text variant="secondary">
             Use one of the options below to prefill the fields.
           </Text>
         </Box>
         <Box className="flex-row gap-16">
-          {TEMPLATES.map((template) => (
-            <Button
-              key={template}
-              variant={template === currentTemplate ? 'accent' : 'neutral'}
-              onClick={() => onTemplateChange(template)}
-              className="flex-1"
-            >
-              {TEMPLATES_MAP[template]}
-            </Button>
-          ))}
+          {TEMPLATES.map((template) => {
+            const isSelected = template === currentTemplate;
+            return (
+              <Button
+                key={template}
+                variant={isSelected ? 'success' : 'neutral'}
+                onClick={() => onTemplateChange(template)}
+                className="flex-1"
+              >
+                {isSelected && <FaCheck />}
+                {TEMPLATES_MAP[template]}
+              </Button>
+            );
+          })}
         </Box>
       </Box>
     </Box>
