@@ -9,14 +9,26 @@ import { Button } from './Button';
 import { TagsForm } from './TagsForm';
 import { useElizaBuilderForm } from '../hooks/useElizaBuilderForm';
 import { SettingsJson } from './SettingsJson';
+import { Layout } from './Layout';
+import { Box } from './Box';
+import type { GoToProps, Template } from '../types';
 
-export const CreateCharacterfile: React.FC = () => {
-  const { form, onFormChange } = useElizaBuilderForm();
+type CharacterfileProps = GoToProps & { template?: Template };
+
+export const Characterfile: React.FC<CharacterfileProps> = ({
+  goTo,
+  template,
+}) => {
+  const { form, onFormChange } = useElizaBuilderForm(template);
 
   return (
-    <main className="mx-auto flex w-full max-w-[590px] flex-col gap-38 pb-96 pt-32 font-plex-sans text-14">
-      <div className="flex flex-col items-start gap-16">
-        <Button variant="ghost" className="text-yellow-dark-11">
+    <Layout>
+      <Box className="items-start gap-16">
+        <Button
+          variant="ghost"
+          className="text-yellow-dark-11"
+          onClick={() => goTo('getStarted')}
+        >
           <FaChevronLeft className="size-12" /> Go back
         </Button>
         <Text>Create characterfile</Text>
@@ -32,8 +44,8 @@ export const CreateCharacterfile: React.FC = () => {
           </Link>{' '}
           to view a characterfile example.
         </Text>
-      </div>
-      <div className="flex flex-col gap-38">
+      </Box>
+      <Box className="gap-38">
         <FormField
           label="Name"
           description="The character's display name for identification and in conversations"
@@ -93,8 +105,8 @@ export const CreateCharacterfile: React.FC = () => {
           label="Style"
           description="List of subjects the character is interested in or knowledgeable about, used to guide conversations and generate relevant content. Helps maintain character consistency."
         >
-          <div className="flex flex-col gap-16 border-l-4 border-neutral-1 pl-16">
-            <div className="flex flex-col gap-8 rounded-12 bg-neutral-1 p-12">
+          <Box className="gap-16 border-l-4 border-neutral-1 pl-16">
+            <Box className="gap-8 rounded-12 bg-neutral-1 p-12">
               <Text size="lg" variant="primary" weight={700}>
                 All
               </Text>
@@ -106,8 +118,8 @@ export const CreateCharacterfile: React.FC = () => {
                 onFormChange={(data) => onFormChange('style', 'all', data)}
                 placeholder="Agent background lore"
               />
-            </div>
-            <div className="flex flex-col gap-8 rounded-12 bg-neutral-1 p-12">
+            </Box>
+            <Box className="gap-8 rounded-12 bg-neutral-1 p-12">
               <Text size="lg" variant="primary" weight={700}>
                 Chat
               </Text>
@@ -120,8 +132,8 @@ export const CreateCharacterfile: React.FC = () => {
                 onFormChange={(data) => onFormChange('style', 'chat', data)}
                 placeholder="Agent background lore"
               />
-            </div>
-            <div className="flex flex-col gap-8 rounded-12 bg-neutral-1 p-12">
+            </Box>
+            <Box className="gap-8 rounded-12 bg-neutral-1 p-12">
               <Text size="lg" variant="primary" weight={700}>
                 Post
               </Text>
@@ -134,8 +146,8 @@ export const CreateCharacterfile: React.FC = () => {
                 onFormChange={(data) => onFormChange('style', 'post', data)}
                 placeholder="Agent background lore"
               />
-            </div>
-          </div>
+            </Box>
+          </Box>
         </FormField>
         <FormField
           label="Topics"
@@ -158,7 +170,7 @@ export const CreateCharacterfile: React.FC = () => {
           />
         </FormField>
         <Button disabled>Continue</Button>
-      </div>
-    </main>
+      </Box>
+    </Layout>
   );
 };
