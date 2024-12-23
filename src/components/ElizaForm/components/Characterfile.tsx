@@ -27,7 +27,7 @@ export const Characterfile: React.FC<CharacterfileProps> = ({
         <Button
           variant="ghost"
           className="text-yellow-dark-11"
-          onClick={() => goTo('get-started')}
+          onClick={() => goTo('getStarted')}
         >
           <FaChevronLeft className="size-12" /> Go back
         </Button>

@@ -6,7 +6,7 @@ import type {
   ModelProviderName,
 } from './types';
 
-export const PAGES = ['get-started', 'characterfile', 'review', 'env'] as const;
+export const PAGES = ['getStarted', 'characterfile', 'review', 'env'] as const;
 
 export const TEMPLATES = ['eliza', 'trump', 'c3po', 'dobby'] as const;
 

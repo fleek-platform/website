@@ -5,28 +5,26 @@ import type { Options, Page, Template } from '../types';
 import { Characterfile } from './Characterfile';
 
 export const Navigation = () => {
-  const [page, setPage] = useState<Page>('get-started');
-  const [template, setTemplate] = useState<Template | undefined>(undefined);
+  const [page, setPage] = useState<Page>('getStarted');
+  const [options, setOptions] = useState<Options | null>(null);
 
   const goTo = (page: Page, options?: Options) => {
     if (options) {
-      setTemplate(options.forwardProps.template);
+      setOptions(options);
     } else {
-      setTemplate(undefined);
+      setOptions(null);
     }
     setPage(page);
   };
 
-  const pages: Record<Page, React.ReactNode> = useMemo(
-    () => ({
-      'get-started': <GetStarted goTo={goTo} />,
-      characterfile: <Characterfile goTo={goTo} template={template} />,
-      review: <></>,
-      env: <></>,
-    }),
-
-    [template],
-  );
+  const pages: Record<Page, React.ReactNode> = {
+    getStarted: <GetStarted goTo={goTo} />,
+    characterfile: (
+      <Characterfile goTo={goTo} template={options?.forwardProps.template} />
+    ),
+    review: <></>,
+    env: <></>,
+  };
 
   return <Layout>{pages[page]}</Layout>;
 };
