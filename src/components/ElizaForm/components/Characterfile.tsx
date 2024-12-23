@@ -1,4 +1,3 @@
-import { FaChevronLeft } from 'react-icons/fa6';
 import { FormField } from './FormField';
 import { ModelProviderDropdown } from './ModelProviderDropdown';
 import { ClientsDropdown } from './ClientsDropdown';
@@ -8,10 +7,55 @@ import Link, { Target } from './Link';
 import { Button } from './Button';
 import { TagsForm } from './TagsForm';
 import { useElizaBuilderForm } from '../hooks/useElizaBuilderForm';
-import { SettingsJson } from './SettingsJson';
 import { Layout } from './Layout';
 import { Box } from './Box';
 import type { GoToProps, Template } from '../types';
+import type React from 'react';
+import { TEMPLATES, TEMPLATES_MAP } from '../constants';
+import { GoBackButton } from './GoBackButton';
+import { FileEditorWrapper } from './FileEditorWrapper';
+
+type TemplateSelectorProps = {
+  selectedTemplate?: Template;
+  onTemplateChange: (template: Template) => void;
+};
+
+const TemplateSelector: React.FC<TemplateSelectorProps> = ({
+  selectedTemplate,
+  onTemplateChange,
+}) => {
+  if (!selectedTemplate) return null;
+
+  return (
+    <Box className="w-full border-b border-elz-neutral-6 pb-38 pt-24">
+      <Box variant="container">
+        <Box className="items-center gap-8">
+          <Text variant="primary" size="xl" weight={700}>
+            Templates
+          </Text>
+          <Text variant="secondary">
+            Use one of the options below to prefill the fields.
+          </Text>
+        </Box>
+        <Box className="flex-row gap-16">
+          {TEMPLATES.map((template) => {
+            const isSelected = template === selectedTemplate;
+            return (
+              <Button
+                key={template}
+                variant={isSelected ? 'success' : 'neutral'}
+                onClick={() => onTemplateChange(template)}
+                className="flex-1"
+              >
+                {TEMPLATES_MAP[template]}
+              </Button>
+            );
+          })}
+        </Box>
+      </Box>
+    </Box>
+  );
+};
 
 type CharacterfileProps = GoToProps & { template?: Template };
 
@@ -19,19 +63,16 @@ export const Characterfile: React.FC<CharacterfileProps> = ({
   goTo,
   template,
 }) => {
-  const { form, onFormChange } = useElizaBuilderForm(template);
+  const { form, selectedTemplate, onFormChange, onTemplateChange } =
+    useElizaBuilderForm(template);
 
   return (
     <Layout>
       <Box className="items-start gap-16">
-        <Button
-          variant="ghost"
-          className="text-yellow-dark-11"
-          onClick={() => goTo('getStarted')}
-        >
-          <FaChevronLeft className="size-12" /> Go back
-        </Button>
-        <Text>Create characterfile</Text>
+        <GoBackButton onClick={() => goTo('getStarted')} />
+        <Text>
+          {template ? 'Start with a template' : 'Create characterfile'}
+        </Text>
         <Text variant="description" className="text-wrap">
           Using the inputs below, craft a unique and engaging personality for
           your AI agent. Click{' '}
@@ -44,6 +85,10 @@ export const Characterfile: React.FC<CharacterfileProps> = ({
           </Link>{' '}
           to view a characterfile example.
         </Text>
+        <TemplateSelector
+          selectedTemplate={selectedTemplate}
+          onTemplateChange={onTemplateChange}
+        />
       </Box>
       <Box className="gap-38">
         <FormField
@@ -76,7 +121,7 @@ export const Characterfile: React.FC<CharacterfileProps> = ({
           label="Settings"
           description="The settings object defines additional configurations like secrets and voice models. Note: We recommend adding your API keys during the .env upload step later in the flow. "
         >
-          <SettingsJson
+          <FileEditorWrapper
             settings={form.settings}
             onChange={(data) => onFormChange('settings', data)}
           />

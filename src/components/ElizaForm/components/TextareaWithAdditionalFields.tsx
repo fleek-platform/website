@@ -2,7 +2,7 @@ import { Button } from '@components/Button';
 import { Input } from './Input';
 import { FaTrash } from 'react-icons/fa';
 import { FaPlus } from 'react-icons/fa6';
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Box } from './Box';
 
 type FieldProps = {
@@ -11,8 +11,14 @@ type FieldProps = {
   onChange: (newValue: string) => void;
 };
 
-const Field: React.FC<FieldProps> = ({ placeholder, item, onChange }) => {
-  const [value, setValue] = useState(item || '');
+const Field: React.FC<FieldProps> = ({ placeholder, item = '', onChange }) => {
+  const [value, setValue] = useState(item);
+
+  useEffect(() => {
+    if (value !== item) {
+      setValue(item);
+    }
+  }, [item]);
 
   const handleChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
     setValue(e.target.value);
