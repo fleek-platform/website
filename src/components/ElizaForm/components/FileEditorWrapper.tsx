@@ -2,12 +2,12 @@ import FileEditor from '@components/Eliza/components/FileEditor';
 import React, { useEffect, useState } from 'react';
 import type { Character } from '../types';
 
-type SettingsJson = {
+type FileEditorWrapperProps = {
   settings: Character['settings'];
   onChange: (data: Character['settings']) => void;
 };
 
-export const SettingsJson: React.FC<SettingsJson> = ({
+export const FileEditorWrapper: React.FC<FileEditorWrapperProps> = ({
   settings,
   onChange,
 }) => {

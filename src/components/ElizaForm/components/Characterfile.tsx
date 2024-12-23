@@ -7,13 +7,13 @@ import Link, { Target } from './Link';
 import { Button } from './Button';
 import { TagsForm } from './TagsForm';
 import { useElizaBuilderForm } from '../hooks/useElizaBuilderForm';
-import { SettingsJson } from './SettingsJson';
 import { Layout } from './Layout';
 import { Box } from './Box';
 import type { GoToProps, Template } from '../types';
 import type React from 'react';
 import { TEMPLATES, TEMPLATES_MAP } from '../constants';
 import { GoBackButton } from './GoBackButton';
+import { FileEditorWrapper } from './FileEditorWrapper';
 
 type TemplateSelectorProps = {
   selectedTemplate?: Template;
@@ -121,7 +121,7 @@ export const Characterfile: React.FC<CharacterfileProps> = ({
           label="Settings"
           description="The settings object defines additional configurations like secrets and voice models. Note: We recommend adding your API keys during the .env upload step later in the flow. "
         >
-          <SettingsJson
+          <FileEditorWrapper
             settings={form.settings}
             onChange={(data) => onFormChange('settings', data)}
           />
