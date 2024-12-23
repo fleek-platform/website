@@ -14,7 +14,9 @@ const Field: React.FC<Field> = ({ value = '', onChange }) => {
   const [currentValue, setCurrentValue] = useState(value);
 
   useEffect(() => {
-    setCurrentValue(value);
+    if (value !== currentValue) {
+      setCurrentValue(value);
+    }
   }, [value]);
 
   if (!onChange) return null;
