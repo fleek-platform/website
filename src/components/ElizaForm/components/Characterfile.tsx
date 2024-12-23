@@ -1,4 +1,3 @@
-import { FaChevronLeft } from 'react-icons/fa6';
 import { FormField } from './FormField';
 import { ModelProviderDropdown } from './ModelProviderDropdown';
 import { ClientsDropdown } from './ClientsDropdown';
@@ -12,6 +11,48 @@ import { SettingsJson } from './SettingsJson';
 import { Layout } from './Layout';
 import { Box } from './Box';
 import type { GoToProps, Template } from '../types';
+import type React from 'react';
+import { TEMPLATES, TEMPLATES_MAP } from '../constants';
+import { GoBackButton } from './GoBackButton';
+
+type TemplateSelectorProps = {
+  currentTemplate?: Template;
+  onTemplateChange: (template: Template) => void;
+};
+
+const TemplateSelector: React.FC<TemplateSelectorProps> = ({
+  currentTemplate,
+  onTemplateChange,
+}) => {
+  if (!currentTemplate) return null;
+
+  return (
+    <Box className="w-full border-b border-elz-neutral-6 py-38">
+      <Box variant="container">
+        <Box className="items-center gap-8">
+          <Text variant="primary" size="xl" weight={700}>
+            Use template character
+          </Text>
+          <Text variant="secondary">
+            Use one of the options below to prefill the fields.
+          </Text>
+        </Box>
+        <Box className="flex-row gap-16">
+          {TEMPLATES.map((template) => (
+            <Button
+              key={template}
+              variant={template === currentTemplate ? 'accent' : 'neutral'}
+              onClick={() => onTemplateChange(template)}
+              className="flex-1"
+            >
+              {TEMPLATES_MAP[template]}
+            </Button>
+          ))}
+        </Box>
+      </Box>
+    </Box>
+  );
+};
 
 type CharacterfileProps = GoToProps & { template?: Template };
 
@@ -19,19 +60,16 @@ export const Characterfile: React.FC<CharacterfileProps> = ({
   goTo,
   template,
 }) => {
-  const { form, onFormChange } = useElizaBuilderForm(template);
+  const { form, onFormChange, onTemplateChange } =
+    useElizaBuilderForm(template);
 
   return (
     <Layout>
       <Box className="items-start gap-16">
-        <Button
-          variant="ghost"
-          className="text-yellow-dark-11"
-          onClick={() => goTo('getStarted')}
-        >
-          <FaChevronLeft className="size-12" /> Go back
-        </Button>
-        <Text>Create characterfile</Text>
+        <GoBackButton onClick={() => goTo('getStarted')} />
+        <Text>
+          {template ? 'Start with a template' : 'Create characterfile'}
+        </Text>
         <Text variant="description" className="text-wrap">
           Using the inputs below, craft a unique and engaging personality for
           your AI agent. Click{' '}
@@ -44,6 +82,10 @@ export const Characterfile: React.FC<CharacterfileProps> = ({
           </Link>{' '}
           to view a characterfile example.
         </Text>
+        <TemplateSelector
+          currentTemplate={template}
+          onTemplateChange={onTemplateChange}
+        />
       </Box>
       <Box className="gap-38">
         <FormField

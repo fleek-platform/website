@@ -4,11 +4,25 @@ import type {
   Client,
   LabelAndIcon,
   ModelProviderName,
+  Template,
 } from './types';
 
-export const PAGES = ['getStarted', 'characterfile', 'review', 'env'] as const;
+export const PAGES = [
+  'getStarted',
+  'upload',
+  'characterfile',
+  'review',
+  'env',
+] as const;
 
 export const TEMPLATES = ['eliza', 'trump', 'c3po', 'dobby'] as const;
+
+export const TEMPLATES_MAP: Record<Template, string> = {
+  eliza: 'Eliza',
+  trump: 'Trump',
+  c3po: 'C3PO',
+  dobby: 'Dobby',
+};
 
 export const MODEL_PROVIDER_NAMES = [
   'openai',
@@ -176,7 +190,7 @@ export const INITIAL_FORM: Character = {
   },
 };
 
-export const EXAMPLE_CHARACTERFILE: Character = {
+export const ELIZA: Character = {
   name: 'Eliza',
   username: 'eliza',
   plugins: [],
@@ -616,4 +630,11 @@ export const EXAMPLE_CHARACTERFILE: Character = {
     'memetic',
     'emoji-hater',
   ],
+};
+
+export const TEMPLATE_CHARACTERFILES_MAP: Record<Template, Character> = {
+  eliza: ELIZA,
+  trump: ELIZA,
+  c3po: ELIZA,
+  dobby: ELIZA,
 };

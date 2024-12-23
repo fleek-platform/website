@@ -1,10 +1,10 @@
 import { useState } from 'react';
 import type { Character, Template } from '../types';
-import { EXAMPLE_CHARACTERFILE, INITIAL_FORM } from '../constants';
+import { TEMPLATE_CHARACTERFILES_MAP, INITIAL_FORM } from '../constants';
 
 export const useElizaBuilderForm = (template?: Template) => {
   const [form, setForm] = useState<Character>(
-    template ? EXAMPLE_CHARACTERFILE : INITIAL_FORM,
+    template ? TEMPLATE_CHARACTERFILES_MAP[template] : INITIAL_FORM,
   );
 
   const onFormChange = <
@@ -35,5 +35,9 @@ export const useElizaBuilderForm = (template?: Template) => {
     });
   };
 
-  return { form, onFormChange };
+  const onTemplateChange = (template: Template) => {
+    setForm(TEMPLATE_CHARACTERFILES_MAP[template]);
+  };
+
+  return { form, onFormChange, onTemplateChange };
 };
