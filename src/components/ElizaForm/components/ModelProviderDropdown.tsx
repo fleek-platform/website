@@ -2,11 +2,11 @@ import { Dropdown } from './Dropdown';
 import { MODEL_PROVIDER_NAMES, MODEL_PROVIDER_NAMES_MAP } from '../constants';
 import { Text } from './Text';
 import { FaCheck } from 'react-icons/fa6';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import type { ModelProviderName } from '../types';
 
 type ModelProviderDropdownProps = {
-  modelProvider: ModelProviderName | null;
+  modelProvider: ModelProviderName;
   onModelProviderSelect: (provider: ModelProviderName) => void;
 };
 
@@ -14,11 +14,17 @@ export const ModelProviderDropdown: React.FC<ModelProviderDropdownProps> = ({
   modelProvider,
   onModelProviderSelect,
 }) => {
-  const [currentModalProvider, setCurrentModelProvider] =
-    useState<ModelProviderName | null>(modelProvider || null);
+  const [currentModelProvider, setCurrentModelProvider] =
+    useState<ModelProviderName>(modelProvider);
 
-  const triggerLabel = currentModalProvider
-    ? MODEL_PROVIDER_NAMES_MAP[currentModalProvider].label
+  useEffect(() => {
+    if (modelProvider !== currentModelProvider) {
+      setCurrentModelProvider(modelProvider);
+    }
+  }, [modelProvider]);
+
+  const triggerLabel = currentModelProvider
+    ? MODEL_PROVIDER_NAMES_MAP[currentModelProvider].label
     : 'Select a provider';
 
   const handleClick = (provider: ModelProviderName) => {
@@ -31,7 +37,7 @@ export const ModelProviderDropdown: React.FC<ModelProviderDropdownProps> = ({
       <Dropdown.Trigger>{triggerLabel}</Dropdown.Trigger>
       <Dropdown.Content>
         {MODEL_PROVIDER_NAMES.map((provider) => {
-          const isSelected = currentModalProvider === provider;
+          const isSelected = currentModelProvider === provider;
           return (
             <Dropdown.Item key={provider} onClick={() => handleClick(provider)}>
               <div className="flex items-center justify-between">

@@ -1,4 +1,3 @@
-import { FaChevronLeft } from 'react-icons/fa6';
 import { FormField } from './FormField';
 import { ModelProviderDropdown } from './ModelProviderDropdown';
 import { ClientsDropdown } from './ClientsDropdown';
@@ -8,18 +7,72 @@ import Link, { Target } from './Link';
 import { Button } from './Button';
 import { TagsForm } from './TagsForm';
 import { useElizaBuilderForm } from '../hooks/useElizaBuilderForm';
-import { SettingsJson } from './SettingsJson';
+import { Layout } from './Layout';
+import { Box } from './Box';
+import type { GoToProps, Template } from '../types';
+import type React from 'react';
+import { TEMPLATES, TEMPLATES_MAP } from '../constants';
+import { GoBackButton } from './GoBackButton';
+import { FileEditorWrapper } from './FileEditorWrapper';
 
-export const CreateCharacterfile: React.FC = () => {
-  const { form, onFormChange } = useElizaBuilderForm();
+type TemplateSelectorProps = {
+  selectedTemplate?: Template;
+  onTemplateChange: (template: Template) => void;
+};
+
+const TemplateSelector: React.FC<TemplateSelectorProps> = ({
+  selectedTemplate,
+  onTemplateChange,
+}) => {
+  if (!selectedTemplate) return null;
 
   return (
-    <main className="mx-auto flex w-full max-w-[590px] flex-col gap-38 pb-96 pt-32 font-plex-sans text-14">
-      <div className="flex flex-col items-start gap-16">
-        <Button variant="ghost" className="text-yellow-dark-11">
-          <FaChevronLeft className="size-12" /> Go back
-        </Button>
-        <Text>Create characterfile</Text>
+    <Box className="w-full border-b border-elz-neutral-6 pb-38 pt-24">
+      <Box variant="container">
+        <Box className="items-center gap-8">
+          <Text variant="primary" size="xl" weight={700}>
+            Templates
+          </Text>
+          <Text variant="secondary">
+            Use one of the options below to prefill the fields.
+          </Text>
+        </Box>
+        <Box className="flex-row gap-16">
+          {TEMPLATES.map((template) => {
+            const isSelected = template === selectedTemplate;
+            return (
+              <Button
+                key={template}
+                variant={isSelected ? 'success' : 'neutral'}
+                onClick={() => onTemplateChange(template)}
+                className="flex-1"
+              >
+                {TEMPLATES_MAP[template]}
+              </Button>
+            );
+          })}
+        </Box>
+      </Box>
+    </Box>
+  );
+};
+
+type CharacterfileProps = GoToProps & { template?: Template };
+
+export const Characterfile: React.FC<CharacterfileProps> = ({
+  goTo,
+  template,
+}) => {
+  const { form, selectedTemplate, onFormChange, onTemplateChange } =
+    useElizaBuilderForm(template);
+
+  return (
+    <Layout>
+      <Box className="items-start gap-16">
+        <GoBackButton onClick={() => goTo('getStarted')} />
+        <Text>
+          {template ? 'Start with a template' : 'Create characterfile'}
+        </Text>
         <Text variant="description" className="text-wrap">
           Using the inputs below, craft a unique and engaging personality for
           your AI agent. Click{' '}
@@ -32,8 +85,12 @@ export const CreateCharacterfile: React.FC = () => {
           </Link>{' '}
           to view a characterfile example.
         </Text>
-      </div>
-      <div className="flex flex-col gap-38">
+        <TemplateSelector
+          selectedTemplate={selectedTemplate}
+          onTemplateChange={onTemplateChange}
+        />
+      </Box>
+      <Box className="gap-38">
         <FormField
           label="Name"
           description="The character's display name for identification and in conversations"
@@ -64,7 +121,7 @@ export const CreateCharacterfile: React.FC = () => {
           label="Settings"
           description="The settings object defines additional configurations like secrets and voice models. Note: We recommend adding your API keys during the .env upload step later in the flow. "
         >
-          <SettingsJson
+          <FileEditorWrapper
             settings={form.settings}
             onChange={(data) => onFormChange('settings', data)}
           />
@@ -93,8 +150,8 @@ export const CreateCharacterfile: React.FC = () => {
           label="Style"
           description="List of subjects the character is interested in or knowledgeable about, used to guide conversations and generate relevant content. Helps maintain character consistency."
         >
-          <div className="flex flex-col gap-16 border-l-4 border-neutral-1 pl-16">
-            <div className="flex flex-col gap-8 rounded-12 bg-neutral-1 p-12">
+          <Box className="gap-16 border-l-4 border-neutral-1 pl-16">
+            <Box className="gap-8 rounded-12 bg-neutral-1 p-12">
               <Text size="lg" variant="primary" weight={700}>
                 All
               </Text>
@@ -106,8 +163,8 @@ export const CreateCharacterfile: React.FC = () => {
                 onFormChange={(data) => onFormChange('style', 'all', data)}
                 placeholder="Agent background lore"
               />
-            </div>
-            <div className="flex flex-col gap-8 rounded-12 bg-neutral-1 p-12">
+            </Box>
+            <Box className="gap-8 rounded-12 bg-neutral-1 p-12">
               <Text size="lg" variant="primary" weight={700}>
                 Chat
               </Text>
@@ -120,8 +177,8 @@ export const CreateCharacterfile: React.FC = () => {
                 onFormChange={(data) => onFormChange('style', 'chat', data)}
                 placeholder="Agent background lore"
               />
-            </div>
-            <div className="flex flex-col gap-8 rounded-12 bg-neutral-1 p-12">
+            </Box>
+            <Box className="gap-8 rounded-12 bg-neutral-1 p-12">
               <Text size="lg" variant="primary" weight={700}>
                 Post
               </Text>
@@ -134,8 +191,8 @@ export const CreateCharacterfile: React.FC = () => {
                 onFormChange={(data) => onFormChange('style', 'post', data)}
                 placeholder="Agent background lore"
               />
-            </div>
-          </div>
+            </Box>
+          </Box>
         </FormField>
         <FormField
           label="Topics"
@@ -158,7 +215,7 @@ export const CreateCharacterfile: React.FC = () => {
           />
         </FormField>
         <Button disabled>Continue</Button>
-      </div>
-    </main>
+      </Box>
+    </Layout>
   );
 };

@@ -1,4 +1,4 @@
-import { useState, type PropsWithChildren } from 'react';
+import { useEffect, useState, type PropsWithChildren } from 'react';
 import { Text } from './Text';
 import { Input } from './Input';
 
@@ -10,10 +10,22 @@ type FormFieldProps = PropsWithChildren &
     description?: string;
   };
 
-const Field: React.FC<Field> = ({ value, onChange }) => {
-  const [currentValue, setCurrentValue] = useState(value || '');
+const Field: React.FC<Field> = ({ value = '', onChange }) => {
+  const [currentValue, setCurrentValue] = useState(value);
 
-  if (!value || !onChange) return null;
+  useEffect(() => {
+    if (value !== currentValue) {
+      setCurrentValue(value);
+    }
+  }, [value]);
+
+  if (!onChange) return null;
+
+  const handleBlur = () => {
+    if (value !== currentValue) {
+      onChange(currentValue);
+    }
+  };
 
   return (
     <Input.Root>
@@ -21,7 +33,7 @@ const Field: React.FC<Field> = ({ value, onChange }) => {
         placeholder="Character display name, i.e: TechAI"
         value={currentValue}
         onChange={(e) => setCurrentValue(e.target.value)}
-        onBlur={() => onChange(currentValue)}
+        onBlur={handleBlur}
       />
     </Input.Root>
   );
@@ -42,7 +54,7 @@ export const FormField: React.FC<FormFieldProps> = ({
         </Text>
         <Text variant="secondary">{description}</Text>
       </div>
-      {value && onChange && <Field value={value} onChange={onChange} />}
+      {onChange && <Field value={value} onChange={onChange} />}
       {children}
     </section>
   );
