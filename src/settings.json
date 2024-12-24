@@ -141,7 +141,8 @@
     },
     "auth": {
       "dynamicEnvironmentId": "de23a5f0-aaa5-412e-8212-4fb056a3b30d",
-      "authTokenName": "accessToken"
+      "authTokenName": "accessToken",
+      "activeProjectTokenName": "projectId"
     },
     "annoucementMarquee": {
       "message": "Introducing Fleek Machines (Early access): One-click verified and private compute",

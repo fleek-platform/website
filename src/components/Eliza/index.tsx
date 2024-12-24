@@ -137,15 +137,6 @@ const CoreEliza: React.FC<ElizaCoreProps> = () => {
     </button>
   );
 
-  const CancelDeploymentButton = (
-    <button
-      className="text-[14px] leading-[20px] text-[#b4b4b4] underline"
-      onClick={cancelDeployment}
-    >
-      Cancel deployment
-    </button>
-  );
-
   const onUploadCharacterFile = useCallback(
     (content: string) => {
       setCharacterFile(content);
@@ -299,11 +290,7 @@ const CoreEliza: React.FC<ElizaCoreProps> = () => {
                 : 'Review the details below for information on how to engage with your AI agent, now live at the URL below.'
             }
             customTopElement={
-              !isDeploymentSuccessful ? (
-                CancelDeploymentButton
-              ) : (
-                <>🎉 Congratulations!</>
-              )
+              isDeploymentSuccessful ? <>🎉 Congratulations!</> : null
             }
           >
             <DeploymentStatus
