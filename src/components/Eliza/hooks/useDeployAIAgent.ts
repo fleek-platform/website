@@ -44,7 +44,7 @@ export const useDeployAIAgent = ({
   const [isDeploymentSuccessful, setIsDeploymentSuccessful] = useState(false);
   const [isDeploymentFailed, setIsDeploymentFailed] = useState(false);
   const featureFlags = useElizaFeatureFlags('subscriptionEnabled');
-  const { isAuthenticated, triggerUserLogin } = useAuthentication();
+  const { isLoggedIn, login } = useAuthentication();
 
   const [deploymentStatus, setDeploymentStatus] = useState<
     DeploymentStatus | undefined
@@ -115,8 +115,8 @@ export const useDeployAIAgent = ({
       return false;
     }
 
-    if (!isAuthenticated) {
-      const loginResult = await triggerUserLogin();
+    if (!isLoggedIn()) {
+      const loginResult = await login();
 
       if (!loginResult) {
         setIsDeploymentPending(false);

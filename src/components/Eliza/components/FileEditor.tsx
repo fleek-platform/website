@@ -1,7 +1,9 @@
 import React, { useMemo, useRef, useState } from 'react';
-import Editor, { type Monaco } from '@monaco-editor/react';
+import Editor from '@monaco-editor/react';
 import { cn } from '@utils/cn';
 import { Expand } from './Icons';
+import type { Monaco } from '@monaco-editor/react';
+import type { editor as MonacoEditor } from 'monaco-editor';
 
 interface Marker {
   severity: number;
@@ -60,7 +62,10 @@ const FileEditor: React.FC<FileEditorProps> = ({
     registerFleekTheme(monaco);
   };
 
-  const handleEditorDidMount = (editor: any, monaco: Monaco) => {
+  const handleEditorDidMount = (
+    editor: MonacoEditor.IStandaloneCodeEditor,
+    monaco: Monaco,
+  ) => {
     editorRef.current = editor;
 
     const updateContentHeight = () => {
@@ -81,9 +86,11 @@ const FileEditor: React.FC<FileEditorProps> = ({
     }
 
     const model = editor.getModel();
-    if (model) {
-      editor
-        .getAction('editor.action.formatDocument')
+    const formatDocumentAction = editor.getAction(
+      'editor.action.formatDocument',
+    );
+    if (model && formatDocumentAction) {
+      formatDocumentAction
         .run()
         .then(() => {
           const markers = monaco.editor.getModelMarkers({
@@ -197,7 +204,7 @@ const registerEnvLanguage = (monaco: Monaco) => {
       const formatted = model
         .getValue()
         .split('\n')
-        .map((line) => {
+        .map((line: string) => {
           const match = line.match(/^(\s*[A-Za-z_][A-Za-z0-9_]*\s*)=(\s*.*)$/);
           return match ? `${match[1].trim()}=${match[2].trim()}` : line;
         })
@@ -207,20 +214,20 @@ const registerEnvLanguage = (monaco: Monaco) => {
   });
 
   monaco.languages.registerCodeActionProvider('env', {
-    provideCodeActions: (model, range, context, token) => {
+    provideCodeActions: (model) => {
       const markers: Marker[] = [];
       const codeActions: CodeAction[] = [];
       const lines = model.getValue().split('\n');
 
       const meaningfulLines = lines.filter(
-        (line) => line.trim() && !line.trim().startsWith('#'),
+        (line: string) => line.trim() && !line.trim().startsWith('#'),
       );
 
       if (meaningfulLines.length === 0) {
         return { actions: codeActions, dispose: () => {} };
       }
 
-      meaningfulLines.forEach((line, index) => {
+      meaningfulLines.forEach((line: string, index: number) => {
         const trimmedLine = line.trim();
         if (
           trimmedLine &&
