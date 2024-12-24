@@ -8,6 +8,10 @@ import { RxHamburgerMenu } from 'react-icons/rx';
 import { isActivePath } from '@utils/url';
 import { Button } from '../Button';
 import FleekLogo from './fleek-logo.svg';
+import { AuthProvider } from '@components/AuthProvider/AuthProvider';
+import { useAuthentication } from '@components/AuthProvider/useAuthentication';
+import { ProjectDropdown } from './ProjectDropdown/ProjectDropdown';
+import type { Project } from '@fleekxyz/sdk/dist-types/generated/graphqlClient/schema';
 
 const NavbarMobileItem: React.FC<NavMenuItem> = ({
   label,
@@ -293,29 +297,56 @@ export const Navbar: React.FC<NavbarProps> = ({
           </section>
         </div>
         <section className="flex items-center gap-8">
-          <Button
-            variant="secondary"
-            size="sm"
-            href="https://app.fleek.xyz"
-            rel="noopener noreferrer"
-            target={Target.Blank}
-          >
-            Log in
-          </Button>
-          <Button
-            variant="tertiary"
-            size="sm"
-            href="https://app.fleek.xyz"
-            rel="noopener noreferrer"
-            target={Target.Blank}
-          >
-            Sign up
-          </Button>
+          <AuthProvider>
+            <SessionManagementActions />
+          </AuthProvider>
           <div className="md:hidden">
             <NavbarMobile />
           </div>
         </section>
       </nav>
     </div>
+  );
+};
+
+const SessionManagementActions: React.FC = () => {
+  const {
+    isLoggedIn,
+    logout,
+    login,
+    userProjects,
+    setActiveProject,
+    getActiveProjectId,
+  } = useAuthentication();
+  const activeProject = userProjects.find(
+    (project) => project.id === getActiveProjectId(),
+  );
+
+  return (
+    <>
+      {isLoggedIn() ? (
+        <>
+          {userProjects && activeProject && (
+            <ProjectDropdown
+              projects={userProjects}
+              selectedProject={activeProject}
+              onProjectChange={setActiveProject}
+            />
+          )}
+          <Button variant="ghost" size="sm" onClick={logout}>
+            Log out
+          </Button>
+        </>
+      ) : (
+        <>
+          <Button variant="secondary" size="sm" onClick={login}>
+            Log in
+          </Button>
+          <Button variant="tertiary" size="sm" onClick={login}>
+            Sign up
+          </Button>
+        </>
+      )}
+    </>
   );
 };
