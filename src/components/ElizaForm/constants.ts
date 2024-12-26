@@ -1,4 +1,3 @@
-import { z } from 'zod';
 import type {
   Character,
   Client,
@@ -141,62 +140,34 @@ export const CLIENTS_MAP: Record<Client, LabelAndIcon> = {
   },
 };
 
-export const characterSchema = z.object({
-  name: z.string().min(1, 'Name is required'),
-  plugins: z.array(
-    z.object({
-      name: z.string(),
-      description: z.string(),
-    }),
-  ),
-  clients: z
-    .array(z.enum(CLIENT_NAMES))
-    .min(1, 'At least one client is required'),
-  modelProvider: z.enum(MODEL_PROVIDER_NAMES),
-  settings: z.object({
-    secrets: z.record(z.string()),
-    voice: z.object({
-      model: z.string().min(1, 'Voice model is required'),
-    }),
-  }),
-  bio: z.array(z.string().min(1)).min(1, 'At least one bio is required'),
-  lore: z
-    .array(z.string().min(1))
-    .min(1, 'At least one lore entry is required'),
-  knowledge: z.array(z.string()).optional(),
-  messageExamples: z
-    .array(
-      z
-        .array(
-          z.object({
-            user: z.string().min(1, 'User is required'),
-            content: z.object({
-              text: z.string().min(1, 'Content text is required'),
-            }),
-          }),
-        )
-        .min(2),
-    )
-    .min(1, 'At least one message example is required'),
-  postExamples: z
-    .array(z.string().min(1))
-    .min(1, 'At least one post example is required'),
-  topics: z.array(z.string().min(1)).min(1, 'At least one topic is required'),
-  adjectives: z
-    .array(z.string().min(1))
-    .min(1, 'At least one adjective is required'),
-  style: z.object({
-    all: z
-      .array(z.string().min(1))
-      .min(1, "At least one style for 'all' is required"),
-    chat: z
-      .array(z.string().min(1))
-      .min(1, "At least one style for 'chat' is required"),
-    post: z
-      .array(z.string().min(1))
-      .min(1, "At least one style for 'post' is required"),
-  }),
-}) satisfies z.ZodType<Character>;
+export const SECRETS_MODEL_PROVIDER_MAP: Record<
+  NonEmptyModelProviderName,
+  Record<string, string>
+> = {
+  openai: { OPENAI_API_KEY: '' },
+  anthropic: { ANTHROPIC_API_KEY: '' },
+  google: { GOOGLE_GENERATIVE_AI_API_KEY: '' },
+  claude_vertex: { CLAUDE_VERTEX_API_KEY: '' },
+  grok: { GROK_API_KEY: '' },
+  groq: { GROQ_API_KEY: '' },
+  llama_cloud: { LLAMA_CLOUD_API_KEY: '' },
+  llama_local: { LLAMA_LOCAL_API_KEY: '' },
+  ollama: { OLLAMA_API_KEY: '' },
+  redpill: { REDPILL_API_KEY: '' },
+  openrouter: { OPENROUTER_API_KEY: '' },
+  heurist: { HEURIST_API_KEY: '' },
+};
+
+export const SECRETS_CLIENT_MAP: Record<Client, Record<string, string>> = {
+  discord: { DISCORD_API_TOKEN: '' },
+  direct: { DIRECT_API_TOKEN: '' },
+  twitter: { TWITTER_API_TOKEN: '' },
+  telegram: { TELEGRAM_BOT_TOKEN: '' },
+  farcaster: { FARCASTER_TOKEN: '' },
+  lens: { LENS_TOKEN: '' },
+  auto: { AUTO_TOKEN: '' },
+  slack: { SLACK_TOKEN: '' },
+};
 
 export const INITIAL_FORM: Character = {
   name: '',
@@ -206,7 +177,7 @@ export const INITIAL_FORM: Character = {
   settings: {
     secrets: {},
     voice: {
-      model: '',
+      model: 'en_US-male-medium',
     },
   },
   bio: [''],

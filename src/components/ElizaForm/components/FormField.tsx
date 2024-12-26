@@ -21,7 +21,6 @@ export const FormField: React.FC<FormFieldProps> = ({
   const {
     register,
     formState: { errors },
-    watch,
   } = useElizaForm();
 
   return (

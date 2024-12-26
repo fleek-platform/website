@@ -64,11 +64,10 @@ export const Characterfile: React.FC<CharacterfileProps> = ({
   goTo,
   template,
 }) => {
-  const { form, selectedTemplate, onFormChange, onTemplateChange, onSubmit } =
+  const { form, selectedTemplate, onFormChange, onTemplateChange } =
     useElizaBuilderForm(template);
 
   const {
-    watch,
     handleSubmit,
     formState: { errors },
   } = useElizaForm();
@@ -134,10 +133,7 @@ export const Characterfile: React.FC<CharacterfileProps> = ({
           label="Settings"
           description="The settings object defines additional configurations like secrets and voice models. Note: We recommend adding your API keys during the .env upload step later in the flow. "
         >
-          <FileEditorWrapper
-            settings={form.settings}
-            onChange={(data) => onFormChange('settings', data)}
-          />
+          <FileEditorWrapper />
         </FormField>
         <FormField
           label="Bio"

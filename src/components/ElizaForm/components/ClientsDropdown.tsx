@@ -1,5 +1,5 @@
 import { Dropdown } from '@components/ElizaForm/components/Dropdown';
-import { CLIENT_NAMES, CLIENTS_MAP } from '../constants';
+import { CLIENT_NAMES, CLIENTS_MAP, SECRETS_CLIENT_MAP } from '../constants';
 import { Badge } from '@components/ElizaForm/components/Badge';
 import type { Character, Client } from '../types';
 import { Controller, useWatch } from 'react-hook-form';
@@ -27,6 +27,8 @@ export const ClientsDropdown: React.FC = () => {
   const {
     control,
     formState: { errors },
+    getValues,
+    setValue,
   } = useElizaForm();
 
   const clients: Character['clients'] = useWatch({ name: 'clients' });
@@ -53,6 +55,10 @@ export const ClientsDropdown: React.FC = () => {
                   onCheckedChange={(isChecked) => {
                     if (isChecked) {
                       field.onChange([...clients, client]);
+                      setValue('settings.secrets', {
+                        ...getValues('settings.secrets'),
+                        ...SECRETS_CLIENT_MAP[client],
+                      });
                     } else {
                       field.onChange(clients.filter((c) => c !== client));
                     }

@@ -1,34 +1,36 @@
 import FileEditor from '@components/Eliza/components/FileEditor';
-import React, { useEffect, useState } from 'react';
-import type { Character } from '../types';
+import React from 'react';
 import { useElizaForm } from '../hooks/useElizaForm';
+import { Controller, useWatch } from 'react-hook-form';
+import { cn } from '@utils/cn';
+import { Input } from './Input';
 
-type FileEditorWrapperProps = {
-  settings: Character['settings'];
-  onChange: (data: Character['settings']) => void;
-};
+export const FileEditorWrapper: React.FC = () => {
+  const {
+    control,
+    formState: { errors },
+  } = useElizaForm();
 
-export const FileEditorWrapper: React.FC<FileEditorWrapperProps> = ({
-  settings,
-  onChange,
-}) => {
-  const { control, watch } = useElizaForm();
-
-  const settingsString = JSON.stringify(settings, null, 2);
-  const [currentSettings, setCurrentSettings] = useState(settingsString);
-
-  useEffect(() => {
-    if (currentSettings !== settingsString) {
-      setCurrentSettings(settingsString);
-    }
-  }, [settings]);
+  const value = useWatch({ name: 'settings' });
 
   return (
-    <FileEditor
-      variant="narrow"
-      fileType="json"
-      fileContent={currentSettings}
-      onChange={(data) => setCurrentSettings(data || '')}
-    />
+    <>
+      <Controller
+        control={control}
+        name="settings"
+        render={({ field }) => (
+          <FileEditor
+            variant="narrow"
+            fileType="json"
+            fileContent={JSON.stringify(field.value, null, 2)}
+            onChange={(data) => field.onChange(JSON.parse(data || ''))}
+            className={cn({ 'border-elz-danger-8': errors.settings })}
+          />
+        )}
+      />
+      {errors.settings && (
+        <Input.Hint error>{errors.settings.voice?.model?.message}</Input.Hint>
+      )}
+    </>
   );
 };

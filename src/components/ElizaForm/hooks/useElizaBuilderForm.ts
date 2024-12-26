@@ -1,10 +1,6 @@
 import { useState } from 'react';
 import type { Character, Template } from '../types';
-import {
-  TEMPLATE_CHARACTERFILES_MAP,
-  INITIAL_FORM,
-  characterSchema,
-} from '../constants';
+import { TEMPLATE_CHARACTERFILES_MAP, INITIAL_FORM } from '../constants';
 
 export const useElizaBuilderForm = (template?: Template) => {
   const [form, setForm] = useState<Character>(
@@ -47,14 +43,5 @@ export const useElizaBuilderForm = (template?: Template) => {
     setSelectedTemplate(template);
   };
 
-  const onSubmit = () => {
-    try {
-      const validatedCharacter = characterSchema.parse(form);
-      console.log('Validated character:', validatedCharacter);
-    } catch (error) {
-      console.error('Validation failed:', error);
-    }
-  };
-
-  return { form, selectedTemplate, onFormChange, onTemplateChange, onSubmit };
+  return { form, selectedTemplate, onFormChange, onTemplateChange };
 };

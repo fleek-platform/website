@@ -1,5 +1,9 @@
 import { Dropdown } from './Dropdown';
-import { MODEL_PROVIDER_NAMES, MODEL_PROVIDER_NAMES_MAP } from '../constants';
+import {
+  MODEL_PROVIDER_NAMES,
+  MODEL_PROVIDER_NAMES_MAP,
+  SECRETS_MODEL_PROVIDER_MAP,
+} from '../constants';
 import { Text } from './Text';
 import { FaCheck } from 'react-icons/fa6';
 import { useElizaForm } from '../hooks/useElizaForm';
@@ -11,6 +15,8 @@ export const ModelProviderDropdown: React.FC = () => {
   const {
     control,
     formState: { errors },
+    getValues,
+    setValue,
   } = useElizaForm();
 
   const provider: Character['modelProvider'] = useWatch({
@@ -41,6 +47,10 @@ export const ModelProviderDropdown: React.FC = () => {
                   key={provider}
                   onClick={() => {
                     field.onChange(provider);
+                    setValue('settings.secrets', {
+                      ...getValues('settings.secrets'),
+                      ...SECRETS_MODEL_PROVIDER_MAP[provider],
+                    });
                   }}
                 >
                   <div className="flex items-center justify-between">
