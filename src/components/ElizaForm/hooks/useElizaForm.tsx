@@ -1,16 +1,11 @@
 import { z } from 'zod';
 import { useForm, FormProvider, useFormContext } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
-import {
-  CLIENT_NAMES,
-  INITIAL_FORM,
-  MODEL_PROVIDER_NAMES,
-  TEMPLATE_CHARACTERFILES_MAP,
-} from '../constants';
-import type { Character, Template } from '../types';
+import { CLIENT_NAMES, INITIAL_FORM, MODEL_PROVIDER_NAMES } from '../constants';
+import type { Character } from '../types';
 
 const characterSchema = z.object({
-  name: z.string().min(1, 'Name is required'),
+  name: z.string().min(3, 'Name is required, minimum of 3 characters'),
   plugins: z.array(
     z.object({
       name: z.string(),
@@ -20,11 +15,15 @@ const characterSchema = z.object({
   clients: z
     .array(z.enum(CLIENT_NAMES))
     .min(1, 'At least one client is required'),
-  modelProvider: z.enum(MODEL_PROVIDER_NAMES),
+  modelProvider: z.enum(MODEL_PROVIDER_NAMES, {
+    errorMap: (_, __) => {
+      return { message: 'Select a model provider' };
+    },
+  }),
   settings: z.object({
     secrets: z.record(z.string()),
     voice: z.object({
-      model: z.string().min(1, 'Voice model is required'),
+      model: z.string().min(3, 'Voice model is required'),
     }),
   }),
   bio: z.array(z.string().min(1)).min(1, 'At least one bio is required'),
@@ -66,23 +65,16 @@ const characterSchema = z.object({
   }),
 }) satisfies z.ZodType<Character>;
 
-export const useElizaForm = (template?: Template) =>
-  useForm({
-    resolver: zodResolver(characterSchema),
-    defaultValues: template
-      ? TEMPLATE_CHARACTERFILES_MAP[template]
-      : INITIAL_FORM,
-  });
-
 export const FormProviderCharacterBuilder = ({
   children,
-  template,
 }: {
   children: React.ReactNode;
-  template?: Template;
 }) => {
-  const methods = useElizaForm(template);
+  const methods = useForm({
+    defaultValues: INITIAL_FORM,
+    resolver: zodResolver(characterSchema),
+  });
   return <FormProvider {...methods}>{children}</FormProvider>;
 };
 
-export const useElizaFormContext = () => useFormContext<Character>();
+export const useElizaForm = () => useFormContext<Character>();

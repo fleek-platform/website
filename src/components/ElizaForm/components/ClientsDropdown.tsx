@@ -1,9 +1,10 @@
 import { Dropdown } from '@components/ElizaForm/components/Dropdown';
 import { CLIENT_NAMES, CLIENTS_MAP } from '../constants';
 import { Badge } from '@components/ElizaForm/components/Badge';
-import type { Client } from '../types';
-import { Controller } from 'react-hook-form';
-import { useElizaFormContext } from '../hooks/useElizaForm';
+import type { Character, Client } from '../types';
+import { Controller, useWatch } from 'react-hook-form';
+import { useElizaForm } from '../hooks/useElizaForm';
+import { Input } from './Input';
 
 type TriggerLabelProps = {
   clients: Client[];
@@ -22,10 +23,13 @@ const TriggerLabel: React.FC<TriggerLabelProps> = ({ clients }) => {
   );
 };
 
-export const ClientsDropdown: React.FC = ({}) => {
-  const { watch, control } = useElizaFormContext();
+export const ClientsDropdown: React.FC = () => {
+  const {
+    control,
+    formState: { errors },
+  } = useElizaForm();
 
-  const clients = watch('clients');
+  const clients: Character['clients'] = useWatch({ name: 'clients' });
 
   return (
     <Controller
@@ -33,9 +37,12 @@ export const ClientsDropdown: React.FC = ({}) => {
       name="clients"
       render={({ field }) => (
         <Dropdown.Root>
-          <Dropdown.Trigger>
+          <Dropdown.Trigger error={Boolean(errors.clients)}>
             <TriggerLabel clients={clients} />
           </Dropdown.Trigger>
+          {errors.clients && (
+            <Input.Hint error>{errors.clients.message}</Input.Hint>
+          )}
           <Dropdown.Content>
             {CLIENT_NAMES.map((client) => {
               return (

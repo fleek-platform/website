@@ -1,6 +1,7 @@
 import FileEditor from '@components/Eliza/components/FileEditor';
 import React, { useEffect, useState } from 'react';
 import type { Character } from '../types';
+import { useElizaForm } from '../hooks/useElizaForm';
 
 type FileEditorWrapperProps = {
   settings: Character['settings'];
@@ -11,6 +12,8 @@ export const FileEditorWrapper: React.FC<FileEditorWrapperProps> = ({
   settings,
   onChange,
 }) => {
+  const { control, watch } = useElizaForm();
+
   const settingsString = JSON.stringify(settings, null, 2);
   const [currentSettings, setCurrentSettings] = useState(settingsString);
 

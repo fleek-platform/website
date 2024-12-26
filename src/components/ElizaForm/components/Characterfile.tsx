@@ -8,13 +8,13 @@ import { Button } from './Button';
 import { TagsForm } from './TagsForm';
 import { useElizaBuilderForm } from '../hooks/useElizaBuilderForm';
 import { Box } from './Box';
-import type { GoToProps, Template } from '../types';
+import type { Character, GoToProps, Template } from '../types';
 import type React from 'react';
 import { TEMPLATES, TEMPLATES_MAP } from '../constants';
 import { GoBackButton } from './GoBackButton';
 import { FileEditorWrapper } from './FileEditorWrapper';
 import { MessageExamples } from './MessageExamples';
-import { useElizaFormContext } from '../hooks/useElizaForm';
+import { useElizaForm } from '../hooks/useElizaForm';
 
 type TemplateSelectorProps = {
   selectedTemplate?: Template;
@@ -67,9 +67,25 @@ export const Characterfile: React.FC<CharacterfileProps> = ({
   const { form, selectedTemplate, onFormChange, onTemplateChange, onSubmit } =
     useElizaBuilderForm(template);
 
-  const { register, watch } = useElizaFormContext();
+  const {
+    watch,
+    handleSubmit,
+    formState: { errors },
+  } = useElizaForm();
 
-  console.log(watch());
+  console.log('re-render');
+
+  const submit = (data: Character) => {
+    // async request which may result error
+    console.log(data);
+    try {
+      console.log(data);
+      // await fetch()
+    } catch (e) {
+      console.log(e);
+      // handle your error
+    }
+  };
 
   return (
     <>
@@ -241,7 +257,7 @@ export const Characterfile: React.FC<CharacterfileProps> = ({
             placeholder="add adjective..."
           />
         </FormField>
-        <Button onClick={onSubmit}>Continue</Button>
+        <Button onClick={handleSubmit(submit)}>Continue</Button>
       </Box>
     </>
   );

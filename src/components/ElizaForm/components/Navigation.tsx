@@ -30,7 +30,7 @@ export const Navigation = () => {
   };
 
   return (
-    <FormProviderCharacterBuilder template={options?.forwardProps.template}>
+    <FormProviderCharacterBuilder>
       <Layout>{pages[page]}</Layout>
     </FormProviderCharacterBuilder>
   );

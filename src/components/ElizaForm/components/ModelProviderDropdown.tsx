@@ -2,13 +2,20 @@ import { Dropdown } from './Dropdown';
 import { MODEL_PROVIDER_NAMES, MODEL_PROVIDER_NAMES_MAP } from '../constants';
 import { Text } from './Text';
 import { FaCheck } from 'react-icons/fa6';
-import { useElizaFormContext } from '../hooks/useElizaForm';
-import { Controller } from 'react-hook-form';
+import { useElizaForm } from '../hooks/useElizaForm';
+import { Controller, useWatch } from 'react-hook-form';
+import { Input } from './Input';
+import type { Character } from '../types';
 
-export const ModelProviderDropdown: React.FC = ({}) => {
-  const { watch, control } = useElizaFormContext();
+export const ModelProviderDropdown: React.FC = () => {
+  const {
+    control,
+    formState: { errors },
+  } = useElizaForm();
 
-  const provider = watch('modelProvider');
+  const provider: Character['modelProvider'] = useWatch({
+    name: 'modelProvider',
+  });
 
   const triggerLabel = provider
     ? MODEL_PROVIDER_NAMES_MAP[provider].label
@@ -20,7 +27,12 @@ export const ModelProviderDropdown: React.FC = ({}) => {
       name="modelProvider"
       render={({ field }) => (
         <Dropdown.Root>
-          <Dropdown.Trigger>{triggerLabel}</Dropdown.Trigger>
+          <Dropdown.Trigger error={Boolean(errors.modelProvider)}>
+            {triggerLabel}
+          </Dropdown.Trigger>
+          {errors.modelProvider && (
+            <Input.Hint error>{errors.modelProvider.message}</Input.Hint>
+          )}
           <Dropdown.Content>
             {MODEL_PROVIDER_NAMES.map((provider) => {
               const isSelected = field.value === provider;
