@@ -64,7 +64,7 @@ export const Characterfile: React.FC<CharacterfileProps> = ({
   goTo,
   template,
 }) => {
-  const { form, selectedTemplate, onFormChange, onTemplateChange } =
+  const { form, selectedTemplate, onFormChange, onTemplateChange, onSubmit } =
     useElizaBuilderForm(template);
 
   return (
@@ -159,7 +159,7 @@ export const Characterfile: React.FC<CharacterfileProps> = ({
         </FormField>
         <FormField
           label="Message examples"
-          description="Sample conversations for establishing interaction patterns, helps establish the character's conversational style."
+          description="Sample conversations for establishing interaction patterns. Helps establish the character's conversational style."
         >
           <MessageExamples
             agentName={form.name}
@@ -245,7 +245,7 @@ export const Characterfile: React.FC<CharacterfileProps> = ({
             placeholder="add adjective..."
           />
         </FormField>
-        <Button disabled>Continue</Button>
+        <Button onClick={onSubmit}>Continue</Button>
       </Box>
     </Layout>
   );

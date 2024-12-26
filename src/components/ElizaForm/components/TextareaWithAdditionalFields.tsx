@@ -1,4 +1,4 @@
-import { Button } from '@components/Button';
+import { Button } from './Button';
 import { Input } from './Input';
 import { FaTrash } from 'react-icons/fa';
 import { FaPlus } from 'react-icons/fa6';
