@@ -1,5 +1,4 @@
 import { z } from 'zod';
-import { Discord, Telegram, X } from './components/CustomIcons';
 import type {
   Character,
   Client,
@@ -110,7 +109,7 @@ export const CLIENT_NAMES = [
 export const CLIENTS_MAP: Record<Client, LabelAndIcon> = {
   discord: {
     label: 'Discord',
-    icon: <Discord className="size-14" />,
+    icon: '',
   },
   direct: {
     label: 'Direct',
@@ -118,11 +117,11 @@ export const CLIENTS_MAP: Record<Client, LabelAndIcon> = {
   },
   twitter: {
     label: 'X (Twitter)',
-    icon: <X className="size-14" />,
+    icon: '',
   },
   telegram: {
     label: 'Telegram',
-    icon: <Telegram className="size-14" />,
+    icon: '',
   },
   farcaster: {
     label: 'Farcaster',
