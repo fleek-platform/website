@@ -7,7 +7,6 @@ import Link, { Target } from './Link';
 import { Button } from './Button';
 import { TagsForm } from './TagsForm';
 import { useElizaBuilderForm } from '../hooks/useElizaBuilderForm';
-import { Layout } from './Layout';
 import { Box } from './Box';
 import type { GoToProps, Template } from '../types';
 import type React from 'react';
@@ -15,6 +14,7 @@ import { TEMPLATES, TEMPLATES_MAP } from '../constants';
 import { GoBackButton } from './GoBackButton';
 import { FileEditorWrapper } from './FileEditorWrapper';
 import { MessageExamples } from './MessageExamples';
+import { useElizaFormContext } from '../hooks/useElizaForm';
 
 type TemplateSelectorProps = {
   selectedTemplate?: Template;
@@ -67,8 +67,12 @@ export const Characterfile: React.FC<CharacterfileProps> = ({
   const { form, selectedTemplate, onFormChange, onTemplateChange, onSubmit } =
     useElizaBuilderForm(template);
 
+  const { register, watch } = useElizaFormContext();
+
+  console.log(watch());
+
   return (
-    <Layout>
+    <>
       <Box className="items-start gap-16">
         <GoBackButton onClick={() => goTo('getStarted')} />
         <Text>
@@ -93,30 +97,22 @@ export const Characterfile: React.FC<CharacterfileProps> = ({
       </Box>
       <Box className="gap-38">
         <FormField
+          name="name"
           label="Name"
           description="The character's display name for identification and in conversations"
-          value={form.name}
-          onChange={(data) => onFormChange('name', data)}
+          placeholder="Character display name, i.e: TechAI"
         />
         <FormField
           label="Model provider"
           description="Specifies the AI model provider"
         >
-          <ModelProviderDropdown
-            modelProvider={form.modelProvider}
-            onModelProviderSelect={(data) =>
-              onFormChange('modelProvider', data)
-            }
-          />
+          <ModelProviderDropdown />
         </FormField>
         <FormField
           label="Clients"
           description="Array of supported client types, such as Discord or X"
         >
-          <ClientsDropdown
-            clients={form.clients}
-            onClientSelect={(data) => onFormChange('clients', data)}
-          />
+          <ClientsDropdown />
         </FormField>
         <FormField
           label="Settings"
@@ -247,6 +243,6 @@ export const Characterfile: React.FC<CharacterfileProps> = ({
         </FormField>
         <Button onClick={onSubmit}>Continue</Button>
       </Box>
-    </Layout>
+    </>
   );
 };

@@ -4,6 +4,7 @@ import { Layout } from './Layout';
 import type { Options, Page } from '../types';
 import { Characterfile } from './Characterfile';
 import ElizaModule from '@components/Eliza';
+import { FormProviderCharacterBuilder } from '../hooks/useElizaForm';
 
 export const Navigation = () => {
   const [page, setPage] = useState<Page>('getStarted');
@@ -28,5 +29,9 @@ export const Navigation = () => {
     env: <></>,
   };
 
-  return <Layout>{pages[page]}</Layout>;
+  return (
+    <FormProviderCharacterBuilder template={options?.forwardProps.template}>
+      <Layout>{pages[page]}</Layout>
+    </FormProviderCharacterBuilder>
+  );
 };
