@@ -8,11 +8,12 @@ author:
   - 'Fleek'
 is_seo: true
 ---
+
 The intersection of artificial intelligence and crypto marks a profound shift in our thinking about digital autonomy and the future of AI agents. The first significant manifestation of this is the massive influx of AI agents capable of on-chain interactions, social engagement, and autonomous decision-making.
 
 However building these AI agents requires the proper foundation. Since the on-chain elements come with access to money and power, a robust infra without the  ability for developers behind the scenes to corrupt these agents is quickly becoming a prerequisite. TEE’s present an ideal solution to this issue, and with Fleek Machines and Fleek’s deployment platform, Fleek  is positioning itself as the best option, including best infrastructure and best developer experience, for deploying autonomous crypto AI agents to TEE’s in 2025.
 
-***In this article, we’ll explore the top 5 crypto AI agent frameworks and see how developers can build secure AI agents on Fleek’s infrastructure.***
+**_In this article, we’ll explore the top 5 crypto AI agent frameworks and see how developers can build secure AI agents on Fleek’s infrastructure._**
 
 ## **What is an AI Agent Framework?**
 
