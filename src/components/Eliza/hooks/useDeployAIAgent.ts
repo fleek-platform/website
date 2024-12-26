@@ -51,12 +51,6 @@ export const useDeployAIAgent = ({
   >();
   const [fleekMachineUrl, setFleekMachineUrl] = useState<string | undefined>();
 
-  const dummyDeploymentAgentCancellationEndpointCall = async () => {
-    // Mock function to cancel the deployment
-    // TODO: needs implementation
-    await new Promise((resolve) => setTimeout(resolve, 2000));
-  };
-
   const pollDeploymentStatus = async (deploymentId: string) => {
     const MAX_ATTEMPTS = 15;
 
@@ -171,12 +165,6 @@ export const useDeployAIAgent = ({
     setActiveStep((prev) => prev - 1);
   };
 
-  const cancelDeployment = () => {
-    dummyDeploymentAgentCancellationEndpointCall();
-    setIsDeploymentPending(false);
-    setActiveStep((prev) => prev - 1);
-  };
-
   return {
     activeStep,
     goToNextStep,
@@ -187,8 +175,6 @@ export const useDeployAIAgent = ({
 
     envFile,
     setEnvFile,
-
-    cancelDeployment,
 
     isDeploymentSuccessful,
     isDeploymentFailed,
