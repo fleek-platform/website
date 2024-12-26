@@ -123,7 +123,6 @@ const CoreEliza: React.FC<ElizaCoreProps> = () => {
     setEnvFile,
     isDeploymentSuccessful,
     isDeploymentFailed,
-    cancelDeployment,
     deploymentStatus,
     fleekMachineUrl,
   } = useDeployAIAgent(elizaIntegrations);
