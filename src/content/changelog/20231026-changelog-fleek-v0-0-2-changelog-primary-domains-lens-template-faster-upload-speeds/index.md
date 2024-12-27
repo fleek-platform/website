@@ -33,7 +33,7 @@ If you decide to switch things up and remove your primary domain, you’ll get a
 
 Head over to the templates page to try our new Lens template! **Spin up your own fully functioning Lens social app in minutes with an easy-to-configure and customized template**. Start with a timeline, as well as post and user search, and build from there.
 
-You can access the new template [here](https://app.fleek.xyz/templates/)- give us a tag on [X](https://twitter.com/fleek) with your finished Lens build ⚡
+You can access the new template [here](https://fleek.xyz/templates/)- give us a tag on [X](https://twitter.com/fleek) with your finished Lens build ⚡
 
 ![](./lens-template.png)
 

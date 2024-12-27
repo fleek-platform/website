@@ -39,7 +39,7 @@ Here are some unique features of Next.js that simplify the development process a
 - eCommerce platforms
 - DAO voting systems
 - Cryptocurrency wallet interfaces
-- Quickly deploy a Next.JS app using the Fleek.xyz’s starter kit [here](https://app.fleek.xyz/templates/)
+- Quickly deploy a Next.JS app using the Fleek.xyz’s starter kit [here](https://fleek.xyz/templates/)
 
 ---
 
