@@ -5,6 +5,7 @@ import { FaXmark } from 'react-icons/fa6';
 import { Button } from './Button';
 import { useElizaForm } from '../hooks/useElizaForm';
 import { Box } from './Box';
+import { useWatch } from 'react-hook-form';
 
 type TagsFormProps = {
   name: 'topics' | 'adjectives';
@@ -15,16 +16,22 @@ const SUBMIT_KEYS = ['Enter', ','];
 
 export const TagsForm: React.FC<TagsFormProps> = ({ name, placeholder }) => {
   const {
-    setValue,
+    control,
     formState: { errors },
+    setValue,
     clearErrors,
-    getValues,
   } = useElizaForm();
 
-  const [formFieldArray, setFormFieldArray] = useState(getValues(name));
+  const form = useWatch({ control, name });
+
+  const [formFieldArray, setFormFieldArray] = useState(form);
   const [hasUpdate, setHasUpdate] = useState(false);
   const [adjective, setAdjective] = useState('');
   const [error, setError] = useState(false);
+
+  useEffect(() => {
+    setFormFieldArray(form);
+  }, [form[0]]);
 
   const deleteLastFormFieldArrayEntry = () => {
     setFormFieldArray((prev) => prev.slice(0, -1));
@@ -138,7 +145,7 @@ export const TagsForm: React.FC<TagsFormProps> = ({ name, placeholder }) => {
         ))}
         <Input.Field
           placeholder={placeholder}
-          className="min-w-fit flex-1"
+          className="min-w-fit flex-1 px-4"
           value={adjective}
           onChange={handleChange}
           onKeyDown={handleKeyDown}
