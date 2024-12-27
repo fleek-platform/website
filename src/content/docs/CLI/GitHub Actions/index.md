@@ -1,5 +1,5 @@
 ---
-order: 11
+order: 12
 title: GitHub Actions
 date: 2023-01-10
 desc: Create a GitHub Action for deploying a Fleek Site
