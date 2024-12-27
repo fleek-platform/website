@@ -34,7 +34,11 @@ export const FormField: React.FC<FormFieldProps> = ({
       {name && (
         <>
           <Input.Root error={Boolean(errors.name)}>
-            <Input.Field placeholder={placeholder} {...register(name)} />
+            <Input.Field
+              id={name}
+              placeholder={placeholder}
+              {...register(name)}
+            />
           </Input.Root>
           {errors.name && <Input.Hint error>{errors.name.message}</Input.Hint>}
         </>

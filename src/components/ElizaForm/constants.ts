@@ -3,6 +3,7 @@ import type {
   Client,
   LabelAndIcon,
   ModelProviderName,
+  NonEmptyModelProviderName,
   Template,
 } from './types';
 
@@ -37,8 +38,6 @@ export const MODEL_PROVIDER_NAMES = [
   'openrouter',
   'heurist',
 ] as const;
-
-type NonEmptyModelProviderName = Exclude<ModelProviderName, ''>;
 
 export const MODEL_PROVIDER_NAMES_MAP: Record<
   NonEmptyModelProviderName,

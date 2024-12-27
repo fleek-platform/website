@@ -9,23 +9,33 @@ import { FaCheck } from 'react-icons/fa6';
 import { useElizaForm } from '../hooks/useElizaForm';
 import { Controller, useWatch } from 'react-hook-form';
 import { Input } from './Input';
-import type { Character } from '../types';
+import type { Character, NonEmptyModelProviderName } from '../types';
 
 export const ModelProviderDropdown: React.FC = () => {
   const {
     control,
     formState: { errors },
-    getValues,
     setValue,
   } = useElizaForm();
 
   const provider: Character['modelProvider'] = useWatch({
     name: 'modelProvider',
   });
+  const settings = useWatch({ name: 'settings' });
 
   const triggerLabel = provider
     ? MODEL_PROVIDER_NAMES_MAP[provider].label
     : 'Select a provider';
+
+  const updateSettings = (provider: NonEmptyModelProviderName) => {
+    setValue('settings', {
+      ...settings,
+      secrets: {
+        ...settings?.secrets,
+        ...SECRETS_MODEL_PROVIDER_MAP[provider],
+      },
+    });
+  };
 
   return (
     <Controller
@@ -47,10 +57,7 @@ export const ModelProviderDropdown: React.FC = () => {
                   key={provider}
                   onClick={() => {
                     field.onChange(provider);
-                    setValue('settings.secrets', {
-                      ...getValues('settings.secrets'),
-                      ...SECRETS_MODEL_PROVIDER_MAP[provider],
-                    });
+                    updateSettings(provider);
                   }}
                 >
                   <div className="flex items-center justify-between">

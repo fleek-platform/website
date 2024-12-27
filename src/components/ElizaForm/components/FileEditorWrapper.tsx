@@ -11,7 +11,7 @@ export const FileEditorWrapper: React.FC = () => {
     formState: { errors },
   } = useElizaForm();
 
-  const value = useWatch({ name: 'settings' });
+  useWatch({ control, name: 'settings' });
 
   return (
     <>

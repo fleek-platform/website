@@ -2,7 +2,11 @@ import { Dropdown } from '@components/ElizaForm/components/Dropdown';
 import { CLIENT_NAMES, CLIENTS_MAP, SECRETS_CLIENT_MAP } from '../constants';
 import { Badge } from '@components/ElizaForm/components/Badge';
 import type { Character, Client } from '../types';
-import { Controller, useWatch } from 'react-hook-form';
+import {
+  Controller,
+  useWatch,
+  type ControllerRenderProps,
+} from 'react-hook-form';
 import { useElizaForm } from '../hooks/useElizaForm';
 import { Input } from './Input';
 
@@ -27,11 +31,34 @@ export const ClientsDropdown: React.FC = () => {
   const {
     control,
     formState: { errors },
-    getValues,
     setValue,
   } = useElizaForm();
 
   const clients: Character['clients'] = useWatch({ name: 'clients' });
+  const settings = useWatch({ name: 'settings' });
+
+  const updateSettings = (client: Client) => {
+    setValue('settings', {
+      ...settings,
+      secrets: {
+        ...settings?.secrets,
+        ...SECRETS_CLIENT_MAP[client],
+      },
+    });
+  };
+
+  const onCheckedChange = (
+    field: ControllerRenderProps<Character, 'clients'>,
+    isChecked: boolean,
+    client: Client,
+  ) => {
+    if (isChecked) {
+      field.onChange([...clients, client]);
+      updateSettings(client);
+    } else {
+      field.onChange(clients.filter((c) => c !== client));
+    }
+  };
 
   return (
     <Controller
@@ -46,30 +73,20 @@ export const ClientsDropdown: React.FC = () => {
             <Input.Hint error>{errors.clients.message}</Input.Hint>
           )}
           <Dropdown.Content>
-            {CLIENT_NAMES.map((client) => {
-              return (
-                <Dropdown.CheckboxItem
-                  key={client}
-                  onSelect={(e) => e.preventDefault()}
-                  checked={clients.some((c) => c === client)}
-                  onCheckedChange={(isChecked) => {
-                    if (isChecked) {
-                      field.onChange([...clients, client]);
-                      setValue('settings.secrets', {
-                        ...getValues('settings.secrets'),
-                        ...SECRETS_CLIENT_MAP[client],
-                      });
-                    } else {
-                      field.onChange(clients.filter((c) => c !== client));
-                    }
-                  }}
-                >
-                  <div className="flex items-center gap-4">
-                    {CLIENTS_MAP[client].label}
-                  </div>
-                </Dropdown.CheckboxItem>
-              );
-            })}
+            {CLIENT_NAMES.map((client) => (
+              <Dropdown.CheckboxItem
+                key={client}
+                onSelect={(e) => e.preventDefault()}
+                checked={clients.some((c) => c === client)}
+                onCheckedChange={(isChecked) =>
+                  onCheckedChange(field, isChecked, client)
+                }
+              >
+                <div className="flex items-center gap-4">
+                  {CLIENTS_MAP[client].label}
+                </div>
+              </Dropdown.CheckboxItem>
+            ))}
           </Dropdown.Content>
         </Dropdown.Root>
       )}
