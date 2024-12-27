@@ -9,6 +9,7 @@ import {
 } from 'react-hook-form';
 import { useElizaForm, type CharacterSchema } from '../hooks/useElizaForm';
 import { Input } from './Input';
+import { Box } from './Box';
 
 type TriggerLabelProps = {
   clients: Client[];
@@ -66,12 +67,14 @@ export const ClientsDropdown: React.FC = () => {
       name="clients"
       render={({ field }) => (
         <Dropdown.Root>
-          <Dropdown.Trigger error={Boolean(errors.clients)}>
-            <TriggerLabel clients={clients} />
-          </Dropdown.Trigger>
-          {errors.clients && (
-            <Input.Hint error>{errors.clients.message}</Input.Hint>
-          )}
+          <Box className="gap-4">
+            <Dropdown.Trigger error={Boolean(errors.clients)}>
+              <TriggerLabel clients={clients} />
+            </Dropdown.Trigger>
+            {errors.clients && (
+              <Input.Hint error>{errors.clients.message}</Input.Hint>
+            )}
+          </Box>
           <Dropdown.Content>
             {CLIENT_NAMES.map((client) => (
               <Dropdown.CheckboxItem

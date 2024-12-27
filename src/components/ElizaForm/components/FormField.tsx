@@ -2,6 +2,7 @@ import React, { type PropsWithChildren } from 'react';
 import { Text } from './Text';
 import { Input } from './Input';
 import { useElizaForm, type CharacterSchema } from '../hooks/useElizaForm';
+import { Box } from './Box';
 
 type FormFieldProps = PropsWithChildren & {
   name?: keyof CharacterSchema;
@@ -23,15 +24,15 @@ export const FormField: React.FC<FormFieldProps> = ({
   } = useElizaForm();
 
   return (
-    <section className="flex flex-col gap-14">
-      <div className="space-y-8">
+    <Box className="gap-14">
+      <Box className="gap-8">
         <Text size="lg" variant="primary" weight={700}>
           {label}
         </Text>
         <Text variant="secondary">{description}</Text>
-      </div>
+      </Box>
       {name && (
-        <>
+        <Box className="gap-4">
           <Input.Root error={Boolean(errors.name)}>
             <Input.Field
               id={name}
@@ -40,9 +41,9 @@ export const FormField: React.FC<FormFieldProps> = ({
             />
           </Input.Root>
           {errors.name && <Input.Hint error>{errors.name.message}</Input.Hint>}
-        </>
+        </Box>
       )}
       {children}
-    </section>
+    </Box>
   );
 };

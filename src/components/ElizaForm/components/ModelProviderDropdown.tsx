@@ -10,6 +10,7 @@ import { useElizaForm } from '../hooks/useElizaForm';
 import { Controller, useWatch } from 'react-hook-form';
 import { Input } from './Input';
 import type { Character, NonEmptyModelProviderName } from '../types';
+import { Box } from './Box';
 
 export const ModelProviderDropdown: React.FC = () => {
   const {
@@ -43,12 +44,14 @@ export const ModelProviderDropdown: React.FC = () => {
       name="modelProvider"
       render={({ field }) => (
         <Dropdown.Root>
-          <Dropdown.Trigger error={Boolean(errors.modelProvider)}>
-            {triggerLabel}
-          </Dropdown.Trigger>
-          {errors.modelProvider && (
-            <Input.Hint error>{errors.modelProvider.message}</Input.Hint>
-          )}
+          <Box className="gap-4">
+            <Dropdown.Trigger error={Boolean(errors.modelProvider)}>
+              {triggerLabel}
+            </Dropdown.Trigger>
+            {errors.modelProvider && (
+              <Input.Hint error>{errors.modelProvider.message}</Input.Hint>
+            )}
+          </Box>
           <Dropdown.Content>
             {MODEL_PROVIDER_NAMES.map((provider) => {
               const isSelected = field.value === provider;

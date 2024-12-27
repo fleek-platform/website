@@ -147,7 +147,7 @@ export const TagsForm: React.FC<TagsFormProps> = ({ name, placeholder }) => {
         />
       </Input.Root>
       {error && (
-        <Input.Hint error>{adjective} is already in the list.</Input.Hint>
+        <Input.Hint error>{adjective} is already in the list</Input.Hint>
       )}
       {errorMsg && <Input.Hint error>{errorMsg}</Input.Hint>}
     </Box>
