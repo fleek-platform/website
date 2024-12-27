@@ -20,9 +20,10 @@ export const ModelProviderDropdown: React.FC = () => {
   } = useElizaForm();
 
   const provider: Character['modelProvider'] = useWatch({
+    control,
     name: 'modelProvider',
   });
-  const settings = useWatch({ name: 'settings' });
+  const settings = useWatch({ control, name: 'settings' });
 
   const triggerLabel = provider
     ? MODEL_PROVIDER_NAMES_MAP[provider].label

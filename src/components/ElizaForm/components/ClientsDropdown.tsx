@@ -35,8 +35,11 @@ export const ClientsDropdown: React.FC = () => {
     setValue,
   } = useElizaForm();
 
-  const clients: CharacterSchema['clients'] = useWatch({ name: 'clients' });
-  const settings = useWatch({ name: 'settings' });
+  const clients: CharacterSchema['clients'] = useWatch({
+    control,
+    name: 'clients',
+  });
+  const settings = useWatch({ control, name: 'settings' });
 
   const updateSettings = (client: Client) => {
     setValue('settings', {

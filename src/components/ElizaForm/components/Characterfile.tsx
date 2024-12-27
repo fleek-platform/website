@@ -68,9 +68,7 @@ export const Characterfile: React.FC<CharacterfileProps> = ({
   goTo,
   template,
 }) => {
-  const { handleSubmit, watch } = useElizaForm();
-
-  console.log(watch());
+  const { handleSubmit } = useElizaForm();
 
   const onSubmit = (data: CharacterSchema) => {
     console.log(data);
@@ -157,11 +155,7 @@ export const Characterfile: React.FC<CharacterfileProps> = ({
           label="Message examples"
           description="Sample conversations for establishing interaction patterns. Helps establish the character's conversational style."
         >
-          {/* <MessageExamples
-            agentName={form.name}
-            messageExamples={form.messageExamples}
-            onFormChange={(data) => onFormChange('messageExamples', data)}
-          /> */}
+          <MessageExamples />
         </FormField>
         <FormField
           label="Post examples"

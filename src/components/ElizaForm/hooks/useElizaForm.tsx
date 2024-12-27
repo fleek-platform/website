@@ -43,7 +43,7 @@ const characterSchema = z.object({
           z.object({
             user: z.string().min(1, 'User is required'),
             content: z.object({
-              text: z.string().min(1, 'Content text is required'),
+              text: z.string().min(1, 'Message example is required'),
             }),
           }),
         )
