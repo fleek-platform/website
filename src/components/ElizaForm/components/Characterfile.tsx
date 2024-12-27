@@ -8,7 +8,11 @@ import { TagsForm } from './TagsForm';
 import { Box } from './Box';
 import type { GoToProps, Template } from '../types';
 import type React from 'react';
-import { TEMPLATES, TEMPLATES_MAP } from '../constants';
+import {
+  TEMPLATE_CHARACTERFILES_MAP,
+  TEMPLATES,
+  TEMPLATES_MAP,
+} from '../constants';
 import { GoBackButton } from './GoBackButton';
 import { FileEditorWrapper } from './FileEditorWrapper';
 import { MessageExamples } from './MessageExamples';
@@ -19,17 +23,22 @@ import { LoreForm } from './LoreForm';
 import { PostExamplesForm } from './PostExamplesForm';
 import { StyleForm } from './StyleForm';
 import { FaChevronRight } from 'react-icons/fa6';
+import { useState } from 'react';
 
 type TemplateSelectorProps = {
-  selectedTemplate?: Template;
-  onTemplateChange: (template: Template) => void;
+  template?: Template;
 };
 
-const TemplateSelector: React.FC<TemplateSelectorProps> = ({
-  selectedTemplate,
-  onTemplateChange,
-}) => {
-  if (!selectedTemplate) return null;
+const TemplateSelector: React.FC<TemplateSelectorProps> = ({ template }) => {
+  const [currentTemplate, setCurrentTemplate] = useState(template);
+  const { reset } = useElizaForm();
+
+  if (!template) return null;
+
+  const onTemplateChange = (template: Template) => {
+    setCurrentTemplate(template);
+    reset(TEMPLATE_CHARACTERFILES_MAP[template]);
+  };
 
   return (
     <Box className="w-full border-b border-elz-neutral-6 pb-38 pt-24">
@@ -43,16 +52,16 @@ const TemplateSelector: React.FC<TemplateSelectorProps> = ({
           </Text>
         </Box>
         <Box className="flex-row gap-16">
-          {TEMPLATES.map((template) => {
-            const isSelected = template === selectedTemplate;
+          {TEMPLATES.map((characterTemplate) => {
+            const isSelected = currentTemplate === characterTemplate;
             return (
               <Button
-                key={template}
+                key={characterTemplate}
                 variant={isSelected ? 'success' : 'neutral'}
-                onClick={() => onTemplateChange(template)}
+                onClick={() => onTemplateChange(characterTemplate)}
                 className="flex-1"
               >
-                {TEMPLATES_MAP[template]}
+                {TEMPLATES_MAP[characterTemplate]}
               </Button>
             );
           })}
@@ -62,11 +71,13 @@ const TemplateSelector: React.FC<TemplateSelectorProps> = ({
   );
 };
 
-type CharacterfileProps = GoToProps & { template?: Template };
+type CharacterfileProps = GoToProps & {
+  template?: Template;
+};
 
 export const Characterfile: React.FC<CharacterfileProps> = ({
-  goTo,
   template,
+  goTo,
 }) => {
   const { handleSubmit } = useElizaForm();
 
@@ -103,10 +114,7 @@ export const Characterfile: React.FC<CharacterfileProps> = ({
           </Link>{' '}
           to view a characterfile example.
         </Text>
-        {/*  <TemplateSelector
-          selectedTemplate={selectedTemplate}
-          onTemplateChange={onTemplateChange}
-        /> */}
+        <TemplateSelector template={template} />
       </Box>
       <Box className="gap-38">
         <FormField

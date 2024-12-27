@@ -1,19 +1,18 @@
 import { ActionBox } from './ActionBox';
-import { Layout } from './Layout';
 import { Text } from './Text';
 import type React from 'react';
 import { Box } from './Box';
 import type { GoToProps } from '../types';
 import { ExtensionPuzzleIcon, ReaderIcon } from './CustomIcons';
 import { useElizaForm } from '../hooks/useElizaForm';
-import { ELIZA } from '../constants';
+import { TEMPLATE_CHARACTERFILES_MAP } from '../constants';
 
 export const GetStarted: React.FC<GoToProps> = ({ goTo }) => {
   const { reset } = useElizaForm();
 
   const onTemplatePageSelect = () => {
-    reset(ELIZA);
-    goTo('characterfile');
+    reset(TEMPLATE_CHARACTERFILES_MAP['eliza']);
+    goTo('characterfile', 'eliza');
   };
 
   return (

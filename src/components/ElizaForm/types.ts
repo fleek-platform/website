@@ -8,7 +8,7 @@ import type {
 export type Page = (typeof PAGES)[number];
 
 export type GoToProps = {
-  goTo: (page: Page) => void;
+  goTo: (page: Page, template?: Template) => void;
 };
 
 export type Template = (typeof TEMPLATES)[number];
