@@ -25,12 +25,16 @@ const characterSchema = z.object({
       model: z.string().min(3, 'Voice model is required'),
     }),
   }),
-  bio: z
-    .array(z.object({ name: z.string().nonempty() }))
-    .min(1, 'At least one bio entry is required'),
-  lore: z
-    .array(z.object({ name: z.string() }))
-    .min(1, 'At least one lore entry is required'),
+  bio: z.array(
+    z.object({
+      name: z.string().min(3, 'Bio is required, minimum of 3 characters'),
+    }),
+  ),
+  lore: z.array(
+    z.object({
+      name: z.string().min(3, 'Lore is required, minimum of 3 characters'),
+    }),
+  ),
   knowledge: z.array(z.object({ name: z.string() })).optional(),
   messageExamples: z
     .array(
@@ -46,26 +50,50 @@ const characterSchema = z.object({
         .min(2),
     )
     .min(1, 'At least one message example is required'),
-  postExamples: z
-    .array(z.object({ name: z.string() }))
-    .min(1, 'At least one post example is required'),
+  postExamples: z.array(
+    z.object({
+      name: z
+        .string()
+        .min(3, 'Post example is required, minimum of 3 characters'),
+    }),
+  ),
   style: z.object({
-    all: z
-      .array(z.object({ name: z.string() }))
-      .min(1, "At least one style for 'all' is required"),
-    chat: z
-      .array(z.object({ name: z.string() }))
-      .min(1, "At least one style for 'chat' is required"),
-    post: z
-      .array(z.object({ name: z.string() }))
-      .min(1, "At least one style for 'post' is required"),
+    all: z.array(
+      z.object({
+        name: z
+          .string()
+          .min(3, `Style for 'All' is required, minimum of 3 characters`),
+      }),
+    ),
+    chat: z.array(
+      z.object({
+        name: z
+          .string()
+          .min(3, `Style for 'Chat' is required, minimum of 3 characters`),
+      }),
+    ),
+    post: z.array(
+      z.object({
+        name: z
+          .string()
+          .min(3, `Style for 'Post' is required, minimum of 3 characters`),
+      }),
+    ),
   }),
-  topics: z
-    .array(z.object({ name: z.string() }))
-    .min(1, 'At least one topic is required'),
-  adjectives: z
-    .array(z.object({ name: z.string() }))
-    .min(1, 'At least one adjective is required'),
+  topics: z.array(
+    z.object({
+      name: z
+        .string()
+        .min(3, 'At least one topic is required, minimum of 3 characters'),
+    }),
+  ),
+  adjectives: z.array(
+    z.object({
+      name: z
+        .string()
+        .min(3, 'At least one adjective is required, minimum of 3 characters'),
+    }),
+  ),
 });
 
 export type CharacterSchema = z.infer<typeof characterSchema>;

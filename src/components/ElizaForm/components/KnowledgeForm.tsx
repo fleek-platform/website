@@ -6,9 +6,9 @@ import { Input } from './Input';
 import { INITIAL_FORM } from '../constants';
 import { ArrayForm } from './ArrayForm';
 
-export const BioForm: React.FC = () => {
-  const name = 'bio';
-  const placeholder = 'Character biography';
+export const KnowledgeForm: React.FC = () => {
+  const name = 'knowledge';
+  const placeholder = 'Agent background knowledge';
   const appendValue = INITIAL_FORM[name]?.[0] || { name: '' };
 
   const {

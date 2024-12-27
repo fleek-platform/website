@@ -2,6 +2,11 @@ import type React from 'react';
 import { Button } from './Button';
 import { FaPlus, FaTrash } from 'react-icons/fa6';
 import { Box } from './Box';
+import type { PropsWithChildren } from 'react';
+
+const Root: React.FC<PropsWithChildren> = ({ children }) => (
+  <Box className="gap-8">{children}</Box>
+);
 
 const AddField: React.FC<{ append: () => void }> = ({ append }) => (
   <Button variant="ghost" size="sm" className="mr-auto" onClick={append}>
@@ -24,7 +29,8 @@ const RemoveField: React.FC<{ isVisible: boolean; remove: () => void }> = ({
   );
 };
 
-export const ArrayButtons = {
+export const ArrayForm = {
+  Root,
   AddField,
   RemoveField,
 };

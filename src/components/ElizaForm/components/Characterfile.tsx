@@ -14,6 +14,10 @@ import { FileEditorWrapper } from './FileEditorWrapper';
 import { MessageExamples } from './MessageExamples';
 import { useElizaForm, type CharacterSchema } from '../hooks/useElizaForm';
 import { BioForm } from './BioForm';
+import { KnowledgeForm } from './KnowledgeForm';
+import { LoreForm } from './LoreForm';
+import { PostExamplesForm } from './PostExamplesForm';
+import { StyleForm } from './StyleForm';
 
 type TemplateSelectorProps = {
   selectedTemplate?: Template;
@@ -136,11 +140,15 @@ export const Characterfile: React.FC<CharacterfileProps> = ({
         <FormField
           label="Lore"
           description="Backstory elements and unique character traits. These help define personality and can be randomly sampled in conversations."
-        ></FormField>
+        >
+          <LoreForm />
+        </FormField>
         <FormField
           label="Knowledge (optional)"
           description="Array used for Retrieval Augmented Generation (RAG), containing facts or references to ground the character's responses."
-        ></FormField>
+        >
+          <KnowledgeForm />
+        </FormField>
         <FormField
           label="Message examples"
           description="Sample conversations for establishing interaction patterns. Helps establish the character's conversational style."
@@ -154,7 +162,9 @@ export const Characterfile: React.FC<CharacterfileProps> = ({
         <FormField
           label="Post examples"
           description="Sample social media posts to guide content style."
-        ></FormField>
+        >
+          <PostExamplesForm />
+        </FormField>
         <FormField
           label="Style"
           description="List of subjects the character is interested in or knowledgeable about, used to guide conversations and generate relevant content. Helps maintain character consistency."
@@ -167,6 +177,7 @@ export const Characterfile: React.FC<CharacterfileProps> = ({
               <Text variant="secondary">
                 These are directions for how the agent should speak or write
               </Text>
+              <StyleForm.All />
             </Box>
             <Box className="gap-8 rounded-12 bg-elz-neutral-1 p-12">
               <Text size="lg" variant="primary" weight={700}>
@@ -176,6 +187,7 @@ export const Characterfile: React.FC<CharacterfileProps> = ({
                 These directions are specifically injected into chat contexts,
                 like Discord
               </Text>
+              <StyleForm.Chat />
             </Box>
             <Box className="gap-8 rounded-12 bg-elz-neutral-1 p-12">
               <Text size="lg" variant="primary" weight={700}>
@@ -185,6 +197,7 @@ export const Characterfile: React.FC<CharacterfileProps> = ({
                 These directions are specifically injected into post contexts,
                 like X (Twitter)
               </Text>
+              <StyleForm.Post />
             </Box>
           </Box>
         </FormField>
