@@ -1,33 +1,40 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { Badge } from './Badge';
 import { Input } from './Input';
 import { FaXmark } from 'react-icons/fa6';
 import { Button } from './Button';
 import { PiWarning } from 'react-icons/pi';
-import type { Character } from '../types';
+import { useElizaForm } from '../hooks/useElizaForm';
+import { INITIAL_FORM } from '../constants';
+import { Box } from './Box';
 
 type TagsFormProps = {
-  formFieldArray: Character['adjectives'];
-  onFormChange: (newArray: Character['adjectives']) => void;
+  name: 'topics' | 'adjectives';
   placeholder: string;
 };
 
 const SUBMIT_KEYS = ['Enter', ','];
 
-export const TagsForm: React.FC<TagsFormProps> = ({
-  formFieldArray,
-  onFormChange,
-  placeholder,
-}) => {
+export const TagsForm: React.FC<TagsFormProps> = ({ name, placeholder }) => {
+  const {
+    setValue,
+    formState: { errors },
+    clearErrors,
+  } = useElizaForm();
+
+  const [formFieldArray, setFormFieldArray] = useState(INITIAL_FORM[name]);
+  const [hasUpdate, setHasUpdate] = useState(false);
   const [adjective, setAdjective] = useState('');
   const [error, setError] = useState(false);
 
   const deleteLastFormFieldArrayEntry = () => {
-    onFormChange(formFieldArray.slice(0, -1));
+    setFormFieldArray((prev) => prev.slice(0, -1));
+    setHasUpdate(true);
   };
 
   const deleteEntryFromFormFieldArray = (idx: number) => {
-    onFormChange(formFieldArray.filter((_, i) => i !== idx));
+    setFormFieldArray((prev) => prev.filter((_, i) => i !== idx));
+    setHasUpdate(true);
   };
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -44,9 +51,10 @@ export const TagsForm: React.FC<TagsFormProps> = ({
     if (normalizedFormFieldArray.includes(lowerCaseAdjective)) {
       setError(true);
     } else {
-      onFormChange([...formFieldArray, lowerCaseAdjective]);
+      setFormFieldArray((prev) => [...prev, lowerCaseAdjective]);
       setAdjective('');
       setError(false);
+      setHasUpdate(true);
     }
   };
 
@@ -68,40 +76,51 @@ export const TagsForm: React.FC<TagsFormProps> = ({
     setError(false);
 
     const pasteData = e.clipboardData.getData('text');
-    let newAdjectives: string[] = [];
+    let newTags: string[] = [];
 
     try {
       const parsed = JSON.parse(pasteData);
 
       if (Array.isArray(parsed)) {
-        newAdjectives = parsed.map((item) => normalize(item.trim()));
+        newTags = parsed.map((item) => normalize(item.trim()));
       } else {
         setError(true);
         return;
       }
     } catch {
-      newAdjectives = pasteData
+      newTags = pasteData
         .split(/,|\r?\n/)
         .map((item) => normalize(item.trim().replace(/^['"]+|['"]+$/g, '')))
         .filter(Boolean);
     }
 
     const normalizedFormFieldArray = formFieldArray.map(normalize);
-    newAdjectives = newAdjectives.filter(
+    newTags = newTags.filter(
       (item) => !normalizedFormFieldArray.includes(item),
     );
 
-    if (newAdjectives.length) {
-      onFormChange([...formFieldArray, ...newAdjectives]);
+    if (newTags.length) {
+      setFormFieldArray((prev) => [...prev, ...newTags]);
       setAdjective('');
+      setHasUpdate(true);
     }
   };
 
+  useEffect(() => {
+    if (hasUpdate) {
+      setValue(name, formFieldArray);
+      clearErrors(name);
+      setHasUpdate(false);
+    }
+  }, [hasUpdate]);
+
+  const errorMsg = errors[name]?.message;
+
   return (
-    <>
+    <Box className="gap-4">
       <Input.Root
         className="min-h-[3.5rem] flex-wrap gap-x-5 gap-y-6 py-6"
-        error={error}
+        error={error || Boolean(errorMsg)}
       >
         {formFieldArray.map((field, idx) => (
           <Badge
@@ -128,11 +147,9 @@ export const TagsForm: React.FC<TagsFormProps> = ({
         />
       </Input.Root>
       {error && (
-        <Input.Hint error>
-          <PiWarning className="shrink-0" />
-          {adjective} is already in the list.
-        </Input.Hint>
+        <Input.Hint error>{adjective} is already in the list.</Input.Hint>
       )}
-    </>
+      {errorMsg && <Input.Hint error>{errorMsg}</Input.Hint>}
+    </Box>
   );
 };

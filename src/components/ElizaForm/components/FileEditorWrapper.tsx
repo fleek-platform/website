@@ -3,7 +3,6 @@ import React, { useState } from 'react';
 import { useElizaForm, type CharacterSchema } from '../hooks/useElizaForm';
 import {
   Controller,
-  useWatch,
   type FieldError,
   type FieldErrorsImpl,
   type Merge,
@@ -11,9 +10,6 @@ import {
 import { cn } from '@utils/cn';
 import { Input } from './Input';
 import { Box } from './Box';
-import { Button } from './Button';
-import { FaClockRotateLeft } from 'react-icons/fa6';
-import { INITIAL_FORM } from '../constants';
 
 type TransformedItem = {
   label: string;

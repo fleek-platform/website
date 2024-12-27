@@ -80,20 +80,10 @@ const characterSchema = z.object({
       }),
     ),
   }),
-  topics: z.array(
-    z.object({
-      name: z
-        .string()
-        .min(3, 'At least one topic is required, minimum of 3 characters'),
-    }),
-  ),
-  adjectives: z.array(
-    z.object({
-      name: z
-        .string()
-        .min(3, 'At least one adjective is required, minimum of 3 characters'),
-    }),
-  ),
+  topics: z.array(z.string().min(1)).min(1, 'At least one topic is required'),
+  adjectives: z
+    .array(z.string().min(1))
+    .min(1, 'At least one adjective is required'),
 });
 
 export type CharacterSchema = z.infer<typeof characterSchema>;

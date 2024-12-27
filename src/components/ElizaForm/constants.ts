@@ -198,8 +198,8 @@ export const INITIAL_FORM: CharacterSchema = {
     chat: [{ name: '' }],
     post: [{ name: '' }],
   },
-  topics: [{ name: '' }],
-  adjectives: [{ name: '' }],
+  topics: [],
+  adjectives: [],
 };
 
 /* const ELIZA: CharacterSchema = {

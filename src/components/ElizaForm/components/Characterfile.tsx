@@ -18,6 +18,7 @@ import { KnowledgeForm } from './KnowledgeForm';
 import { LoreForm } from './LoreForm';
 import { PostExamplesForm } from './PostExamplesForm';
 import { StyleForm } from './StyleForm';
+import { FaChevronRight } from 'react-icons/fa6';
 
 type TemplateSelectorProps = {
   selectedTemplate?: Template;
@@ -67,13 +68,11 @@ export const Characterfile: React.FC<CharacterfileProps> = ({
   goTo,
   template,
 }) => {
-  const {
-    handleSubmit,
-    formState: { errors },
-    watch,
-  } = useElizaForm();
+  const { handleSubmit, watch } = useElizaForm();
 
-  const submit = (data: CharacterSchema) => {
+  console.log(watch());
+
+  const onSubmit = (data: CharacterSchema) => {
     console.log(data);
     try {
       console.log(data);
@@ -85,7 +84,12 @@ export const Characterfile: React.FC<CharacterfileProps> = ({
   return (
     <>
       <Box className="items-start gap-16">
-        <GoBackButton onClick={() => goTo('getStarted')} />
+        <Box className="w-full flex-row items-center justify-between">
+          <GoBackButton onClick={() => goTo('getStarted')} />
+          <Button variant="ghost" disabled>
+            Next: add .env file <FaChevronRight />
+          </Button>
+        </Box>
         <Text>
           {template ? 'Start with a template' : 'Create characterfile'}
         </Text>
@@ -205,23 +209,15 @@ export const Characterfile: React.FC<CharacterfileProps> = ({
           label="Topics"
           description="List of subjects the character is interested in or knowledgeable about, used to guide conversations and generate relevant content. Helps maintain character consistency."
         >
-          {/* <TagsForm
-            formFieldArray={form.topics}
-            onFormChange={(data) => onFormChange('topics', data)}
-            placeholder="add topic..."
-          /> */}
+          <TagsForm name="topics" placeholder="add topic..." />
         </FormField>
         <FormField
           label="Adjectives"
           description={`Words that describe the character's traits and personality, used for generating responses with consistent tone. Can be used in "Mad Libs" style content generation`}
         >
-          {/* <TagsForm
-            formFieldArray={form.adjectives}
-            onFormChange={(data) => onFormChange('adjectives', data)}
-            placeholder="add adjective..."
-          /> */}
+          <TagsForm name="adjectives" placeholder="add adjective..." />
         </FormField>
-        <Button onClick={handleSubmit(submit)}>Continue</Button>
+        <Button onClick={handleSubmit(onSubmit)}>Continue to .env file</Button>
       </Box>
     </>
   );
