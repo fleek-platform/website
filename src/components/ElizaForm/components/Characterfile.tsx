@@ -1,20 +1,19 @@
 import { FormField } from './FormField';
 import { ModelProviderDropdown } from './ModelProviderDropdown';
 import { ClientsDropdown } from './ClientsDropdown';
-import { TextareaWithAdditionalFields } from './TextareaWithAdditionalFields';
 import { Text } from './Text';
 import Link, { Target } from './Link';
 import { Button } from './Button';
 import { TagsForm } from './TagsForm';
-import { useElizaBuilderForm } from '../hooks/useElizaBuilderForm';
 import { Box } from './Box';
-import type { Character, GoToProps, Template } from '../types';
+import type { GoToProps, Template } from '../types';
 import type React from 'react';
 import { TEMPLATES, TEMPLATES_MAP } from '../constants';
 import { GoBackButton } from './GoBackButton';
 import { FileEditorWrapper } from './FileEditorWrapper';
 import { MessageExamples } from './MessageExamples';
-import { useElizaForm } from '../hooks/useElizaForm';
+import { useElizaForm, type CharacterSchema } from '../hooks/useElizaForm';
+import { BioForm } from './BioForm';
 
 type TemplateSelectorProps = {
   selectedTemplate?: Template;
@@ -64,17 +63,13 @@ export const Characterfile: React.FC<CharacterfileProps> = ({
   goTo,
   template,
 }) => {
-  const { form, selectedTemplate, onFormChange, onTemplateChange } =
-    useElizaBuilderForm(template);
-
   const {
     handleSubmit,
     formState: { errors },
+    watch,
   } = useElizaForm();
 
-  console.log('re-render');
-
-  const submit = (data: Character) => {
+  const submit = (data: CharacterSchema) => {
     console.log(data);
     try {
       console.log(data);
@@ -102,10 +97,10 @@ export const Characterfile: React.FC<CharacterfileProps> = ({
           </Link>{' '}
           to view a characterfile example.
         </Text>
-        <TemplateSelector
+        {/*  <TemplateSelector
           selectedTemplate={selectedTemplate}
           onTemplateChange={onTemplateChange}
-        />
+        /> */}
       </Box>
       <Box className="gap-38">
         <FormField
@@ -136,52 +131,30 @@ export const Characterfile: React.FC<CharacterfileProps> = ({
           label="Bio"
           description="Character background as a string or array of statements. Includes biographical details about the character, either as one complete biography or several statements that vary."
         >
-          <TextareaWithAdditionalFields
-            formFieldArray={form.bio}
-            onFormChange={(data) => onFormChange('bio', data)}
-            placeholder="Agent biography"
-          />
+          <BioForm />
         </FormField>
         <FormField
           label="Lore"
           description="Backstory elements and unique character traits. These help define personality and can be randomly sampled in conversations."
-        >
-          <TextareaWithAdditionalFields
-            formFieldArray={form.lore}
-            onFormChange={(data) => onFormChange('lore', data)}
-            placeholder="Agent background lore"
-          />
-        </FormField>
+        ></FormField>
         <FormField
           label="Knowledge (optional)"
           description="Array used for Retrieval Augmented Generation (RAG), containing facts or references to ground the character's responses."
-        >
-          <TextareaWithAdditionalFields
-            formFieldArray={form.knowledge || ['']}
-            onFormChange={(data) => onFormChange('knowledge', data)}
-            placeholder="Agent background knowledge"
-          />
-        </FormField>
+        ></FormField>
         <FormField
           label="Message examples"
           description="Sample conversations for establishing interaction patterns. Helps establish the character's conversational style."
         >
-          <MessageExamples
+          {/* <MessageExamples
             agentName={form.name}
             messageExamples={form.messageExamples}
             onFormChange={(data) => onFormChange('messageExamples', data)}
-          />
+          /> */}
         </FormField>
         <FormField
           label="Post examples"
           description="Sample social media posts to guide content style."
-        >
-          <TextareaWithAdditionalFields
-            formFieldArray={form.postExamples}
-            onFormChange={(data) => onFormChange('postExamples', data)}
-            placeholder="Agent post examples"
-          />
-        </FormField>
+        ></FormField>
         <FormField
           label="Style"
           description="List of subjects the character is interested in or knowledgeable about, used to guide conversations and generate relevant content. Helps maintain character consistency."
@@ -194,11 +167,6 @@ export const Characterfile: React.FC<CharacterfileProps> = ({
               <Text variant="secondary">
                 These are directions for how the agent should speak or write
               </Text>
-              <TextareaWithAdditionalFields
-                formFieldArray={form.style.all}
-                onFormChange={(data) => onFormChange('style', 'all', data)}
-                placeholder="Agent style for: All"
-              />
             </Box>
             <Box className="gap-8 rounded-12 bg-elz-neutral-1 p-12">
               <Text size="lg" variant="primary" weight={700}>
@@ -208,11 +176,6 @@ export const Characterfile: React.FC<CharacterfileProps> = ({
                 These directions are specifically injected into chat contexts,
                 like Discord
               </Text>
-              <TextareaWithAdditionalFields
-                formFieldArray={form.style.chat}
-                onFormChange={(data) => onFormChange('style', 'chat', data)}
-                placeholder="Agent style for: Chat"
-              />
             </Box>
             <Box className="gap-8 rounded-12 bg-elz-neutral-1 p-12">
               <Text size="lg" variant="primary" weight={700}>
@@ -222,11 +185,6 @@ export const Characterfile: React.FC<CharacterfileProps> = ({
                 These directions are specifically injected into post contexts,
                 like X (Twitter)
               </Text>
-              <TextareaWithAdditionalFields
-                formFieldArray={form.style.post}
-                onFormChange={(data) => onFormChange('style', 'post', data)}
-                placeholder="Agent style for: Post"
-              />
             </Box>
           </Box>
         </FormField>
@@ -234,21 +192,21 @@ export const Characterfile: React.FC<CharacterfileProps> = ({
           label="Topics"
           description="List of subjects the character is interested in or knowledgeable about, used to guide conversations and generate relevant content. Helps maintain character consistency."
         >
-          <TagsForm
+          {/* <TagsForm
             formFieldArray={form.topics}
             onFormChange={(data) => onFormChange('topics', data)}
             placeholder="add topic..."
-          />
+          /> */}
         </FormField>
         <FormField
           label="Adjectives"
           description={`Words that describe the character's traits and personality, used for generating responses with consistent tone. Can be used in "Mad Libs" style content generation`}
         >
-          <TagsForm
+          {/* <TagsForm
             formFieldArray={form.adjectives}
             onFormChange={(data) => onFormChange('adjectives', data)}
             placeholder="add adjective..."
-          />
+          /> */}
         </FormField>
         <Button onClick={handleSubmit(submit)}>Continue</Button>
       </Box>

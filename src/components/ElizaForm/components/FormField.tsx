@@ -1,11 +1,10 @@
 import React, { type PropsWithChildren } from 'react';
 import { Text } from './Text';
 import { Input } from './Input';
-import { useElizaForm } from '../hooks/useElizaForm';
-import type { Character } from '../types';
+import { useElizaForm, type CharacterSchema } from '../hooks/useElizaForm';
 
 type FormFieldProps = PropsWithChildren & {
-  name?: keyof Character;
+  name?: keyof CharacterSchema;
   label: string;
   description?: string;
   placeholder?: string;

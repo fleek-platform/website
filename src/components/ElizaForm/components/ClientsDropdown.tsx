@@ -1,13 +1,13 @@
 import { Dropdown } from '@components/ElizaForm/components/Dropdown';
 import { CLIENT_NAMES, CLIENTS_MAP, SECRETS_CLIENT_MAP } from '../constants';
 import { Badge } from '@components/ElizaForm/components/Badge';
-import type { Character, Client } from '../types';
+import type { Client } from '../types';
 import {
   Controller,
   useWatch,
   type ControllerRenderProps,
 } from 'react-hook-form';
-import { useElizaForm } from '../hooks/useElizaForm';
+import { useElizaForm, type CharacterSchema } from '../hooks/useElizaForm';
 import { Input } from './Input';
 
 type TriggerLabelProps = {
@@ -34,7 +34,7 @@ export const ClientsDropdown: React.FC = () => {
     setValue,
   } = useElizaForm();
 
-  const clients: Character['clients'] = useWatch({ name: 'clients' });
+  const clients: CharacterSchema['clients'] = useWatch({ name: 'clients' });
   const settings = useWatch({ name: 'settings' });
 
   const updateSettings = (client: Client) => {
@@ -48,7 +48,7 @@ export const ClientsDropdown: React.FC = () => {
   };
 
   const onCheckedChange = (
-    field: ControllerRenderProps<Character, 'clients'>,
+    field: ControllerRenderProps<CharacterSchema, 'clients'>,
     isChecked: boolean,
     client: Client,
   ) => {

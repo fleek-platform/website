@@ -1,11 +1,5 @@
-import type {
-  Character,
-  Client,
-  LabelAndIcon,
-  ModelProviderName,
-  NonEmptyModelProviderName,
-  Template,
-} from './types';
+import type { CharacterSchema } from './hooks/useElizaForm';
+import type { Client, LabelAndIcon, Template } from './types';
 
 export const PAGES = [
   'getStarted',
@@ -40,7 +34,7 @@ export const MODEL_PROVIDER_NAMES = [
 ] as const;
 
 export const MODEL_PROVIDER_NAMES_MAP: Record<
-  NonEmptyModelProviderName,
+  CharacterSchema['modelProvider'],
   LabelAndIcon
 > = {
   openai: {
@@ -140,7 +134,7 @@ export const CLIENTS_MAP: Record<Client, LabelAndIcon> = {
 };
 
 export const SECRETS_MODEL_PROVIDER_MAP: Record<
-  NonEmptyModelProviderName,
+  CharacterSchema['modelProvider'],
   Record<string, string>
 > = {
   openai: { OPENAI_API_KEY: '' },
@@ -168,20 +162,20 @@ export const SECRETS_CLIENT_MAP: Record<Client, Record<string, string>> = {
   slack: { SLACK_TOKEN: '' },
 };
 
-export const INITIAL_FORM: Character = {
+export const INITIAL_FORM: CharacterSchema = {
   name: '',
   plugins: [],
   clients: [],
-  modelProvider: '',
+  modelProvider: '' as CharacterSchema['modelProvider'],
   settings: {
     secrets: {},
     voice: {
       model: 'en_US-male-medium',
     },
   },
-  bio: [''],
-  lore: [''],
-  knowledge: [''],
+  bio: [{ name: '' }],
+  lore: [{ name: '' }],
+  knowledge: [{ name: '' }],
   messageExamples: [
     [
       {
@@ -198,17 +192,17 @@ export const INITIAL_FORM: Character = {
       },
     ],
   ],
-  postExamples: [''],
-  topics: [],
-  adjectives: [],
+  postExamples: [{ name: '' }],
   style: {
-    all: [''],
-    chat: [''],
-    post: [''],
+    all: [{ name: '' }],
+    chat: [{ name: '' }],
+    post: [{ name: '' }],
   },
+  topics: [{ name: '' }],
+  adjectives: [{ name: '' }],
 };
 
-const ELIZA: Character = {
+/* const ELIZA: CharacterSchema = {
   name: 'Eliza',
   username: 'eliza',
   plugins: [],
@@ -648,7 +642,7 @@ const ELIZA: Character = {
   ],
 };
 
-const TRUMP: Character = {
+const TRUMP: CharacterSchema = {
   name: 'Trump',
   clients: [],
   modelProvider: '',
@@ -998,7 +992,7 @@ const TRUMP: Character = {
   ],
 };
 
-const C3PO: Character = {
+const C3PO: CharacterSchema = {
   name: 'C-3PO',
   clients: [],
   modelProvider: '',
@@ -1091,7 +1085,7 @@ const C3PO: Character = {
   ],
 };
 
-const DOBBY: Character = {
+const DOBBY: CharacterSchema = {
   name: 'Dobby',
   clients: [],
   modelProvider: '',
@@ -1178,9 +1172,10 @@ const DOBBY: Character = {
   ],
 };
 
-export const TEMPLATE_CHARACTERFILES_MAP: Record<Template, Character> = {
+export const TEMPLATE_CHARACTERFILES_MAP: Record<Template, CharacterSchema> = {
   eliza: ELIZA,
   trump: TRUMP,
   c3po: C3PO,
   dobby: DOBBY,
 };
+ */
