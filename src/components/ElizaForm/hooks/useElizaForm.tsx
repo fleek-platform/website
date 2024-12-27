@@ -20,7 +20,7 @@ const characterSchema = z.object({
     },
   }),
   settings: z.object({
-    secrets: z.record(z.string().min(3)),
+    secrets: z.record(z.string().min(3, 'value is missing')),
     voice: z.object({
       model: z.string().min(3, 'Voice model is required'),
     }),
