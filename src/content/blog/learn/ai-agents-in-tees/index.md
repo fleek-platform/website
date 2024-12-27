@@ -8,11 +8,12 @@ author:
   - 'Fleek'
 is_seo: true
 ---
+
 The AI industry stands at an inflection point. As autonomous systems evolve from experimental projects to core business infrastructure, they're reshaping modern software and automation. But as their influence grows, so do the demands for security, privacy, and trust guarantees related to the agents .
 
 Every day, an increasing amount of money and IP-related value is entrusted to AI agents running on the rails of a bygone era — outdated centralized infrastructure that provides few if any guarantees for the builders or end-users of these agents.
 
-***In this blog, we are going to breakdown AI agents, their current infra setup, the bottlenecks, and how Fleek and TEEs improve the status quo.***
+**_In this blog, we are going to breakdown AI agents, their current infra setup, the bottlenecks, and how Fleek and TEEs improve the status quo._**
 
 ## **Understanding AI Agents**
 
@@ -32,7 +33,7 @@ The key distinction between AI agents and traditional AI models is in their abil
 
 While a language model waits for queries and responds, an agent maintains state, pursues goals, and operates continuously over time.
 
-***While these capabilities make AI agents powerful tools for automation, they also introduce challenges around security, privacy, and operational integrity.***
+**_While these capabilities make AI agents powerful tools for automation, they also introduce challenges around security, privacy, and operational integrity._**
 
 ## **The Problem with Black Box AI Agent Compute**
 
@@ -46,11 +47,11 @@ When you deploy an AI agent on centralized infrastructure, the developer of the 
 
 - The agent's code is running as intended
 - The decision-making process hasn't been tampered with
-- 
+-
 - The outputs are genuine and haven't been manipulated
 - The agents crypto wallet and funds aren’t accessible by the developer
 
-This ***"trust me"*** approach to compute might have been acceptable in simpler times, but as AI agents take on more critical responsibilities — from managing financial transactions to orchestrating supply chains — this lack of verifiability becomes a serious liability.
+This **_"trust me"_** approach to compute might have been acceptable in simpler times, but as AI agents take on more critical responsibilities — from managing financial transactions to orchestrating supply chains — this lack of verifiability becomes a serious liability.
 
 2. **Privacy Vulnerabilities**
 
@@ -148,7 +149,7 @@ Fleek's implementation stands out in several crucial ways:
 
 The convergence of TEEs and AI agents represents more than an infrastructure upgrade — it's the missing foundation that will finally enable true autonomous systems at scale. Especially with solutions like Fleek abstracting away complexity while maintaining cryptographic guarantees, developers can realize the full potential of autonomous AI agents and the agentic future.
 
-*The tools and infrastructure we're building today, like Fleek's TEE implementation, are laying the groundwork for this autonomous future.*
+_The tools and infrastructure we're building today, like Fleek's TEE implementation, are laying the groundwork for this autonomous future._
 
 Ready to take your crypto AI agents to the next level? Discover how Fleek’s trustless cloud platform can power your projects.
 
