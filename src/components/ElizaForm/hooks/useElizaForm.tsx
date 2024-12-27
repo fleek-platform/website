@@ -5,6 +5,7 @@ import { CLIENT_NAMES, INITIAL_FORM, MODEL_PROVIDER_NAMES } from '../constants';
 
 const characterSchema = z.object({
   name: z.string().min(3, 'Name is required, minimum of 3 characters'),
+  username: z.string().optional(),
   plugins: z.array(
     z.object({
       name: z.string(),

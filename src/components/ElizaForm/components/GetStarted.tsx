@@ -4,13 +4,18 @@ import { Text } from './Text';
 import type React from 'react';
 import { Box } from './Box';
 import type { GoToProps } from '../types';
-import {
-  CloudUploadIcon,
-  ExtensionPuzzleIcon,
-  ReaderIcon,
-} from './CustomIcons';
+import { ExtensionPuzzleIcon, ReaderIcon } from './CustomIcons';
+import { useElizaForm } from '../hooks/useElizaForm';
+import { ELIZA } from '../constants';
 
 export const GetStarted: React.FC<GoToProps> = ({ goTo }) => {
+  const { reset } = useElizaForm();
+
+  const onTemplatePageSelect = () => {
+    reset(ELIZA);
+    goTo('characterfile');
+  };
+
   return (
     <Box className="gap-38 animate-in zoom-in-[1.025]">
       <Box className="items-start gap-16">
@@ -37,9 +42,7 @@ export const GetStarted: React.FC<GoToProps> = ({ goTo }) => {
           description="Create an agent by entering details into a form."
         />
         <ActionBox
-          onClick={() =>
-            goTo('characterfile', { forwardProps: { template: 'eliza' } })
-          }
+          onClick={onTemplatePageSelect}
           icon={<ExtensionPuzzleIcon className="size-34 shrink-0" />}
           title="Start with template"
           description="Create an agent by customizing an existing template."

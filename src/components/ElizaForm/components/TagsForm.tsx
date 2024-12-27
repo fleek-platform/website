@@ -3,9 +3,7 @@ import { Badge } from './Badge';
 import { Input } from './Input';
 import { FaXmark } from 'react-icons/fa6';
 import { Button } from './Button';
-import { PiWarning } from 'react-icons/pi';
 import { useElizaForm } from '../hooks/useElizaForm';
-import { INITIAL_FORM } from '../constants';
 import { Box } from './Box';
 
 type TagsFormProps = {
@@ -20,9 +18,10 @@ export const TagsForm: React.FC<TagsFormProps> = ({ name, placeholder }) => {
     setValue,
     formState: { errors },
     clearErrors,
+    getValues,
   } = useElizaForm();
 
-  const [formFieldArray, setFormFieldArray] = useState(INITIAL_FORM[name]);
+  const [formFieldArray, setFormFieldArray] = useState(getValues(name));
   const [hasUpdate, setHasUpdate] = useState(false);
   const [adjective, setAdjective] = useState('');
   const [error, setError] = useState(false);

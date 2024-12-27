@@ -1,4 +1,3 @@
-import type { z } from 'zod';
 import type {
   CLIENT_NAMES,
   MODEL_PROVIDER_NAMES,
@@ -8,14 +7,8 @@ import type {
 
 export type Page = (typeof PAGES)[number];
 
-export type Options = {
-  forwardProps: {
-    template: Template;
-  };
-};
-
 export type GoToProps = {
-  goTo: (page: Page, options?: Options) => void;
+  goTo: (page: Page) => void;
 };
 
 export type Template = (typeof TEMPLATES)[number];
