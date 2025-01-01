@@ -14,22 +14,22 @@
     },
     "metadata": {
       "default": {
-        "title": "Fleek | Build and deploy performant apps",
+        "title": "Fleek | Build and deploy autonomous apps and AI agents",
         "slug": "",
-        "description": "Fleek makes it easy to ship performant apps in minutes. Deploy instantly, run globally, scale automatically.",
-        "image": "/images/fleek-meta.png?202406061658"
+        "description": "Fleek: Build next-gen apps and AI agents in minutes on an open-source, verifiable, auto-scalable cloud platform. Start for free!",
+        "image": "/images/fleek-meta-image.png?202406061658"
       },
       "about": {
         "title": "About",
         "slug": "about",
-        "description": "About Fleek",
-        "image": "/images/fleek-meta.png?202406061658"
+        "description": "Fleek: Build next-gen apps and AI agents in minutes on an open-source, verifiable, auto-scalable cloud platform. Start for free!",
+        "image": "/images/fleek-meta-image.png?202406061658"
       },
       "blog": {
         "title": "Blog",
         "slug": "blog",
         "description": "Stay updated with blog posts from the Fleek team and community. Explore articles and insights on the latest trends and advancements in web development.",
-        "image": "/images/fleek-meta.png?202406061658",
+        "image": "/images/fleek-meta-image.png?202406061658",
         "category": {
           "announcements": {
             "title": "Announcements",
@@ -57,62 +57,69 @@
         "title": "Links",
         "slug": "links",
         "description": "Fleek links",
-        "image": "/images/fleek-meta.png?202406061658"
+        "image": "/images/fleek-meta-image.png?202406061658"
       },
       "changelog": {
         "title": "Changelog",
         "slug": "changelog",
         "description": "Stay updated with our changelog.",
-        "image": "/images/fleek-meta.png?202406061658"
+        "image": "/images/fleek-meta-image.png?202406061658"
       },
       "docs": {
         "title": "Docs",
         "slug": "docs",
         "description": "Kickstart your Fleek journey with our documentation, detailed guides and references. Browse our platform resources for a deep dive into our features.",
-        "image": "/images/fleek-meta.png?202406061658"
+        "image": "/images/fleek-meta-image.png?202406061658"
       },
       "guides": {
         "title": "Guides",
         "slug": "guides",
         "description": "Discover step-by-step guides and tutorials on Fleek to streamline your app and web development. Leverage our resources to build smarter, faster, and stress free.",
-        "image": "/images/fleek-meta.png?202406061658"
+        "image": "/images/fleek-meta-image.png?202406061658"
       },
       "pricing": {
         "title": "Pricing",
         "slug": "pricing",
         "description": "Fleek is an edge-optimized cloud platform. Effortlessly build, ship and scale highly performant apps. Try for free and deploy an app in 5 minutes.",
-        "image": "/images/fleek-meta.png?202406061658"
+        "image": "/images/fleek-meta-image.png?202406061658"
       },
       "support": {
         "title": "Support",
         "slug": "support",
         "description": "Visit the Fleek Support Center for detailed FAQs, troubleshooting guides, and documentation. Quickly report issues or submit support requests to get the help you need.",
-        "image": "/images/fleek-meta.png?202406061658"
+        "image": "/images/fleek-meta-image.png?202406061658"
       },
       "references": {
         "title": "References",
         "slug": "references",
         "description": "Explore the Fleek References page for troubleshooting guides designed to address common errors when using Fleek.",
-        "image": "/images/fleek-meta.png?202406061658"
+        "image": "/images/fleek-meta-image.png?202406061658"
       },
       "requests": {
         "reportSite": {
           "title": "Report a Site",
           "slug": "requests/report-site",
           "description": "Report any site violating Fleek's Terms of Service to help maintain a secure and compliant environment.",
-          "image": "/images/fleek-meta.png?202406061658"
+          "image": "/images/fleek-meta-image.png?202406061658"
         },
         "submitRequest": {
           "title": "Submit a Request",
           "slug": "requests/new",
           "description": "If you're encountering issues with Fleek's platform, we're here to assist! Please fill out the form with details about your issue to receive help from our support team.",
-          "image": "/images/fleek-meta.png?202406061658"
+          "image": "/images/fleek-meta-image.png?202406061658"
         }
+      },
+      "templates": {
+        "title": "Templates - Fleek",
+        "slug": "templates",
+        "description": "Start building faster with our templates! Pick a simple framework setup or dive into a full web3 starter kit.",
+        "image": "/images/fleek-meta-image.png?202406061658"
       }
     },
     "resources": {
       "careersUrl": "https://wellfound.com/company/fleekhq",
       "reportAbuseUrl": "https://support.fleek.xyz/hc/en-us/requests/new?ticket_form_id=16807535390093",
+      "reportTemplateAbuseUrl": "https://support.fleek.xyz/hc/en-us/requests/new?ticket_form_id=20459864851469",
       "fleekNetworkWebsiteUrl": "https://fleek.network",
       "discordFleekCommunityUrl": "https://discord.gg/fleek",
       "supportExternalUrl": "https://support.fleek.xyz/hc/en-us",
@@ -121,7 +128,7 @@
       "statusURl": "https://status.fleek.xyz/",
       "fleekTwitterUrl": "https://twitter.com/fleek",
       "mediaKit": "https://fleek.notion.site/Fleek-Brand-Kit-9a2bcf7eb40740a9b7e951fc951b478a",
-      "templatesUrl": "https://app.fleek.xyz/templates"
+      "templatesUrl": "https://fleek.xyz/templates/"
     },
     "annoucementMarquee": {
       "message": "Introducing Fleek Machines (Early access): One-click verified and private compute",
@@ -131,8 +138,8 @@
   },
   "landingPage": {
     "hero": {
-      "h1": "Build on a lightning-fast, open-source cloud platform.",
-      "h2": "Fleek makes it easy to ship performant apps in minutes. Deploy instantly, run globally, scale automatically.",
+      "h1": "Build and deploy autonomous apps and AI agents",
+      "h2": "Fleek makes it easy to build and deploy next-generation apps and AI agents in minutes on an open-source, verifiable, auto-scalable cloud platform.",
       "primaryCta": "Get started",
       "secondaryCta": "Read our docs",
       "imageDesktop": "/images/landing-page/hero/hero-desktop.webp",
@@ -175,24 +182,28 @@
     "menu": {
       "order": [
         {
-          "category": "Platform",
+          "category": "Deploy_AI_Agents",
           "order": 1
         },
         {
-          "category": "Infrastructure",
+          "category": "Platform",
           "order": 2
         },
         {
-          "category": "CLI",
+          "category": "Infrastructure",
           "order": 3
         },
         {
-          "category": "SDK",
+          "category": "CLI",
           "order": 4
         },
         {
-          "category": "FAQ",
+          "category": "SDK",
           "order": 5
+        },
+        {
+          "category": "FAQ",
+          "order": 6
         }
       ],
       "customTitlesByDirectoryName": {}
@@ -474,5 +485,12 @@
       ],
       "button": "Get started with Fleek"
     }
+  },
+  "templatesPage": {
+    "title": "TEMPLATES",
+    "subTitle": "Begin with a template",
+    "description": "Use a template to kick start your application. Pick from just a framework or a full web3 starter kit, the possibilities are limitless.",
+    "ctaLabel": "Learn more",
+    "ctaTargetUrl": "/docs/platform/frameworks/#using-framework-templates-to-get-started/"
   }
 }

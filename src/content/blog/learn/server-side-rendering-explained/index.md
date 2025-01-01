@@ -6,6 +6,7 @@ thumbnail: './beginnersguide_ssr_blogimg_1280x720.jpg'
 image: './beginnersguide_ssr_blogimg_1280x720.jpg'
 author:
   - 'Fleek'
+is_seo: true
 ---
 
 A faster and more reliable digital experience is a must for any business in 2024, even if it's a simple landing page that mentions one product and its price.

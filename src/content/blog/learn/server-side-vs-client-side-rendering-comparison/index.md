@@ -6,6 +6,7 @@ thumbnail: './server-image.jpg'
 image: './server-image.jpg'
 author:
   - 'Fleek'
+is_seo: true
 ---
 
 In modern web development, the way web pages are rendered plays a crucial role in determining the overall performance, user experience, and search engine optimization (SEO) of a website. There are two popular approaches: **Server-side rendering (SSR) and Client-side rendering (CSR)**.

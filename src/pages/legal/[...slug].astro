@@ -26,7 +26,7 @@ const githubEditUrlPathname = generateGitHubEditLink({
 const image = loadDynamicImage(entry.data.image);
 ---
 
-<BlogPageLayout title={entry.data.title}>
+<BlogPageLayout title={entry.data.title} description={entry.data?.desc}>
   <article class="blog">
     <h1>{entry.data.title}</h1>
     {

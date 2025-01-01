@@ -25,7 +25,7 @@ The blog website follows a minimal UI with focus on loading pages quickly and re
 
 <br/>
 
-In this tutorial, we will be showing you how to fork this template and deploy your own Vitalik-inspired blog on Fleek. Towards the end, we will also help you deploy this template in one-click using <u>[Fleek's template gallery](https://app.fleek.xyz/templates/)</u>.
+In this tutorial, we will be showing you how to fork this template and deploy your own Vitalik-inspired blog on Fleek. Towards the end, we will also help you deploy this template in one-click using <u>[Fleek's template gallery](https://fleek.xyz/templates/)</u>.
 
 ---
 
@@ -213,7 +213,7 @@ You can also deploy the “Blogmaker by Vitalik” template using Fleek’s temp
 
 ### Here’s how -
 
-1. Head over to the <u>[this link](https://app.fleek.xyz/templates/clyqjmjng0001q94by3huy892/)</u> and view the “Blogmaker by Vitalik” template. Click the “Deploy template” button on the top right corner -
+1. Head over to the <u>[this link](https://fleek.xyz/templates/blogmaker-by-vitalik/)</u> and view the “Blogmaker by Vitalik” template. Click the “Deploy template” button on the top right corner -
 
  <br/>
 

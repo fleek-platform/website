@@ -23,11 +23,15 @@ const schema = ({ image }: { image: ImageFunction }) =>
     author: z.union([z.string(), z.array(z.string())]).optional(),
     order: z.number().optional(),
     tags: z.array(z.string()).optional(),
+    custom_title: z.string().optional(),
   });
 
 const docsCollection = createCollection('content', z.object({}));
 
-const blogCollection = createCollection('content', z.object({}));
+const blogCollection = createCollection(
+  'content',
+  z.object({ is_seo: z.boolean().optional() }),
+);
 
 const guidesCollection = createCollection('content', z.object({}));
 
