@@ -21,7 +21,7 @@ const characterSchema = z.object({
     .array(z.enum(CLIENT_NAMES))
     .min(1, 'At least one client is required'),
   settings: z.object({
-    secrets: z.record(z.string().min(3, 'value is missing')),
+    secrets: z.record(z.string().min(1, 'value is missing')),
     voice: z.object({
       model: z.string().min(3, 'Voice model is required'),
     }),

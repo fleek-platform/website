@@ -10,12 +10,14 @@ import type { GoToProps, Step, Template } from '../types';
 import type React from 'react';
 import {
   INITIAL_FORM,
+  SECRETS_CLIENT_MAP,
+  SECRETS_MODEL_PROVIDER_MAP,
   TEMPLATE_CHARACTERFILES_MAP,
   TEMPLATES,
   TEMPLATES_MAP,
 } from '../constants';
 import { MessageExamples } from './MessageExamples';
-import { useElizaForm } from '../hooks/useElizaForm';
+import { useElizaForm, type CharacterSchema } from '../hooks/useElizaForm';
 import { BioForm } from './BioForm';
 import { KnowledgeForm } from './KnowledgeForm';
 import { LoreForm } from './LoreForm';
@@ -143,13 +145,20 @@ export const Characterfile: React.FC<CharacterfileProps> = ({
     handleSubmit,
     formState: { errors },
     reset,
+    setValue,
   } = useElizaForm();
 
   const hasErrors = Object.entries(errors).length > 0;
 
-  const onSubmit = () => {
-    completeStep(1);
-    goTo('settings');
+  const mapSettingsSecretsAndUpdateForm = (data: CharacterSchema) => {
+    const { modelProvider, clients } = data;
+    const model = { ...SECRETS_MODEL_PROVIDER_MAP[modelProvider] };
+    const client = clients.reduce((acc, client) => {
+      const clientData = SECRETS_CLIENT_MAP[client];
+      return { ...acc, ...clientData };
+    }, {});
+    const updatedSecrets = { ...model, ...client, ...data.settings.secrets };
+    setValue('settings.secrets', updatedSecrets);
   };
 
   const onPrevious = () => {
@@ -158,7 +167,9 @@ export const Characterfile: React.FC<CharacterfileProps> = ({
     goTo('getStarted');
   };
 
-  const onNext = () => {
+  const onSubmit = (data: CharacterSchema) => {
+    completeStep(1);
+    mapSettingsSecretsAndUpdateForm(data);
     goTo('settings');
   };
 
@@ -168,7 +179,7 @@ export const Characterfile: React.FC<CharacterfileProps> = ({
         <Header
           completedStep={completedStep}
           onPrevious={onPrevious}
-          onNext={onNext}
+          onNext={handleSubmit(onSubmit)}
         />
         <Text>
           {template ? 'Start with a template' : 'Create characterfile'}
@@ -285,9 +296,7 @@ export const Characterfile: React.FC<CharacterfileProps> = ({
           <TagsForm name="adjectives" placeholder="add adjective..." />
         </FormField>
         <Box className="gap-8">
-          <Button onClick={handleSubmit(onSubmit)}>
-            Continue to .env file
-          </Button>
+          <Button onClick={handleSubmit(onSubmit)}>Continue to settings</Button>
           {hasErrors && (
             <Input.Hint className="self-center" error>
               Please check the errors above to continue your character setup.

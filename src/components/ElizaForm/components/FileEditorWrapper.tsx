@@ -42,7 +42,7 @@ export const FileEditorWrapper: React.FC = () => {
   const readableErrors = transformErrors(errors);
 
   return (
-    <>
+    <Box>
       <Controller
         control={control}
         name="settings"
@@ -85,6 +85,6 @@ export const FileEditorWrapper: React.FC = () => {
           ))}
         </Box>
       )}
-    </>
+    </Box>
   );
 };

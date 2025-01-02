@@ -5,7 +5,7 @@ import { type Template, type Page, type Step } from '../types';
 import { Characterfile } from './Characterfile';
 import ElizaModule from '@components/Eliza';
 import { FormProviderCharacterBuilder } from '../hooks/useElizaForm';
-import { Settings } from './Settings';
+import { SettingsPage } from './SettingsPage';
 
 export const Navigation = () => {
   const [page, setPage] = useState<Page>('getStarted');
@@ -32,7 +32,7 @@ export const Navigation = () => {
         completeStep={completeStep}
       />
     ),
-    settings: <Settings goTo={goTo} />,
+    settings: <SettingsPage goTo={goTo} />,
     review: <></>,
   };
 

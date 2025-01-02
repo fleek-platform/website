@@ -26,6 +26,7 @@ interface Props {
   customNavbarClass?: string;
   hideFooter?: boolean;
   hideAnnouncement?: boolean;
+  overflowHorizontally?: boolean;
 }
 
 const {
@@ -36,6 +37,7 @@ const {
   customNavbarClass,
   hideFooter = false,
   hideAnnouncement = false,
+  overflowHorizontally,
 } = Astro.props;
 
 const baseUrl = getSiteUrl();
@@ -47,7 +49,7 @@ const metaTitle = ogMeta['custom_title'] ?? ogMeta?.title;
 ---
 
 <!doctype html>
-<html lang="en" class="overflow-x-hidden">
+<html lang="en" class={overflowHorizontally ? '' : 'overflow-x-hidden'}>
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width" />
