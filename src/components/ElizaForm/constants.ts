@@ -5,9 +5,11 @@ export const PAGES = [
   'getStarted',
   'upload',
   'characterfile',
+  'settings',
   'review',
-  'env',
 ] as const;
+
+export const STEPS = [0, 1, 2] as const;
 
 export const TEMPLATES = ['eliza', 'trump', 'c3po', 'dobby'] as const;
 

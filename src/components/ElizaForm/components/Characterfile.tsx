@@ -6,22 +6,22 @@ import Link, { Target } from './Link';
 import { Button } from './Button';
 import { TagsForm } from './TagsForm';
 import { Box } from './Box';
-import type { GoToProps, Template } from '../types';
+import type { GoToProps, Step, Template } from '../types';
 import type React from 'react';
 import {
+  INITIAL_FORM,
   TEMPLATE_CHARACTERFILES_MAP,
   TEMPLATES,
   TEMPLATES_MAP,
 } from '../constants';
-import { GoBackButton } from './GoBackButton';
 import { MessageExamples } from './MessageExamples';
-import { useElizaForm, type CharacterSchema } from '../hooks/useElizaForm';
+import { useElizaForm } from '../hooks/useElizaForm';
 import { BioForm } from './BioForm';
 import { KnowledgeForm } from './KnowledgeForm';
 import { LoreForm } from './LoreForm';
 import { PostExamplesForm } from './PostExamplesForm';
 import { StyleForm } from './StyleForm';
-import { FaChevronRight } from 'react-icons/fa6';
+import { FaChevronLeft, FaChevronRight } from 'react-icons/fa6';
 import { useState } from 'react';
 import { Input } from './Input';
 
@@ -71,39 +71,105 @@ const TemplateSelector: React.FC<TemplateSelectorProps> = ({ template }) => {
   );
 };
 
+type HeaderProps = {
+  completedStep: Step;
+  onPrevious: () => void;
+  onNext: () => void;
+};
+
+const Header: React.FC<HeaderProps> = ({
+  completedStep,
+  onPrevious,
+  onNext,
+}) => {
+  const [isOpen, setIsOpen] = useState(false);
+
+  const toggle = () => setIsOpen((prev) => !prev);
+
+  const isStepCompleted = completedStep === 1;
+  const label = isStepCompleted ? 'Discard and go back' : 'Go back';
+
+  if (isOpen)
+    return (
+      <Box className="h-32 w-full flex-row items-center justify-between rounded-10 border border-elz-neutral-6 bg-elz-neutral-1 p-4 pl-12 animate-in fade-in-95 zoom-in-[.99]">
+        <Text variant="primary" weight={500}>
+          Discard characterfile?
+        </Text>
+        <Box className="flex-row gap-8">
+          <Button variant="ghost" size="xs" onClick={toggle}>
+            Cancel
+          </Button>
+          <Button variant="danger" size="xs" onClick={onPrevious}>
+            Discard
+          </Button>
+        </Box>
+      </Box>
+    );
+
+  return (
+    <Box className="w-full flex-row items-center justify-between">
+      <Button
+        variant="ghost"
+        className="text-yellow-dark-11"
+        onClick={isStepCompleted ? toggle : onPrevious}
+      >
+        <FaChevronLeft className="size-12" /> {label}
+      </Button>
+      <Button
+        variant="ghost"
+        disabled={!isStepCompleted}
+        className="text-elz-accent-11"
+        onClick={onNext}
+      >
+        Settings <FaChevronRight />
+      </Button>
+    </Box>
+  );
+};
+
 type CharacterfileProps = GoToProps & {
   template?: Template;
+  completedStep: Step;
+  completeStep: (step: Step) => void;
 };
 
 export const Characterfile: React.FC<CharacterfileProps> = ({
+  completedStep,
   template,
+  completeStep,
   goTo,
 }) => {
   const {
     handleSubmit,
     formState: { errors },
+    reset,
   } = useElizaForm();
 
   const hasErrors = Object.entries(errors).length > 0;
 
-  const onSubmit = (data: CharacterSchema) => {
-    console.log(data);
-    try {
-      console.log(data);
-    } catch (e) {
-      console.log(e);
-    }
+  const onSubmit = () => {
+    completeStep(1);
+    goTo('settings');
+  };
+
+  const onPrevious = () => {
+    completeStep(0);
+    reset(INITIAL_FORM);
+    goTo('getStarted');
+  };
+
+  const onNext = () => {
+    goTo('settings');
   };
 
   return (
     <>
-      <Box className="items-start gap-16">
-        <Box className="w-full flex-row items-center justify-between">
-          <GoBackButton onClick={() => goTo('getStarted')} />
-          <Button variant="ghost" disabled>
-            Next: add .env file <FaChevronRight />
-          </Button>
-        </Box>
+      <Box className="relative items-start gap-16">
+        <Header
+          completedStep={completedStep}
+          onPrevious={onPrevious}
+          onNext={onNext}
+        />
         <Text>
           {template ? 'Start with a template' : 'Create characterfile'}
         </Text>
