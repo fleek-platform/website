@@ -6,6 +6,7 @@ import { Characterfile } from './Characterfile';
 import ElizaModule from '@components/Eliza';
 import { FormProviderCharacterBuilder } from '../hooks/useElizaForm';
 import { SettingsPage } from './SettingsPage';
+import { ReviewPage } from './ReviewPage';
 
 export const Navigation = () => {
   const [page, setPage] = useState<Page>('getStarted');
@@ -33,7 +34,7 @@ export const Navigation = () => {
       />
     ),
     settings: <SettingsPage goTo={goTo} />,
-    review: <></>,
+    review: <ReviewPage goTo={goTo} />,
   };
 
   return (

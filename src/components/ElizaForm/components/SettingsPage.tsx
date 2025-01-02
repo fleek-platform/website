@@ -40,9 +40,36 @@ const transformErrors = (errors: FormError | undefined): TransformedItem[] => {
   );
 };
 
-type SettingsPageProps = GoToProps;
+type HeaderProps = {
+  onPrevious: () => void;
+  onNext: () => void;
+  hasErrors: boolean;
+};
 
-export const SettingsPage: React.FC<SettingsPageProps> = ({ goTo }) => {
+const Header: React.FC<HeaderProps> = ({ onPrevious, onNext, hasErrors }) => {
+  return (
+    <Box className="w-full flex-row items-center justify-between">
+      <Button
+        variant="ghost"
+        className="text-yellow-dark-11"
+        onClick={onPrevious}
+        disabled={hasErrors}
+      >
+        <FaChevronLeft /> Characterfile
+      </Button>
+      <Button
+        variant="ghost"
+        className="text-elz-accent-11"
+        onClick={onNext}
+        disabled={true}
+      >
+        Review <FaChevronRight />
+      </Button>
+    </Box>
+  );
+};
+
+export const SettingsPage: React.FC<GoToProps> = ({ goTo }) => {
   const [errorJson, setErrorJson] = useState(false);
 
   const { control, formState, handleSubmit } = useElizaForm();
@@ -50,28 +77,23 @@ export const SettingsPage: React.FC<SettingsPageProps> = ({ goTo }) => {
   const readableErrors = transformErrors(formState.errors.settings);
   const hasErrors = readableErrors.length > 0 || errorJson;
 
-  const onSubmit = (data: CharacterSchema) => {
-    if (errorJson) return;
+  const onPrevious = () => {
+    goTo('characterfile');
+  };
 
-    console.log(data);
+  const onSubmit = () => {
+    if (errorJson) return;
+    goTo('review');
   };
 
   return (
     <Box className="gap-38">
       <Box className="items-start gap-16">
-        <Box className="w-full flex-row items-center justify-between">
-          <Button
-            variant="ghost"
-            className="text-elz-accent-11"
-            disabled={hasErrors}
-            onClick={() => goTo('characterfile')}
-          >
-            <FaChevronLeft className="size-12" /> Characterfile
-          </Button>
-          <Button className="text-elz-accent-11" variant="ghost" disabled>
-            Review <FaChevronRight />
-          </Button>
-        </Box>
+        <Header
+          onPrevious={handleSubmit(onPrevious)}
+          onNext={handleSubmit(onSubmit)}
+          hasErrors={hasErrors}
+        />
         <Text>Settings</Text>
         <Text variant="description" className="text-wrap">
           Add the secrets for any services your AI agent will access, including
@@ -86,7 +108,7 @@ export const SettingsPage: React.FC<SettingsPageProps> = ({ goTo }) => {
           to view all the supported secrets.
         </Text>
       </Box>
-      <Box>
+      <Box className="gap-8">
         <Controller
           control={control}
           name="settings"
