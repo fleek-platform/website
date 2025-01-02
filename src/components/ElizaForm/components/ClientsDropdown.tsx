@@ -10,6 +10,7 @@ import {
 import { useElizaForm, type CharacterSchema } from '../hooks/useElizaForm';
 import { Input } from './Input';
 import { Box } from './Box';
+import { useScrollToError } from '../hooks/useScrollToError';
 
 type TriggerLabelProps = {
   clients: Client[];
@@ -34,6 +35,8 @@ export const ClientsDropdown: React.FC = () => {
     formState: { errors },
     setValue,
   } = useElizaForm();
+
+  const clientsDropdownErrorRef = useScrollToError('clients', errors);
 
   const clients: CharacterSchema['clients'] = useWatch({
     control,
@@ -70,7 +73,7 @@ export const ClientsDropdown: React.FC = () => {
       name="clients"
       render={({ field }) => (
         <Dropdown.Root>
-          <Box className="gap-4">
+          <Box className="gap-4" ref={clientsDropdownErrorRef}>
             <Dropdown.Trigger error={Boolean(errors.clients)}>
               <TriggerLabel clients={clients} />
             </Dropdown.Trigger>

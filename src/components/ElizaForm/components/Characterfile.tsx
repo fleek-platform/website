@@ -24,6 +24,8 @@ import { PostExamplesForm } from './PostExamplesForm';
 import { StyleForm } from './StyleForm';
 import { FaChevronRight } from 'react-icons/fa6';
 import { useState } from 'react';
+import { Input } from './Input';
+import type { FieldErrors } from 'react-hook-form';
 
 type TemplateSelectorProps = {
   template?: Template;
@@ -79,7 +81,12 @@ export const Characterfile: React.FC<CharacterfileProps> = ({
   template,
   goTo,
 }) => {
-  const { handleSubmit } = useElizaForm();
+  const {
+    handleSubmit,
+    formState: { errors },
+  } = useElizaForm();
+
+  const hasErrors = Object.entries(errors).length > 0;
 
   const onSubmit = (data: CharacterSchema) => {
     console.log(data);
@@ -219,7 +226,16 @@ export const Characterfile: React.FC<CharacterfileProps> = ({
         >
           <TagsForm name="adjectives" placeholder="add adjective..." />
         </FormField>
-        <Button onClick={handleSubmit(onSubmit)}>Continue to .env file</Button>
+        <Box className="gap-8">
+          <Button onClick={handleSubmit(onSubmit)}>
+            Continue to .env file
+          </Button>
+          {hasErrors && (
+            <Input.Hint error>
+              Please check the errors above to continue your character setup.
+            </Input.Hint>
+          )}
+        </Box>
       </Box>
     </>
   );

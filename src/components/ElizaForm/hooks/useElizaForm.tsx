@@ -12,14 +12,14 @@ const characterSchema = z.object({
       description: z.string(),
     }),
   ),
-  clients: z
-    .array(z.enum(CLIENT_NAMES))
-    .min(1, 'At least one client is required'),
   modelProvider: z.enum(MODEL_PROVIDER_NAMES, {
     errorMap: (_, __) => {
       return { message: 'Select a model provider' };
     },
   }),
+  clients: z
+    .array(z.enum(CLIENT_NAMES))
+    .min(1, 'At least one client is required'),
   settings: z.object({
     secrets: z.record(z.string().min(3, 'value is missing')),
     voice: z.object({
