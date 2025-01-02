@@ -14,7 +14,6 @@ import {
   TEMPLATES_MAP,
 } from '../constants';
 import { GoBackButton } from './GoBackButton';
-import { FileEditorWrapper } from './FileEditorWrapper';
 import { MessageExamples } from './MessageExamples';
 import { useElizaForm, type CharacterSchema } from '../hooks/useElizaForm';
 import { BioForm } from './BioForm';
@@ -25,7 +24,6 @@ import { StyleForm } from './StyleForm';
 import { FaChevronRight } from 'react-icons/fa6';
 import { useState } from 'react';
 import { Input } from './Input';
-import type { FieldErrors } from 'react-hook-form';
 
 type TemplateSelectorProps = {
   template?: Template;
@@ -143,12 +141,6 @@ export const Characterfile: React.FC<CharacterfileProps> = ({
           <ClientsDropdown />
         </FormField>
         <FormField
-          label="Settings"
-          description="The settings object defines additional configurations like secrets and voice models. Note: We recommend adding your API keys during the .env upload step later in the flow. "
-        >
-          <FileEditorWrapper />
-        </FormField>
-        <FormField
           label="Bio"
           description="Character background as a string or array of statements. Includes biographical details about the character, either as one complete biography or several statements that vary."
         >
@@ -231,7 +223,7 @@ export const Characterfile: React.FC<CharacterfileProps> = ({
             Continue to .env file
           </Button>
           {hasErrors && (
-            <Input.Hint error>
+            <Input.Hint className="self-center" error>
               Please check the errors above to continue your character setup.
             </Input.Hint>
           )}

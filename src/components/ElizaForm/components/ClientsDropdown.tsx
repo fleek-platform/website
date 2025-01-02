@@ -1,5 +1,5 @@
 import { Dropdown } from '@components/ElizaForm/components/Dropdown';
-import { CLIENT_NAMES, CLIENTS_MAP, SECRETS_CLIENT_MAP } from '../constants';
+import { CLIENT_NAMES, CLIENTS_MAP } from '../constants';
 import { Badge } from '@components/ElizaForm/components/Badge';
 import type { Client } from '../types';
 import {
@@ -33,7 +33,6 @@ export const ClientsDropdown: React.FC = () => {
   const {
     control,
     formState: { errors },
-    setValue,
   } = useElizaForm();
 
   const clientsDropdownErrorRef = useScrollToError('clients', errors);
@@ -42,17 +41,6 @@ export const ClientsDropdown: React.FC = () => {
     control,
     name: 'clients',
   });
-  const settings = useWatch({ control, name: 'settings' });
-
-  const updateSettings = (client: Client) => {
-    setValue('settings', {
-      ...settings,
-      secrets: {
-        ...settings?.secrets,
-        ...SECRETS_CLIENT_MAP[client],
-      },
-    });
-  };
 
   const onCheckedChange = (
     field: ControllerRenderProps<CharacterSchema, 'clients'>,
@@ -61,7 +49,6 @@ export const ClientsDropdown: React.FC = () => {
   ) => {
     if (isChecked) {
       field.onChange([...clients, client]);
-      updateSettings(client);
     } else {
       field.onChange(clients.filter((c) => c !== client));
     }

@@ -1,15 +1,10 @@
 import { Dropdown } from './Dropdown';
-import {
-  MODEL_PROVIDER_NAMES,
-  MODEL_PROVIDER_NAMES_MAP,
-  SECRETS_MODEL_PROVIDER_MAP,
-} from '../constants';
+import { MODEL_PROVIDER_NAMES, MODEL_PROVIDER_NAMES_MAP } from '../constants';
 import { Text } from './Text';
 import { FaCheck } from 'react-icons/fa6';
-import { useElizaForm } from '../hooks/useElizaForm';
+import { useElizaForm, type CharacterSchema } from '../hooks/useElizaForm';
 import { Controller, useWatch } from 'react-hook-form';
 import { Input } from './Input';
-import type { Character, NonEmptyModelProviderName } from '../types';
 import { Box } from './Box';
 import { useScrollToError } from '../hooks/useScrollToError';
 
@@ -17,7 +12,6 @@ export const ModelProviderDropdown: React.FC = () => {
   const {
     control,
     formState: { errors },
-    setValue,
   } = useElizaForm();
 
   const modelProviderDropdownErrorRef = useScrollToError(
@@ -25,25 +19,14 @@ export const ModelProviderDropdown: React.FC = () => {
     errors,
   );
 
-  const provider: Character['modelProvider'] = useWatch({
+  const provider: CharacterSchema['modelProvider'] = useWatch({
     control,
     name: 'modelProvider',
   });
-  const settings = useWatch({ control, name: 'settings' });
 
   const triggerLabel = provider
     ? MODEL_PROVIDER_NAMES_MAP[provider].label
     : 'Select a provider';
-
-  const updateSettings = (provider: NonEmptyModelProviderName) => {
-    setValue('settings', {
-      ...settings,
-      secrets: {
-        ...settings?.secrets,
-        ...SECRETS_MODEL_PROVIDER_MAP[provider],
-      },
-    });
-  };
 
   return (
     <Controller
@@ -65,10 +48,7 @@ export const ModelProviderDropdown: React.FC = () => {
               return (
                 <Dropdown.Item
                   key={provider}
-                  onClick={() => {
-                    field.onChange(provider);
-                    updateSettings(provider);
-                  }}
+                  onClick={() => field.onChange(provider)}
                 >
                   <div className="flex items-center justify-between">
                     <Text variant={isSelected ? 'primary' : 'secondary'}>

@@ -6,6 +6,7 @@ import { Button } from './Button';
 import { useElizaForm } from '../hooks/useElizaForm';
 import { Box } from './Box';
 import { useWatch } from 'react-hook-form';
+import { useScrollToError } from '../hooks/useScrollToError';
 
 type TagsFormProps = {
   name: 'topics' | 'adjectives';
@@ -122,8 +123,10 @@ export const TagsForm: React.FC<TagsFormProps> = ({ name, placeholder }) => {
 
   const errorMsg = errors[name]?.message;
 
+  const tagsFormErrorRef = useScrollToError(name, errors);
+
   return (
-    <Box className="gap-4">
+    <Box className="gap-4" ref={tagsFormErrorRef}>
       <Input.Root
         className="min-h-[3.5rem] flex-wrap gap-x-5 gap-y-6 py-6"
         error={error || Boolean(errorMsg)}
