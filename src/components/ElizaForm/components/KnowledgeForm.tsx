@@ -8,7 +8,7 @@ import { ArrayForm } from './ArrayForm';
 
 export const KnowledgeForm: React.FC = () => {
   const name = 'knowledge';
-  const placeholder = 'Agent background knowledge';
+  const placeholder = 'Character background knowledge';
   const appendValue = INITIAL_FORM[name]?.[0] || { name: '' };
 
   const {

@@ -11,7 +11,6 @@ import { Controller, useWatch } from 'react-hook-form';
 import { Input } from './Input';
 import type { Character, NonEmptyModelProviderName } from '../types';
 import { Box } from './Box';
-import { useEffect } from 'react';
 
 export const ModelProviderDropdown: React.FC = () => {
   const {

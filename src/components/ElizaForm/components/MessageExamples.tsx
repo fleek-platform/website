@@ -32,7 +32,7 @@ const MessageExample = ({ idx }: { idx: number }) => {
     return (
       <Box
         key={field.id}
-        className={cn('w-full max-w-[50%] gap-8 rounded-16 p-12', {
+        className={cn('w-full max-w-[60%] gap-8 rounded-16 p-12', {
           'mr-auto rounded-bl-none bg-elz-neutral-4': isEven,
           'ml-auto rounded-br-none bg-elz-neutral-4 text-right': !isEven,
         })}
@@ -46,7 +46,11 @@ const MessageExample = ({ idx }: { idx: number }) => {
             {...register(`messageExamples.${idx}.${innerIdx}.content.text`)}
           />
         </Input.Root>
-        {errorMsg && <Input.Hint error>{errorMsg}</Input.Hint>}
+        {errorMsg && (
+          <Input.Hint error>
+            {isEven ? 'User' : name}: {errorMsg}
+          </Input.Hint>
+        )}
       </Box>
     );
   });
@@ -63,7 +67,7 @@ export const MessageExamples: React.FC = () => {
   return (
     <Box className="gap-16 border-l-4 border-neutral-1 pl-16">
       {fields.map((field, idx) => (
-        <Box key={field.id} className="gap-8 rounded-12 bg-elz-neutral-1 p-24">
+        <Box key={field.id} className="gap-16 rounded-12 bg-elz-neutral-1 p-16">
           <Box className="min-h-32 flex-row items-center justify-between">
             <Text variant="primary" size="xl" weight={700}>
               Example #{idx + 1}
