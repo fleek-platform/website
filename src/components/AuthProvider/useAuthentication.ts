@@ -1,24 +1,17 @@
-import { useState, useEffect, useCallback, useMemo } from 'react';
+import { useState, useEffect, useCallback, useRef } from 'react';
 import { useDynamicContext } from '@dynamic-labs/sdk-react-core';
 import { decodeAccessToken } from '@fleek-platform/utils-token';
-import settings from '@base/settings.json';
-import { clearCookie, setCookie, getCookie } from '@utils/cookies';
-import { useRef } from 'react';
 import type { Project } from '@fleekxyz/sdk/dist-types/generated/graphqlClient/schema';
 
-const isTokenValid = (token: string): boolean => {
-  try {
-    const decoded = decodeAccessToken({ token });
-    const currentTime = Math.floor(Date.now() / 1000);
-    return decoded.exp > currentTime;
-  } catch (error) {
-    return false;
-  }
-};
+import settings from '@base/settings.json';
+import { clearCookie, setCookie, getCookie } from '@utils/cookies';
+import { AUTH_TOKEN_NAME } from '@components/Eliza/utils/contants';
+import { getProject, getSubscription, getTeam } from './api/api';
 
 export const useAuthentication = () => {
   const { user, setShowAuthFlow, authToken, handleLogOut } =
     useDynamicContext();
+
   const [isAuthenticating, setIsAuthenticating] = useState(false);
   const [isLoadingProjects, setIsLoadingProjects] = useState(false);
   const [isAuthenticated, setIsAuthenticated] = useState(false);
@@ -26,13 +19,18 @@ export const useAuthentication = () => {
   const [userActiveProject, setUserActiveProject] = useState<
     string | undefined
   >();
+  const [activeSubscriptions, setActiveSubscriptions] = useState<
+    any[] | undefined
+  >([]);
 
   const loginPromiseRef = useRef<{
     resolve: (value: boolean) => void;
     reject: (reason?: any) => void;
   } | null>(null);
 
-  const fetchGraphQLToken = async (): Promise<boolean> => {
+  const fetchGraphQLToken = async (
+    projectId?: string,
+  ): Promise<string | undefined> => {
     setIsAuthenticating(true);
 
     const query = `mutation loginWithDynamic($data: LoginWithDynamicDataInput!) {
@@ -40,7 +38,7 @@ export const useAuthentication = () => {
     }`;
 
     const variables = {
-      data: { authToken },
+      data: { authToken, projectId },
     };
 
     const options = {
@@ -58,21 +56,16 @@ export const useAuthentication = () => {
       const { data } = await response.json();
 
       const newToken = data.loginWithDynamic;
-      const parsedToken = decodeAccessToken({ token: newToken });
-      setCookie(settings.site.auth.authTokenName, newToken, parsedToken.exp);
-      setIsAuthenticated(true);
-      return true;
+      setIsAuthenticating(false);
+      return newToken;
     } catch (error) {
       console.error('Failed to fetch GraphQL token:', error);
       setIsAuthenticated(false);
-      return false;
-    } finally {
-      setIsAuthenticating(false);
+      return;
     }
   };
 
-  const fetchGraphQLUserProjects = async (): Promise<void> => {
-    if (!isLoggedIn()) return;
+  const fetchGraphQLUserProjects = async (): Promise<Project[] | undefined> => {
     const query = `query projects($filter: ProjectsPaginationInput) {
       projects(filter: $filter) {
         data {
@@ -103,19 +96,38 @@ export const useAuthentication = () => {
       const { data } = await response.json();
 
       const projects = data.projects.data as Project[];
-      setUserProjects(projects);
-
-      const activeProject = getActiveProjectId();
-
-      if (
-        !activeProject ||
-        !projects.find((project) => project.id === activeProject)
-      ) {
-        setActiveProject(projects.length ? projects[0].id : undefined);
-      }
+      return projects;
     } catch (error) {
       console.error('Failed to fetch user projects:', error);
     }
+  };
+
+  const loadSubscriptions = async (projectId: string) => {
+    setActiveSubscriptions(undefined);
+    const token = getCookie(AUTH_TOKEN_NAME);
+    console.log('🚀 ~ loadSubscriptions ~ token:', token);
+    if (!token) return false;
+
+    const projectResponse = await getProject(projectId, token);
+    console.log('🚀 ~ loadSubscriptions ~ projectResponse:', projectResponse);
+    if (!projectResponse.ok || !projectResponse?.data?.teamId) return false;
+
+    const teamResponse = await getTeam(projectResponse.data.teamId, token);
+    console.log('🚀 ~ loadSubscriptions ~ teamResponse:', teamResponse);
+    if (!teamResponse.ok || !teamResponse?.data?.subscriptionId) return false;
+
+    const subscriptionResponse = await getSubscription(
+      teamResponse.data.subscriptionId,
+      token,
+    );
+    console.log(
+      '🚀 ~ loadSubscriptions ~ subscriptionResponse:',
+      subscriptionResponse,
+    );
+    if (!subscriptionResponse.ok || !subscriptionResponse?.data?.items)
+      return false;
+
+    setActiveSubscriptions(subscriptionResponse.data.items);
   };
 
   const login = (): Promise<boolean> => {
@@ -138,101 +150,89 @@ export const useAuthentication = () => {
     handleLogOut();
   };
 
-  const setActiveProject = (project: string | Project | undefined) => {
-    if (typeof project === 'string') {
-      setCookie(settings.site.auth.activeProjectTokenName, project, 30);
-      setUserActiveProject(project);
-    } else if (project) {
-      setCookie(settings.site.auth.activeProjectTokenName, project.id, 30);
-      setUserActiveProject(project.id);
-    }
+  const setActiveProject = async (projectId?: string) => {
+    if (!projectId) return;
+    setCookie(settings.site.auth.activeProjectTokenName, projectId, 30);
+    setUserActiveProject(projectId);
+    loadSubscriptions(projectId);
   };
 
-  const getActiveProjectId = (): string | undefined => {
-    if (!isLoggedIn()) return undefined;
+  const initializeProjects = async () => {
+    if (isLoadingProjects) return;
+    const token = getCookie(settings.site.auth.authTokenName);
+    if (!token) {
+      await updateTokenFromProjectId();
+    }
+    setIsLoadingProjects(true);
 
-    return (
-      userActiveProject ?? getCookie(settings.site.auth.activeProjectTokenName)
-    );
+    try {
+      const projects = await fetchGraphQLUserProjects();
+      if (projects) {
+        setUserProjects(projects);
+
+        const activeProjectIdFromCookies = getCookie(
+          settings.site.auth.activeProjectTokenName,
+        );
+        const activeProjectFromCookies = projects.find(
+          (project) => project.id === activeProjectIdFromCookies,
+        );
+
+        if (!activeProjectFromCookies) {
+          setActiveProject(projects.length ? projects[0].id : undefined);
+          updateTokenFromProjectId(projects[0].id);
+        } else if (activeProjectIdFromCookies !== userActiveProject) {
+          setActiveProject(activeProjectIdFromCookies);
+          updateTokenFromProjectId(activeProjectIdFromCookies);
+        }
+      }
+    } catch (error) {
+      console.error('Failed to initialize user projects:', error);
+    } finally {
+      setIsLoadingProjects(false);
+    }
   };
 
   const isLoggedIn = useCallback((): boolean => {
-    return (
-      !!isAuthenticated &&
-      !!user &&
-      !!getCookie(settings.site.auth.authTokenName)
-    );
-  }, [isAuthenticated, user, getCookie]);
+    return !!user && !!getCookie(settings.site.auth.authTokenName);
+  }, [user, getCookie]);
+
+  const updateTokenFromProjectId = async (projectId?: string) => {
+    const token = await fetchGraphQLToken(projectId);
+    if (token) {
+      const parsedToken = decodeAccessToken({ token });
+      setCookie(settings.site.auth.authTokenName, token, parsedToken.exp);
+
+      if (loginPromiseRef.current) {
+        loginPromiseRef?.current?.resolve(true);
+        loginPromiseRef.current = null;
+      }
+    }
+  };
+
+  const getActiveSubscriptions = useCallback((): any[] | undefined => {
+    return activeSubscriptions;
+  }, [activeSubscriptions]);
 
   useEffect(() => {
-    const initializeProjects = async () => {
-      setIsLoadingProjects(true);
-      try {
-        await fetchGraphQLUserProjects();
-      } catch (error) {
-        console.error('Failed to initialize user projects:', error);
-      } finally {
-        setIsLoadingProjects(false);
-      }
-    };
-
-    if (isLoggedIn() && !userProjects.length && !isLoadingProjects) {
+    if (user) {
       initializeProjects();
     }
-  }, [isLoggedIn, fetchGraphQLUserProjects, user]);
-
-  useEffect(() => {
-    const handleAuthTokenChange = async () => {
-      if (!authToken) {
-        setIsAuthenticated(false);
-        return;
-      }
-
-      const graphQLToken = getCookie(settings.site.auth.authTokenName);
-      const isAuthTokenValid = isTokenValid(authToken);
-      const isGraphQLTokenValid = graphQLToken && isTokenValid(graphQLToken);
-
-      if (isAuthTokenValid && isGraphQLTokenValid) {
-        await fetchGraphQLUserProjects();
-        setIsAuthenticated(true);
-        if (loginPromiseRef.current) {
-          loginPromiseRef.current.resolve(true);
-          loginPromiseRef.current = null;
-        }
-      } else if (isAuthTokenValid && !isGraphQLTokenValid) {
-        const success = await fetchGraphQLToken();
-        if (loginPromiseRef.current) {
-          if (success) {
-            await fetchGraphQLUserProjects();
-            loginPromiseRef.current.resolve(true);
-          } else {
-            loginPromiseRef.current.reject(
-              new Error('Failed to fetch GraphQL token'),
-            );
-          }
-          loginPromiseRef.current = null;
-        }
-      } else {
-        setIsAuthenticated(false);
-        if (loginPromiseRef.current) {
-          loginPromiseRef.current.reject(new Error('Invalid authToken'));
-          loginPromiseRef.current = null;
-        }
-      }
-    };
-
-    handleAuthTokenChange();
-  }, [authToken]);
+  }, [user]);
 
   return {
     isLoggedIn,
     isAuthenticating,
+
     login,
     logout,
+
     user,
+
     userProjects,
     setActiveProject,
-    getActiveProjectId,
+    userActiveProject,
     loadProjects: fetchGraphQLUserProjects,
+
+    getActiveSubscriptions,
   };
 };

@@ -1,28 +1,20 @@
 import { useState } from 'react';
-import { useElizaFeatureFlags } from './useElizaFeatureFlags';
-import { useAuthentication } from '@components/AuthProvider/useAuthentication';
 
 export type DeploymentStatus = {
   [step: string]: 'success' | 'failed' | 'pending';
 };
 
 export interface UseDeployAIAgentProps {
-  triggerUserSubscription: (params?: {
-    onlyAiModule?: boolean;
-  }) => Promise<boolean>;
-  checkUserSubscription: () => Promise<{
-    ok: boolean;
-    missingSubscription: boolean;
-    missingAiModule: boolean;
-  }>;
-
+  isLoggedIn: () => boolean;
+  login: () => Promise<boolean>;
+  ensureUserSubscription: () => Promise<boolean>;
   triggerAgentDeployment: (
     characterfile: string,
     env: string,
   ) => Promise<{ ok: boolean; deploymentId?: string }>;
-  getDeploymentStatus: (deploymentId: string) => Promise<{
+  getAgentDeploymentStatus: (deploymentId: string) => Promise<{
     ok?: boolean;
-    data: {
+    data?: {
       status: Record<string, 'pending' | 'success' | 'failed'>;
       fleekMachineUrl?: string;
     };
@@ -30,10 +22,11 @@ export interface UseDeployAIAgentProps {
 }
 
 export const useDeployAIAgent = ({
-  triggerUserSubscription,
-  checkUserSubscription,
+  isLoggedIn,
+  login,
+  ensureUserSubscription,
   triggerAgentDeployment,
-  getDeploymentStatus,
+  getAgentDeploymentStatus,
 }: UseDeployAIAgentProps) => {
   const POLLING_TIME = 500;
   const [activeStep, setActiveStep] = useState<number>(1);
@@ -43,8 +36,6 @@ export const useDeployAIAgent = ({
   const [isDeploymentPending, setIsDeploymentPending] = useState(false);
   const [isDeploymentSuccessful, setIsDeploymentSuccessful] = useState(false);
   const [isDeploymentFailed, setIsDeploymentFailed] = useState(false);
-  const featureFlags = useElizaFeatureFlags('subscriptionEnabled');
-  const { isLoggedIn, login } = useAuthentication();
 
   const [deploymentStatus, setDeploymentStatus] = useState<
     DeploymentStatus | undefined
@@ -56,8 +47,8 @@ export const useDeployAIAgent = ({
 
     const poll = async (attempt: number) => {
       try {
-        const response = await getDeploymentStatus(deploymentId);
-        if (response.ok) {
+        const response = await getAgentDeploymentStatus(deploymentId);
+        if (response.ok && response?.data?.status) {
           setDeploymentStatus(response.data.status);
 
           const hasFailed =
@@ -109,7 +100,8 @@ export const useDeployAIAgent = ({
       return false;
     }
 
-    if (!isLoggedIn()) {
+    const isUserLoggedIn = isLoggedIn();
+    if (!isUserLoggedIn) {
       const loginResult = await login();
 
       if (!loginResult) {
@@ -119,21 +111,11 @@ export const useDeployAIAgent = ({
       }
     }
 
-    if (featureFlags.subscriptionEnabled) {
-      const subscriptionResult = await checkUserSubscription();
-      if (!subscriptionResult.ok) {
-        const res = await triggerUserSubscription({
-          onlyAiModule: subscriptionResult.missingSubscription
-            ? subscriptionResult.missingAiModule
-            : false,
-        });
-
-        if (!res) {
-          setIsDeploymentPending(false);
-          setIsDeploymentFailed(true);
-          return false;
-        }
-      }
+    const subscriptionResult = await ensureUserSubscription();
+    if (!subscriptionResult) {
+      setIsDeploymentPending(false);
+      setIsDeploymentFailed(true);
+      return false;
     }
 
     const deploymentTriggerResult = await triggerAgentDeployment(

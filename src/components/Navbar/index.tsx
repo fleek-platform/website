@@ -315,12 +315,8 @@ const SessionManagementActions: React.FC = () => {
     login,
     userProjects,
     setActiveProject,
-    getActiveProjectId,
+    userActiveProject,
   } = useAuthentication();
-
-  const activeProject = userProjects.find(
-    (project) => project.id === getActiveProjectId(),
-  );
 
   const handleLoginClick = (
     e?: React.MouseEvent<HTMLButtonElement | HTMLAnchorElement>,
@@ -334,10 +330,10 @@ const SessionManagementActions: React.FC = () => {
     <>
       {isLoggedIn() ? (
         <>
-          {userProjects && activeProject && (
+          {userProjects && userActiveProject && (
             <ProjectDropdown
               projects={userProjects}
-              selectedProject={activeProject}
+              selectedProjectId={userActiveProject}
               onProjectChange={setActiveProject}
             />
           )}

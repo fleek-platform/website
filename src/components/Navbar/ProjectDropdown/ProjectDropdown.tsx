@@ -1,24 +1,24 @@
 import type { Project } from '@fleekxyz/sdk/dist-types/generated/graphqlClient/schema';
-import Link from '@components/Link';
 import * as DropdownMenu from '@radix-ui/react-dropdown-menu';
 import { AvatarMarble } from '@components/AvatarMarble/AvatarMarble';
 import { FaCheck } from 'react-icons/fa6';
 import { RxCaretSort } from 'react-icons/rx';
 import { cn } from '@utils/cn';
-import { useState } from 'react';
+import { useMemo, useState } from 'react';
 
 type MenuItemProps = {
   project: Project;
-  selectedProject?: Project;
+  selectedProjectId?: string;
   onClick: () => void;
 };
 
 const MenuItem: React.FC<MenuItemProps> = ({
   project,
-  selectedProject,
+  selectedProjectId,
   onClick,
 }) => {
-  const isSelected = project.id === selectedProject?.id;
+  const isSelected = project.id === selectedProjectId;
+
   return (
     <div
       onClick={onClick}
@@ -54,26 +54,33 @@ const MenuItem: React.FC<MenuItemProps> = ({
 };
 
 export type ProjectDropdownProps = {
-  selectedProject?: Project;
+  selectedProjectId?: string;
   projects: Project[];
-  onProjectChange: (project: Project | string) => void;
+  onProjectChange: (projectId: string) => void;
 };
 
 export const ProjectDropdown: React.FC<ProjectDropdownProps> = ({
   projects,
-  selectedProject,
+  selectedProjectId,
   onProjectChange,
 }) => {
   const [isOpen, setIsOpen] = useState(false);
-  const handleProjectChange = (project: Project | string): void => {
+
+  const selectedProject = useMemo(
+    () =>
+      projects.find((project) => project.id === selectedProjectId) ?? undefined,
+    [projects, selectedProjectId],
+  );
+
+  const handleProjectChange = (projectId: string): void => {
+    onProjectChange(projectId);
     setIsOpen(false);
-    onProjectChange(typeof project === 'string' ? project : project.id);
   };
 
   return (
     <DropdownMenu.Root open={isOpen} onOpenChange={setIsOpen}>
       <DropdownMenu.Trigger
-        onClick={() => setIsOpen((prev) => !prev)} // Toggle the dropdown
+        onClick={() => setIsOpen((prev) => !prev)}
         className="flex h-[34px] w-fit flex-row justify-center gap-8 rounded-8 bg-neutral-1 p-4 font-medium text-neutral-12 hover:bg-neutral-2 focus-visible:outline-none"
       >
         {selectedProject?.avatar ? (
@@ -107,8 +114,8 @@ export const ProjectDropdown: React.FC<ProjectDropdownProps> = ({
           <MenuItem
             key={project.id}
             project={project}
-            selectedProject={selectedProject}
-            onClick={() => handleProjectChange(project)}
+            selectedProjectId={selectedProjectId}
+            onClick={() => handleProjectChange(project.id)}
           />
         ))}
       </DropdownMenu.Content>
