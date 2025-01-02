@@ -49,7 +49,13 @@ const metaTitle = ogMeta['custom_title'] ?? ogMeta?.title;
 ---
 
 <!doctype html>
-<html lang="en" class={overflowHorizontally ? '' : 'overflow-x-hidden'}>
+<html
+  lang="en"
+  class={cn({
+    'overflow-x-hidden': !overflowHorizontally,
+    '[scrollbar-gutter:stable]': overflowHorizontally,
+  })}
+>
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width" />
