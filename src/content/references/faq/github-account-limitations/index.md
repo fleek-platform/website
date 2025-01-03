@@ -18,6 +18,9 @@ You have full flexibility to deploy repositories from any GitHub organization to
 
 ## Single GitHub source per project
 
-Each Fleek project can deploy from only one GitHub account, either personal or organizational, but not both.
+Fleek allows you to connect both your personal GitHub account and organizational GitHub accounts to a single project.
 
-By following these guidelines, you can make the most of Fleek’s deployment options while avoiding potential conflicts with GitHub’s account limitations.
+This means you can:
+
+  - Deploy a site within the project from a repository in your personal GitHub account.
+  - Deploy another site in the same project from a repository in your organizational GitHub account.
