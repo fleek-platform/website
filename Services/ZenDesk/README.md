@@ -108,6 +108,60 @@ issuer=C=US, O=Let's Encrypt, CN=R11
 ---
 ```
 
+## Certbot/LetsEncrypt auto-renewal
+
+A cronjob `/etc/cron.d/certbot` is setup containing:
+
+```sh
+SHELL=/bin/sh
+PATH=/usr/local/sbin:/usr/local/bin:/sbin:/bin:/usr/sbin:/usr/bin
+
+0 */12 * * * root /usr/bin/certbot renew --quiet --pre-hook "systemctl stop nginx" --post-hook "systemctl start nginx" --no-random-sleep-on-renew
+```
+
+It contains a pre and post hook to stop and restart the nginx server, as the port 80's required for the renewal process.
+
+
+When modifying the cronjob, restart the `cron service`.
+
+```sh
+systemctl restart cron
+```
+
+Check cerbot specific logs by:
+
+```sh
+journalctl --since "7 days ago" | grep certbot
+```
+
+A renewal conf file is available at `/etc/letsencrypt/renewal/support-prod-eu-lon-1-01.flkservices.io.conf` as:
+
+```sh
+version = 2.9.0
+archive_dir = /etc/letsencrypt/archive/support-prod-eu-lon-1-01.flkservices.io
+cert = /etc/letsencrypt/live/support-prod-eu-lon-1-01.flkservices.io/cert.pem
+privkey = /etc/letsencrypt/live/support-prod-eu-lon-1-01.flkservices.io/privkey.pem
+chain = /etc/letsencrypt/live/support-prod-eu-lon-1-01.flkservices.io/chain.pem
+fullchain = /etc/letsencrypt/live/support-prod-eu-lon-1-01.flkservices.io/fullchain.pem
+
+# Options used in the renewal process
+[renewalparams]
+account = 0cb6978ab80ea5bde56e2fbc859f85f8
+authenticator = standalone
+server = https://acme-v02.api.letsencrypt.org/directory
+key_type = ecdsa
+pre_hook = systemctl stop nginx
+post_hook = systemctl start nginx
+```
+
+Obs: The pre and post hook doesn't seem to be honored. Thus, the cronjob command has a pre and post hook to stop the nginx service.
+
+A renewal dry-run can be verified by:
+
+```sh
+certbot renew --dry-run -v
+```
+
 ## Systemd Service
 
 The Service is wrapped as a Systemd service located in:
