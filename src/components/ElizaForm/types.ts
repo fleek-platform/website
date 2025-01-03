@@ -2,24 +2,23 @@ import type {
   CLIENT_NAMES,
   MODEL_PROVIDER_NAMES,
   PAGES,
+  STEPS,
   TEMPLATES,
 } from './constants';
 
 export type Page = (typeof PAGES)[number];
 
-export type Options = {
-  forwardProps: {
-    template: Template;
-  };
-};
+export type Step = (typeof STEPS)[number];
 
 export type GoToProps = {
-  goTo: (page: Page, options?: Options) => void;
+  goTo: (page: Page, template?: Template) => void;
 };
 
 export type Template = (typeof TEMPLATES)[number];
 
 export type ModelProviderName = (typeof MODEL_PROVIDER_NAMES)[number] | '';
+
+export type NonEmptyModelProviderName = Exclude<ModelProviderName, ''>;
 
 export type LabelAndIcon = {
   label: string;

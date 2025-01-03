@@ -10,19 +10,20 @@ export const buttonVariants = cva(
     variants: {
       variant: {
         neutral:
-          'text-elz-neutral-11 bg-elz-neutral-3 hover:bg-elz-neutral-4 active:bg-elz-neutral-5 focus-visible:ring-neutral-8',
+          'text-elz-neutral-11 bg-elz-neutral-3 hover:bg-elz-neutral-4 active:bg-elz-neutral-5 focus-visible:ring-elz-neutral-8',
         accent:
-          'text-elz-accent-11 bg-elz-accent-3 hover:bg-elz-accent-4 active:bg-elz-accent-5 focus-visible:ring-accent-8',
+          'text-elz-accent-11 bg-elz-accent-3 hover:bg-elz-accent-4 active:bg-elz-accent-5 focus-visible:ring-elz-accent-8',
         success:
-          'text-elz-success-11 bg-elz-success-3 hover:bg-elz-success-4 active:bg-elz-success-5 focus-visible:ring-success-8',
+          'text-elz-success-11 bg-elz-success-3 hover:bg-elz-success-4 active:bg-elz-success-5 focus-visible:ring-elz-success-8',
         warning:
-          'text-elz-warning-11 bg-elz-warning-3 hover:bg-elz-warning-4 active:bg-elz-warning-5 focus-visible:ring-warning-8',
+          'text-elz-warning-11 bg-elz-warning-3 hover:bg-elz-warning-4 active:bg-elz-warning-5 focus-visible:ring-elz-warning-8',
         danger:
-          'text-elz-danger-11 bg-elz-danger-3 hover:bg-elz-danger-4 active:bg-elz-danger-5 focus-visible:ring-danger-8',
+          'text-elz-danger-11 bg-elz-danger-3 hover:bg-elz-danger-4 active:bg-elz-danger-5 focus-visible:ring-elz-danger-8',
         ghost:
           'text-elz-neutral-11 bg-transparent hover:bg-elz-neutral-4 active:bg-elz-neutral-5 disabled:bg-transparent  focus-visible:ring-elz-neutral-8',
       },
       size: {
+        xs: 'h-24 gap-4 px-8 rounded-8 text-[1.4rem]',
         sm: 'h-32 gap-4 px-8 rounded-8 text-[1.4rem]',
         md: 'h-40 gap-8 px-16 rounded-12 text-[1.6rem]',
         lg: 'h-44 gap-8 rounded-12 text-[1.6rem]',

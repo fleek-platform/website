@@ -1,32 +1,51 @@
 import { useState } from 'react';
 import { GetStarted } from './GetStarted';
 import { Layout } from './Layout';
-import type { Options, Page } from '../types';
+import { type Template, type Page, type Step } from '../types';
 import { Characterfile } from './Characterfile';
 import ElizaModule from '@components/Eliza';
+import { FormProviderCharacterBuilder } from '../hooks/useElizaForm';
+import { SettingsPage } from './SettingsPage';
+import { ReviewPage } from './ReviewPage';
 
 export const Navigation = () => {
   const [page, setPage] = useState<Page>('getStarted');
-  const [options, setOptions] = useState<Options | null>(null);
+  const [template, setTemplate] = useState<Template>();
+  const [completedStep, setCompletedStep] = useState<Step>(0);
 
-  const goTo = (page: Page, options?: Options) => {
-    if (options) {
-      setOptions(options);
-    } else {
-      setOptions(null);
-    }
+  const goTo = (page: Page, template?: Template) => {
+    setTemplate(template);
     setPage(page);
+  };
+
+  const completeStep = (step: Step) => {
+    setCompletedStep(step);
   };
 
   const pages: Record<Page, React.ReactNode> = {
     getStarted: <GetStarted goTo={goTo} />,
     upload: <ElizaModule />,
     characterfile: (
-      <Characterfile goTo={goTo} template={options?.forwardProps.template} />
+      <Characterfile
+        goTo={goTo}
+        template={template}
+        completedStep={completedStep}
+        completeStep={completeStep}
+      />
     ),
-    review: <></>,
-    env: <></>,
+    settings: (
+      <SettingsPage
+        goTo={goTo}
+        completedStep={completedStep}
+        completeStep={completeStep}
+      />
+    ),
+    review: <ReviewPage goTo={goTo} />,
   };
 
-  return <Layout>{pages[page]}</Layout>;
+  return (
+    <FormProviderCharacterBuilder>
+      <Layout>{pages[page]}</Layout>
+    </FormProviderCharacterBuilder>
+  );
 };
