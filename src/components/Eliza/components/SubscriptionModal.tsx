@@ -1,31 +1,75 @@
-import { useCallback, useState } from 'react';
+import { useState } from 'react';
 import { Bolt, LoadingSpinner } from './Icons';
 import toast from 'react-hot-toast';
+import { createSubscription, getPlans } from '@components/AuthProvider/api/api';
+import { getCookie } from '@utils/cookies';
+import settings from '@base/settings.json';
 
 interface SubscriptionModalProps {
   isVisible: boolean;
   setIsVisible: (isVisible: boolean) => void;
-  onlyAiModule?: boolean;
+  activeProjectId?: string;
   onSuccess?: (value?: boolean) => void;
 }
+
+const AI_MODULE_PRICE = 10;
 
 export const SubscriptionModal: React.FC<SubscriptionModalProps> = ({
   isVisible,
   setIsVisible,
-  onlyAiModule,
   onSuccess,
+  activeProjectId,
 }) => {
   const [isLoading, setIsLoading] = useState(false);
-  const totalPrice = onlyAiModule ? 10 : 30;
 
-  const handleOnSubmitClick = () => {
+  const handleOnSubmitClick = async () => {
+    const token = getCookie(settings.site.auth.authTokenCookieKey);
+    if (!activeProjectId || !token) return;
+    console.log('🚀 ~ handleOnSubmitClick ~ activeProjectId:', activeProjectId);
+
     setIsLoading(true);
+
+    const plans = await getPlans(token);
+    console.log('🚀 ~ handleOnSubmitClick ~ plans:', plans);
+    if (!plans || !plans.ok || !plans.data?.length) {
+      toast.error('Failed to fetch plans');
+      setIsLoading(false);
+      return;
+    }
+
+    const planId = plans.data.find(
+      (plan) => plan.name.toUpperCase() === 'AI AGENT',
+    )?.id;
+
+    const subscriptionCreationResponse = await createSubscription(
+      activeProjectId,
+      planId,
+      token,
+    );
+
+    console.log(
+      '🚀 ~ handleOnSubmitClick ~ subscriptionCreationResponse:',
+      subscriptionCreationResponse,
+    );
+
+    if (!subscriptionCreationResponse || !subscriptionCreationResponse.ok) {
+      toast.error('Failed to create subscription');
+      setIsLoading(false);
+      return;
+    }
+
+    const newSubscriptionData = subscriptionCreationResponse.data;
+
+    if (newSubscriptionData?.url) {
+      window.location.replace(newSubscriptionData.url);
+    }
+
     setTimeout(() => {
       toast.success('Payment successful! - Pending implementation');
       onSuccess?.(true);
       setIsVisible(false);
       setIsLoading(false);
-    }, 5000);
+    }, 25000);
   };
 
   return isVisible ? (
@@ -43,13 +87,8 @@ export const SubscriptionModal: React.FC<SubscriptionModalProps> = ({
           </p>
           {!isLoading && (
             <div className="flex w-full flex-col gap-[16px] pt-[8px] text-[14px] font-medium leading-[20px]">
-              {!onlyAiModule && (
-                <p className="flex flex-row justify-between">
-                  PRO Plan <span>$20 /mo</span>
-                </p>
-              )}
               <p className="flex flex-row justify-between">
-                AI add-on module <span>$10 /mo</span>
+                AI add-on module <span>${AI_MODULE_PRICE} /mo</span>
               </p>
             </div>
           )}
@@ -86,7 +125,7 @@ export const SubscriptionModal: React.FC<SubscriptionModalProps> = ({
                   className="h-[32px] w-full rounded-[8px] bg-[#2D2305] text-[#F5E147] hover:bg-[#362A07]"
                   onClick={handleOnSubmitClick}
                 >
-                  {`Subscribe for $${totalPrice} /mo`}
+                  {`Subscribe for $${AI_MODULE_PRICE} /mo`}
                 </button>
               </>
             )}

@@ -39,6 +39,12 @@ const Step: React.FC<StepProps> = ({
       <div className="flex w-full flex-col items-center font-plex-sans">
         {children}
       </div>
+
+      <noscript>
+        <div className="text-center text-[14px] font-bold leading-[20px] text-[#F5E147]">
+          Please enable JavaScript to continue
+        </div>
+      </noscript>
     </div>
   );
 };

@@ -11,7 +11,6 @@ import FleekLogo from './fleek-logo.svg';
 import { AuthProvider } from '@components/AuthProvider/AuthProvider';
 import { useAuthentication } from '@components/AuthProvider/useAuthentication';
 import { ProjectDropdown } from './ProjectDropdown/ProjectDropdown';
-import type { Project } from '@fleekxyz/sdk/dist-types/generated/graphqlClient/schema';
 
 const NavbarMobileItem: React.FC<NavMenuItem> = ({
   label,
@@ -316,20 +315,25 @@ const SessionManagementActions: React.FC = () => {
     login,
     userProjects,
     setActiveProject,
-    getActiveProjectId,
+    userActiveProject,
   } = useAuthentication();
-  const activeProject = userProjects.find(
-    (project) => project.id === getActiveProjectId(),
-  );
+
+  const handleLoginClick = (
+    e?: React.MouseEvent<HTMLButtonElement | HTMLAnchorElement>,
+  ) => {
+    e?.preventDefault();
+    e?.stopPropagation();
+    login();
+  };
 
   return (
     <>
       {isLoggedIn() ? (
         <>
-          {userProjects && activeProject && (
+          {userProjects && userActiveProject && (
             <ProjectDropdown
               projects={userProjects}
-              selectedProject={activeProject}
+              selectedProjectId={userActiveProject}
               onProjectChange={setActiveProject}
             />
           )}
@@ -339,10 +343,20 @@ const SessionManagementActions: React.FC = () => {
         </>
       ) : (
         <>
-          <Button variant="secondary" size="sm" onClick={login}>
+          <Button
+            variant="secondary"
+            size="sm"
+            onClick={handleLoginClick}
+            href="https://app.fleek.xyz/"
+          >
             Log in
           </Button>
-          <Button variant="tertiary" size="sm" onClick={login}>
+          <Button
+            variant="tertiary"
+            size="sm"
+            onClick={handleLoginClick}
+            href="https://app.fleek.xyz/"
+          >
             Sign up
           </Button>
         </>
