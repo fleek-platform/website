@@ -8,6 +8,9 @@ import { RxHamburgerMenu } from 'react-icons/rx';
 import { isActivePath } from '@utils/url';
 import { Button } from '../Button';
 import FleekLogo from './fleek-logo.svg';
+import { AuthProvider } from '@components/AuthProvider/AuthProvider';
+import { useAuthentication } from '@components/AuthProvider/useAuthentication';
+import { ProjectDropdown } from './ProjectDropdown/ProjectDropdown';
 
 const NavbarMobileItem: React.FC<NavMenuItem> = ({
   label,
@@ -293,29 +296,71 @@ export const Navbar: React.FC<NavbarProps> = ({
           </section>
         </div>
         <section className="flex items-center gap-8">
-          <Button
-            variant="secondary"
-            size="sm"
-            href="https://app.fleek.xyz"
-            rel="noopener noreferrer"
-            target={Target.Blank}
-          >
-            Log in
-          </Button>
-          <Button
-            variant="tertiary"
-            size="sm"
-            href="https://app.fleek.xyz"
-            rel="noopener noreferrer"
-            target={Target.Blank}
-          >
-            Sign up
-          </Button>
+          <AuthProvider>
+            <SessionManagementActions />
+          </AuthProvider>
           <div className="md:hidden">
             <NavbarMobile />
           </div>
         </section>
       </nav>
     </div>
+  );
+};
+
+const SessionManagementActions: React.FC = () => {
+  const {
+    isLoggedIn,
+    logout,
+    login,
+    userProjects,
+    setActiveProject,
+    userActiveProject,
+  } = useAuthentication();
+
+  const handleLoginClick = (
+    e?: React.MouseEvent<HTMLButtonElement | HTMLAnchorElement>,
+  ) => {
+    e?.preventDefault();
+    e?.stopPropagation();
+    login();
+  };
+
+  return (
+    <>
+      {isLoggedIn() ? (
+        <>
+          {userProjects && userActiveProject && (
+            <ProjectDropdown
+              projects={userProjects}
+              selectedProjectId={userActiveProject}
+              onProjectChange={setActiveProject}
+            />
+          )}
+          <Button variant="ghost" size="sm" onClick={logout}>
+            Log out
+          </Button>
+        </>
+      ) : (
+        <>
+          <Button
+            variant="secondary"
+            size="sm"
+            onClick={handleLoginClick}
+            href="https://app.fleek.xyz/"
+          >
+            Log in
+          </Button>
+          <Button
+            variant="tertiary"
+            size="sm"
+            onClick={handleLoginClick}
+            href="https://app.fleek.xyz/"
+          >
+            Sign up
+          </Button>
+        </>
+      )}
+    </>
   );
 };

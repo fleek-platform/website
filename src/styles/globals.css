@@ -81,3 +81,7 @@ ol {
 .accordion-toggle:checked ~ .accordion-content {
   @apply h-full;
 }
+
+body.dynamic-no-scroll {
+  overflow: auto !important;
+}
