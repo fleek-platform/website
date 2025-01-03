@@ -1,10 +1,5 @@
 import { http, HttpResponse, passthrough } from 'msw';
-import {
-  GET_AGENT_DEPLOYMENT_STATUS_URL,
-  GET_PLANS_URL,
-  GET_SUBSCRIPTION_URL,
-  TRIGGER_ELIZA_AGENT_DEPLOYMENT_URL,
-} from '@components/Eliza/utils/contants';
+import settings from '@base/settings.json';
 import type { DeploymentStatus } from '@components/Eliza/hooks/useDeployAIAgent';
 
 const INIT_RESPONSE: DeploymentStatus = {
@@ -32,59 +27,69 @@ export const handlers = [
     {
       deploymentId: string;
     }
-  >(TRIGGER_ELIZA_AGENT_DEPLOYMENT_URL, async ({ request }) => {
-    const { characterfile, env } = await request.json();
-    console.log('🚀 Mocked endpoint received body > { characterfile, env }:', {
-      characterfile,
-      env,
-    });
+  >(
+    settings.elizaPage.endpoints.triggerAgentDeployment,
+    async ({ request }) => {
+      const { characterfile, env } = await request.json();
+      console.log(
+        '🚀 Mocked endpoint received body > { characterfile, env }:',
+        {
+          characterfile,
+          env,
+        },
+      );
 
-    return HttpResponse.json({
-      deploymentId: 'mockDeploymentId',
-    });
-  }),
+      return HttpResponse.json({
+        deploymentId: 'mockDeploymentId',
+      });
+    },
+  ),
 
   // GET AGENT DEPLOYMENT STATUS
   http.get<
     { deploymentId: string },
     {},
     { status: DeploymentStatus; fleekMachineUrl?: string }
-  >(`${GET_AGENT_DEPLOYMENT_STATUS_URL}/:deploymentId`, async ({ params }) => {
-    const { deploymentId } = params;
-    console.log(
-      '🚀 Mocked endpoint received param ~ deploymentId:',
-      deploymentId,
-    );
-    await new Promise((resolve) => setTimeout(resolve, 750));
+  >(
+    `${settings.elizaPage.endpoints.getAgentDeploymentStatus}/:deploymentId`,
+    async ({ params }) => {
+      const { deploymentId } = params;
+      console.log(
+        '🚀 Mocked endpoint received param ~ deploymentId:',
+        deploymentId,
+      );
+      await new Promise((resolve) => setTimeout(resolve, 750));
 
-    for (const [step, status] of Object.entries(tempResponse)) {
-      if (status === 'pending') {
-        tempResponse[step] =
-          Math.random() < FAILURE_RATE ? 'failed' : 'success';
-        if (tempResponse[step] === 'failed') {
-          console.error(
-            `❌ A mocked critical failure occurred during deployment at step: ${step}`,
-          );
+      for (const [step, status] of Object.entries(tempResponse)) {
+        if (status === 'pending') {
+          tempResponse[step] =
+            Math.random() < FAILURE_RATE ? 'failed' : 'success';
+          if (tempResponse[step] === 'failed') {
+            console.error(
+              `❌ A mocked critical failure occurred during deployment at step: ${step}`,
+            );
+          }
+          break;
         }
-        break;
       }
-    }
 
-    const isComplete = Object.values(tempResponse).every(
-      (value) => value === 'success',
-    );
-    const responseData = {
-      status: { ...tempResponse },
-      fleekMachineUrl: isComplete ? 'https://fleek.machine.url' : undefined,
-    };
+      const isComplete = Object.values(tempResponse).every(
+        (value) => value === 'success',
+      );
+      const responseData = {
+        status: { ...tempResponse },
+        fleekMachineUrl: isComplete ? 'https://fleek.machine.url' : undefined,
+      };
 
-    if (isComplete || Object.values(tempResponse).includes('failed')) {
-      tempResponse = { ...INIT_RESPONSE };
-    }
+      if (isComplete || Object.values(tempResponse).includes('failed')) {
+        tempResponse = { ...INIT_RESPONSE };
+      }
 
-    return HttpResponse.json(responseData);
-  }),
+      return HttpResponse.json(responseData);
+    },
+  ),
 
+  // GET Subscription
   http.get<
     {
       subscriptionId: string;
@@ -108,35 +113,38 @@ export const handlers = [
         };
       }[];
     }
-  >(`${GET_SUBSCRIPTION_URL}/:subscriptionId`, async ({ params }) => {
-    const { subscriptionId } = params;
-    console.log(
-      '🚀 Mocked endpoint received param ~ subscriptionId:',
-      subscriptionId,
-    );
+  >(
+    `${settings.site.auth.endpoints.subscriptions}/:subscriptionId`,
+    async ({ params }) => {
+      const { subscriptionId } = params;
+      console.log(
+        '🚀 Mocked endpoint received param ~ subscriptionId:',
+        subscriptionId,
+      );
 
-    return HttpResponse.json({
-      items: [
-        {
-          id: 'sub_1QagnCCEFZDhKYzKA3sZNJcJ',
-          status: 'Active',
-          startDate: '2024-12-27T16:53:42Z',
-          periodEndDate: '2025-01-27T16:53:42Z',
-          endDate: null,
-          plan: {
-            id: 'prod_RTe4k0fsOugr22',
-            name: 'AI Agent',
-            description:
-              'Monthly subscription for the deployment of an AI agent through a Fleek Machine. ',
-            price: 2000,
-            createdAt: '2024-12-27T16:53:09Z',
-            updatedAt: '2024-12-27T16:53:10Z',
-            metadata: {},
+      return HttpResponse.json({
+        items: [
+          {
+            id: 'sub_1QagnCCEFZDhKYzKA3sZNJcJ',
+            status: 'Active',
+            startDate: '2024-12-27T16:53:42Z',
+            periodEndDate: '2025-01-27T16:53:42Z',
+            endDate: null,
+            plan: {
+              id: 'prod_RTe4k0fsOugr22',
+              name: 'AI Agent',
+              description:
+                'Monthly subscription for the deployment of an AI agent through a Fleek Machine. ',
+              price: 2000,
+              createdAt: '2024-12-27T16:53:09Z',
+              updatedAt: '2024-12-27T16:53:10Z',
+              metadata: {},
+            },
           },
-        },
-      ],
-    });
-  }),
+        ],
+      });
+    },
+  ),
 
   http.get<
     {},
@@ -150,7 +158,7 @@ export const handlers = [
       updatedAt: string;
       metadata: Record<string, string>;
     }[]
-  >(GET_PLANS_URL, async () => {
+  >(settings.site.auth.endpoints.plans, async () => {
     return HttpResponse.json([
       {
         id: 'prod_RTe4k0fsOugr22',

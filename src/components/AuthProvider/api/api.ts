@@ -1,9 +1,4 @@
-import {
-  GET_PLANS_URL,
-  GET_PROJECT_URL,
-  GET_SUBSCRIPTION_URL,
-  GET_TEAM_URL,
-} from '@components/Eliza/utils/contants';
+import settings from '@base/settings.json';
 
 export const getProject = async (
   projectId?: string,
@@ -21,13 +16,16 @@ export const getProject = async (
 }> => {
   if (!projectId || !token) return { ok: false };
   try {
-    const response = await fetch(`${GET_PROJECT_URL}/${projectId}`, {
-      method: 'GET',
-      headers: {
-        'Content-Type': 'application/json',
-        authorization: `Bearer ${token}`,
+    const response = await fetch(
+      `${settings.site.auth.endpoints.projects}/${projectId}`,
+      {
+        method: 'GET',
+        headers: {
+          'Content-Type': 'application/json',
+          authorization: `Bearer ${token}`,
+        },
       },
-    });
+    );
 
     if (!response.ok) {
       const errorText = await response.text();
@@ -63,13 +61,16 @@ export const getTeam = async (
 }> => {
   if (!teamId || !token) return { ok: false };
   try {
-    const response = await fetch(`${GET_TEAM_URL}/${teamId}`, {
-      method: 'GET',
-      headers: {
-        'Content-Type': 'application/json',
-        authorization: `Bearer ${token}`,
+    const response = await fetch(
+      `${settings.site.auth.endpoints.teams}/${teamId}`,
+      {
+        method: 'GET',
+        headers: {
+          'Content-Type': 'application/json',
+          authorization: `Bearer ${token}`,
+        },
       },
-    });
+    );
 
     if (!response.ok) {
       const errorText = await response.text();
@@ -112,13 +113,16 @@ export const getSubscription = async (
 }> => {
   if (!subscriptionId || !token) return { ok: false };
   try {
-    const response = await fetch(`${GET_SUBSCRIPTION_URL}/${subscriptionId}`, {
-      method: 'GET',
-      headers: {
-        'Content-Type': 'application/json',
-        authorization: `Bearer ${token}`,
+    const response = await fetch(
+      `${settings.site.auth.endpoints.subscriptions}/${subscriptionId}`,
+      {
+        method: 'GET',
+        headers: {
+          'Content-Type': 'application/json',
+          authorization: `Bearer ${token}`,
+        },
       },
-    });
+    );
 
     if (!response.ok) {
       const errorText = await response.text();
@@ -149,17 +153,20 @@ export const createSubscription = async (
 }> => {
   if (!projectId || !token || !planId) return { ok: false };
   try {
-    const response = await fetch(`${GET_SUBSCRIPTION_URL}`, {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-        authorization: `Bearer ${token}`,
+    const response = await fetch(
+      `${settings.site.auth.endpoints.subscriptions}`,
+      {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          authorization: `Bearer ${token}`,
+        },
+        body: JSON.stringify({
+          projectId,
+          planId,
+        }),
       },
-      body: JSON.stringify({
-        projectId,
-        planId,
-      }),
-    });
+    );
 
     if (!response.ok) {
       const errorText = await response.text();
@@ -194,7 +201,7 @@ export const getPlans = async (
 }> => {
   if (!token) return { ok: false };
   try {
-    const response = await fetch(`${GET_PLANS_URL}`, {
+    const response = await fetch(`${settings.site.auth.endpoints.plans}`, {
       method: 'GET',
       headers: {
         'Content-Type': 'application/json',

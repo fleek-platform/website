@@ -6,11 +6,11 @@ import {
   SubscriptionModal,
   useSubscriptionModal,
 } from './components/SubscriptionModal.tsx';
-import { AUTH_TOKEN_NAME } from './utils/contants.ts';
 import { AuthProvider } from '@components/AuthProvider/AuthProvider.tsx';
 import { getCookie } from '@utils/cookies.ts';
 import { useAuthentication } from '@components/AuthProvider/useAuthentication.ts';
 import { CoreEliza } from './CoreEliza.tsx';
+import settings from '@base/settings.json';
 
 export const ElizaIntegration: React.FC = () => {
   const { isLoggedIn, login, getActiveSubscriptions, userActiveProject } =
@@ -23,7 +23,7 @@ export const ElizaIntegration: React.FC = () => {
     characterfile?: string,
     env?: string,
   ) => {
-    const token = getCookie(AUTH_TOKEN_NAME);
+    const token = getCookie(settings.site.auth.authTokenCookieKey);
     if (!token || !characterfile || !env) return { ok: false };
 
     const res = await triggerDeployment(characterfile, env, token);
@@ -35,13 +35,15 @@ export const ElizaIntegration: React.FC = () => {
   };
 
   const getAgentDeploymentStatus = async (deploymentId: string) => {
-    const token = getCookie(AUTH_TOKEN_NAME);
+    const token = getCookie(settings.site.auth.authTokenCookieKey);
     if (!token) return { ok: false };
 
     return getDeploymentStatus(deploymentId, token);
   };
 
   const ensureUserSubscription = async (): Promise<boolean> => {
+    if (settings.site.auth.disableSubscriptionValidation) return true;
+
     const activeSubscriptions = getActiveSubscriptions();
 
     // TODO: this logic has to be reviewed

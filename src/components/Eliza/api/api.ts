@@ -1,7 +1,4 @@
-import {
-  GET_AGENT_DEPLOYMENT_STATUS_URL,
-  TRIGGER_ELIZA_AGENT_DEPLOYMENT_URL,
-} from '../utils/contants';
+import settings from '@base/settings.json';
 
 export const triggerDeployment = async (
   characterFile: string,
@@ -13,17 +10,20 @@ export const triggerDeployment = async (
   error?: string;
 }> => {
   try {
-    const response = await fetch(TRIGGER_ELIZA_AGENT_DEPLOYMENT_URL, {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-        Authorization: `Bearer ${token}`,
+    const response = await fetch(
+      settings.elizaPage.endpoints.triggerAgentDeployment,
+      {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          Authorization: `Bearer ${token}`,
+        },
+        body: JSON.stringify({
+          characterFile,
+          envFile,
+        }),
       },
-      body: JSON.stringify({
-        characterFile,
-        envFile,
-      }),
-    });
+    );
 
     if (!response.ok) {
       const errorText = await response.text();
@@ -63,7 +63,7 @@ export const getDeploymentStatus = async (
 ): Promise<DeploymentResponse> => {
   try {
     const response = await fetch(
-      `${GET_AGENT_DEPLOYMENT_STATUS_URL}/${deploymentId}`,
+      `${settings.elizaPage.endpoints.getAgentDeploymentStatus}/${deploymentId}`,
       {
         method: 'GET',
         headers: {

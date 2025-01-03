@@ -1,9 +1,9 @@
-import { useCallback, useState } from 'react';
+import { useState } from 'react';
 import { Bolt, LoadingSpinner } from './Icons';
 import toast from 'react-hot-toast';
 import { createSubscription, getPlans } from '@components/AuthProvider/api/api';
 import { getCookie } from '@utils/cookies';
-import { AUTH_TOKEN_NAME } from '../utils/contants';
+import settings from '@base/settings.json';
 
 interface SubscriptionModalProps {
   isVisible: boolean;
@@ -23,7 +23,7 @@ export const SubscriptionModal: React.FC<SubscriptionModalProps> = ({
   const [isLoading, setIsLoading] = useState(false);
 
   const handleOnSubmitClick = async () => {
-    const token = getCookie(AUTH_TOKEN_NAME);
+    const token = getCookie(settings.site.auth.authTokenCookieKey);
     if (!activeProjectId || !token) return;
     console.log('🚀 ~ handleOnSubmitClick ~ activeProjectId:', activeProjectId);
 
