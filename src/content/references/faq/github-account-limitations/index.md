@@ -22,5 +22,5 @@ Fleek allows you to connect both your personal GitHub account and organizational
 
 This means you can:
 
-  - Deploy a site within the project from a repository in your personal GitHub account.
-  - Deploy another site in the same project from a repository in your organizational GitHub account.
+- Deploy a site within the project from a repository in your personal GitHub account.
+- Deploy another site in the same project from a repository in your organizational GitHub account.
