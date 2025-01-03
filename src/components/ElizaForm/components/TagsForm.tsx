@@ -27,12 +27,20 @@ export const TagsForm: React.FC<TagsFormProps> = ({ name, placeholder }) => {
 
   const [formFieldArray, setFormFieldArray] = useState(form);
   const [hasUpdate, setHasUpdate] = useState(false);
-  const [adjective, setAdjective] = useState('');
+  const [tag, setTag] = useState('');
   const [error, setError] = useState(false);
 
   useEffect(() => {
     setFormFieldArray(form);
   }, [form[0]]);
+
+  useEffect(() => {
+    if (hasUpdate) {
+      setValue(name, formFieldArray);
+      clearErrors(name);
+      setHasUpdate(false);
+    }
+  }, [hasUpdate]);
 
   const deleteLastFormFieldArrayEntry = () => {
     setFormFieldArray((prev) => prev.slice(0, -1));
@@ -46,12 +54,12 @@ export const TagsForm: React.FC<TagsFormProps> = ({ name, placeholder }) => {
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setError(false);
-    setAdjective(e.target.value);
+    setTag(e.target.value);
   };
 
   const normalize = (str: string) => str.toLowerCase();
 
-  const addAdjective = (newAdjective: string) => {
+  const addTag = (newAdjective: string) => {
     const lowerCaseAdjective = normalize(newAdjective);
     const normalizedFormFieldArray = formFieldArray.map(normalize);
 
@@ -59,22 +67,22 @@ export const TagsForm: React.FC<TagsFormProps> = ({ name, placeholder }) => {
       setError(true);
     } else {
       setFormFieldArray((prev) => [...prev, lowerCaseAdjective]);
-      setAdjective('');
+      setTag('');
       setError(false);
       setHasUpdate(true);
     }
   };
 
   const handleKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
-    const trimmedAdjective = adjective.trim();
+    const trimmedAdjective = tag.trim();
 
-    if (e.key === 'Backspace' && !adjective) {
+    if (e.key === 'Backspace' && !tag) {
       deleteLastFormFieldArrayEntry();
     }
 
     if (SUBMIT_KEYS.includes(e.key) && trimmedAdjective) {
       e.preventDefault();
-      addAdjective(trimmedAdjective);
+      addTag(trimmedAdjective);
     }
   };
 
@@ -108,18 +116,16 @@ export const TagsForm: React.FC<TagsFormProps> = ({ name, placeholder }) => {
 
     if (newTags.length) {
       setFormFieldArray((prev) => [...prev, ...newTags]);
-      setAdjective('');
+      setTag('');
       setHasUpdate(true);
     }
   };
 
-  useEffect(() => {
-    if (hasUpdate) {
-      setValue(name, formFieldArray);
-      clearErrors(name);
-      setHasUpdate(false);
-    }
-  }, [hasUpdate]);
+  const handleBlur = () => {
+    if (!tag) return;
+
+    addTag(tag);
+  };
 
   const errorMsg = errors[name]?.message;
 
@@ -149,15 +155,14 @@ export const TagsForm: React.FC<TagsFormProps> = ({ name, placeholder }) => {
         <Input.Field
           placeholder={placeholder}
           className="min-w-fit flex-1 px-4"
-          value={adjective}
+          value={tag}
           onChange={handleChange}
           onKeyDown={handleKeyDown}
           onPaste={handlePaste}
+          onBlur={handleBlur}
         />
       </Input.Root>
-      {error && (
-        <Input.Hint error>{adjective} is already in the list</Input.Hint>
-      )}
+      {error && <Input.Hint error>{tag} is already in the list</Input.Hint>}
       {errorMsg && <Input.Hint error>{errorMsg}</Input.Hint>}
     </Box>
   );
