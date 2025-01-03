@@ -150,7 +150,9 @@ export const SettingsPage: React.FC<SettingsPageProps> = ({
                 }
               }}
               onValidation={(jsonError) => setErrorJson(!jsonError)}
-              className={cn({ 'border-elz-danger-8': hasErrors })}
+              className={cn({
+                'border-elz-danger-8 transition-colors': hasErrors,
+              })}
             />
           )}
         />
