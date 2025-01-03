@@ -12,6 +12,7 @@
     "develop": {
       "url": "http://localhost:4321"
     },
+    "mocksEnabled": true,
     "metadata": {
       "default": {
         "title": "Fleek | Build and deploy autonomous apps and AI agents",
@@ -141,8 +142,15 @@
     },
     "auth": {
       "dynamicEnvironmentId": "de23a5f0-aaa5-412e-8212-4fb056a3b30d",
-      "authTokenName": "accessToken",
-      "activeProjectTokenName": "projectId"
+      "authTokenCookieKey": "accessToken",
+      "activeProjectCookieKey": "projectId",
+      "disableSubscriptionValidation": true,
+      "endpoints": {
+        "projects": "https://api.fleek.xyz/api/v1/projects",
+        "teams": "https://api.fleek.xyz/api/v1/teams",
+        "subscriptions": "https://api.fleek.xyz/api/v1/subscriptions",
+        "plans": "https://api.fleek.xyz/api/v1/plans"
+      }
     },
     "annoucementMarquee": {
       "message": "Introducing Fleek Machines (Early access): One-click verified and private compute",
@@ -507,5 +515,10 @@
     "ctaLabel": "Learn more",
     "ctaTargetUrl": "/docs/platform/frameworks/#using-framework-templates-to-get-started/"
   },
-  "elizaPage": {}
+  "elizaPage": {
+    "endpoints": {
+      "triggerAgentDeployment": "https://api.fleek.xyz/api/v1/deploy",
+      "getAgentDeploymentStatus": "https://api.fleek.xyz/api/v1/deployment/status"
+    }
+  }
 }
