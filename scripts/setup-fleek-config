@@ -1,6 +1,5 @@
 #!/bin/bash
 
-
 if [[ -z "$1" || -z "$2" || -z "$3" ]]; then
   echo "👹 Oops! Missing arguments required for slug, distDir and buildCommand."
   exit 1
@@ -18,7 +17,7 @@ if ! jq --arg slug "$1" --arg distDir "$2" --arg buildCommand "$3" '
   exit 1
 fi
 
-if ! mv "$fleekConfigPath.tmp" "$fleekConfigPath"; then
+if ! mv "$temp" "$fleekConfigPath"; then
   echo "👹 Oops! Failed to override the $fleekConfigPath"
   exit 1
 fi
@@ -32,4 +31,3 @@ cat "$fleekConfigPath"
 echo
 
 echo "✅ Completed fleek config setup!"
-

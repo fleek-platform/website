@@ -55,32 +55,6 @@ jobs:
       - name: Install Packages
         run: npm install
 
-      - name: Setup fleek.config.json
-        run: |
-          DIST="out"
-          BUILD="pnpm run build"
-          
-          .scripts/setup-fleek-config \
-            "$FLEEK_SLUG" \
-            "$DIST" \
-            "$BUILD"
-
-      - name: Build & deploy
-        run: |
-          fleek sites deploy
-
-      # The build output can be downloaded
-      # by external processes, e.g. website
-      # Obs: The output contains a set of hard-typed
-      # values computed  from envVars. For example,
-      # the application base URL.
-      # - name: Store build output
-      #   uses: actions/upload-artifact@v4
-      #   with:
-      #     name: build-output-${{ env.FLEEK_SLUG }}
-      #     path: out
-      #     retention-days: 90
-
       - name: Download Dashboard artifact
         id: download_dashboard_artifact
         run: |
@@ -102,11 +76,30 @@ jobs:
           ARTIFACT: ${{ steps.download_dashboard_artifact.outputs.latest_dashboard_artifact }}
           OUTPUT_PATH: "dist"
         run: |
-          if ! scripts/prepare_dashboard_files "$ARTIFACT" "$OUTPUT_PATH"; then
-            echo "👹 Oops! Failed to prepare the dashboard files for some reason..."
+          if ! scripts/unarchive_dashboard_files "$ARTIFACT" "$OUTPUT_PATH"; then
+            echo "👹 Oops! Failed to unarchive the dashboard files for some reason..."
+            exit 1
+          fi
+
+          if ! scripts/replace_dashboard_paths "$OUTPUT_PATH" /dashboard; then
+            echo "👹 Oops! Failed to replace the dashboard paths for some reason..."
             exit 1
           fi
         
+      - name: Setup fleek.config.json
+        run: |
+          DIST="out"
+          BUILD="pnpm run build"
+          
+          ./scripts/setup-fleek-config \
+            "$FLEEK_SLUG" \
+            "$DIST" \
+            "$BUILD"
+
+      - name: Build & deploy
+        run: |
+          fleek sites deploy
+
       - name: Clear
         run: |
           rm .env
