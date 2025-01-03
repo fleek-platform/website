@@ -6,20 +6,20 @@ export const transformSchemaToCharacter = (
 ): Character => {
   return {
     ...data,
-    bio: data.bio.map((el) => el.name),
-    lore: data.lore.map((el) => el.name),
-    knowledge: data.knowledge?.map((el) => el.name),
-    messageExamples: data.messageExamples.map((el) =>
-      el.map((msg) => ({
+    bio: data.bio.map((entry) => entry.name),
+    lore: data.lore.map((entry) => entry.name),
+    knowledge: data.knowledge?.map((entry) => entry.name),
+    messageExamples: data.messageExamples.map((entry) =>
+      entry.map((msg) => ({
         user: msg.user,
         content: { text: msg.content.text },
       })),
     ),
-    postExamples: data.postExamples.map((el) => el.name),
+    postExamples: data.postExamples.map((entry) => entry.name),
     style: {
-      all: data.style.all.map((el) => el.name),
-      chat: data.style.all.map((el) => el.name),
-      post: data.style.all.map((el) => el.name),
+      all: data.style.all.map((entry) => entry.name),
+      chat: data.style.all.map((entry) => entry.name),
+      post: data.style.all.map((entry) => entry.name),
     },
   };
 };

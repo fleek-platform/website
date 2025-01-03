@@ -138,13 +138,13 @@ export const SettingsPage: React.FC<GoToProps> = ({ goTo }) => {
             })}
           >
             <Input.Hint error>
-              There is an error parsing your settings JSON file, please fix it
-              or revert the change.
+              There was an error parsing your code. Please fix it or revert the
+              change above.
             </Input.Hint>
           </Box>
         )}
         {hasErrors && (
-          <Box className="gap-4">
+          <Box className="gap-4 animate-in fade-in-75 slide-in-from-top-12">
             {readableErrors.map((error) => (
               <Input.Hint key={`${error.label}: ${error.message}`} error>
                 {readableErrors.length > 1 && '-'} {error.label}:{' '}
