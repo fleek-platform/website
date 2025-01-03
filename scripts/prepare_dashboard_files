@@ -8,7 +8,7 @@ fi
 artifact_filename="$1"
 output_path="$2"
 
-if ! unzip -o "$artifact_filename"; then
+if ! unzip -q -o "$artifact_filename" -d "$output_path"; then
   echo "👹 Oops! Failed to unzip $artifact_filename"
   exit 1
 fi
@@ -22,5 +22,10 @@ fi
 
 echo "✅ Deleted $artifact_filename"
 
+if ! mkdir -p "$output_path"; then
+  echo "👹 Oops! Failed to create the output path $output_path"
+  exit 1
+fi
+
 echo "🤖 The file content generated the following file tree..."
-tree -L 3 -I "$output_path"
+tree -L 2 "$output_path"
