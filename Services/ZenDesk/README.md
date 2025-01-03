@@ -121,7 +121,6 @@ PATH=/usr/local/sbin:/usr/local/bin:/sbin:/bin:/usr/sbin:/usr/bin
 
 It contains a pre and post hook to stop and restart the nginx server, as the port 80's required for the renewal process.
 
-
 When modifying the cronjob, restart the `cron service`.
 
 ```sh
