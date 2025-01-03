@@ -1,25 +1,16 @@
 import { Dropdown } from '@components/ElizaForm/components/Dropdown';
 import { CLIENT_NAMES, CLIENTS_MAP } from '../constants';
 import { Badge } from '@components/ElizaForm/components/Badge';
-import { FaImage } from 'react-icons/fa6';
 import type { Client } from '../types';
-import { useState } from 'react';
-
-type ImageProps = {
-  client: Client;
-};
-
-const Image: React.FC<ImageProps> = ({ client }) => {
-  if (!CLIENTS_MAP[client].icon) {
-    return (
-      <div className="flex size-14 items-center justify-center overflow-hidden rounded-full bg-elz-neutral-5">
-        <FaImage className="size-8 text-elz-neutral-8" />
-      </div>
-    );
-  }
-
-  return CLIENTS_MAP[client].icon;
-};
+import {
+  Controller,
+  useWatch,
+  type ControllerRenderProps,
+} from 'react-hook-form';
+import { useElizaForm, type CharacterSchema } from '../hooks/useElizaForm';
+import { Input } from './Input';
+import { Box } from './Box';
+import { useScrollToError } from '../hooks/useScrollToError';
 
 type TriggerLabelProps = {
   clients: Client[];
@@ -38,49 +29,63 @@ const TriggerLabel: React.FC<TriggerLabelProps> = ({ clients }) => {
   );
 };
 
-type ClientsDropdownProps = {
-  clients: Client[];
-  onClientSelect: (clients: Client[]) => void;
-};
+export const ClientsDropdown: React.FC = () => {
+  const {
+    control,
+    formState: { errors },
+  } = useElizaForm();
 
-export const ClientsDropdown: React.FC<ClientsDropdownProps> = ({
-  clients,
-  onClientSelect,
-}) => {
-  const [currentClients, setCurrentClients] = useState<Client[]>(clients || []);
+  const clientsDropdownErrorRef = useScrollToError('clients', errors);
 
-  const handleCheckedChange = (isChecked: boolean, client: Client) => {
-    const newClients = isChecked
-      ? [...clients, client]
-      : clients.filter((c) => c !== client);
+  const clients: CharacterSchema['clients'] = useWatch({
+    control,
+    name: 'clients',
+  });
 
-    setCurrentClients(newClients);
-    onClientSelect(newClients);
+  const onCheckedChange = (
+    field: ControllerRenderProps<CharacterSchema, 'clients'>,
+    isChecked: boolean,
+    client: Client,
+  ) => {
+    if (isChecked) {
+      field.onChange([...clients, client]);
+    } else {
+      field.onChange(clients.filter((c) => c !== client));
+    }
   };
 
   return (
-    <Dropdown.Root>
-      <Dropdown.Trigger>
-        <TriggerLabel clients={currentClients} />
-      </Dropdown.Trigger>
-      <Dropdown.Content>
-        {CLIENT_NAMES.map((client) => {
-          return (
-            <Dropdown.CheckboxItem
-              key={client}
-              onSelect={(e) => e.preventDefault()}
-              checked={clients.some((c) => c === client)}
-              onCheckedChange={(isChecked) =>
-                handleCheckedChange(isChecked, client)
-              }
-            >
-              <div className="flex items-center gap-4">
-                {CLIENTS_MAP[client].label}
-              </div>
-            </Dropdown.CheckboxItem>
-          );
-        })}
-      </Dropdown.Content>
-    </Dropdown.Root>
+    <Controller
+      control={control}
+      name="clients"
+      render={({ field }) => (
+        <Dropdown.Root>
+          <Box className="gap-4" ref={clientsDropdownErrorRef}>
+            <Dropdown.Trigger error={Boolean(errors.clients)}>
+              <TriggerLabel clients={clients} />
+            </Dropdown.Trigger>
+            {errors.clients && (
+              <Input.Hint error>{errors.clients.message}</Input.Hint>
+            )}
+          </Box>
+          <Dropdown.Content>
+            {CLIENT_NAMES.map((client) => (
+              <Dropdown.CheckboxItem
+                key={client}
+                onSelect={(e) => e.preventDefault()}
+                checked={clients.some((c) => c === client)}
+                onCheckedChange={(isChecked) =>
+                  onCheckedChange(field, isChecked, client)
+                }
+              >
+                <div className="flex items-center gap-4">
+                  {CLIENTS_MAP[client].label}
+                </div>
+              </Dropdown.CheckboxItem>
+            ))}
+          </Dropdown.Content>
+        </Dropdown.Root>
+      )}
+    />
   );
 };

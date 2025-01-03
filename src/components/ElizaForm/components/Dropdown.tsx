@@ -5,15 +5,14 @@ import { FaCheck, FaChevronDown } from 'react-icons/fa6';
 
 const Root = DropdownMenu.Root;
 
-const Trigger: React.FC<DropdownMenu.DropdownMenuTriggerProps> = ({
-  children,
-  className,
-  ...props
-}) => {
+const Trigger: React.FC<
+  DropdownMenu.DropdownMenuTriggerProps & { error?: boolean }
+> = ({ children, className, error, ...props }) => {
   return (
     <DropdownMenu.Trigger
       className={cn(
         'group flex h-32 select-none items-center gap-4 rounded-8 border border-elz-neutral-6 bg-transparent px-8 text-white outline-none hover:bg-elz-neutral-1 focus:bg-elz-neutral-1 focus:ring-2 focus:ring-elz-neutral-4',
+        { 'border-elz-danger-8': error },
         className,
       )}
       {...props}

@@ -1,65 +1,88 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { Badge } from './Badge';
 import { Input } from './Input';
 import { FaXmark } from 'react-icons/fa6';
 import { Button } from './Button';
-import { PiWarning } from 'react-icons/pi';
-import type { Character } from '../types';
+import { useElizaForm } from '../hooks/useElizaForm';
+import { Box } from './Box';
+import { useWatch } from 'react-hook-form';
+import { useScrollToError } from '../hooks/useScrollToError';
 
 type TagsFormProps = {
-  formFieldArray: Character['adjectives'];
-  onFormChange: (newArray: Character['adjectives']) => void;
+  name: 'topics' | 'adjectives';
   placeholder: string;
 };
 
 const SUBMIT_KEYS = ['Enter', ','];
 
-export const TagsForm: React.FC<TagsFormProps> = ({
-  formFieldArray,
-  onFormChange,
-  placeholder,
-}) => {
-  const [adjective, setAdjective] = useState('');
+export const TagsForm: React.FC<TagsFormProps> = ({ name, placeholder }) => {
+  const {
+    control,
+    formState: { errors },
+    setValue,
+    clearErrors,
+  } = useElizaForm();
+
+  const form = useWatch({ control, name });
+
+  const [formFieldArray, setFormFieldArray] = useState(form);
+  const [hasUpdate, setHasUpdate] = useState(false);
+  const [tag, setTag] = useState('');
   const [error, setError] = useState(false);
 
+  useEffect(() => {
+    setFormFieldArray(form);
+  }, [form[0]]);
+
+  useEffect(() => {
+    if (hasUpdate) {
+      setValue(name, formFieldArray);
+      clearErrors(name);
+      setHasUpdate(false);
+    }
+  }, [hasUpdate]);
+
   const deleteLastFormFieldArrayEntry = () => {
-    onFormChange(formFieldArray.slice(0, -1));
+    setFormFieldArray((prev) => prev.slice(0, -1));
+    setHasUpdate(true);
   };
 
   const deleteEntryFromFormFieldArray = (idx: number) => {
-    onFormChange(formFieldArray.filter((_, i) => i !== idx));
+    setFormFieldArray((prev) => prev.filter((_, i) => i !== idx));
+    setHasUpdate(true);
   };
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setError(false);
-    setAdjective(e.target.value);
+    setTag(e.target.value);
   };
 
   const normalize = (str: string) => str.toLowerCase();
 
-  const addAdjective = (newAdjective: string) => {
+  const addTag = (newAdjective: string) => {
     const lowerCaseAdjective = normalize(newAdjective);
     const normalizedFormFieldArray = formFieldArray.map(normalize);
 
     if (normalizedFormFieldArray.includes(lowerCaseAdjective)) {
       setError(true);
     } else {
-      onFormChange([...formFieldArray, lowerCaseAdjective]);
-      setAdjective('');
+      setFormFieldArray((prev) => [...prev, lowerCaseAdjective]);
+      setTag('');
       setError(false);
+      setHasUpdate(true);
     }
   };
 
   const handleKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
-    const trimmedAdjective = adjective.trim();
+    const trimmedAdjective = tag.trim();
 
-    if (e.key === 'Backspace' && !adjective) {
+    if (e.key === 'Backspace' && !tag) {
       deleteLastFormFieldArrayEntry();
     }
 
     if (SUBMIT_KEYS.includes(e.key) && trimmedAdjective) {
       e.preventDefault();
-      addAdjective(trimmedAdjective);
+      addTag(trimmedAdjective);
     }
   };
 
@@ -68,40 +91,51 @@ export const TagsForm: React.FC<TagsFormProps> = ({
     setError(false);
 
     const pasteData = e.clipboardData.getData('text');
-    let newAdjectives: string[] = [];
+    let newTags: string[] = [];
 
     try {
       const parsed = JSON.parse(pasteData);
 
       if (Array.isArray(parsed)) {
-        newAdjectives = parsed.map((item) => normalize(item.trim()));
+        newTags = parsed.map((item) => normalize(item.trim()));
       } else {
         setError(true);
         return;
       }
     } catch {
-      newAdjectives = pasteData
+      newTags = pasteData
         .split(/,|\r?\n/)
         .map((item) => normalize(item.trim().replace(/^['"]+|['"]+$/g, '')))
         .filter(Boolean);
     }
 
     const normalizedFormFieldArray = formFieldArray.map(normalize);
-    newAdjectives = newAdjectives.filter(
+    newTags = newTags.filter(
       (item) => !normalizedFormFieldArray.includes(item),
     );
 
-    if (newAdjectives.length) {
-      onFormChange([...formFieldArray, ...newAdjectives]);
-      setAdjective('');
+    if (newTags.length) {
+      setFormFieldArray((prev) => [...prev, ...newTags]);
+      setTag('');
+      setHasUpdate(true);
     }
   };
 
+  const handleBlur = () => {
+    if (!tag) return;
+
+    addTag(tag);
+  };
+
+  const errorMsg = errors[name]?.message;
+
+  const tagsFormErrorRef = useScrollToError(name, errors);
+
   return (
-    <>
+    <Box className="gap-4" ref={tagsFormErrorRef}>
       <Input.Root
         className="min-h-[3.5rem] flex-wrap gap-x-5 gap-y-6 py-6"
-        error={error}
+        error={error || Boolean(errorMsg)}
       >
         {formFieldArray.map((field, idx) => (
           <Badge
@@ -120,19 +154,16 @@ export const TagsForm: React.FC<TagsFormProps> = ({
         ))}
         <Input.Field
           placeholder={placeholder}
-          className="min-w-fit flex-1"
-          value={adjective}
+          className="min-w-fit flex-1 px-4"
+          value={tag}
           onChange={handleChange}
           onKeyDown={handleKeyDown}
           onPaste={handlePaste}
+          onBlur={handleBlur}
         />
       </Input.Root>
-      {error && (
-        <Input.Hint error>
-          <PiWarning className="shrink-0" />
-          {adjective} is already in the list.
-        </Input.Hint>
-      )}
-    </>
+      {error && <Input.Hint error>{tag} is already in the list</Input.Hint>}
+      {errorMsg && <Input.Hint error>{errorMsg}</Input.Hint>}
+    </Box>
   );
 };
