@@ -33,7 +33,13 @@ export const Navigation = () => {
         completeStep={completeStep}
       />
     ),
-    settings: <SettingsPage goTo={goTo} />,
+    settings: (
+      <SettingsPage
+        goTo={goTo}
+        completedStep={completedStep}
+        completeStep={completeStep}
+      />
+    ),
     review: <ReviewPage goTo={goTo} />,
   };
 

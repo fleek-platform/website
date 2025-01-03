@@ -2,7 +2,7 @@ import { FaChevronLeft, FaChevronRight } from 'react-icons/fa6';
 import { Box } from './Box';
 import { Button } from './Button';
 import { Text } from './Text';
-import type { GoToProps } from '../types';
+import type { GoToProps, Step } from '../types';
 import type React from 'react';
 import Link, { Target } from './Link';
 import { useElizaForm, type CharacterSchema } from '../hooks/useElizaForm';
@@ -44,9 +44,17 @@ type HeaderProps = {
   onPrevious: () => void;
   onNext: () => void;
   hasErrors: boolean;
+  completedStep: Step;
 };
 
-const Header: React.FC<HeaderProps> = ({ onPrevious, onNext, hasErrors }) => {
+const Header: React.FC<HeaderProps> = ({
+  onPrevious,
+  onNext,
+  hasErrors,
+  completedStep,
+}) => {
+  const isStepCompleted = completedStep >= 2;
+
   return (
     <Box className="w-full flex-row items-center justify-between">
       <Button
@@ -61,7 +69,7 @@ const Header: React.FC<HeaderProps> = ({ onPrevious, onNext, hasErrors }) => {
         variant="ghost"
         className="text-elz-accent-11"
         onClick={onNext}
-        disabled={true}
+        disabled={!isStepCompleted || hasErrors}
       >
         Review <FaChevronRight />
       </Button>
@@ -69,7 +77,16 @@ const Header: React.FC<HeaderProps> = ({ onPrevious, onNext, hasErrors }) => {
   );
 };
 
-export const SettingsPage: React.FC<GoToProps> = ({ goTo }) => {
+type SettingsPageProps = GoToProps & {
+  completedStep: Step;
+  completeStep: (step: Step) => void;
+};
+
+export const SettingsPage: React.FC<SettingsPageProps> = ({
+  goTo,
+  completeStep,
+  completedStep,
+}) => {
   const [errorJson, setErrorJson] = useState(false);
 
   const { control, formState, handleSubmit } = useElizaForm();
@@ -83,6 +100,11 @@ export const SettingsPage: React.FC<GoToProps> = ({ goTo }) => {
 
   const onSubmit = () => {
     if (errorJson) return;
+
+    if (completedStep === 1) {
+      completeStep(2);
+    }
+
     goTo('review');
   };
 
@@ -93,6 +115,7 @@ export const SettingsPage: React.FC<GoToProps> = ({ goTo }) => {
           onPrevious={handleSubmit(onPrevious)}
           onNext={handleSubmit(onSubmit)}
           hasErrors={hasErrors}
+          completedStep={completedStep}
         />
         <Text>Settings</Text>
         <Text variant="description" className="text-wrap">
@@ -144,7 +167,7 @@ export const SettingsPage: React.FC<GoToProps> = ({ goTo }) => {
           </Box>
         )}
         {hasErrors && (
-          <Box className="gap-4 animate-in fade-in-75 slide-in-from-top-12">
+          <Box className="gap-4 duration-300 animate-in fade-in-75 slide-in-from-top-12">
             {readableErrors.map((error) => (
               <Input.Hint key={`${error.label}: ${error.message}`} error>
                 {readableErrors.length > 1 && '-'} {error.label}:{' '}
@@ -154,7 +177,7 @@ export const SettingsPage: React.FC<GoToProps> = ({ goTo }) => {
           </Box>
         )}
       </Box>
-      <Button onClick={handleSubmit(onSubmit)}>Review character</Button>
+      <Button onClick={handleSubmit(onSubmit)}>Review Character</Button>
     </Box>
   );
 };

@@ -88,7 +88,7 @@ const Header: React.FC<HeaderProps> = ({
 
   const toggle = () => setIsOpen((prev) => !prev);
 
-  const isStepCompleted = completedStep === 1;
+  const isStepCompleted = completedStep >= 1;
   const label = isStepCompleted ? 'Discard and go back' : 'Go back';
 
   if (isOpen)
@@ -115,7 +115,7 @@ const Header: React.FC<HeaderProps> = ({
         className="text-yellow-dark-11"
         onClick={isStepCompleted ? toggle : onPrevious}
       >
-        <FaChevronLeft className="size-12" /> {label}
+        <FaChevronLeft /> {label}
       </Button>
       <Button
         variant="ghost"
@@ -168,7 +168,9 @@ export const Characterfile: React.FC<CharacterfileProps> = ({
   };
 
   const onSubmit = (data: CharacterSchema) => {
-    completeStep(1);
+    if (completedStep === 0) {
+      completeStep(1);
+    }
     mapSettingsSecretsAndUpdateForm(data);
     goTo('settings');
   };

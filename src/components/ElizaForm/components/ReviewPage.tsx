@@ -23,7 +23,7 @@ export const ReviewPage: React.FC<GoToProps> = ({ goTo }) => {
           Settings
         </Button>
         <Button variant="ghost" className="text-yellow-dark-11" disabled>
-          Finish <FaChevronRight />
+          Deploy <FaChevronRight />
         </Button>
       </Box>
       <pre className="max-h-608 overflow-x-auto rounded-12 border border-elz-neutral-6 bg-elz-neutral-1 p-12 text-[1.2rem]">
