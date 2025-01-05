@@ -6,9 +6,11 @@ import { Characterfile } from './Characterfile';
 import ElizaModule from '@components/Eliza';
 import { FormProviderCharacterBuilder } from '../hooks/useElizaForm';
 import { SettingsPage } from './SettingsPage';
-import { ReviewPage } from './ReviewPage';
+import { ReviewPage, type ReviewPageProps } from './ReviewPage';
 
-export const Navigation = () => {
+interface NavigationProps extends ReviewPageProps {}
+
+export const Navigation: React.FC<NavigationProps> = (props) => {
   const [page, setPage] = useState<Page>('getStarted');
   const [template, setTemplate] = useState<Template>();
   const [completedStep, setCompletedStep] = useState<Step>(0);
@@ -40,7 +42,9 @@ export const Navigation = () => {
         completeStep={completeStep}
       />
     ),
-    review: <ReviewPage goTo={goTo} />,
+    review: (
+      <ReviewPage goTo={goTo} onDeployBtnClick={props.onDeployBtnClick} />
+    ),
   };
 
   return (

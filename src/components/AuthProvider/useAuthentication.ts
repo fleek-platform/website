@@ -5,7 +5,7 @@ import type { Project } from '@fleekxyz/sdk/dist-types/generated/graphqlClient/s
 
 import settings from '@base/settings.json';
 import { clearCookie, setCookie, getCookie } from '@utils/cookies';
-import { getProject, getSubscription, getTeam } from './api/api';
+import { getProject, getSubscription } from './api/api';
 
 export const useAuthentication = () => {
   const { user, setShowAuthFlow, authToken, handleLogOut } =
@@ -13,7 +13,6 @@ export const useAuthentication = () => {
 
   const [isAuthenticating, setIsAuthenticating] = useState(false);
   const [isLoadingProjects, setIsLoadingProjects] = useState(false);
-  const [isAuthenticated, setIsAuthenticated] = useState(false);
   const [userProjects, setUserProjects] = useState<Project[]>([]);
   const [userActiveProject, setUserActiveProject] = useState<
     string | undefined
@@ -30,6 +29,7 @@ export const useAuthentication = () => {
   const fetchGraphQLToken = async (
     projectId?: string,
   ): Promise<string | undefined> => {
+    if (!authToken) return;
     setIsAuthenticating(true);
 
     const query = `mutation loginWithDynamic($data: LoginWithDynamicDataInput!) {
@@ -54,12 +54,13 @@ export const useAuthentication = () => {
       const response = await fetch(settings.site.graphql.url, options);
       const { data } = await response.json();
 
-      const newToken = data.loginWithDynamic;
+      const newToken = data?.loginWithDynamic;
+      if (!newToken) return;
       setIsAuthenticating(false);
       return newToken;
     } catch (error) {
+      setIsAuthenticating(false);
       console.error('Failed to fetch GraphQL token:', error);
-      setIsAuthenticated(false);
       return;
     }
   };
@@ -104,23 +105,19 @@ export const useAuthentication = () => {
   const loadSubscriptions = async (projectId: string) => {
     setActiveSubscriptions(undefined);
     const token = getCookie(settings.site.auth.authTokenCookieKey);
-    console.log('🚀 ~ loadSubscriptions ~ token:', token);
     if (!token) return false;
 
+    const decodedToken = decodeAccessToken({ token });
+    if (!decodedToken?.projectId || decodedToken.projectId !== projectId)
+      return false;
+
     const projectResponse = await getProject(projectId, token);
-    console.log('🚀 ~ loadSubscriptions ~ projectResponse:', projectResponse);
+    console.log('🚀 ~ loadSubscriptions > projectResponse:', projectResponse);
     if (!projectResponse.ok || !projectResponse?.data?.teamId) return false;
 
-    const teamResponse = await getTeam(projectResponse.data.teamId, token);
-    console.log('🚀 ~ loadSubscriptions ~ teamResponse:', teamResponse);
-    if (!teamResponse.ok || !teamResponse?.data?.subscriptionId) return false;
-
-    const subscriptionResponse = await getSubscription(
-      teamResponse.data.subscriptionId,
-      token,
-    );
+    const subscriptionResponse = await getSubscription(projectId, token);
     console.log(
-      '🚀 ~ loadSubscriptions ~ subscriptionResponse:',
+      '🚀 ~ loadSubscriptions > subscriptionResponse:',
       subscriptionResponse,
     );
     if (!subscriptionResponse.ok || !subscriptionResponse?.data?.items)
@@ -129,11 +126,13 @@ export const useAuthentication = () => {
     setActiveSubscriptions(subscriptionResponse.data.items);
   };
 
-  const login = (): Promise<boolean> => {
+  const login = async (): Promise<boolean> => {
     if (isLoggedIn()) return Promise.resolve(true);
 
     setIsAuthenticating(true);
     setShowAuthFlow(true);
+
+    await initializeProjects();
 
     return new Promise<boolean>((resolve, reject) => {
       loginPromiseRef.current = { resolve, reject };
@@ -141,7 +140,6 @@ export const useAuthentication = () => {
   };
 
   const logout = () => {
-    setIsAuthenticated(false);
     setUserActiveProject(undefined);
     setUserProjects([]);
     clearCookie(settings.site.auth.authTokenCookieKey);
@@ -158,10 +156,12 @@ export const useAuthentication = () => {
 
   const initializeProjects = async () => {
     if (isLoadingProjects) return;
+
     const token = getCookie(settings.site.auth.authTokenCookieKey);
     if (!token) {
       await updateTokenFromProjectId();
     }
+
     setIsLoadingProjects(true);
 
     try {
@@ -186,13 +186,19 @@ export const useAuthentication = () => {
       }
     } catch (error) {
       console.error('Failed to initialize user projects:', error);
+      return false;
     } finally {
       setIsLoadingProjects(false);
+      return true;
     }
   };
 
   const isLoggedIn = useCallback((): boolean => {
-    return !!user && !!getCookie(settings.site.auth.authTokenCookieKey);
+    const token = getCookie(settings.site.auth.authTokenCookieKey);
+    if (!token) return false;
+    const decodedToken = decodeAccessToken({ token });
+
+    return !!user && decodedToken.projectId === userActiveProject;
   }, [user, getCookie]);
 
   const updateTokenFromProjectId = async (projectId?: string) => {
@@ -213,10 +219,10 @@ export const useAuthentication = () => {
   }, [activeSubscriptions]);
 
   useEffect(() => {
-    if (user) {
+    if (user && (!userProjects || userProjects.length <= 0)) {
       initializeProjects();
     }
-  }, [user]);
+  }, [user, userProjects]);
 
   return {
     isLoggedIn,

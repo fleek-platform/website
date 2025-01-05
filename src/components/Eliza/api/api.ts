@@ -2,7 +2,6 @@ import settings from '@base/settings.json';
 
 export const triggerDeployment = async (
   characterFile: string,
-  envFile: string,
   token: string,
 ): Promise<{
   ok: boolean;
@@ -20,7 +19,6 @@ export const triggerDeployment = async (
         },
         body: JSON.stringify({
           characterFile,
-          envFile,
         }),
       },
     );
