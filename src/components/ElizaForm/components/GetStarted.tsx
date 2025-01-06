@@ -3,7 +3,11 @@ import { Text } from './Text';
 import type React from 'react';
 import { Box } from './Box';
 import type { GoToProps } from '../types';
-import { ExtensionPuzzleIcon, ReaderIcon } from './CustomIcons';
+import {
+  CloudUploadIcon,
+  ExtensionPuzzleIcon,
+  ReaderIcon,
+} from './CustomIcons';
 import { useElizaForm } from '../hooks/useElizaForm';
 import { TEMPLATE_CHARACTERFILES_MAP } from '../constants';
 
@@ -28,12 +32,12 @@ export const GetStarted: React.FC<GoToProps> = ({ goTo }) => {
         </Text>
       </Box>
       <Box className="gap-22">
-        {/* <ActionBox
-          onClick={() => goTo('upload')}
+        <ActionBox
+          // onClick={() => goTo('upload')}
           icon={<CloudUploadIcon className="size-34 shrink-0" />}
           title="Upload characterfile"
           description="Already have a characterfile? Create an agent with an upload."
-        /> */}
+        />
         <ActionBox
           onClick={() => goTo('characterfile')}
           icon={<ReaderIcon className="size-34 shrink-0" />}
@@ -43,7 +47,7 @@ export const GetStarted: React.FC<GoToProps> = ({ goTo }) => {
         <ActionBox
           onClick={onTemplatePageSelect}
           icon={<ExtensionPuzzleIcon className="size-34 shrink-0" />}
-          title="Start with template"
+          title="Start with a template"
           description="Create an agent by customizing an existing template."
         />
       </Box>

@@ -1,4 +1,4 @@
-import { FaChevronLeft, FaChevronRight } from 'react-icons/fa6';
+import { FaChevronLeft } from 'react-icons/fa6';
 import { Box } from './Box';
 import { Button } from './Button';
 import { Text } from './Text';
@@ -65,14 +65,6 @@ const Header: React.FC<HeaderProps> = ({
       >
         <FaChevronLeft /> Characterfile
       </Button>
-      <Button
-        variant="ghost"
-        className="text-elz-accent-11"
-        onClick={onNext}
-        disabled={!isStepCompleted || hasErrors}
-      >
-        Review <FaChevronRight />
-      </Button>
     </Box>
   );
 };
@@ -137,7 +129,6 @@ export const SettingsPage: React.FC<SettingsPageProps> = ({
           name="settings"
           render={({ field }) => (
             <FileEditor
-              variant="narrow"
               fileType="json"
               fileContent={JSON.stringify(field.value, null, 2)}
               onChange={(data) => {
@@ -179,7 +170,7 @@ export const SettingsPage: React.FC<SettingsPageProps> = ({
           </Box>
         )}
       </Box>
-      <Button onClick={handleSubmit(onSubmit)}>Review Character</Button>
+      <Button onClick={handleSubmit(onSubmit)}>Review character</Button>
     </Box>
   );
 };

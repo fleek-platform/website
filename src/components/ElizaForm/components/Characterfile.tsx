@@ -23,7 +23,7 @@ import { KnowledgeForm } from './KnowledgeForm';
 import { LoreForm } from './LoreForm';
 import { PostExamplesForm } from './PostExamplesForm';
 import { StyleForm } from './StyleForm';
-import { FaChevronLeft, FaChevronRight } from 'react-icons/fa6';
+import { FaChevronLeft } from 'react-icons/fa6';
 import { useState } from 'react';
 import { Input } from './Input';
 
@@ -117,14 +117,6 @@ const Header: React.FC<HeaderProps> = ({
       >
         <FaChevronLeft /> {label}
       </Button>
-      <Button
-        variant="ghost"
-        disabled={!isStepCompleted}
-        className="text-elz-accent-11"
-        onClick={onNext}
-      >
-        Settings <FaChevronRight />
-      </Button>
     </Box>
   );
 };
@@ -171,6 +163,7 @@ export const Characterfile: React.FC<CharacterfileProps> = ({
     if (completedStep === 0) {
       completeStep(1);
     }
+
     mapSettingsSecretsAndUpdateForm(data);
     goTo('settings');
   };

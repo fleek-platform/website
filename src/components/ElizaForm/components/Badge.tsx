@@ -5,7 +5,7 @@ export const Badge: React.FC<
   PropsWithChildren & HTMLAttributes<HTMLDivElement>
 > = ({ children, className, ...props }) => {
   return (
-    <div
+    <span
       className={cn(
         'flex min-h-18 items-center gap-4 rounded-full bg-elz-neutral-3 px-4 text-13 text-elz-neutral-11',
         className,
@@ -13,6 +13,6 @@ export const Badge: React.FC<
       {...props}
     >
       {children}
-    </div>
+    </span>
   );
 };

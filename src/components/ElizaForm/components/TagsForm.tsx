@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import { Badge } from './Badge';
 import { Input } from './Input';
-import { FaXmark } from 'react-icons/fa6';
+import { FaLightbulb, FaXmark } from 'react-icons/fa6';
 import { Button } from './Button';
 import { useElizaForm } from '../hooks/useElizaForm';
 import { Box } from './Box';
@@ -32,7 +32,7 @@ export const TagsForm: React.FC<TagsFormProps> = ({ name, placeholder }) => {
 
   useEffect(() => {
     setFormFieldArray(form);
-  }, [form[0]]);
+  }, [form]);
 
   useEffect(() => {
     if (hasUpdate) {
@@ -134,7 +134,7 @@ export const TagsForm: React.FC<TagsFormProps> = ({ name, placeholder }) => {
   return (
     <Box className="gap-4" ref={tagsFormErrorRef}>
       <Input.Root
-        className="min-h-[3.5rem] flex-wrap gap-x-5 gap-y-6 py-6"
+        className="relative min-h-[3.5rem] flex-wrap gap-x-5 gap-y-6 py-6"
         error={error || Boolean(errorMsg)}
       >
         {formFieldArray.map((field, idx) => (
@@ -161,6 +161,12 @@ export const TagsForm: React.FC<TagsFormProps> = ({ name, placeholder }) => {
           onPaste={handlePaste}
           onBlur={handleBlur}
         />
+        {formFieldArray.length === 0 && (
+          <Input.Hint className="pointer-events-none absolute right-8">
+            <FaLightbulb /> Press <Badge className="rounded-3">Enter</Badge> or{' '}
+            <Badge className="rounded-3">,</Badge> to add {name}
+          </Input.Hint>
+        )}
       </Input.Root>
       {error && <Input.Hint error>{tag} is already in the list</Input.Hint>}
       {errorMsg && <Input.Hint error>{errorMsg}</Input.Hint>}

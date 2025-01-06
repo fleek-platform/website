@@ -3,7 +3,6 @@ import { GetStarted } from './GetStarted';
 import { Layout } from './Layout';
 import { type Template, type Page, type Step } from '../types';
 import { Characterfile } from './Characterfile';
-import ElizaModule from '@components/Eliza';
 import { FormProviderCharacterBuilder } from '../hooks/useElizaForm';
 import { SettingsPage } from './SettingsPage';
 import { ReviewPage } from './ReviewPage';
@@ -24,7 +23,7 @@ export const Navigation = () => {
 
   const pages: Record<Page, React.ReactNode> = {
     getStarted: <GetStarted goTo={goTo} />,
-    upload: <ElizaModule />,
+    upload: <></>,
     characterfile: (
       <Characterfile
         goTo={goTo}

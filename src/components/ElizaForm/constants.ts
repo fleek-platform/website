@@ -179,7 +179,7 @@ export const INITIAL_FORM: CharacterSchema = {
   name: '',
   plugins: [],
   clients: [],
-  modelProvider: '' as CharacterSchema['modelProvider'],
+  modelProvider: 'openai',
   settings: {
     secrets: {},
     voice: {
@@ -219,8 +219,8 @@ const ELIZA: CharacterSchema = {
   name: 'Eliza',
   username: 'eliza',
   plugins: [],
-  clients: [],
-  modelProvider: '' as CharacterSchema['modelProvider'],
+  clients: ['direct', 'twitter'],
+  modelProvider: 'openai',
   settings: {
     secrets: {},
     voice: {
@@ -753,8 +753,8 @@ const ELIZA: CharacterSchema = {
 
 const TRUMP: CharacterSchema = {
   name: 'Trump',
-  clients: [],
-  modelProvider: '' as CharacterSchema['modelProvider'],
+  clients: ['direct', 'twitter'],
+  modelProvider: 'openai',
   settings: {
     secrets: {},
     voice: {
@@ -1195,8 +1195,8 @@ const TRUMP: CharacterSchema = {
 
 const C3PO: CharacterSchema = {
   name: 'C-3PO',
-  clients: [],
-  modelProvider: '' as CharacterSchema['modelProvider'],
+  clients: ['direct', 'twitter'],
+  modelProvider: 'openai',
   settings: {
     secrets: {},
     voice: {
@@ -1309,8 +1309,8 @@ const C3PO: CharacterSchema = {
 
 const DOBBY: CharacterSchema = {
   name: 'Dobby',
-  clients: [],
-  modelProvider: '' as CharacterSchema['modelProvider'],
+  clients: ['direct', 'twitter'],
+  modelProvider: 'openai',
   settings: {
     secrets: {},
     voice: {
