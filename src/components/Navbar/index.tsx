@@ -2,6 +2,7 @@ import type React from 'react';
 import { navbarMenu, type NavMenuItem, type NavSubMenuItem } from './config';
 import Link, { Target } from '@components/Link';
 import { useCallback, useState } from 'react';
+import LoginProvider from "@fleek-platform/login-button";
 import { FaArrowRight, FaDiscord, FaXmark, FaXTwitter } from 'react-icons/fa6';
 import { cn } from '@utils/cn';
 import { RxHamburgerMenu } from 'react-icons/rx';
@@ -343,14 +344,57 @@ const SessionManagementActions: React.FC = () => {
         </>
       ) : (
         <>
-          <Button
+          <LoginProvider
+            // requestCookies={requestCookies}
+            graphqlApiUrl="set-graph-url-here"
+            environmentId="set-env-id-here"
+          >
+            {(props) => {
+              const { login, logout, accessToken, isLoading, error } = props;
+
+              const handleClick = () => {
+                if (Boolean(accessToken)) {
+                  logout();
+                } else {
+                  login();
+                }
+              };
+
+              let buttonText = "Log in";
+
+              switch (true) {
+                case Boolean(error):
+                  buttonText = "Login failed";
+                  break;
+                case isLoading:
+                  buttonText = "Loading...";
+                  break;
+                // not real session, session is in the cookie, just for demo
+                case Boolean(accessToken):
+                  buttonText = "Log out";
+                  break;
+              }
+
+              return (
+                <Button
+                  variant="secondary"
+                  size="sm"
+                  onClick={handleClick}
+                >
+                  {buttonText}
+                </Button>
+              );
+            }}
+          </LoginProvider>
+
+          {/* <Button
             variant="secondary"
             size="sm"
             onClick={handleLoginClick}
             href="https://app.fleek.xyz/"
           >
             Log in
-          </Button>
+          </Button> */}
           <Button
             variant="tertiary"
             size="sm"

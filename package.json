@@ -54,6 +54,7 @@
     "@dynamic-labs/ethereum": "^3.9.4",
     "@dynamic-labs/sdk-react-core": "^3.9.4",
     "@fleek-platform/utils-token": "^0.2.2",
+    "@fleek-platform/login-button": "^1.0.1",
     "@fleekxyz/sdk": "^0.7.3",
     "@hookform/resolvers": "^3.9.1",
     "@meilisearch/instant-meilisearch": "^0.17.0",
