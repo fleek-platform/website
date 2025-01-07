@@ -22,7 +22,7 @@ const Eliza: React.FC = () => {
     enableMocking();
   }, []);
 
-  return isReady ? <ElizaIntegrationLayer /> : null;
+  return isReady ? <ElizaIntegrationLayer /> : <div>Loading...</div>;
 };
 
 export default Eliza;

@@ -7,6 +7,7 @@ import ElizaModule from '@components/Eliza';
 import { FormProviderCharacterBuilder } from '../hooks/useElizaForm';
 import { SettingsPage } from './SettingsPage';
 import { ReviewPage, type ReviewPageProps } from './ReviewPage';
+import { Upload } from './Upload';
 
 interface NavigationProps extends ReviewPageProps {}
 
@@ -26,7 +27,7 @@ export const Navigation: React.FC<NavigationProps> = (props) => {
 
   const pages: Record<Page, React.ReactNode> = {
     getStarted: <GetStarted goTo={goTo} />,
-    upload: <ElizaModule />,
+    upload: <Upload goTo={goTo} />,
     characterfile: (
       <Characterfile
         goTo={goTo}
