@@ -16,29 +16,7 @@ import {
 import FileEditor from '@components/Eliza/components/FileEditor';
 import { cn } from '@utils/cn';
 import { Input } from './Input';
-
-type TransformedItem = {
-  label: string;
-  message: string;
-  type: string;
-};
-
-type FormError = Merge<
-  FieldError,
-  FieldErrorsImpl<CharacterSchema['settings']>
->;
-
-const transformErrors = (errors: FormError | undefined): TransformedItem[] => {
-  if (!errors) return [];
-
-  return Object.entries(errors).flatMap(([category, items]) =>
-    Object.entries(items).map(([key, value]) => ({
-      label: key,
-      message: value.message,
-      type: category,
-    })),
-  );
-};
+import { transformErrors } from '../utils/transformData';
 
 type HeaderProps = {
   onPrevious: () => void;

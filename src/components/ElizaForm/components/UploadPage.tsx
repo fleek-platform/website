@@ -7,7 +7,7 @@ import { Text } from './Text';
 import Link, { Target } from './Link';
 import ChooseCharacterFile from '@components/Eliza/components/ChooseCharacterFile';
 
-export const Upload: React.FC<GoToProps> = ({ goTo }) => {
+export const UploadPage: React.FC<GoToProps> = ({ goTo }) => {
   return (
     <>
       <Box className="gap-16">

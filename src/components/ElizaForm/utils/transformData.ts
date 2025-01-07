@@ -1,5 +1,31 @@
+import type { FieldError, FieldErrorsImpl, Merge } from 'react-hook-form';
 import type { CharacterSchema } from '../hooks/useElizaForm';
 import type { Character } from '../types';
+
+type TransformedItem = {
+  label: string;
+  message: string;
+  type: string;
+};
+
+type FormError = Merge<
+  FieldError,
+  FieldErrorsImpl<CharacterSchema['settings']>
+>;
+
+export const transformErrors = (
+  errors: FormError | undefined,
+): TransformedItem[] => {
+  if (!errors) return [];
+
+  return Object.entries(errors).flatMap(([category, items]) =>
+    Object.entries(items).map(([key, value]) => ({
+      label: key,
+      message: value.message,
+      type: category,
+    })),
+  );
+};
 
 export const transformSchemaToCharacter = (
   data: CharacterSchema,

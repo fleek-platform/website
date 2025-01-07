@@ -3,11 +3,10 @@ import { GetStarted } from './GetStarted';
 import { Layout } from './Layout';
 import { type Template, type Page, type Step } from '../types';
 import { Characterfile } from './Characterfile';
-import ElizaModule from '@components/Eliza';
 import { FormProviderCharacterBuilder } from '../hooks/useElizaForm';
 import { SettingsPage } from './SettingsPage';
 import { ReviewPage, type ReviewPageProps } from './ReviewPage';
-import { Upload } from './Upload';
+import { UploadPage } from './UploadPage';
 
 interface NavigationProps extends ReviewPageProps {}
 
@@ -27,7 +26,7 @@ export const Navigation: React.FC<NavigationProps> = (props) => {
 
   const pages: Record<Page, React.ReactNode> = {
     getStarted: <GetStarted goTo={goTo} />,
-    upload: <Upload goTo={goTo} />,
+    upload: <UploadPage goTo={goTo} />,
     characterfile: (
       <Characterfile
         goTo={goTo}
