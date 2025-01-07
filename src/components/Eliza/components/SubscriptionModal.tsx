@@ -25,12 +25,12 @@ export const SubscriptionModal: React.FC<SubscriptionModalProps> = ({
   const handleOnSubmitClick = async () => {
     const token = getCookie(settings.site.auth.authTokenCookieKey);
     if (!activeProjectId || !token) return;
-    console.log('🚀 ~ handleOnSubmitClick ~ activeProjectId:', activeProjectId);
+    console.log('🚀 ~ handleOnSubmitClick > activeProjectId:', activeProjectId);
 
     setIsLoading(true);
 
     const plans = await getPlans(token);
-    console.log('🚀 ~ handleOnSubmitClick ~ plans:', plans);
+    console.log('🚀 ~ handleOnSubmitClick > plans:', plans);
     if (!plans || !plans.ok || !plans.data?.length) {
       toast.error('Failed to fetch plans');
       setIsLoading(false);
@@ -48,7 +48,7 @@ export const SubscriptionModal: React.FC<SubscriptionModalProps> = ({
     );
 
     console.log(
-      '🚀 ~ handleOnSubmitClick ~ subscriptionCreationResponse:',
+      '🚀 ~ handleOnSubmitClick > subscriptionCreationResponse:',
       subscriptionCreationResponse,
     );
 

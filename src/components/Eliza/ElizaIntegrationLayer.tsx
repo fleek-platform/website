@@ -19,14 +19,11 @@ export const ElizaIntegration: React.FC = () => {
     useSubscriptionModal();
   const subscriptionModalCallbackRef = useRef<(value?: boolean) => void>();
 
-  const triggerAgentDeployment = async (
-    characterfile?: string,
-    env?: string,
-  ) => {
+  const triggerAgentDeployment = async (characterfile?: string) => {
     const token = getCookie(settings.site.auth.authTokenCookieKey);
-    if (!token || !characterfile || !env) return { ok: false };
+    if (!token || !characterfile) return { ok: false };
 
-    const res = await triggerDeployment(characterfile, env, token);
+    const res = await triggerDeployment(characterfile, token);
 
     return {
       ok: res.ok,

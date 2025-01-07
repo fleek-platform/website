@@ -1,4 +1,3 @@
-import { type FC } from 'react';
 import { EthereumWalletConnectors } from '@dynamic-labs/ethereum';
 import {
   DynamicContextProvider,
@@ -7,7 +6,7 @@ import {
 import settings from '@base/settings.json';
 import { isClient } from '@utils/common';
 
-export const AuthProvider: FC<{ children: React.ReactNode }> = ({
+export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({
   children,
 }) => {
   return (
