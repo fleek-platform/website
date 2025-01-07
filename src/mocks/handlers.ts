@@ -31,13 +31,9 @@ export const handlers = [
     settings.elizaPage.endpoints.triggerAgentDeployment,
     async ({ request }) => {
       const { characterfile, env } = await request.json();
-      console.log(
-        '🚀 Mocked endpoint received body > { characterfile, env }:',
-        {
-          characterfile,
-          env,
-        },
-      );
+      console.log('🐑 Mocked endpoint received body > { characterfile }:', {
+        characterfile,
+      });
 
       return HttpResponse.json({
         deploymentId: 'mockDeploymentId',
@@ -55,7 +51,7 @@ export const handlers = [
     async ({ params }) => {
       const { deploymentId } = params;
       console.log(
-        '🚀 Mocked endpoint received param ~ deploymentId:',
+        '🐑 Mocked endpoint received param ~ deploymentId:',
         deploymentId,
       );
       await new Promise((resolve) => setTimeout(resolve, 750));
@@ -66,7 +62,7 @@ export const handlers = [
             Math.random() < FAILURE_RATE ? 'failed' : 'success';
           if (tempResponse[step] === 'failed') {
             console.error(
-              `❌ A mocked critical failure occurred during deployment at step: ${step}`,
+              `🐑❌ A mocked critical failure occurred during deployment at step: ${step}`,
             );
           }
           break;
@@ -118,7 +114,7 @@ export const handlers = [
     async ({ params }) => {
       const { subscriptionId } = params;
       console.log(
-        '🚀 Mocked endpoint received param ~ subscriptionId:',
+        '🐑 Mocked endpoint received param ~ subscriptionId:',
         subscriptionId,
       );
 

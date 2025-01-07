@@ -11,7 +11,14 @@ import FileEditor from '@components/Eliza/components/FileEditor';
 import { cn } from '@utils/cn';
 import { Input } from './Input';
 
-export const ReviewPage: React.FC<GoToProps> = ({ goTo }) => {
+export interface ReviewPageProps {
+  onDeployBtnClick: (characterfile: string | undefined) => void;
+}
+
+export const ReviewPage: React.FC<ReviewPageProps & GoToProps> = ({
+  goTo,
+  onDeployBtnClick,
+}) => {
   const { getValues } = useElizaForm();
   const data = getValues();
   const transformedData = transformSchemaToCharacter(data);
@@ -59,7 +66,9 @@ export const ReviewPage: React.FC<GoToProps> = ({ goTo }) => {
           </Input.Hint>
         </Box>
       )}
-      <Button>Deploy agent</Button>
+      <Button onClick={() => onDeployBtnClick(characterFile)}>
+        Deploy agent
+      </Button>
     </Box>
   );
 };

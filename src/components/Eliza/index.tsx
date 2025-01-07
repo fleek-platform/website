@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { ElizaIntegrationLayer } from './ElizaIntegrationLayer';
-import { isServer } from '@utils/common';
+import { isProd, isServer } from '@utils/common';
 import settings from '@base/settings.json';
 
 const Eliza: React.FC = () => {
@@ -8,16 +8,15 @@ const Eliza: React.FC = () => {
 
   useEffect(() => {
     const enableMocking = async () => {
-      if (
-        import.meta.env.MODE === 'production' ||
-        typeof window === 'undefined'
-      ) {
+      if (isProd || isServer) {
         return;
       }
-      const { setupWorker } = await import('msw/browser');
-      const { handlers } = await import('@base/mocks/handlers');
-      const worker = setupWorker(...handlers);
-      worker.start();
+      const { worker } = await import('@base/mocks/browser');
+      if (worker) {
+        await worker.start();
+      }
+
+      setIsReady(true);
     };
 
     enableMocking();

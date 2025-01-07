@@ -43,51 +43,6 @@ export const getProject = async (
   }
 };
 
-export const getTeam = async (
-  teamId?: string,
-  token?: string,
-): Promise<{
-  ok: boolean;
-  data?: {
-    id: string;
-    name: string;
-    externalBillingId: string;
-    updatedAt: string;
-    createdAt: string;
-    subscriptionId: string;
-    paymentMethodId?: string;
-  };
-  error?: string;
-}> => {
-  if (!teamId || !token) return { ok: false };
-  try {
-    const response = await fetch(
-      `${settings.site.auth.endpoints.teams}/${teamId}`,
-      {
-        method: 'GET',
-        headers: {
-          'Content-Type': 'application/json',
-          authorization: `Bearer ${token}`,
-        },
-      },
-    );
-
-    if (!response.ok) {
-      const errorText = await response.text();
-      return {
-        ok: false,
-        error: `HTTP Error ${response.status}: ${errorText}`,
-      };
-    }
-
-    const data = await response.json();
-
-    return { ok: true, data };
-  } catch (error: any) {
-    return { ok: false, error: error.message };
-  }
-};
-
 export const getSubscription = async (
   subscriptionId?: string,
   token?: string,

@@ -1,3 +1,4 @@
+import { useMemo } from 'react';
 import { useState } from 'react';
 
 export type DeploymentStatus = {
@@ -10,7 +11,6 @@ export interface UseDeployAIAgentProps {
   ensureUserSubscription: () => Promise<boolean>;
   triggerAgentDeployment: (
     characterfile: string,
-    env: string,
   ) => Promise<{ ok: boolean; deploymentId?: string }>;
   getAgentDeploymentStatus: (deploymentId: string) => Promise<{
     ok?: boolean;
@@ -29,9 +29,6 @@ export const useDeployAIAgent = ({
   getAgentDeploymentStatus,
 }: UseDeployAIAgentProps) => {
   const POLLING_TIME = 500;
-  const [activeStep, setActiveStep] = useState<number>(1);
-  const [characterFile, setCharacterFile] = useState<string | undefined>();
-  const [envFile, setEnvFile] = useState<string | undefined>();
 
   const [isDeploymentPending, setIsDeploymentPending] = useState(false);
   const [isDeploymentSuccessful, setIsDeploymentSuccessful] = useState(false);
@@ -85,27 +82,24 @@ export const useDeployAIAgent = ({
     poll(0);
   };
 
-  const deployAgent = async () => {
-    setIsDeploymentPending(true);
-    setIsDeploymentFailed(false);
-    setIsDeploymentSuccessful(false);
+  const deployAgent = async (characterFile: string | undefined) => {
+    resetDeployment();
 
-    if (!characterFile || !envFile) {
-      console.error('Characterfile or .env file missing', {
+    if (!characterFile) {
+      console.error('Characterfile missing', {
         characterFile,
-        envFile,
       });
-      setIsDeploymentPending(false);
       setIsDeploymentFailed(true);
       return false;
     }
 
     const isUserLoggedIn = isLoggedIn();
+    console.log('🚀 ~ deployAgent > isUserLoggedIn:', isUserLoggedIn);
     if (!isUserLoggedIn) {
       const loginResult = await login();
+      console.log('🚀 ~ deployAgent > loginResult:', loginResult);
 
       if (!loginResult) {
-        setIsDeploymentPending(false);
         setIsDeploymentFailed(true);
         return false;
       }
@@ -113,15 +107,12 @@ export const useDeployAIAgent = ({
 
     const subscriptionResult = await ensureUserSubscription();
     if (!subscriptionResult) {
-      setIsDeploymentPending(false);
       setIsDeploymentFailed(true);
       return false;
     }
 
-    const deploymentTriggerResult = await triggerAgentDeployment(
-      characterFile,
-      envFile,
-    );
+    setIsDeploymentPending(false);
+    const deploymentTriggerResult = await triggerAgentDeployment(characterFile);
     if (!deploymentTriggerResult.ok || !deploymentTriggerResult.deploymentId) {
       setIsDeploymentPending(false);
       setIsDeploymentFailed(true);
@@ -132,32 +123,22 @@ export const useDeployAIAgent = ({
     return true;
   };
 
-  const goToNextStep = async () => {
-    if (activeStep === 5) {
-      const res = await deployAgent();
-      if (!res) return;
-    }
-
-    setActiveStep((prev) => prev + 1);
-  };
-
-  const goToPreviousStep = () => {
+  const resetDeployment = () => {
+    setIsDeploymentPending(false);
     setIsDeploymentFailed(false);
-    setDeploymentStatus(undefined);
-    setActiveStep((prev) => prev - 1);
+    setIsDeploymentSuccessful(false);
   };
+
+  const isDeploymentStarted = useMemo(
+    () => isDeploymentSuccessful || isDeploymentFailed || isDeploymentPending,
+    [isDeploymentSuccessful, isDeploymentFailed, isDeploymentPending],
+  );
 
   return {
-    activeStep,
-    goToNextStep,
-    goToPreviousStep,
+    resetDeployment,
+    deployAgent,
 
-    characterFile,
-    setCharacterFile,
-
-    envFile,
-    setEnvFile,
-
+    isDeploymentStarted,
     isDeploymentSuccessful,
     isDeploymentFailed,
     isDeploymentPending,

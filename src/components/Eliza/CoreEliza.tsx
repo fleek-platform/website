@@ -1,11 +1,6 @@
-import React, { useCallback, useMemo } from 'react';
+import React, { useMemo } from 'react';
 
-import ChooseCharacterFile from './components/ChooseCharacterFile';
-import EditCharacterFile from './components/EditCharacterFile';
-import ConfigureEnvFile from './components/EditEnvFile';
 import Step from './components/Step';
-import ChooseEnvFile from './components/ChooseEnvFile';
-import ConfirmAgentDetails from './components/ConfirmAgentDetails.tsx';
 import DeploymentStatus from './components/DeploymentStatus.tsx';
 import DeploymentFailed from './components/DeploymentFailed.tsx';
 
@@ -13,6 +8,8 @@ import {
   useDeployAIAgent,
   type UseDeployAIAgentProps,
 } from './hooks/useDeployAIAgent.ts';
+import { Navigation } from '@components/ElizaForm/components/Navigation.tsx';
+import { useState } from 'react';
 
 interface StepConfig {
   id: string;
@@ -43,14 +40,12 @@ export const CoreEliza: React.FC<ElizaCoreProps> = ({
     ensureUserSubscription,
   };
 
+  const [characterFile, setCharacterFile] = useState<string | undefined>();
+
   const {
-    activeStep,
-    goToPreviousStep,
-    goToNextStep,
-    characterFile,
-    setCharacterFile,
-    envFile,
-    setEnvFile,
+    deployAgent,
+    resetDeployment,
+    isDeploymentStarted,
     isDeploymentSuccessful,
     isDeploymentFailed,
     deploymentStatus,
@@ -60,152 +55,32 @@ export const CoreEliza: React.FC<ElizaCoreProps> = ({
   const GoBackButton = (
     <button
       className="text-[14px] leading-[20px] text-[#F5E147]"
-      onClick={goToPreviousStep}
+      onClick={resetDeployment}
     >
       {'< Go back'}
     </button>
-  );
-
-  const onUploadCharacterFile = useCallback(
-    (content: string) => {
-      setCharacterFile(content);
-      goToNextStep();
-    },
-    [setCharacterFile, goToNextStep],
-  );
-
-  const onUploadEnvFile = useCallback(
-    (content: string) => {
-      setEnvFile(content);
-      goToNextStep();
-    },
-    [setEnvFile, goToNextStep],
   );
 
   const steps = useMemo<StepConfig[]>(
     () => [
       /* STEP 1 - UPLOAD characterfile */
       {
-        id: 'upload-characterfile',
-        condition: activeStep === 1,
+        id: 'eliza-builder',
+        condition: !isDeploymentStarted,
         content: (
-          <Step
-            title="Get started"
-            description={
-              <p>
-                Deploy your AI agent personality using the Eliza framework,
-                starting with your characterfile. Click{' '}
-                <a
-                  className="underline"
-                  href="https://github.com/ai16z/eliza/blob/main/characters/trump.character.json"
-                  target="_blank"
-                >
-                  here
-                </a>{' '}
-                to view a characterfile example.
-              </p>
-            }
-            customTopElement="Deploy an AI agent"
-          >
-            <ChooseCharacterFile
-              handleCharacterFileChange={onUploadCharacterFile}
-            />
-          </Step>
-        ),
-      },
-
-      /* STEP 2 - EDIT characterfile */
-      {
-        id: 'edit-characterfile',
-        condition: activeStep === 2,
-        content: (
-          <Step
-            title="Edit characterfile"
-            description="Make final edits to your characterfile. In the next step, you’ll add environment variables."
-            customTopElement={GoBackButton}
-          >
-            <EditCharacterFile
-              characterFile={characterFile}
-              onCharacterFileChange={setCharacterFile}
-              onSubmitClick={goToNextStep}
-              className="max-w-screen-md"
-            />
-          </Step>
-        ),
-      },
-
-      /* UPLOAD .env file */
-      {
-        id: 'upload-envfile',
-        condition: activeStep === 3,
-        content: (
-          <Step
-            title="Set up .env variables"
-            description={
-              <p>
-                Add environment variables for any services your AI agent will
-                access, including LLMs. Click{' '}
-                <a
-                  className="underline"
-                  href="https://github.com/ai16z/eliza/blob/main/.env.example"
-                  target="_blank"
-                >
-                  here
-                </a>{' '}
-                to view an example.
-              </p>
-            }
-            customTopElement={GoBackButton}
-          >
-            <ChooseEnvFile handleEnvFileChange={onUploadEnvFile} />
-          </Step>
-        ),
-      },
-
-      /* EDIT .env file */
-      {
-        id: 'edit-envfile',
-        condition: activeStep === 4,
-        content: (
-          <Step
-            title="Edit .env variables"
-            description="Make final edits to your .env file. In the next step, you’ll confirm details ahead of a deployment."
-            customTopElement={GoBackButton}
-          >
-            <ConfigureEnvFile
-              envFile={envFile}
-              onEnvFileChange={setEnvFile}
-              onSubmitClick={goToNextStep}
-            />
-          </Step>
-        ),
-      },
-
-      /* REVIEW characterfile and .env file */
-      {
-        id: 'review-characterfile-and-envfile',
-        condition: activeStep === 5,
-        content: (
-          <Step
-            title="Confirm agent details"
-            description="You'll be deploying an agent with the information below. This is the final step before your agent is deployed."
-            customTopElement={GoBackButton}
-          >
-            <ConfirmAgentDetails
-              characterFile={characterFile}
-              onCharacterFileChange={setCharacterFile}
-              envFile={envFile}
-              onEnvFileChange={setEnvFile}
-              onSubmitClick={goToNextStep}
-            />
-          </Step>
+          <Navigation
+            onDeployBtnClick={(characterfile) => {
+              setCharacterFile(characterfile);
+              deployAgent(characterfile);
+            }}
+          />
         ),
       },
 
       /* HANDLE deployment and show results */
       {
         id: 'handle-deployment',
-        condition: !isDeploymentFailed && activeStep === 6,
+        condition: isDeploymentStarted && !isDeploymentFailed,
         content: (
           <Step
             title={
@@ -234,7 +109,7 @@ export const CoreEliza: React.FC<ElizaCoreProps> = ({
       /* HANDLE deployment failure */
       {
         id: 'handle-deployment-failure',
-        condition: isDeploymentFailed && activeStep === 6,
+        condition: isDeploymentStarted && isDeploymentFailed,
         content: (
           <Step
             title={
@@ -256,7 +131,10 @@ export const CoreEliza: React.FC<ElizaCoreProps> = ({
             customTopElement={GoBackButton}
           >
             <DeploymentFailed
-              onRetryClick={goToPreviousStep}
+              onRetryClick={() => {
+                resetDeployment();
+                deployAgent(characterFile);
+              }}
               deploymentStatus={deploymentStatus}
             />
           </Step>
@@ -264,14 +142,8 @@ export const CoreEliza: React.FC<ElizaCoreProps> = ({
       },
     ],
     [
-      activeStep,
+      isDeploymentStarted,
       isDeploymentFailed,
-      onUploadCharacterFile,
-      onUploadEnvFile,
-      setCharacterFile,
-      setEnvFile,
-      goToNextStep,
-      goToPreviousStep,
       deploymentStatus,
       fleekMachineUrl,
     ],
