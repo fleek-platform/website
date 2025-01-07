@@ -8,6 +8,7 @@ import { RxHamburgerMenu } from 'react-icons/rx';
 import { isActivePath } from '@utils/url';
 import { Button } from '../Button';
 import FleekLogo from './fleek-logo.svg';
+import { LoginProvider } from '@fleek-platform/login-button';
 
 const NavbarMobileItem: React.FC<NavMenuItem> = ({
   label,
@@ -293,15 +294,48 @@ export const Navbar: React.FC<NavbarProps> = ({
           </section>
         </div>
         <section className="flex items-center gap-8">
-          <Button
-            variant="secondary"
-            size="sm"
-            href="https://app.fleek.xyz"
-            rel="noopener noreferrer"
-            target={Target.Blank}
+          <LoginProvider
+            graphqlApiUrl="https://graphql.service.staging.fleeksandbox.xyz/graphql"
+            environmentId="c4d4ccad-9460-419c-9ca3-494488f8c892"
           >
-            Log in
-          </Button>
+            {(props) => {
+              const { login, logout, accessToken, isLoading, error } = props;
+
+              const handleClick = () => {
+                if (Boolean(accessToken)) {
+                  logout();
+                } else {
+                  login();
+                }
+              };
+
+              let buttonText = "Log in";
+
+              switch (true) {
+                case Boolean(error):
+                  buttonText = "Login failed";
+                  break;
+                case isLoading:
+                  buttonText = "Loading...";
+                  break;
+                // not real session, session is in the cookie, just for demo
+                case Boolean(accessToken):
+                  buttonText = "Log out";
+                  break;
+              }
+
+              return (
+                <Button
+                  variant="secondary"
+                  size="sm"
+                  onClick={handleClick}
+                >
+                  {buttonText}
+                </Button>
+              );
+            }}
+          </LoginProvider>
+      
           <Button
             variant="tertiary"
             size="sm"
