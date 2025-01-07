@@ -91,7 +91,6 @@ export const MODEL_PROVIDER_NAMES_MAP: Record<
 
 export const CLIENT_NAMES = [
   'discord',
-  'direct',
   'twitter',
   'telegram',
   'farcaster',
@@ -103,10 +102,6 @@ export const CLIENT_NAMES = [
 export const CLIENTS_MAP: Record<Client, LabelAndIcon> = {
   discord: {
     label: 'Discord',
-    icon: '',
-  },
-  direct: {
-    label: 'Direct',
     icon: '',
   },
   twitter: {
@@ -158,7 +153,6 @@ export const SECRETS_CLIENT_MAP: Record<Client, Record<string, string>> = {
     DISCORD_API_TOKEN: '',
     DISCORD_APPLICATION_ID: '',
   },
-  direct: { DIRECT_API_TOKEN: '' },
   twitter: {
     TWITTER_USERNAME: '',
     TWITTER_PASSWORD: '',
@@ -219,8 +213,8 @@ const ELIZA: CharacterSchema = {
   name: 'Eliza',
   username: 'eliza',
   plugins: [],
-  clients: [],
-  modelProvider: '' as CharacterSchema['modelProvider'],
+  clients: ['twitter'],
+  modelProvider: 'openai',
   settings: {
     secrets: {},
     voice: {
@@ -753,8 +747,8 @@ const ELIZA: CharacterSchema = {
 
 const TRUMP: CharacterSchema = {
   name: 'Trump',
-  clients: [],
-  modelProvider: '' as CharacterSchema['modelProvider'],
+  clients: ['twitter'],
+  modelProvider: 'openai',
   settings: {
     secrets: {},
     voice: {
@@ -1195,8 +1189,8 @@ const TRUMP: CharacterSchema = {
 
 const C3PO: CharacterSchema = {
   name: 'C-3PO',
-  clients: [],
-  modelProvider: '' as CharacterSchema['modelProvider'],
+  clients: ['twitter'],
+  modelProvider: 'openai',
   settings: {
     secrets: {},
     voice: {
@@ -1309,8 +1303,8 @@ const C3PO: CharacterSchema = {
 
 const DOBBY: CharacterSchema = {
   name: 'Dobby',
-  clients: [],
-  modelProvider: '' as CharacterSchema['modelProvider'],
+  clients: ['twitter'],
+  modelProvider: 'openai',
   settings: {
     secrets: {},
     voice: {

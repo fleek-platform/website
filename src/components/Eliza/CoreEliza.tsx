@@ -10,6 +10,8 @@ import {
 } from './hooks/useDeployAIAgent.ts';
 import { Navigation } from '@components/ElizaForm/components/Navigation.tsx';
 import { useState } from 'react';
+import { Button } from '@components/ElizaForm/components/Button.tsx';
+import { FaChevronLeft } from 'react-icons/fa6';
 
 interface StepConfig {
   id: string;
@@ -53,12 +55,10 @@ export const CoreEliza: React.FC<ElizaCoreProps> = ({
   } = useDeployAIAgent({ ...elizaIntegrations });
 
   const GoBackButton = (
-    <button
-      className="text-[14px] leading-[20px] text-[#F5E147]"
-      onClick={resetDeployment}
-    >
-      {'< Go back'}
-    </button>
+    <Button onClick={resetDeployment}>
+      <FaChevronLeft />
+      Go back
+    </Button>
   );
 
   const steps = useMemo<StepConfig[]>(

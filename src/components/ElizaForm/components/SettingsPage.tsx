@@ -42,36 +42,17 @@ const transformErrors = (errors: FormError | undefined): TransformedItem[] => {
 
 type HeaderProps = {
   onPrevious: () => void;
-  onNext: () => void;
-  hasErrors: boolean;
-  completedStep: Step;
 };
 
-const Header: React.FC<HeaderProps> = ({
-  onPrevious,
-  onNext,
-  hasErrors,
-  completedStep,
-}) => {
-  const isStepCompleted = completedStep >= 2;
-
+const Header: React.FC<HeaderProps> = ({ onPrevious }) => {
   return (
     <Box className="w-full flex-row items-center justify-between">
       <Button
         variant="ghost"
         className="text-yellow-dark-11"
         onClick={onPrevious}
-        disabled={hasErrors}
       >
         <FaChevronLeft /> Characterfile
-      </Button>
-      <Button
-        variant="ghost"
-        className="text-elz-accent-11"
-        onClick={onNext}
-        disabled={!isStepCompleted || hasErrors}
-      >
-        Review <FaChevronRight />
       </Button>
     </Box>
   );
@@ -89,12 +70,13 @@ export const SettingsPage: React.FC<SettingsPageProps> = ({
 }) => {
   const [errorJson, setErrorJson] = useState(false);
 
-  const { control, formState, handleSubmit } = useElizaForm();
+  const { control, formState, handleSubmit, reset } = useElizaForm();
 
   const readableErrors = transformErrors(formState.errors.settings);
   const hasErrors = readableErrors.length > 0 || errorJson;
 
   const onPrevious = () => {
+    reset();
     goTo('characterfile');
   };
 
@@ -111,12 +93,7 @@ export const SettingsPage: React.FC<SettingsPageProps> = ({
   return (
     <Box className="gap-38">
       <Box className="items-start gap-16">
-        <Header
-          onPrevious={handleSubmit(onPrevious)}
-          onNext={handleSubmit(onSubmit)}
-          hasErrors={hasErrors}
-          completedStep={completedStep}
-        />
+        <Header onPrevious={onPrevious} />
         <Text>Settings</Text>
         <Text variant="description" className="text-wrap">
           Add the secrets for any services your AI agent will access, including
@@ -179,7 +156,7 @@ export const SettingsPage: React.FC<SettingsPageProps> = ({
           </Box>
         )}
       </Box>
-      <Button onClick={handleSubmit(onSubmit)}>Review Character</Button>
+      <Button onClick={handleSubmit(onSubmit)}>Review character</Button>
     </Box>
   );
 };

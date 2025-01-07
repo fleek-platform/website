@@ -47,7 +47,7 @@ export const GetStarted: React.FC<GoToProps> = ({ goTo }) => {
         <ActionBox
           onClick={onTemplatePageSelect}
           icon={<ExtensionPuzzleIcon className="size-34 shrink-0" />}
-          title="Start with template"
+          title="Start with a template"
           description="Create an agent by customizing an existing template."
         />
       </Box>

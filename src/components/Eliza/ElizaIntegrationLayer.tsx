@@ -11,7 +11,6 @@ import { getCookie } from '@utils/cookies.ts';
 import { useAuthentication } from '@components/AuthProvider/useAuthentication.ts';
 import { CoreEliza } from './CoreEliza.tsx';
 import settings from '@base/settings.json';
-import { Layout } from '@components/ElizaForm/components/Layout.tsx';
 
 export const ElizaIntegration: React.FC = () => {
   const { isLoggedIn, login, getActiveSubscriptions, userActiveProject } =
@@ -64,7 +63,7 @@ export const ElizaIntegration: React.FC = () => {
   };
 
   return (
-    <Layout>
+    <>
       <CoreEliza
         isLoggedIn={isLoggedIn}
         login={login}
@@ -88,7 +87,7 @@ export const ElizaIntegration: React.FC = () => {
         onSuccess={subscriptionModalCallbackRef.current}
         activeProjectId={userActiveProject}
       />
-    </Layout>
+    </>
   );
 };
 

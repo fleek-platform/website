@@ -76,14 +76,9 @@ const TemplateSelector: React.FC<TemplateSelectorProps> = ({ template }) => {
 type HeaderProps = {
   completedStep: Step;
   onPrevious: () => void;
-  onNext: () => void;
 };
 
-const Header: React.FC<HeaderProps> = ({
-  completedStep,
-  onPrevious,
-  onNext,
-}) => {
+const Header: React.FC<HeaderProps> = ({ completedStep, onPrevious }) => {
   const [isOpen, setIsOpen] = useState(false);
 
   const toggle = () => setIsOpen((prev) => !prev);
@@ -116,14 +111,6 @@ const Header: React.FC<HeaderProps> = ({
         onClick={isStepCompleted ? toggle : onPrevious}
       >
         <FaChevronLeft /> {label}
-      </Button>
-      <Button
-        variant="ghost"
-        disabled={!isStepCompleted}
-        className="text-elz-accent-11"
-        onClick={onNext}
-      >
-        Settings <FaChevronRight />
       </Button>
     </Box>
   );
@@ -178,11 +165,7 @@ export const Characterfile: React.FC<CharacterfileProps> = ({
   return (
     <>
       <Box className="relative items-start gap-16">
-        <Header
-          completedStep={completedStep}
-          onPrevious={onPrevious}
-          onNext={handleSubmit(onSubmit)}
-        />
+        <Header completedStep={completedStep} onPrevious={onPrevious} />
         <Text>
           {template ? 'Start with a template' : 'Create characterfile'}
         </Text>
