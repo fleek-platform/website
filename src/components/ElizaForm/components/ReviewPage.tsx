@@ -16,6 +16,7 @@ import { cn } from '@utils/cn';
 import { Input } from './Input';
 import { characterfileSchema } from '../utils/schema';
 import { ZodError } from 'zod';
+import { validateZod } from '../utils/validateHelper';
 
 type HeaderProps = {
   from: Options['from'];
@@ -93,18 +94,19 @@ export const ReviewPage: React.FC<
 
     setErrors(INITIAL_ERRORS);
 
-    try {
-      const parsedCharacterFile = JSON.parse(characterFile);
-      const validCharacterfile = characterfileSchema.parse(parsedCharacterFile);
-      const payload = JSON.stringify(validCharacterfile);
-      onDeployBtnClick(payload);
-    } catch (e) {
-      if (e instanceof ZodError) {
-        setErrors({ ...errors, form: formatZodError(e) });
-      } else {
-        console.error('Unexpected error:', e);
-      }
+    const parsedCharacterFile = JSON.parse(characterFile);
+    const validated = validateZod({
+      payload: parsedCharacterFile,
+      schema: characterfileSchema,
+    });
+
+    if (!validated) return;
+
+    if (Array.isArray(validated)) {
+      return setErrors({ ...errors, form: validated });
     }
+    const payload = JSON.stringify(parsedCharacterFile);
+    onDeployBtnClick(payload);
   };
 
   return (

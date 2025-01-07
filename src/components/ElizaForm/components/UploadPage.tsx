@@ -7,15 +7,36 @@ import { Text } from './Text';
 import Link, { Target } from './Link';
 import ChooseCharacterFile from '@components/Eliza/components/ChooseCharacterFile';
 import { useElizaForm } from '../hooks/useElizaForm';
-import { transformCharacterToSchema } from '../utils/transformData';
+import {
+  type FormattedError,
+  transformCharacterToSchema,
+} from '../utils/transformData';
+import { validateZod } from '../utils/validateHelper';
+import { characterfileSchema } from '../utils/schema';
+import { useState } from 'react';
+import { cn } from '@utils/cn';
+import { Input } from './Input';
 
 export const UploadPage: React.FC<GoToProps> = ({ goTo }) => {
+  const [errors, setErrors] = useState<FormattedError[]>([]);
+
   const { reset } = useElizaForm();
 
   const onCharacterfileChange = (characterfile: string) => {
-    const parseCharacterfile = JSON.parse(characterfile);
+    setErrors([]);
+    const parsedCharacterfile = JSON.parse(characterfile);
+
+    const validated = validateZod({
+      payload: parsedCharacterfile,
+      schema: characterfileSchema,
+    });
+
+    if (Array.isArray(validated)) {
+      setErrors(validated);
+    }
+
     const transformedCharacterfile =
-      transformCharacterToSchema(parseCharacterfile);
+      transformCharacterToSchema(parsedCharacterfile);
     reset(transformedCharacterfile);
     goTo('review', { from: 'upload' });
   };
@@ -36,7 +57,7 @@ export const UploadPage: React.FC<GoToProps> = ({ goTo }) => {
           with a .json characterfile. Click{' '}
           <Link
             target={Target.Blank}
-            href="https://github.com/elizaOS/eliza/blob/main/characters/trump.character.json"
+            href="https://github.com/elizaOS/eliza/blob/main/characters/dobby.character.json"
             className="underline hover:text-white"
           >
             here
@@ -44,7 +65,18 @@ export const UploadPage: React.FC<GoToProps> = ({ goTo }) => {
           to view a characterfile example.
         </Text>
       </Box>
-      <ChooseCharacterFile handleCharacterFileChange={onCharacterfileChange} />
+      <Box className="gap-4">
+        <ChooseCharacterFile
+          handleCharacterFileChange={onCharacterfileChange}
+          className={cn({ 'border-elz-danger-8': errors.length > 0 })}
+        />
+        {errors.length > 0 &&
+          errors.map((error, idx) => (
+            <Input.Hint error key={idx}>
+              - {error.path}: {error.message}
+            </Input.Hint>
+          ))}
+      </Box>
     </>
   );
 };
