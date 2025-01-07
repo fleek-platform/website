@@ -34,7 +34,7 @@ export const ReviewPage: React.FC<ReviewPageProps & GoToProps> = ({
         <Box className="w-full flex-row items-center justify-between">
           <Button
             variant="ghost"
-            className="text-yellow-dark-11"
+            className="text-elz-accent-11"
             onClick={() => goTo('settings')}
           >
             <FaChevronLeft />
