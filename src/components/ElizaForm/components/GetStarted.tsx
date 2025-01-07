@@ -20,7 +20,7 @@ export const GetStarted: React.FC<GoToProps> = ({ goTo }) => {
   };
 
   return (
-    <Box className="gap-38 animate-in zoom-in-[1.025]">
+    <Box className="gap-38">
       <Box className="items-start gap-16">
         <Text variant="secondary" className="flex h-32 items-center">
           Deploy an AI agent
