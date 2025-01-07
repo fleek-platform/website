@@ -1,6 +1,7 @@
 import type { FieldError, FieldErrorsImpl, Merge } from 'react-hook-form';
 import type { Character } from './types';
 import type { CharacterfileSchema, CharacterFormSchema } from './schema';
+import type { ZodError } from 'zod';
 
 type TransformedItem = {
   label: string;
@@ -26,6 +27,17 @@ export const transformErrors = (
     })),
   );
 };
+
+export type FormattedError = {
+  path: string;
+  message: string;
+};
+
+export const formatZodError = (error: ZodError): FormattedError[] =>
+  error.issues.map((issue) => ({
+    path: issue.path.join('.'),
+    message: issue.message,
+  }));
 
 export const transformCharacterToSchema = (
   data: CharacterfileSchema,
