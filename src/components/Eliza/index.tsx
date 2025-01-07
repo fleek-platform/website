@@ -2,8 +2,6 @@ import React, { useEffect, useState } from 'react';
 import { ElizaIntegrationLayer } from './ElizaIntegrationLayer';
 import { isProd, isServer } from '@utils/common';
 import settings from '@base/settings.json';
-import { Layout } from '@components/ElizaForm/components/Layout';
-import { Box } from '@components/ElizaForm/components/Box';
 import { InitialLoadingState } from '@components/ElizaForm/components/InitialLoadingState';
 
 const Eliza: React.FC = () => {
