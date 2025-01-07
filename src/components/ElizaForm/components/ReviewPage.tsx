@@ -1,5 +1,5 @@
 import type React from 'react';
-import type { GoToProps } from '../utils/types';
+import type { GoToProps, Options } from '../utils/types';
 import { Box } from './Box';
 import { useElizaForm } from '../hooks/useElizaForm';
 import {
@@ -17,8 +17,46 @@ import { Input } from './Input';
 import { characterfileSchema } from '../utils/schema';
 import { ZodError } from 'zod';
 
-export type ReviewPageProps = {
-  onDeployBtnClick: (characterfile: string | undefined) => void;
+type HeaderProps = {
+  from: Options['from'];
+  onPrevious: () => void;
+};
+
+const Header: React.FC<HeaderProps> = ({ from, onPrevious }) => {
+  const [isOpen, setIsOpen] = useState(false);
+
+  const toggle = () => setIsOpen((prev) => !prev);
+
+  const label = from ? 'Discard and go back' : 'Settings';
+
+  if (isOpen)
+    return (
+      <Box className="h-32 w-full flex-row items-center justify-between rounded-10 border border-elz-neutral-6 bg-elz-neutral-1 p-4 pl-12 animate-in fade-in-95 zoom-in-[.99]">
+        <Text variant="primary" weight={500}>
+          Discard characterfile?
+        </Text>
+        <Box className="flex-row gap-8">
+          <Button variant="ghost" size="xs" onClick={toggle}>
+            Cancel
+          </Button>
+          <Button variant="danger" size="xs" onClick={onPrevious}>
+            Discard
+          </Button>
+        </Box>
+      </Box>
+    );
+
+  return (
+    <Box className="w-full flex-row items-center justify-between">
+      <Button
+        variant="ghost"
+        className="text-elz-accent-11"
+        onClick={from ? toggle : onPrevious}
+      >
+        <FaChevronLeft /> {label}
+      </Button>
+    </Box>
+  );
 };
 
 type Errors = { json: boolean; form: FormattedError[] };
@@ -28,10 +66,13 @@ const INITIAL_ERRORS = {
   form: [],
 };
 
-export const ReviewPage: React.FC<ReviewPageProps & GoToProps> = ({
-  goTo,
-  onDeployBtnClick,
-}) => {
+export type ReviewPageProps = {
+  onDeployBtnClick: (characterfile: string | undefined) => void;
+};
+
+export const ReviewPage: React.FC<
+  ReviewPageProps & GoToProps & { from: Options['from'] }
+> = ({ from, goTo, onDeployBtnClick }) => {
   const { getValues } = useElizaForm();
   const data = getValues();
   const transformedData = transformSchemaToCharacter(data);
@@ -42,6 +83,10 @@ export const ReviewPage: React.FC<ReviewPageProps & GoToProps> = ({
   const [errors, setErrors] = useState<Errors>(INITIAL_ERRORS);
 
   const hasErrors = errors.json || errors.form.length > 0;
+
+  const onPrevious = () => {
+    goTo(from || 'settings');
+  };
 
   const onSubmit = () => {
     if (!characterFile) return;
@@ -65,16 +110,7 @@ export const ReviewPage: React.FC<ReviewPageProps & GoToProps> = ({
   return (
     <Box className="gap-38">
       <Box className="items-start gap-16">
-        <Box className="w-full flex-row items-center justify-between">
-          <Button
-            variant="ghost"
-            className="text-elz-accent-11"
-            onClick={() => goTo('settings')}
-          >
-            <FaChevronLeft />
-            Settings
-          </Button>
-        </Box>
+        <Header onPrevious={onPrevious} from={from} />
         <Text>Confirm agent details</Text>
         <Text variant="description" className="text-wrap">
           You will be deploying an agent with the information below. This is the

@@ -17,7 +17,7 @@ export const UploadPage: React.FC<GoToProps> = ({ goTo }) => {
     const transformedCharacterfile =
       transformCharacterToSchema(parseCharacterfile);
     reset(transformedCharacterfile);
-    goTo('review');
+    goTo('review', { from: 'upload' });
   };
 
   return (

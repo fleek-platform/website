@@ -118,7 +118,7 @@ const Header: React.FC<HeaderProps> = ({ completedStep, onPrevious }) => {
 };
 
 type CharacterfileProps = GoToProps & {
-  template?: Template;
+  template?: Template | undefined;
   completedStep: Step;
   completeStep: (step: Step) => void;
 };

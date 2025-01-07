@@ -16,7 +16,7 @@ export const GetStarted: React.FC<GoToProps> = ({ goTo }) => {
 
   const onTemplatePageSelect = () => {
     reset(TEMPLATE_CHARACTERFILES_MAP['eliza']);
-    goTo('characterfile', 'eliza');
+    goTo('characterfile', { template: 'eliza' });
   };
 
   return (
