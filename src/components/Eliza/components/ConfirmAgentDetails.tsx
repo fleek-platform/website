@@ -3,6 +3,8 @@ import FileEditor from './FileEditor';
 import { Tooltip } from 'react-tooltip';
 import 'react-tooltip/dist/react-tooltip.css';
 import { cn } from '@utils/cn';
+import { Box } from '@components/ElizaForm/components/Box';
+import { Button } from '@components/ElizaForm/components/Button';
 
 interface ConfirmAgentDetailsProps {
   characterFile: string | undefined;
@@ -23,7 +25,7 @@ const ConfirmAgentDetails: React.FC<ConfirmAgentDetailsProps> = ({
   const [isEnvFileValid, setIsEnvFileValid] = useState(true);
 
   return (
-    <div className="flex w-full flex-col gap-[20px]">
+    <Box className="gap-38">
       <FileEditor
         variant="narrow"
         fileType="json"
@@ -46,16 +48,16 @@ const ConfirmAgentDetails: React.FC<ConfirmAgentDetailsProps> = ({
         className={cn(!isEnvFileValid && 'border-[#F14C4C]')}
       />
 
-      <button
+      <Button
         disabled={
           (!!envFile && !isEnvFileValid) ||
           (!!characterFile && !isCharacterFileValid)
         }
-        className="submit-btn h-[40px] w-full rounded-[12px] bg-[#2d2305] text-[16px] font-medium text-[#f5e147] disabled:bg-[#222] disabled:text-[#606060]"
         onClick={onSubmitClick}
+        className="submit-btn"
       >
         Continue
-      </button>
+      </Button>
       {(!isCharacterFileValid || !isEnvFileValid) && (
         <Tooltip
           place="bottom"
@@ -64,7 +66,7 @@ const ConfirmAgentDetails: React.FC<ConfirmAgentDetailsProps> = ({
           style={{ color: '#F14C4C', fontSize: '14px' }}
         />
       )}
-    </div>
+    </Box>
   );
 };
 

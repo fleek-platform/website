@@ -1,3 +1,5 @@
+import { Box } from '@components/ElizaForm/components/Box';
+import { Text } from '@components/ElizaForm/components/Text';
 import { cn } from '@utils/cn';
 
 interface StepProps {
@@ -16,36 +18,21 @@ const Step: React.FC<StepProps> = ({
   children,
 }) => {
   return (
-    <div
-      className={cn(
-        'm-auto mt-[25px] flex w-full max-w-screen-md flex-col items-center p-[30px] pb-[60px] md:mt-[50px]',
-        className,
-      )}
-    >
-      {customTopElement && (
-        <div className="mb-[8px] w-full text-[14px] leading-[20px] md:mb-[12px]">
-          {customTopElement}
-        </div>
-      )}
-
-      <h1 className="w-full text-left text-[40px] font-semibold leading-normal text-[#FFF] md:text-[52px]">
-        {title}
-      </h1>
-
-      <h2 className="mb-[24px] w-full text-left text-[16px] font-medium leading-[24px] text-[#b4b4b4] md:mb-[38px]">
-        {description}
-      </h2>
-
-      <div className="flex w-full flex-col items-center font-plex-sans">
-        {children}
-      </div>
-
+    <>
+      <Box className="gap-16">
+        {customTopElement && <Box className="w-fit">{customTopElement}</Box>}
+        <Text>{title}</Text>
+        <Text variant="description" className="text-wrap">
+          {description}
+        </Text>
+      </Box>
+      <Box>{children}</Box>
       <noscript>
-        <div className="text-center text-[14px] font-bold leading-[20px] text-[#F5E147]">
+        <Box className="text-center text-[14px] font-bold leading-[20px] text-[#F5E147]">
           Please enable JavaScript to continue
-        </div>
+        </Box>
       </noscript>
-    </div>
+    </>
   );
 };
 

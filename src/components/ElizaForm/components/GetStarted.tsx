@@ -33,7 +33,7 @@ export const GetStarted: React.FC<GoToProps> = ({ goTo }) => {
       </Box>
       <Box className="gap-22">
         <ActionBox
-          // onClick={() => goTo('upload')}
+          onClick={() => goTo('upload')}
           icon={<CloudUploadIcon className="size-34 shrink-0" />}
           title="Upload characterfile"
           description="Already have a characterfile? Create an agent with an upload."

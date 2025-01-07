@@ -3,6 +3,8 @@ import { useState } from 'react';
 import FileEditor from '../components/FileEditor';
 import { Tooltip } from 'react-tooltip';
 import 'react-tooltip/dist/react-tooltip.css';
+import { Button } from '@components/ElizaForm/components/Button';
+import { Box } from '@components/ElizaForm/components/Box';
 
 interface EditCharacterFileProps {
   characterFile: string | undefined;
@@ -20,7 +22,7 @@ const EditCharacterFile: React.FC<EditCharacterFileProps> = ({
   const [isCharacterFileValid, setIsCharacterFileValid] = useState(true);
 
   return (
-    <div className={cn('flex w-full flex-col gap-20', className)}>
+    <Box className="gap-38">
       <FileEditor
         fileType="json"
         fileContent={characterFile}
@@ -28,14 +30,13 @@ const EditCharacterFile: React.FC<EditCharacterFileProps> = ({
         onChange={onCharacterFileChange}
         className={cn(!isCharacterFileValid && 'border-[#F14C4C]')}
       />
-      <button
-        id="submit-btn"
+      <Button
         disabled={!!characterFile && !isCharacterFileValid}
-        className="submit-btn h-[40px] w-full rounded-[12px] bg-[#2d2305] text-[16px] font-medium text-[#f5e147] disabled:bg-[#222] disabled:text-[#606060]"
         onClick={onSubmitClick}
+        className="submit-btn"
       >
         Save characterfile
-      </button>
+      </Button>
       {!isCharacterFileValid && (
         <Tooltip
           place="bottom"
@@ -44,7 +45,7 @@ const EditCharacterFile: React.FC<EditCharacterFileProps> = ({
           style={{ color: '#F14C4C', fontSize: '14px' }}
         />
       )}
-    </div>
+    </Box>
   );
 };
 

@@ -3,6 +3,8 @@ import { useState } from 'react';
 import FileEditor from '../components/FileEditor';
 import { Tooltip } from 'react-tooltip';
 import 'react-tooltip/dist/react-tooltip.css';
+import { Box } from '@components/ElizaForm/components/Box';
+import { Button } from '@components/ElizaForm/components/Button';
 
 interface ConfigureEnvFileProps {
   envFile: string | undefined;
@@ -20,7 +22,7 @@ const ConfigureEnvFile: React.FC<ConfigureEnvFileProps> = ({
   const [isEnvFileValid, setIsEnvFileValid] = useState(false);
 
   return (
-    <div className={cn('flex w-full flex-col gap-20', className)}>
+    <Box className="gap-38">
       <FileEditor
         fileType="env"
         fileContent={envFile}
@@ -28,14 +30,13 @@ const ConfigureEnvFile: React.FC<ConfigureEnvFileProps> = ({
         onValidation={setIsEnvFileValid}
         className={cn(!isEnvFileValid && 'border-[#F14C4C]')}
       />
-      <button
+      <Button
         id="submit-btn"
         disabled={!!envFile && !isEnvFileValid}
-        className="h-[40px] w-full rounded-[12px] bg-[#2d2305] text-[16px] font-medium text-[#f5e147] disabled:bg-[#222] disabled:text-[#606060]"
         onClick={onSubmitClick}
       >
         Continue
-      </button>
+      </Button>
       {!isEnvFileValid && (
         <Tooltip
           place="bottom"
@@ -44,7 +45,7 @@ const ConfigureEnvFile: React.FC<ConfigureEnvFileProps> = ({
           style={{ color: '#F14C4C', fontSize: '14px' }}
         />
       )}
-    </div>
+    </Box>
   );
 };
 

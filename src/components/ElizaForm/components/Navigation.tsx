@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { Suspense, useState } from 'react';
 import { GetStarted } from './GetStarted';
 import { Layout } from './Layout';
 import { type Template, type Page, type Step } from '../types';
@@ -6,6 +6,8 @@ import { Characterfile } from './Characterfile';
 import { FormProviderCharacterBuilder } from '../hooks/useElizaForm';
 import { SettingsPage } from './SettingsPage';
 import { ReviewPage } from './ReviewPage';
+import { ElizaIntegrationLayer } from '@components/Eliza/ElizaIntegrationLayer';
+import { AuthProvider } from '@components/AuthProvider/AuthProvider';
 
 export const Navigation = () => {
   const [page, setPage] = useState<Page>('getStarted');
@@ -23,7 +25,7 @@ export const Navigation = () => {
 
   const pages: Record<Page, React.ReactNode> = {
     getStarted: <GetStarted goTo={goTo} />,
-    upload: <></>,
+    upload: <ElizaIntegrationLayer goTo={goTo} />,
     characterfile: (
       <Characterfile
         goTo={goTo}
@@ -43,8 +45,10 @@ export const Navigation = () => {
   };
 
   return (
-    <FormProviderCharacterBuilder>
-      <Layout>{pages[page]}</Layout>
-    </FormProviderCharacterBuilder>
+    <AuthProvider>
+      <FormProviderCharacterBuilder>
+        <Layout>{pages[page]}</Layout>
+      </FormProviderCharacterBuilder>
+    </AuthProvider>
   );
 };

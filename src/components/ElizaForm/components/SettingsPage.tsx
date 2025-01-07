@@ -61,7 +61,6 @@ const Header: React.FC<HeaderProps> = ({
         variant="ghost"
         className="text-yellow-dark-11"
         onClick={onPrevious}
-        disabled={hasErrors}
       >
         <FaChevronLeft /> Characterfile
       </Button>
@@ -81,12 +80,13 @@ export const SettingsPage: React.FC<SettingsPageProps> = ({
 }) => {
   const [errorJson, setErrorJson] = useState(false);
 
-  const { control, formState, handleSubmit } = useElizaForm();
+  const { control, formState, handleSubmit, reset } = useElizaForm();
 
   const readableErrors = transformErrors(formState.errors.settings);
   const hasErrors = readableErrors.length > 0 || errorJson;
 
   const onPrevious = () => {
+    reset();
     goTo('characterfile');
   };
 
@@ -104,7 +104,7 @@ export const SettingsPage: React.FC<SettingsPageProps> = ({
     <Box className="gap-38">
       <Box className="items-start gap-16">
         <Header
-          onPrevious={handleSubmit(onPrevious)}
+          onPrevious={onPrevious}
           onNext={handleSubmit(onSubmit)}
           hasErrors={hasErrors}
           completedStep={completedStep}

@@ -13,6 +13,10 @@ import {
   useDeployAIAgent,
   type UseDeployAIAgentProps,
 } from './hooks/useDeployAIAgent.ts';
+import { Button } from '@components/ElizaForm/components/Button.tsx';
+import { FaChevronLeft } from 'react-icons/fa6';
+import type { GoToProps } from '@components/ElizaForm/types.ts';
+import Link, { Target } from '@components/ElizaForm/components/Link.tsx';
 
 interface StepConfig {
   id: string;
@@ -28,12 +32,13 @@ interface ElizaCoreProps {
   ensureUserSubscription: UseDeployAIAgentProps['ensureUserSubscription'];
 }
 
-export const CoreEliza: React.FC<ElizaCoreProps> = ({
+export const CoreEliza: React.FC<ElizaCoreProps & Partial<GoToProps>> = ({
   isLoggedIn,
   login,
   triggerAgentDeployment,
   ensureUserSubscription,
   getAgentDeploymentStatus,
+  goTo,
 }) => {
   const elizaIntegrations: UseDeployAIAgentProps = {
     login,
@@ -58,12 +63,13 @@ export const CoreEliza: React.FC<ElizaCoreProps> = ({
   } = useDeployAIAgent({ ...elizaIntegrations });
 
   const GoBackButton = (
-    <button
-      className="text-[14px] leading-[20px] text-[#F5E147]"
+    <Button
+      variant="ghost"
       onClick={goToPreviousStep}
+      className="text-elz-accent-11"
     >
-      {'< Go back'}
-    </button>
+      <FaChevronLeft /> Go back
+    </Button>
   );
 
   const onUploadCharacterFile = useCallback(
@@ -90,22 +96,30 @@ export const CoreEliza: React.FC<ElizaCoreProps> = ({
         condition: activeStep === 1,
         content: (
           <Step
-            title="Get started"
+            title="Upload characterfile"
             description={
-              <p>
+              <>
                 Deploy your AI agent personality using the Eliza framework,
-                starting with your characterfile. Click{' '}
-                <a
-                  className="underline"
+                starting with a .json characterfile. Click{' '}
+                <Link
+                  className="underline hover:text-white"
                   href="https://github.com/ai16z/eliza/blob/main/characters/trump.character.json"
-                  target="_blank"
+                  target={Target.Blank}
                 >
                   here
-                </a>{' '}
+                </Link>{' '}
                 to view a characterfile example.
-              </p>
+              </>
             }
-            customTopElement="Deploy an AI agent"
+            customTopElement={
+              <Button
+                variant="ghost"
+                onClick={() => (goTo ? goTo('getStarted') : undefined)}
+                className="text-elz-accent-11"
+              >
+                <FaChevronLeft /> Go back
+              </Button>
+            }
           >
             <ChooseCharacterFile
               handleCharacterFileChange={onUploadCharacterFile}
@@ -142,7 +156,7 @@ export const CoreEliza: React.FC<ElizaCoreProps> = ({
           <Step
             title="Set up .env variables"
             description={
-              <p>
+              <>
                 Add environment variables for any services your AI agent will
                 access, including LLMs. Click{' '}
                 <a
@@ -153,7 +167,7 @@ export const CoreEliza: React.FC<ElizaCoreProps> = ({
                   here
                 </a>{' '}
                 to view an example.
-              </p>
+              </>
             }
             customTopElement={GoBackButton}
           >

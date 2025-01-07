@@ -11,8 +11,10 @@ import { getCookie } from '@utils/cookies.ts';
 import { useAuthentication } from '@components/AuthProvider/useAuthentication.ts';
 import { CoreEliza } from './CoreEliza.tsx';
 import settings from '@base/settings.json';
+import { Layout } from '@components/ElizaForm/components/Layout.tsx';
+import type { GoToProps } from '@components/ElizaForm/types.ts';
 
-export const ElizaIntegration: React.FC = () => {
+export const ElizaIntegration: React.FC<Partial<GoToProps>> = ({ goTo }) => {
   const { isLoggedIn, login, getActiveSubscriptions, userActiveProject } =
     useAuthentication();
   const { isSubscriptionModalVisible, setIsSubscriptionModalVisible } =
@@ -73,6 +75,7 @@ export const ElizaIntegration: React.FC = () => {
         triggerAgentDeployment={triggerAgentDeployment}
         getAgentDeploymentStatus={getAgentDeploymentStatus}
         ensureUserSubscription={ensureUserSubscription}
+        goTo={goTo}
       />
 
       <Toaster
@@ -96,8 +99,6 @@ export const ElizaIntegration: React.FC = () => {
   );
 };
 
-export const ElizaIntegrationLayer: React.FC = () => (
-  <AuthProvider>
-    <ElizaIntegration />
-  </AuthProvider>
-);
+export const ElizaIntegrationLayer: React.FC<Partial<GoToProps>> = ({
+  goTo,
+}) => <ElizaIntegration goTo={goTo} />;

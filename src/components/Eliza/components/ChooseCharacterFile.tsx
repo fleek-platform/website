@@ -12,7 +12,7 @@ const ChooseCharacterFile: React.FC<ChooseCharacterFileProps> = ({
 }) => {
   return (
     <FileUpload
-      label="Drag & drop your characterfile here"
+      label="Drag & drop your .json characterfile here"
       className={className}
       fileType="json"
       onFileUpload={(fileContent) => handleCharacterFileChange(fileContent)}
