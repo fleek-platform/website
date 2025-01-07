@@ -70,12 +70,15 @@ export const UploadPage: React.FC<GoToProps> = ({ goTo }) => {
           handleCharacterFileChange={onCharacterfileChange}
           className={cn({ 'border-elz-danger-8': errors.length > 0 })}
         />
-        {errors.length > 0 &&
-          errors.map((error, idx) => (
-            <Input.Hint error key={idx}>
-              - {error.path}: {error.message}
-            </Input.Hint>
-          ))}
+        {errors.length > 0 && (
+          <Box className="gap-4 duration-300 animate-in fade-in-75 slide-in-from-top-12">
+            {errors.map((error, idx) => (
+              <Input.Hint error key={idx}>
+                - {error.path}: {error.message}
+              </Input.Hint>
+            ))}
+          </Box>
+        )}
       </Box>
     </>
   );

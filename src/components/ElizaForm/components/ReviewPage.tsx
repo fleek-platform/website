@@ -135,12 +135,15 @@ export const ReviewPage: React.FC<
             revert the change above.
           </Input.Hint>
         )}
-        {errors.form.length > 0 &&
-          errors.form.map((error, idx) => (
-            <Input.Hint key={idx} error>
-              - {error.path}: {error.message}
-            </Input.Hint>
-          ))}
+        {errors.form.length > 0 && (
+          <Box className="gap-4 duration-300 animate-in fade-in-75 slide-in-from-top-12">
+            {errors.form.map((error, idx) => (
+              <Input.Hint error key={idx}>
+                - {error.path}: {error.message}
+              </Input.Hint>
+            ))}
+          </Box>
+        )}
       </Box>
       <Button onClick={onSubmit}>Deploy agent</Button>
     </Box>
