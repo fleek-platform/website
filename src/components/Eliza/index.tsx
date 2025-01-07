@@ -2,6 +2,9 @@ import React, { useEffect, useState } from 'react';
 import { ElizaIntegrationLayer } from './ElizaIntegrationLayer';
 import { isProd, isServer } from '@utils/common';
 import settings from '@base/settings.json';
+import { Layout } from '@components/ElizaForm/components/Layout';
+import { Box } from '@components/ElizaForm/components/Box';
+import { InitialLoadingState } from '@components/ElizaForm/components/InitialLoadingState';
 
 const Eliza: React.FC = () => {
   const [isReady, setIsReady] = useState(!settings.site.mocksEnabled);
@@ -22,7 +25,7 @@ const Eliza: React.FC = () => {
     enableMocking();
   }, []);
 
-  return isReady ? <ElizaIntegrationLayer /> : <div>Loading...</div>;
+  return isReady ? <ElizaIntegrationLayer /> : <InitialLoadingState />;
 };
 
 export default Eliza;

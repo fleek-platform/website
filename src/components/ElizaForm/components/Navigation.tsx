@@ -49,8 +49,6 @@ export const Navigation: React.FC<NavigationProps> = (props) => {
   };
 
   return (
-    <FormProviderCharacterBuilder>
-      <Layout>{pages[page]}</Layout>
-    </FormProviderCharacterBuilder>
+    <FormProviderCharacterBuilder>{pages[page]}</FormProviderCharacterBuilder>
   );
 };
