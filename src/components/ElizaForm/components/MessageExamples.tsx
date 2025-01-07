@@ -5,7 +5,7 @@ import { cn } from '@utils/cn';
 import { Button } from './Button';
 import { FaPlus, FaTrash } from 'react-icons/fa6';
 import { Input } from './Input';
-import { INITIAL_FORM } from '../constants';
+import { INITIAL_FORM } from '../utils/constants';
 import { useElizaForm } from '../hooks/useElizaForm';
 import { useFieldArray, useWatch } from 'react-hook-form';
 

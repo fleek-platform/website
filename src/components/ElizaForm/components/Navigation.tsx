@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { GetStarted } from './GetStarted';
 import { Layout } from './Layout';
-import { type Template, type Page, type Step } from '../types';
+import { type Template, type Page, type Step } from '../utils/types';
 import { Characterfile } from './Characterfile';
 import { FormProviderCharacterBuilder } from '../hooks/useElizaForm';
 import { SettingsPage } from './SettingsPage';

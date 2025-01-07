@@ -2,14 +2,14 @@ import { ActionBox } from './ActionBox';
 import { Text } from './Text';
 import type React from 'react';
 import { Box } from './Box';
-import type { GoToProps } from '../types';
+import type { GoToProps } from '../utils/types';
 import {
   CloudUploadIcon,
   ExtensionPuzzleIcon,
   ReaderIcon,
 } from './CustomIcons';
 import { useElizaForm } from '../hooks/useElizaForm';
-import { TEMPLATE_CHARACTERFILES_MAP } from '../constants';
+import { TEMPLATE_CHARACTERFILES_MAP } from '../utils/constants';
 
 export const GetStarted: React.FC<GoToProps> = ({ goTo }) => {
   const { reset } = useElizaForm();

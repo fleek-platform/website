@@ -1,16 +1,17 @@
 import { Dropdown } from '@components/ElizaForm/components/Dropdown';
-import { CLIENT_NAMES, CLIENTS_MAP } from '../constants';
+import { CLIENT_NAMES, CLIENTS_MAP } from '../utils/constants';
 import { Badge } from '@components/ElizaForm/components/Badge';
-import type { Client } from '../types';
+import type { Client } from '../utils/types';
 import {
   Controller,
   useWatch,
   type ControllerRenderProps,
 } from 'react-hook-form';
-import { useElizaForm, type CharacterSchema } from '../hooks/useElizaForm';
+import { useElizaForm } from '../hooks/useElizaForm';
 import { Input } from './Input';
 import { Box } from './Box';
 import { useScrollToError } from '../hooks/useScrollToError';
+import type { CharacterFormSchema } from '../utils/schema';
 
 type TriggerLabelProps = {
   clients: Client[];
@@ -37,13 +38,13 @@ export const ClientsDropdown: React.FC = () => {
 
   const clientsDropdownErrorRef = useScrollToError('clients', errors);
 
-  const clients: CharacterSchema['clients'] = useWatch({
+  const clients: CharacterFormSchema['clients'] = useWatch({
     control,
     name: 'clients',
   });
 
   const onCheckedChange = (
-    field: ControllerRenderProps<CharacterSchema, 'clients'>,
+    field: ControllerRenderProps<CharacterFormSchema, 'clients'>,
     isChecked: boolean,
     client: Client,
   ) => {

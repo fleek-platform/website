@@ -1,19 +1,20 @@
 import type React from 'react';
-import type { GoToProps } from '../types';
+import type { GoToProps } from '../utils/types';
 import { Box } from './Box';
 import { useElizaForm } from '../hooks/useElizaForm';
 import { transformSchemaToCharacter } from '../utils/transformData';
 import { Button } from './Button';
-import { FaChevronLeft, FaChevronRight } from 'react-icons/fa6';
+import { FaChevronLeft } from 'react-icons/fa6';
 import { Text } from './Text';
 import { useState } from 'react';
 import FileEditor from '@components/Eliza/components/FileEditor';
 import { cn } from '@utils/cn';
 import { Input } from './Input';
+import { characterfileSchema } from '../utils/schema';
 
-export interface ReviewPageProps {
+export type ReviewPageProps = {
   onDeployBtnClick: (characterfile: string | undefined) => void;
-}
+};
 
 export const ReviewPage: React.FC<ReviewPageProps & GoToProps> = ({
   goTo,
@@ -26,7 +27,19 @@ export const ReviewPage: React.FC<ReviewPageProps & GoToProps> = ({
   const [characterFile, setCharacterFile] = useState<string | undefined>(
     JSON.stringify(transformedData, null, 2),
   );
-  const [errorJson, setErrorJson] = useState(false);
+  const [errors, setErrors] = useState({
+    json: false,
+    form: {},
+  });
+
+  const onSubmit = () => {
+    if (!characterFile) return;
+
+    const parsedCharacterfile = JSON.parse(characterFile);
+    const isValid = characterfileSchema.parse(parsedCharacterfile);
+
+    console.log(isValid);
+  };
 
   return (
     <Box className="gap-38">
@@ -51,13 +64,13 @@ export const ReviewPage: React.FC<ReviewPageProps & GoToProps> = ({
         fileType="json"
         fileContent={characterFile}
         onChange={setCharacterFile}
-        onValidation={(jsonError) => setErrorJson(!jsonError)}
-        className={cn({ 'border-elz-danger-8 transition-colors': errorJson })}
+        onValidation={(jsonError) => setErrors({ ...errors, json: !jsonError })}
+        className={cn({ 'border-elz-danger-8 transition-colors': errors.json })}
       />
-      {errorJson && (
+      {errors.json && (
         <Box
           className={cn('flex-row items-center justify-end', {
-            'justify-between': errorJson,
+            'justify-between': errors.json,
           })}
         >
           <Input.Hint error>
@@ -66,9 +79,7 @@ export const ReviewPage: React.FC<ReviewPageProps & GoToProps> = ({
           </Input.Hint>
         </Box>
       )}
-      <Button onClick={() => onDeployBtnClick(characterFile)}>
-        Deploy agent
-      </Button>
+      <Button onClick={onSubmit}>Deploy agent</Button>
     </Box>
   );
 };

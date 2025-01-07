@@ -1,4 +1,4 @@
-import type { CharacterSchema } from './hooks/useElizaForm';
+import type { CharacterFormSchema } from './schema';
 import type { Client, LabelAndIcon, Template } from './types';
 
 export const PAGES = [
@@ -36,7 +36,7 @@ export const MODEL_PROVIDER_NAMES = [
 ] as const;
 
 export const MODEL_PROVIDER_NAMES_MAP: Record<
-  CharacterSchema['modelProvider'],
+  CharacterFormSchema['modelProvider'],
   LabelAndIcon
 > = {
   openai: {
@@ -131,7 +131,7 @@ export const CLIENTS_MAP: Record<Client, LabelAndIcon> = {
 };
 
 export const SECRETS_MODEL_PROVIDER_MAP: Record<
-  CharacterSchema['modelProvider'],
+  CharacterFormSchema['modelProvider'],
   Record<string, string>
 > = {
   openai: { OPENAI_API_KEY: '' },
@@ -169,11 +169,11 @@ export const SECRETS_CLIENT_MAP: Record<Client, Record<string, string>> = {
   slack: { SLACK_TOKEN: '' },
 };
 
-export const INITIAL_FORM: CharacterSchema = {
+export const INITIAL_FORM: CharacterFormSchema = {
   name: '',
   plugins: [],
   clients: [],
-  modelProvider: '' as CharacterSchema['modelProvider'],
+  modelProvider: '' as CharacterFormSchema['modelProvider'],
   settings: {
     secrets: {},
     voice: {
@@ -209,7 +209,7 @@ export const INITIAL_FORM: CharacterSchema = {
   adjectives: [],
 };
 
-const ELIZA: CharacterSchema = {
+const ELIZA: CharacterFormSchema = {
   name: 'Eliza',
   username: 'eliza',
   plugins: [],
@@ -745,7 +745,7 @@ const ELIZA: CharacterSchema = {
   ],
 };
 
-const TRUMP: CharacterSchema = {
+const TRUMP: CharacterFormSchema = {
   name: 'Trump',
   clients: ['twitter'],
   modelProvider: 'openai',
@@ -1187,7 +1187,7 @@ const TRUMP: CharacterSchema = {
   ],
 };
 
-const C3PO: CharacterSchema = {
+const C3PO: CharacterFormSchema = {
   name: 'C-3PO',
   clients: ['twitter'],
   modelProvider: 'openai',
@@ -1301,7 +1301,7 @@ const C3PO: CharacterSchema = {
   ],
 };
 
-const DOBBY: CharacterSchema = {
+const DOBBY: CharacterFormSchema = {
   name: 'Dobby',
   clients: ['twitter'],
   modelProvider: 'openai',
@@ -1417,7 +1417,10 @@ const DOBBY: CharacterSchema = {
   ],
 };
 
-export const TEMPLATE_CHARACTERFILES_MAP: Record<Template, CharacterSchema> = {
+export const TEMPLATE_CHARACTERFILES_MAP: Record<
+  Template,
+  CharacterFormSchema
+> = {
   eliza: ELIZA,
   trump: TRUMP,
   c3po: C3PO,

@@ -1,18 +1,13 @@
-import { FaChevronLeft, FaChevronRight } from 'react-icons/fa6';
+import { FaChevronLeft } from 'react-icons/fa6';
 import { Box } from './Box';
 import { Button } from './Button';
 import { Text } from './Text';
-import type { GoToProps, Step } from '../types';
+import type { GoToProps, Step } from '../utils/types';
 import type React from 'react';
 import Link, { Target } from './Link';
-import { useElizaForm, type CharacterSchema } from '../hooks/useElizaForm';
+import { useElizaForm } from '../hooks/useElizaForm';
 import { useState } from 'react';
-import {
-  Controller,
-  type FieldError,
-  type FieldErrorsImpl,
-  type Merge,
-} from 'react-hook-form';
+import { Controller } from 'react-hook-form';
 import FileEditor from '@components/Eliza/components/FileEditor';
 import { cn } from '@utils/cn';
 import { Input } from './Input';

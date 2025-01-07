@@ -1,13 +1,25 @@
 import type React from 'react';
-import type { GoToProps } from '../types';
+import type { GoToProps } from '../utils/types';
 import { Button } from './Button';
 import { Box } from './Box';
 import { FaChevronLeft } from 'react-icons/fa6';
 import { Text } from './Text';
 import Link, { Target } from './Link';
 import ChooseCharacterFile from '@components/Eliza/components/ChooseCharacterFile';
+import { useElizaForm } from '../hooks/useElizaForm';
+import { transformCharacterToSchema } from '../utils/transformData';
 
 export const UploadPage: React.FC<GoToProps> = ({ goTo }) => {
+  const { reset } = useElizaForm();
+
+  const onCharacterfileChange = (characterfile: string) => {
+    const parseCharacterfile = JSON.parse(characterfile);
+    const transformedCharacterfile =
+      transformCharacterToSchema(parseCharacterfile);
+    reset(transformedCharacterfile);
+    goTo('review');
+  };
+
   return (
     <>
       <Box className="gap-16">
@@ -32,7 +44,7 @@ export const UploadPage: React.FC<GoToProps> = ({ goTo }) => {
           to view a characterfile example.
         </Text>
       </Box>
-      <ChooseCharacterFile handleCharacterFileChange={() => {}} />
+      <ChooseCharacterFile handleCharacterFileChange={onCharacterfileChange} />
     </>
   );
 };

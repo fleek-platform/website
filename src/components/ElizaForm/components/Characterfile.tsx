@@ -6,7 +6,7 @@ import Link, { Target } from './Link';
 import { Button } from './Button';
 import { TagsForm } from './TagsForm';
 import { Box } from './Box';
-import type { GoToProps, Step, Template } from '../types';
+import type { GoToProps, Step, Template } from '../utils/types';
 import type React from 'react';
 import {
   INITIAL_FORM,
@@ -15,17 +15,18 @@ import {
   TEMPLATE_CHARACTERFILES_MAP,
   TEMPLATES,
   TEMPLATES_MAP,
-} from '../constants';
+} from '../utils/constants';
 import { MessageExamples } from './MessageExamples';
-import { useElizaForm, type CharacterSchema } from '../hooks/useElizaForm';
+import { useElizaForm } from '../hooks/useElizaForm';
 import { BioForm } from './BioForm';
 import { KnowledgeForm } from './KnowledgeForm';
 import { LoreForm } from './LoreForm';
 import { PostExamplesForm } from './PostExamplesForm';
 import { StyleForm } from './StyleForm';
-import { FaChevronLeft, FaChevronRight } from 'react-icons/fa6';
+import { FaChevronLeft } from 'react-icons/fa6';
 import { useState } from 'react';
 import { Input } from './Input';
+import type { CharacterFormSchema } from '../utils/schema';
 
 type TemplateSelectorProps = {
   template?: Template;
@@ -137,7 +138,7 @@ export const Characterfile: React.FC<CharacterfileProps> = ({
 
   const hasErrors = Object.entries(errors).length > 0;
 
-  const mapSettingsSecretsAndUpdateForm = (data: CharacterSchema) => {
+  const mapSettingsSecretsAndUpdateForm = (data: CharacterFormSchema) => {
     const { modelProvider, clients } = data;
     const model = { ...SECRETS_MODEL_PROVIDER_MAP[modelProvider] };
     const client = clients.reduce((acc, client) => {
@@ -154,7 +155,7 @@ export const Characterfile: React.FC<CharacterfileProps> = ({
     goTo('getStarted');
   };
 
-  const onSubmit = (data: CharacterSchema) => {
+  const onSubmit = (data: CharacterFormSchema) => {
     if (completedStep === 0) {
       completeStep(1);
     }
