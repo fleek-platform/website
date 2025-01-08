@@ -17,7 +17,7 @@ export const validateZod = <T extends ZodRawShape>({
       return formatZodError(e);
     } else {
       console.warn(e);
-      return String(e);
+      return false;
     }
   }
 };

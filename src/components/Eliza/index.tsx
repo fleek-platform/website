@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { ElizaIntegrationLayer } from './ElizaIntegrationLayer';
 import { isProd, isServer } from '@utils/common';
 import settings from '@base/settings.json';
-import { InitialLoadingState } from '@components/ElizaForm/components/InitialLoadingState';
+import { InitialLoadingState } from '@components/Eliza/components/InitialLoadingState';
 
 const Eliza: React.FC = () => {
   const [isReady, setIsReady] = useState(!settings.site.mocksEnabled);

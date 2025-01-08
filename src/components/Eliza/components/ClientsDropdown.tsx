@@ -1,6 +1,6 @@
-import { Dropdown } from '@components/ElizaForm/components/Dropdown';
+import { Dropdown } from '@components/Eliza/components/Dropdown';
 import { CLIENT_NAMES, CLIENTS_MAP } from '../utils/constants';
-import { Badge } from '@components/ElizaForm/components/Badge';
+import { Badge } from '@components/Eliza/components/Badge';
 import type { Client } from '../utils/types';
 import {
   Controller,
