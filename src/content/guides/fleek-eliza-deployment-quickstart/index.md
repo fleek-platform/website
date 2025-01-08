@@ -89,9 +89,9 @@ To use this option, we can just use the characterfile we have above directly sin
 
 ![characterfile upload](./character-upload.png)
 
-2. You will be taken to the page to upload your environment variables:
+2. You will be presented with a page to review your agent’s details:
 
-![env setup](./env-setup.png)
+![confirm agent details](./confirm-details.png)
 
 Remember that you only need the below environment variables:
 
@@ -102,11 +102,7 @@ TWITTER_EMAIL=
 OPENAI_API_KEY=
 ```
 
-3. You will be presented with a page to review your agent’s details:
-
-![confirm agent details](./confirm-details.png)
-
-4. Click “Deploy agent” and your AI agent starts deploying. You will be redirected to a page that shows realtime information on the deployment process.
+3. Click “Deploy agent” and your AI agent starts deploying. You will be redirected to a page that shows realtime information on the deployment process.
 
 ## Manually enter agent details
 
