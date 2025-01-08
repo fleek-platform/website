@@ -75,7 +75,7 @@
       "eliza": {
         "title": "Eliza",
         "slug": "eliza",
-        "description": "Deploy your AI agent personally using the Eliza framework.",
+        "description": "Deploy your AI agent using the Eliza framework.",
         "image": "/images/fleek-meta.png?202406061658"
       },
       "guides": {
