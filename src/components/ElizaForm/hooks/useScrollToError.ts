@@ -1,9 +1,9 @@
 import { useCallback } from 'react';
 import type { FieldErrors } from 'react-hook-form';
-import type { CharacterSchema } from './useElizaForm';
+import type { CharacterFormSchema } from '../utils/schema';
 
 export const useScrollToError = (
-  fieldName: keyof CharacterSchema,
+  fieldName: keyof CharacterFormSchema,
   errors: FieldErrors,
 ) => {
   return useCallback(

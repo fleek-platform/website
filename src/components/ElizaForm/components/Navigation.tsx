@@ -1,22 +1,24 @@
 import { useState } from 'react';
 import { GetStarted } from './GetStarted';
 import { Layout } from './Layout';
-import { type Template, type Page, type Step } from '../types';
+import { type Page, type Step, type Options } from '../utils/types';
 import { Characterfile } from './Characterfile';
-import ElizaModule from '@components/Eliza';
 import { FormProviderCharacterBuilder } from '../hooks/useElizaForm';
 import { SettingsPage } from './SettingsPage';
-import { ReviewPage, type ReviewPageProps } from './ReviewPage';
+import { ReviewPage } from './ReviewPage';
+import { UploadPage } from './UploadPage';
 
-interface NavigationProps extends ReviewPageProps {}
+type NavigationProps = {
+  onDeployBtnClick: (characterfile: string | undefined) => void;
+};
 
-export const Navigation: React.FC<NavigationProps> = (props) => {
+export const Navigation: React.FC<NavigationProps> = ({ onDeployBtnClick }) => {
   const [page, setPage] = useState<Page>('getStarted');
-  const [template, setTemplate] = useState<Template>();
+  const [options, setOptions] = useState<Options>();
   const [completedStep, setCompletedStep] = useState<Step>(0);
 
-  const goTo = (page: Page, template?: Template) => {
-    setTemplate(template);
+  const goTo = (page: Page, newOptions?: Options) => {
+    setOptions(newOptions);
     setPage(page);
   };
 
@@ -26,11 +28,11 @@ export const Navigation: React.FC<NavigationProps> = (props) => {
 
   const pages: Record<Page, React.ReactNode> = {
     getStarted: <GetStarted goTo={goTo} />,
-    upload: <ElizaModule />,
+    upload: <UploadPage goTo={goTo} />,
     characterfile: (
       <Characterfile
         goTo={goTo}
-        template={template}
+        template={options?.template}
         completedStep={completedStep}
         completeStep={completeStep}
       />
@@ -43,7 +45,11 @@ export const Navigation: React.FC<NavigationProps> = (props) => {
       />
     ),
     review: (
-      <ReviewPage goTo={goTo} onDeployBtnClick={props.onDeployBtnClick} />
+      <ReviewPage
+        goTo={goTo}
+        onDeployBtnClick={onDeployBtnClick}
+        from={options?.from}
+      />
     ),
   };
 

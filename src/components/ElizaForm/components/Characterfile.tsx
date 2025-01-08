@@ -6,7 +6,7 @@ import Link, { Target } from './Link';
 import { Button } from './Button';
 import { TagsForm } from './TagsForm';
 import { Box } from './Box';
-import type { GoToProps, Step, Template } from '../types';
+import type { GoToProps, Step, Template } from '../utils/types';
 import type React from 'react';
 import {
   INITIAL_FORM,
@@ -15,17 +15,18 @@ import {
   TEMPLATE_CHARACTERFILES_MAP,
   TEMPLATES,
   TEMPLATES_MAP,
-} from '../constants';
+} from '../utils/constants';
 import { MessageExamples } from './MessageExamples';
-import { useElizaForm, type CharacterSchema } from '../hooks/useElizaForm';
+import { useElizaForm } from '../hooks/useElizaForm';
 import { BioForm } from './BioForm';
 import { KnowledgeForm } from './KnowledgeForm';
 import { LoreForm } from './LoreForm';
 import { PostExamplesForm } from './PostExamplesForm';
 import { StyleForm } from './StyleForm';
-import { FaChevronLeft, FaChevronRight } from 'react-icons/fa6';
+import { FaChevronLeft } from 'react-icons/fa6';
 import { useState } from 'react';
 import { Input } from './Input';
+import type { CharacterFormSchema } from '../utils/schema';
 
 type TemplateSelectorProps = {
   template?: Template;
@@ -76,14 +77,9 @@ const TemplateSelector: React.FC<TemplateSelectorProps> = ({ template }) => {
 type HeaderProps = {
   completedStep: Step;
   onPrevious: () => void;
-  onNext: () => void;
 };
 
-const Header: React.FC<HeaderProps> = ({
-  completedStep,
-  onPrevious,
-  onNext,
-}) => {
+const Header: React.FC<HeaderProps> = ({ completedStep, onPrevious }) => {
   const [isOpen, setIsOpen] = useState(false);
 
   const toggle = () => setIsOpen((prev) => !prev);
@@ -112,25 +108,17 @@ const Header: React.FC<HeaderProps> = ({
     <Box className="w-full flex-row items-center justify-between">
       <Button
         variant="ghost"
-        className="text-yellow-dark-11"
+        className="text-elz-accent-11"
         onClick={isStepCompleted ? toggle : onPrevious}
       >
         <FaChevronLeft /> {label}
-      </Button>
-      <Button
-        variant="ghost"
-        disabled={!isStepCompleted}
-        className="text-elz-accent-11"
-        onClick={onNext}
-      >
-        Settings <FaChevronRight />
       </Button>
     </Box>
   );
 };
 
 type CharacterfileProps = GoToProps & {
-  template?: Template;
+  template?: Template | undefined;
   completedStep: Step;
   completeStep: (step: Step) => void;
 };
@@ -150,7 +138,7 @@ export const Characterfile: React.FC<CharacterfileProps> = ({
 
   const hasErrors = Object.entries(errors).length > 0;
 
-  const mapSettingsSecretsAndUpdateForm = (data: CharacterSchema) => {
+  const mapSettingsSecretsAndUpdateForm = (data: CharacterFormSchema) => {
     const { modelProvider, clients } = data;
     const model = { ...SECRETS_MODEL_PROVIDER_MAP[modelProvider] };
     const client = clients.reduce((acc, client) => {
@@ -167,7 +155,7 @@ export const Characterfile: React.FC<CharacterfileProps> = ({
     goTo('getStarted');
   };
 
-  const onSubmit = (data: CharacterSchema) => {
+  const onSubmit = (data: CharacterFormSchema) => {
     if (completedStep === 0) {
       completeStep(1);
     }
@@ -178,11 +166,7 @@ export const Characterfile: React.FC<CharacterfileProps> = ({
   return (
     <>
       <Box className="relative items-start gap-16">
-        <Header
-          completedStep={completedStep}
-          onPrevious={onPrevious}
-          onNext={handleSubmit(onSubmit)}
-        />
+        <Header completedStep={completedStep} onPrevious={onPrevious} />
         <Text>
           {template ? 'Start with a template' : 'Create characterfile'}
         </Text>

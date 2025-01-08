@@ -71,7 +71,6 @@ export const ElizaIntegration: React.FC = () => {
         getAgentDeploymentStatus={getAgentDeploymentStatus}
         ensureUserSubscription={ensureUserSubscription}
       />
-
       <Toaster
         position="bottom-right"
         toastOptions={{
@@ -82,7 +81,6 @@ export const ElizaIntegration: React.FC = () => {
           },
         }}
       />
-
       <SubscriptionModal
         isVisible={isSubscriptionModalVisible}
         setIsVisible={setIsSubscriptionModalVisible}

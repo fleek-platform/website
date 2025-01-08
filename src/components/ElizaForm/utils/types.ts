@@ -10,8 +10,13 @@ export type Page = (typeof PAGES)[number];
 
 export type Step = (typeof STEPS)[number];
 
+export type Options = {
+  from?: Page;
+  template?: Template;
+};
+
 export type GoToProps = {
-  goTo: (page: Page, template?: Template) => void;
+  goTo: (page: Page, options?: Options) => void;
 };
 
 export type Template = (typeof TEMPLATES)[number];

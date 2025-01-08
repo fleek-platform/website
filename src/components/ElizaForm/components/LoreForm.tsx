@@ -3,7 +3,7 @@ import { useElizaForm } from '../hooks/useElizaForm';
 import { useFieldArray } from 'react-hook-form';
 import { Box } from './Box';
 import { Input } from './Input';
-import { INITIAL_FORM } from '../constants';
+import { INITIAL_FORM } from '../utils/constants';
 import { ArrayForm } from './ArrayForm';
 
 export const LoreForm: React.FC = () => {

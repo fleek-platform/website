@@ -1,17 +1,18 @@
 ---
-import Layout from '@layouts/AboutPage.astro';
 import settings from '@base/settings.json';
 import ElizaModule from '@components/Eliza';
+import BaseHtml from '@layouts/BaseHtml.astro';
 ---
 
-<Layout
+<BaseHtml
   title={settings.site.metadata.eliza.title}
-  description={settings.site.metadata.eliza.description}
-  slug={settings.site.metadata.eliza.slug}
-  image={settings.site.metadata.eliza.image}
-  singlePage
+  ogMeta={{
+    title: settings.site.metadata.eliza.title,
+    description: settings.site.metadata.eliza.description,
+    image: settings.site.metadata.eliza.image,
+    slug: settings.site.metadata.eliza.slug,
+  }}
+  overflowHorizontally
 >
-  <main class="container">
-    <ElizaModule client:load />
-  </main>
-</Layout>
+  <ElizaModule client:load />
+</BaseHtml>
