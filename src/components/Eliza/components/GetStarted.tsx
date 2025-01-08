@@ -25,11 +25,11 @@ const OverCapacityModal: React.FC<OverCapacityModalProps> = ({
   isOpen,
   closeModal,
 }) => {
-  const { login, user } = useAuthentication();
+  const { login, isLoggedIn } = useAuthentication();
 
-  const title = user ? "You're in" : 'Sorry,';
+  const title = isLoggedIn() ? "You're in" : 'Sorry,';
 
-  const description = user
+  const description = isLoggedIn()
     ? 'When we have capacity to deploy new AI agents you will be first in line. Please try again later!'
     : "We're currently over capacity and unable to deploy new AI agents. Sign in now to save time and try again later!";
 
@@ -43,7 +43,7 @@ const OverCapacityModal: React.FC<OverCapacityModalProps> = ({
           <Button variant="ghost" onClick={closeModal}>
             Close
           </Button>
-          {!user && <Button onClick={login}>Sign in</Button>}
+          {!isLoggedIn() && <Button onClick={login}>Sign in</Button>}
         </Box>
       </Box>
     </Modal>
@@ -62,21 +62,8 @@ export const GetStarted: React.FC<GetStartedProps> = ({
 
   const { reset } = useElizaForm();
 
-  const [isOverCapacityBoolean, setIsOverCapacityBoolean] = useState<
-    string | null
-  >(null);
-
-  /* Just for testing purposes and will be removed
-    in favor of the internal flag isOverCapacity
-  */
-  useEffect(() => {
-    const queryParams = new URLSearchParams(window.location.search);
-    const value = queryParams.get('isOverCapacity');
-    setIsOverCapacityBoolean(value);
-  }, []);
-
   const withCapacityCheck = (callbackFn: () => void) => () => {
-    if (isOverCapacityBoolean) {
+    if (isOverCapacity) {
       setIsOpen(true);
     } else {
       callbackFn();
