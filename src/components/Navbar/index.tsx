@@ -1,7 +1,7 @@
 import type React from 'react';
 import { navbarMenu, type NavMenuItem, type NavSubMenuItem } from './config';
 import Link, { Target } from '@components/Link';
-import { useCallback, useState } from 'react';
+import { useCallback, useEffect, useState } from 'react';
 import { FaArrowRight, FaDiscord, FaXmark, FaXTwitter } from 'react-icons/fa6';
 import { cn } from '@utils/cn';
 import { RxHamburgerMenu } from 'react-icons/rx';
@@ -315,7 +315,7 @@ const SessionManagementActions: React.FC = () => {
     login,
     userProjects,
     setActiveProject,
-    userActiveProject,
+    activeProjectId,
   } = useAuthentication();
 
   const handleLoginClick = (
@@ -326,14 +326,24 @@ const SessionManagementActions: React.FC = () => {
     login();
   };
 
+  const [isMounted, setIsMounted] = useState(false);
+
+  useEffect(() => {
+    setIsMounted(true);
+  }, []);
+
+  if (!isMounted) {
+    return null;
+  }
+
   return (
     <>
-      {isLoggedIn() ? (
+      {isLoggedIn ? (
         <>
-          {userProjects && userActiveProject && (
+          {userProjects && !!userProjects.length && activeProjectId && (
             <ProjectDropdown
               projects={userProjects}
-              selectedProjectId={userActiveProject}
+              selectedProjectId={activeProjectId}
               onProjectChange={setActiveProject}
             />
           )}
