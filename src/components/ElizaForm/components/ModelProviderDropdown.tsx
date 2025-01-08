@@ -1,12 +1,16 @@
 import { Dropdown } from './Dropdown';
-import { MODEL_PROVIDER_NAMES, MODEL_PROVIDER_NAMES_MAP } from '../constants';
+import {
+  MODEL_PROVIDER_NAMES,
+  MODEL_PROVIDER_NAMES_MAP,
+} from '../utils/constants';
 import { Text } from './Text';
 import { FaCheck } from 'react-icons/fa6';
-import { useElizaForm, type CharacterSchema } from '../hooks/useElizaForm';
+import { useElizaForm } from '../hooks/useElizaForm';
 import { Controller, useWatch } from 'react-hook-form';
 import { Input } from './Input';
 import { Box } from './Box';
 import { useScrollToError } from '../hooks/useScrollToError';
+import type { CharacterFormSchema } from '../utils/schema';
 
 export const ModelProviderDropdown: React.FC = () => {
   const {
@@ -19,7 +23,7 @@ export const ModelProviderDropdown: React.FC = () => {
     errors,
   );
 
-  const provider: CharacterSchema['modelProvider'] = useWatch({
+  const provider: CharacterFormSchema['modelProvider'] = useWatch({
     control,
     name: 'modelProvider',
   });
