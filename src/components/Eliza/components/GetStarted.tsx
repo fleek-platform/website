@@ -11,7 +11,14 @@ import {
 import { useElizaForm } from '../hooks/useElizaForm';
 import { TEMPLATE_CHARACTERFILES_MAP } from '../utils/constants';
 
-export const GetStarted: React.FC<GoToProps> = ({ goTo }) => {
+type GetStartedProps = GoToProps & {
+  isOverCapacity: boolean;
+};
+
+export const GetStarted: React.FC<GetStartedProps> = ({
+  isOverCapacity,
+  goTo,
+}) => {
   const { reset } = useElizaForm();
 
   const onTemplatePageSelect = () => {
