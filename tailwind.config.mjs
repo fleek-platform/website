@@ -4,7 +4,7 @@ import {
   elzColors,
   elzFontFamily,
   tailwindAnimate,
-} from './src/components/ElizaForm/.tailwind/tokens';
+} from './src/components/Eliza/.tailwind/tokens';
 
 export const colors = {
   title: '#F1F1F1',

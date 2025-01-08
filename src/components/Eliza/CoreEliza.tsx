@@ -8,9 +8,9 @@ import {
   useDeployAIAgent,
   type UseDeployAIAgentProps,
 } from './hooks/useDeployAIAgent.ts';
-import { Navigation } from '@components/ElizaForm/components/Navigation.tsx';
+import { Navigation } from '@components/Eliza/components/Navigation.tsx';
 import { useState } from 'react';
-import { Button } from '@components/ElizaForm/components/Button.tsx';
+import { Button } from '@components/Eliza/components/Button.tsx';
 import { FaChevronLeft } from 'react-icons/fa6';
 
 interface StepConfig {
