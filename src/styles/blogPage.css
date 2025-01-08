@@ -60,11 +60,17 @@
       @apply pb-32 pl-32;
 
       li {
-        @apply list-disc pb-10;
+        @apply pb-10;
       }
 
       li p {
         @apply pb-0;
+      }
+    }
+
+    ul {
+      li {
+        @apply list-disc;
       }
     }
 
