@@ -3,7 +3,6 @@ import type { GoToProps, Options } from '../utils/types';
 import { Box } from './Box';
 import { useElizaForm } from '../hooks/useElizaForm';
 import {
-  formatZodError,
   transformSchemaToCharacter,
   type FormattedError,
 } from '../utils/transformData';
@@ -15,7 +14,6 @@ import FileEditor from '@components/Eliza/components/FileEditor';
 import { cn } from '@utils/cn';
 import { Input } from './Input';
 import { characterfileSchema } from '../utils/schema';
-import { ZodError } from 'zod';
 import { validateZod } from '../utils/validateHelper';
 
 type HeaderProps = {
