@@ -42,7 +42,7 @@ export const Modal: React.FC<ModalProps> = ({
       />
       <Box
         className={cn(
-          'absolute inset-0 top-1/2 z-60 mx-auto h-auto w-512 origin-center -translate-y-1/2 transform rounded-12 border border-elz-neutral-6 bg-elz-neutral-1 p-24 animate-in fade-in-90',
+          'absolute top-1/2 z-60 mx-auto w-512 -translate-y-1/2 transform rounded-12 border border-elz-neutral-6 bg-elz-neutral-1 p-24 animate-in fade-in-90 zoom-in-105',
           modalContainerClassName,
         )}
       >

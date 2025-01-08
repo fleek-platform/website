@@ -11,12 +11,10 @@ import {
 } from './CustomIcons';
 import { useElizaForm } from '../hooks/useElizaForm';
 import { TEMPLATE_CHARACTERFILES_MAP } from '../utils/constants';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { Button } from './Button';
-import { FaXmark } from 'react-icons/fa6';
-import { useOnKeyDown } from '../hooks/useOnKeyDown';
-import { useDisableScroll } from '../hooks/useDisableScroll';
 import { Modal } from './Modal';
+import { useAuthentication } from '@components/AuthProvider/useAuthentication';
 
 type OverCapacityModalProps = {
   isOpen: boolean;
@@ -27,26 +25,26 @@ const OverCapacityModal: React.FC<OverCapacityModalProps> = ({
   isOpen,
   closeModal,
 }) => {
+  const { login, user } = useAuthentication();
+
+  const title = user ? "You're in" : 'Sorry,';
+
+  const description = user
+    ? 'When we have capacity to deploy new AI agents you will be first in line. Please try again later!'
+    : "We're currently over capacity and unable to deploy new AI agents. Sign in now to save time and try again later!";
+
   return (
     <Modal isOpen={isOpen} closeModal={closeModal}>
-      <Box className="flex-row justify-between">
-        <Box className="gap-12">
-          <Text>Sorry,</Text>
-          <Text variant="description">
-            We are over capacity right now to deploy new AI agents.
-          </Text>
-          <IllustrationIcon className="mr-auto h-200" />
-          <Text variant="description">Sign in and don't miss next time:</Text>
-          <Button>Sign in</Button>
+      <Box className="gap-12">
+        <Text>{title}</Text>
+        <Text variant="description">{description}</Text>
+        <IllustrationIcon className="mt-16 h-200" />
+        <Box className="flex-row items-center gap-16 *:flex-1">
+          <Button variant="ghost" onClick={closeModal}>
+            Close
+          </Button>
+          {!user && <Button onClick={login}>Sign in</Button>}
         </Box>
-        <Button
-          size="lg"
-          variant="ghost"
-          onClick={closeModal}
-          className="size-44"
-        >
-          <FaXmark />
-        </Button>
       </Box>
     </Modal>
   );
@@ -64,8 +62,21 @@ export const GetStarted: React.FC<GetStartedProps> = ({
 
   const { reset } = useElizaForm();
 
+  const [isOverCapacityBoolean, setIsOverCapacityBoolean] = useState<
+    string | null
+  >(null);
+
+  /* Just for testing purposes and will be removed
+    in favor of the internal flag isOverCapacity
+  */
+  useEffect(() => {
+    const queryParams = new URLSearchParams(window.location.search);
+    const value = queryParams.get('isOverCapacity');
+    setIsOverCapacityBoolean(value);
+  }, []);
+
   const withCapacityCheck = (callbackFn: () => void) => () => {
-    if (isOverCapacity) {
+    if (isOverCapacityBoolean) {
       setIsOpen(true);
     } else {
       callbackFn();
@@ -104,7 +115,7 @@ export const GetStarted: React.FC<GetStartedProps> = ({
           description="Create an agent by entering details into a form."
         />
         <ActionBox
-          onClick={withCapacityCheck(() => onTemplatePageSelect)}
+          onClick={withCapacityCheck(() => onTemplatePageSelect())}
           icon={<ExtensionPuzzleIcon className="size-34 shrink-0" />}
           title="Start with a template"
           description="Create an agent by customizing an existing template."
