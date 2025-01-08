@@ -182,7 +182,7 @@
     "menu": {
       "order": [
         {
-          "category": "Deploy_AI_Agents",
+          "category": "AI_Agents",
           "order": 1
         },
         {
