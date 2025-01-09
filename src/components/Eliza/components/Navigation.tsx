@@ -10,9 +10,13 @@ import { UploadPage } from './UploadPage';
 
 type NavigationProps = {
   onDeployBtnClick: (characterfile: string | undefined) => void;
+  isOverCapacity?: boolean;
 };
 
-export const Navigation: React.FC<NavigationProps> = ({ onDeployBtnClick }) => {
+export const Navigation: React.FC<NavigationProps> = ({
+  onDeployBtnClick,
+  isOverCapacity = false,
+}) => {
   const [page, setPage] = useState<Page>('getStarted');
   const [options, setOptions] = useState<Options>();
   const [completedStep, setCompletedStep] = useState<Step>(0);
@@ -27,7 +31,7 @@ export const Navigation: React.FC<NavigationProps> = ({ onDeployBtnClick }) => {
   };
 
   const pages: Record<Page, React.ReactNode> = {
-    getStarted: <GetStarted goTo={goTo} />,
+    getStarted: <GetStarted goTo={goTo} isOverCapacity={isOverCapacity} />,
     upload: <UploadPage goTo={goTo} />,
     characterfile: (
       <Characterfile

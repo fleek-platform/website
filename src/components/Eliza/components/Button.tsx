@@ -26,7 +26,7 @@ export const buttonVariants = cva(
         xs: 'h-24 gap-4 px-8 rounded-8 text-[1.4rem]',
         sm: 'h-32 gap-4 px-8 rounded-8 text-[1.4rem]',
         md: 'h-40 gap-8 px-16 rounded-12 text-[1.6rem]',
-        lg: 'h-44 gap-8 rounded-12 text-[1.6rem]',
+        lg: 'h-44 gap-8 px-16 rounded-12 text-[1.6rem]',
       },
     },
     defaultVariants: {
