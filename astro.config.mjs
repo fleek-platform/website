@@ -47,20 +47,6 @@ export default defineConfig({
   site: settings.site[env].url,
   vite: {
     plugins: [imagetools()],
-    resolve: {
-      conditions: ['browser', 'import', 'module', 'default'],
-      alias: [
-        // Alias 'msw/browser' to the stub module in production
-        ...(process.env.NODE_ENV === 'production'
-          ? [
-              {
-                find: /^msw\/browser$/,
-                replacement: '/src/mocks/__mocks__/msw-browser.js',
-              },
-            ]
-          : []),
-      ],
-    },
   },
   integrations: [
     tailwind({

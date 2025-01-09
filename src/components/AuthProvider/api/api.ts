@@ -1,50 +1,7 @@
 import settings from '@base/settings.json';
 
-export const getProject = async (
+export const getSubscriptions = async (
   projectId?: string,
-  token?: string,
-): Promise<{
-  ok: boolean;
-  data?: {
-    id: string;
-    teamId: string;
-    name: string;
-    createdAt: string;
-    updatedAt: string;
-  };
-  error?: string;
-}> => {
-  if (!projectId || !token) return { ok: false };
-  try {
-    const response = await fetch(
-      `${settings.site.auth.endpoints.projects}/${projectId}`,
-      {
-        method: 'GET',
-        headers: {
-          'Content-Type': 'application/json',
-          authorization: `Bearer ${token}`,
-        },
-      },
-    );
-
-    if (!response.ok) {
-      const errorText = await response.text();
-      return {
-        ok: false,
-        error: `HTTP Error ${response.status}: ${errorText}`,
-      };
-    }
-
-    const data = await response.json();
-
-    return { ok: true, data };
-  } catch (error: any) {
-    return { ok: false, error: error.message };
-  }
-};
-
-export const getSubscription = async (
-  subscriptionId?: string,
   token?: string,
 ): Promise<{
   ok: boolean;
@@ -53,8 +10,10 @@ export const getSubscription = async (
     status: string;
     startDate: string;
     periodEndDate: string;
+    productId: string;
     endDate?: string;
     items: {
+      quantity: number;
       id: string;
       name: string;
       description: string;
@@ -62,14 +21,15 @@ export const getSubscription = async (
       createdAt: string;
       updatedAt: string;
       metadata?: Record<string, string>;
+      productId: string;
     }[];
-  };
+  }[];
   error?: string;
 }> => {
-  if (!subscriptionId || !token) return { ok: false };
+  if (!projectId || !token) return { ok: false };
   try {
     const response = await fetch(
-      `${settings.site.auth.endpoints.subscriptions}/${subscriptionId}`,
+      `${settings.site.auth.endpoints.subscriptions}?projectId=${projectId}`,
       {
         method: 'GET',
         headers: {
@@ -79,7 +39,12 @@ export const getSubscription = async (
       },
     );
 
-    if (!response.ok) {
+    if (!response.ok && response.status === 404) {
+      return {
+        ok: true,
+        data: [],
+      };
+    } else if (!response.ok) {
       const errorText = await response.text();
       return {
         ok: false,
@@ -97,7 +62,7 @@ export const getSubscription = async (
 
 export const createSubscription = async (
   projectId?: string,
-  planId?: string,
+  productId?: string,
   token?: string,
 ): Promise<{
   ok: boolean;
@@ -106,10 +71,11 @@ export const createSubscription = async (
   };
   error?: string;
 }> => {
-  if (!projectId || !token || !planId) return { ok: false };
+  if (!projectId || !token || !productId) return { ok: false };
+
   try {
     const response = await fetch(
-      `${settings.site.auth.endpoints.subscriptions}`,
+      `${settings.site.auth.endpoints.subscriptions}/checkout`,
       {
         method: 'POST',
         headers: {
@@ -118,7 +84,59 @@ export const createSubscription = async (
         },
         body: JSON.stringify({
           projectId,
-          planId,
+          product: {
+            id: productId,
+            quantity: 1,
+          },
+        }),
+      },
+    );
+
+    if (!response.ok) {
+      const errorText = await response.text();
+      return {
+        ok: false,
+        error: `HTTP Error ${response.status}: ${errorText}`,
+      };
+    }
+
+    const data = await response.json();
+
+    return { ok: true, data };
+  } catch (error: any) {
+    return { ok: false, error: error.message };
+  }
+};
+
+export const updateSubscription = async (
+  projectId?: string,
+  productId?: string,
+  quantity?: number,
+  token?: string,
+): Promise<{
+  ok: boolean;
+  data?: {
+    url?: string;
+  };
+  error?: string;
+}> => {
+  if (!projectId || !token || !productId) return { ok: false };
+
+  try {
+    const response = await fetch(
+      `${settings.site.auth.endpoints.subscriptions}/checkout`,
+      {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          authorization: `Bearer ${token}`,
+        },
+        body: JSON.stringify({
+          projectId,
+          product: {
+            id: productId,
+            quantity,
+          },
         }),
       },
     );
@@ -140,7 +158,7 @@ export const createSubscription = async (
 };
 
 export const getPlans = async (
-  token: string,
+  token?: string,
 ): Promise<{
   ok: boolean;
   data?: {

@@ -10,19 +10,20 @@ const DeploymentFailed: React.FC<DeploymentFailedProps> = ({
   return (
     <div className="flex w-full flex-col gap-[20px] text-[14px] leading-[20px]">
       <div className="flex w-full flex-col gap-[16px]">
-        {Object.entries(deploymentStatus).map((entry) => {
-          const [key, value] = entry;
-          return value === 'failed' ? (
-            <div
-              key={key}
-              className="flex flex-row justify-between rounded-[12px] border-1 border-[#343434] p-[16px] text-[14px] leading-[20px]"
-            >
-              <div>
-                {key} : <span className="text-[#FF3B30]">{value}</span>
+        {deploymentStatus &&
+          Object.entries(deploymentStatus).map((entry) => {
+            const [key, value] = entry;
+            return value === 'failed' ? (
+              <div
+                key={key}
+                className="flex flex-row justify-between rounded-[12px] border-1 border-[#343434] p-[16px] text-[14px] leading-[20px]"
+              >
+                <div>
+                  {key} : <span className="text-[#FF3B30]">{value}</span>
+                </div>
               </div>
-            </div>
-          ) : null;
-        })}
+            ) : null;
+          })}
       </div>
       <div className="flex w-full flex-col gap-[10px]">
         <button

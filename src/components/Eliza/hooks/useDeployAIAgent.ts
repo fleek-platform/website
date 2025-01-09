@@ -1,4 +1,4 @@
-import { useMemo } from 'react';
+import { useCallback, useMemo } from 'react';
 import { useState } from 'react';
 
 export type DeploymentStatus = {
@@ -6,8 +6,8 @@ export type DeploymentStatus = {
 };
 
 export interface UseDeployAIAgentProps {
-  isLoggedIn: () => boolean;
-  login: () => Promise<boolean>;
+  isLoggedIn: boolean;
+  login: () => void;
   ensureUserSubscription: () => Promise<boolean>;
   triggerAgentDeployment: (
     characterfile: string,
@@ -82,46 +82,41 @@ export const useDeployAIAgent = ({
     poll(0);
   };
 
-  const deployAgent = async (characterFile: string | undefined) => {
-    resetDeployment();
+  const deployAgent = useCallback(
+    async (characterFile: string | undefined) => {
+      resetDeployment();
 
-    if (!characterFile) {
-      console.error('Characterfile missing', {
-        characterFile,
-      });
-      setIsDeploymentFailed(true);
-      return false;
-    }
+      if (!characterFile) {
+        return false;
+      }
 
-    const isUserLoggedIn = isLoggedIn();
-    console.log('🚀 ~ deployAgent > isUserLoggedIn:', isUserLoggedIn);
-    if (!isUserLoggedIn) {
-      const loginResult = await login();
-      console.log('🚀 ~ deployAgent > loginResult:', loginResult);
+      if (!isLoggedIn) {
+        login();
+        return false;
+      }
 
-      if (!loginResult) {
+      const subscriptionResult = await ensureUserSubscription();
+      if (!subscriptionResult) {
+        return false;
+      }
+
+      setIsDeploymentPending(true);
+      const deploymentTriggerResult =
+        await triggerAgentDeployment(characterFile);
+      if (
+        !deploymentTriggerResult.ok ||
+        !deploymentTriggerResult.deploymentId
+      ) {
+        setIsDeploymentPending(false);
         setIsDeploymentFailed(true);
         return false;
       }
-    }
 
-    const subscriptionResult = await ensureUserSubscription();
-    if (!subscriptionResult) {
-      setIsDeploymentFailed(true);
-      return false;
-    }
-
-    setIsDeploymentPending(false);
-    const deploymentTriggerResult = await triggerAgentDeployment(characterFile);
-    if (!deploymentTriggerResult.ok || !deploymentTriggerResult.deploymentId) {
-      setIsDeploymentPending(false);
-      setIsDeploymentFailed(true);
-      return false;
-    }
-
-    pollDeploymentStatus(deploymentTriggerResult.deploymentId);
-    return true;
-  };
+      pollDeploymentStatus(deploymentTriggerResult.deploymentId);
+      return true;
+    },
+    [isLoggedIn],
+  );
 
   const resetDeployment = () => {
     setIsDeploymentPending(false);
