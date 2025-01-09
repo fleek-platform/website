@@ -14,6 +14,7 @@ interface SubscriptionModalProps {
   onSuccess?: (value?: boolean) => void;
   subscriptionAmount: number;
   productId?: string;
+  checkUserAmountAvailableAiModules: () => Promise<any>;
 }
 
 const AI_MODULE_PRICE = 10;
@@ -25,11 +26,15 @@ export const SubscriptionModal: React.FC<SubscriptionModalProps> = ({
   activeProjectId,
   subscriptionAmount,
   productId,
+  checkUserAmountAvailableAiModules,
 }) => {
   const { fetchFleekToken } = useAuthentication();
   const [isLoading, setIsLoading] = useState(false);
 
   const handleOnSubmitClick = async () => {
+    const POLLING_INTERVAL = 5000;
+    const MAX_ATTEMPTS = 20;
+
     const token = await fetchFleekToken();
     if (!activeProjectId || !token) return;
 
@@ -57,12 +62,32 @@ export const SubscriptionModal: React.FC<SubscriptionModalProps> = ({
 
     window.open(subscriptionCreationResponse.data?.url, '_blank');
 
-    setTimeout(() => {
-      toast.success('Payment successful! - Pending implementation');
-      onSuccess?.(true);
-      setIsVisible(false);
-      setIsLoading(false);
-    }, 25000);
+    const pollSubscriptionStatus = async (attempt: number) => {
+      try {
+        const result = await checkUserAmountAvailableAiModules();
+
+        if (result.hasEnoughAiModules) {
+          setIsLoading(false);
+          setIsVisible(false);
+          onSuccess?.(true);
+          toast.success('Subscription activated successfully!');
+          return;
+        }
+
+        if (attempt >= MAX_ATTEMPTS) {
+          setIsLoading(false);
+          toast.error('Subscription verification timed out. Please try again.');
+          return;
+        }
+
+        setTimeout(() => pollSubscriptionStatus(attempt + 1), POLLING_INTERVAL);
+      } catch (error) {
+        setIsLoading(false);
+        toast.error('Failed to verify subscription status');
+      }
+    };
+
+    pollSubscriptionStatus(0);
   };
 
   return isVisible ? (

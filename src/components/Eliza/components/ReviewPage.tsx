@@ -67,17 +67,20 @@ const INITIAL_ERRORS = {
 
 export type ReviewPageProps = {
   onDeployBtnClick: (characterfile: string | undefined) => void;
+  initialState?: {
+    characterFile?: string | undefined;
+  };
 };
 
 export const ReviewPage: React.FC<
   ReviewPageProps & GoToProps & { from: Options['from'] }
-> = ({ from, goTo, onDeployBtnClick }) => {
+> = ({ from, goTo, onDeployBtnClick, initialState }) => {
   const { getValues } = useElizaForm();
   const data = getValues();
   const transformedData = transformSchemaToCharacter(data);
 
   const [characterFile, setCharacterFile] = useState<string | undefined>(
-    JSON.stringify(transformedData, null, 2),
+    initialState?.characterFile || JSON.stringify(transformedData, null, 2),
   );
   const [errors, setErrors] = useState<Errors>(INITIAL_ERRORS);
 

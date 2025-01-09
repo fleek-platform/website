@@ -17,6 +17,7 @@ import {
   getPlans,
   getSubscriptions,
 } from '@components/AuthProvider/api/api.ts';
+import type { has } from 'lodash-es';
 
 export const ElizaIntegration: React.FC = () => {
   const { isLoggedIn, login, activeProjectId, fetchFleekToken } =
@@ -56,9 +57,9 @@ export const ElizaIntegration: React.FC = () => {
     return getDeploymentStatus(deploymentId, token);
   };
 
-  const ensureUserSubscription = useCallback(async (): Promise<boolean> => {
-    const token = await fetchFleekToken();
-    if (!token) return false;
+  const checkUserAmountAvailableAiModules = async () => {
+    const token = await fetchFleekToken(activeProjectId);
+    if (!token) return { hasEnoughAiModules: false, amount: 0 };
 
     const [plans, activeSubscriptions, projectAiAgents] = await Promise.all([
       getPlans(token),
@@ -77,7 +78,7 @@ export const ElizaIntegration: React.FC = () => {
         "it wasn't possible to fetch plans, active subscriptions or project ai agents",
         { plans, activeSubscriptions, projectAiAgents },
       );
-      return false;
+      return { hasEnoughAiModules: false, amount: 0 };
     }
 
     const aiAgentProduct = plans.data?.find(
@@ -90,15 +91,23 @@ export const ElizaIntegration: React.FC = () => {
       (sub) => sub.productId === aiAgentProduct?.id,
     );
 
-    const hasEnoughAiModules = aiAgentSubscriptionItem
-      ? projectAiAgents.data?.data.length < aiAgentSubscriptionItem.quantity
-      : false;
+    return aiAgentSubscriptionItem
+      ? {
+          hasEnoughAiModules:
+            projectAiAgents.data?.data.length <
+            aiAgentSubscriptionItem.quantity,
+          amount: aiAgentSubscriptionItem.quantity,
+          productId: aiAgentProduct?.id,
+        }
+      : { hasEnoughAiModules: false, amount: 0, productId: aiAgentProduct?.id };
+  };
 
-    if (!hasEnoughAiModules) {
-      openSubscriptionModal(
-        aiAgentSubscriptionItem?.quantity,
-        aiAgentProduct?.id,
-      );
+  const ensureUserSubscription = useCallback(async (): Promise<boolean> => {
+    const { hasEnoughAiModules, amount, productId } =
+      await checkUserAmountAvailableAiModules();
+
+    if (!hasEnoughAiModules && productId) {
+      openSubscriptionModal(amount, productId);
       return false;
     }
 
@@ -132,6 +141,7 @@ export const ElizaIntegration: React.FC = () => {
         onSuccess={subscriptionModalCallbackRef.current}
         activeProjectId={activeProjectId}
         subscriptionAmount={subscriptionAmount ?? 0}
+        checkUserAmountAvailableAiModules={checkUserAmountAvailableAiModules}
         productId={productId}
       />
     </>
