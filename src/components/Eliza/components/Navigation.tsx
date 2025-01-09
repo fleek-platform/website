@@ -10,12 +10,12 @@ import { UploadPage } from './UploadPage';
 
 type NavigationProps = {
   onDeployBtnClick: (characterfile: string | undefined) => void;
-  isOverCapacity: boolean;
+  isOverCapacity?: boolean;
 };
 
 export const Navigation: React.FC<NavigationProps> = ({
   onDeployBtnClick,
-  isOverCapacity,
+  isOverCapacity = false,
 }) => {
   const [page, setPage] = useState<Page>('getStarted');
   const [options, setOptions] = useState<Options>();
