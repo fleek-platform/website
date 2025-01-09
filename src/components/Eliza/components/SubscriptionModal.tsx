@@ -1,15 +1,19 @@
 import { useState } from 'react';
 import { Bolt, LoadingSpinner } from './Icons';
 import toast from 'react-hot-toast';
-import { createSubscription, getPlans } from '@components/AuthProvider/api/api';
-import { getCookie } from '@utils/cookies';
-import settings from '@base/settings.json';
+import {
+  createSubscription,
+  updateSubscription,
+} from '@components/AuthProvider/api/api';
+import { useAuthentication } from '@components/AuthProvider/useAuthentication';
 
 interface SubscriptionModalProps {
   isVisible: boolean;
   setIsVisible: (isVisible: boolean) => void;
   activeProjectId?: string;
   onSuccess?: (value?: boolean) => void;
+  subscriptionAmount: number;
+  productId?: string;
 }
 
 const AI_MODULE_PRICE = 10;
@@ -19,50 +23,39 @@ export const SubscriptionModal: React.FC<SubscriptionModalProps> = ({
   setIsVisible,
   onSuccess,
   activeProjectId,
+  subscriptionAmount,
+  productId,
 }) => {
+  const { fetchFleekToken } = useAuthentication();
   const [isLoading, setIsLoading] = useState(false);
 
   const handleOnSubmitClick = async () => {
-    const token = getCookie(settings.site.auth.authTokenCookieKey);
+    const token = await fetchFleekToken();
     if (!activeProjectId || !token) return;
-    console.log('🚀 ~ handleOnSubmitClick > activeProjectId:', activeProjectId);
 
     setIsLoading(true);
 
-    const plans = await getPlans(token);
-    console.log('🚀 ~ handleOnSubmitClick > plans:', plans);
-    if (!plans || !plans.ok || !plans.data?.length) {
-      toast.error('Failed to fetch plans');
-      setIsLoading(false);
-      return;
-    }
+    const subscriptionCreationResponse =
+      subscriptionAmount < 1
+        ? await createSubscription(activeProjectId, productId, token)
+        : await updateSubscription(
+            activeProjectId,
+            productId,
+            subscriptionAmount + 1,
+            token,
+          );
 
-    const planId = plans.data.find(
-      (plan) => plan.name.toUpperCase() === 'AI AGENT',
-    )?.id;
-
-    const subscriptionCreationResponse = await createSubscription(
-      activeProjectId,
-      planId,
-      token,
-    );
-
-    console.log(
-      '🚀 ~ handleOnSubmitClick > subscriptionCreationResponse:',
-      subscriptionCreationResponse,
-    );
-
-    if (!subscriptionCreationResponse || !subscriptionCreationResponse.ok) {
+    if (
+      !subscriptionCreationResponse ||
+      !subscriptionCreationResponse.ok ||
+      !subscriptionCreationResponse.data?.url
+    ) {
       toast.error('Failed to create subscription');
       setIsLoading(false);
       return;
     }
 
-    const newSubscriptionData = subscriptionCreationResponse.data;
-
-    if (newSubscriptionData?.url) {
-      window.location.replace(newSubscriptionData.url);
-    }
+    window.open(subscriptionCreationResponse.data?.url, '_blank');
 
     setTimeout(() => {
       toast.success('Payment successful! - Pending implementation');
@@ -146,14 +139,27 @@ export const useSubscriptionModal = () => {
     useState<boolean>(false);
   const [subscriptionModalCallback, setSubscriptionModalCallback] =
     useState<(value?: boolean) => void>();
-  const [onlyAiModule, setOnlyAiModule] = useState<boolean>(false);
+  const [subscriptionAmount, setSubscriptionAmount] = useState<
+    number | undefined
+  >(undefined);
+  const [productId, setProductId] = useState<string | undefined>(undefined);
+
+  const openSubscriptionModal = (
+    subscriptionAmount: number | undefined,
+    productId: string | undefined,
+  ) => {
+    setSubscriptionAmount(subscriptionAmount);
+    setProductId(productId);
+    setIsSubscriptionModalVisible(true);
+  };
 
   return {
     isSubscriptionModalVisible,
-    setIsSubscriptionModalVisible,
+    openSubscriptionModal,
     subscriptionModalCallback,
     setSubscriptionModalCallback,
-    onlyAiModule,
-    setOnlyAiModule,
+    setIsSubscriptionModalVisible,
+    subscriptionAmount,
+    productId,
   };
 };
