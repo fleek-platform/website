@@ -2,6 +2,7 @@ import React from 'react';
 import { Button, buttonVariants } from './Button';
 import type { VariantProps } from 'class-variance-authority';
 import clsx from 'clsx';
+import { Text } from './LandingPage/Text';
 
 export type Props = {
   title: string;
@@ -61,22 +62,18 @@ const PricingCard: React.FC<Props> = (props) => {
         )}
       >
         <div className="flex flex-col gap-16 border-b border-b-gray-dark-6 pb-20">
-          <h3 className="typo-xl-bold text-left text-gray-dark-12">
-            {props.title}
-          </h3>
-          <p className="typo-m text-left text-gray-dark-11">
-            {renderDescription()}
-          </p>
-          <div className="typo-m flex flex-col gap-1 text-left font-medium text-gray-dark-12">
-            <p>
-              {props.cost?.prefix ?? '$'}
-              <span className="typo-h5">{props.cost.amount}</span>
-              {props.cost?.suffix ?? ' /month'}
-            </p>
-            <p className="block min-h-22 font-normal text-gray-dark-11">
-              {props.cost?.bottomText}
-            </p>
+          <div className="space-y-6">
+            <Text as="h3" variant="subtitle">
+              {props.title}
+            </Text>
+            <Text variant="paragraph">{renderDescription()}</Text>
           </div>
+          <Text variant="subtitle">
+            <span>{props.cost?.prefix ?? '$'}</span>
+            <span>{props.cost.amount}</span>
+            <span>{props.cost?.suffix ?? ' /month'}</span>
+          </Text>
+          <Text variant="paragraph">{props.cost?.bottomText}</Text>
         </div>
         <div className="flex flex-col gap-18">
           <p className="typo-m block text-left text-gray-dark-12">
@@ -92,7 +89,7 @@ const PricingCard: React.FC<Props> = (props) => {
                     className="h-20"
                     loading="lazy"
                   />
-                  <p className="typo-s text-gray-dark-12">{item}</p>
+                  <Text variant="paragraph">{item}</Text>
                 </li>
               );
             })}

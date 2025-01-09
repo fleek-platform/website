@@ -39,7 +39,7 @@ export const PricingInfo: Props[] = [
       'Email support',
     ],
     cta: 'Go fast with Pro',
-    variant: 'primary',
+    variant: 'primary-outline',
     url: 'https://app.fleek.xyz/projects/[projectId]/billing',
   },
   {
