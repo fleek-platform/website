@@ -74,9 +74,19 @@ export const Navigation: React.FC<NavigationProps> = ({
     onDeployBtnClick?.(characterFile);
   };
 
+  const handleOnCharacterFileUpload = (characterFile: string | undefined) => {
+    setCharacterFile(characterFile);
+  };
+
   const pages: Record<Page, React.ReactNode> = {
     getStarted: <GetStarted goTo={goTo} isOverCapacity={isOverCapacity} />,
-    upload: <UploadPage goTo={goTo} />,
+    upload: (
+      <UploadPage
+        goTo={goTo}
+        onCharacterfileUpload={handleOnCharacterFileUpload}
+        initialState={{ characterFile }}
+      />
+    ),
     characterfile: (
       <Characterfile
         goTo={goTo}
