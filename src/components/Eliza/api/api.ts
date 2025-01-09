@@ -22,7 +22,7 @@ export const triggerDeployment = async (
       },
       body: JSON.stringify({
         config: characterFile,
-        project_id: projectId,
+        projectId,
         name: 'test',
       }),
     });
@@ -92,15 +92,15 @@ export const getDeploymentStatus = async (
 };
 
 type AiAgent = {
-  created_at: string;
-  created_by: string;
-  deleted_at?: String;
+  createdAt: string;
+  createdBy: string;
+  deletedAt?: String;
   host: string;
   id: string;
   name: string;
-  project_id: string;
-  slot_number: number;
-  updated_at: string;
+  projectId: string;
+  slotNumber: number;
+  updatedAt: string;
 };
 
 type AiAgentsResponseData = {
@@ -121,7 +121,7 @@ export const getAgentsByProjectId = async (
     };
   try {
     const response = await fetch(
-      `${settings.elizaPage.endpoints.aiAgents}?project_id=${projectId}`,
+      `${settings.elizaPage.endpoints.aiAgents}?projectId=${projectId}`,
       {
         method: 'GET',
         headers: {
