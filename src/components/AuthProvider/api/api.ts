@@ -108,55 +108,6 @@ export const createSubscription = async (
   }
 };
 
-export const updateSubscription = async (
-  projectId?: string,
-  productId?: string,
-  quantity?: number,
-  token?: string,
-): Promise<{
-  ok: boolean;
-  data?: {
-    url?: string;
-  };
-  error?: string;
-}> => {
-  if (!projectId || !token || !productId) return { ok: false };
-
-  try {
-    const response = await fetch(
-      `${settings.site.auth.endpoints.subscriptions}/checkout`,
-      {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-          authorization: `Bearer ${token}`,
-        },
-        body: JSON.stringify({
-          projectId,
-          product: {
-            id: productId,
-            quantity,
-          },
-        }),
-      },
-    );
-
-    if (!response.ok) {
-      const errorText = await response.text();
-      return {
-        ok: false,
-        error: `HTTP Error ${response.status}: ${errorText}`,
-      };
-    }
-
-    const data = await response.json();
-
-    return { ok: true, data };
-  } catch (error: any) {
-    return { ok: false, error: error.message };
-  }
-};
-
 export const getPlans = async (
   token?: string,
 ): Promise<{

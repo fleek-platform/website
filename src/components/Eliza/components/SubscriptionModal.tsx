@@ -1,10 +1,7 @@
 import { useState } from 'react';
 import { Bolt, LoadingSpinner } from './Icons';
 import toast from 'react-hot-toast';
-import {
-  createSubscription,
-  updateSubscription,
-} from '@components/AuthProvider/api/api';
+import { createSubscription } from '@components/AuthProvider/api/api';
 import { useAuthentication } from '@components/AuthProvider/useAuthentication';
 
 interface SubscriptionModalProps {
@@ -40,15 +37,11 @@ export const SubscriptionModal: React.FC<SubscriptionModalProps> = ({
 
     setIsLoading(true);
 
-    const subscriptionCreationResponse =
-      subscriptionAmount < 1
-        ? await createSubscription(activeProjectId, productId, token)
-        : await updateSubscription(
-            activeProjectId,
-            productId,
-            subscriptionAmount + 1,
-            token,
-          );
+    const subscriptionCreationResponse = await createSubscription(
+      activeProjectId,
+      productId,
+      token,
+    );
 
     if (
       !subscriptionCreationResponse ||
