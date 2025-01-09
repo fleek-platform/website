@@ -15,6 +15,8 @@ import { FaChevronLeft } from 'react-icons/fa6';
 import type { NavigationState } from './utils/types.ts';
 import { Layout } from './components/Layout.tsx';
 import { IllustrationIcon } from './components/CustomIcons.tsx';
+import { Box } from './components/Box.tsx';
+import { Text } from './components/Text.tsx';
 
 interface ElizaCoreProps {
   isLoggedIn: UseDeployAIAgentProps['isLoggedIn'];
@@ -108,11 +110,13 @@ export const CoreEliza: React.FC<ElizaCoreProps> = ({
           }
           description={
             !isDeploymentSuccessful ? (
-              <>
-                Give us a moment to deploy your AI agent. We’re running a few
-                checks to ensure your agent functions as expected.
+              <Box>
+                <Text variant="description">
+                  Give us a moment to deploy your AI agent. We're running a few
+                  checks to ensure your agent functions as expected.
+                </Text>
                 <IllustrationIcon className="h-304 animate-pulse pt-48" />
-              </>
+              </Box>
             ) : (
               'Review the details below for information on how to engage with your AI agent, now live at the URL below.'
             )

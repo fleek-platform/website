@@ -21,10 +21,15 @@ const Step: React.FC<StepProps> = ({
     <Box className={cn('gap-16', className)}>
       {customTopElement && <Box className="mr-auto">{customTopElement}</Box>}
       <Text as="h1">{title}</Text>
-      <Text as="h2" variant="description">
-        {description}
-      </Text>
-      <Text variant="secondary">{children}</Text>
+      {typeof description === 'string' ? (
+        <Text as="h2" variant="description">
+          {description}
+        </Text>
+      ) : (
+        description
+      )}
+
+      <Box>{children}</Box>
       <noscript>
         <div className="text-center text-[14px] font-bold leading-[20px] text-[#F5E147]">
           Please enable JavaScript to continue
