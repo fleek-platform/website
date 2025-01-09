@@ -6,13 +6,69 @@ import type { GoToProps } from '../utils/types';
 import {
   CloudUploadIcon,
   ExtensionPuzzleIcon,
+  IllustrationIcon,
   ReaderIcon,
 } from './CustomIcons';
 import { useElizaForm } from '../hooks/useElizaForm';
 import { TEMPLATE_CHARACTERFILES_MAP } from '../utils/constants';
+import { useState } from 'react';
+import { Button } from './Button';
+import { Modal } from './Modal';
+import { useAuthentication } from '@components/AuthProvider/useAuthentication';
 
-export const GetStarted: React.FC<GoToProps> = ({ goTo }) => {
+type OverCapacityModalProps = {
+  isOpen: boolean;
+  closeModal: () => void;
+};
+
+const OverCapacityModal: React.FC<OverCapacityModalProps> = ({
+  isOpen,
+  closeModal,
+}) => {
+  const { login, isLoggedIn } = useAuthentication();
+
+  const title = isLoggedIn ? "You're in" : 'Sorry,';
+
+  const description = isLoggedIn
+    ? 'When we have capacity to deploy new AI agents you will be first in line. Please try again later!'
+    : "We're currently over capacity and unable to deploy new AI agents. Sign in now to save time and try again later!";
+
+  return (
+    <Modal isOpen={isOpen} closeModal={closeModal}>
+      <Box className="gap-12">
+        <Text>{title}</Text>
+        <Text variant="description">{description}</Text>
+        <IllustrationIcon className="mt-16 h-200" />
+        <Box className="flex-row items-center gap-16 *:flex-1">
+          <Button variant="ghost" onClick={closeModal}>
+            Close
+          </Button>
+          {!isLoggedIn && <Button onClick={login}>Sign in</Button>}
+        </Box>
+      </Box>
+    </Modal>
+  );
+};
+
+type GetStartedProps = GoToProps & {
+  isOverCapacity: boolean;
+};
+
+export const GetStarted: React.FC<GetStartedProps> = ({
+  isOverCapacity,
+  goTo,
+}) => {
+  const [isOpen, setIsOpen] = useState(false);
+
   const { reset } = useElizaForm();
+
+  const withCapacityCheck = (callbackFn: () => void) => () => {
+    if (isOverCapacity) {
+      setIsOpen(true);
+    } else {
+      callbackFn();
+    }
+  };
 
   const onTemplatePageSelect = () => {
     reset(TEMPLATE_CHARACTERFILES_MAP['eliza']);
@@ -20,7 +76,8 @@ export const GetStarted: React.FC<GoToProps> = ({ goTo }) => {
   };
 
   return (
-    <Box className="gap-38">
+    <Box className="relative gap-38">
+      <OverCapacityModal isOpen={isOpen} closeModal={() => setIsOpen(false)} />
       <Box className="items-start gap-16">
         <Text variant="secondary" className="flex h-32 items-center">
           Deploy an AI agent
@@ -33,19 +90,19 @@ export const GetStarted: React.FC<GoToProps> = ({ goTo }) => {
       </Box>
       <Box className="gap-22">
         <ActionBox
-          onClick={() => goTo('upload')}
+          onClick={withCapacityCheck(() => goTo('upload'))}
           icon={<CloudUploadIcon className="size-34 shrink-0" />}
           title="Upload characterfile"
           description="Already have a characterfile? Create an agent with an upload."
         />
         <ActionBox
-          onClick={() => goTo('characterfile')}
+          onClick={withCapacityCheck(() => goTo('characterfile'))}
           icon={<ReaderIcon className="size-34 shrink-0" />}
           title="Build from scratch"
           description="Create an agent by entering details into a form."
         />
         <ActionBox
-          onClick={onTemplatePageSelect}
+          onClick={withCapacityCheck(() => onTemplatePageSelect())}
           icon={<ExtensionPuzzleIcon className="size-34 shrink-0" />}
           title="Start with a template"
           description="Create an agent by customizing an existing template."
