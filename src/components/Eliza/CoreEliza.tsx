@@ -12,12 +12,7 @@ import { Navigation } from '@components/Eliza/components/Navigation.tsx';
 import { useState } from 'react';
 import { Button } from '@components/Eliza/components/Button.tsx';
 import { FaChevronLeft } from 'react-icons/fa6';
-
-interface StepConfig {
-  id: string;
-  condition: boolean;
-  content: React.ReactElement;
-}
+import type { Options, Page, Step as StepType } from './utils/types.ts';
 
 interface ElizaCoreProps {
   isLoggedIn: UseDeployAIAgentProps['isLoggedIn'];
@@ -42,7 +37,12 @@ export const CoreEliza: React.FC<ElizaCoreProps> = ({
     ensureUserSubscription,
   };
 
-  const [characterFile, setCharacterFile] = useState<string | undefined>();
+  const [navigationState, setNavigationState] = useState<{
+    options?: Options;
+    page?: Page;
+    completedStep?: StepType;
+    characterFile?: string | undefined;
+  }>();
 
   const {
     deployAgent,
@@ -53,6 +53,15 @@ export const CoreEliza: React.FC<ElizaCoreProps> = ({
     deploymentStatus,
     fleekMachineUrl,
   } = useDeployAIAgent({ ...elizaIntegrations });
+
+  const handleNavigationStateChange = (
+    options?: Options,
+    page?: Page,
+    completedStep?: StepType,
+    characterFile?: string | undefined,
+  ) => {
+    setNavigationState({ options, page, completedStep, characterFile });
+  };
 
   const GoBackButton = (
     <Button onClick={resetDeployment}>
@@ -69,9 +78,10 @@ export const CoreEliza: React.FC<ElizaCoreProps> = ({
       content: (
         <Navigation
           onDeployBtnClick={(characterfile) => {
-            setCharacterFile(characterfile);
             deployAgent(characterfile);
           }}
+          onPropsChange={handleNavigationStateChange}
+          initialState={navigationState}
         />
       ),
     },
@@ -130,10 +140,7 @@ export const CoreEliza: React.FC<ElizaCoreProps> = ({
           customTopElement={GoBackButton}
         >
           <DeploymentFailed
-            onRetryClick={() => {
-              resetDeployment();
-              deployAgent(characterFile);
-            }}
+            onRetryClick={resetDeployment}
             deploymentStatus={deploymentStatus}
           />
         </Step>

@@ -57,7 +57,7 @@ export const ElizaIntegration: React.FC = () => {
   };
 
   const ensureUserSubscription = useCallback(async (): Promise<boolean> => {
-    const token = await fetchFleekToken();
+    const token = await fetchFleekToken(activeProjectId);
     if (!token) return false;
 
     const [plans, activeSubscriptions, projectAiAgents] = await Promise.all([
