@@ -1,5 +1,4 @@
 import { GetStarted } from './GetStarted';
-import { Layout } from './Layout';
 import {
   type Page,
   type Step,

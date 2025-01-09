@@ -61,13 +61,8 @@ export const CoreEliza: React.FC<ElizaCoreProps> = ({
     },
   });
 
-  const handleNavigationStateChange = ({
-    options,
-    page,
-    completedStep,
-    characterFile,
-  }: NavigationState) => {
-    setNavigationState({ options, page, completedStep, characterFile });
+  const handleNavigationStateChange = (newNavigationState: NavigationState) => {
+    setNavigationState(newNavigationState);
   };
 
   const GoBackButton = (
