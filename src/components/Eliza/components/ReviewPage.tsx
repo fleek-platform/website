@@ -67,11 +67,13 @@ const INITIAL_ERRORS = {
 };
 
 export type ReviewPageProps = GoToProps & {
+  characterfile: string | undefined;
   from: Options['from'];
-  onDeployBtnClick: (characterfile: string | undefined) => void;
+  onDeployBtnClick: (characterfile: string) => void;
 };
 
 export const ReviewPage: React.FC<ReviewPageProps> = ({
+  characterfile,
   from,
   goTo,
   onDeployBtnClick,
@@ -81,7 +83,7 @@ export const ReviewPage: React.FC<ReviewPageProps> = ({
   const transformedData = transformSchemaToCharacter(data);
 
   const [characterFile, setCharacterFile] = useState<string | undefined>(
-    JSON.stringify(transformedData, null, 2),
+    characterfile || JSON.stringify(transformedData, null, 2),
   );
   const [errors, setErrors] = useState<Errors>(INITIAL_ERRORS);
 

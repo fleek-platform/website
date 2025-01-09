@@ -8,14 +8,13 @@ import {
   useDeployAIAgent,
   type UseDeployAIAgentProps,
 } from './hooks/useDeployAIAgent.ts';
-import {
-  Navigation,
-  type NavigationState,
-} from '@components/Eliza/components/Navigation.tsx';
+import { Navigation } from '@components/Eliza/components/Navigation.tsx';
 import { useState } from 'react';
 import { Button } from '@components/Eliza/components/Button.tsx';
 import { FaChevronLeft } from 'react-icons/fa6';
-import type { Options, Page, Step as StepType } from './utils/types.ts';
+import type { NavigationState } from './utils/types.ts';
+import { Layout } from './components/Layout.tsx';
+import { IllustrationIcon } from './components/CustomIcons.tsx';
 
 interface ElizaCoreProps {
   isLoggedIn: UseDeployAIAgentProps['isLoggedIn'];
@@ -70,7 +69,11 @@ export const CoreEliza: React.FC<ElizaCoreProps> = ({
   };
 
   const GoBackButton = (
-    <Button onClick={resetDeployment}>
+    <Button
+      variant="ghost"
+      className="text-elz-accent-11"
+      onClick={resetDeployment}
+    >
       <FaChevronLeft />
       Go back
     </Button>
@@ -104,9 +107,15 @@ export const CoreEliza: React.FC<ElizaCoreProps> = ({
               : 'Your AI agent is live'
           }
           description={
-            !isDeploymentSuccessful
-              ? 'Give us a moment to deploy your AI agent. We’re running a few checks to ensure your agent functions as expected.'
-              : 'Review the details below for information on how to engage with your AI agent, now live at the URL below.'
+            !isDeploymentSuccessful ? (
+              <>
+                Give us a moment to deploy your AI agent. We’re running a few
+                checks to ensure your agent functions as expected.
+                <IllustrationIcon className="h-304 animate-pulse pt-48" />
+              </>
+            ) : (
+              'Review the details below for information on how to engage with your AI agent, now live at the URL below.'
+            )
           }
           customTopElement={
             isDeploymentSuccessful ? <>🎉 Congratulations!</> : null
@@ -155,13 +164,13 @@ export const CoreEliza: React.FC<ElizaCoreProps> = ({
   ];
 
   return (
-    <>
+    <Layout>
       {steps.map(
         (step) =>
           step.condition && (
             <React.Fragment key={step.id}>{step.content}</React.Fragment>
           ),
       )}
-    </>
+    </Layout>
   );
 };

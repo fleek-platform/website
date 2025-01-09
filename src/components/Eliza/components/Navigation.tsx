@@ -1,18 +1,16 @@
 import { GetStarted } from './GetStarted';
 import { Layout } from './Layout';
-import { type Page, type Step, type Options } from '../utils/types';
+import {
+  type Page,
+  type Step,
+  type Options,
+  type NavigationState,
+} from '../utils/types';
 import { Characterfile } from './Characterfile';
 import { FormProviderCharacterBuilder } from '../hooks/useElizaForm';
 import { SettingsPage } from './SettingsPage';
 import { ReviewPage } from './ReviewPage';
 import { UploadPage } from './UploadPage';
-
-export type NavigationState = {
-  options: Options;
-  page: Page;
-  completedStep: Step;
-  characterFile: string | undefined;
-};
 
 type NavigationProps = {
   onDeployBtnClick: (characterfile: string | undefined) => void;
@@ -31,19 +29,19 @@ export const Navigation: React.FC<NavigationProps> = ({
     handleNavigationStateChange({ ...navigationState, ...newState });
   };
 
-  const goTo = (page: Page, newOptions?: Options) => {
+  const goTo = (page: Page, options?: Options) => {
     if (page === 'getStarted') {
-      updateState({ page, options: newOptions, characterFile: undefined });
+      updateState({ page, options, characterFile: undefined });
     } else {
-      updateState({ page, options: newOptions });
+      updateState({ page, options });
     }
   };
 
-  const completeStep = (step: Step) => {
-    updateState({ completedStep: step });
+  const completeStep = (completedStep: Step) => {
+    updateState({ completedStep });
   };
 
-  const handleOnDeployClick = (characterFile: string | undefined) => {
+  const handleOnDeployClick = (characterFile: string) => {
     updateState({ characterFile });
     onDeployBtnClick(characterFile);
   };
@@ -69,15 +67,16 @@ export const Navigation: React.FC<NavigationProps> = ({
     review: (
       <ReviewPage
         goTo={goTo}
-        onDeployBtnClick={handleOnDeployClick}
         from={navigationState.options?.from}
+        characterfile={navigationState.characterFile}
+        onDeployBtnClick={handleOnDeployClick}
       />
     ),
   };
 
   return (
     <FormProviderCharacterBuilder>
-      <Layout>{pages[navigationState.page]}</Layout>
+      {pages[navigationState.page]}
     </FormProviderCharacterBuilder>
   );
 };
