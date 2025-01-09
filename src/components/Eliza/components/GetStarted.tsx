@@ -11,7 +11,7 @@ import {
 } from './CustomIcons';
 import { useElizaForm } from '../hooks/useElizaForm';
 import { TEMPLATE_CHARACTERFILES_MAP } from '../utils/constants';
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import { Button } from './Button';
 import { Modal } from './Modal';
 import { useAuthentication } from '@components/AuthProvider/useAuthentication';
@@ -27,9 +27,9 @@ const OverCapacityModal: React.FC<OverCapacityModalProps> = ({
 }) => {
   const { login, isLoggedIn } = useAuthentication();
 
-  const title = isLoggedIn() ? "You're in" : 'Sorry,';
+  const title = isLoggedIn ? "You're in" : 'Sorry,';
 
-  const description = isLoggedIn()
+  const description = isLoggedIn
     ? 'When we have capacity to deploy new AI agents you will be first in line. Please try again later!'
     : "We're currently over capacity and unable to deploy new AI agents. Sign in now to save time and try again later!";
 
@@ -43,7 +43,7 @@ const OverCapacityModal: React.FC<OverCapacityModalProps> = ({
           <Button variant="ghost" onClick={closeModal}>
             Close
           </Button>
-          {!isLoggedIn() && <Button onClick={login}>Sign in</Button>}
+          {!isLoggedIn && <Button onClick={login}>Sign in</Button>}
         </Box>
       </Box>
     </Modal>
