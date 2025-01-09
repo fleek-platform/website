@@ -27,5 +27,7 @@ export function clearCookie(name: string) {
   // to make cookies available on domain and subdomains
   // e.g. fleek.xyz and app.fleek.xyz
   // https://developer.mozilla.org/en-US/docs/Web/HTTP/Cookies#define_where_cookies_are_sent
-  document.cookie = name + `=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;domain=${siteHostname}`;
+  document.cookie =
+    name +
+    `=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;domain=${siteHostname}`;
 }

@@ -25,12 +25,12 @@ export const getTopLevelDomain = (url: string) => {
     // e.g. staging -> fleek-xyz-staging.on-fleek.app
     // and prod -> fleek.xyz
     const topLevelDomain = hostname.split('.').slice(-2).join('.');
-    
+
     return topLevelDomain;
   } catch (e) {
     throw Error('Oops! Failed to parse the URL');
   }
-}
+};
 
 export const isActivePath = ({
   lookup,

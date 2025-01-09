@@ -7,7 +7,7 @@ import { useCookies } from 'react-cookie';
 
 export const useAuthentication = () => {
   const { setShowAuthFlow, authToken, handleLogOut } = useDynamicContext();
-  const isLoggedIn = useIsLoggedIn();
+  const isDynamicLoggedIn = useIsLoggedIn();
 
   const [userProjects, setUserProjects] = useState<Project[] | undefined>();
   const [cookies, setCookie, removeCookie] = useCookies([
@@ -17,6 +17,10 @@ export const useAuthentication = () => {
   const activeProjectId = useMemo(
     () => cookies[settings.site.auth.activeProjectCookieKey],
     [cookies[settings.site.auth.activeProjectCookieKey]],
+  );
+  const isLoggedIn = useMemo(
+    () => isDynamicLoggedIn && activeProjectId && userProjects,
+    [isDynamicLoggedIn, activeProjectId, userProjects],
   );
 
   const fetchFleekToken = async (
@@ -136,10 +140,10 @@ export const useAuthentication = () => {
   };
 
   useEffect(() => {
-    if (isLoggedIn) {
+    if (isDynamicLoggedIn) {
       initializeProjects();
     }
-  }, [isLoggedIn]);
+  }, [isDynamicLoggedIn]);
 
   return {
     isLoggedIn,
