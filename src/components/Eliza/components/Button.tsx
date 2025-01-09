@@ -21,6 +21,8 @@ export const buttonVariants = cva(
           'text-elz-danger-11 bg-elz-danger-3 hover:bg-elz-danger-4 active:bg-elz-danger-5 focus-visible:ring-elz-danger-8',
         ghost:
           'text-elz-neutral-11 bg-transparent hover:bg-elz-neutral-4 active:bg-elz-neutral-5 disabled:bg-transparent  focus-visible:ring-elz-neutral-8',
+        primary:
+          'bg-elz-accent-9 hover:bg-elz-accent-10 active:bg-elz-accent-9 text-elz-accent-1 ring-elz-accent-8 disabled:bg-elz-neutral-3 disabled:text-elz-neutral-8 disabled:ring-elz-neutral-3 disabled:cursor-not-allowed',
       },
       size: {
         xs: 'h-24 gap-4 px-8 rounded-8 text-[1.4rem]',

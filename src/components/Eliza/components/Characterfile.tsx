@@ -282,7 +282,9 @@ export const Characterfile: React.FC<CharacterfileProps> = ({
           <TagsForm name="adjectives" placeholder="add adjective..." />
         </FormField>
         <Box className="gap-8">
-          <Button onClick={handleSubmit(onSubmit)}>Continue to Settings</Button>
+          <Button variant="primary" onClick={handleSubmit(onSubmit)}>
+            Continue to Settings
+          </Button>
           {hasErrors && (
             <Input.Hint className="self-center" error>
               Please check the errors above to continue your character setup.

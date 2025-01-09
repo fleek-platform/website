@@ -146,7 +146,9 @@ export const ReviewPage: React.FC<
           </Box>
         )}
       </Box>
-      <Button onClick={onSubmit}>Deploy agent</Button>
+      <Button variant="primary" onClick={onSubmit}>
+        Deploy agent
+      </Button>
     </Box>
   );
 };
