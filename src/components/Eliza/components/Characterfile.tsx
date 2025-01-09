@@ -217,7 +217,7 @@ export const Characterfile: React.FC<CharacterfileProps> = ({
         </FormField>
         <FormField
           label="Knowledge (optional)"
-          description="One or more facts or references to ground the character's responses."
+          description="Facts or references to ground the character's responses"
         >
           <KnowledgeForm />
         </FormField>
@@ -229,11 +229,14 @@ export const Characterfile: React.FC<CharacterfileProps> = ({
         </FormField>
         <FormField
           label="Post examples"
-          description="Sample social media posts to guide content style."
+          description="Sample social media posts to guide content style"
         >
           <PostExamplesForm />
         </FormField>
-        <FormField label="Style" description="Writing style guides.">
+        <FormField
+          label="Style"
+          description="Directions for how your agent should respond in different contexts"
+        >
           <Box className="gap-16 border-l-4 border-elz-neutral-1 pl-16">
             <Box className="gap-8 rounded-12 bg-elz-neutral-1 p-12">
               <Text size="lg" variant="primary" weight={700}>
