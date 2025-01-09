@@ -80,11 +80,6 @@ jobs:
             echo "👹 Oops! Failed to unarchive the dashboard files for some reason..."
             exit 1
           fi
-
-          if ! scripts/replace_dashboard_paths "$OUTPUT_PATH" /dashboard; then
-            echo "👹 Oops! Failed to replace the dashboard paths for some reason..."
-            exit 1
-          fi
         
       - name: Setup fleek.config.json
         run: |
