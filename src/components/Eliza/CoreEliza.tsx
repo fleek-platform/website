@@ -8,7 +8,10 @@ import {
   useDeployAIAgent,
   type UseDeployAIAgentProps,
 } from './hooks/useDeployAIAgent.ts';
-import { Navigation } from '@components/Eliza/components/Navigation.tsx';
+import {
+  Navigation,
+  type NavigationState,
+} from '@components/Eliza/components/Navigation.tsx';
 import { useState } from 'react';
 import { Button } from '@components/Eliza/components/Button.tsx';
 import { FaChevronLeft } from 'react-icons/fa6';
@@ -37,13 +40,6 @@ export const CoreEliza: React.FC<ElizaCoreProps> = ({
     ensureUserSubscription,
   };
 
-  const [navigationState, setNavigationState] = useState<{
-    options?: Options;
-    page?: Page;
-    completedStep?: StepType;
-    characterFile?: string | undefined;
-  }>();
-
   const {
     deployAgent,
     resetDeployment,
@@ -54,12 +50,22 @@ export const CoreEliza: React.FC<ElizaCoreProps> = ({
     fleekMachineUrl,
   } = useDeployAIAgent({ ...elizaIntegrations });
 
-  const handleNavigationStateChange = (
-    options?: Options,
-    page?: Page,
-    completedStep?: StepType,
-    characterFile?: string | undefined,
-  ) => {
+  const [navigationState, setNavigationState] = useState<NavigationState>({
+    page: 'getStarted',
+    completedStep: 0,
+    characterFile: undefined,
+    options: {
+      from: undefined,
+      template: undefined,
+    },
+  });
+
+  const handleNavigationStateChange = ({
+    options,
+    page,
+    completedStep,
+    characterFile,
+  }: NavigationState) => {
     setNavigationState({ options, page, completedStep, characterFile });
   };
 
@@ -77,11 +83,11 @@ export const CoreEliza: React.FC<ElizaCoreProps> = ({
       condition: !isDeploymentStarted,
       content: (
         <Navigation
+          navigationState={navigationState}
+          handleNavigationStateChange={handleNavigationStateChange}
           onDeployBtnClick={(characterfile) => {
             deployAgent(characterfile);
           }}
-          onPropsChange={handleNavigationStateChange}
-          initialState={navigationState}
         />
       ),
     },

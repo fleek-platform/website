@@ -15,6 +15,7 @@ import { cn } from '@utils/cn';
 import { Input } from './Input';
 import { characterfileSchema } from '../utils/schema';
 import { validateZod } from '../utils/validateHelper';
+import { INITIAL_FORM } from '../utils/constants';
 
 type HeaderProps = {
   from: Options['from'];
@@ -65,29 +66,34 @@ const INITIAL_ERRORS = {
   form: [],
 };
 
-export type ReviewPageProps = {
+export type ReviewPageProps = GoToProps & {
+  from: Options['from'];
   onDeployBtnClick: (characterfile: string | undefined) => void;
-  initialState?: {
-    characterFile?: string | undefined;
-  };
 };
 
-export const ReviewPage: React.FC<
-  ReviewPageProps & GoToProps & { from: Options['from'] }
-> = ({ from, goTo, onDeployBtnClick, initialState }) => {
-  const { getValues } = useElizaForm();
+export const ReviewPage: React.FC<ReviewPageProps> = ({
+  from,
+  goTo,
+  onDeployBtnClick,
+}) => {
+  const { getValues, reset } = useElizaForm();
   const data = getValues();
   const transformedData = transformSchemaToCharacter(data);
 
   const [characterFile, setCharacterFile] = useState<string | undefined>(
-    initialState?.characterFile || JSON.stringify(transformedData, null, 2),
+    JSON.stringify(transformedData, null, 2),
   );
   const [errors, setErrors] = useState<Errors>(INITIAL_ERRORS);
 
   const hasErrors = errors.json || errors.form.length > 0;
 
   const onPrevious = () => {
-    goTo(from || 'settings');
+    if (from === 'upload') {
+      reset(INITIAL_FORM);
+      goTo(from);
+    } else {
+      goTo('settings');
+    }
   };
 
   const onSubmit = () => {
