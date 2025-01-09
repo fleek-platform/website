@@ -85,22 +85,25 @@ export const useDeployAIAgent = ({
   const deployAgent = useCallback(
     async (characterFile: string | undefined) => {
       resetDeployment();
+      setIsDeploymentPending(true);
 
       if (!characterFile) {
+        setIsDeploymentPending(false);
         return false;
       }
 
       if (!isLoggedIn) {
         login();
+        setIsDeploymentPending(false);
         return false;
       }
 
       const subscriptionResult = await ensureUserSubscription();
       if (!subscriptionResult) {
+        setIsDeploymentPending(false);
         return false;
       }
 
-      setIsDeploymentPending(true);
       const deploymentTriggerResult =
         await triggerAgentDeployment(characterFile);
       if (
