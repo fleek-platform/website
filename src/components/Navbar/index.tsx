@@ -7,7 +7,6 @@ import { cn } from '@utils/cn';
 import { RxHamburgerMenu } from 'react-icons/rx';
 import { isActivePath } from '@utils/url';
 import { Button } from '../Button';
-import FleekLogo from './fleek-logo.svg';
 import { AuthProvider } from '@components/AuthProvider/AuthProvider';
 import { useAuthentication } from '@components/AuthProvider/useAuthentication';
 import { ProjectDropdown } from './ProjectDropdown/ProjectDropdown';
@@ -74,7 +73,12 @@ const NavbarMobile: React.FC = () => {
       {isOpen && (
         <section className="fixed inset-0 flex animate-fade-in flex-col bg-gray-dark-1/95 p-[37px] pt-0 text-gray-dark-11 backdrop-blur">
           <div className="sticky top-0 -mx-[37px] flex items-center justify-between px-[37px] py-27">
-            <img src={FleekLogo.src} width="66" alt="fleek logo" />
+            <img
+              src="/svg/fleek-logo.svg"
+              width={66}
+              height={25}
+              alt="fleek logo"
+            />
             <Button variant="ghost" size="sm" onClick={toggle}>
               <FaXmark className="size-20 cursor-pointer" />
             </Button>
@@ -311,6 +315,7 @@ export const Navbar: React.FC<NavbarProps> = ({
 const SessionManagementActions: React.FC = () => {
   const {
     isLoggedIn,
+    isLoggingIn,
     logout,
     login,
     userProjects,
@@ -340,7 +345,7 @@ const SessionManagementActions: React.FC = () => {
     <>
       {isLoggedIn ? (
         <>
-          {userProjects && !!userProjects.length && activeProjectId && (
+          {userProjects && !!userProjects && activeProjectId && (
             <ProjectDropdown
               projects={userProjects}
               selectedProjectId={activeProjectId}
@@ -354,6 +359,7 @@ const SessionManagementActions: React.FC = () => {
       ) : (
         <>
           <Button
+            disabled={isLoggingIn}
             variant="secondary"
             size="sm"
             onClick={handleLoginClick}
@@ -362,6 +368,7 @@ const SessionManagementActions: React.FC = () => {
             Log in
           </Button>
           <Button
+            disabled={isLoggingIn}
             variant="tertiary"
             size="sm"
             onClick={handleLoginClick}

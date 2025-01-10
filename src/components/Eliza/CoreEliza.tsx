@@ -20,22 +20,27 @@ import { Text } from './components/Text.tsx';
 
 interface ElizaCoreProps {
   isLoggedIn: UseDeployAIAgentProps['isLoggedIn'];
+  isLoggingIn: UseDeployAIAgentProps['isLoggingIn'];
   login: UseDeployAIAgentProps['login'];
   triggerAgentDeployment: UseDeployAIAgentProps['triggerAgentDeployment'];
   getAgentDeploymentStatus: UseDeployAIAgentProps['getAgentDeploymentStatus'];
   ensureUserSubscription: UseDeployAIAgentProps['ensureUserSubscription'];
+  projectId: string | undefined;
 }
 
 export const CoreEliza: React.FC<ElizaCoreProps> = ({
   isLoggedIn,
+  isLoggingIn,
   login,
   triggerAgentDeployment,
   ensureUserSubscription,
   getAgentDeploymentStatus,
+  projectId,
 }) => {
   const elizaIntegrations: UseDeployAIAgentProps = {
     login,
     isLoggedIn,
+    isLoggingIn,
     triggerAgentDeployment,
     getAgentDeploymentStatus,
     ensureUserSubscription,
@@ -48,7 +53,7 @@ export const CoreEliza: React.FC<ElizaCoreProps> = ({
     isDeploymentSuccessful,
     isDeploymentFailed,
     deploymentStatus,
-    fleekMachineUrl,
+    deployedAgentId,
   } = useDeployAIAgent({ ...elizaIntegrations });
 
   const [navigationState, setNavigationState] = useState<NavigationState>({
@@ -123,7 +128,8 @@ export const CoreEliza: React.FC<ElizaCoreProps> = ({
           <DeploymentStatus
             isDeploymentComplete={isDeploymentSuccessful}
             deploymentStatus={deploymentStatus}
-            fleekMachineUrl={fleekMachineUrl}
+            agentId={deployedAgentId}
+            projectId={projectId}
           />
         </Step>
       ),
@@ -138,7 +144,7 @@ export const CoreEliza: React.FC<ElizaCoreProps> = ({
           title={
             deploymentStatus &&
             !Object.values(deploymentStatus).some(
-              (status) => status === 'failed',
+              (status) => status === 'false',
             )
               ? 'Deployment failed'
               : 'We found an issue'
@@ -146,7 +152,7 @@ export const CoreEliza: React.FC<ElizaCoreProps> = ({
           description={
             deploymentStatus &&
             !Object.values(deploymentStatus).some(
-              (status) => status === 'failed',
+              (status) => status === 'false',
             )
               ? 'There was an issue with the deployment of your AI agent. Please try again, edit info from a previous step or contact Fleek support.'
               : 'Refer to the below error to continue with your deployment. If the error requires an edit, return to a previous step before retrying.'
@@ -163,7 +169,12 @@ export const CoreEliza: React.FC<ElizaCoreProps> = ({
   ];
 
   return (
-    <Layout>
+    <Layout className="relative">
+      {isLoggingIn && (
+        <div className="absolute z-10 flex h-full w-full items-center justify-center bg-[rgba(0,0,0,1)]">
+          <IllustrationIcon className="h-304 animate-pulse pt-48" />
+        </div>
+      )}
       {steps.map(
         (step) =>
           step.condition && (

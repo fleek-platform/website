@@ -516,8 +516,8 @@
   },
   "elizaPage": {
     "endpoints": {
-      "getAgentDeploymentStatus": "https://api.dev.fleeksandbox.xyz/api/v1/deployment/status",
       "aiAgents": "https://api.dev.fleeksandbox.xyz/api/v1/ai-agents"
-    }
+    },
+    "agentsDashboardPage": "https://app.fleeksandbox.xyz/projects/[projectId]/agents"
   }
 }

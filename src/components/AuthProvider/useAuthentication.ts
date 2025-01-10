@@ -1,14 +1,19 @@
-import { useState, useEffect, useCallback, useMemo } from 'react';
+import { useState, useEffect, useCallback, useMemo, useContext } from 'react';
 import { useDynamicContext, useIsLoggedIn } from '@dynamic-labs/sdk-react-core';
 import type { Project } from '@fleekxyz/sdk/dist-types/generated/graphqlClient/schema';
 
 import settings from '@base/settings.json';
 import { useCookies } from 'react-cookie';
+import { AuthContext } from './AuthProvider';
 
 export const useAuthentication = () => {
+  const context = useContext(AuthContext);
+  if (!context) {
+    throw new Error('useAuthContext must be used within an AuthProvider');
+  }
+
   const { setShowAuthFlow, authToken, handleLogOut } = useDynamicContext();
   const isDynamicLoggedIn = useIsLoggedIn();
-
   const [userProjects, setUserProjects] = useState<Project[] | undefined>();
   const [cookies, setCookie, removeCookie] = useCookies([
     settings.site.auth.activeProjectCookieKey,
@@ -19,8 +24,12 @@ export const useAuthentication = () => {
     [cookies[settings.site.auth.activeProjectCookieKey]],
   );
   const isLoggedIn = useMemo(
-    () => isDynamicLoggedIn && activeProjectId && userProjects,
-    [isDynamicLoggedIn, activeProjectId, userProjects],
+    () => isDynamicLoggedIn && context.authState === 'logged-in',
+    [isDynamicLoggedIn, context.authState],
+  );
+  const isLoggingIn = useMemo(
+    () => context.authState === 'logging-in',
+    [context.authState],
   );
 
   const fetchFleekToken = async (
@@ -103,16 +112,17 @@ export const useAuthentication = () => {
     }
   };
 
-  const login = useCallback(
-    async () => setShowAuthFlow(true),
-    [setShowAuthFlow],
-  );
+  const login = useCallback(async () => {
+    context.setAuthState('logging-in');
+    setShowAuthFlow(true);
+  }, [setShowAuthFlow]);
 
   const logout = () => {
     setUserProjects(undefined);
     setActiveProject(undefined);
     removeCookie(settings.site.auth.authTokenCookieKey);
     removeCookie(settings.site.auth.activeProjectCookieKey);
+    context.setAuthState('logged-out');
     handleLogOut();
   };
 
@@ -140,13 +150,28 @@ export const useAuthentication = () => {
   };
 
   useEffect(() => {
-    if (isDynamicLoggedIn) {
-      initializeProjects();
-    }
-  }, [isDynamicLoggedIn]);
+    const initAuth = async () => {
+      console.log('🚀 ~ initAuth ~ isDynamicLoggedIn:', isDynamicLoggedIn);
+      if (!isDynamicLoggedIn) {
+        context.setAuthState('logged-out');
+        return;
+      } else {
+        context.setAuthState('logging-in');
+
+        if (!userProjects) {
+          await initializeProjects();
+        }
+
+        context.setAuthState('logged-in');
+      }
+    };
+
+    initAuth();
+  }, [isDynamicLoggedIn, userProjects, context.authState]);
 
   return {
     isLoggedIn,
+    isLoggingIn,
 
     login,
     logout,

@@ -3,29 +3,44 @@ import FieldWithCopyButton from './FieldWithCopyButton';
 import { GreenCheck, PendingDots, RedCross } from './Icons';
 import Link, { Target } from './Link';
 import { Text } from './Text';
+import settings from '@base/settings.json';
 
 interface DeploymentStatusProps {
   deploymentStatus?: any;
-  fleekMachineUrl?: string;
+  agentId?: string;
   isDeploymentComplete: boolean;
   className?: string;
+  projectId?: string;
 }
 
 const DeploymentStatus: React.FC<DeploymentStatusProps> = ({
   deploymentStatus,
-  fleekMachineUrl,
+  agentId,
   isDeploymentComplete,
+  projectId,
 }) => {
+  const dashboardUrl = projectId
+    ? settings.elizaPage.agentsDashboardPage.replace('[projectId]', projectId)
+    : null;
   return (
     <Box className="gap-20">
       {isDeploymentComplete && (
         <>
-          {fleekMachineUrl && (
+          {dashboardUrl && (
             <Box variant="container" className="gap-16 bg-transparent">
               <Text as="h3" variant="primary" weight={500}>
-                URL
+                Link to dashboard
               </Text>
-              <FieldWithCopyButton value={fleekMachineUrl} />
+              <Link href={dashboardUrl}>{dashboardUrl}</Link>
+            </Box>
+          )}
+
+          {agentId && (
+            <Box variant="container" className="gap-16 bg-transparent">
+              <Text as="h3" variant="primary" weight={500}>
+                Agent Id
+              </Text>
+              <FieldWithCopyButton value={agentId} />
             </Box>
           )}
 
@@ -63,9 +78,9 @@ const DeploymentStatus: React.FC<DeploymentStatusProps> = ({
               <Box key={key} className="flex-row justify-between">
                 <Text variant="secondary">{key}</Text>
 
-                {value === 'success' && <GreenCheck />}
-                {value === 'pending' && <PendingDots />}
-                {value === 'failed' && <RedCross />}
+                {value === 'true' && <GreenCheck />}
+                {/* value === 'pending' && <PendingDots /> */}
+                {value === 'false' && <RedCross />}
               </Box>
             );
           })}

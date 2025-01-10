@@ -2,22 +2,20 @@ import { useCallback, useMemo } from 'react';
 import { useState } from 'react';
 
 export type DeploymentStatus = {
-  [step: string]: 'success' | 'failed' | 'pending';
+  [step: string]: 'true' | 'false';
 };
 
 export interface UseDeployAIAgentProps {
   isLoggedIn: boolean;
+  isLoggingIn: boolean;
   login: () => void;
   ensureUserSubscription: () => Promise<boolean>;
   triggerAgentDeployment: (
     characterfile: string,
-  ) => Promise<{ ok: boolean; deploymentId?: string }>;
-  getAgentDeploymentStatus: (deploymentId: string) => Promise<{
+  ) => Promise<{ ok: boolean; agentId?: string }>;
+  getAgentDeploymentStatus: (agentId: string) => Promise<{
     ok?: boolean;
-    data?: {
-      status: Record<string, 'pending' | 'success' | 'failed'>;
-      fleekMachineUrl?: string;
-    };
+    data?: Record<string, 'true' | 'false'>;
   }>;
 }
 
@@ -37,26 +35,33 @@ export const useDeployAIAgent = ({
   const [deploymentStatus, setDeploymentStatus] = useState<
     DeploymentStatus | undefined
   >();
-  const [fleekMachineUrl, setFleekMachineUrl] = useState<string | undefined>();
+  const [deployedAgentId, setDeployedAgentId] = useState<string | undefined>();
 
-  const pollDeploymentStatus = async (deploymentId: string) => {
+  const pollDeploymentStatus = async (agentId: string) => {
     const MAX_ATTEMPTS = 15;
 
     const poll = async (attempt: number) => {
       try {
-        const response = await getAgentDeploymentStatus(deploymentId);
-        if (response.ok && response?.data?.status) {
-          setDeploymentStatus(response.data.status);
+        const response = await getAgentDeploymentStatus(agentId);
+        if (response.ok && response?.data) {
+          setDeploymentStatus(response.data);
 
           const hasFailed =
             attempt >= MAX_ATTEMPTS
               ? true
-              : Object.values(response.data.status).some(
-                  (status) => status === 'failed',
+              : Object.entries(response.data).some(
+                  ([, status]) =>
+                    status === 'false' ||
+                    // @ts-ignore
+                    status === '"false"' ||
+                    // @ts-ignore
+                    status === false,
                 );
 
-          const isSuccessful = Object.values(response.data.status).every(
-            (status) => status === 'success',
+          const isSuccessful = Object.entries(response.data).every(
+            ([, status]) =>
+              // @ts-ignore
+              status === 'true' || status === '"true"' || status === true,
           );
 
           if (hasFailed || isSuccessful) {
@@ -64,7 +69,7 @@ export const useDeployAIAgent = ({
             setIsDeploymentFailed(hasFailed);
             setIsDeploymentSuccessful(isSuccessful);
             if (isSuccessful) {
-              setFleekMachineUrl(response.data.fleekMachineUrl || undefined);
+              setDeployedAgentId(agentId || undefined);
             }
           } else {
             setTimeout(() => poll(attempt + 1), POLLING_TIME);
@@ -106,16 +111,13 @@ export const useDeployAIAgent = ({
 
       const deploymentTriggerResult =
         await triggerAgentDeployment(characterFile);
-      if (
-        !deploymentTriggerResult.ok ||
-        !deploymentTriggerResult.deploymentId
-      ) {
+      if (!deploymentTriggerResult.ok || !deploymentTriggerResult.agentId) {
         setIsDeploymentPending(false);
         setIsDeploymentFailed(true);
         return false;
       }
 
-      pollDeploymentStatus(deploymentTriggerResult.deploymentId);
+      pollDeploymentStatus(deploymentTriggerResult.agentId);
       return true;
     },
     [isLoggedIn],
@@ -142,6 +144,6 @@ export const useDeployAIAgent = ({
     isDeploymentPending,
 
     deploymentStatus,
-    fleekMachineUrl,
+    deployedAgentId,
   };
 };

@@ -17,10 +17,9 @@ import {
   getPlans,
   getSubscriptions,
 } from '@components/AuthProvider/api/api.ts';
-import type { has } from 'lodash-es';
 
 export const ElizaIntegration: React.FC = () => {
-  const { isLoggedIn, login, activeProjectId, fetchFleekToken } =
+  const { isLoggedIn, isLoggingIn, login, activeProjectId, fetchFleekToken } =
     useAuthentication();
   const {
     isSubscriptionModalVisible,
@@ -44,20 +43,34 @@ export const ElizaIntegration: React.FC = () => {
 
       return {
         ok: res.ok,
-        deploymentId: res?.data?.deploymentId ?? undefined,
+        agentId: res?.data?.agentId ?? undefined,
       };
     },
     [activeProjectId],
   );
 
-  const getAgentDeploymentStatus = async (deploymentId: string) => {
-    const token = await fetchFleekToken();
+  const getAgentDeploymentStatus = useCallback(
+    async (agentId: string) => {
+      const token = await fetchFleekToken(activeProjectId);
 
-    if (!token) return { ok: false };
-    return getDeploymentStatus(deploymentId, token);
-  };
+      if (!token) {
+        return { ok: false, data: {} as Record<string, 'true' | 'false'> };
+      }
 
-  const checkUserAmountAvailableAiModules = async () => {
+      const res = await getDeploymentStatus(agentId, token);
+      if (!res.ok || !res?.data) {
+        return { ok: false, data: {} as Record<string, 'true' | 'false'> };
+      }
+
+      return {
+        ok: true,
+        data: res.data,
+      };
+    },
+    [activeProjectId],
+  );
+
+  const checkUserAmountAvailableAiModules = useCallback(async () => {
     const token = await fetchFleekToken(activeProjectId);
     if (!token) return { hasEnoughAiModules: false, amount: 0 };
 
@@ -100,7 +113,7 @@ export const ElizaIntegration: React.FC = () => {
           productId: aiAgentProduct?.id,
         }
       : { hasEnoughAiModules: false, amount: 0, productId: aiAgentProduct?.id };
-  };
+  }, [activeProjectId]);
 
   const ensureUserSubscription = useCallback(async (): Promise<boolean> => {
     const { hasEnoughAiModules, amount, productId } =
@@ -118,10 +131,12 @@ export const ElizaIntegration: React.FC = () => {
     <>
       <CoreEliza
         isLoggedIn={isLoggedIn}
+        isLoggingIn={isLoggingIn}
         login={login}
         triggerAgentDeployment={triggerAgentDeployment}
         getAgentDeploymentStatus={getAgentDeploymentStatus}
         ensureUserSubscription={ensureUserSubscription}
+        projectId={activeProjectId}
       />
 
       <Toaster
