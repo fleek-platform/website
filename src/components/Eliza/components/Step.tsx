@@ -1,4 +1,6 @@
 import { cn } from '@utils/cn';
+import { Box } from './Box';
+import { Text } from './Text';
 
 interface StepProps {
   title: string;
@@ -16,36 +18,24 @@ const Step: React.FC<StepProps> = ({
   children,
 }) => {
   return (
-    <div
-      className={cn(
-        'm-auto mt-[25px] flex w-full max-w-screen-md flex-col items-center p-[30px] pb-[60px] md:mt-[50px]',
-        className,
+    <Box className={cn('gap-16', className)}>
+      {customTopElement && <Box className="mr-auto">{customTopElement}</Box>}
+      <Text as="h1">{title}</Text>
+      {typeof description === 'string' ? (
+        <Text as="h2" variant="description">
+          {description}
+        </Text>
+      ) : (
+        description
       )}
-    >
-      {customTopElement && (
-        <div className="mb-[8px] w-full text-[14px] leading-[20px] md:mb-[12px]">
-          {customTopElement}
-        </div>
-      )}
 
-      <h1 className="w-full text-left text-[40px] font-semibold leading-normal text-[#FFF] md:text-[52px]">
-        {title}
-      </h1>
-
-      <h2 className="mb-[24px] w-full text-left text-[16px] font-medium leading-[24px] text-[#b4b4b4] md:mb-[38px]">
-        {description}
-      </h2>
-
-      <div className="flex w-full flex-col items-center font-plex-sans">
-        {children}
-      </div>
-
+      <Box>{children}</Box>
       <noscript>
         <div className="text-center text-[14px] font-bold leading-[20px] text-[#F5E147]">
           Please enable JavaScript to continue
         </div>
       </noscript>
-    </div>
+    </Box>
   );
 };
 

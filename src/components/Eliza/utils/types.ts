@@ -15,6 +15,13 @@ export type Options = {
   template?: Template;
 };
 
+export type NavigationState = {
+  options: Options;
+  page: Page;
+  completedStep: Step;
+  characterFile: string | undefined;
+};
+
 export type GoToProps = {
   goTo: (page: Page, options?: Options) => void;
 };

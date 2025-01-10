@@ -13,35 +13,17 @@ import {
 } from '../utils/transformData';
 import { validateZod } from '../utils/validateHelper';
 import { characterfileSchema } from '../utils/schema';
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import { cn } from '@utils/cn';
 import { Input } from './Input';
 
-interface UploadPageProps extends GoToProps {
-  initialState?: {
-    characterFile: string | undefined;
-  };
-  onCharacterfileUpload: (characterfile: string | undefined) => void;
-}
-
-export const UploadPage: React.FC<UploadPageProps> = ({
-  goTo,
-  onCharacterfileUpload,
-  initialState,
-}) => {
+export const UploadPage: React.FC<GoToProps> = ({ goTo }) => {
   const [errors, setErrors] = useState<FormattedError[]>([]);
 
   const { reset } = useElizaForm();
 
-  useEffect(() => {
-    if (initialState?.characterFile) {
-      onCharacterfileChange(initialState.characterFile);
-    }
-  }, [initialState]);
-
   const onCharacterfileChange = (characterfile: string) => {
     setErrors([]);
-    onCharacterfileUpload?.(characterfile);
     const parsedCharacterfile = JSON.parse(characterfile);
 
     const validated = validateZod({

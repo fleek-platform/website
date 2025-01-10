@@ -174,7 +174,7 @@ export const Characterfile: React.FC<CharacterfileProps> = ({
           Using the inputs below, craft a unique and engaging personality for
           your AI agent. Click{' '}
           <Link
-            href="https://github.com/ai16z/eliza/blob/main/packages/core/src/defaultCharacter.ts"
+            href="https://github.com/elizaOS/eliza/blob/main/characters/c3po.character.json"
             className="underline hover:text-white"
             target={Target.Blank}
           >
@@ -193,19 +193,19 @@ export const Characterfile: React.FC<CharacterfileProps> = ({
         />
         <FormField
           label="Model provider"
-          description="Specifies the AI model provider"
+          description="The AI model provider, such as OpenAI or Anthropic"
         >
           <ModelProviderDropdown />
         </FormField>
         <FormField
           label="Clients"
-          description="Array of supported client types, such as Discord or X"
+          description="Supported client types, such as Discord or X"
         >
           <ClientsDropdown />
         </FormField>
         <FormField
           label="Bio"
-          description="Character background as a string or array of statements. Includes biographical details about the character, either as one complete biography or several statements that vary."
+          description="Background information for your character. Includes biographical details about the character, either as one complete biography or several statements that vary."
         >
           <BioForm />
         </FormField>
@@ -217,7 +217,7 @@ export const Characterfile: React.FC<CharacterfileProps> = ({
         </FormField>
         <FormField
           label="Knowledge (optional)"
-          description="Array used for Retrieval Augmented Generation (RAG), containing facts or references to ground the character's responses."
+          description="Facts or references to ground the character's responses"
         >
           <KnowledgeForm />
         </FormField>
@@ -229,13 +229,13 @@ export const Characterfile: React.FC<CharacterfileProps> = ({
         </FormField>
         <FormField
           label="Post examples"
-          description="Sample social media posts to guide content style."
+          description="Sample social media posts to guide content style"
         >
           <PostExamplesForm />
         </FormField>
         <FormField
           label="Style"
-          description="List of subjects the character is interested in or knowledgeable about, used to guide conversations and generate relevant content. Helps maintain character consistency."
+          description="Directions for how your agent should respond in different contexts"
         >
           <Box className="gap-16 border-l-4 border-elz-neutral-1 pl-16">
             <Box className="gap-8 rounded-12 bg-elz-neutral-1 p-12">
@@ -277,12 +277,14 @@ export const Characterfile: React.FC<CharacterfileProps> = ({
         </FormField>
         <FormField
           label="Adjectives"
-          description={`Words that describe the character's traits and personality, used for generating responses with consistent tone. Can be used in "Mad Libs" style content generation`}
+          description={`Words that describe the character's traits and personality, used for generating responses with consistent tone. Can be used in "Mad Libs" style content generation.`}
         >
           <TagsForm name="adjectives" placeholder="add adjective..." />
         </FormField>
         <Box className="gap-8">
-          <Button onClick={handleSubmit(onSubmit)}>Continue to Settings</Button>
+          <Button variant="primary" onClick={handleSubmit(onSubmit)}>
+            Continue to Settings
+          </Button>
           {hasErrors && (
             <Input.Hint className="self-center" error>
               Please check the errors above to continue your character setup.
