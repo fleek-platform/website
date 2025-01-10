@@ -138,17 +138,17 @@
       "templatesUrl": "https://fleek.xyz/templates/"
     },
     "graphql": {
-      "url": "https://graphql.service.fleeksandbox.xyz/graphql/"
+      "url": "https://graphql.service.fleek.xyz/graphql/"
     },
     "auth": {
       "dynamicEnvironmentId": "c4d4ccad-9460-419c-9ca3-494488f8c892",
       "authTokenCookieKey": "accessToken",
       "activeProjectCookieKey": "projectId",
       "endpoints": {
-        "projects": "https://api.dev.fleeksandbox.xyz/api/v1/projects",
-        "teams": "https://api.dev.fleeksandbox.xyz/api/v1/teams",
-        "subscriptions": "https://api.dev.fleeksandbox.xyz/api/v1/subscriptions",
-        "plans": "https://api.dev.fleeksandbox.xyz/api/v1/plans"
+        "projects": "https://api.fleek.xyz/api/v1/projects",
+        "teams": "https://api.fleek.xyz/api/v1/teams",
+        "subscriptions": "https://api.fleek.xyz/api/v1/subscriptions",
+        "plans": "https://api.fleek.xyz/api/v1/plans"
       }
     },
     "annoucementMarquee": {
@@ -516,8 +516,8 @@
   },
   "elizaPage": {
     "endpoints": {
-      "aiAgents": "https://api.dev.fleeksandbox.xyz/api/v1/ai-agents"
+      "aiAgents": "https://api.fleek.xyz/api/v1/ai-agents"
     },
-    "agentsDashboardPage": "https://app.fleeksandbox.xyz/projects/[projectId]/agents"
+    "agentsDashboardPage": "https://app.fleek.xyz/projects/[projectId]/agents"
   }
 }
