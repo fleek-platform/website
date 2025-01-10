@@ -7,7 +7,7 @@
     "url": "git+https://github.com/fleekxyz/fleekxyz-website.git"
   },
   "scripts": {
-    "dev": "astro dev --port 3000",
+    "dev": "astro dev",
     "start": "astro dev",
     "build": "rm -rf dist && npm run check:strict && npm run check:json && astro build && ./scripts/build/copy-video-content-src-to-dist",
     "preview": "astro preview",
