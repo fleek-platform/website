@@ -5,16 +5,13 @@ import {
   getSubscriptions,
 } from '@components/AuthProvider/api/api.ts';
 
-import settings from '@base/settings.json';
+// Import local implementation for now.
+// In the future will import package implementation with the same interface.
+import ElizaIntegrationLayer from '../Eliza/ElizaIntegrationLayer.tsx';
 
-// Import local implementation now. In the future will import package implementation with the same interface.
-import ElizaIntegrationLayer from './ElizaIntegrationLayer.tsx';
-
-export const ElizaIntegrationHost: React.FC = () => {
+export const AgentsUIIntegration: React.FC = () => {
   const { isLoggedIn, login, activeProjectId, fetchFleekToken } =
     useAuthentication();
-
-  const { getAgentDeploymentStatus, aiAgents } = settings.elizaPage.endpoints;
 
   return (
     <ElizaIntegrationLayer
@@ -24,18 +21,15 @@ export const ElizaIntegrationHost: React.FC = () => {
       fetchFleekToken={fetchFleekToken}
       getSubscriptions={getSubscriptions}
       getPlans={getPlans}
-      // unused, just for demo, resolved by imports
-      getAgentDeploymentStatusEndpointUrl={getAgentDeploymentStatus}
-      aiAgentsEndpointUrl={aiAgents}
     />
   );
 };
 
-const ElizaHost: React.FC = () => (
+const AgentsUI: React.FC = () => (
   <AuthProvider>
-    <ElizaIntegrationHost />
+    <AgentsUIIntegration />
   </AuthProvider>
 );
 
 // to be used in Astro
-export default ElizaHost;
+export default AgentsUI;

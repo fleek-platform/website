@@ -65,10 +65,7 @@ export interface ElizaIntegrationLayerProps {
   getSubscriptions: getSubscriptionsType;
   getPlans: getPlansType;
 
-  // settings props
-  // optional for now, currently imported in api files in the host app
-  getAgentDeploymentStatusEndpointUrl?: string;
-  aiAgentsEndpointUrl?: string;
+  // settings.json is not passed as props but import should match paths in the host and the package
 }
 
 /** Package will define and export this component. */
