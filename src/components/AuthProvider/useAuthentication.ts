@@ -5,6 +5,7 @@ import type { Project } from '@fleekxyz/sdk/dist-types/generated/graphqlClient/s
 import settings from '@base/settings.json';
 import { useCookies } from 'react-cookie';
 import { AuthContext } from './AuthProvider';
+import toast from 'react-hot-toast';
 
 export const useAuthentication = () => {
   const context = useContext(AuthContext);
@@ -129,12 +130,19 @@ export const useAuthentication = () => {
   const setActiveProject = async (projectId?: string) => {
     if (!projectId) return;
     setCookie(settings.site.auth.activeProjectCookieKey, projectId, {});
+    if (!userProjects) return;
+    const activeProject = userProjects.find(({ id }) => id === projectId);
+    if (activeProject) {
+      toast.success(`Switched project to: ${activeProject?.name}`);
+    }
   };
 
   const initializeProjects = async () => {
     try {
       const token = await fetchFleekToken();
-      const projects = await fetchGraphQLUserProjects(token);
+      const projects = !!userProjects
+        ? userProjects
+        : await fetchGraphQLUserProjects(token);
       if (projects && projects.length) {
         setUserProjects(projects);
         const activeProject = projects.find(({ id }) => id === activeProjectId);
