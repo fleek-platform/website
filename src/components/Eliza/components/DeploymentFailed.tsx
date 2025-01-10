@@ -1,3 +1,7 @@
+import { Box } from './Box';
+import { Button } from './Button';
+import { Text } from './Text';
+
 interface DeploymentFailedProps {
   deploymentStatus?: any;
   onRetryClick: () => void;
@@ -8,38 +12,32 @@ const DeploymentFailed: React.FC<DeploymentFailedProps> = ({
   onRetryClick,
 }) => {
   return (
-    <div className="flex w-full flex-col gap-[20px] text-[14px] leading-[20px]">
-      <div className="flex w-full flex-col gap-[16px]">
-        {deploymentStatus &&
-          Object.entries(deploymentStatus).map((entry) => {
-            const [key, value] = entry;
-            return value === 'failed' ? (
-              <div
-                key={key}
-                className="flex flex-row justify-between rounded-[12px] border-1 border-[#343434] p-[16px] text-[14px] leading-[20px]"
-              >
-                <div>
-                  {key} : <span className="text-[#FF3B30]">{value}</span>
-                </div>
-              </div>
-            ) : null;
-          })}
-      </div>
-      <div className="flex w-full flex-col gap-[10px]">
-        <button
-          onClick={onRetryClick}
-          className="h-[40px] w-full rounded-[12px] bg-[#2D2305] text-[16px] font-medium leading-[40px] text-[#F5E147]"
-        >
-          Retry deployment
-        </button>
-        <a
-          href="/support/"
-          className="h-[40px] w-full rounded-[12px] border-1 border-[#606060] text-center text-[16px] font-medium leading-[40px]"
-        >
-          Contact support
-        </a>
-      </div>
-    </div>
+    <Box className="gap-16">
+      {deploymentStatus &&
+        Object.entries(deploymentStatus).map((entry) => {
+          const [key, value] = entry;
+          return value === 'failed' ? (
+            <Box
+              key={key}
+              className="flex-row justify-between rounded-12 border border-elz-neutral-6 p-16"
+            >
+              <Text variant="secondary">
+                {key} : <span className="text-elz-danger-11">{value}</span>
+              </Text>
+            </Box>
+          ) : null;
+        })}
+      <Button variant="primary" onClick={onRetryClick}>
+        Retry deployment
+      </Button>
+      <Button
+        variant="ghost"
+        href="/support/"
+        className="border border-elz-neutral-6"
+      >
+        Contact support
+      </Button>
+    </Box>
   );
 };
 

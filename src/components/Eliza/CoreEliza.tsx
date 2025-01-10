@@ -12,7 +12,11 @@ import { Navigation } from '@components/Eliza/components/Navigation.tsx';
 import { useState } from 'react';
 import { Button } from '@components/Eliza/components/Button.tsx';
 import { FaChevronLeft } from 'react-icons/fa6';
-import type { Options, Page, Step as StepType } from './utils/types.ts';
+import type { NavigationState } from './utils/types.ts';
+import { Layout } from './components/Layout.tsx';
+import { IllustrationIcon } from './components/CustomIcons.tsx';
+import { Box } from './components/Box.tsx';
+import { Text } from './components/Text.tsx';
 
 interface ElizaCoreProps {
   isLoggedIn: UseDeployAIAgentProps['isLoggedIn'];
@@ -37,13 +41,6 @@ export const CoreEliza: React.FC<ElizaCoreProps> = ({
     ensureUserSubscription,
   };
 
-  const [navigationState, setNavigationState] = useState<{
-    options?: Options;
-    page?: Page;
-    completedStep?: StepType;
-    characterFile?: string | undefined;
-  }>();
-
   const {
     deployAgent,
     resetDeployment,
@@ -54,17 +51,26 @@ export const CoreEliza: React.FC<ElizaCoreProps> = ({
     fleekMachineUrl,
   } = useDeployAIAgent({ ...elizaIntegrations });
 
-  const handleNavigationStateChange = (
-    options?: Options,
-    page?: Page,
-    completedStep?: StepType,
-    characterFile?: string | undefined,
-  ) => {
-    setNavigationState({ options, page, completedStep, characterFile });
+  const [navigationState, setNavigationState] = useState<NavigationState>({
+    page: 'getStarted',
+    completedStep: 0,
+    characterFile: undefined,
+    options: {
+      from: undefined,
+      template: undefined,
+    },
+  });
+
+  const handleNavigationStateChange = (newNavigationState: NavigationState) => {
+    setNavigationState(newNavigationState);
   };
 
   const GoBackButton = (
-    <Button onClick={resetDeployment}>
+    <Button
+      variant="ghost"
+      className="text-elz-accent-11"
+      onClick={resetDeployment}
+    >
       <FaChevronLeft />
       Go back
     </Button>
@@ -77,11 +83,11 @@ export const CoreEliza: React.FC<ElizaCoreProps> = ({
       condition: !isDeploymentStarted,
       content: (
         <Navigation
+          navigationState={navigationState}
+          handleNavigationStateChange={handleNavigationStateChange}
           onDeployBtnClick={(characterfile) => {
             deployAgent(characterfile);
           }}
-          onPropsChange={handleNavigationStateChange}
-          initialState={navigationState}
         />
       ),
     },
@@ -98,9 +104,17 @@ export const CoreEliza: React.FC<ElizaCoreProps> = ({
               : 'Your AI agent is live'
           }
           description={
-            !isDeploymentSuccessful
-              ? 'Give us a moment to deploy your AI agent. We’re running a few checks to ensure your agent functions as expected.'
-              : 'Review the details below for information on how to engage with your AI agent, now live at the URL below.'
+            !isDeploymentSuccessful ? (
+              <Box>
+                <Text variant="description">
+                  Give us a moment to deploy your AI agent. We're running a few
+                  checks to ensure your agent functions as expected.
+                </Text>
+                <IllustrationIcon className="h-304 animate-pulse pt-48" />
+              </Box>
+            ) : (
+              'Review the details below for information on how to engage with your AI agent, now live at the URL below.'
+            )
           }
           customTopElement={
             isDeploymentSuccessful ? <>🎉 Congratulations!</> : null
@@ -149,13 +163,13 @@ export const CoreEliza: React.FC<ElizaCoreProps> = ({
   ];
 
   return (
-    <>
+    <Layout>
       {steps.map(
         (step) =>
           step.condition && (
             <React.Fragment key={step.id}>{step.content}</React.Fragment>
           ),
       )}
-    </>
+    </Layout>
   );
 };

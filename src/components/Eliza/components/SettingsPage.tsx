@@ -129,7 +129,9 @@ export const SettingsPage: React.FC<SettingsPageProps> = ({
           </Box>
         )}
       </Box>
-      <Button onClick={handleSubmit(onSubmit)}>Review character</Button>
+      <Button variant="primary" onClick={handleSubmit(onSubmit)}>
+        Review character
+      </Button>
     </Box>
   );
 };
