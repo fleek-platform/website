@@ -38,8 +38,7 @@ export const PricingPlanHero: React.FC = () => {
       <div className="space-y-6 pt-46">
         <Text variant="subtitle">Hosting and storage plans</Text>
         <Text variant="paragraph">
-          Create, deploy and manage your Web apps and projects on Fleek's
-          platform.
+          Create, deploy and manage your Web apps on Fleek's platform.
         </Text>
       </div>
       <div className="mb-24 flex flex-col justify-between gap-20 pt-16 lg:flex-row">
