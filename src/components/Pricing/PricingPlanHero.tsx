@@ -7,7 +7,7 @@ export const PricingPlanHero: React.FC = () => {
   return (
     <section className="flex flex-col text-left">
       <div className="flex flex-col gap-16">
-{/*         
+        {/*         
         <div className="space-y-6">
           <Text variant="subtitle">AI agent plans</Text>
           <Text variant="paragraph">
@@ -36,7 +36,7 @@ export const PricingPlanHero: React.FC = () => {
           </div>
         </div>
 */}
-      </div> 
+      </div>
       <div className="space-y-6 pt-46">
         <Text variant="subtitle">Hosting and storage plans</Text>
         <Text variant="paragraph">
