@@ -73,11 +73,11 @@ export default {
   product: [
     {
       text: 'AI agent hosting',
-      url: '/docs/ai-agents',
+      url: '/docs/ai-agents/',
     },
     {
       text: 'Web app hosting',
-      url: '/docs/platform/hosting',
+      url: '/docs/platform/hosting/',
     },
     {
       text: 'Fleek Machines',
