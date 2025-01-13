@@ -1,5 +1,5 @@
 ---
-title: 'Deploy Eliza AI Agent in one-click on Fleek'
+title: 'Deploy Eliza AI agents in one-click on Fleek'
 date: 2025-01-08
 desc: 'Let’s learn how we can deploy Eliza AI agents on Fleek in one click!'
 thumbnail: './eliza-fleek.jpg'
@@ -16,7 +16,7 @@ Fleek allows users to deploy Eliza based AI Agents in one click. It also ensures
 
 Let’s learn how we can deploy AI Agents on Fleek in one click!
 
-[Click here to deploy an AI agent right now]()
+[Click here to deploy an AI agent now](https://fleek.xyz/eliza/)
 
 ---
 
@@ -259,9 +259,7 @@ Fleek has provided a slew of templates for builders to work with and use as star
 
 ---
 
-After a successful deployment, you should see the below page and you can go then go on to use the information on there to access your agent:
-
-The link to the agent deployed here is:
+After a successful deployment, you can use the information provided to access your agent. This information will remain on the [Agents](https://app.fleek.xyz/projects/[projectID]/agents) tab of your project in Fleek's platform.
 
 ## Troubleshooting
 
