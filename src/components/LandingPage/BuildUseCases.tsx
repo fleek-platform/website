@@ -12,15 +12,26 @@ const BuildUseCases: React.FC = () => (
         title: 'Frameworks',
         cards: [
           {
-            title: 'React Template',
+            title: 'Eliza',
             description:
-              'Use the React boilerplate for optimal user interface aesthetics.',
+              'Deploy Eliza agents in one click. Leverage TEEs for autonomy, verifiability and privacy.',
             icon: { src: '/svg/react-icon.svg', alt: 'React App' },
             cta: {
-              url: 'https://fleek.xyz/templates/react-boilerplate/',
+              url: 'https://fleek.xyz/eliza/',
               text: 'try it',
             },
-            image: '/svg/react-template.svg',
+            image: '/svg/eliza.svg',
+          },
+          {
+            title: 'Next.js Template',
+            description:
+              'Use the Next.js boilerplate for optimal user interface aesthetics.',
+            icon: { src: '/svg/react-icon.svg', alt: 'React App' },
+            cta: {
+              url: 'https://fleek.xyz/templates/fullstack-nextjs-template/',
+              text: 'try it',
+            },
+            image: '/svg/nextjs-template.svg',
           },
           {
             title: 'Astro Template',
@@ -32,16 +43,6 @@ const BuildUseCases: React.FC = () => (
               text: 'try it',
             },
             image: '/svg/astro-template.svg',
-          },
-          {
-            title: 'Vue Template',
-            description: `Leverage the Vue boilerplate to streamline your project's setup.`,
-            icon: { src: '/svg/react-icon.svg', alt: 'Vue.js App' },
-            cta: {
-              url: 'https://fleek.xyz/templates/vue-boilerplate/',
-              text: 'try it',
-            },
-            image: '/svg/vuejs-template.svg',
           },
         ],
       },

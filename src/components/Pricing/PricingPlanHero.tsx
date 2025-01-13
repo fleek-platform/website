@@ -7,11 +7,11 @@ export const PricingPlanHero: React.FC = () => {
   return (
     <section className="flex flex-col text-left">
       <div className="flex flex-col gap-16">
-        {/*         
         <div className="space-y-6">
           <Text variant="subtitle">AI agent plans</Text>
           <Text variant="paragraph">
-            Create, deploy and manage agents with Fleek Machines.
+            Create, deploy and manage agents with Fleek Machines. Contact us for
+            custom pricing on swarms, platforms and larger projects.
           </Text>
         </div>
         <div className="grid gap-20 sm:grid-cols-3">
@@ -35,7 +35,6 @@ export const PricingPlanHero: React.FC = () => {
             </div>
           </div>
         </div>
-*/}
       </div>
       <div className="space-y-6 pt-46">
         <Text variant="subtitle">Hosting and storage plans</Text>
