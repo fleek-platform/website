@@ -1,11 +1,11 @@
 ---
-title: ' Introducing Fleek AI Agent Hosting: Seamless AI Deployment with ai16z's Eliza Framework'
-date: 2024-01-13
+title: "Introducing Fleek AI Agent Hosting: Seamless AI Deployment with ai16z's Eliza Framework"
+date: 2025-01-13
 desc: "Simplify AI agent deployment with Fleek's new AI Agent Hosting. Featuring one-click deployment and TEEs, it supports ai16z's Eliza framework for secure, scalable, and cost-effective hosting. Explore now!"
 thumbnail: './thumbnail.png'
 image: './thumbnail.png'
-
 ---
+
 ### **The Future of AI Agent Deployment is Here**
 
 Building AI agents is becoming a lot easier because of new frameworks like ai16z’s Eliza. However, AI agent builders still face significant challenges when it comes to deploying, hosting and managing production agents; complex setups, security risks, devops and scalability hurdles often hinder progress. At Fleek, we believe these barriers shouldn’t hold builders back and that by eliminating them, we can open up AI agents to an entirely new class of builders.
@@ -21,9 +21,7 @@ Building an AI agent is just the beginning; the real complexity lies in deployin
 - **Complex infrastructure:** Setting up infrastructure to deploy your agent can take hours and each agent deployment takes 15-25 minutes on average, requiring specialized developer and platform knowledge to deploy and maintain your agent.
 - **Scalability issues:** Managing agents across environments or regions often leads to performance bottlenecks. This problem will only compound as we see the current single -agent paradigm graduate to swarms of agents coordinating with each other, as well as agents spawning their own additional agents.
 - **Inflated costs:** Hosting agents on traditional clouds comes with inflated cloud costs, as well as additional costs associated with the setup, scaling, management and maintenance of those cloud servers.
-    
-    **Trust concerns:**  Users of AI agents are already becoming concerned about the trust assumptions of the agents they are using. For example, is the developer the one tweeting or the agent? Does the developer have access to the agent's crypto wallet and funds?
-    
+  **Trust concerns:**  Users of AI agents are already becoming concerned about the trust assumptions of the agents they are using. For example, is the developer the one tweeting or the agent? Does the developer have access to the agent's crypto wallet and funds?
 
 These challenges not only delay project timelines but also inflate costs and hinder the broader adoption and growth of AI agents across industries. Overcoming these hurdles is essential for unleashing the full potential of AI agents in real-world applications.
 
@@ -53,7 +51,7 @@ Fleek Machines empower developers to take full control of their deployments. Fle
 
 ![](./fleekaws.png)
 
-- *NOTE that while this initial alpha release has support for TEE agent hosting, standard (non-TEE) agent hosting will follow in the coming weeks, introducing even more cost-effective hosting options for agent developers for use cases that might not require TEEs (also great for lower cost agent development and testing environments).*
+- _NOTE that while this initial alpha release has support for TEE agent hosting, standard (non-TEE) agent hosting will follow in the coming weeks, introducing even more cost-effective hosting options for agent developers for use cases that might not require TEEs (also great for lower cost agent development and testing environments)._
 
 ---
 
@@ -80,11 +78,11 @@ Ready to deploy your AI agent? Get started in just a few minutes:
 
 1. **Fork the Eliza Framework:** Access the [Eliza GitHub repository](https://github.com/ai16z/eliza) to fork the project
 2. **Configure Your Agent:**
-    - Create a JSON configuration file to define your agent’s personality and behaviours, along with necessary API keys for OpenAI, Discord, and other integrations
+   - Create a JSON configuration file to define your agent’s personality and behaviours, along with necessary API keys for OpenAI, Discord, and other integrations
 3. **Sign Up for Fleek AI Hosting:** Visit [fleek.xyz](https://fleek.xyz/eliza) and create an account.
 4. **Deploy in One Click:**
-    - Upload your configuration files
-    - Click “Deploy” and receive the endpoint for your live agent
+   - Upload your configuration files
+   - Click “Deploy” and receive the endpoint for your live agent
 
 Need help along the way? Check out our [Quick Start Guide](https://fleek.xyz/guides/eliza-guide/) to get started and join the Discord for questions.
 
