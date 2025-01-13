@@ -206,7 +206,9 @@
           "order": 6
         }
       ],
-      "customTitlesByDirectoryName": {}
+      "customTitlesByDirectoryName": {
+          "AI_Agents": "AI agents"
+      }
     }
   },
   "blog": {
