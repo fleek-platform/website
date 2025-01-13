@@ -6,7 +6,6 @@ const {
   statusURl,
   mediaKit,
   fleekNetworkWebsiteUrl,
-  templatesUrl,
 } = settings.site.resources;
 
 const { fleekPlatformOrgUrl } = settings.github;
@@ -73,22 +72,20 @@ export default {
   ],
   product: [
     {
-      text: 'Platform',
-      url: '/docs/platform/',
+      text: 'AI agent hosting',
+      url: '/docs/ai-agents',
     },
     {
-      text: 'Infrastructure',
-      url: '/docs/infrastructure/',
+      text: 'Web app hosting',
+      url: '/docs/platform/hosting',
     },
     {
-      text: 'CLI/SDK',
-      url: '/docs/cli/',
+      text: 'Fleek Machines',
+      url: '/docs/platform/fleek-machines/',
     },
     {
-      text: 'Templates',
-      url: templatesUrl,
-      target: '_blank',
-      rel: 'noopener noreferrer',
+      text: 'Fleek Functions',
+      url: '/docs/platform/fleek-functions/',
     },
   ],
   resources: [
