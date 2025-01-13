@@ -68,12 +68,14 @@ const PricingCard: React.FC<Props> = (props) => {
             </Text>
             <Text variant="paragraph">{renderDescription()}</Text>
           </div>
-          <Text variant="subtitle">
-            <span>{props.cost?.prefix ?? '$'}</span>
-            <span>{props.cost.amount}</span>
-            <span>{props.cost?.suffix ?? ' /month'}</span>
-          </Text>
-          <Text variant="paragraph">{props.cost?.bottomText}</Text>
+          <div>
+            <Text variant="subtitle">
+              <span>{props.cost?.prefix ?? '$'}</span>
+              <span>{props.cost.amount}</span>
+              <span>{props.cost?.suffix ?? ' /month'}</span>
+            </Text>
+            <Text variant="paragraph">{props.cost?.bottomText}</Text>
+          </div>
         </div>
         <div className="flex flex-col gap-18">
           <p className="typo-m block text-left text-gray-dark-12">
