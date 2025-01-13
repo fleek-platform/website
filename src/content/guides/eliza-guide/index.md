@@ -120,8 +120,8 @@ This file specifies “TechAI” as an AI researcher who focuses on practical AI
 Go to [fleek.xyz/eliza](https://fleek.xyz/eliza/) where you’ll see three deployment options:
 
 1. [Upload a characterfile](/guides/eliza-guide#upload-a-characterfile)
-2. [Manually enter details](/guides/eliza-guide#manually-enter-agent-details)
-3. [Use a predefined template](/guides/eliza-guide#use-a-predefined-template)
+2. [Manually enter details [⚡ : no developer experience needed]](/guides/eliza-guide#manually-enter-agent-details)
+3. [Use a predefined template [⚡ : no developer experience needed]](/guides/eliza-guide#use-a-predefined-template)
 
 ![landing page of the Eliza deployment platform](./landing-page.png)
 

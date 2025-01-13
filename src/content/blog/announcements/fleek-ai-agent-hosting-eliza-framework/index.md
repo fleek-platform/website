@@ -78,9 +78,9 @@ Ready to deploy your AI agent? Get started in just a few minutes.
 
 Go to [fleek.xyz/eliza](https://fleek.xyz/eliza/) where you’ll see three deployment options:
 
-1. [Upload a characterfile](/blog/announcements/eliza-guide#upload-a-characterfile)
-2. [Manually enter details](/blog/announcements//eliza-guide#manually-enter-agent-details)
-3. [Use a predefined template](/blog/announcements/eliza-guide#use-a-predefined-template)
+1. [Upload a characterfile](/blog/announcements/fleek-ai-agent-hosting-eliza-framework#upload-a-characterfile)
+2. [Manually enter details](/blog/announcements/fleek-ai-agent-hosting-eliza-framework#manually-enter-agent-details)
+3. [Use a predefined template](/blog/announcements/#use-a-predefined-template)
 
 ![landing page of the Eliza deployment platform](./landing-page.png)
 
