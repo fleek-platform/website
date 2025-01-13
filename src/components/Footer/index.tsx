@@ -64,11 +64,7 @@ const Footer: React.FC = () => {
                     <Link
                       href={item.url}
                       className="text-gray-dark-12 hover:text-gray-dark-11"
-                      target={
-                        item.target?.toLowerCase() == '_blank'
-                          ? Target.Blank
-                          : Target.Self
-                      }
+                      target={Target.Self}
                     >
                       {item.text}
                     </Link>
