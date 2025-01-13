@@ -203,7 +203,7 @@
     "menu": {
       "order": [
         {
-          "category": "Deploy_AI_Agents",
+          "category": "ai-agents",
           "order": 1
         },
         {
@@ -227,7 +227,9 @@
           "order": 6
         }
       ],
-      "customTitlesByDirectoryName": {}
+      "customTitlesByDirectoryName": {
+        "ai-agents": "AI agents"
+      }
     }
   },
   "blog": {
