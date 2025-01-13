@@ -55,34 +55,13 @@ Fleek Machines empower developers to take full control of their deployments. Fle
 
 ---
 
-### **Deploying with Eliza**
-
-The **Eliza framework** is a powerful open-source tool that allows developers to build and customize AI agents with ease. From personality configuration to API integrations, Eliza simplifies the creation process for agents like virtual assistants, chatbots or domain-specific tools.
-
-### **Deploying Eliza Agents with Fleek**
-
-Here’s how Fleek makes deploying Eliza agents effortless:
-
-1. **Configure Your Agent:** Use Eliza’s intuitive framework to create a JSON configuration containing the agent’s setup (e.g., API keys and character behaviours).
-2. **Upload & Validate:** Drag and drop your files into Fleek. The system will automatically validate the files to ensure everything is ready for deployment.
-3. **Click Deploy:** With one click, Fleek spins up a secure virtual machine to host your AI agent.
-4. **Access Your Agent:** You’ll receive an address where you can manage your newly deployed agent.
-
-Eliza + Fleek are levelling up the agentic future. Developers who previously spent hours managing infrastructure now have more time to focus on creating innovative AI agent solutions and swarms.
-
----
-
-### **How to Get Started**
+### Getting Started
 
 Ready to deploy your AI agent? Get started in just a few minutes:
 
-1. **Fork the Eliza Framework:** Access the [Eliza GitHub repository](https://github.com/ai16z/eliza) to fork the project
-2. **Configure Your Agent:**
-   - Create a JSON configuration file to define your agent’s personality and behaviours, along with necessary API keys for OpenAI, Discord, and other integrations
-3. **Sign Up for Fleek AI Hosting:** Visit [fleek.xyz](https://fleek.xyz/eliza) and create an account.
-4. **Deploy in One Click:**
-   - Upload your configuration files
-   - Click “Deploy” and receive the endpoint for your live agent
+1. [Use a predefined template [⚡: no developer experience needed]](https://fleek.xyz/guides/eliza-guide#use-a-predefined-template)
+2. [Manually enter details [ ⚡: no developer experience needed ]](https://fleek.xyz/guides/eliza-guide#manually-enter-agent-details)
+3. [Upload a characterfile](https://fleek.xyz/guides/eliza-guide#upload-a-characterfile)
 
 Need help along the way? Check out our [Quick Start Guide](https://fleek.xyz/guides/eliza-guide/) to get started and join the Discord for questions.
 
