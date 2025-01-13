@@ -1,13 +1,15 @@
 import type React from 'react';
 import { navbarMenu, type NavMenuItem, type NavSubMenuItem } from './config';
 import Link, { Target } from '@components/Link';
-import { useCallback, useState } from 'react';
+import { useCallback, useEffect, useState } from 'react';
 import { FaArrowRight, FaDiscord, FaXmark, FaXTwitter } from 'react-icons/fa6';
 import { cn } from '@utils/cn';
 import { RxHamburgerMenu } from 'react-icons/rx';
 import { isActivePath } from '@utils/url';
 import { Button } from '../Button';
-import FleekLogo from './fleek-logo.svg';
+import { AuthProvider } from '@components/AuthProvider/AuthProvider';
+import { useAuthentication } from '@components/AuthProvider/useAuthentication';
+import { ProjectDropdown } from './ProjectDropdown/ProjectDropdown';
 
 const NavbarMobileItem: React.FC<NavMenuItem> = ({
   label,
@@ -71,7 +73,12 @@ const NavbarMobile: React.FC = () => {
       {isOpen && (
         <section className="fixed inset-0 flex animate-fade-in flex-col bg-gray-dark-1/95 p-[37px] pt-0 text-gray-dark-11 backdrop-blur">
           <div className="sticky top-0 -mx-[37px] flex items-center justify-between px-[37px] py-27">
-            <img src={FleekLogo.src} width="66" alt="fleek logo" />
+            <img
+              src="/svg/fleek-logo.svg"
+              width={66}
+              height={25}
+              alt="fleek logo"
+            />
             <Button variant="ghost" size="sm" onClick={toggle}>
               <FaXmark className="size-20 cursor-pointer" />
             </Button>
@@ -293,29 +300,84 @@ export const Navbar: React.FC<NavbarProps> = ({
           </section>
         </div>
         <section className="flex items-center gap-8">
-          <Button
-            variant="secondary"
-            size="sm"
-            href="https://app.fleek.xyz"
-            rel="noopener noreferrer"
-            target={Target.Blank}
-          >
-            Log in
-          </Button>
-          <Button
-            variant="tertiary"
-            size="sm"
-            href="https://app.fleek.xyz"
-            rel="noopener noreferrer"
-            target={Target.Blank}
-          >
-            Sign up
-          </Button>
+          <AuthProvider>
+            <SessionManagementActions />
+          </AuthProvider>
           <div className="md:hidden">
             <NavbarMobile />
           </div>
         </section>
       </nav>
     </div>
+  );
+};
+
+const SessionManagementActions: React.FC = () => {
+  const {
+    isLoggedIn,
+    isLoggingIn,
+    logout,
+    login,
+    userProjects,
+    setActiveProject,
+    activeProjectId,
+  } = useAuthentication();
+
+  const handleLoginClick = (
+    e?: React.MouseEvent<HTMLButtonElement | HTMLAnchorElement>,
+  ) => {
+    e?.preventDefault();
+    e?.stopPropagation();
+    login();
+  };
+
+  const [isMounted, setIsMounted] = useState(false);
+
+  useEffect(() => {
+    setIsMounted(true);
+  }, []);
+
+  if (!isMounted) {
+    return null;
+  }
+
+  return (
+    <>
+      {isLoggedIn ? (
+        <>
+          {userProjects && !!userProjects && activeProjectId && (
+            <ProjectDropdown
+              projects={userProjects}
+              selectedProjectId={activeProjectId}
+              onProjectChange={setActiveProject}
+            />
+          )}
+          <Button variant="ghost" size="sm" onClick={logout}>
+            Log out
+          </Button>
+        </>
+      ) : (
+        <>
+          <Button
+            disabled={isLoggingIn}
+            variant="secondary"
+            size="sm"
+            onClick={handleLoginClick}
+            href="https://app.fleek.xyz/"
+          >
+            Log in
+          </Button>
+          <Button
+            disabled={isLoggingIn}
+            variant="tertiary"
+            size="sm"
+            onClick={handleLoginClick}
+            href="https://app.fleek.xyz/"
+          >
+            Sign up
+          </Button>
+        </>
+      )}
+    </>
   );
 };
