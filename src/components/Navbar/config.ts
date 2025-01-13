@@ -14,6 +14,12 @@ export const navbarMenu: NavMenuItem[] = [
     label: 'Features',
     subMenu: [
       {
+        label: 'AI agent hosting',
+        url: '/eliza/', 
+        description: 'Build autonomous agents',
+        icon: '/svg/cli-navbar-icon.svg,
+      },
+      {
         label: 'Platform',
         url: '/docs/platform',
         description: 'Build and deploy easily',
