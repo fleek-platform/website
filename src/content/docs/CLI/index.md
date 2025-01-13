@@ -1,5 +1,5 @@
 ---
-order: 0
+order: 4
 title: Quick start
 date: 2023-01-10
 desc: Find all the information on how to set up and start interacting with Fleek's Command Line Interface (CLI). Install, authenticate, and manage projects directly from your command line.
