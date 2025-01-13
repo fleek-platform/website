@@ -1,5 +1,5 @@
 ---
-title: 'Deploy Eliza AI Agent in one-click on Fleek'
+title: 'Deploy Eliza AI agents in one-click on Fleek'
 date: 2025-01-08
 desc: 'Let’s learn how we can deploy Eliza AI agents on Fleek in one click!'
 thumbnail: './eliza-fleek.jpg'
