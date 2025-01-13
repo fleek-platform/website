@@ -16,8 +16,6 @@ Fleek allows users to deploy Eliza-based AI agents in one click. With this tool,
 
 Let’s learn how we can deploy AI Agents on Fleek in one click!
 
-[Click here to deploy an AI agent now](https://fleek.xyz/eliza/)
-
 ---
 
 ## Prerequisites
