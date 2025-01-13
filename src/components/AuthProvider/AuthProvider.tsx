@@ -4,7 +4,7 @@ import {
   DynamicWidget,
 } from '@dynamic-labs/sdk-react-core';
 import settings from '@base/settings.json';
-import { isClient } from '@utils/common';
+import { isClient, isProd } from '@utils/common';
 import { createContext, useMemo, useState } from 'react';
 
 type AuthState = 'logged-in' | 'logged-out' | 'logging-in';
@@ -27,7 +27,10 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({
     <AuthContext.Provider value={value}>
       <DynamicContextProvider
         settings={{
-          environmentId: settings.site.auth.dynamicEnvironmentId,
+          environmentId:
+            settings.site.auth.dynamicEnvironmentId[
+              isProd ? 'production' : 'development'
+            ],
           // @ts-ignore
           walletConnectors: [EthereumWalletConnectors],
           cssOverrides: '.modal__items { scale: 1.5 }',
