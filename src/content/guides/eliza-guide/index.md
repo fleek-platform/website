@@ -259,9 +259,7 @@ Fleek has provided a slew of templates for builders to work with and use as star
 
 ---
 
-After a successful deployment, you should see the below page and you can go then go on to use the information on there to access your agent:
-
-The link to the agent deployed here is:
+After a successful deployment, you can use the information provided to access your agent. This information will remain on the [Agents](https://app.fleek.xyz/projects/[projectID]/agents) tab of your project in Fleek's platform.
 
 ## Troubleshooting
 
