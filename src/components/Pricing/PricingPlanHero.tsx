@@ -10,7 +10,7 @@ export const PricingPlanHero: React.FC = () => {
         <div className="space-y-6">
           <Text variant="subtitle">AI agent plans</Text>
           <Text variant="paragraph">
-            Create, deploy and manage agents with Fleek Machines.
+            Create, deploy and manage agents with Fleek Machines. Contact us for custom pricing on swarms, platforms and larger projects.
           </Text>
         </div>
         <div className="grid gap-20 sm:grid-cols-3">
