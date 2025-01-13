@@ -458,8 +458,8 @@
     "hero": {
       "title": "About Fleek",
       "subText": [
-        "Fleek is an open source, trustless cloud platform built on Fleek Network’s next-gen permissionless cloud infrastructure. Picture Cloudflare meets Uber, but more secure, reliable, verifiable, and without the data tampering, price gouging and censorship plaguing Big Cloud.",
-        "The result is a high-performance modern cloud platform where builders can run their software and apps with lower costs, enhanced security and privacy, and better guarantees, all while maintaining best in class speed, scalability, and developer experience."
+        "Fleek is an open source app and AI agent deployment platform built on TEEs (Trusted Execution Environments) and Fleek Network’s next-gen permissionless cloud infrastructure. Picture your favorite development platform, but more secure, reliable, verifiable, and without the data tampering, price gouging and censorship plaguing Big Cloud.",
+        "The result is a high-performance modern platform where builders can run their apps and AI agents with lower costs, enhanced security and privacy, and better guarantees, all while maintaining best in class speed, scalability, and developer experience. So easy that even non developers can use it."
       ],
       "content": [
         {
