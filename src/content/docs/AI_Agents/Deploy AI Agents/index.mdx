@@ -1,6 +1,6 @@
 ---
-order: 0
-title: Overview (Coming Soon!)
+order: 1
+title: Deploy AI Agents
 date: 2024-09-04
 desc: Learn how you can deploy AI Agents on Fleek with one-click.
 ---
@@ -10,17 +10,44 @@ import DocIntroCard from '@components/DocIntroCard';
 
 # Deploy AI agents
 
-Fleek will soon be releasing one-click deployments for autonomous AI agents. This will allow developers to simply focus on the agent's personality traits and trustlessly deploy AI agents on Fleek. With support for Trusted Execution Environments (TEEs) and remote attestations, Fleek ensures that the execution of AI agents is both secure and verifiable. We enourage all developers to fill out the form below and be notified as soon as we release it.
+Fleek has released one-click deployments for autonomous AI agents. This will allow developers to simply focus on the agent's personality traits and trustlessly deploy AI agents on Fleek. With support for Trusted Execution Environments (TEEs) and remote attestations, Fleek ensures that the execution of AI agents is both secure and verifiable.
 
 <div className="mb-16 w-fit">
   <Button
     variant="secondary"
-    href="https://fleek.typeform.com/machinesaccess"
+    href="https://fleek.xyz/eliza"
     target="_blank"
     rel="noopener noreferrer"
   >
-    Sign up for one-click AI agent deployments
+    Eliza on Fleek
   </Button>
+</div>
+
+To start developing your AI agent, you have three options to choose from.
+
+<div className='grid grid-cols-1 lg:grid-cols-2 gap-12 mb-12'>
+
+<DocIntroCard
+  title="Upload Character File"
+  description="Upload the character file of your AI agent."
+  href="/docs/ai_agents/upload-character-file"
+/>
+<DocIntroCard
+  title="Build From Scratch"
+  description="Build your agent from scratch"
+  href="/docs/ai_agents/build-from-scratch"
+/>
+<DocIntroCard
+  title="Select Template "
+  description="Build your agent from our template"
+  href="/docs/ai_agents/select-template"
+/>
+<DocIntroCard
+  title="Troubleshooting"
+  description="Troubleshooting"
+  href="/docs/ai_agents/troubleshoot"
+/>
+
 </div>
 
 <div className="my-12 bg-gray-dark-6 p-[1px]" />
