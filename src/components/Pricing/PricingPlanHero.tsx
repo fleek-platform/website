@@ -6,7 +6,7 @@ import PricingCard from '@components/PricingCard';
 export const PricingPlanHero: React.FC = () => {
   return (
     <section className="flex flex-col text-left">
-      <div className="flex flex-col gap-16">        
+      <div className="flex flex-col gap-16">
         <div className="space-y-6">
           <Text variant="subtitle">AI agent plans</Text>
           <Text variant="paragraph">
