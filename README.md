@@ -483,7 +483,7 @@ The Announcement Marquee is placed at the very top of the site. To enable
 ```
 "site": {
   ...
-  "annoucementMarquee": {
+  "announcementMarquee": {
     "message": "Introducing Fleek Functions: lightning-fast edge functions built on Fleek Network’s onchain cloud infrastructure. Read more here.",
     "url": "/blog/announcements/introducing-fleek-functions",
     "visible": true
