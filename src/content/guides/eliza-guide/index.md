@@ -1,5 +1,5 @@
 ---
-title: 'Deploy Eliza AI agents in one-click on Fleek'
+title: 'Deploy Eliza AI agents in one click on Fleek'
 date: 2025-01-08
 desc: 'Let’s learn how we can deploy Eliza AI agents on Fleek in one click!'
 thumbnail: './eliza-fleek.jpg'
@@ -8,15 +8,13 @@ author:
   - 'Tobiloba Adedeji'
 ---
 
-Eliza is one of the most popular TypeScript-based multi-agent simulation frameworks, exemplifies how AI agents have steadily gained prominence in the tech industry thanks to their versatility and the growing number of use cases they support.
+Eliza is one of the most popular TypeScript-based multi-agent simulation frameworks, demonstrating how AI agents have steadily gained prominence in the tech industry thanks to their versatility and the growing number of use cases they support.
 
 Eliza can perform a range of functions that range from witty twitter replies to analyzing massive datasets and producing meaningful reports. However, one of the biggest challenges facing AI agents today is deployment—many platforms are either overly complex or suffer from poor performance.
 
-Fleek allows users to deploy Eliza based AI Agents in one click. It also ensures that these AI Agents autoscale to meet their demand and their execution can be verified via remote attestations. Fleek offers the best developer experience and most cost optimized experience to deploy AI Agents.
+Fleek allows users to deploy Eliza-based AI agents in one click. With this tool, we aim to offer developers a seamless, cost-optimized solution to AI agent deployment.
 
 Let’s learn how we can deploy AI Agents on Fleek in one click!
-
-[Click here to deploy an AI agent now](https://fleek.xyz/eliza/)
 
 ---
 
@@ -25,17 +23,17 @@ Let’s learn how we can deploy AI Agents on Fleek in one click!
 Before getting started, make sure you have:
 
 1. A [Fleek account](https://app.fleek.xyz/)
-2. A basic understanding of Eliza
+2. A basic understanding of [Eliza](https://elizaos.github.io/eliza/docs/intro/)
 3. An X (Twitter) account
 4. An OpenAI API key
 
 ---
 
-## Deploying the Agent on Fleek
+## Deploying the agent on Fleek
 
 Deployment on Fleek is fast and straightforward. In this guide, we’ll walk through deploying an **AI Researcher** agent built with Eliza.
 
-Below is the `characterfile` for the “TechAI” agent. It defines the personality traits, topics, example messages, and styles required for an AI researcher and educator:
+Below is the characterfile for the “TechAI” agent. It defines the personality traits, topics, example messages, and styles required for an AI researcher and educator:
 
 ```json
 {
@@ -117,11 +115,11 @@ Below is the `characterfile` for the “TechAI” agent. It defines the personal
 
 This file specifies “TechAI” as an AI researcher who focuses on practical AI applications. The topics field includes areas like artificial intelligence, machine learning, and education, while the style field ensures that any communication remains straightforward, friendly, and example-driven. The agent is also configured to operate on Twitter.
 
-## Getting Started
+## Getting started
 
 Go to [fleek.xyz/eliza](https://fleek.xyz/eliza/) where you’ll see three deployment options:
 
-1. Upload a Characterfile
+1. Upload a characterfile
 2. Manually enter details
 3. Use a predefined template
 
@@ -131,7 +129,7 @@ Let’s explore these options one-by-one!
 
 **Note**: Fleek charges a small fee of USD $20 per month to deploy your AI agents. If you’re not yet subscribed, you’ll see a modal with plan details. Follow the steps to upgrade or confirm your subscription.
 
-### Upload a Characterfile
+### Upload a characterfile
 
 To use this option, we can just use the characterfile we have above directly since all we have to do is upload it as JSON file. It takes just three steps to deploy using this option:
 
@@ -143,7 +141,7 @@ To use this option, we can just use the characterfile we have above directly sin
 
 ![confirm agent details](./confirm-details.png)
 
-Remember that you only need the below environment variables:
+Keep in mind you'll need the below environment variables to be filled in for your agent to use OpenAI and X:
 
 ```bash
 TWITTER_USERNAME=
@@ -152,7 +150,7 @@ TWITTER_EMAIL=
 OPENAI_API_KEY=
 ```
 
-3. Click “Deploy agent” and your AI agent starts deploying. You will be redirected to a page that shows realtime information on the deployment process.
+3. Click “Deploy agent” and your AI agent starts deploying. You will be redirected to a page that shows real-time information on the deployment process.
 
 ## Manually enter agent details
 
@@ -241,13 +239,19 @@ OPENAI_API_KEY=
 
 3. Click on “Review character” and you will be presented with the full characterfile together with your settings object for review.
 
-4. Click “Deploy agent” and your AI agent will start deploying.
+![confirm agent details](./confirm-details.png)
+
+4. Click “Deploy agent” and your AI agent will start deploying instantly. After deployment you should see the below:
+
+![deployed agent](./deployed-agent.png)
 
 ## Use a predefined template
 
-Fleek has provided a slew of templates for builders to work with and use as starter-kits to build any AI agents they may want to work on. There are fun templates like “trump”, “elon” and so much more! To deploy a template:
+Fleek has provided a slew of templates for builders to work with and use as starter-kits to build any AI agents they may want to work on. You can find templates for 'trump,' 'elon' and other stock characters. To deploy a template:
 
-1. Click on the buttons on the “Use a template character” card at the top of the form and the form gets autofilled with details from the characterfile.
+1. Click on the buttons on the “Templates” card at the top of the form and the form gets autofilled with details from the characterfile.
+
+![template page](./template-page.png)
 
 2. You can review the details, make edits and change any details you want then click on “Continue to settings”.
 
@@ -259,13 +263,13 @@ Fleek has provided a slew of templates for builders to work with and use as star
 
 ---
 
-After a successful deployment, you can use the information provided to access your agent. This information will remain on the [Agents](https://app.fleek.xyz/projects/[projectID]/agents) tab of your project in Fleek's platform.
+After a successful deployment, you can use the information provided to access your agent. This information will remain on the Agents tab of your project in Fleek's platform.
 
 ## Troubleshooting
 
-Now, while deploying if the deployment happens to fail, which there is a very low chance of it happening. Fleek already has implemented proper error catching to help provide detailed information about the error and report that to you.
+Fleek has implemented error-catching to provide detailed information about any errors you encounter during the flow.
 
-For example, while deploying if you happen to run into an issue while deploying your agent and your LLM provider throws an error, Fleek catches it and gives UI feedback immediately on that. If say you happened to have an underfunded LLM provider, you see the below error:
+For example, if you run into an issue while deploying your agent and your LLM provider throws an error, Fleek will immediately provide you with feedback in the creation flow. If you have an underfunded LLM provider, you'll see the below error:
 
 ![LLM issue](./LLM-issue.png)
 
