@@ -15,13 +15,13 @@ const PermissionsTable: React.FC = () => {
     >
       <thead>
         <tr>
-          <th className="w-1/4">
-            <div className=" flex h-full w-full flex-col gap-16  rounded-tl-12 px-20 py-20 lg:max-w-[345px]"></div>
+          <th className="w-1/4 !bg-transparent !p-0">
+            <div className="flex h-full w-full flex-col gap-16 !rounded-tl-12 px-20 py-20 lg:max-w-[345px]"></div>
           </th>
           {Object.values(PERMISSIONS_ROLES).map(({ header }) => (
-            <th>
+            <th className="!bg-transparent !p-0">
               <div
-                className={`flex h-full w-full flex-col items-center justify-between gap-16 ${header === 'Read Only' ? 'rounded-tr-12' : ''}  px-20 py-20 lg:max-w-[345px]`}
+                className={`flex h-full w-full flex-col items-center justify-between gap-16 ${header === 'Read Only' ? '!rounded-tr-12' : ''}  px-20 py-20 lg:max-w-[345px]`}
               >
                 {header}
               </div>
@@ -29,19 +29,19 @@ const PermissionsTable: React.FC = () => {
           ))}
         </tr>
       </thead>
-      <tbody className="rounded-b-12">
+      <tbody className="!rounded-b-12">
         {Object.entries(PERMISSIONS_SECTIONS).map(
           ([section, { title, features }], index) => (
             <Fragment key={index}>
               <tr>
-                <td colSpan={5}>
+                <td colSpan={5} className="!p-0">
                   <div
                     className={clsx(
                       'flex h-52 w-full items-center justify-between  bg-gray-dark-1 p-12',
                     )}
                   >
                     <div className="flex w-full items-center">
-                      <h4>{title}</h4>
+                      <h4 className="!font-bold !text-gray-dark-11">{title}</h4>
                     </div>
                   </div>
                 </td>
@@ -49,9 +49,9 @@ const PermissionsTable: React.FC = () => {
               {Object.entries(features).map(
                 ([feature, featureTitle], index) => (
                   <tr>
-                    <td>
+                    <td className="!p-0">
                       <TableCell
-                        className={`whitespace-pre-wrap ${feature === 'deleteMember' ? 'rounded-bl-12' : ''}`}
+                        className={`whitespace-pre-wrap ${feature === 'deleteMember' ? '!rounded-bl-12' : ''}`}
                       >
                         {featureTitle}
                       </TableCell>
@@ -63,9 +63,9 @@ const PermissionsTable: React.FC = () => {
                         ];
 
                       return (
-                        <td key={role}>
+                        <td key={role} className="!p-0">
                           <TableCell
-                            className={`justify-center whitespace-pre-wrap ${feature === 'deleteMember' && index === 3 ? 'rounded-br-12' : ''}`}
+                            className={`justify-center whitespace-pre-wrap ${feature === 'deleteMember' && index === 3 ? '!rounded-br-12' : ''}`}
                           >
                             {rolePermissions[feature as keyof FeatureKeys]
                               ? '✅'
