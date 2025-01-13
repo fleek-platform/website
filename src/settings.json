@@ -153,7 +153,7 @@
     },
     "announcementMarquee": {
       "message": "Introducing Fleek AI agent hosting with Eliza framework support",
-      "url": "https://fleek.xyz/eliza/",
+      "url": "/eliza/",
       "visible": true
     }
   },
