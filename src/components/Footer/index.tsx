@@ -23,7 +23,7 @@ const Footer: React.FC = () => {
             className="mb-24"
             loading="lazy"
           />
-          <p className="mb-16">The lightning fast onchain cloud.</p>
+          <p className="mb-16">Deploy autonomous apps and AI agents.</p>
           <div className="mb-16 flex gap-16">
             <a
               aria-label="Fleek Github Org"
@@ -64,11 +64,7 @@ const Footer: React.FC = () => {
                     <Link
                       href={item.url}
                       className="text-gray-dark-12 hover:text-gray-dark-11"
-                      target={
-                        item.target?.toLowerCase() == '_blank'
-                          ? Target.Blank
-                          : Target.Self
-                      }
+                      target={Target.Self}
                     >
                       {item.text}
                     </Link>
