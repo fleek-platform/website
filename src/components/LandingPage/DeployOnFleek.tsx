@@ -41,7 +41,7 @@ const DeployOnFleek: React.FC = () => {
           <div className="space-y-24">
             <Text as="h3">Deploy apps in a flash</Text>
             <Text variant="description">
-              Link your repo and go live. Deploy from a Git Provider or the
+              Link your app or agent's repo and go live. Deploy from a Git Provider or the
               Fleek CLI.
             </Text>
           </div>
