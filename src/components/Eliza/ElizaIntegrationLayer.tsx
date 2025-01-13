@@ -54,6 +54,14 @@ type getPlansType = (token?: string) => Promise<{
   error?: string;
 }>;
 
+type CreateSubscriptionResponse = {
+  ok: boolean;
+  data?: {
+    url?: string;
+  };
+  error?: string;
+};
+
 /** Main interface. */
 
 export interface ElizaIntegrationLayerProps {
@@ -65,6 +73,11 @@ export interface ElizaIntegrationLayerProps {
   fetchFleekToken: (projectId?: string) => Promise<string | undefined>;
   getSubscriptions: getSubscriptionsType;
   getPlans: getPlansType;
+  createSubscription: (
+    projectId?: string,
+    productId?: string,
+    token?: string,
+  ) => Promise<CreateSubscriptionResponse>;
 
   // settings.json is not passed as props but import should match paths in the host and the package
 }
@@ -79,6 +92,7 @@ export const ElizaIntegrationLayer: React.FC<ElizaIntegrationLayerProps> = ({
   fetchFleekToken,
   getSubscriptions,
   getPlans,
+  createSubscription,
 }) => {
   const {
     isSubscriptionModalVisible,
@@ -217,6 +231,8 @@ export const ElizaIntegrationLayer: React.FC<ElizaIntegrationLayerProps> = ({
         subscriptionAmount={subscriptionAmount ?? 0}
         checkUserAmountAvailableAiModules={checkUserAmountAvailableAiModules}
         productId={productId}
+        fetchFleekToken={fetchFleekToken}
+        createSubscription={createSubscription}
       />
     </>
   );

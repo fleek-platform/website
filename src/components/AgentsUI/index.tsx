@@ -4,10 +4,11 @@ import {
   getPlans,
   getSubscriptions,
 } from '@components/AuthProvider/api/api.ts';
+import { createSubscription } from '@components/AuthProvider/api/api';
 
 // Import local implementation for now.
 // In the future will import package implementation with the same interface.
-import ElizaIntegrationLayer from '../Eliza/ElizaIntegrationLayer.tsx';
+import ElizaIntegrationLayer from '@components/Eliza/ElizaIntegrationLayer.tsx';
 
 export const AgentsUIIntegration: React.FC = () => {
   const { isLoggedIn, isLoggingIn, login, activeProjectId, fetchFleekToken } =
@@ -22,6 +23,7 @@ export const AgentsUIIntegration: React.FC = () => {
       fetchFleekToken={fetchFleekToken}
       getSubscriptions={getSubscriptions}
       getPlans={getPlans}
+      createSubscription={createSubscription}
     />
   );
 };
