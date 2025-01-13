@@ -119,9 +119,9 @@ This file specifies “TechAI” as an AI researcher who focuses on practical AI
 
 Go to [fleek.xyz/eliza](https://fleek.xyz/eliza/) where you’ll see three deployment options:
 
-1. Upload a characterfile
-2. Manually enter details
-3. Use a predefined template
+1. [Manually enter details [⚡ : no developer experience needed]](/guides/eliza-guide#manually-enter-agent-details)
+2. [Use a predefined template [⚡ : no developer experience needed]](/guides/eliza-guide#use-a-predefined-template)
+3. [Upload a characterfile](/guides/eliza-guide#upload-a-characterfile)
 
 ![landing page of the Eliza deployment platform](./landing-page.png)
 
@@ -129,7 +129,7 @@ Let’s explore these options one-by-one!
 
 **Note**: Fleek charges a small fee of USD $20 per month to deploy your AI agents. If you’re not yet subscribed, you’ll see a modal with plan details. Follow the steps to upgrade or confirm your subscription.
 
-### Upload a characterfile
+## Upload a characterfile
 
 To use this option, we can just use the characterfile we have above directly since all we have to do is upload it as JSON file. It takes just three steps to deploy using this option:
 
