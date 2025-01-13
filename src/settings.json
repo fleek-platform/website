@@ -151,9 +151,9 @@
         "plans": "https://api.fleek.xyz/api/v1/plans"
       }
     },
-    "annoucementMarquee": {
-      "message": "Introducing Fleek Machines (Early access): One-click verified and private compute",
-      "url": "/blog/announcements/fleek-machines-fleek-functions/",
+    "announcementMarquee": {
+      "message": "Introducing Fleek AI agent hosting, with Eliza framework support",
+      "url": "/eliza/",
       "visible": true
     }
   },
