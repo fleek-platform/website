@@ -12,6 +12,7 @@
     "develop": {
       "url": "http://localhost:4321"
     },
+    "mocksEnabled": true,
     "metadata": {
       "default": {
         "title": "Fleek | Build and deploy autonomous apps and AI agents",
@@ -71,6 +72,12 @@
         "description": "Kickstart your Fleek journey with our documentation, detailed guides and references. Browse our platform resources for a deep dive into our features.",
         "image": "/images/fleek-meta-image.png?202406061658"
       },
+      "eliza": {
+        "title": "Eliza",
+        "slug": "eliza",
+        "description": "Deploy your AI agent using the Eliza framework.",
+        "image": "/images/fleek-meta.png?202406061658"
+      },
       "guides": {
         "title": "Guides",
         "slug": "guides",
@@ -129,6 +136,20 @@
       "fleekTwitterUrl": "https://twitter.com/fleek",
       "mediaKit": "https://fleek.notion.site/Fleek-Brand-Kit-9a2bcf7eb40740a9b7e951fc951b478a",
       "templatesUrl": "https://fleek.xyz/templates/"
+    },
+    "graphql": {
+      "url": "https://graphql.service.fleek.xyz/graphql/"
+    },
+    "auth": {
+      "dynamicEnvironmentId": "de23a5f0-aaa5-412e-8212-4fb056a3b30d",
+      "authTokenCookieKey": "accessToken",
+      "activeProjectCookieKey": "projectId",
+      "endpoints": {
+        "projects": "https://api.fleek.xyz/api/v1/projects",
+        "teams": "https://api.fleek.xyz/api/v1/teams",
+        "subscriptions": "https://api.fleek.xyz/api/v1/subscriptions",
+        "plans": "https://api.fleek.xyz/api/v1/plans"
+      }
     },
     "annoucementMarquee": {
       "message": "Introducing Fleek Machines (Early access): One-click verified and private compute",
@@ -494,5 +515,11 @@
     "description": "Use a template to kick start your application. Pick from just a framework or a full web3 starter kit, the possibilities are limitless.",
     "ctaLabel": "Learn more",
     "ctaTargetUrl": "/docs/platform/frameworks/#using-framework-templates-to-get-started/"
+  },
+  "elizaPage": {
+    "endpoints": {
+      "aiAgents": "https://api.fleek.xyz/api/v1/ai-agents"
+    },
+    "agentsDashboardPage": "https://app.fleek.xyz/projects/[projectId]/agents"
   }
 }

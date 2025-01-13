@@ -47,7 +47,9 @@ type ButtonProps = PropsWithChildren &
     className?: string;
     target?: Target;
     rel?: string;
-    onClick?: (e?: React.MouseEvent<HTMLButtonElement, MouseEvent>) => void;
+    onClick?: (
+      e?: React.MouseEvent<HTMLButtonElement | HTMLAnchorElement, MouseEvent>,
+    ) => void;
   } & React.ButtonHTMLAttributes<HTMLButtonElement>;
 
 export const Button: React.FC<ButtonProps> = ({
@@ -70,6 +72,12 @@ export const Button: React.FC<ButtonProps> = ({
         target={target}
         rel={rel}
         className={cn(buttonVariants({ variant, size }), className)}
+        onClick={(e) => {
+          if (onClick) {
+            e.preventDefault();
+            onClick(e);
+          }
+        }}
       >
         {children}
       </Link>

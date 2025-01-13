@@ -1,0 +1,18 @@
+---
+import settings from '@base/settings.json';
+import ElizaModule from '@components/Eliza';
+import BaseHtml from '@layouts/BaseHtml.astro';
+---
+
+<BaseHtml
+  title={settings.site.metadata.eliza.title}
+  ogMeta={{
+    title: settings.site.metadata.eliza.title,
+    description: settings.site.metadata.eliza.description,
+    image: settings.site.metadata.eliza.image,
+    slug: settings.site.metadata.eliza.slug,
+  }}
+  overflowHorizontally
+>
+  <ElizaModule client:load />
+</BaseHtml>
