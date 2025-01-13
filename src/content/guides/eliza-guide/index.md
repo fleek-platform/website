@@ -119,7 +119,7 @@ This file specifies “TechAI” as an AI researcher who focuses on practical AI
 
 ## Getting Started
 
-Go to [fleek.xyz/eliza](https://fleek.xyz/eliza) where you’ll see three deployment options:
+Go to [fleek.xyz/eliza](https://fleek.xyz/eliza/) where you’ll see three deployment options:
 
 1. Upload a Characterfile
 2. Manually enter details
