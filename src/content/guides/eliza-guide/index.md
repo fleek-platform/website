@@ -130,7 +130,7 @@ Let’s explore these options one-by-one!
 ## Before you start
 
 1. **Pricing**  
-   Fleek charges a small fee of USD \$20 per month to deploy your AI agents. Be sure to [review the pricing details](https://fleek.xyz/pricing) before you proceed.
+   Fleek charges a small fee of \$20 per month, per agent to deploy your AI agents. Be sure to [review the pricing details](https://fleek.xyz/pricing) before you proceed.
 
 2. **Known Issue: X (Twitter) 2FA**  
    Agents deployed to X may experience issues with 2FA (Two-Factor Authentication), even in the event 2FA is disabled on the account. We are aware of this limitation and are currently implementing workarounds. Stay tuned for updates and consult our [Support](https://fleek.xyz/support) if you have any questions or encounter difficulties.
