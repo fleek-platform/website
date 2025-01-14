@@ -523,6 +523,13 @@
     "endpoints": {
       "aiAgents": "https://api.fleek.xyz/api/v1/ai-agents"
     },
-    "agentsDashboardPage": "https://app.fleek.xyz/projects/[projectId]/agents"
+    "agentsDashboardPage": "https://app.fleek.xyz/projects/[projectId]/agents",
+    "guides": {
+      "getStarted": "https://fleek.xyz/guides/eliza-guide/",
+      "characterfile": {
+        "fromScratch": "https://fleek.xyz/guides/eliza-guide/#manually-enter-agent-details",
+        "template": "https://fleek.xyz/guides/eliza-guide/#use-a-predefined-template"
+      }
+    }
   }
 }
