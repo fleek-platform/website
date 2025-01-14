@@ -1,4 +1,5 @@
 import type React from 'react';
+import { LoginProvider } from '@fleek-platform/login-button';
 import { navbarMenu, type NavMenuItem, type NavSubMenuItem } from './config';
 import Link, { Target } from '@components/Link';
 import { useCallback, useEffect, useState } from 'react';
@@ -358,15 +359,47 @@ const SessionManagementActions: React.FC = () => {
         </>
       ) : (
         <>
-          <Button
-            disabled={isLoggingIn}
-            variant="secondary"
-            size="sm"
-            onClick={handleLoginClick}
-            href="https://app.fleek.xyz/"
+          <LoginProvider
+            graphqlApiUrl={import.meta.env.PUBLIC_GRAPHQL_ENDPOINT}
+            environmentId={import.meta.env.PUBLIC_DYNAMIC_ENVIRONMENT_ID}
           >
-            Log in
-          </Button>
+            {(props) => {
+              const { login, logout, accessToken, isLoading, error } = props;
+
+              const handleClick = () => {
+                if (Boolean(accessToken)) {
+                  logout();
+                } else {
+                  login();
+                }
+              };
+
+              let buttonText = "Log in";
+
+              switch (true) {
+                case Boolean(error):
+                  buttonText = "Login failed";
+                  break;
+                case isLoading:
+                  buttonText = "Loading...";
+                  break;
+                // not real session, session is in the cookie, just for demo
+                case Boolean(accessToken):
+                  buttonText = "Log out";
+                  break;
+              }
+
+              return (
+                <Button
+                  variant="secondary"
+                  size="sm"
+                  onClick={handleClick}
+                >
+                  {buttonText}
+                </Button>
+              );
+            }}
+          </LoginProvider>
           <Button
             disabled={isLoggingIn}
             variant="tertiary"
