@@ -51,8 +51,6 @@
     "@astrojs/react": "^3.3.2",
     "@astrojs/sitemap": "^3.1.4",
     "@astrojs/tailwind": "^5.1.0",
-    "@dynamic-labs/ethereum": "^3.9.4",
-    "@dynamic-labs/sdk-react-core": "^3.9.4",
     "@fleek-platform/login-button": "^1.0.8",
     "@fleek-platform/utils-token": "^0.2.2",
     "@fleekxyz/sdk": "^0.7.3",

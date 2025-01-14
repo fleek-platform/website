@@ -1,4 +1,3 @@
-import { AuthProvider } from '@components/AuthProvider/AuthProvider.tsx';
 import { useAuthentication } from '@components/AuthProvider/useAuthentication.ts';
 import {
   getPlans,
@@ -11,8 +10,11 @@ import { createSubscription } from '@components/AuthProvider/api/api';
 import ElizaIntegrationLayer from '@components/Eliza/ElizaIntegrationLayer.tsx';
 
 export const AgentsUIIntegration: React.FC = () => {
-  const { isLoggedIn, isLoggingIn, login, activeProjectId, fetchFleekToken } =
+  console.log('[debug] AgentsUI: 1')
+  const { activeProjectId, isLoggedIn, isLoggingIn } =
     useAuthentication();
+
+  const login = () => Promise.resolve();
 
   return (
     <ElizaIntegrationLayer
@@ -20,7 +22,6 @@ export const AgentsUIIntegration: React.FC = () => {
       isLoggingIn={isLoggingIn}
       login={login}
       activeProjectId={activeProjectId}
-      fetchFleekToken={fetchFleekToken}
       getSubscriptions={getSubscriptions}
       getPlans={getPlans}
       createSubscription={createSubscription}
@@ -29,9 +30,7 @@ export const AgentsUIIntegration: React.FC = () => {
 };
 
 const AgentsUI: React.FC = () => (
-  <AuthProvider>
-    <AgentsUIIntegration />
-  </AuthProvider>
+  <AgentsUIIntegration />
 );
 
 // to be used in Astro

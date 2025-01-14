@@ -1,20 +1,14 @@
 import { useState, useEffect, useCallback, useMemo, useContext } from 'react';
-import { useDynamicContext, useIsLoggedIn } from '@dynamic-labs/sdk-react-core';
 import type { Project } from '@fleekxyz/sdk/dist-types/generated/graphqlClient/schema';
 
 import settings from '@base/settings.json';
 import { useCookies } from 'react-cookie';
-import { AuthContext } from './AuthProvider';
 import toast from 'react-hot-toast';
 
 export const useAuthentication = () => {
-  const context = useContext(AuthContext);
-  if (!context) {
-    throw new Error('useAuthContext must be used within an AuthProvider');
-  }
+  const accessToken = '';
+  const setAccessToken = () => null;
 
-  const { setShowAuthFlow, authToken, handleLogOut } = useDynamicContext();
-  const isDynamicLoggedIn = useIsLoggedIn();
   const [userProjects, setUserProjects] = useState<Project[] | undefined>();
   const [cookies, setCookie, removeCookie] = useCookies([
     settings.site.auth.activeProjectCookieKey,
@@ -24,58 +18,21 @@ export const useAuthentication = () => {
     () => cookies[settings.site.auth.activeProjectCookieKey],
     [cookies[settings.site.auth.activeProjectCookieKey]],
   );
-  const isLoggedIn = useMemo(
-    () => isDynamicLoggedIn && context.authState === 'logged-in',
-    [isDynamicLoggedIn, context.authState],
-  );
-  const isLoggingIn = useMemo(
-    () => context.authState === 'logging-in',
-    [context.authState],
-  );
-
-  const fetchFleekToken = async (
-    projectId?: string,
-  ): Promise<string | undefined> => {
-    if (!authToken) return;
-
-    const query = `mutation loginWithDynamic($data: LoginWithDynamicDataInput!) {
-      loginWithDynamic(data: $data)
-    }`;
-
-    const variables: { data: { authToken?: string; projectId?: string } } = {
-      data: { authToken },
-    };
-    if (projectId) {
-      variables.data['projectId'] = projectId;
-    }
-
-    const options = {
-      method: 'POST',
-      headers: { 'content-type': 'application/json' },
-      body: JSON.stringify({
-        operationName: 'loginWithDynamic',
-        query,
-        variables,
-      }),
-    };
-
-    try {
-      const response = await fetch(import.meta.env.NEXT_PUBLIC_GRAPHQL_ENDPOINT);
-      const { data } = await response.json();
-
-      const newToken = data?.loginWithDynamic;
-      if (!newToken) return;
-      return newToken;
-    } catch (error) {
-      console.error('Failed to fetch GraphQL token:', error);
-      return;
-    }
-  };
+  // const isLoggedIn = useMemo(
+  //   () => isDynamicLoggedIn && context.authState === 'logged-in',
+  //   [isDynamicLoggedIn, context.authState],
+  // );
+  const isLoggedIn = false;
+  // const isLoggingIn = useMemo(
+  //   () => context.authState === 'logging-in',
+  //   [context.authState],
+  // );
+  const isLoggingIn = false;
 
   const fetchGraphQLUserProjects = async (
     token?: string,
   ): Promise<Project[] | undefined> => {
-    if (!token) return;
+    if (!accessToken) return;
 
     const query = `query projects($filter: ProjectsPaginationInput) {
       projects(filter: $filter) {
@@ -87,23 +44,21 @@ export const useAuthentication = () => {
       }
     }`;
 
-    const variables = {};
-
     const options = {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
-        authorization: `Bearer ${token}`,
+        authorization: `Bearer ${accessToken}`,
       },
       body: JSON.stringify({
         operationName: 'projects',
         query,
-        variables,
+        variables: {},
       }),
     };
 
     try {
-      const response = await fetch(settings.site.graphql.url, options);
+      const response = await fetch(import.meta.env.PUBLIC_GRAPHQL_ENDPOINT, options);
       const { data } = await response.json();
 
       const projects = (data?.projects?.data || []) as Project[];
@@ -113,18 +68,19 @@ export const useAuthentication = () => {
     }
   };
 
-  const login = useCallback(async () => {
-    context.setAuthState('logging-in');
-    setShowAuthFlow(true);
-  }, [setShowAuthFlow]);
+  // const login = useCallback(async () => {
+  //   context.setAuthState('logging-in');
+  //   setShowAuthFlow(true);
+  // }, [setShowAuthFlow]);
+  const login = () => null;
 
   const logout = () => {
     setUserProjects(undefined);
     setActiveProject(undefined);
     removeCookie(settings.site.auth.authTokenCookieKey);
     removeCookie(settings.site.auth.activeProjectCookieKey);
-    context.setAuthState('logged-out');
-    handleLogOut();
+    // context.setAuthState('logged-out');
+    // handleLogOut();
   };
 
   const setActiveProject = async (projectId?: string) => {
@@ -139,10 +95,9 @@ export const useAuthentication = () => {
 
   const initializeProjects = async () => {
     try {
-      const token = await fetchFleekToken();
       const projects = !!userProjects
         ? userProjects
-        : await fetchGraphQLUserProjects(token);
+        : await fetchGraphQLUserProjects(accessToken);
       if (projects && projects.length) {
         setUserProjects(projects);
         const activeProject = projects.find(({ id }) => id === activeProjectId);
@@ -157,26 +112,6 @@ export const useAuthentication = () => {
     }
   };
 
-  useEffect(() => {
-    const initAuth = async () => {
-      console.log('🚀 ~ initAuth ~ isDynamicLoggedIn:', isDynamicLoggedIn);
-      if (!isDynamicLoggedIn) {
-        context.setAuthState('logged-out');
-        return;
-      } else {
-        context.setAuthState('logging-in');
-
-        if (!userProjects) {
-          await initializeProjects();
-        }
-
-        context.setAuthState('logged-in');
-      }
-    };
-
-    initAuth();
-  }, [isDynamicLoggedIn, userProjects, context.authState]);
-
   return {
     isLoggedIn,
     isLoggingIn,
@@ -188,7 +123,5 @@ export const useAuthentication = () => {
     setActiveProject,
     activeProjectId,
     loadProjects: fetchGraphQLUserProjects,
-
-    fetchFleekToken,
   };
 };

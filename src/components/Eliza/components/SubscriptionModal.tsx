@@ -11,7 +11,6 @@ interface SubscriptionModalProps {
   subscriptionAmount: number;
   productId?: string;
   checkUserAmountAvailableAiModules: () => Promise<any>;
-  fetchFleekToken: ElizaIntegrationLayerProps['fetchFleekToken'];
   createSubscription: ElizaIntegrationLayerProps['createSubscription'];
 }
 
@@ -25,7 +24,6 @@ export const SubscriptionModal: React.FC<SubscriptionModalProps> = ({
   subscriptionAmount,
   productId,
   checkUserAmountAvailableAiModules,
-  fetchFleekToken,
   createSubscription,
 }) => {
   const [isLoading, setIsLoading] = useState(false);
@@ -34,15 +32,14 @@ export const SubscriptionModal: React.FC<SubscriptionModalProps> = ({
     const POLLING_INTERVAL = 5000;
     const MAX_ATTEMPTS = 20;
 
-    const token = await fetchFleekToken();
-    if (!activeProjectId || !token) return;
+    if (!activeProjectId || !accessToken) return;
 
     setIsLoading(true);
 
     const subscriptionCreationResponse = await createSubscription(
       activeProjectId,
       productId,
-      token,
+      accessToken,
     );
 
     if (

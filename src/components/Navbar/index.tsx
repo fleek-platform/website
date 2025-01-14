@@ -1,4 +1,4 @@
-import type React from 'react';
+import { useContext } from 'react';
 import { LoginProvider } from '@fleek-platform/login-button';
 import { navbarMenu, type NavMenuItem, type NavSubMenuItem } from './config';
 import Link, { Target } from '@components/Link';
@@ -8,8 +8,6 @@ import { cn } from '@utils/cn';
 import { RxHamburgerMenu } from 'react-icons/rx';
 import { isActivePath } from '@utils/url';
 import { Button } from '../Button';
-import { AuthProvider } from '@components/AuthProvider/AuthProvider';
-import { useAuthentication } from '@components/AuthProvider/useAuthentication';
 import { ProjectDropdown } from './ProjectDropdown/ProjectDropdown';
 
 const NavbarMobileItem: React.FC<NavMenuItem> = ({
@@ -18,6 +16,9 @@ const NavbarMobileItem: React.FC<NavMenuItem> = ({
   url,
   openInNewTab,
 }) => {
+  // TOOD: Get from storage
+  const accessToken = '';
+
   if (!subMenu)
     return (
       <Link
@@ -301,9 +302,7 @@ export const Navbar: React.FC<NavbarProps> = ({
           </section>
         </div>
         <section className="flex items-center gap-8">
-          <AuthProvider>
-            <SessionManagementActions />
-          </AuthProvider>
+          <SessionManagementActions />
           <div className="md:hidden">
             <NavbarMobile />
           </div>
@@ -314,15 +313,18 @@ export const Navbar: React.FC<NavbarProps> = ({
 };
 
 const SessionManagementActions: React.FC = () => {
-  const {
-    isLoggedIn,
-    isLoggingIn,
-    logout,
-    login,
-    userProjects,
-    setActiveProject,
-    activeProjectId,
-  } = useAuthentication();
+  // TODO: Decode from token, use fleek-platform/utils-token
+  const activeProjectId = '';
+  // TODO: Get from fleek-platform/login-button
+  const login = () => null;
+  const isLoggedIn = false;
+  // TODO: Modify the useAuthentication as useProjects
+  // get userProjects from the useProjects
+  const userProjects = [] as any;
+  const setActiveProject = () => null;
+  // TODO: use fleek-platform/login-button version
+  const logout = () => null;
+  const isLoggingIn = false;
 
   const handleLoginClick = (
     e?: React.MouseEvent<HTMLButtonElement | HTMLAnchorElement>,
@@ -386,29 +388,36 @@ const SessionManagementActions: React.FC = () => {
                 // not real session, session is in the cookie, just for demo
                 case Boolean(accessToken):
                   buttonText = "Log out";
+                  console.log(`[debug] acessToken: ${accessToken}`)
                   break;
               }
 
               return (
-                <Button
-                  variant="secondary"
-                  size="sm"
-                  onClick={handleClick}
-                >
-                  {buttonText}
-                </Button>
+                <>
+                  <Button
+                    variant="secondary"
+                    size="sm"
+                    onClick={handleClick}
+                  >
+                    {buttonText}
+                  </Button>
+                {
+                  !accessToken && (
+                    <Button
+                      disabled={true}
+                      variant="tertiary"
+                      size="sm"
+                      onClick={handleLoginClick}
+                      href="https://app.fleek.xyz/"
+                    >
+                      Sign up
+                    </Button>                    
+                  )
+                }
+                </>
               );
             }}
           </LoginProvider>
-          <Button
-            disabled={isLoggingIn}
-            variant="tertiary"
-            size="sm"
-            onClick={handleLoginClick}
-            href="https://app.fleek.xyz/"
-          >
-            Sign up
-          </Button>
         </>
       )}
     </>
