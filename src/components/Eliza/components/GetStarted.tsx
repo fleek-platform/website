@@ -17,7 +17,8 @@ import { Button } from './Button';
 import { Modal } from './Modal';
 import { useAuthentication } from '@components/AuthProvider/useAuthentication';
 import Link, { Target } from './Link';
-import { NewsletterModal } from './NewsletterModal';
+import { FaXmark } from 'react-icons/fa6';
+import { LoadingSpinner } from './Icons';
 
 type OverCapacityModalProps = {
   isOpen: boolean;
@@ -48,6 +49,42 @@ const OverCapacityModal: React.FC<OverCapacityModalProps> = ({
           </Button>
           {!isLoggedIn && <Button onClick={login}>Sign in</Button>}
         </Box>
+      </Box>
+    </Modal>
+  );
+};
+
+const NewsletterModal: React.FC = () => {
+  const [isOpen, setIsOpen] = useState(false);
+
+  const closeModal = () => setIsOpen(false);
+
+  useEffect(() => {
+    const timeoutId = setTimeout(() => {
+      setIsOpen(true);
+    }, 5000);
+
+    return () => clearTimeout(timeoutId);
+  }, []);
+
+  return (
+    <Modal
+      isOpen={isOpen}
+      closeModal={closeModal}
+      modalContainerClassName="bg-elz-neutral-3 p-6"
+    >
+      <Box className="z-10">
+        <Button variant="ghost" className="ml-auto" onClick={closeModal}>
+          <FaXmark />
+        </Button>
+        <iframe
+          src="https://embeds.beehiiv.com/b9b33b5f-b89e-4560-ab30-a62ce506b823"
+          data-test-id="beehiiv-embed"
+          style={{ minHeight: '320px' }}
+        ></iframe>
+      </Box>
+      <Box className="absolute inset-0 self-center justify-self-center">
+        <LoadingSpinner />
       </Box>
     </Modal>
   );
