@@ -12,11 +12,12 @@ import {
 } from './CustomIcons';
 import { useElizaForm } from '../hooks/useElizaForm';
 import { TEMPLATE_CHARACTERFILES_MAP } from '../utils/constants';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { Button } from './Button';
 import { Modal } from './Modal';
 import { useAuthentication } from '@components/AuthProvider/useAuthentication';
 import Link, { Target } from './Link';
+import { NewsletterModal } from './NewsletterModal';
 
 type OverCapacityModalProps = {
   isOpen: boolean;
@@ -80,6 +81,7 @@ export const GetStarted: React.FC<GetStartedProps> = ({
   return (
     <Box className="relative gap-38">
       <OverCapacityModal isOpen={isOpen} closeModal={() => setIsOpen(false)} />
+      <NewsletterModal />
       <Box className="items-start gap-16">
         <Text variant="secondary" className="flex h-32 items-center">
           Deploy an AI agent
