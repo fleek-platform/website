@@ -157,6 +157,7 @@ export const SECRETS_CLIENT_MAP: Record<Client, Record<string, string>> = {
     TWITTER_USERNAME: '',
     TWITTER_PASSWORD: '',
     TWITTER_EMAIL: '',
+    POST_IMMEDIATELY: 'true',
   },
   telegram: { TELEGRAM_BOT_TOKEN: '' },
   farcaster: {
