@@ -1,3 +1,4 @@
+import settings from '../../../settings.json';
 import { FormField } from './FormField';
 import { ModelProviderDropdown } from './ModelProviderDropdown';
 import { ClientsDropdown } from './ClientsDropdown';
@@ -163,6 +164,10 @@ export const Characterfile: React.FC<CharacterfileProps> = ({
     goTo('settings');
   };
 
+  const guideUrl = template
+    ? settings.elizaPage.guides.characterfile.template
+    : settings.elizaPage.guides.characterfile.fromScratch;
+
   return (
     <>
       <Box className="relative items-start gap-16">
@@ -172,15 +177,15 @@ export const Characterfile: React.FC<CharacterfileProps> = ({
         </Text>
         <Text variant="description" className="text-wrap">
           Using the inputs below, craft a unique and engaging personality for
-          your AI agent. Click{' '}
+          your AI agent. Check our{' '}
           <Link
-            href="https://github.com/elizaOS/eliza/blob/main/characters/c3po.character.json"
-            className="underline hover:text-white"
             target={Target.Blank}
+            className="underline hover:text-white"
+            href={guideUrl}
           >
-            here
+            guide
           </Link>{' '}
-          to view a characterfile example.
+          for this step.
         </Text>
         <TemplateSelector template={template} />
       </Box>

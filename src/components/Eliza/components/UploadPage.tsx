@@ -54,15 +54,15 @@ export const UploadPage: React.FC<GoToProps> = ({ goTo }) => {
         <Text>Upload characterfile</Text>
         <Text variant="description">
           Deploy your AI agent personality using the Eliza framework, starting
-          with a .json characterfile. Click{' '}
+          with a .json characterfile. Check our{' '}
           <Link
             target={Target.Blank}
-            href="https://github.com/elizaOS/eliza/blob/main/characters/dobby.character.json"
             className="underline hover:text-white"
+            href="https://fleek.xyz/guides/eliza-guide/#upload-a-characterfile"
           >
-            here
+            guide
           </Link>{' '}
-          to view a characterfile example.
+          for this step.
         </Text>
       </Box>
       <Box className="gap-4">
