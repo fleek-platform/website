@@ -127,7 +127,19 @@ Go to [fleek.xyz/eliza](https://fleek.xyz/eliza/) where you’ll see three deplo
 
 Let’s explore these options one-by-one!
 
-**Note**: Fleek charges a small fee of USD $20 per month to deploy your AI agents. If you’re not yet subscribed, you’ll see a modal with plan details. Follow the steps to upgrade or confirm your subscription.
+Below is a suggested update to the **Docs/Quick Start Guide** that includes a new “Before You Start” section addressing Fleek’s monthly fee and the known X (Twitter) 2FA issue. Feel free to adjust the wording or placement to fit your doc style.
+
+---
+
+## Before You Start
+
+1. **Pricing**  
+   Fleek charges a small fee of USD \$20 per month to deploy your AI agents. Be sure to [review the pricing details](https://fleek.xyz/pricing) before you proceed.
+
+2. **Known Issue: X (Twitter) 2FA**  
+   Agents deployed to X may experience issues if 2FA (Two-Factor Authentication) is enabled on your account. We are aware of this limitation and are currently implementing workarounds. Stay tuned for updates and consult our [Support](https://fleek.xyz/support) if you have any questions or encounter difficulties.
+
+---
 
 ## Upload a characterfile
 
