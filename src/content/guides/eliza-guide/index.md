@@ -131,7 +131,7 @@ Below is a suggested update to the **Docs/Quick Start Guide** that includes a ne
 
 ---
 
-## Before You Start
+## Before you start
 
 1. **Pricing**  
    Fleek charges a small fee of USD \$20 per month to deploy your AI agents. Be sure to [review the pricing details](https://fleek.xyz/pricing) before you proceed.
