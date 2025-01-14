@@ -15,6 +15,8 @@ import { useState } from 'react';
 import { Button } from './Button';
 import { Modal } from './Modal';
 import { useAuthentication } from '@components/AuthProvider/useAuthentication';
+import Link, { Target } from './Link';
+import { Badge } from './Badge';
 
 type OverCapacityModalProps = {
   isOpen: boolean;
@@ -85,7 +87,15 @@ export const GetStarted: React.FC<GetStartedProps> = ({
         <Text>Get started</Text>
         <Text variant="description" className="text-wrap">
           To start developing your AI agent, please select one of the options
-          provided below.
+          provided below. Check our{' '}
+          <Link
+            target={Target.Blank}
+            href="https://fleek.xyz/guides/eliza-guide/"
+            className="underline hover:text-elz-white"
+          >
+            guide
+          </Link>{' '}
+          for reference.
         </Text>
       </Box>
       <Box className="gap-22">
