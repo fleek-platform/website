@@ -137,9 +137,6 @@
       "mediaKit": "https://fleek.notion.site/Fleek-Brand-Kit-9a2bcf7eb40740a9b7e951fc951b478a",
       "templatesUrl": "https://fleek.xyz/templates/"
     },
-    "graphql": {
-      "url": "https://graphql.service.fleek.xyz/graphql/"
-    },
     "auth": {
       "dynamicEnvironmentId": "c4d4ccad-9460-419c-9ca3-494488f8c892",
       "authTokenCookieKey": "accessToken",

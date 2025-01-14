@@ -60,7 +60,7 @@ export const useAuthentication = () => {
     };
 
     try {
-      const response = await fetch(settings.site.graphql.url, options);
+      const response = await fetch(import.meta.env.NEXT_PUBLIC_GRAPHQL_ENDPOINT);
       const { data } = await response.json();
 
       const newToken = data?.loginWithDynamic;
