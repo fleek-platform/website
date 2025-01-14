@@ -1,3 +1,4 @@
+import settings from '../../../settings.json';
 import { ActionBox } from './ActionBox';
 import { Text } from './Text';
 import type React from 'react';
@@ -16,7 +17,6 @@ import { Button } from './Button';
 import { Modal } from './Modal';
 import { useAuthentication } from '@components/AuthProvider/useAuthentication';
 import Link, { Target } from './Link';
-import { Badge } from './Badge';
 
 type OverCapacityModalProps = {
   isOpen: boolean;
@@ -90,7 +90,7 @@ export const GetStarted: React.FC<GetStartedProps> = ({
           provided below. Check our{' '}
           <Link
             target={Target.Blank}
-            href="https://fleek.xyz/guides/eliza-guide/"
+            href={settings.elizaPage.guides.getStarted}
             className="underline hover:text-elz-white"
           >
             guide

@@ -1,3 +1,4 @@
+import settings from '../../../settings.json';
 import { FormField } from './FormField';
 import { ModelProviderDropdown } from './ModelProviderDropdown';
 import { ClientsDropdown } from './ClientsDropdown';
@@ -164,8 +165,8 @@ export const Characterfile: React.FC<CharacterfileProps> = ({
   };
 
   const guideUrl = template
-    ? 'https://fleek.xyz/guides/eliza-guide/#use-a-predefined-template'
-    : 'https://fleek.xyz/guides/eliza-guide/#manually-enter-agent-details';
+    ? settings.elizaPage.guides.characterfile.template
+    : settings.elizaPage.guides.characterfile.fromScratch;
 
   return (
     <>
