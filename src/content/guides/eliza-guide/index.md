@@ -127,10 +127,6 @@ Go to [fleek.xyz/eliza](https://fleek.xyz/eliza/) where you’ll see three deplo
 
 Let’s explore these options one-by-one!
 
-Below is a suggested update to the **Docs/Quick Start Guide** that includes a new “Before You Start” section addressing Fleek’s monthly fee and the known X (Twitter) 2FA issue. Feel free to adjust the wording or placement to fit your doc style.
-
----
-
 ## Before you start
 
 1. **Pricing**  
