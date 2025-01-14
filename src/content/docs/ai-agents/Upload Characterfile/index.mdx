@@ -30,3 +30,28 @@ Review the information provided and click 'Deploy Agent'.
 
 ![](./b-flow-3-1.png)
 Your AI agent is now ready to interact seamlessly with external services.
+
+## How to handle secrets
+
+When uploading a characterfile, you may need to provide sensitive information such as API keys or other credentials.
+The recommended way to do this is to include it in the "settings" key of your characterfile like so:
+
+```json
+{
+   "name": "TestEliza",
+    "clients": ["twitter"],
+    "modelProvider": "openai",
+    "settings": {
+        "secrets": {
+            "OPENAI_API_KEY": "myapikey",
+            "TWITTER_DRY_RUN": "false",
+            "TWITTER_USERNAME": "myTwitterUsername",
+            "TWITTER_PASSWORD": "MyTwitterPasswords",
+            "TWITTER_EMAIL": "myemail@gmail.com",
+            "XAI_MODEL": "gpt-4o-mini"
+        },
+        "voice": { "model": "en_US-male-medium" }
+    },
+    ...
+}
+```
