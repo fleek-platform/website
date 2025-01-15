@@ -47,6 +47,16 @@ export const PERMISSIONS_SECTIONS = {
       removeGitIntegration: 'Remove Git integration',
     },
   },
+  aiAgents: {
+    title: 'AI Agents',
+    features: {
+      createAgent: 'Create agent',
+      listAgents: 'List agents',
+      viewAgent: 'View agent details',
+      editAgent: 'Edit agent',
+      deleteAgent: 'Delete agent',
+    },
+  },
   fleekFunctions: {
     title: 'Fleek Functions',
     features: {
@@ -131,6 +141,13 @@ export const PERMISSIONS_ROLES = {
         addGitIntegration: true,
         removeGitIntegration: true,
       },
+      aiAgents: {
+        createAgent: true,
+        listAgents: true,
+        viewAgent: true,
+        editAgent: true,
+        deleteAgent: true,
+      },
       fleekFunctions: {
         createFunction: true,
         editSettings: true,
@@ -199,6 +216,13 @@ export const PERMISSIONS_ROLES = {
         deleteEns: true,
         addGitIntegration: true,
         removeGitIntegration: true,
+      },
+      aiAgents: {
+        createAgent: true,
+        listAgents: true,
+        viewAgent: true,
+        editAgent: true,
+        deleteAgent: true,
       },
       fleekFunctions: {
         createFunction: true,
@@ -269,6 +293,13 @@ export const PERMISSIONS_ROLES = {
         addGitIntegration: true,
         removeGitIntegration: false,
       },
+      aiAgents: {
+        createAgent: false,
+        listAgents: true,
+        viewAgent: true,
+        editAgent: false,
+        deleteAgent: false,
+      },
       fleekFunctions: {
         createFunction: true,
         editSettings: true,
@@ -337,6 +368,13 @@ export const PERMISSIONS_ROLES = {
         deleteEns: false,
         addGitIntegration: false,
         removeGitIntegration: false,
+      },
+      aiAgents: {
+        createAgent: false,
+        listAgents: true,
+        viewAgent: false,
+        editAgent: false,
+        deleteAgent: false,
       },
       fleekFunctions: {
         createFunction: false,
