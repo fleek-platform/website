@@ -17,10 +17,12 @@ import {
   getPlans,
   getSubscriptions,
 } from '@components/AuthProvider/api/api.ts';
+import { useProjects } from '@hooks/useProjects.ts';
 
 export const ElizaIntegration: React.FC = () => {
-  const { isLoggedIn, isLoggingIn, login, activeProjectId, fetchFleekToken } =
+  const { isLoggedIn, isLoggingIn, login, fetchFleekToken } =
     useAuthentication();
+  const { activeProjectId } = useProjects();
   const {
     isSubscriptionModalVisible,
     openSubscriptionModal,
@@ -74,51 +76,64 @@ export const ElizaIntegration: React.FC = () => {
     const token = await fetchFleekToken(activeProjectId);
     if (!token) return { hasEnoughAiModules: false, amount: 0 };
 
-    const [plans, activeSubscriptions, projectAiAgents] = await Promise.all([
-      getPlans(token),
-      getSubscriptions(activeProjectId, token),
-      getAgentsByProjectId(activeProjectId, token),
-    ]);
+    try {
+      const [plans, activeSubscriptions, projectAiAgents] = await Promise.all([
+        getPlans(token),
+        getSubscriptions(activeProjectId, token),
+        getAgentsByProjectId(activeProjectId, token),
+      ]);
 
-    if (
-      !plans.ok ||
-      !plans.data ||
-      !activeSubscriptions.ok ||
-      !projectAiAgents.ok ||
-      !projectAiAgents.data
-    ) {
-      console.error(
-        "it wasn't possible to fetch plans, active subscriptions or project ai agents",
-        { plans, activeSubscriptions, projectAiAgents },
+      if (
+        !plans.ok ||
+        !plans.data ||
+        !activeSubscriptions.ok ||
+        !projectAiAgents.ok ||
+        !projectAiAgents.data
+      ) {
+        console.error(
+          "it wasn't possible to fetch plans, active subscriptions or project ai agents",
+          { plans, activeSubscriptions, projectAiAgents },
+        );
+        return { hasEnoughAiModules: false, amount: 0 };
+      }
+
+      const aiAgentProduct = plans.data?.find(
+        (p) => p.name.toLowerCase() === 'ai agent',
       );
-      return { hasEnoughAiModules: false, amount: 0 };
+      const aiAgentSubscription = activeSubscriptions.data
+        ?.filter((sub) => sub.status.toLowerCase() === 'active')
+        .find((sub) => sub.productId === aiAgentProduct?.id);
+      const aiAgentSubscriptionItem = aiAgentSubscription?.items.find(
+        (sub) => sub.productId === aiAgentProduct?.id,
+      );
+
+      return aiAgentSubscriptionItem
+        ? {
+            hasEnoughAiModules:
+              projectAiAgents.data?.data.length <
+              aiAgentSubscriptionItem.quantity,
+            amount: aiAgentSubscriptionItem.quantity,
+            productId: aiAgentProduct?.id,
+          }
+        : {
+            hasEnoughAiModules: false,
+            amount: 0,
+            productId: aiAgentProduct?.id,
+          };
+    } catch (error) {
+      console.error(
+        "it wasn't possible to check user amount available ai modules",
+        error,
+      );
+      return false;
     }
-
-    const aiAgentProduct = plans.data?.find(
-      (p) => p.name.toLowerCase() === 'ai agent',
-    );
-    const aiAgentSubscription = activeSubscriptions.data
-      ?.filter((sub) => sub.status.toLowerCase() === 'active')
-      .find((sub) => sub.productId === aiAgentProduct?.id);
-    const aiAgentSubscriptionItem = aiAgentSubscription?.items.find(
-      (sub) => sub.productId === aiAgentProduct?.id,
-    );
-
-    return aiAgentSubscriptionItem
-      ? {
-          hasEnoughAiModules:
-            projectAiAgents.data?.data.length <
-            aiAgentSubscriptionItem.quantity,
-          amount: aiAgentSubscriptionItem.quantity,
-          productId: aiAgentProduct?.id,
-        }
-      : { hasEnoughAiModules: false, amount: 0, productId: aiAgentProduct?.id };
   }, [activeProjectId]);
 
   const ensureUserSubscription = useCallback(async (): Promise<boolean> => {
-    const { hasEnoughAiModules, amount, productId } =
-      await checkUserAmountAvailableAiModules();
+    const res = await checkUserAmountAvailableAiModules();
+    if (!res) return false;
 
+    const { hasEnoughAiModules, amount, productId } = res;
     if (!hasEnoughAiModules && productId) {
       openSubscriptionModal(amount, productId);
       return false;

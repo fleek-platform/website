@@ -1,194 +1,139 @@
 import { useState, useEffect, useCallback, useMemo, useContext } from 'react';
 import { useDynamicContext, useIsLoggedIn } from '@dynamic-labs/sdk-react-core';
-import type { Project } from '@fleekxyz/sdk/dist-types/generated/graphqlClient/schema';
+import { useCookies } from 'react-cookie';
+
+import { decodeAccessToken } from '@fleek-platform/utils-token';
 
 import settings from '@base/settings.json';
-import { useCookies } from 'react-cookie';
 import { AuthContext } from './AuthProvider';
-import toast from 'react-hot-toast';
+
+const GRAPHQL_URL = import.meta.env?.PUBLIC_GRAPHQL_ENDPOINT || '';
 
 export const useAuthentication = () => {
   const context = useContext(AuthContext);
   if (!context) {
     throw new Error('useAuthContext must be used within an AuthProvider');
   }
-
   const { setShowAuthFlow, authToken, handleLogOut } = useDynamicContext();
   const isDynamicLoggedIn = useIsLoggedIn();
-  const [userProjects, setUserProjects] = useState<Project[] | undefined>();
   const [cookies, setCookie, removeCookie] = useCookies([
-    settings.site.auth.activeProjectCookieKey,
     settings.site.auth.authTokenCookieKey,
   ]);
-  const activeProjectId = useMemo(
-    () => cookies[settings.site.auth.activeProjectCookieKey],
-    [cookies[settings.site.auth.activeProjectCookieKey]],
-  );
-  const isLoggedIn = useMemo(
-    () => isDynamicLoggedIn && context.authState === 'logged-in',
-    [isDynamicLoggedIn, context.authState],
-  );
-  const isLoggingIn = useMemo(
-    () => context.authState === 'logging-in',
-    [context.authState],
-  );
+  const [isLoggedIn, setIsLoggedIn] = useState<boolean>(false);
+  const [isLoggingIn, setIsLoggingIn] = useState<boolean>(false);
 
-  const fetchFleekToken = async (
-    projectId?: string,
-  ): Promise<string | undefined> => {
-    if (!authToken) return;
+  const fetchFleekToken = useCallback(
+    async (projectId?: string): Promise<string | undefined> => {
+      if (!authToken) return;
+      const tokenFromCookies = cookies[settings.site.auth.authTokenCookieKey];
 
-    const query = `mutation loginWithDynamic($data: LoginWithDynamicDataInput!) {
-      loginWithDynamic(data: $data)
-    }`;
-
-    const variables: { data: { authToken?: string; projectId?: string } } = {
-      data: { authToken },
-    };
-    if (projectId) {
-      variables.data['projectId'] = projectId;
-    }
-
-    const options = {
-      method: 'POST',
-      headers: { 'content-type': 'application/json' },
-      body: JSON.stringify({
-        operationName: 'loginWithDynamic',
-        query,
-        variables,
-      }),
-    };
-
-    try {
-      const response = await fetch(settings.site.graphql.url, options);
-      const { data } = await response.json();
-
-      const newToken = data?.loginWithDynamic;
-      if (!newToken) return;
-      return newToken;
-    } catch (error) {
-      console.error('Failed to fetch GraphQL token:', error);
-      return;
-    }
-  };
-
-  const fetchGraphQLUserProjects = async (
-    token?: string,
-  ): Promise<Project[] | undefined> => {
-    if (!token) return;
-
-    const query = `query projects($filter: ProjectsPaginationInput) {
-      projects(filter: $filter) {
-        data {
-          id
-          name
-          avatar
+      if (tokenFromCookies) {
+        const decodedToken = decodeAccessToken({ token: tokenFromCookies });
+        if (
+          decodedToken &&
+          decodedToken.projectId === projectId &&
+          decodedToken.exp > Date.now() / 1000
+        ) {
+          return tokenFromCookies;
+        } else {
+          removeCookie(settings.site.auth.authTokenCookieKey);
         }
       }
-    }`;
 
-    const variables = {};
+      const query = `
+        mutation LoginWithDynamic($data: LoginWithDynamicDataInput!) {
+          loginWithDynamic(data: $data)
+        }
+      `;
 
-    const options = {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-        authorization: `Bearer ${token}`,
-      },
-      body: JSON.stringify({
-        operationName: 'projects',
-        query,
-        variables,
-      }),
-    };
+      const variables = {
+        data: {
+          authToken,
+          projectId,
+        },
+      };
 
-    try {
-      const response = await fetch(settings.site.graphql.url, options);
-      const { data } = await response.json();
+      if (projectId) {
+        variables.data.projectId = projectId;
+      }
 
-      const projects = (data?.projects?.data || []) as Project[];
-      return projects;
-    } catch (error) {
-      console.error('Failed to fetch user projects:', error);
-    }
-  };
+      const options = {
+        method: 'POST',
+        headers: { 'content-type': 'application/json' },
+        body: JSON.stringify({
+          query,
+          variables,
+        }),
+      };
+
+      try {
+        const response = await fetch(GRAPHQL_URL, options);
+
+        const { data } = await response.json();
+        const decodedToken = decodeAccessToken({
+          token: data?.loginWithDynamic,
+        });
+
+        setCookie(
+          settings.site.auth.authTokenCookieKey,
+          data?.loginWithDynamic,
+          {
+            expires: new Date(decodedToken.exp * 1000),
+          },
+        );
+        return data?.loginWithDynamic;
+      } catch (error) {
+        console.error('Failed to fetch Fleek token:', error);
+        return;
+      }
+    },
+    [authToken, cookies[settings.site.auth.activeProjectCookieKey]],
+  );
 
   const login = useCallback(async () => {
     context.setAuthState('logging-in');
+    setIsLoggingIn(true);
     setShowAuthFlow(true);
   }, [setShowAuthFlow]);
 
-  const logout = () => {
-    setUserProjects(undefined);
-    setActiveProject(undefined);
+  const logout = useCallback(() => {
     removeCookie(settings.site.auth.authTokenCookieKey);
     removeCookie(settings.site.auth.activeProjectCookieKey);
     context.setAuthState('logged-out');
     handleLogOut();
-  };
-
-  const setActiveProject = async (projectId?: string) => {
-    if (!projectId) return;
-    setCookie(settings.site.auth.activeProjectCookieKey, projectId, {});
-    if (!userProjects) return;
-    const activeProject = userProjects.find(({ id }) => id === projectId);
-    if (activeProject) {
-      toast.success(`Switched project to: ${activeProject?.name}`);
-    }
-  };
-
-  const initializeProjects = async () => {
-    try {
-      const token = await fetchFleekToken();
-      const projects = !!userProjects
-        ? userProjects
-        : await fetchGraphQLUserProjects(token);
-      if (projects && projects.length) {
-        setUserProjects(projects);
-        const activeProject = projects.find(({ id }) => id === activeProjectId);
-
-        if (!activeProject) {
-          setActiveProject(projects.length ? projects[0].id : undefined);
-        }
-      }
-    } catch (error) {
-      console.error('Failed to initialize user projects:', error);
-      return false;
-    }
-  };
+    setIsLoggedIn(false);
+  }, [removeCookie, context.setAuthState, handleLogOut]);
 
   useEffect(() => {
     const initAuth = async () => {
-      console.log('🚀 ~ initAuth ~ isDynamicLoggedIn:', isDynamicLoggedIn);
       if (!isDynamicLoggedIn) {
         context.setAuthState('logged-out');
+        setIsLoggedIn(false);
+        setIsLoggingIn(false);
         return;
       } else {
         context.setAuthState('logging-in');
-
-        if (!userProjects) {
-          await initializeProjects();
-        }
-
+        setIsLoggingIn(true);
         context.setAuthState('logged-in');
+        setIsLoggedIn(true);
+        setIsLoggingIn(false);
       }
     };
 
     initAuth();
-  }, [isDynamicLoggedIn, userProjects, context.authState]);
+  }, [isDynamicLoggedIn, context.setAuthState]);
+
+  useEffect(() => {
+    if (context.authState === 'logged-out') {
+      setIsLoggingIn(false);
+    }
+  }, [context.authState]);
 
   return {
     isLoggedIn,
     isLoggingIn,
-
     login,
     logout,
-
-    userProjects,
-    setActiveProject,
-    activeProjectId,
-    loadProjects: fetchGraphQLUserProjects,
-
     fetchFleekToken,
   };
 };
