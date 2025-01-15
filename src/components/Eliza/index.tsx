@@ -10,7 +10,6 @@ import {
   SubscriptionModal,
   useSubscriptionModal,
 } from './components/SubscriptionModal.tsx';
-import { AuthProvider } from '@components/AuthProvider/AuthProvider.tsx';
 import { useAuthentication } from '@components/AuthProvider/useAuthentication.ts';
 import { CoreEliza } from './CoreEliza.tsx';
 import {
@@ -20,7 +19,7 @@ import {
 import { createSubscription } from '@components/AuthProvider/api/api';
 
 export const ElizaIntegration: React.FC = () => {
-  const { isLoggedIn, isLoggingIn, login, activeProjectId, fetchFleekToken } =
+  const { isLoggedIn, isLoggingIn, login, activeProjectId } =
     useAuthentication();
   const {
     isSubscriptionModalVisible,
@@ -33,13 +32,13 @@ export const ElizaIntegration: React.FC = () => {
 
   const triggerAgentDeployment = useCallback(
     async (characterfile?: string) => {
-      const token = await fetchFleekToken();
-      if (!token || !characterfile) return { ok: false };
+      const accessToken = '';
+      if (!accessToken || !characterfile) return { ok: false };
 
       const res = await triggerDeployment(
         activeProjectId,
         characterfile,
-        token,
+        accessToken,
       );
 
       return {
@@ -52,13 +51,13 @@ export const ElizaIntegration: React.FC = () => {
 
   const getAgentDeploymentStatus = useCallback(
     async (agentId: string) => {
-      const token = await fetchFleekToken(activeProjectId);
+      const accessToken = '';
 
-      if (!token) {
+      if (!accessToken) {
         return { ok: false, data: {} as Record<string, 'true' | 'false'> };
       }
 
-      const res = await getDeploymentStatus(agentId, token);
+      const res = await getDeploymentStatus(agentId, accessToken);
       if (!res.ok || !res?.data) {
         return { ok: false, data: {} as Record<string, 'true' | 'false'> };
       }
@@ -72,13 +71,13 @@ export const ElizaIntegration: React.FC = () => {
   );
 
   const checkUserAmountAvailableAiModules = useCallback(async () => {
-    const token = await fetchFleekToken(activeProjectId);
-    if (!token) return { hasEnoughAiModules: false, amount: 0 };
+    const accessToken = '';
+    if (!accessToken) return { hasEnoughAiModules: false, amount: 0 };
 
     const [plans, activeSubscriptions, projectAiAgents] = await Promise.all([
-      getPlans(token),
-      getSubscriptions(activeProjectId, token),
-      getAgentsByProjectId(activeProjectId, token),
+      getPlans(accessToken),
+      getSubscriptions(activeProjectId, accessToken),
+      getAgentsByProjectId(activeProjectId, accessToken),
     ]);
 
     if (
@@ -159,7 +158,6 @@ export const ElizaIntegration: React.FC = () => {
         subscriptionAmount={subscriptionAmount ?? 0}
         checkUserAmountAvailableAiModules={checkUserAmountAvailableAiModules}
         productId={productId}
-        fetchFleekToken={fetchFleekToken}
         createSubscription={createSubscription}
       />
     </>
@@ -167,9 +165,7 @@ export const ElizaIntegration: React.FC = () => {
 };
 
 const Eliza: React.FC = () => (
-  <AuthProvider>
-    <ElizaIntegration />
-  </AuthProvider>
+ <ElizaIntegration />
 );
 
 export default Eliza;
