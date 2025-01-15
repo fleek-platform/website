@@ -1,4 +1,4 @@
-import { useAuthentication } from '@components/AuthProvider/useAuthentication.ts';
+import { useProjects } from '@components/Eliza/hooks/useProjects';
 import {
   getPlans,
   getSubscriptions,
@@ -12,7 +12,7 @@ import ElizaIntegrationLayer from '@components/Eliza/ElizaIntegrationLayer.tsx';
 export const AgentsUIIntegration: React.FC = () => {
   console.log('[debug] AgentsUI: 1')
   const { activeProjectId, isLoggedIn, isLoggingIn } =
-    useAuthentication();
+    useProjects();
 
   const login = () => Promise.resolve();
 

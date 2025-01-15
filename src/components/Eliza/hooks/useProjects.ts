@@ -5,7 +5,7 @@ import settings from '@base/settings.json';
 import { useCookies } from 'react-cookie';
 import toast from 'react-hot-toast';
 
-export const useAuthentication = () => {
+export const useProjects = () => {
   const accessToken = '';
   const setAccessToken = () => null;
 

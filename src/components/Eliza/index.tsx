@@ -10,7 +10,7 @@ import {
   SubscriptionModal,
   useSubscriptionModal,
 } from './components/SubscriptionModal.tsx';
-import { useAuthentication } from '@components/AuthProvider/useAuthentication.ts';
+import { useProjects } from '@components/Eliza/hooks/useProjects.ts';
 import { CoreEliza } from './CoreEliza.tsx';
 import {
   getPlans,
@@ -20,7 +20,7 @@ import { createSubscription } from '@components/AuthProvider/api/api';
 
 export const ElizaIntegration: React.FC = () => {
   const { isLoggedIn, isLoggingIn, login, activeProjectId } =
-    useAuthentication();
+    useProjects();
   const {
     isSubscriptionModalVisible,
     openSubscriptionModal,
