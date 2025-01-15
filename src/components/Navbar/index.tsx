@@ -1,4 +1,3 @@
-import { useContext } from 'react';
 import { LoginProvider } from '@fleek-platform/login-button';
 import { navbarMenu, type NavMenuItem, type NavSubMenuItem } from './config';
 import Link, { Target } from '@components/Link';
@@ -9,6 +8,7 @@ import { RxHamburgerMenu } from 'react-icons/rx';
 import { isActivePath } from '@utils/url';
 import { Button } from '../Button';
 import { ProjectDropdown } from './ProjectDropdown/ProjectDropdown';
+import { useAuthStore } from '../../store/authStore';
 
 const NavbarMobileItem: React.FC<NavMenuItem> = ({
   label,
@@ -16,9 +16,6 @@ const NavbarMobileItem: React.FC<NavMenuItem> = ({
   url,
   openInNewTab,
 }) => {
-  // TOOD: Get from storage
-  const accessToken = '';
-
   if (!subMenu)
     return (
       <Link
@@ -313,6 +310,8 @@ export const Navbar: React.FC<NavbarProps> = ({
 };
 
 const SessionManagementActions: React.FC = () => {
+  const { accessToken, setAccessToken } = useAuthStore();
+
   // TODO: Decode from token, use fleek-platform/utils-token
   const activeProjectId = '';
   // TODO: Get from fleek-platform/login-button
@@ -335,6 +334,10 @@ const SessionManagementActions: React.FC = () => {
   };
 
   const [isMounted, setIsMounted] = useState(false);
+
+  useEffect(() => {
+   console.log(`[debug] Navbar: useEffect: accessToken = ${accessToken}`) 
+  }, [accessToken]);
 
   useEffect(() => {
     setIsMounted(true);
@@ -366,10 +369,18 @@ const SessionManagementActions: React.FC = () => {
             environmentId={import.meta.env.PUBLIC_DYNAMIC_ENVIRONMENT_ID}
           >
             {(props) => {
-              const { login, logout, accessToken, isLoading, error } = props;
+              const { login, logout, accessToken: responseAccessToken, isLoading, error } = props;
+
+             useEffect(() => {
+                if (responseAccessToken) {
+                  setAccessToken(responseAccessToken);
+                }
+
+                console.log(`[debug] Navbar: Login-button: responseAccessToken = ${responseAccessToken}`)
+              }, [responseAccessToken]);
 
               const handleClick = () => {
-                if (Boolean(accessToken)) {
+                if (responseAccessToken) {
                   logout();
                 } else {
                   login();
@@ -388,7 +399,6 @@ const SessionManagementActions: React.FC = () => {
                 // not real session, session is in the cookie, just for demo
                 case Boolean(accessToken):
                   buttonText = "Log out";
-                  console.log(`[debug] acessToken: ${accessToken}`)
                   break;
               }
 
@@ -402,7 +412,7 @@ const SessionManagementActions: React.FC = () => {
                     {buttonText}
                   </Button>
                 {
-                  !accessToken && (
+                  !responseAccessToken && (
                     <Button
                       disabled={true}
                       variant="tertiary"
