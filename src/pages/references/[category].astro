@@ -1,0 +1,70 @@
+---
+import Layout from '@layouts/BlogPage.astro';
+import { getCollection } from 'astro:content';
+import BlogPosts from '@components/BlogPosts.astro';
+import BlogHeader from '@components/BlogHeader.astro';
+import { listSubDirectories } from '@utils/paths';
+import settings from '@base/settings.json';
+
+import type { CollectionEntry } from 'astro:content';
+import { generateFullSlug } from '@utils/generateFullSlug';
+
+type CategoryDetails = {
+  title: string;
+  description: string;
+};
+
+type ReferencesCustomCategoryMetadata = Record<string, CategoryDetails>;
+
+export async function getStaticPaths() {
+  const blogCats = await listSubDirectories({
+    path: './src/content/references',
+  });
+  const params = blogCats.map((category) => ({
+    params: {
+      category,
+    },
+  }));
+
+  return [...params];
+}
+
+const indexNameReferences = import.meta.env.PUBLIC_MEILISEARCH_INDEX_REFERENCES;
+
+const { category } = Astro.params;
+
+const referencesSettings = settings.site.metadata.references
+  .category as ReferencesCustomCategoryMetadata;
+
+const referencesTitle = settings.site.metadata.references.title;
+const catTitle = referencesSettings[category].title;
+const title = catTitle ? `${referencesTitle} - ${catTitle}` : referencesTitle;
+const description =
+  referencesSettings[category].description ||
+  settings.site.metadata.references.description;
+
+const collection = 'references';
+const image = settings.site.metadata.references.image;
+const slug = generateFullSlug({
+  basePath: settings.site.metadata.references.slug,
+  slug: category,
+});
+
+const allPosts: CollectionEntry<'references'>[] = (
+  await getCollection(
+    'references',
+    ({ slug }) => slug.split('/')[0] === category,
+  )
+).sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf());
+---
+
+<Layout title={title} description={description} image={image} slug={slug}>
+  <main class="container min-h-container">
+    <BlogHeader
+      title={referencesTitle}
+      indexName={indexNameReferences}
+      category={category}
+    />
+    <BlogPosts allPosts={allPosts} collection={collection} />
+  </main>
+</Layout>
