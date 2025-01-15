@@ -6,14 +6,18 @@ interface AuthStore {
   setAccessToken: (token: string) => void;
 }
 
+// TODO: Maybe this should be exposed by the login button?
+// Store name
+const name = 'fleek-xyz-website-store';
+
 export const useAuthStore = create<AuthStore>()(
   persist(
     (set) => ({
       accessToken: '',
-      setAccessToken: (token: string) => set({ accessToken: token }),
+      setAccessToken: (accessToken: string) => set({ accessToken }),
     }),
     {
-      name: 'fleek-website-store',
+      name,
       storage: createJSONStorage(() => localStorage),
     }
   )
