@@ -12,7 +12,7 @@ const categories = await getPathSubDirsSorted({
   extend: [ROOT],
 });
 
-const hasCategoryHeader = ['/blog/', '/issues/'];
+const hasCategoryHeader = ['/blog', '/issues'];
 
 const isWithCategoryHeader = hasCategoryHeader.some((path) =>
   Astro.url.pathname.startsWith(path),
