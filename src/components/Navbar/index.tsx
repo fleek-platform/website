@@ -375,8 +375,6 @@ const SessionManagementActions: React.FC = () => {
                 if (responseAccessToken) {
                   setAccessToken(responseAccessToken);
                 }
-
-                console.log(`[debug] Navbar: Login-button: responseAccessToken = ${responseAccessToken}`)
               }, [responseAccessToken]);
 
               const handleClick = () => {
@@ -412,7 +410,7 @@ const SessionManagementActions: React.FC = () => {
                     {buttonText}
                   </Button>
                 {
-                  !responseAccessToken && (
+                  !accessToken && (
                     <Button
                       disabled={true}
                       variant="tertiary"
