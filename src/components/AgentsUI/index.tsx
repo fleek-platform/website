@@ -8,12 +8,17 @@ import { createSubscription } from '@components/AuthProvider/api/api';
 
 // Import local implementation for now.
 // In the future will import package implementation with the same interface.
-// import ElizaIntegrationLayer from '@components/Eliza/ElizaIntegrationLayer.tsx';
-import { ElizaIntegrationLayer } from '@fleek-platform/agents-ui';
+import ElizaIntegrationLayer from '@components/Eliza/ElizaIntegrationLayer.tsx';
+// import { ElizaIntegrationLayer } from '@fleek-platform/agents-ui';
 
 export const AgentsUIIntegration: React.FC = () => {
-  const { isLoggedIn, isLoggingIn, login, activeProjectId, fetchFleekToken } =
+  const { isLoggedIn, isLoggingIn, login, fetchFleekToken } =
     useAuthentication();
+
+  // TODO: To resolve
+  // the project listing has moved
+  // get from accessToken?
+  const activeProjectId = '';
 
   return (
     <ElizaIntegrationLayer
