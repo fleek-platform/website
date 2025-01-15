@@ -7,7 +7,8 @@ import settings from '@base/settings.json';
 
 import type { CollectionEntry } from 'astro:content';
 
-const indexNameReferences = import.meta.env.PUBLIC_MEILISEARCH_INDEX_REFERENCES;
+const indexNameCommonIssues = import.meta.env
+  .PUBLIC_MEILISEARCH_INDEX_COMMON_ISSUES;
 
 const collection = 'issues';
 
@@ -25,7 +26,7 @@ const allPosts: CollectionEntry<'issues'>[] = (
   <main class="container min-h-container">
     <BlogHeader
       title={settings.site.metadata.commonIssues.title}
-      indexName={indexNameReferences}
+      indexName={indexNameCommonIssues}
     />
     <BlogPosts allPosts={allPosts} collection={collection} />
   </main>

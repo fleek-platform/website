@@ -12,7 +12,7 @@ const categories = await getPathSubDirsSorted({
   extend: [ROOT],
 });
 
-const hasCategoryHeader = ['/blog/', '/references/'];
+const hasCategoryHeader = ['/blog/', '/issues/'];
 
 const isWithCategoryHeader = hasCategoryHeader.includes(Astro.url.pathname);
 ---
@@ -23,7 +23,9 @@ const isWithCategoryHeader = hasCategoryHeader.includes(Astro.url.pathname);
   <div
     class="align-center flex items-center gap-20 md:gap-40 lg:gap-20 xl:gap-40"
   >
-    <h1 class="lg:text-27 xl:text-32">{title}</h1>
+    <h1 class="lg:text-27 xl:text-32">
+      {title === 'issues' ? 'Common issues' : title}
+    </h1>
     <div class="align-center flex flex-col gap-10 md:flex-row">
       <div class="group relative lg:hidden">
         <button

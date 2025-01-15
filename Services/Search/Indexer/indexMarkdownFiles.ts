@@ -24,7 +24,7 @@ export enum ContentDirByName {
   'templates' = `${contentBasePath}/templates`,
   'legal' = `${contentBasePath}/legal`,
   'guides' = `${contentBasePath}/guides`,
-  'issues' = `${contentBasePath}/issues`,
+  'common_issues' = `${contentBasePath}/issues`,
 }
 
 export type ContentName = keyof typeof ContentDirByName;

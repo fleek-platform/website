@@ -14,7 +14,7 @@ type CategoryDetails = {
   description: string;
 };
 
-type ReferencesCustomCategoryMetadata = Record<string, CategoryDetails>;
+type CommonIssuesCustomCategoryMetadata = Record<string, CategoryDetails>;
 
 export async function getStaticPaths() {
   const blogCats = await listSubDirectories({
@@ -29,21 +29,24 @@ export async function getStaticPaths() {
   return [...params];
 }
 
-const indexNameReferences = import.meta.env.PUBLIC_MEILISEARCH_INDEX_REFERENCES;
+const indexNameCommonIssues = import.meta.env
+  .PUBLIC_MEILISEARCH_INDEX_COMMON_ISSUES;
 
 const { category } = Astro.params;
 
-const referencesSettings = settings.site.metadata.commonIssues
-  .category as ReferencesCustomCategoryMetadata;
+const commonIssuesSettings = settings.site.metadata.commonIssues
+  .category as CommonIssuesCustomCategoryMetadata;
 
-const referencesTitle = settings.site.metadata.commonIssues.title;
-const catTitle = referencesSettings[category].title;
-const title = catTitle ? `${referencesTitle} - ${catTitle}` : referencesTitle;
+const commonIssuesTitle = settings.site.metadata.commonIssues.title;
+const catTitle = commonIssuesSettings[category].title;
+const title = catTitle
+  ? `${commonIssuesTitle} - ${catTitle}`
+  : commonIssuesTitle;
 const description =
-  referencesSettings[category].description ||
+  commonIssuesSettings[category].description ||
   settings.site.metadata.commonIssues.description;
 
-const collection = 'references';
+const collection = 'issues';
 const image = settings.site.metadata.commonIssues.image;
 const slug = generateFullSlug({
   basePath: settings.site.metadata.commonIssues.slug,
@@ -58,8 +61,8 @@ const allPosts: CollectionEntry<'issues'>[] = (
 <Layout title={title} description={description} image={image} slug={slug}>
   <main class="container min-h-container">
     <BlogHeader
-      title={referencesTitle}
-      indexName={indexNameReferences}
+      title={commonIssuesTitle}
+      indexName={indexNameCommonIssues}
       category={category}
     />
     <BlogPosts allPosts={allPosts} collection={collection} />
