@@ -3,9 +3,11 @@ import {
   DynamicContextProvider,
   DynamicWidget,
 } from '@dynamic-labs/sdk-react-core';
-import settings from '@base/settings.json';
-import { isClient, isProd } from '@utils/common';
+import { isClient } from '@utils/common';
 import { createContext, useMemo, useState } from 'react';
+
+const DYNAMIC_ENV_ID =
+  import.meta.env?.PUBLIC_DYNAMIC_ENVIRONMENT_ID || 'UNAVAILABLE';
 
 type AuthState = 'logged-in' | 'logged-out' | 'logging-in';
 interface AuthContextProps {
@@ -22,15 +24,21 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({
 }) => {
   const [authState, setAuthState] = useState<AuthState>('logging-in');
   const value = useMemo(() => ({ authState, setAuthState }), [authState]);
+  if (DYNAMIC_ENV_ID === 'UNAVAILABLE') {
+    console.error(
+      'Dynamic Provider forces the env var PUBLIC_DYNAMIC_ENVIRONMENT_ID to be non-nullable:',
+      {
+        PUBLIC_DYNAMIC_ENVIRONMENT_ID: import.meta.env
+          ?.PUBLIC_DYNAMIC_ENVIRONMENT_ID,
+      },
+    );
+  }
 
   return (
     <AuthContext.Provider value={value}>
       <DynamicContextProvider
         settings={{
-          environmentId:
-            settings.site.auth.dynamicEnvironmentId[
-              isProd ? 'production' : 'development'
-            ],
+          environmentId: DYNAMIC_ENV_ID,
           // @ts-ignore
           walletConnectors: [EthereumWalletConnectors],
           cssOverrides: '.modal__items { scale: 1.5 }',
