@@ -18,7 +18,7 @@ type ReferencesCustomCategoryMetadata = Record<string, CategoryDetails>;
 
 export async function getStaticPaths() {
   const blogCats = await listSubDirectories({
-    path: './src/content/references',
+    path: './src/content/issues',
   });
   const params = blogCats.map((category) => ({
     params: {
@@ -33,28 +33,25 @@ const indexNameReferences = import.meta.env.PUBLIC_MEILISEARCH_INDEX_REFERENCES;
 
 const { category } = Astro.params;
 
-const referencesSettings = settings.site.metadata.references
+const referencesSettings = settings.site.metadata.commonIssues
   .category as ReferencesCustomCategoryMetadata;
 
-const referencesTitle = settings.site.metadata.references.title;
+const referencesTitle = settings.site.metadata.commonIssues.title;
 const catTitle = referencesSettings[category].title;
 const title = catTitle ? `${referencesTitle} - ${catTitle}` : referencesTitle;
 const description =
   referencesSettings[category].description ||
-  settings.site.metadata.references.description;
+  settings.site.metadata.commonIssues.description;
 
 const collection = 'references';
-const image = settings.site.metadata.references.image;
+const image = settings.site.metadata.commonIssues.image;
 const slug = generateFullSlug({
-  basePath: settings.site.metadata.references.slug,
+  basePath: settings.site.metadata.commonIssues.slug,
   slug: category,
 });
 
-const allPosts: CollectionEntry<'references'>[] = (
-  await getCollection(
-    'references',
-    ({ slug }) => slug.split('/')[0] === category,
-  )
+const allPosts: CollectionEntry<'issues'>[] = (
+  await getCollection('issues', ({ slug }) => slug.split('/')[0] === category)
 ).sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf());
 ---
 

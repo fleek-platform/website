@@ -96,14 +96,14 @@
         "description": "Visit the Fleek Support Center for detailed FAQs, troubleshooting guides, and documentation. Quickly report issues or submit support requests to get the help you need.",
         "image": "/images/fleek-meta-image.png?202406061658"
       },
-      "references": {
-        "title": "References",
-        "slug": "references",
-        "description": "Explore the Fleek References page for troubleshooting guides designed to address common errors when using Fleek.",
+      "commonIssues": {
+        "title": "Common issues",
+        "slug": "common-issues",
+        "description": "Explore the Fleek common issues page for troubleshooting guides designed to address common errors when using Fleek.",
         "image": "/images/fleek-meta-image.png?202406061658",
         "category": {
-          "common-issues": {
-            "title": "Common issues",
+          "hosting": {
+            "title": "Hosting",
             "description": "Stay informed with the latest announcements from Fleek. Get insights on new features, updates, and company developments."
           },
           "faq": {
@@ -438,8 +438,8 @@
 
       {
         "id": 2,
-        "path": "/references/",
-        "title": "References"
+        "path": "/issues/",
+        "title": "Common issues"
       },
       {
         "id": 3,

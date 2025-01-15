@@ -9,22 +9,22 @@ import type { CollectionEntry } from 'astro:content';
 
 const indexNameReferences = import.meta.env.PUBLIC_MEILISEARCH_INDEX_REFERENCES;
 
-const collection = 'references';
+const collection = 'issues';
 
-const allPosts: CollectionEntry<'references'>[] = (
-  await getCollection('references')
+const allPosts: CollectionEntry<'issues'>[] = (
+  await getCollection('issues')
 ).sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf());
 ---
 
 <Layout
-  title={settings.site.metadata.references.title}
-  image={settings.site.metadata.references.image}
-  slug={settings.site.metadata.references.slug}
-  description={settings.site.metadata.references.description}
+  title={settings.site.metadata.commonIssues.title}
+  image={settings.site.metadata.commonIssues.image}
+  slug={settings.site.metadata.commonIssues.slug}
+  description={settings.site.metadata.commonIssues.description}
 >
   <main class="container min-h-container">
     <BlogHeader
-      title={settings.site.metadata.references.title}
+      title={settings.site.metadata.commonIssues.title}
       indexName={indexNameReferences}
     />
     <BlogPosts allPosts={allPosts} collection={collection} />
