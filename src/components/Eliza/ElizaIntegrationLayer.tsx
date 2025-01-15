@@ -10,18 +10,90 @@ import {
   SubscriptionModal,
   useSubscriptionModal,
 } from './components/SubscriptionModal.tsx';
-import { AuthProvider } from '@components/AuthProvider/AuthProvider.tsx';
-import { useAuthentication } from '@components/AuthProvider/useAuthentication.ts';
-import { CoreEliza } from './CoreEliza.tsx';
-import {
-  getPlans,
-  getSubscriptions,
-} from '@components/AuthProvider/api/api.ts';
-import { createSubscription } from '@components/AuthProvider/api/api';
 
-export const ElizaIntegration: React.FC = () => {
-  const { isLoggedIn, isLoggingIn, login, activeProjectId, fetchFleekToken } =
-    useAuthentication();
+import { CoreEliza } from './CoreEliza.tsx';
+
+type getSubscriptionsType = (
+  projectId?: string,
+  token?: string,
+) => Promise<{
+  ok: boolean;
+  data?: {
+    id: string;
+    status: string;
+    startDate: string;
+    periodEndDate: string;
+    productId: string;
+    endDate?: string;
+    items: {
+      quantity: number;
+      id: string;
+      name: string;
+      description: string;
+      price: number;
+      createdAt: string;
+      updatedAt: string;
+      metadata?: Record<string, string>;
+      productId: string;
+    }[];
+  }[];
+  error?: string;
+}>;
+
+type getPlansType = (token?: string) => Promise<{
+  ok: boolean;
+  data?: {
+    id: string;
+    name: string;
+    description: string;
+    price: number;
+    createdAt: string;
+    updatedAt: string;
+    metadata: Record<string, string>;
+  }[];
+  error?: string;
+}>;
+
+type CreateSubscriptionResponse = {
+  ok: boolean;
+  data?: {
+    url?: string;
+  };
+  error?: string;
+};
+
+/** Main interface. */
+
+export interface ElizaIntegrationLayerProps {
+  // auth props
+  isLoggedIn: boolean;
+  isLoggingIn: boolean;
+  login: () => Promise<void>;
+  activeProjectId: string;
+  fetchFleekToken: (projectId?: string) => Promise<string | undefined>;
+  getSubscriptions: getSubscriptionsType;
+  getPlans: getPlansType;
+  createSubscription: (
+    projectId?: string,
+    productId?: string,
+    token?: string,
+  ) => Promise<CreateSubscriptionResponse>;
+
+  // settings.json is not passed as props but import should match paths in the host and the package
+}
+
+/** Package will define and export this component. */
+
+export const ElizaIntegrationLayer: React.FC<ElizaIntegrationLayerProps> = ({
+  isLoggedIn,
+  isLoggingIn,
+  login,
+  activeProjectId,
+  fetchFleekToken,
+  getSubscriptions,
+  getPlans,
+  createSubscription,
+}) => {
   const {
     isSubscriptionModalVisible,
     openSubscriptionModal,
@@ -166,10 +238,4 @@ export const ElizaIntegration: React.FC = () => {
   );
 };
 
-const Eliza: React.FC = () => (
-  <AuthProvider>
-    <ElizaIntegration />
-  </AuthProvider>
-);
-
-export default Eliza;
+export default ElizaIntegrationLayer;

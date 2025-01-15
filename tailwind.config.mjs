@@ -1,10 +1,16 @@
 import tailwindCustomConfig from './.tailwind/tailwind.custom.config';
 import tailwindPluginTypography from './.tailwind/tailwind.plugin.typography';
+// import {
+//   elzColors,
+//   elzFontFamily,
+//   tailwindAnimate,
+// } from './src/components/Eliza/.tailwind/tokens';
+
 import {
   elzColors,
   elzFontFamily,
   tailwindAnimate,
-} from './src/components/Eliza/.tailwind/tokens';
+} from '@fleek-platform/agents-ui/tailwind.config.mjs';
 
 export const colors = {
   title: '#F1F1F1',

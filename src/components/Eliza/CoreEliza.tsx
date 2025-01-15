@@ -93,6 +93,8 @@ export const CoreEliza: React.FC<ElizaCoreProps> = ({
           onDeployBtnClick={(characterfile) => {
             deployAgent(characterfile);
           }}
+          login={login}
+          isLoggedIn={isLoggedIn}
         />
       ),
     },

@@ -46,6 +46,7 @@
     "prepare": "husky"
   },
   "dependencies": {
+    "@fleek-platform/agents-ui": "0.0.0-test-1",
     "@astrojs/check": "^0.5.10",
     "@astrojs/mdx": "^2.3.1",
     "@astrojs/react": "^3.3.2",
