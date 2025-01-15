@@ -18,6 +18,7 @@ import {
   getSubscriptions,
 } from '@components/AuthProvider/api/api.ts';
 import { useProjects } from '@hooks/useProjects.ts';
+import { createSubscription } from '@components/AuthProvider/api/api';
 
 export const ElizaIntegration: React.FC = () => {
   const { isLoggedIn, isLoggingIn, login, fetchFleekToken } =
@@ -173,6 +174,8 @@ export const ElizaIntegration: React.FC = () => {
         subscriptionAmount={subscriptionAmount ?? 0}
         checkUserAmountAvailableAiModules={checkUserAmountAvailableAiModules}
         productId={productId}
+        fetchFleekToken={fetchFleekToken}
+        createSubscription={createSubscription}
       />
     </>
   );
