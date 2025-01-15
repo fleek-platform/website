@@ -1,3 +1,4 @@
+import settings from '../../../settings.json';
 import { ActionBox } from './ActionBox';
 import { Text } from './Text';
 import type React from 'react';
@@ -15,6 +16,7 @@ import { useState } from 'react';
 import { Button } from './Button';
 import { Modal } from './Modal';
 import { useAuthentication } from '@components/AuthProvider/useAuthentication';
+import Link, { Target } from './Link';
 
 type OverCapacityModalProps = {
   isOpen: boolean;
@@ -85,7 +87,15 @@ export const GetStarted: React.FC<GetStartedProps> = ({
         <Text>Get started</Text>
         <Text variant="description" className="text-wrap">
           To start developing your AI agent, please select one of the options
-          provided below.
+          provided below. Check our{' '}
+          <Link
+            target={Target.Blank}
+            href={settings.elizaPage.guides.getStarted}
+            className="underline hover:text-elz-white"
+          >
+            guide
+          </Link>{' '}
+          for reference.
         </Text>
       </Box>
       <Box className="gap-22">

@@ -5,6 +5,8 @@ import Link, { Target } from './Link';
 import { Text } from './Text';
 import settings from '@base/settings.json';
 
+const UI_APP_URL = import.meta.env.PUBLIC_UI_APP_URL;
+
 interface DeploymentStatusProps {
   deploymentStatus?: any;
   agentId?: string;
@@ -20,8 +22,9 @@ const DeploymentStatus: React.FC<DeploymentStatusProps> = ({
   projectId,
 }) => {
   const dashboardUrl = projectId
-    ? settings.elizaPage.agentsDashboardPage.replace('[projectId]', projectId)
+    ? `${UI_APP_URL}${settings.elizaPage.agentsDashboardPage.replace('[projectId]', projectId)}`
     : null;
+
   return (
     <Box className="gap-20">
       {isDeploymentComplete && (

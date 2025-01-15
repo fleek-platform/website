@@ -127,7 +127,15 @@ Go to [fleek.xyz/eliza](https://fleek.xyz/eliza/) where you’ll see three deplo
 
 Let’s explore these options one-by-one!
 
-**Note**: Fleek charges a small fee of USD $20 per month to deploy your AI agents. If you’re not yet subscribed, you’ll see a modal with plan details. Follow the steps to upgrade or confirm your subscription.
+## Before you start
+
+1. **Pricing**  
+   To deploy your agent, Fleek charges a \$20 per month, per agent fee through the AI Agent Plan. Be sure to [review the pricing details](https://fleek.xyz/pricing) before you proceed.
+
+2. **Known Issue: X (Twitter) 2FA**  
+   Agents deployed to X may experience issues with 2FA (Two-Factor Authentication), even in the event 2FA is disabled on the account. We are aware of this limitation and are currently implementing workarounds. Stay tuned for updates and consult our [Support](https://fleek.xyz/support) if you have any questions or encounter difficulties.
+
+---
 
 ## Upload a characterfile
 
@@ -280,3 +288,5 @@ You are then provided with the option to resolve that on your end and **Retry de
 ## Conclusion
 
 Fleek takes the complexity out of deploying AI agents, offering a streamlined, open-source, and scalable environment ideally suited for Eliza-based projects. By combining Eliza’s robust multi-agent framework with Fleek’s verifiable cloud infrastructure, you can launch an AI researcher, customer support bot, or social media persona in mere minutes. Whether you’re a seasoned developer or exploring AI deployments for the first time, Fleek’s user-friendly interface and automatic scaling features provide a smooth path from concept to production.
+
+Have more questions? Check out our full documentation [here](/docs/ai-agents/).
