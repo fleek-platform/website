@@ -4,10 +4,10 @@ import type { Project } from '@fleekxyz/sdk/dist-types/generated/graphqlClient/s
 import settings from '@base/settings.json';
 import { useCookies } from 'react-cookie';
 import toast from 'react-hot-toast';
+import { useAuthStore } from '../../../store/authStore';
 
 export const useProjects = () => {
-  const accessToken = '';
-  const setAccessToken = () => null;
+  const { accessToken } = useAuthStore();
 
   const [userProjects, setUserProjects] = useState<Project[] | undefined>();
   const [cookies, setCookie, removeCookie] = useCookies([

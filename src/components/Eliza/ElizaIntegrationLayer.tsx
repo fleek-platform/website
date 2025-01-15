@@ -12,6 +12,7 @@ import {
 } from './components/SubscriptionModal.tsx';
 
 import { CoreEliza } from './CoreEliza.tsx';
+import { useAuthStore } from '../../store/authStore.ts';
 
 type getSubscriptionsType = (
   projectId?: string,
@@ -100,10 +101,10 @@ export const ElizaIntegrationLayer: React.FC<ElizaIntegrationLayerProps> = ({
     productId,
   } = useSubscriptionModal();
   const subscriptionModalCallbackRef = useRef<(value?: boolean) => void>();
+  const { accessToken } = useAuthStore();
 
   const triggerAgentDeployment = useCallback(
     async (characterfile?: string) => {
-      const accessToken = ''
       if (!accessToken || !characterfile) return { ok: false };
 
       const res = await triggerDeployment(
@@ -117,13 +118,11 @@ export const ElizaIntegrationLayer: React.FC<ElizaIntegrationLayerProps> = ({
         agentId: res?.data?.agentId ?? undefined,
       };
     },
-    [activeProjectId],
+    [activeProjectId, accessToken],
   );
 
   const getAgentDeploymentStatus = useCallback(
     async (agentId: string) => {
-      const accessToken = ''
-
       if (!accessToken) {
         return { ok: false, data: {} as Record<string, 'true' | 'false'> };
       }
@@ -138,11 +137,10 @@ export const ElizaIntegrationLayer: React.FC<ElizaIntegrationLayerProps> = ({
         data: res.data,
       };
     },
-    [activeProjectId],
+    [activeProjectId, accessToken],
   );
 
   const checkUserAmountAvailableAiModules = useCallback(async () => {
-    const accessToken = '';
     if (!accessToken) return { hasEnoughAiModules: false, amount: 0 };
 
     const [plans, activeSubscriptions, projectAiAgents] = await Promise.all([
@@ -184,7 +182,7 @@ export const ElizaIntegrationLayer: React.FC<ElizaIntegrationLayerProps> = ({
           productId: aiAgentProduct?.id,
         }
       : { hasEnoughAiModules: false, amount: 0, productId: aiAgentProduct?.id };
-  }, [activeProjectId]);
+  }, [activeProjectId, accessToken]);
 
   const ensureUserSubscription = useCallback(async (): Promise<boolean> => {
     const { hasEnoughAiModules, amount, productId } =
