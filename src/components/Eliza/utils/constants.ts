@@ -33,6 +33,7 @@ export const MODEL_PROVIDER_NAMES = [
   'redpill',
   'openrouter',
   'heurist',
+  'together',
 ] as const;
 
 export const MODEL_PROVIDER_NAMES_MAP: Record<
@@ -85,6 +86,10 @@ export const MODEL_PROVIDER_NAMES_MAP: Record<
   },
   heurist: {
     label: 'Heurist',
+    icon: '',
+  },
+  together: {
+    label: 'Together',
     icon: '',
   },
 };
@@ -146,6 +151,7 @@ export const SECRETS_MODEL_PROVIDER_MAP: Record<
   redpill: { REDPILL_API_KEY: '' },
   openrouter: { OPENROUTER_API_KEY: '' },
   heurist: { HEURIST_API_KEY: '' },
+  together: {TOGETHER_API_KEY: ''}
 };
 
 export const SECRETS_CLIENT_MAP: Record<Client, Record<string, string>> = {
@@ -165,7 +171,7 @@ export const SECRETS_CLIENT_MAP: Record<Client, Record<string, string>> = {
     FARCASTER_FID: '',
     FARCASTER_NEYNAR_SIGNER_UUID: '',
   },
-  lens: { LENS_TOKEN: '' },
+  lens: { EVM_PRIVATE_KEY: '',  LENS_PROFILE_ID: ''},
   auto: { AUTO_TOKEN: '' },
   slack: { SLACK_TOKEN: '' },
 };
