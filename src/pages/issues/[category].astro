@@ -1,0 +1,70 @@
+---
+import Layout from '@layouts/BlogPage.astro';
+import { getCollection } from 'astro:content';
+import BlogPosts from '@components/BlogPosts.astro';
+import BlogHeader from '@components/BlogHeader.astro';
+import { listSubDirectories } from '@utils/paths';
+import settings from '@base/settings.json';
+
+import type { CollectionEntry } from 'astro:content';
+import { generateFullSlug } from '@utils/generateFullSlug';
+
+type CategoryDetails = {
+  title: string;
+  description: string;
+};
+
+type CommonIssuesCustomCategoryMetadata = Record<string, CategoryDetails>;
+
+export async function getStaticPaths() {
+  const blogCats = await listSubDirectories({
+    path: './src/content/issues',
+  });
+  const params = blogCats.map((category) => ({
+    params: {
+      category,
+    },
+  }));
+
+  return [...params];
+}
+
+const indexNameCommonIssues = import.meta.env
+  .PUBLIC_MEILISEARCH_INDEX_COMMON_ISSUES;
+
+const { category } = Astro.params;
+
+const commonIssuesSettings = settings.site.metadata.commonIssues
+  .category as CommonIssuesCustomCategoryMetadata;
+
+const commonIssuesTitle = settings.site.metadata.commonIssues.title;
+const catTitle = commonIssuesSettings[category].title;
+const title = catTitle
+  ? `${commonIssuesTitle} - ${catTitle}`
+  : commonIssuesTitle;
+const description =
+  commonIssuesSettings[category].description ||
+  settings.site.metadata.commonIssues.description;
+
+const collection = 'issues';
+const image = settings.site.metadata.commonIssues.image;
+const slug = generateFullSlug({
+  basePath: settings.site.metadata.commonIssues.slug,
+  slug: category,
+});
+
+const allPosts: CollectionEntry<'issues'>[] = (
+  await getCollection('issues', ({ slug }) => slug.split('/')[0] === category)
+).sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf());
+---
+
+<Layout title={title} description={description} image={image} slug={slug}>
+  <main class="container min-h-container">
+    <BlogHeader
+      title={commonIssuesTitle}
+      indexName={indexNameCommonIssues}
+      category={category}
+    />
+    <BlogPosts allPosts={allPosts} collection={collection} />
+  </main>
+</Layout>

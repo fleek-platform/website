@@ -25,7 +25,7 @@ export const PricingInfo: Props[] = [
   },
   {
     title: 'Pro Plan',
-    description: 'Our most popular option for teams\n and growing projects.',
+    description: 'Our most popular option for AI agents and growing projects',
     splitDescription: true,
     cost: {
       amount: 20,
@@ -39,7 +39,7 @@ export const PricingInfo: Props[] = [
       'Email support',
     ],
     cta: 'Go fast with Pro',
-    variant: 'primary',
+    variant: 'primary-outline',
     url: 'https://app.fleek.xyz/projects/[projectId]/billing',
   },
   {

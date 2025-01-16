@@ -6,12 +6,17 @@ import { Button } from './Button';
 
 const ROOT = 'all';
 const { title, indexName, category } = Astro.props;
+const contentDirectory = title.toLowerCase();
 const categories = await getPathSubDirsSorted({
-  path: './src/content/blog',
+  path: `./src/content/${contentDirectory}`,
   extend: [ROOT],
 });
 
-const isBlogRoot = Astro.url.pathname.startsWith('/blog');
+const hasCategoryHeader = ['/blog', '/issues'];
+
+const isWithCategoryHeader = hasCategoryHeader.some((path) =>
+  Astro.url.pathname.startsWith(path),
+);
 ---
 
 <div
@@ -20,7 +25,9 @@ const isBlogRoot = Astro.url.pathname.startsWith('/blog');
   <div
     class="align-center flex items-center gap-20 md:gap-40 lg:gap-20 xl:gap-40"
   >
-    <h1 class="lg:text-27 xl:text-32">{title}</h1>
+    <h1 class="lg:text-27 xl:text-32">
+      {title === 'issues' ? 'Common issues' : title}
+    </h1>
     <div class="align-center flex flex-col gap-10 md:flex-row">
       <div class="group relative lg:hidden">
         <button
@@ -49,12 +56,12 @@ const isBlogRoot = Astro.url.pathname.startsWith('/blog');
           class="absolute top-50 block hidden rounded-8 bg-ui-fleek-black p-20 px-10 group-hover:block"
         >
           {
-            isBlogRoot &&
+            isWithCategoryHeader &&
               categories.map((catName) => (
                 <li>
                   <a
                     class="block rounded-8 bg-ui-fleek-black px-16 py-8 font-plex-sans text-16 font-light capitalize transition duration-200 ease-in-out hover:bg-ui-mid-grey hover:text-ui-fleek-black"
-                    href={`/blog/${catName !== ROOT ? catName : ''}`}
+                    href={`/${contentDirectory}/${catName !== ROOT ? catName : ''}`}
                   >
                     {catName}
                   </a>
@@ -65,11 +72,11 @@ const isBlogRoot = Astro.url.pathname.startsWith('/blog');
       </div>
       <div class="hidden gap-10 lg:flex">
         {
-          isBlogRoot &&
+          isWithCategoryHeader &&
             categories.map((catName) => (
               <Button
                 size="sm"
-                href={`/blog/${catName !== ROOT ? catName : ''}`}
+                href={`/${contentDirectory}/${catName !== ROOT ? catName : ''}`}
                 variant={
                   catName === category || (catName == ROOT && !category)
                     ? 'app-primary'

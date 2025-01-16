@@ -112,6 +112,9 @@ SUPPORT_RATE_LIMIT_PATHS="/tickets"
 NODE_ENV=develop
 PUBLIC_BEHIIV_API_KEY=***
 PUBLIC_BEHIIV_SUBSCRIBE_URL=***
+PUBLIC_GRAPHQL_ENDPOINT="https://graphql.service.staging.fleeksandbox.xyz/graphql"
+PUBLIC_FLEEK_REST_API_URL="https://api.staging.fleeksandbox.xyz"
+PUBLIC_DYNAMIC_ENVIRONMENT_ID="c4d4ccad-9460-419c-9ca3-494488f8c892"
 ```
 
 💡 The SUPPORT_ALLOW_ORIGIN_ADDR and SUPPORT_RATE_LIMIT_PATHS are comma separated values (csv). the MEILISEARCH_DOCUMENTS_CLIENT_API_KEY is required when querying staging, production environments which should be provided in the headers.
@@ -483,7 +486,7 @@ The Announcement Marquee is placed at the very top of the site. To enable
 ```
 "site": {
   ...
-  "annoucementMarquee": {
+  "announcementMarquee": {
     "message": "Introducing Fleek Functions: lightning-fast edge functions built on Fleek Network’s onchain cloud infrastructure. Read more here.",
     "url": "/blog/announcements/introducing-fleek-functions",
     "visible": true
