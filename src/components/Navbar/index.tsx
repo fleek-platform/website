@@ -1,4 +1,7 @@
-import { LoginProvider } from '@fleek-platform/login-button';
+import {
+  LoginProvider,
+  useLoginButtonStore,
+} from '@fleek-platform/login-button';
 import { navbarMenu, type NavMenuItem, type NavSubMenuItem } from './config';
 import Link, { Target } from '@components/Link';
 import { useCallback, useEffect, useState } from 'react';
@@ -310,7 +313,8 @@ export const Navbar: React.FC<NavbarProps> = ({
 };
 
 const SessionManagementActions: React.FC = () => {
-  const { accessToken, setAccessToken } = useAuthStore();
+  // const { accessToken: accessTokenState } = useLoginButtonStore();
+  // const { value: accessToken } = accessTokenState;
 
   // TODO: Decode from token, use fleek-platform/utils-token
   const activeProjectId = '';
@@ -325,19 +329,19 @@ const SessionManagementActions: React.FC = () => {
   const logout = () => null;
   const isLoggingIn = false;
 
-  const handleLoginClick = (
-    e?: React.MouseEvent<HTMLButtonElement | HTMLAnchorElement>,
-  ) => {
-    e?.preventDefault();
-    e?.stopPropagation();
-    login();
-  };
+  // const handleLoginClick = (
+  //   e?: React.MouseEvent<HTMLButtonElement | HTMLAnchorElement>,
+  // ) => {
+  //   e?.preventDefault();
+  //   e?.stopPropagation();
+  //   login();
+  // };
 
   const [isMounted, setIsMounted] = useState(false);
 
-  useEffect(() => {
-   console.log(`[debug] Navbar: useEffect: accessToken = ${accessToken}`) 
-  }, [accessToken]);
+  // useEffect(() => {
+  // console.log(`[debug] Navbar: useEffect: accessToken = ${accessToken}`);
+  // }, [accessToken]);
 
   useEffect(() => {
     setIsMounted(true);
@@ -369,13 +373,15 @@ const SessionManagementActions: React.FC = () => {
             environmentId={import.meta.env.PUBLIC_DYNAMIC_ENVIRONMENT_ID}
           >
             {(props) => {
-              const { login, logout, accessToken: responseAccessToken, isLoading, error } = props;
+              const { login, logout, accessTokenState } = props;
+              const {
+                value: responseAccessToken,
+                isLoading,
+                error,
+              } = accessTokenState; // here zustand state is undefined initially
 
-             useEffect(() => {
-                if (responseAccessToken) {
-                  setAccessToken(responseAccessToken);
-                }
-              }, [responseAccessToken]);
+              // package is installed locally
+              // "@fleek-platform/login-button": "file:../login-button",
 
               const handleClick = () => {
                 if (responseAccessToken) {
@@ -385,32 +391,27 @@ const SessionManagementActions: React.FC = () => {
                 }
               };
 
-              let buttonText = "Log in";
+              let buttonText = 'Log in';
 
               switch (true) {
                 case Boolean(error):
-                  buttonText = "Login failed";
+                  buttonText = 'Login failed';
                   break;
                 case isLoading:
-                  buttonText = "Loading...";
+                  buttonText = 'Loading...';
                   break;
                 // not real session, session is in the cookie, just for demo
-                case Boolean(accessToken):
-                  buttonText = "Log out";
+                case Boolean(responseAccessToken):
+                  buttonText = 'Log out';
                   break;
               }
 
               return (
                 <>
-                  <Button
-                    variant="secondary"
-                    size="sm"
-                    onClick={handleClick}
-                  >
+                  <Button variant="secondary" size="sm" onClick={handleClick}>
                     {buttonText}
                   </Button>
-                {
-                  !accessToken && (
+                  {/* {!responseAccessToken && (
                     <Button
                       disabled={true}
                       variant="tertiary"
@@ -419,9 +420,8 @@ const SessionManagementActions: React.FC = () => {
                       href="https://app.fleek.xyz/"
                     >
                       Sign up
-                    </Button>                    
-                  )
-                }
+                    </Button>
+                  )} */}
                 </>
               );
             }}
