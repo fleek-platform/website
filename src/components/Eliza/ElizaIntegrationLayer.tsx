@@ -5,6 +5,7 @@ import {
   getAgentsByProjectId,
   getDeploymentStatus,
   triggerDeployment,
+  type DeploymentStatus,
 } from './api/api.ts';
 import {
   SubscriptionModal,
@@ -104,55 +105,51 @@ export const ElizaIntegrationLayer: React.FC<ElizaIntegrationLayerProps> = ({
   } = useSubscriptionModal();
   const subscriptionModalCallbackRef = useRef<(value?: boolean) => void>();
 
-  const triggerAgentDeployment = useCallback(
-    async (characterfile?: string) => {
-      const token = await fetchFleekToken();
-      if (!token || !characterfile) return { ok: false };
+  const triggerAgentDeployment = async (
+    characterfile: string,
+    projectId: string,
+  ) => {
+    const token = await fetchFleekToken();
+    if (!token) return { ok: false };
 
-      const res = await triggerDeployment(
-        activeProjectId,
-        characterfile,
-        token,
-      );
+    const res = await triggerDeployment(projectId, characterfile, token);
 
-      return {
-        ok: res.ok,
-        agentId: res?.data?.agentId ?? undefined,
-      };
-    },
-    [activeProjectId],
-  );
+    return {
+      ok: res.ok,
+      agentId: res?.data?.agentId ?? undefined,
+    };
+  };
 
-  const getAgentDeploymentStatus = useCallback(
-    async (agentId: string) => {
-      const token = await fetchFleekToken(activeProjectId);
+  const getAgentDeploymentStatus = async (
+    agentId: string,
+    projectId?: string,
+  ) => {
+    const token = await fetchFleekToken(projectId);
 
-      if (!token) {
-        return { ok: false, data: {} as Record<string, 'true' | 'false'> };
-      }
+    if (!token) {
+      return { ok: false, data: {} as DeploymentStatus };
+    }
 
-      const res = await getDeploymentStatus(agentId, token);
-      if (!res.ok || !res?.data) {
-        return { ok: false, data: {} as Record<string, 'true' | 'false'> };
-      }
+    const res = await getDeploymentStatus(agentId, token);
+    if (!res.ok || !res?.data) {
+      return { ok: false, data: {} as DeploymentStatus };
+    }
 
-      return {
-        ok: true,
-        data: res.data,
-      };
-    },
-    [activeProjectId],
-  );
+    return {
+      ok: true,
+      data: res.data,
+    };
+  };
 
-  const checkUserAmountAvailableAiModules = useCallback(async () => {
-    const token = await fetchFleekToken(activeProjectId);
+  const checkUserAmountAvailableAiModules = async (projectId: string) => {
+    const token = await fetchFleekToken(projectId);
     if (!token) return { hasEnoughAiModules: false, amount: 0 };
 
     try {
       const [plans, activeSubscriptions, projectAiAgents] = await Promise.all([
         getPlans(token),
-        getSubscriptions(activeProjectId, token),
-        getAgentsByProjectId(activeProjectId, token),
+        getSubscriptions(projectId, token),
+        getAgentsByProjectId(projectId, token),
       ]);
 
       if (
@@ -199,10 +196,12 @@ export const ElizaIntegrationLayer: React.FC<ElizaIntegrationLayerProps> = ({
       );
       return false;
     }
-  }, [activeProjectId]);
+  };
 
-  const ensureUserSubscription = useCallback(async (): Promise<boolean> => {
-    const res = await checkUserAmountAvailableAiModules();
+  const ensureUserSubscription = async (
+    projectId: string,
+  ): Promise<boolean> => {
+    const res = await checkUserAmountAvailableAiModules(projectId);
     if (!res) return false;
 
     const { hasEnoughAiModules, amount, productId } = res;
@@ -212,7 +211,7 @@ export const ElizaIntegrationLayer: React.FC<ElizaIntegrationLayerProps> = ({
     }
 
     return true;
-  }, [activeProjectId]);
+  };
 
   return (
     <>

@@ -1,5 +1,9 @@
 import { useState, useEffect, useCallback, useMemo, useContext } from 'react';
-import { useDynamicContext, useIsLoggedIn } from '@dynamic-labs/sdk-react-core';
+import {
+  useDynamicContext,
+  useIsLoggedIn,
+  getAuthToken,
+} from '@dynamic-labs/sdk-react-core';
 import { useCookies } from 'react-cookie';
 
 import { decodeAccessToken } from '@fleek-platform/utils-token';
@@ -14,7 +18,7 @@ export const useAuthentication = () => {
   if (!context) {
     throw new Error('useAuthContext must be used within an AuthProvider');
   }
-  const { setShowAuthFlow, authToken, handleLogOut } = useDynamicContext();
+  const { setShowAuthFlow, handleLogOut } = useDynamicContext();
   const isDynamicLoggedIn = useIsLoggedIn();
   const [cookies, setCookie, removeCookie] = useCookies([
     settings.site.auth.authTokenCookieKey,
@@ -24,6 +28,8 @@ export const useAuthentication = () => {
 
   const fetchFleekToken = useCallback(
     async (projectId?: string): Promise<string | undefined> => {
+      const authToken = getAuthToken();
+
       if (!authToken) return;
       const tokenFromCookies = cookies[settings.site.auth.authTokenCookieKey];
 
@@ -87,7 +93,7 @@ export const useAuthentication = () => {
         return;
       }
     },
-    [authToken, cookies[settings.site.auth.activeProjectCookieKey]],
+    [cookies[settings.site.auth.activeProjectCookieKey]],
   );
 
   const login = useCallback(async () => {
