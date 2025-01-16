@@ -7,6 +7,7 @@ import {
 } from '../utils/types';
 import { Characterfile } from './Characterfile';
 import { FormProviderCharacterBuilder } from '../hooks/useElizaForm';
+import type { UseDeployAIAgentProps } from '../hooks/useDeployAIAgent';
 import { SettingsPage } from './SettingsPage';
 import { ReviewPage } from './ReviewPage';
 import { UploadPage } from './UploadPage';
@@ -16,6 +17,8 @@ type NavigationProps = {
   isOverCapacity?: boolean;
   handleNavigationStateChange: (navigationState: NavigationState) => void;
   navigationState: NavigationState;
+  isLoggedIn: UseDeployAIAgentProps['isLoggedIn'];
+  login: UseDeployAIAgentProps['login'];
 };
 
 export const Navigation: React.FC<NavigationProps> = ({
@@ -23,6 +26,8 @@ export const Navigation: React.FC<NavigationProps> = ({
   handleNavigationStateChange,
   navigationState,
   isOverCapacity = false,
+  login,
+  isLoggedIn,
 }) => {
   const updateState = (newState: Partial<NavigationState>) => {
     handleNavigationStateChange({ ...navigationState, ...newState });
@@ -46,7 +51,14 @@ export const Navigation: React.FC<NavigationProps> = ({
   };
 
   const pages: Record<Page, React.ReactNode> = {
-    getStarted: <GetStarted goTo={goTo} isOverCapacity={isOverCapacity} />,
+    getStarted: (
+      <GetStarted
+        goTo={goTo}
+        isOverCapacity={isOverCapacity}
+        login={login}
+        isLoggedIn={isLoggedIn}
+      />
+    ),
     upload: <UploadPage goTo={goTo} />,
     characterfile: (
       <Characterfile

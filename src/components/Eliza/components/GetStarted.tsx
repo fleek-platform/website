@@ -15,20 +15,22 @@ import { TEMPLATE_CHARACTERFILES_MAP } from '../utils/constants';
 import { useState } from 'react';
 import { Button } from './Button';
 import { Modal } from './Modal';
-import { useAuthentication } from '@components/AuthProvider/useAuthentication';
 import Link, { Target } from './Link';
+import type { UseDeployAIAgentProps } from '../hooks/useDeployAIAgent';
 
 type OverCapacityModalProps = {
   isOpen: boolean;
   closeModal: () => void;
+  isLoggedIn: UseDeployAIAgentProps['isLoggedIn'];
+  login: UseDeployAIAgentProps['login'];
 };
 
 const OverCapacityModal: React.FC<OverCapacityModalProps> = ({
   isOpen,
   closeModal,
+  login,
+  isLoggedIn,
 }) => {
-  const { login, isLoggedIn } = useAuthentication();
-
   const title = isLoggedIn ? "You're in" : 'Sorry,';
 
   const description = isLoggedIn
@@ -54,11 +56,15 @@ const OverCapacityModal: React.FC<OverCapacityModalProps> = ({
 
 type GetStartedProps = GoToProps & {
   isOverCapacity: boolean;
+  isLoggedIn: UseDeployAIAgentProps['isLoggedIn'];
+  login: UseDeployAIAgentProps['login'];
 };
 
 export const GetStarted: React.FC<GetStartedProps> = ({
   isOverCapacity,
   goTo,
+  login,
+  isLoggedIn,
 }) => {
   const [isOpen, setIsOpen] = useState(false);
 
@@ -79,7 +85,12 @@ export const GetStarted: React.FC<GetStartedProps> = ({
 
   return (
     <Box className="relative gap-38">
-      <OverCapacityModal isOpen={isOpen} closeModal={() => setIsOpen(false)} />
+      <OverCapacityModal
+        isOpen={isOpen}
+        closeModal={() => setIsOpen(false)}
+        login={login}
+        isLoggedIn={isLoggedIn}
+      />
       <Box className="items-start gap-16">
         <Text variant="secondary" className="flex h-32 items-center">
           Deploy an AI agent
