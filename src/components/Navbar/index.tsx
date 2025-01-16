@@ -374,14 +374,18 @@ const SessionManagementActions: React.FC = () => {
           >
             {(props) => {
               const { login, logout, accessTokenState } = props;
+
+              console.log('accessTokenState', accessTokenState);
+
               const {
                 value: responseAccessToken,
                 isLoading,
                 error,
-              } = accessTokenState; // here zustand state is undefined initially
+              } = accessTokenState;
 
-              // package is installed locally
-              // "@fleek-platform/login-button": "file:../login-button",
+              // const responseAccessToken = '';
+              // const error = null;
+              // const isLoading = undefined;
 
               const handleClick = () => {
                 if (responseAccessToken) {
