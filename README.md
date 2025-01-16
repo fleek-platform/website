@@ -115,6 +115,7 @@ PUBLIC_BEHIIV_SUBSCRIBE_URL=***
 PUBLIC_GRAPHQL_ENDPOINT="https://graphql.service.staging.fleeksandbox.xyz/graphql"
 PUBLIC_FLEEK_REST_API_URL="https://api.staging.fleeksandbox.xyz"
 PUBLIC_DYNAMIC_ENVIRONMENT_ID="c4d4ccad-9460-419c-9ca3-494488f8c892"
+PUBLIC_UI_APP_URL="https://staging.fleeksandbox.xyz"
 ```
 
 💡 The SUPPORT_ALLOW_ORIGIN_ADDR and SUPPORT_RATE_LIMIT_PATHS are comma separated values (csv). the MEILISEARCH_DOCUMENTS_CLIENT_API_KEY is required when querying staging, production environments which should be provided in the headers.
