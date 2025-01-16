@@ -373,24 +373,22 @@ const SessionManagementActions: React.FC = () => {
             environmentId={import.meta.env.PUBLIC_DYNAMIC_ENVIRONMENT_ID}
           >
             {(props) => {
-              const { login, logout, accessTokenState } = props;
-
-              console.log('accessTokenState', accessTokenState);
-
               const {
-                value: responseAccessToken,
-                isLoading,
+                login,
+                logout,
+                accessToken: responseAccessToken,
+                loading,
                 error,
-              } = accessTokenState;
+              } = props;
 
-              // const responseAccessToken = '';
-              // const error = null;
-              // const isLoading = undefined;
+              console.log('responseAccessToken', responseAccessToken);
+              console.log('error', error);
 
               const handleClick = () => {
                 if (responseAccessToken) {
-                  logout();
+                  // logout();
                 } else {
+                  console.log('login()');
                   login();
                 }
               };
@@ -401,7 +399,7 @@ const SessionManagementActions: React.FC = () => {
                 case Boolean(error):
                   buttonText = 'Login failed';
                   break;
-                case isLoading:
+                case loading:
                   buttonText = 'Loading...';
                   break;
                 // not real session, session is in the cookie, just for demo
