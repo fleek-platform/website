@@ -162,7 +162,7 @@
         "projects": "/projects",
         "teams": "/teams",
         "subscriptions": "/subscriptions",
-        "plans": "/plans"
+        "plans": "/api/v1/plans"
       }
     },
     "announcementMarquee": {
