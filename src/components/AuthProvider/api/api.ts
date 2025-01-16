@@ -2,7 +2,8 @@ import settings from '@base/settings.json';
 
 const API_BASE_URL = import.meta.env.PUBLIC_FLEEK_REST_API_URL;
 
-if (!API_BASE_URL) throw Error('Oops! Missing env var PUBLIC_FLEEK_REST_API_URL');
+if (!API_BASE_URL)
+  throw Error('Oops! Missing env var PUBLIC_FLEEK_REST_API_URL');
 
 export const getSubscriptions = async (
   projectId?: string,
