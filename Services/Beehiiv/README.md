@@ -13,7 +13,6 @@ Install the digitalocean `doctl` CLI:
 brew install doctl
 ```
 
-
 ### Authenticate
 
 Initialize authentication
