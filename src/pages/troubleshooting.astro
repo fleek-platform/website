@@ -8,24 +8,24 @@ import settings from '@base/settings.json';
 import type { CollectionEntry } from 'astro:content';
 
 const indexNameCommonIssues = import.meta.env
-  .PUBLIC_MEILISEARCH_INDEX_COMMON_ISSUES;
+  .PUBLIC_MEILISEARCH_INDEX_TROUBLESHOOTING;
 
-const collection = 'issues';
+const collection = 'troubleshooting';
 
-const allPosts: CollectionEntry<'issues'>[] = (
-  await getCollection('issues')
+const allPosts: CollectionEntry<'troubleshooting'>[] = (
+  await getCollection('troubleshooting')
 ).sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf());
 ---
 
 <Layout
-  title={settings.site.metadata.commonIssues.title}
-  image={settings.site.metadata.commonIssues.image}
-  slug={settings.site.metadata.commonIssues.slug}
-  description={settings.site.metadata.commonIssues.description}
+  title={settings.site.metadata.troubleshooting.title}
+  image={settings.site.metadata.troubleshooting.image}
+  slug={settings.site.metadata.troubleshooting.slug}
+  description={settings.site.metadata.troubleshooting.description}
 >
   <main class="container min-h-container">
     <BlogHeader
-      title={settings.site.metadata.commonIssues.title}
+      title={settings.site.metadata.troubleshooting.title}
       indexName={indexNameCommonIssues}
     />
     <BlogPosts allPosts={allPosts} collection={collection} />
