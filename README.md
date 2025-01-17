@@ -55,6 +55,7 @@ This repository contains the source code and assets for the Fleek.xyz website, w
       - [Delete Indexes](#💣-delete-indexes)
       - [Manual Indexation](#manual-indexation-cicd)
     - [Images (optimization)](#-images-optimization)
+    - [Beehiiv Proxy](#beehiiv-proxy)
 - [Migration](#-migration)
   - [Migrate Gatsby content](#migrate-gatsby-content)
 - [Custom data](#custom-data)
@@ -994,6 +995,33 @@ The Job will index data that exists in the selected `main` branch. Learn how to 
 ## 📸 Images (Optimization)
 
 The build process can optimize the images but that requires the user to use the correct image components. Use the instructions provided to optimize the images.
+
+## Beehiiv Proxy
+
+Create new subscriptions by sending an HTTP POST request to the endpoint:
+
+```sh
+https://faas-lon1-917a94a7.doserverless.co/api/v1/web/fn-5aaf2a72-1b
+5b-4ac6-8c42-a2e735a32d8b/main/create-subscription
+```
+
+Here's an example:
+
+```js
+const response = await fetch(url, {
+  method: 'POST',
+  headers: {
+    'Content-Type': 'application/json'
+  },
+  body: JSON.stringify(data)
+});
+
+const result = await response.json();
+
+console.log(result);
+```
+
+Learn more about it [here](/Services/Beehiiv/README.md).
 
 ### 🪐 Astro
 
