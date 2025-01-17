@@ -14,11 +14,11 @@ type CategoryDetails = {
   description: string;
 };
 
-type CommonIssuesCustomCategoryMetadata = Record<string, CategoryDetails>;
+type TroubleshootingCustomCategoryMetadata = Record<string, CategoryDetails>;
 
 export async function getStaticPaths() {
   const blogCats = await listSubDirectories({
-    path: './src/content/issues',
+    path: './src/content/troubleshooting',
   });
   const params = blogCats.map((category) => ({
     params: {
@@ -30,38 +30,41 @@ export async function getStaticPaths() {
 }
 
 const indexNameCommonIssues = import.meta.env
-  .PUBLIC_MEILISEARCH_INDEX_COMMON_ISSUES;
+  .PUBLIC_MEILISEARCH_INDEX_TROUBLESHOOTING;
 
 const { category } = Astro.params;
 
-const commonIssuesSettings = settings.site.metadata.commonIssues
-  .category as CommonIssuesCustomCategoryMetadata;
+const troubleShootingSettings = settings.site.metadata.troubleshooting
+  .category as TroubleshootingCustomCategoryMetadata;
 
-const commonIssuesTitle = settings.site.metadata.commonIssues.title;
-const catTitle = commonIssuesSettings[category].title;
+const troubleShootingTitle = settings.site.metadata.troubleshooting.title;
+const catTitle = troubleShootingSettings[category].title;
 const title = catTitle
-  ? `${commonIssuesTitle} - ${catTitle}`
-  : commonIssuesTitle;
+  ? `${troubleShootingTitle} - ${catTitle}`
+  : troubleShootingTitle;
 const description =
-  commonIssuesSettings[category].description ||
-  settings.site.metadata.commonIssues.description;
+  troubleShootingSettings[category].description ||
+  settings.site.metadata.troubleshooting.description;
 
-const collection = 'issues';
-const image = settings.site.metadata.commonIssues.image;
+const collection = 'troubleshooting';
+const image = settings.site.metadata.troubleshooting.image;
 const slug = generateFullSlug({
-  basePath: settings.site.metadata.commonIssues.slug,
+  basePath: settings.site.metadata.troubleshooting.slug,
   slug: category,
 });
 
-const allPosts: CollectionEntry<'issues'>[] = (
-  await getCollection('issues', ({ slug }) => slug.split('/')[0] === category)
+const allPosts: CollectionEntry<'troubleshooting'>[] = (
+  await getCollection(
+    'troubleshooting',
+    ({ slug }) => slug.split('/')[0] === category,
+  )
 ).sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf());
 ---
 
 <Layout title={title} description={description} image={image} slug={slug}>
   <main class="container min-h-container">
     <BlogHeader
-      title={commonIssuesTitle}
+      title={troubleShootingTitle}
       indexName={indexNameCommonIssues}
       category={category}
     />

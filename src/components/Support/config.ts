@@ -1,9 +1,9 @@
 export const categoryCardItems = [
   {
     id: '1',
-    link: '/issues/',
+    link: '/troubleshooting/',
     image: '/images/troubleshooting.png',
-    title: 'Common issues',
+    title: 'Troubleshooting',
   },
   {
     id: '2',

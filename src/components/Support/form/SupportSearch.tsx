@@ -87,7 +87,7 @@ const MultiSearch: React.FC = () => {
               limit: 5,
             },
             {
-              indexUid: 'fleekxyz_website_references',
+              indexUid: 'fleekxyz_website_troubleshooting',
               q: query,
               limit: 5,
             },
