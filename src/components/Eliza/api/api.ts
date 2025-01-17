@@ -68,15 +68,11 @@ export const triggerDeployment = async (
 
 type DeploymentStepStatus = 'true' | 'false';
 
-interface DeploymentStatus {
-  [key: string]: DeploymentStepStatus;
-}
-
-interface DeploymentResponseData extends Record<string, 'true' | 'false'> {}
+export type DeploymentStatus = Record<string, DeploymentStepStatus>;
 
 interface DeploymentResponse {
   ok: boolean;
-  data?: DeploymentResponseData;
+  data?: DeploymentStatus;
 }
 
 export const getDeploymentStatus = async (
@@ -99,7 +95,7 @@ export const getDeploymentStatus = async (
       throw new Error(`HTTP error! Status: ${response.status}`);
     }
 
-    const data: DeploymentResponseData = await response.json();
+    const data: DeploymentStatus = await response.json();
 
     return {
       ok: true,
