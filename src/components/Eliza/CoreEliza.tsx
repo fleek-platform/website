@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useCallback } from 'react';
 
 import Step from './components/Step';
 import DeploymentStatus from './components/DeploymentStatus.tsx';
@@ -68,6 +68,8 @@ export const CoreEliza: React.FC<ElizaCoreProps> = ({
     },
   });
 
+  const [isDeploying, setIsDeploying] = useState(false);
+
   const handleNavigationStateChange = (newNavigationState: NavigationState) => {
     setNavigationState(newNavigationState);
   };
@@ -83,6 +85,13 @@ export const CoreEliza: React.FC<ElizaCoreProps> = ({
     </Button>
   );
 
+  const onDeployButtonClick = async (characterfile?: string) => {
+    if (isDeploying) return;
+    setIsDeploying(true);
+    await deployAgent(characterfile, projectId);
+    setIsDeploying(false);
+  };
+
   const steps = [
     /* STEP 1 - UPLOAD characterfile */
     {
@@ -92,9 +101,7 @@ export const CoreEliza: React.FC<ElizaCoreProps> = ({
         <Navigation
           navigationState={navigationState}
           handleNavigationStateChange={handleNavigationStateChange}
-          onDeployBtnClick={(characterfile) => {
-            deployAgent(characterfile);
-          }}
+          onDeployBtnClick={onDeployButtonClick}
           login={login}
           isLoggedIn={isLoggedIn}
         />
