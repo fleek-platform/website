@@ -2,6 +2,11 @@ import type React from 'react';
 import { useEffect, useState } from 'react';
 import { Modal } from './Modal';
 import { Text } from './Text';
+import { Input } from './Input';
+import { Box } from './Box';
+import { Button } from './Button';
+
+const NEWSLETTER_URL = import.meta.env.PUBLIC_BEEHIIV_API_URL;
 
 const onNewUserSubscribe = async (email: string) => {
   if (!email) return;
@@ -13,16 +18,13 @@ const onNewUserSubscribe = async (email: string) => {
   };
 
   try {
-    await fetch(
-      'https://faas-lon1-917a94a7.doserverless.co/api/v1/web/fn-5aaf2a72-1b5b-4ac6-8c42-a2e735a32d8b/main/create-subscription',
-      {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(payload),
+    await fetch(NEWSLETTER_URL, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
       },
-    );
+      body: JSON.stringify(payload),
+    });
   } catch (e) {
     console.warn({ status: 'user could not be subscribed', error: e });
   }
@@ -51,7 +53,14 @@ type NewsletterSubscriberProps = {
 export const NewsletterSubscriber: React.FC<NewsletterSubscriberProps> = ({
   isLoggedIn,
 }) => {
-  const [isOpen, setIsOpen] = useState(false);
+  const [isOpen, setIsOpen] = useState(true);
+  const [email, setEmail] = useState('');
+
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    setIsOpen(false);
+    onNewUserSubscribe(email);
+  };
 
   useEffect(() => {
     if (!isLoggedIn) return;
@@ -59,8 +68,6 @@ export const NewsletterSubscriber: React.FC<NewsletterSubscriberProps> = ({
     const dynamicStore = localStorage.getItem('dynamic_store');
     const newUser = onNewUserCheck(dynamicStore);
     if (!newUser) return;
-
-    console.log(newUser);
 
     if (newUser.isPendingEmail) {
       setIsOpen(true);
@@ -74,7 +81,25 @@ export const NewsletterSubscriber: React.FC<NewsletterSubscriberProps> = ({
 
   return (
     <Modal isOpen={isOpen} closeModal={() => {}}>
-      <Text>Please</Text>
+      <form className="flex flex-col gap-16" onSubmit={handleSubmit}>
+        <Text variant="description" className="text-elz-neutral-12">
+          Please add an email to continue
+        </Text>
+        <Box className="gap-8">
+          <Input.Label>Email</Input.Label>
+          <Input.Root>
+            <Input.Field
+              type="email"
+              value={email}
+              onChange={(e) => setEmail(e.currentTarget.value)}
+              placeholder="Enter your email..."
+              autoFocus
+              required
+            />
+          </Input.Root>
+        </Box>
+        <Button>Continue</Button>
+      </form>
     </Modal>
   );
 };
