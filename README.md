@@ -55,6 +55,7 @@ This repository contains the source code and assets for the Fleek.xyz website, w
       - [Delete Indexes](#💣-delete-indexes)
       - [Manual Indexation](#manual-indexation-cicd)
     - [Images (optimization)](#-images-optimization)
+    - [Beehiiv Proxy](#beehiiv-proxy)
 - [Migration](#-migration)
   - [Migrate Gatsby content](#migrate-gatsby-content)
 - [Custom data](#custom-data)
@@ -113,8 +114,9 @@ NODE_ENV=develop
 PUBLIC_BEHIIV_API_KEY=***
 PUBLIC_BEHIIV_SUBSCRIBE_URL=***
 PUBLIC_GRAPHQL_ENDPOINT="https://graphql.service.staging.fleeksandbox.xyz/graphql"
-PUBLIC_FLEEK_REST_API_URL="https://api.staging.fleeksandbox.xyz"
+PUBLIC_FLEEK_REST_API_URL="https://api.staging.fleeksandbox.xyz/api/v1"
 PUBLIC_DYNAMIC_ENVIRONMENT_ID="c4d4ccad-9460-419c-9ca3-494488f8c892"
+PUBLIC_UI_APP_URL="https://staging.fleeksandbox.xyz"
 ```
 
 💡 The SUPPORT_ALLOW_ORIGIN_ADDR and SUPPORT_RATE_LIMIT_PATHS are comma separated values (csv). the MEILISEARCH_DOCUMENTS_CLIENT_API_KEY is required when querying staging, production environments which should be provided in the headers.
@@ -993,6 +995,33 @@ The Job will index data that exists in the selected `main` branch. Learn how to 
 ## 📸 Images (Optimization)
 
 The build process can optimize the images but that requires the user to use the correct image components. Use the instructions provided to optimize the images.
+
+## Beehiiv Proxy
+
+Create new subscriptions by sending an HTTP POST request to the endpoint:
+
+```sh
+https://faas-lon1-917a94a7.doserverless.co/api/v1/web/fn-5aaf2a72-1b
+5b-4ac6-8c42-a2e735a32d8b/main/create-subscription
+```
+
+Here's an example:
+
+```js
+const response = await fetch(url, {
+  method: 'POST',
+  headers: {
+    'Content-Type': 'application/json'
+  },
+  body: JSON.stringify(data)
+});
+
+const result = await response.json();
+
+console.log(result);
+```
+
+Learn more about it [here](/Services/Beehiiv/README.md).
 
 ### 🪐 Astro
 

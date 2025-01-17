@@ -110,6 +110,43 @@
     ]
   },
 
+  "fleek-langchain-template": {
+    "id": "cm4j7dptc0001f2jrvmr35yp6",
+    "name": "Fleek Langchain template",
+    "slug": "fleek-langchain-template",
+    "description": "This template scaffolds a LangChain.js + Next.js starter app. It showcases how to use and combine LangChain modules for several use cases.  It is perfect for developers looking to build AI applications in Next.js and on Fleek seamlessly with any features they want.",
+    "banner": "/images/templates/fleek-langchain-template.webp",
+    "fleekDeploymentUrl": "https://app.fleek.xyz/templates/cm4j7dptc0001f2jrvmr35yp6/",
+    "demoUrl": "https://langchain.on-fleek.app/",
+    "framework": {
+      "name": "Next.js",
+      "avatar": "/svg/templates/nextjs-icon.svg"
+    },
+    "repository": {
+      "owner": "fleek-tools",
+      "slug": "langchain-nextjs-fleek",
+      "html_url": "https://github.com/fleek-tools/langchain-nextjs-fleek",
+      "creation_date": "December, 11, 2024",
+      "contributors": [
+        {
+          "name": "Tobiloba",
+          "avatar_url": "/images/templates/authors/tobiloba.webp"
+        }
+      ]
+    },
+    "category": {
+      "name": "Bootstrap"
+    },
+    "screenshots": [
+      "https://sites-preview.s3.us-west-2.amazonaws.com/_gDw9JyC54-IhbWpBGlo"
+    ],
+    "similarTemplateIds": [
+      "astro-boilerplate",
+      "blogmaker-by-vitalik",
+      "chess-on-fleek"
+    ]
+  },
+
   "fullstack-nextjs-template": {
     "id": "cm337u3fd000d5dlytu1llarf",
     "name": "Fullstack Nextjs Template",
