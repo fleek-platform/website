@@ -1,0 +1,8 @@
+packages:
+    - name: main
+      functions:
+        - name: create-subscription
+          runtime: nodejs:default
+      environment:
+        BEEHIIV_API_TOKEN: ${BEEHIIV_API_TOKEN}
+        BEEHIIV_PUBLICATION_ID: ${BEEHIIV_PUBLICATION_ID}
