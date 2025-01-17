@@ -113,7 +113,7 @@ NODE_ENV=develop
 PUBLIC_BEHIIV_API_KEY=***
 PUBLIC_BEHIIV_SUBSCRIBE_URL=***
 PUBLIC_GRAPHQL_ENDPOINT="https://graphql.service.staging.fleeksandbox.xyz/graphql"
-PUBLIC_FLEEK_REST_API_URL="https://api.staging.fleeksandbox.xyz"
+PUBLIC_FLEEK_REST_API_URL="https://api.staging.fleeksandbox.xyz/api/v1"
 PUBLIC_DYNAMIC_ENVIRONMENT_ID="c4d4ccad-9460-419c-9ca3-494488f8c892"
 ```
 
