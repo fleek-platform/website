@@ -2,10 +2,11 @@ import { BeehiivClient } from "@beehiiv/sdk";
 import AbortController from "abort-controller";
 import fetch from "node-fetch";
 
-// Add required globals for the SDK
+// OBS: The AbortController is required by Beehiiv
 if (typeof global.AbortController === 'undefined') {
   global.AbortController = AbortController;
 }
+
 if (typeof global.fetch === 'undefined') {
   global.fetch = fetch;
 }
@@ -51,11 +52,9 @@ async function main(args) {
         }
       );
 
-      console.log(JSON.stringify(result));
-
       return {
         statusCode: 200,
-        body: { success: true, data: result }
+        body: { data: result }
       };
     } catch (error) {
       return {
