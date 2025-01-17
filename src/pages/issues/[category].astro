@@ -14,11 +14,11 @@ type CategoryDetails = {
   description: string;
 };
 
-type ReferencesCustomCategoryMetadata = Record<string, CategoryDetails>;
+type CommonIssuesCustomCategoryMetadata = Record<string, CategoryDetails>;
 
 export async function getStaticPaths() {
   const blogCats = await listSubDirectories({
-    path: './src/content/references',
+    path: './src/content/issues',
   });
   const params = blogCats.map((category) => ({
     params: {
@@ -29,40 +29,40 @@ export async function getStaticPaths() {
   return [...params];
 }
 
-const indexNameReferences = import.meta.env.PUBLIC_MEILISEARCH_INDEX_REFERENCES;
+const indexNameCommonIssues = import.meta.env
+  .PUBLIC_MEILISEARCH_INDEX_COMMON_ISSUES;
 
 const { category } = Astro.params;
 
-const referencesSettings = settings.site.metadata.references
-  .category as ReferencesCustomCategoryMetadata;
+const commonIssuesSettings = settings.site.metadata.commonIssues
+  .category as CommonIssuesCustomCategoryMetadata;
 
-const referencesTitle = settings.site.metadata.references.title;
-const catTitle = referencesSettings[category].title;
-const title = catTitle ? `${referencesTitle} - ${catTitle}` : referencesTitle;
+const commonIssuesTitle = settings.site.metadata.commonIssues.title;
+const catTitle = commonIssuesSettings[category].title;
+const title = catTitle
+  ? `${commonIssuesTitle} - ${catTitle}`
+  : commonIssuesTitle;
 const description =
-  referencesSettings[category].description ||
-  settings.site.metadata.references.description;
+  commonIssuesSettings[category].description ||
+  settings.site.metadata.commonIssues.description;
 
-const collection = 'references';
-const image = settings.site.metadata.references.image;
+const collection = 'issues';
+const image = settings.site.metadata.commonIssues.image;
 const slug = generateFullSlug({
-  basePath: settings.site.metadata.references.slug,
+  basePath: settings.site.metadata.commonIssues.slug,
   slug: category,
 });
 
-const allPosts: CollectionEntry<'references'>[] = (
-  await getCollection(
-    'references',
-    ({ slug }) => slug.split('/')[0] === category,
-  )
+const allPosts: CollectionEntry<'issues'>[] = (
+  await getCollection('issues', ({ slug }) => slug.split('/')[0] === category)
 ).sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf());
 ---
 
 <Layout title={title} description={description} image={image} slug={slug}>
   <main class="container min-h-container">
     <BlogHeader
-      title={referencesTitle}
-      indexName={indexNameReferences}
+      title={commonIssuesTitle}
+      indexName={indexNameCommonIssues}
       category={category}
     />
     <BlogPosts allPosts={allPosts} collection={collection} />

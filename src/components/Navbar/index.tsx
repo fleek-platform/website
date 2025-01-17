@@ -10,6 +10,7 @@ import { Button } from '../Button';
 import { AuthProvider } from '@components/AuthProvider/AuthProvider';
 import { useAuthentication } from '@components/AuthProvider/useAuthentication';
 import { ProjectDropdown } from './ProjectDropdown/ProjectDropdown';
+import { useProjects } from '@hooks/useProjects';
 
 const NavbarMobileItem: React.FC<NavMenuItem> = ({
   label,
@@ -313,15 +314,8 @@ export const Navbar: React.FC<NavbarProps> = ({
 };
 
 const SessionManagementActions: React.FC = () => {
-  const {
-    isLoggedIn,
-    isLoggingIn,
-    logout,
-    login,
-    userProjects,
-    setActiveProject,
-    activeProjectId,
-  } = useAuthentication();
+  const { isLoggedIn, isLoggingIn, logout, login } = useAuthentication();
+  const { userProjects, setActiveProject, activeProjectId } = useProjects();
 
   const handleLoginClick = (
     e?: React.MouseEvent<HTMLButtonElement | HTMLAnchorElement>,

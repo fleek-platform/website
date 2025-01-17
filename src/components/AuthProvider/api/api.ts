@@ -1,5 +1,10 @@
 import settings from '@base/settings.json';
 
+const API_BASE_URL = import.meta.env.PUBLIC_FLEEK_REST_API_URL;
+
+if (!API_BASE_URL)
+  throw Error('Oops! Missing env var PUBLIC_FLEEK_REST_API_URL');
+
 export const getSubscriptions = async (
   projectId?: string,
   token?: string,
@@ -29,7 +34,7 @@ export const getSubscriptions = async (
   if (!projectId || !token) return { ok: false };
   try {
     const response = await fetch(
-      `${settings.site.auth.endpoints.subscriptions}?projectId=${projectId}`,
+      `${API_BASE_URL}${settings.site.auth.endpoints.subscriptions}?projectId=${projectId}`,
       {
         method: 'GET',
         headers: {
@@ -75,7 +80,7 @@ export const createSubscription = async (
 
   try {
     const response = await fetch(
-      `${settings.site.auth.endpoints.subscriptions}/checkout`,
+      `${API_BASE_URL}${settings.site.auth.endpoints.subscriptions}/checkout`,
       {
         method: 'POST',
         headers: {
@@ -125,13 +130,16 @@ export const getPlans = async (
 }> => {
   if (!token) return { ok: false };
   try {
-    const response = await fetch(`${settings.site.auth.endpoints.plans}`, {
-      method: 'GET',
-      headers: {
-        'Content-Type': 'application/json',
-        authorization: `Bearer ${token}`,
+    const response = await fetch(
+      `${API_BASE_URL}${settings.site.auth.endpoints.plans}`,
+      {
+        method: 'GET',
+        headers: {
+          'Content-Type': 'application/json',
+          authorization: `Bearer ${token}`,
+        },
       },
-    });
+    );
 
     if (!response.ok) {
       const errorText = await response.text();

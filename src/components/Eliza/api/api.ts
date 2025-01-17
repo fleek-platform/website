@@ -1,5 +1,7 @@
 import settings from '@base/settings.json';
 
+const API_BASE_URL = import.meta.env.PUBLIC_FLEEK_REST_API_URL;
+
 type AiAgentCreationSuccessData = {
   id: string;
   projectId: string;
@@ -27,18 +29,21 @@ export const triggerDeployment = async (
 
   try {
     const { name } = JSON.parse(characterFile);
-    const response = await fetch(settings.elizaPage.endpoints.aiAgents, {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-        Authorization: `Bearer ${token}`,
+    const response = await fetch(
+      `${API_BASE_URL}${settings.elizaPage.endpoints.aiAgents}`,
+      {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          Authorization: `Bearer ${token}`,
+        },
+        body: JSON.stringify({
+          config: characterFile,
+          projectId,
+          name,
+        }),
       },
-      body: JSON.stringify({
-        config: characterFile,
-        projectId,
-        name,
-      }),
-    });
+    );
 
     if (!response.ok) {
       const errorText = await response.text();
@@ -63,15 +68,11 @@ export const triggerDeployment = async (
 
 type DeploymentStepStatus = 'true' | 'false';
 
-interface DeploymentStatus {
-  [key: string]: DeploymentStepStatus;
-}
-
-interface DeploymentResponseData extends Record<string, 'true' | 'false'> {}
+export type DeploymentStatus = Record<string, DeploymentStepStatus>;
 
 interface DeploymentResponse {
   ok: boolean;
-  data?: DeploymentResponseData;
+  data?: DeploymentStatus;
 }
 
 export const getDeploymentStatus = async (
@@ -80,7 +81,7 @@ export const getDeploymentStatus = async (
 ): Promise<DeploymentResponse> => {
   try {
     const response = await fetch(
-      `${settings.elizaPage.endpoints.aiAgents}/${agentId}/status`,
+      `${API_BASE_URL}${settings.elizaPage.endpoints.aiAgents}/${agentId}/status`,
       {
         method: 'GET',
         headers: {
@@ -94,7 +95,7 @@ export const getDeploymentStatus = async (
       throw new Error(`HTTP error! Status: ${response.status}`);
     }
 
-    const data: DeploymentResponseData = await response.json();
+    const data: DeploymentStatus = await response.json();
 
     return {
       ok: true,
@@ -136,7 +137,7 @@ export const getAgentsByProjectId = async (
     };
   try {
     const response = await fetch(
-      `${settings.elizaPage.endpoints.aiAgents}?projectId=${projectId}`,
+      `${API_BASE_URL}${settings.elizaPage.endpoints.aiAgents}?projectId=${projectId}`,
       {
         method: 'GET',
         headers: {

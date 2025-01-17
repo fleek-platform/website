@@ -11,7 +11,7 @@ import { Image } from 'astro:assets';
 import { loadDynamicImage } from '@utils/dynamicLoadImage';
 
 export async function getStaticPaths() {
-  const docsEntries = await getCollection('references');
+  const docsEntries = await getCollection('issues');
   return docsEntries.map((entry) => ({
     params: { slug: entry.slug },
     props: { entry },
@@ -30,7 +30,7 @@ const githubEditUrlPathname = generateGitHubEditLink({
 });
 
 const fullSlug = generateFullSlug({
-  basePath: settings.site.metadata.references.slug,
+  basePath: settings.site.metadata.commonIssues.slug,
   slug,
 });
 
