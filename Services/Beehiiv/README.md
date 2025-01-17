@@ -114,7 +114,6 @@ A valid response should contain the status "validating" and any of the data can 
       "utmMedium": "",
       "utmSource": "direct"
     }
-  },
-  "success": true
+  }
 }
 ```
