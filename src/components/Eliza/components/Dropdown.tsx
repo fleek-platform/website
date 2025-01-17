@@ -34,7 +34,7 @@ const Content: React.FC<DropdownMenu.DropdownMenuContentProps> = ({
         sideOffset={props.sideOffset || 6}
         align={props.align || 'start'}
         className={cn(
-          'w-[var(--radix-dropdown-menu-trigger-width)] rounded-8 border border-elz-neutral-6 bg-elz-neutral-1 p-4 data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0 data-[state=closed]:zoom-out-95 data-[state=open]:zoom-in-[.98]',
+          'max-h-352 w-[var(--radix-dropdown-menu-trigger-width)] overflow-auto rounded-8 border border-elz-neutral-6 bg-elz-neutral-1 p-4 data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0 data-[state=closed]:zoom-out-95 data-[state=open]:zoom-in-[.98]',
           className,
         )}
         {...props}
