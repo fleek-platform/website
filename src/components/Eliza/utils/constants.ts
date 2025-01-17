@@ -34,6 +34,17 @@ export const MODEL_PROVIDER_NAMES = [
   'openrouter',
   'heurist',
   'together',
+  'eternalai',
+  'galadriel',
+  'falai',
+  'gaianet',
+  'ali_bailian',
+  'volengine',
+  'nanogpt',
+  'hyperbolic',
+  'venice',
+  'akash_chat_api',
+  'livepeer',
 ] as const;
 
 export const MODEL_PROVIDER_NAMES_MAP: Record<
@@ -92,6 +103,50 @@ export const MODEL_PROVIDER_NAMES_MAP: Record<
     label: 'Together',
     icon: '',
   },
+  eternalai: {
+    label: 'EternalAI',
+    icon: '',
+  },
+  galadriel: {
+    label: 'Galadriel',
+    icon: '',
+  },
+  falai: {
+    label: 'FalAI',
+    icon: '',
+  },
+  gaianet: {
+    label: 'GaiaNet',
+    icon: '',
+  },
+  ali_bailian: {
+    label: 'Ali Bailian',
+    icon: '',
+  },
+  volengine: {
+    label: 'VolEngine',
+    icon: '',
+  },
+  nanogpt: {
+    label: 'NanoGPT',
+    icon: '',
+  },
+  hyperbolic: {
+    label: 'Hyperbolic',
+    icon: '',
+  },
+  venice: {
+    label: 'Venice',
+    icon: '',
+  },
+  akash_chat_api: {
+    label: 'Akash Chat API',
+    icon: '',
+  },
+  livepeer: {
+    label: 'Livepeer',
+    icon: '',
+  },
 };
 
 export const CLIENT_NAMES = [
@@ -102,6 +157,7 @@ export const CLIENT_NAMES = [
   'lens',
   'auto',
   'slack',
+  'github',
 ] as const;
 
 export const CLIENTS_MAP: Record<Client, LabelAndIcon> = {
@@ -133,25 +189,78 @@ export const CLIENTS_MAP: Record<Client, LabelAndIcon> = {
     label: 'Slack',
     icon: '',
   },
+  github: {
+    label: 'Github',
+    icon: '',
+  },
 };
 
 export const SECRETS_MODEL_PROVIDER_MAP: Record<
   CharacterFormSchema['modelProvider'],
   Record<string, string>
 > = {
-  openai: { OPENAI_API_KEY: '' },
-  anthropic: { ANTHROPIC_API_KEY: '' },
-  google: { GOOGLE_GENERATIVE_AI_API_KEY: '' },
+  openai: {
+    OPENAI_API_KEY: '',
+  },
+  anthropic: {
+    ANTHROPIC_API_KEY: '',
+  },
+  google: {
+    GOOGLE_GENERATIVE_AI_API_KEY: '',
+  },
   claude_vertex: { CLAUDE_VERTEX_API_KEY: '' },
-  grok: { GROK_API_KEY: '' },
-  groq: { GROQ_API_KEY: '' },
+  grok: {
+    GROK_API_KEY: '',
+  },
+  groq: {
+    GROQ_API_KEY: '',
+  },
   llama_cloud: { LLAMA_CLOUD_API_KEY: '' },
-  llama_local: { LLAMA_LOCAL_API_KEY: '' },
-  ollama: { OLLAMA_API_KEY: '' },
-  redpill: { REDPILL_API_KEY: '' },
-  openrouter: { OPENROUTER_API_KEY: '' },
-  heurist: { HEURIST_API_KEY: '' },
+  llama_local: {
+    LLAMA_LOCAL_API_KEY: '',
+  },
+  ollama: {
+    OLLAMA_API_KEY: '',
+  },
+  redpill: {
+    REDPILL_API_KEY: '',
+  },
+  openrouter: {
+    OPENROUTER_API_KEY: '',
+  },
+  heurist: {
+    HEURIST_API_KEY: '',
+  },
   together: { TOGETHER_API_KEY: '' },
+  eternalai: {
+    ETERNALAI_API_KEY: '',
+  },
+  galadriel: { GALADRIEL_API_KEY: '' },
+  falai: {
+    FAL_API_KEY: '',
+  },
+  gaianet: {
+    GAIANET_SERVER_URL: '',
+  },
+  ali_bailian: { ALI_BAILIAN_API_KEY: '' },
+  volengine: {
+    VOLENGINE_API_URL: '',
+  },
+  nanogpt: {
+    NANOGPT_API_KEY: '',
+  },
+  hyperbolic: {
+    HYPERBOLIC_API_KEY: '',
+  },
+  venice: {
+    VENICE_API_KEY: '',
+  },
+  akash_chat_api: {
+    AKASH_CHAT_API_KEY: '',
+  },
+  livepeer: {
+    LIVEPEER_GATEWAY_URL: '',
+  },
 };
 
 export const SECRETS_CLIENT_MAP: Record<Client, Record<string, string>> = {
@@ -172,8 +281,23 @@ export const SECRETS_CLIENT_MAP: Record<Client, Record<string, string>> = {
     FARCASTER_NEYNAR_SIGNER_UUID: '',
   },
   lens: { EVM_PRIVATE_KEY: '', LENS_PROFILE_ID: '' },
-  auto: { AUTO_TOKEN: '' },
-  slack: { SLACK_TOKEN: '' },
+  auto: {},
+  slack: {
+    SLACK_TOKEN: '',
+    SLACK_APP_ID: '',
+    SLACK_CLIENT_ID: '',
+    SLACK_CLIENT_SECRET: '',
+    SLACK_SIGNING_SECRET: '',
+    SLACK_BOT_TOKEN: '',
+    SLACK_VERIFICATION_TOKEN: '',
+  },
+  github: {
+    GITHUB_OWNER: '',
+    GITHUB_REPO: '',
+    GITHUB_BRANCH: '',
+    GITHUB_PATH: '',
+    GITHUB_API_TOKEN: '',
+  },
 };
 
 export const INITIAL_FORM: CharacterFormSchema = {
