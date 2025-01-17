@@ -18,6 +18,8 @@ import { IllustrationIcon } from './components/CustomIcons.tsx';
 import { Box } from './components/Box.tsx';
 import { Text } from './components/Text.tsx';
 
+import settings from '@base/settings.json';
+
 interface ElizaCoreProps {
   isLoggedIn: UseDeployAIAgentProps['isLoggedIn'];
   isLoggingIn: UseDeployAIAgentProps['isLoggingIn'];
@@ -159,12 +161,14 @@ export const CoreEliza: React.FC<ElizaCoreProps> = ({
               : 'We found an issue'
           }
           description={
-            deploymentStatus &&
-            !Object.values(deploymentStatus).some(
-              (status) => status === 'false',
-            )
-              ? 'There was an issue with the deployment of your AI agent. Please try again, edit info from a previous step or contact Fleek support.'
-              : 'Refer to the below error to continue with your deployment. If the error requires an edit, return to a previous step before retrying.'
+            <Text as="h2" variant="description">
+              There was an issue with the deployment of your AI agent. Please
+              try again, edit info from a previous step or contact{' '}
+              <a href={settings.site.resources.supportExternalUrl}>
+                Fleek support
+              </a>
+              .
+            </Text>
           }
           customTopElement={GoBackButton}
         >
