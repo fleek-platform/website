@@ -114,7 +114,7 @@
     "id": "cm4j7dptc0001f2jrvmr35yp6",
     "name": "Fleek Langchain template",
     "slug": "fleek-langchain-template",
-    "description": "This template scaffolds a LangChain.js + Next.js starter app. It showcases how to use and combine LangChain modules for severaluse cases.  It is perfect for developers looking to build AI applications in Next.js and on Fleek seamlessly with any features they want.",
+    "description": "This template scaffolds a LangChain.js + Next.js starter app. It showcases how to use and combine LangChain modules for several use cases.  It is perfect for developers looking to build AI applications in Next.js and on Fleek seamlessly with any features they want.",
     "banner": "/images/templates/fleek-langchain-template.webp",
     "fleekDeploymentUrl": "https://app.fleek.xyz/templates/cm4j7dptc0001f2jrvmr35yp6/",
     "demoUrl": "https://langchain.on-fleek.app/",
