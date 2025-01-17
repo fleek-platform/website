@@ -1,21 +1,19 @@
 import { useCallback, useMemo } from 'react';
 import { useState } from 'react';
-
-export type DeploymentStatus = {
-  [step: string]: 'true' | 'false';
-};
+import type { DeploymentStatus } from '../api/api';
 
 export interface UseDeployAIAgentProps {
   isLoggedIn: boolean;
   isLoggingIn: boolean;
   login: () => void;
-  ensureUserSubscription: () => Promise<boolean>;
+  ensureUserSubscription: (projectId: string) => Promise<boolean>;
   triggerAgentDeployment: (
     characterfile: string,
+    projectId: string,
   ) => Promise<{ ok: boolean; agentId?: string }>;
   getAgentDeploymentStatus: (agentId: string) => Promise<{
     ok?: boolean;
-    data?: Record<string, 'true' | 'false'>;
+    data?: DeploymentStatus;
   }>;
 }
 
@@ -88,7 +86,7 @@ export const useDeployAIAgent = ({
   };
 
   const deployAgent = useCallback(
-    async (characterFile: string | undefined) => {
+    async (characterFile?: string, projectId?: string) => {
       resetDeployment();
       setIsDeploymentPending(true);
 
@@ -103,14 +101,21 @@ export const useDeployAIAgent = ({
         return false;
       }
 
-      const subscriptionResult = await ensureUserSubscription();
+      if (!projectId) {
+        setIsDeploymentPending(false);
+        return false;
+      }
+
+      const subscriptionResult = await ensureUserSubscription(projectId);
       if (!subscriptionResult) {
         setIsDeploymentPending(false);
         return false;
       }
 
-      const deploymentTriggerResult =
-        await triggerAgentDeployment(characterFile);
+      const deploymentTriggerResult = await triggerAgentDeployment(
+        characterFile,
+        projectId,
+      );
       if (!deploymentTriggerResult.ok || !deploymentTriggerResult.agentId) {
         setIsDeploymentPending(false);
         setIsDeploymentFailed(true);
