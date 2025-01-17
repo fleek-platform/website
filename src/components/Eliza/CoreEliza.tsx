@@ -182,7 +182,7 @@ export const CoreEliza: React.FC<ElizaCoreProps> = ({
   ];
 
   return (
-    <Layout className="relative">
+    <Layout className="relative" page={navigationState.page}>
       {isLoggingIn && (
         <div className="absolute z-10 flex h-full w-full items-center justify-center bg-[rgba(0,0,0,1)]">
           <IllustrationIcon className="h-304 animate-pulse pt-48" />
