@@ -37,7 +37,7 @@ const guidesCollection = createCollection('content', z.object({}));
 
 const templatesCollection = createCollection('content', z.object({}));
 
-const commonIssuesCollection = createCollection('content', z.object({}));
+const troubleshootingCollection = createCollection('content', z.object({}));
 
 const legalCollection = createCollection('content', z.object({}));
 
@@ -49,7 +49,7 @@ export const collections = {
   blog: blogCollection,
   guides: guidesCollection,
   templates: templatesCollection,
-  issues: commonIssuesCollection,
+  troubleshooting: troubleshootingCollection,
   legal: legalCollection,
   changelog: changelogCollection,
 };

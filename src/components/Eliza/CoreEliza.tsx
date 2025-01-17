@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useCallback } from 'react';
 
 import Step from './components/Step';
 import DeploymentStatus from './components/DeploymentStatus.tsx';
@@ -17,6 +17,8 @@ import { Layout } from './components/Layout.tsx';
 import { IllustrationIcon } from './components/CustomIcons.tsx';
 import { Box } from './components/Box.tsx';
 import { Text } from './components/Text.tsx';
+
+import settings from '@base/settings.json';
 
 interface ElizaCoreProps {
   isLoggedIn: UseDeployAIAgentProps['isLoggedIn'];
@@ -66,6 +68,8 @@ export const CoreEliza: React.FC<ElizaCoreProps> = ({
     },
   });
 
+  const [isDeploying, setIsDeploying] = useState(false);
+
   const handleNavigationStateChange = (newNavigationState: NavigationState) => {
     setNavigationState(newNavigationState);
   };
@@ -81,6 +85,13 @@ export const CoreEliza: React.FC<ElizaCoreProps> = ({
     </Button>
   );
 
+  const onDeployButtonClick = async (characterfile?: string) => {
+    if (isDeploying) return;
+    setIsDeploying(true);
+    await deployAgent(characterfile, projectId);
+    setIsDeploying(false);
+  };
+
   const steps = [
     /* STEP 1 - UPLOAD characterfile */
     {
@@ -90,9 +101,7 @@ export const CoreEliza: React.FC<ElizaCoreProps> = ({
         <Navigation
           navigationState={navigationState}
           handleNavigationStateChange={handleNavigationStateChange}
-          onDeployBtnClick={(characterfile) => {
-            deployAgent(characterfile);
-          }}
+          onDeployBtnClick={onDeployButtonClick}
           login={login}
           isLoggedIn={isLoggedIn}
         />
@@ -152,12 +161,14 @@ export const CoreEliza: React.FC<ElizaCoreProps> = ({
               : 'We found an issue'
           }
           description={
-            deploymentStatus &&
-            !Object.values(deploymentStatus).some(
-              (status) => status === 'false',
-            )
-              ? 'There was an issue with the deployment of your AI agent. Please try again, edit info from a previous step or contact Fleek support.'
-              : 'Refer to the below error to continue with your deployment. If the error requires an edit, return to a previous step before retrying.'
+            <Text as="h2" variant="description">
+              There was an issue with the deployment of your AI agent. Please
+              try again, edit info from a previous step or contact{' '}
+              <a href={settings.site.resources.supportExternalUrl}>
+                Fleek support
+              </a>
+              .
+            </Text>
           }
           customTopElement={GoBackButton}
         >
@@ -171,7 +182,7 @@ export const CoreEliza: React.FC<ElizaCoreProps> = ({
   ];
 
   return (
-    <Layout className="relative">
+    <Layout className="relative" page={navigationState.page}>
       {isLoggingIn && (
         <div className="absolute z-10 flex h-full w-full items-center justify-center bg-[rgba(0,0,0,1)]">
           <IllustrationIcon className="h-304 animate-pulse pt-48" />

@@ -6,7 +6,7 @@ import { FaArrowRight } from 'react-icons/fa6';
 
 export const InitialLoadingState: React.FC = () => {
   return (
-    <Layout>
+    <Layout page="getStarted">
       <Box className="gap-38">
         <Box className="items-start gap-16">
           <Text variant="secondary" className="flex h-32 items-center">

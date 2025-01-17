@@ -45,6 +45,7 @@ export const MODEL_PROVIDER_NAMES = [
   'venice',
   'akash_chat_api',
   'livepeer',
+
 ] as const;
 
 export const MODEL_PROVIDER_NAMES_MAP: Record<
@@ -103,6 +104,7 @@ export const MODEL_PROVIDER_NAMES_MAP: Record<
     label: 'Together',
     icon: '',
   },
+
   eternalai: {
     label: 'EternalAI',
     icon: '',
