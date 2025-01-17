@@ -53,7 +53,7 @@ type NewsletterSubscriberProps = {
 export const NewsletterSubscriber: React.FC<NewsletterSubscriberProps> = ({
   isLoggedIn,
 }) => {
-  const [isOpen, setIsOpen] = useState(true);
+  const [isOpen, setIsOpen] = useState(false);
   const [email, setEmail] = useState('');
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
