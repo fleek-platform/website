@@ -1,20 +1,20 @@
-import { useState, useEffect, useCallback, useMemo } from 'react';
+import { useEffect, useCallback } from 'react';
 import type { Project } from '@fleekxyz/sdk/dist-types/generated/graphqlClient/schema';
 import settings from '@base/settings.json';
 import { useCookies } from 'react-cookie';
 import toast from 'react-hot-toast';
 import { useAuthentication } from '@components/AuthProvider/useAuthentication';
+import { useQuery } from '@tanstack/react-query';
+import { queryClient } from '@utils/queryClient';
 
 const GRAPHQL_URL = import.meta.env?.PUBLIC_GRAPHQL_ENDPOINT || '';
 
 export const useProjects = () => {
   const { fetchFleekToken, isLoggedIn } = useAuthentication();
-  const [userProjects, setUserProjects] = useState<Project[] | undefined>();
   const [cookies, setCookie] = useCookies([
     settings.site.auth.activeProjectCookieKey,
   ]);
   const activeProjectId = cookies[settings.site.auth.activeProjectCookieKey];
-  const [loading, setLoading] = useState(false);
 
   const fetchGraphQLUserProjects = useCallback(
     async (token?: string): Promise<Project[] | undefined> => {
@@ -58,59 +58,44 @@ export const useProjects = () => {
     [],
   );
 
+  const { data: userProjects, isLoading } = useQuery(
+    {
+      queryKey: ['projects'],
+      queryFn: async () => {
+        const token = await fetchFleekToken();
+        if (!token) return undefined;
+        return fetchGraphQLUserProjects(token);
+      },
+      enabled: !!isLoggedIn,
+    },
+    queryClient,
+  );
+
   const setActiveProject = useCallback(
-    async (projectId?: string) => {
+    (projectId?: string) => {
       if (!projectId) return;
       setCookie(settings.site.auth.activeProjectCookieKey, projectId, {});
-      if (!userProjects) return;
-      const activeProject = userProjects.find(({ id }) => id === projectId);
+      queryClient.invalidateQueries({ queryKey: ['projects'] });
+      toast.success(`Switched project to: ${projectId}`);
+    },
+    [setCookie, queryClient],
+  );
+
+  useEffect(() => {
+    if (userProjects && activeProjectId) {
+      const activeProject = userProjects.find(
+        ({ id }) => id === activeProjectId,
+      );
       if (activeProject) {
         toast.success(`Switched project to: ${activeProject?.name}`);
       }
-    },
-    [setCookie, userProjects],
-  );
-
-  const fetchProjects = useCallback(async () => {
-    if (loading) return;
-    setLoading(true);
-    try {
-      const token = await fetchFleekToken();
-      if (!token) return;
-      const projects = await fetchGraphQLUserProjects(token);
-
-      if (projects && projects.length) {
-        setUserProjects(projects);
-        const activeProject = projects.find(({ id }) => id === activeProjectId);
-
-        if (!activeProject) {
-          setActiveProject(projects.length ? projects[0].id : undefined);
-        }
-      }
-    } catch (error) {
-      console.error('Failed to initialize user projects:', error);
-    } finally {
-      setLoading(false);
     }
-  }, [
-    activeProjectId,
-    fetchFleekToken,
-    fetchGraphQLUserProjects,
-    setActiveProject,
-    loading,
-  ]);
-
-  useEffect(() => {
-    if (!userProjects || !activeProjectId) {
-      fetchProjects();
-    }
-  }, [fetchProjects, userProjects, activeProjectId, isLoggedIn]);
+  }, [userProjects, activeProjectId]);
 
   return {
     userProjects,
     activeProjectId,
     setActiveProject,
-    loading,
-    fetchProjects,
+    loading: isLoading,
   };
 };
