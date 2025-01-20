@@ -11,7 +11,7 @@ interface SubscriptionModalProps {
   onSuccess?: (value?: boolean) => void;
   subscriptionAmount: number;
   productId?: string;
-  checkUserAmountAvailableAiModules: () => Promise<any>;
+  checkUserAmountAvailableAiModules: (projectId: string) => Promise<any>;
   createSubscription: ElizaIntegrationLayerProps['createSubscription'];
 }
 
@@ -58,7 +58,7 @@ export const SubscriptionModal: React.FC<SubscriptionModalProps> = ({
 
     const pollSubscriptionStatus = async (attempt: number) => {
       try {
-        const result = await checkUserAmountAvailableAiModules();
+        const result = await checkUserAmountAvailableAiModules(activeProjectId);
 
         if (result.hasEnoughAiModules) {
           setIsLoading(false);

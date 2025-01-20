@@ -1,16 +1,15 @@
+import { useEffect } from 'react';
 import { LoginProvider, useAuthStore } from '@fleek-platform/login-button';
 import { navbarMenu, type NavMenuItem, type NavSubMenuItem } from './config';
 import Link, { Target } from '@components/Link';
-import { useCallback, useEffect, useState } from 'react';
+import { useCallback, useState } from 'react';
 import { FaArrowRight, FaDiscord, FaXmark, FaXTwitter } from 'react-icons/fa6';
 import { cn } from '@utils/cn';
 import { RxHamburgerMenu } from 'react-icons/rx';
 import { isActivePath } from '@utils/url';
 import { Button } from '../Button';
 import { ProjectDropdown } from './ProjectDropdown/ProjectDropdown';
-// TODO: Delete as this moved to login button
-// import { useAuthStore } from '../../store/authStore';
-import { isClient } from '@utils/common';
+import { useProjects } from '@hooks/useProjects.ts';
 
 const NavbarMobileItem: React.FC<NavMenuItem> = ({
   label,
@@ -316,19 +315,16 @@ export const Navbar: React.FC<NavbarProps> = ({
 };
 
 const SessionManagementActions: React.FC = () => {
-  console.log('[debug] SessionManagementActions: 1')
-  // TODO: Decode from token, use fleek-platform/utils-token
-  const activeProjectId = '';
-  // TODO: Get from fleek-platform/login-button
-  const login = () => null;
-  const isLoggedIn = false;
-  // TODO: Modify the useAuthentication as useProjects
-  // get userProjects from the useProjects
-  const userProjects = [] as any;
-  const setActiveProject = () => null;
-  // TODO: use fleek-platform/login-button version
-  const logout = () => null;
-  const isLoggingIn = false;
+  const { accessToken, updateAccessTokenByProjectId, triggerLoginModal, loading } = useAuthStore();
+  const isLoggedIn = !!accessToken;
+  const isLoggingIn = loading;
+  const { userProjects, setActiveProject, activeProjectId,fetchProjects } = useProjects();
+  const showProjectsDropDown =
+    isLoggedIn
+    && userProjects
+    && activeProjectId;
+
+  const login = () => typeof triggerLoginModal === 'function' && triggerLoginModal(true);
 
   const handleLoginClick = (
     e?: React.MouseEvent<HTMLButtonElement | HTMLAnchorElement>,
@@ -338,133 +334,93 @@ const SessionManagementActions: React.FC = () => {
     login();
   };
 
-  const [isMounted, setIsMounted] = useState(false);
-
-  // Required due to useAuthStore
-  // alternative make useAuthStore SSR aware
-  if (!isClient) {
-    console.warn('The session management actions is client-side only!');
+  useEffect(() => {
+    if (!isLoggedIn) return;
     
-    return;
-  }
-
-  const { updateAccessTokenByProjectId, isNewUser, triggerLoginModal } = useAuthStore();
+    fetchProjects();
+  }, [isLoggedIn]);
 
   useEffect(() => {
-    console.log(`[debug] isNewUser = ${isNewUser}`)
-  }, [isNewUser])
+    if (!activeProjectId) return;
+    
+    updateAccessTokenByProjectId(activeProjectId);
+  }, [activeProjectId]);
 
   useEffect(() => {
-    setIsMounted(true);
+    const first = accessToken.slice(0, 3);
+    const last = accessToken.slice(-3);
 
-    // setTimeout(() => {
-    //   console.log('5 seconds passed...');
-    //   setTriggerLogout(true);
-    // }, 5000);
-  }, []);
-
-  if (!isMounted) {
-    return null;
-  }
-
-  console.log(`[debug] Navbar: import.meta.env.PUBLIC_GRAPHQL_ENDPOINT = ${import.meta.env.PUBLIC_GRAPHQL_ENDPOINT}`)
-  console.log(`[debug] Navbar: import.meta.env.PUBLIC_DYNAMIC_ENVIRONMENT_ID = ${import.meta.env.PUBLIC_DYNAMIC_ENVIRONMENT_ID}`)
+    console.log(`[debug] Navbar: accessToken ${first}..${last}`)
+  }, [accessToken]);
 
   return (
     <>
-      {isLoggedIn ? (
-        <>
-          {userProjects && !!userProjects && activeProjectId && (
-            <ProjectDropdown
-              projects={userProjects}
-              selectedProjectId={activeProjectId}
-              onProjectChange={setActiveProject}
-            />
-          )}
-          <Button variant="ghost" size="sm" onClick={logout}>
-            Log out
-          </Button>
-        </>
-      ) : (
-        <>
-          <LoginProvider
-            graphqlApiUrl={import.meta.env.PUBLIC_GRAPHQL_ENDPOINT}
-            dynamicEnvironmentId={import.meta.env.PUBLIC_DYNAMIC_ENVIRONMENT_ID}
-          >
-            {(props) => {
-              const { accessToken, isLoading, error, login, logout } = props;
+      <LoginProvider
+        graphqlApiUrl={import.meta.env.PUBLIC_GRAPHQL_ENDPOINT}
+        dynamicEnvironmentId={import.meta.env.PUBLIC_DYNAMIC_ENVIRONMENT_ID}
+      >
+        {(props) => {
+          const { accessToken, isLoading, error, login, logout } = props;
 
-              const handleClick = () => {
-                if (accessToken) {
-                  logout();
-                } else {
-                  login();
-                }
-              };
+          const handleClick = () => {
+            if (accessToken) {
+              logout();
+            } else {
+              login();
+            }
+          };
 
-              let buttonText = "Log in";
+          let buttonText = "Log in";
 
-              switch (true) {
-                case Boolean(error):
-                  buttonText = "Login failed";
-                  break;
-                case isLoading:
-                  buttonText = "Loading...";
-                  break;
-                // not real session, session is in the cookie, just for demo
-                case Boolean(accessToken):
-                  buttonText = "Log out";
-                  break;
+          switch (true) {
+            case Boolean(error):
+              buttonText = "Login failed";
+              break;
+            case isLoading:
+              buttonText = "Loading...";
+              break;
+            case Boolean(accessToken):
+              buttonText = "Log out";
+              break;
+          }
+
+          return (
+            <>
+              {
+                showProjectsDropDown
+                && (
+                  <ProjectDropdown
+                    projects={userProjects}
+                    selectedProjectId={activeProjectId}
+                    onProjectChange={setActiveProject}
+                  />
+                )
               }
-
-              return (
-                <>
+              <Button
+                variant="secondary"
+                size="sm"
+                onClick={handleClick}
+              >
+                {buttonText}
+              </Button>
+              {
+                !isLoggedIn
+                && (
                   <Button
-                    variant="secondary"
-                    size="sm"
-                    onClick={handleClick}
-                  >
-                    {buttonText}
-                  </Button>
-                {
-                  !accessToken && (
-                    <Button
-                      disabled={true}
-                      variant="tertiary"
-                      size="sm"
-                      onClick={handleLoginClick}
-                      href="https://app.fleek.xyz/"
-                    >
-                      Sign up
-                    </Button>                    
-                  )
-                }
-                {
-                  accessToken && (
-                    <Button
-                      variant="secondary"
-                      size="sm"
-                      onClick={() => updateAccessTokenByProjectId('cls9918b70000jn09qnzfj2gx')}
-                    >
-                     Upd ProjectId
-                    </Button>                    
-                  )
-                }
-                  <Button
-                    disabled={true}
+                    disabled={isLoggingIn}
                     variant="tertiary"
                     size="sm"
-                    onClick={() => typeof triggerLoginModal === 'function' && triggerLoginModal(true)}
+                    onClick={handleLoginClick}
                     href="https://app.fleek.xyz/"
                   >
-                    Show login
+                  Sign up
                   </Button>
-                </>
-              );
-            }}
-          </LoginProvider>
-        </>
-      )}
+                )
+              }
+            </>
+          );
+        }}
+      </LoginProvider>
     </>
   );
 };

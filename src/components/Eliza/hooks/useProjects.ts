@@ -1,13 +1,13 @@
-import { useState, useEffect, useCallback, useMemo, useContext } from 'react';
+import { useState, useMemo } from 'react';
 import type { Project } from '@fleekxyz/sdk/dist-types/generated/graphqlClient/schema';
 
 import settings from '@base/settings.json';
 import { useCookies } from 'react-cookie';
 import toast from 'react-hot-toast';
-import { useAuthStore } from '../../../store/authStore';
+import { useAuthStore } from '@fleek-platform/login-button';
 
 export const useProjects = () => {
-  const { accessToken } = useAuthStore();
+  const { accessToken, loading } = useAuthStore();
 
   const [userProjects, setUserProjects] = useState<Project[] | undefined>();
   const [cookies, setCookie, removeCookie] = useCookies([
@@ -18,19 +18,11 @@ export const useProjects = () => {
     () => cookies[settings.site.auth.activeProjectCookieKey],
     [cookies[settings.site.auth.activeProjectCookieKey]],
   );
-  // const isLoggedIn = useMemo(
-  //   () => isDynamicLoggedIn && context.authState === 'logged-in',
-  //   [isDynamicLoggedIn, context.authState],
-  // );
-  const isLoggedIn = false;
-  // const isLoggingIn = useMemo(
-  //   () => context.authState === 'logging-in',
-  //   [context.authState],
-  // );
-  const isLoggingIn = false;
+  const isLoggedIn = !!accessToken;
+  const isLoggingIn = loading;
 
   const fetchGraphQLUserProjects = async (
-    token?: string,
+    accessToken?: string,
   ): Promise<Project[] | undefined> => {
     if (!accessToken) return;
 

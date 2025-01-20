@@ -5,6 +5,7 @@ import {
   getAgentsByProjectId,
   getDeploymentStatus,
   triggerDeployment,
+  type DeploymentStatus,
 } from './api/api.ts';
 import {
   SubscriptionModal,
@@ -12,7 +13,7 @@ import {
 } from './components/SubscriptionModal.tsx';
 import { useAuthStore } from '@fleek-platform/login-button';
 import { CoreEliza } from './CoreEliza.tsx';
-
+import { useProjects } from '@hooks/useProjects.ts';
 
 type getSubscriptionsType = (
   projectId?: string,
@@ -70,7 +71,6 @@ export interface ElizaIntegrationLayerProps {
   isLoggedIn: boolean;
   isLoggingIn: boolean;
   login: () => void;
-  activeProjectId: string;
   getSubscriptions: getSubscriptionsType;
   getPlans: getPlansType;
   createSubscription: (
@@ -88,11 +88,11 @@ export const ElizaIntegrationLayer: React.FC<ElizaIntegrationLayerProps> = ({
   isLoggedIn,
   isLoggingIn,
   login,
-  activeProjectId,
   getSubscriptions,
   getPlans,
   createSubscription,
 }) => {
+  const { activeProjectId } = useProjects();
   const {
     isSubscriptionModalVisible,
     openSubscriptionModal,
@@ -103,98 +103,116 @@ export const ElizaIntegrationLayer: React.FC<ElizaIntegrationLayerProps> = ({
   const subscriptionModalCallbackRef = useRef<(value?: boolean) => void>();
   const { accessToken } = useAuthStore();
 
-  const triggerAgentDeployment = useCallback(
-    async (characterfile?: string) => {
-      if (!accessToken || !characterfile) return { ok: false };
+  const triggerAgentDeployment = async (
+    characterfile: string,
+    projectId: string,
+  ) => {
+    if (!accessToken) return { ok: false };
 
-      const res = await triggerDeployment(
-        activeProjectId,
-        characterfile,
-        accessToken,
-      );
+    const res = await triggerDeployment(
+      projectId,
+      characterfile,
+      accessToken,
+    );
 
-      return {
-        ok: res.ok,
-        agentId: res?.data?.agentId ?? undefined,
-      };
-    },
-    [activeProjectId, accessToken],
-  );
+    return {
+      ok: res.ok,
+      agentId: res?.data?.agentId ?? undefined,
+    };
+  };
 
-  const getAgentDeploymentStatus = useCallback(
-    async (agentId: string) => {
-      if (!accessToken) {
-        return { ok: false, data: {} as Record<string, 'true' | 'false'> };
-      }
-
-      const res = await getDeploymentStatus(agentId, accessToken);
-      if (!res.ok || !res?.data) {
-        return { ok: false, data: {} as Record<string, 'true' | 'false'> };
-      }
-
-      return {
-        ok: true,
-        data: res.data,
-      };
-    },
-    [activeProjectId, accessToken],
-  );
-
-  const checkUserAmountAvailableAiModules = useCallback(async () => {
-    if (!accessToken) return { hasEnoughAiModules: false, amount: 0 };
-
-    const [plans, activeSubscriptions, projectAiAgents] = await Promise.all([
-      getPlans(accessToken),
-      getSubscriptions(activeProjectId, accessToken),
-      getAgentsByProjectId(activeProjectId, accessToken),
-    ]);
-
-    if (
-      !plans.ok ||
-      !plans.data ||
-      !activeSubscriptions.ok ||
-      !projectAiAgents.ok ||
-      !projectAiAgents.data
-    ) {
-      console.error(
-        "it wasn't possible to fetch plans, active subscriptions or project ai agents",
-        { plans, activeSubscriptions, projectAiAgents },
-      );
-      return { hasEnoughAiModules: false, amount: 0 };
+  const getAgentDeploymentStatus = async (
+    agentId: string,
+  ) => {
+    if (!accessToken) {
+      return { ok: false, data: {} as DeploymentStatus };
     }
 
-    const aiAgentProduct = plans.data?.find(
-      (p) => p.name.toLowerCase() === 'ai agent',
-    );
-    const aiAgentSubscription = activeSubscriptions.data
-      ?.filter((sub) => sub.status.toLowerCase() === 'active')
-      .find((sub) => sub.productId === aiAgentProduct?.id);
-    const aiAgentSubscriptionItem = aiAgentSubscription?.items.find(
-      (sub) => sub.productId === aiAgentProduct?.id,
+    const res = await getDeploymentStatus(
+      agentId,
+      accessToken,
     );
 
-    return aiAgentSubscriptionItem
-      ? {
-          hasEnoughAiModules:
-            projectAiAgents.data?.data.length <
-            aiAgentSubscriptionItem.quantity,
-          amount: aiAgentSubscriptionItem.quantity,
-          productId: aiAgentProduct?.id,
-        }
-      : { hasEnoughAiModules: false, amount: 0, productId: aiAgentProduct?.id };
-  }, [activeProjectId, accessToken]);
+    if (!res.ok || !res?.data) {
+      return { ok: false, data: {} as DeploymentStatus };
+    }
 
-  const ensureUserSubscription = useCallback(async (): Promise<boolean> => {
-    const { hasEnoughAiModules, amount, productId } =
-      await checkUserAmountAvailableAiModules();
+    return {
+      ok: true,
+      data: res.data,
+    };
+  };
 
+  const checkUserAmountAvailableAiModules = async (projectId: string) => {
+    if (!accessToken) return { hasEnoughAiModules: false, amount: 0 };
+
+    try {
+      const [plans, activeSubscriptions, projectAiAgents] = await Promise.all([
+        getPlans(accessToken),
+        getSubscriptions(projectId, accessToken),
+        getAgentsByProjectId(projectId, accessToken),
+      ]);
+
+      if (
+        !plans.ok ||
+        !plans.data ||
+        !activeSubscriptions.ok ||
+        !projectAiAgents.ok ||
+        !projectAiAgents.data
+      ) {
+        console.error(
+          "it wasn't possible to fetch plans, active subscriptions or project ai agents",
+          { plans, activeSubscriptions, projectAiAgents },
+        );
+        return { hasEnoughAiModules: false, amount: 0 };
+      }
+
+      const aiAgentProduct = plans.data?.find(
+        (p) => p.name.toLowerCase() === 'ai agent',
+      );
+      const aiAgentSubscription = activeSubscriptions.data
+        ?.filter((sub) => sub.status.toLowerCase() === 'active')
+        .find((sub) => sub.productId === aiAgentProduct?.id);
+      const aiAgentSubscriptionItem = aiAgentSubscription?.items.find(
+        (sub) => sub.productId === aiAgentProduct?.id,
+      );
+
+      return aiAgentSubscriptionItem
+        ? {
+            hasEnoughAiModules:
+              projectAiAgents.data?.data.length <
+              aiAgentSubscriptionItem.quantity,
+            amount: aiAgentSubscriptionItem.quantity,
+            productId: aiAgentProduct?.id,
+          }
+        : {
+            hasEnoughAiModules: false,
+            amount: 0,
+            productId: aiAgentProduct?.id,
+          };
+    } catch (error) {
+      console.error(
+        "it wasn't possible to check user amount available ai modules",
+        error,
+      );
+      return false;
+    }
+  };
+
+  const ensureUserSubscription = async (
+    projectId: string,
+  ): Promise<boolean> => {
+    const res = await checkUserAmountAvailableAiModules(projectId);
+    if (!res) return false;
+
+    const { hasEnoughAiModules, amount, productId } = res;
     if (!hasEnoughAiModules && productId) {
       openSubscriptionModal(amount, productId);
       return false;
     }
 
     return true;
-  }, [activeProjectId]);
+  };
 
   return (
     <>

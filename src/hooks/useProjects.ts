@@ -1,20 +1,20 @@
-import { useState, useEffect, useCallback, useMemo } from 'react';
+import { useState, useEffect, useCallback } from 'react';
 import type { Project } from '@fleekxyz/sdk/dist-types/generated/graphqlClient/schema';
 import settings from '@base/settings.json';
 import { useCookies } from 'react-cookie';
 import toast from 'react-hot-toast';
-import { useAuthentication } from '@components/AuthProvider/useAuthentication';
+import { useAuthStore } from '@fleek-platform/login-button';
 
 const GRAPHQL_URL = import.meta.env?.PUBLIC_GRAPHQL_ENDPOINT || '';
 
 export const useProjects = () => {
-  const { fetchFleekToken, isLoggedIn } = useAuthentication();
   const [userProjects, setUserProjects] = useState<Project[] | undefined>();
   const [cookies, setCookie] = useCookies([
     settings.site.auth.activeProjectCookieKey,
   ]);
   const activeProjectId = cookies[settings.site.auth.activeProjectCookieKey];
   const [loading, setLoading] = useState(false);
+  const { accessToken } = useAuthStore();
 
   const fetchGraphQLUserProjects = useCallback(
     async (token?: string): Promise<Project[] | undefined> => {
@@ -71,13 +71,13 @@ export const useProjects = () => {
     [setCookie, userProjects],
   );
 
-  const fetchProjects = useCallback(async () => {
-    if (loading) return;
+  const fetchProjects = async () => {
+    if (loading || !accessToken) return;
+
     setLoading(true);
+
     try {
-      const token = await fetchFleekToken();
-      if (!token) return;
-      const projects = await fetchGraphQLUserProjects(token);
+      const projects = await fetchGraphQLUserProjects(accessToken);
 
       if (projects && projects.length) {
         setUserProjects(projects);
@@ -92,19 +92,13 @@ export const useProjects = () => {
     } finally {
       setLoading(false);
     }
-  }, [
-    activeProjectId,
-    fetchFleekToken,
-    fetchGraphQLUserProjects,
-    setActiveProject,
-    loading,
-  ]);
+  };
 
   useEffect(() => {
     if (!userProjects || !activeProjectId) {
       fetchProjects();
     }
-  }, [fetchProjects, userProjects, activeProjectId, isLoggedIn]);
+  }, [fetchProjects, userProjects, activeProjectId]);
 
   return {
     userProjects,

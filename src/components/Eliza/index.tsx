@@ -5,6 +5,7 @@ import {
   getAgentsByProjectId,
   getDeploymentStatus,
   triggerDeployment,
+  createSubscription,
 } from './api/api.ts';
 import {
   SubscriptionModal,
@@ -15,8 +16,7 @@ import { CoreEliza } from './CoreEliza.tsx';
 import {
   getPlans,
   getSubscriptions,
-} from '@components/AuthProvider/api/api.ts';
-import { createSubscription } from '@components/AuthProvider/api/api';
+} from '@components/Eliza/api/api.ts';
 
 export const ElizaIntegration: React.FC = () => {
   const { isLoggedIn, isLoggingIn, login, activeProjectId } =

@@ -2,16 +2,12 @@ import { useProjects } from '@components/Eliza/hooks/useProjects';
 import {
   getPlans,
   getSubscriptions,
-} from '@components/AuthProvider/api/api.ts';
-import { createSubscription } from '@components/AuthProvider/api/api';
+  createSubscription,
+} from '@components/Eliza/api/api.ts';
 import { useAuthStore } from '@fleek-platform/login-button';
-
-// Import local implementation for now.
-// In the future will import package implementation with the same interface.
 import ElizaIntegrationLayer from '@components/Eliza/ElizaIntegrationLayer.tsx';
 
 export const AgentsUIIntegration: React.FC = () => {
-  console.log('[debug] AgentsUI: 1')
   const { activeProjectId, isLoggedIn, isLoggingIn } =
     useProjects();
   const { triggerLoginModal } = useAuthStore();
