@@ -1,10 +1,11 @@
 import type React from 'react';
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { Modal } from './Modal';
 import { Text } from './Text';
 import { Input } from './Input';
 import { Box } from './Box';
 import { Button } from './Button';
+import { Checkbox } from './Checkbox';
 
 const NEWSLETTER_URL = import.meta.env.PUBLIC_BEEHIIV_PROXY_SERVER_URL;
 
@@ -29,7 +30,7 @@ const subscribeNewUser = async (email: string) => {
       body: payload,
     });
   } catch (e) {
-    console.warn({ status: 'user could not be subscribed', error: e });
+    console.error({ status: 'user could not be subscribed', error: e });
   }
 };
 
@@ -57,13 +58,12 @@ export const NewsletterSubscriber: React.FC<NewsletterSubscriberProps> = ({
   isLoggedIn,
 }) => {
   const [isOpen, setIsOpen] = useState(false);
+  const [consent, setConsent] = useState(true);
   const [email, setEmail] = useState('');
 
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-    setIsOpen(false);
-    subscribeNewUser(email);
-  };
+  const emailRef = useRef('');
+  const isFormVisible = Boolean(!emailRef.current) && consent;
+  const buttonLabel = consent ? 'Continue' : 'Close';
 
   useEffect(() => {
     if (!isLoggedIn) return;
@@ -72,13 +72,33 @@ export const NewsletterSubscriber: React.FC<NewsletterSubscriberProps> = ({
     const newUser = onNewUserCheck(dynamicStore);
     if (!newUser) return;
 
-    if (newUser.isPendingEmail) {
-      setIsOpen(true);
+    emailRef.current = newUser.email;
+    if (newUser.email) {
+      setEmail(newUser.email);
+    }
+
+    setIsOpen(true);
+  }, [isLoggedIn]);
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setEmail(e.currentTarget.value);
+  };
+
+  const handleCheckedChange = (checked: boolean) => {
+    setConsent(checked);
+  };
+
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+
+    if (!consent) {
+      setIsOpen(false);
       return;
     }
 
-    subscribeNewUser(newUser.email);
-  }, [isLoggedIn]);
+    setIsOpen(false);
+    subscribeNewUser(email);
+  };
 
   if (!isOpen) return null;
 
@@ -86,22 +106,37 @@ export const NewsletterSubscriber: React.FC<NewsletterSubscriberProps> = ({
     <Modal isOpen={isOpen} closeModal={() => {}}>
       <form className="flex flex-col gap-16" onSubmit={handleSubmit}>
         <Text variant="description" className="text-elz-neutral-12">
-          Please add an email to continue
+          Can we send you product updates?
         </Text>
-        <Box className="gap-8">
-          <Input.Label>Email</Input.Label>
-          <Input.Root>
-            <Input.Field
-              type="email"
-              value={email}
-              onChange={(e) => setEmail(e.currentTarget.value)}
-              placeholder="Enter your email..."
-              autoFocus
-              required
-            />
-          </Input.Root>
+        <Text variant="secondary">
+          Stay in the loop with our latest product updates and expert guides —
+          spam-free, we promise! 😉
+        </Text>
+        <Box className="gap-8 pb-8">
+          {isFormVisible && (
+            <>
+              <Input.Label htmlFor="email">Email</Input.Label>
+              <Input.Root>
+                <Input.Field
+                  id="email"
+                  type="email"
+                  value={email}
+                  onChange={handleChange}
+                  placeholder="Enter your email..."
+                  required={consent}
+                  autoFocus
+                />
+              </Input.Root>
+            </>
+          )}
+          <Checkbox
+            id="consent"
+            label="Send me product updates"
+            checked={consent}
+            onCheckedChange={handleCheckedChange}
+          />
         </Box>
-        <Button>Continue</Button>
+        <Button>{buttonLabel}</Button>
       </form>
     </Modal>
   );
