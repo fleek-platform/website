@@ -1,5 +1,5 @@
 ---
-title: 'I Agent Frameworks: The Legacy and Rebirth of Eliza'
+title: 'Ai Agent Frameworks: The Legacy and Rebirth of Eliza'
 date: 2025-01-15
 desc: 'Discover the evolution of Eliza, from its origins as a 1960s chatbot to its rebirth as a cutting-edge AI agent framework. Explore its modern features like Web3 integration, decentralized governance, and one-click deployment with Fleek.'
 thumbnail: './thumbnail.jpg'
