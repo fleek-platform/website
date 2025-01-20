@@ -1,5 +1,4 @@
-// TOOD: Rev 2
-import type React from 'react';
+import { LoginProvider, useAuthStore } from '@fleek-platform/login-button';
 import { navbarMenu, type NavMenuItem, type NavSubMenuItem } from './config';
 import Link, { Target } from '@components/Link';
 import { useCallback, useEffect, useState } from 'react';
@@ -8,10 +7,10 @@ import { cn } from '@utils/cn';
 import { RxHamburgerMenu } from 'react-icons/rx';
 import { isActivePath } from '@utils/url';
 import { Button } from '../Button';
-import { AuthProvider } from '@components/AuthProvider/AuthProvider';
-import { useAuthentication } from '@components/AuthProvider/useAuthentication';
 import { ProjectDropdown } from './ProjectDropdown/ProjectDropdown';
-import { useProjects } from '@hooks/useProjects';
+// TODO: Delete as this moved to login button
+// import { useAuthStore } from '../../store/authStore';
+import { isClient } from '@utils/common';
 
 const NavbarMobileItem: React.FC<NavMenuItem> = ({
   label,
@@ -244,15 +243,19 @@ export const Navbar: React.FC<NavbarProps> = ({
   variant = 'sticky',
 }) => {
   const [hovering, setHovering] = useState<number | null>(null);
+  const [menuLock, setMenuLock] = useState(false);
   const [popoverDimensions, setPopoverDimensions] =
     useState<PopoverDimensions | null>(null);
 
+  // TODO: This is causing re-renders
+  // couldn't the hover drop-downs be CSS only?
+  // why does it have to be js based?
   const onMouseEnterSubMenu = useCallback(
     ({ idx, left, height }: OnMouseEnterSubMenuProps) => {
       setHovering(idx + 1);
       setPopoverDimensions({ left, height });
     },
-    [],
+    [setHovering, setPopoverDimensions],
   );
 
   return (
@@ -302,9 +305,7 @@ export const Navbar: React.FC<NavbarProps> = ({
           </section>
         </div>
         <section className="flex items-center gap-8">
-          <AuthProvider>
-            <SessionManagementActions />
-          </AuthProvider>
+          <SessionManagementActions />
           <div className="md:hidden">
             <NavbarMobile />
           </div>
@@ -315,8 +316,19 @@ export const Navbar: React.FC<NavbarProps> = ({
 };
 
 const SessionManagementActions: React.FC = () => {
-  const { isLoggedIn, isLoggingIn, logout, login } = useAuthentication();
-  const { userProjects, setActiveProject, activeProjectId } = useProjects();
+  console.log('[debug] SessionManagementActions: 1')
+  // TODO: Decode from token, use fleek-platform/utils-token
+  const activeProjectId = '';
+  // TODO: Get from fleek-platform/login-button
+  const login = () => null;
+  const isLoggedIn = false;
+  // TODO: Modify the useAuthentication as useProjects
+  // get userProjects from the useProjects
+  const userProjects = [] as any;
+  const setActiveProject = () => null;
+  // TODO: use fleek-platform/login-button version
+  const logout = () => null;
+  const isLoggingIn = false;
 
   const handleLoginClick = (
     e?: React.MouseEvent<HTMLButtonElement | HTMLAnchorElement>,
@@ -328,13 +340,35 @@ const SessionManagementActions: React.FC = () => {
 
   const [isMounted, setIsMounted] = useState(false);
 
+  // Required due to useAuthStore
+  // alternative make useAuthStore SSR aware
+  if (!isClient) {
+    console.warn('The session management actions is client-side only!');
+    
+    return;
+  }
+
+  const { updateAccessTokenByProjectId, isNewUser, triggerLoginModal } = useAuthStore();
+
+  useEffect(() => {
+    console.log(`[debug] isNewUser = ${isNewUser}`)
+  }, [isNewUser])
+
   useEffect(() => {
     setIsMounted(true);
+
+    // setTimeout(() => {
+    //   console.log('5 seconds passed...');
+    //   setTriggerLogout(true);
+    // }, 5000);
   }, []);
 
   if (!isMounted) {
     return null;
   }
+
+  console.log(`[debug] Navbar: import.meta.env.PUBLIC_GRAPHQL_ENDPOINT = ${import.meta.env.PUBLIC_GRAPHQL_ENDPOINT}`)
+  console.log(`[debug] Navbar: import.meta.env.PUBLIC_DYNAMIC_ENVIRONMENT_ID = ${import.meta.env.PUBLIC_DYNAMIC_ENVIRONMENT_ID}`)
 
   return (
     <>
@@ -353,24 +387,82 @@ const SessionManagementActions: React.FC = () => {
         </>
       ) : (
         <>
-          <Button
-            disabled={isLoggingIn}
-            variant="secondary"
-            size="sm"
-            onClick={handleLoginClick}
-            href="https://app.fleek.xyz/"
+          <LoginProvider
+            graphqlApiUrl={import.meta.env.PUBLIC_GRAPHQL_ENDPOINT}
+            dynamicEnvironmentId={import.meta.env.PUBLIC_DYNAMIC_ENVIRONMENT_ID}
           >
-            Log in
-          </Button>
-          <Button
-            disabled={isLoggingIn}
-            variant="tertiary"
-            size="sm"
-            onClick={handleLoginClick}
-            href="https://app.fleek.xyz/"
-          >
-            Sign up
-          </Button>
+            {(props) => {
+              const { accessToken, isLoading, error, login, logout } = props;
+
+              const handleClick = () => {
+                if (accessToken) {
+                  logout();
+                } else {
+                  login();
+                }
+              };
+
+              let buttonText = "Log in";
+
+              switch (true) {
+                case Boolean(error):
+                  buttonText = "Login failed";
+                  break;
+                case isLoading:
+                  buttonText = "Loading...";
+                  break;
+                // not real session, session is in the cookie, just for demo
+                case Boolean(accessToken):
+                  buttonText = "Log out";
+                  break;
+              }
+
+              return (
+                <>
+                  <Button
+                    variant="secondary"
+                    size="sm"
+                    onClick={handleClick}
+                  >
+                    {buttonText}
+                  </Button>
+                {
+                  !accessToken && (
+                    <Button
+                      disabled={true}
+                      variant="tertiary"
+                      size="sm"
+                      onClick={handleLoginClick}
+                      href="https://app.fleek.xyz/"
+                    >
+                      Sign up
+                    </Button>                    
+                  )
+                }
+                {
+                  accessToken && (
+                    <Button
+                      variant="secondary"
+                      size="sm"
+                      onClick={() => updateAccessTokenByProjectId('cls9918b70000jn09qnzfj2gx')}
+                    >
+                     Upd ProjectId
+                    </Button>                    
+                  )
+                }
+                  <Button
+                    disabled={true}
+                    variant="tertiary"
+                    size="sm"
+                    onClick={() => typeof triggerLoginModal === 'function' && triggerLoginModal(true)}
+                    href="https://app.fleek.xyz/"
+                  >
+                    Show login
+                  </Button>
+                </>
+              );
+            }}
+          </LoginProvider>
         </>
       )}
     </>
