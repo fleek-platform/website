@@ -346,6 +346,7 @@ const SessionManagementActions: React.FC = () => {
     updateAccessTokenByProjectId(activeProjectId);
   }, [activeProjectId]);
 
+  // TODO: Delete after debugging
   useEffect(() => {
     const first = accessToken.slice(0, 3);
     const last = accessToken.slice(-3);
