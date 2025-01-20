@@ -99,6 +99,7 @@ export const ElizaIntegrationLayer: React.FC<ElizaIntegrationLayerProps> = ({
     productId,
   } = useSubscriptionModal();
   const subscriptionModalCallbackRef = useRef<(value?: boolean) => void>();
+  // TODO: The store can be passed from direct parent container/component relationship
   const { accessToken, projectId: activeProjectId } = useAuthStore();
 
   const triggerAgentDeployment = async (

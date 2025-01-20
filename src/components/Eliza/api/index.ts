@@ -1,3 +1,5 @@
+// TODO: Prefer to provide settings from Eliza context
+// at the moment is coming from host app
 import settings from '@base/settings.json';
 
 const API_BASE_URL = import.meta.env.PUBLIC_FLEEK_REST_API_URL;
@@ -29,6 +31,9 @@ export const triggerDeployment = async (
 
   try {
     const { name } = JSON.parse(characterFile);
+    // TODO: Should use lib rest-api
+    // also, the endpoint settings should come from eliza scope
+    // not the host app
     const response = await fetch(
       `${API_BASE_URL}${settings.elizaPage.endpoints.aiAgents}`,
       {
@@ -192,6 +197,9 @@ export const getSubscriptions = async (
   if (!projectId || !token) return { ok: false };
   try {
     const response = await fetch(
+        // TODO: Should use lib rest-api
+        // also, the endpoint settings should come from eliza scope
+        // not the host app
       `${API_BASE_URL}${settings.site.auth.endpoints.subscriptions}?projectId=${projectId}`,
       {
         method: 'GET',
@@ -238,6 +246,9 @@ export const createSubscription = async (
 
   try {
     const response = await fetch(
+      // TODO: Should use lib rest-api
+      // also, the endpoint settings should come from eliza scope
+      // not the host app
       `${API_BASE_URL}${settings.site.auth.endpoints.subscriptions}/checkout`,
       {
         method: 'POST',
@@ -289,6 +300,9 @@ export const getPlans = async (
   if (!token) return { ok: false };
   try {
     const response = await fetch(
+      // TODO: Should use lib rest-api
+      // also, the endpoint settings should come from eliza scope
+      // not the host app
       `${API_BASE_URL}${settings.site.auth.endpoints.plans}`,
       {
         method: 'GET',

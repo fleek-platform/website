@@ -9,6 +9,8 @@ import ElizaIntegrationLayer from '@components/Eliza/ElizaIntegrationLayer.tsx';
 export const AgentsUIIntegration: React.FC = () => {
   const { triggerLoginModal, accessToken, loading } = useAuthStore();
   const login = () => typeof triggerLoginModal === 'function' && triggerLoginModal(true);
+
+  // TODO: Provide these pre-computed from login-button
   const isLoggedIn = !!accessToken;
   const isLoggingIn = loading;
   
