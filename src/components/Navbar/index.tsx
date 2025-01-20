@@ -1,3 +1,4 @@
+// TOOD: Rev 2
 import type React from 'react';
 import { navbarMenu, type NavMenuItem, type NavSubMenuItem } from './config';
 import Link, { Target } from '@components/Link';
