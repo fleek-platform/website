@@ -1,6 +1,7 @@
 import { useCallback, useMemo } from 'react';
 import { useState } from 'react';
 import type { DeploymentStatus } from '../api';
+import trackingUtils from '@components/Tracking/trackingUtils';
 
 export interface UseDeployAIAgentProps {
   isLoggedIn: boolean;
@@ -37,6 +38,9 @@ export const useDeployAIAgent = ({
 
   const pollDeploymentStatus = async (agentId: string) => {
     const MAX_ATTEMPTS = 15;
+    trackingUtils.trackCustomEvent(
+      'agent-ui-wizard.deployment-status-polling-started',
+    );
 
     const poll = async (attempt: number) => {
       try {
@@ -67,7 +71,16 @@ export const useDeployAIAgent = ({
             setIsDeploymentFailed(hasFailed);
             setIsDeploymentSuccessful(isSuccessful);
             if (isSuccessful) {
+              trackingUtils.trackCustomEvent(
+                'agent-ui-wizard.deployment-status-polling-completed',
+                { msg: 'success' },
+              );
               setDeployedAgentId(agentId || undefined);
+            } else {
+              trackingUtils.trackCustomEvent(
+                'agent-ui-wizard.deployment-status-polling-completed',
+                { msg: 'failure' },
+              );
             }
           } else {
             setTimeout(() => poll(attempt + 1), POLLING_TIME);
@@ -89,25 +102,44 @@ export const useDeployAIAgent = ({
     async (characterFile?: string, projectId?: string) => {
       resetDeployment();
       setIsDeploymentPending(true);
+      trackingUtils.trackCustomEvent(
+        'agent-ui-wizard.deployment-validation-started',
+      );
 
       if (!characterFile) {
+        trackingUtils.trackCustomEvent(
+          'agent-ui-wizard.deployment-validation-failed',
+          { msg: 'No characterfile provided' },
+        );
         setIsDeploymentPending(false);
         return false;
       }
 
       if (!isLoggedIn) {
+        trackingUtils.trackCustomEvent(
+          'agent-ui-wizard.deployment-validation-failed',
+          { msg: 'Not logged in' },
+        );
         login();
         setIsDeploymentPending(false);
         return false;
       }
 
       if (!projectId) {
+        trackingUtils.trackCustomEvent(
+          'agent-ui-wizard.deployment-validation-failed',
+          { msg: 'No project ID provided' },
+        );
         setIsDeploymentPending(false);
         return false;
       }
 
       const subscriptionResult = await ensureUserSubscription(projectId);
       if (!subscriptionResult) {
+        trackingUtils.trackCustomEvent(
+          'agent-ui-wizard.deployment-validation-failed',
+          { msg: 'User has not enough subscriptions' },
+        );
         setIsDeploymentPending(false);
         return false;
       }
@@ -117,11 +149,18 @@ export const useDeployAIAgent = ({
         projectId,
       );
       if (!deploymentTriggerResult.ok || !deploymentTriggerResult.agentId) {
+        trackingUtils.trackCustomEvent(
+          'agent-ui-wizard.deployment-validation-failed',
+          { msg: 'Failed to trigger agent deployment' },
+        );
         setIsDeploymentPending(false);
         setIsDeploymentFailed(true);
         return false;
       }
 
+      trackingUtils.trackCustomEvent(
+        'agent-ui-wizard.deployment-validation-success',
+      );
       pollDeploymentStatus(deploymentTriggerResult.agentId);
       return true;
     },

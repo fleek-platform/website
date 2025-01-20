@@ -11,6 +11,7 @@ import type { UseDeployAIAgentProps } from '../hooks/useDeployAIAgent';
 import { SettingsPage } from './SettingsPage';
 import { ReviewPage } from './ReviewPage';
 import { UploadPage } from './UploadPage';
+import trackingUtils from '@components/Tracking/trackingUtils';
 
 type NavigationProps = {
   onDeployBtnClick: (characterfile: string | undefined) => void;
@@ -34,6 +35,10 @@ export const Navigation: React.FC<NavigationProps> = ({
   };
 
   const goTo = (page: Page, options?: Options) => {
+    trackingUtils.trackCustomEvent('agent-ui-wizard.navigation', {
+      from: navigationState.page,
+      to: page,
+    });
     if (page === 'getStarted') {
       updateState({ page, options, characterFile: undefined });
     } else {
