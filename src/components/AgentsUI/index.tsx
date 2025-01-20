@@ -2,7 +2,7 @@ import {
   getPlans,
   getSubscriptions,
   createSubscription,
-} from '@components/Eliza/api/api.ts';
+} from '@components/Eliza/api';
 import { useAuthStore } from '@fleek-platform/login-button';
 import ElizaIntegrationLayer from '@components/Eliza/ElizaIntegrationLayer.tsx';
 

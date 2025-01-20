@@ -6,7 +6,7 @@ import {
   getDeploymentStatus,
   triggerDeployment,
   type DeploymentStatus,
-} from './api/api.ts';
+} from './api';
 import {
   SubscriptionModal,
   useSubscriptionModal,
