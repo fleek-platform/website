@@ -90,13 +90,9 @@ export const NewsletterSubscriber: React.FC<NewsletterSubscriberProps> = ({
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-
-    if (!consent) {
-      setIsOpen(false);
-      return;
-    }
-
     setIsOpen(false);
+
+    if (!consent) return;
     subscribeNewUser(email);
   };
 

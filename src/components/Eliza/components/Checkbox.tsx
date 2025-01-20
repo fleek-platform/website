@@ -28,7 +28,10 @@ export const Checkbox: React.FC<CheckboxProps> = ({
         </RadixCheckbox.Indicator>
       </RadixCheckbox.Root>
       {label && (
-        <Input.Label htmlFor={props.id} className="flex-1 select-none">
+        <Input.Label
+          htmlFor={props.id}
+          className="flex-1 cursor-pointer select-none"
+        >
           {label}
         </Input.Label>
       )}
