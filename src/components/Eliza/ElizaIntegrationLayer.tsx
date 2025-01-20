@@ -1,4 +1,4 @@
-import { useCallback, useRef } from 'react';
+import { useRef } from 'react';
 import { Toaster } from 'react-hot-toast';
 
 import {
@@ -13,7 +13,6 @@ import {
 } from './components/SubscriptionModal.tsx';
 import { useAuthStore } from '@fleek-platform/login-button';
 import { CoreEliza } from './CoreEliza.tsx';
-import { useProjects } from '@hooks/useProjects.ts';
 
 type getSubscriptionsType = (
   projectId?: string,
@@ -92,7 +91,6 @@ export const ElizaIntegrationLayer: React.FC<ElizaIntegrationLayerProps> = ({
   getPlans,
   createSubscription,
 }) => {
-  const { activeProjectId } = useProjects();
   const {
     isSubscriptionModalVisible,
     openSubscriptionModal,
@@ -101,7 +99,7 @@ export const ElizaIntegrationLayer: React.FC<ElizaIntegrationLayerProps> = ({
     productId,
   } = useSubscriptionModal();
   const subscriptionModalCallbackRef = useRef<(value?: boolean) => void>();
-  const { accessToken } = useAuthStore();
+  const { accessToken, projectId: activeProjectId } = useAuthStore();
 
   const triggerAgentDeployment = async (
     characterfile: string,
