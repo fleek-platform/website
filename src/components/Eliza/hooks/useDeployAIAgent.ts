@@ -2,6 +2,7 @@ import { useCallback, useMemo } from 'react';
 import { useState } from 'react';
 import trackingUtils from '@components/Tracking/trackingUtils';
 import type { DeploymentStatus } from '../api';
+import trackingUtils from '@components/Tracking/trackingUtils';
 
 export interface UseDeployAIAgentProps {
   isLoggedIn: boolean;
