@@ -1,7 +1,5 @@
 import { useState, useEffect } from 'react';
 import type { Project } from '@fleekxyz/sdk/dist-types/generated/graphqlClient/schema';
-import settings from '@base/settings.json';
-// import { useCookies } from 'react-cookie';
 import toast from 'react-hot-toast';
 import { useAuthStore } from '@fleek-platform/login-button';
 
@@ -9,16 +7,10 @@ const GRAPHQL_URL = import.meta.env?.PUBLIC_GRAPHQL_ENDPOINT || '';
 
 export const useProjects = () => {
   const [userProjects, setUserProjects] = useState<Project[] | undefined>();
-  // const [cookies, setCookie] = useCookies([
-  //   settings.site.auth.activeProjectCookieKey,
-  // ]);
-  // const activeProjectId = cookies[settings.site.auth.activeProjectCookieKey];
   const [loading, setLoading] = useState(false);
   const { accessToken, projectId: activeProjectId, setProjectId } = useAuthStore();
 
-  console.log(`[debug] activeProjectId = ${activeProjectId}`)
-  console.log(`[debug] accessToken = ${accessToken}`)
-
+  // TODO: Move to the eliza/api file
   const fetchGraphQLUserProjects = async (token?: string): Promise<Project[] | undefined> => {
       if (!token) return;
 
@@ -57,9 +49,8 @@ export const useProjects = () => {
     };
 
   const setActiveProject = async (projectId?: string) => {
-      if (!projectId) return;
-      // setCookie(settings.site.auth.activeProjectCookieKey, projectId, {});
-      if (!userProjects) return;
+      if (!projectId || !userProjects) return;
+
       const activeProject = userProjects.find(({ id }) => id === projectId);
       if (activeProject) {
         toast.success(`Switched project to: ${activeProject?.name}`);
