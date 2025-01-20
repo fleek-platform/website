@@ -4,6 +4,7 @@ import {
   getSubscriptions,
 } from '@components/AuthProvider/api/api.ts';
 import { createSubscription } from '@components/AuthProvider/api/api';
+import { useAuthStore } from '@fleek-platform/login-button';
 
 // Import local implementation for now.
 // In the future will import package implementation with the same interface.
@@ -13,9 +14,9 @@ export const AgentsUIIntegration: React.FC = () => {
   console.log('[debug] AgentsUI: 1')
   const { activeProjectId, isLoggedIn, isLoggingIn } =
     useProjects();
-
-  const login = () => Promise.resolve();
-
+  const { triggerLoginModal } = useAuthStore();
+  const login = () => typeof triggerLoginModal === 'function' && triggerLoginModal(true);
+  
   return (
     <ElizaIntegrationLayer
       isLoggedIn={isLoggedIn}

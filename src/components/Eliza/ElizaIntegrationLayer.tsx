@@ -69,7 +69,7 @@ export interface ElizaIntegrationLayerProps {
   // auth props
   isLoggedIn: boolean;
   isLoggingIn: boolean;
-  login: () => Promise<void>;
+  login: () => void;
   activeProjectId: string;
   getSubscriptions: getSubscriptionsType;
   getPlans: getPlansType;

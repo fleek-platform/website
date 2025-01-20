@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { Bolt, LoadingSpinner } from './Icons';
 import toast from 'react-hot-toast';
 import type { ElizaIntegrationLayerProps } from '@components/Eliza/ElizaIntegrationLayer';
-import { useAuthStore } from '../../../store/authStore';
+import { useAuthStore } from '@fleek-platform/login-button';
 
 interface SubscriptionModalProps {
   isVisible: boolean;
