@@ -242,13 +242,11 @@ export const Navbar: React.FC<NavbarProps> = ({
   variant = 'sticky',
 }) => {
   const [hovering, setHovering] = useState<number | null>(null);
-  const [menuLock, setMenuLock] = useState(false);
   const [popoverDimensions, setPopoverDimensions] =
     useState<PopoverDimensions | null>(null);
 
   // TODO: This is causing re-renders
   // couldn't the hover drop-downs be CSS only?
-  // why does it have to be js based?
   const onMouseEnterSubMenu = useCallback(
     ({ idx, left, height }: OnMouseEnterSubMenuProps) => {
       setHovering(idx + 1);
@@ -354,6 +352,10 @@ const SessionManagementActions: React.FC = () => {
     console.log(`[debug] Navbar: accessToken ${first}..${last}`)
   }, [accessToken]);
 
+  // TODO: The loading process can be improved
+  // in several states: initial, project queries, etc
+  // it might be preferred to present an animation
+  // instead of text based? Create design ticket
   return (
     <>
       <LoginProvider

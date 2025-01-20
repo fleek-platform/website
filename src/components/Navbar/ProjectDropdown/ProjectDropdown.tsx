@@ -73,7 +73,6 @@ export const ProjectDropdown: React.FC<ProjectDropdownProps> = ({
   );
 
   const handleProjectChange = (projectId: string): void => {
-    console.log(`[debug] ProjectDropdown: onProjectChange: bp 1`, projectId)
     onProjectChange(projectId);
     setIsOpen(false);
   };
