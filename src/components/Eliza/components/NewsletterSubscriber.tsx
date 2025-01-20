@@ -8,6 +8,8 @@ import { Button } from './Button';
 import { Checkbox } from './Checkbox';
 
 const NEWSLETTER_URL = import.meta.env.PUBLIC_BEEHIIV_PROXY_SERVER_URL;
+const STORE_KEY = 'dynamic_store';
+const COMPLETED_KEY = 'newsletter_beehiiv_eliza_completed';
 
 const subscribeNewUser = async (email: string) => {
   if (!NEWSLETTER_URL)
@@ -34,10 +36,11 @@ const subscribeNewUser = async (email: string) => {
   }
 };
 
-const onNewUserCheck = (store: string | null) => {
-  if (!store) return;
+const newUserCheck = () => {
+  const dynamicStore = localStorage.getItem(STORE_KEY);
+  if (!dynamicStore) return;
 
-  const parsedStore = JSON.parse(store);
+  const parsedStore = JSON.parse(dynamicStore);
   if (!parsedStore.state.user) return;
 
   const isNewUser = parsedStore.state.user.newUser;
@@ -48,6 +51,12 @@ const onNewUserCheck = (store: string | null) => {
     email,
     isPendingEmail: Boolean(!email),
   };
+};
+
+const hasUserCompletedNewsletterAction = () => {
+  const newsletterStatus = localStorage.getItem(COMPLETED_KEY);
+  if (!newsletterStatus) return false;
+  return Boolean(JSON.parse(newsletterStatus));
 };
 
 type NewsletterSubscriberProps = {
@@ -67,9 +76,9 @@ export const NewsletterSubscriber: React.FC<NewsletterSubscriberProps> = ({
 
   useEffect(() => {
     if (!isLoggedIn) return;
+    if (hasUserCompletedNewsletterAction()) return;
 
-    const dynamicStore = localStorage.getItem('dynamic_store');
-    const newUser = onNewUserCheck(dynamicStore);
+    const newUser = newUserCheck();
     if (!newUser) return;
 
     emailRef.current = newUser.email;
@@ -91,6 +100,7 @@ export const NewsletterSubscriber: React.FC<NewsletterSubscriberProps> = ({
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setIsOpen(false);
+    localStorage.setItem(COMPLETED_KEY, 'true');
 
     if (!consent) return;
     subscribeNewUser(email);
