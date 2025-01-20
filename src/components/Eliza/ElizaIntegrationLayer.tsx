@@ -108,11 +108,7 @@ export const ElizaIntegrationLayer: React.FC<ElizaIntegrationLayerProps> = ({
   ) => {
     if (!accessToken) return { ok: false };
 
-    const res = await triggerDeployment(
-      projectId,
-      characterfile,
-      accessToken,
-    );
+    const res = await triggerDeployment(projectId, characterfile, accessToken);
 
     return {
       ok: res.ok,
@@ -120,17 +116,12 @@ export const ElizaIntegrationLayer: React.FC<ElizaIntegrationLayerProps> = ({
     };
   };
 
-  const getAgentDeploymentStatus = async (
-    agentId: string,
-  ) => {
+  const getAgentDeploymentStatus = async (agentId: string) => {
     if (!accessToken) {
       return { ok: false, data: {} as DeploymentStatus };
     }
 
-    const res = await getDeploymentStatus(
-      agentId,
-      accessToken,
-    );
+    const res = await getDeploymentStatus(agentId, accessToken);
 
     if (!res.ok || !res?.data) {
       return { ok: false, data: {} as DeploymentStatus };

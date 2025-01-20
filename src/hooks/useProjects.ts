@@ -8,13 +8,19 @@ const GRAPHQL_URL = import.meta.env?.PUBLIC_GRAPHQL_ENDPOINT || '';
 export const useProjects = () => {
   const [userProjects, setUserProjects] = useState<Project[] | undefined>();
   const [loading, setLoading] = useState(false);
-  const { accessToken, projectId: activeProjectId, setProjectId } = useAuthStore();
+  const {
+    accessToken,
+    projectId: activeProjectId,
+    setProjectId,
+  } = useAuthStore();
 
   // TODO: Move to the eliza/api file
-  const fetchGraphQLUserProjects = async (token?: string): Promise<Project[] | undefined> => {
-      if (!token) return;
+  const fetchGraphQLUserProjects = async (
+    token?: string,
+  ): Promise<Project[] | undefined> => {
+    if (!token) return;
 
-      const query = `query projects($filter: ProjectsPaginationInput) {
+    const query = `query projects($filter: ProjectsPaginationInput) {
         projects(filter: $filter) {
           data {
             id
@@ -24,40 +30,40 @@ export const useProjects = () => {
         }
       }`;
 
-      const options = {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-          authorization: `Bearer ${token}`,
-        },
-        body: JSON.stringify({
-          operationName: 'projects',
-          query,
-          variables: {},
-        }),
-      };
-
-      try {
-        const response = await fetch(GRAPHQL_URL, options);
-        const { data } = await response.json();
-
-        const projects = (data?.projects?.data || []) as Project[];
-        return projects;
-      } catch (error) {
-        console.error('Failed to fetch user projects:', error);
-      }
+    const options = {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        authorization: `Bearer ${token}`,
+      },
+      body: JSON.stringify({
+        operationName: 'projects',
+        query,
+        variables: {},
+      }),
     };
+
+    try {
+      const response = await fetch(GRAPHQL_URL, options);
+      const { data } = await response.json();
+
+      const projects = (data?.projects?.data || []) as Project[];
+      return projects;
+    } catch (error) {
+      console.error('Failed to fetch user projects:', error);
+    }
+  };
 
   const setActiveProject = async (projectId?: string) => {
-      if (!projectId || !userProjects) return;
+    if (!projectId || !userProjects) return;
 
-      const activeProject = userProjects.find(({ id }) => id === projectId);
-      if (activeProject) {
-        toast.success(`Switched project to: ${activeProject?.name}`);
-      }
+    const activeProject = userProjects.find(({ id }) => id === projectId);
+    if (activeProject) {
+      toast.success(`Switched project to: ${activeProject?.name}`);
+    }
 
-      setProjectId(projectId);
-    };
+    setProjectId(projectId);
+  };
 
   const fetchProjects = async () => {
     if (loading || !accessToken) return;

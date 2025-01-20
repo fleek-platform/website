@@ -197,9 +197,9 @@ export const getSubscriptions = async (
   if (!projectId || !token) return { ok: false };
   try {
     const response = await fetch(
-        // TODO: Should use lib rest-api
-        // also, the endpoint settings should come from eliza scope
-        // not the host app
+      // TODO: Should use lib rest-api
+      // also, the endpoint settings should come from eliza scope
+      // not the host app
       `${API_BASE_URL}${settings.site.auth.endpoints.subscriptions}?projectId=${projectId}`,
       {
         method: 'GET',

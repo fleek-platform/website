@@ -8,12 +8,13 @@ import ElizaIntegrationLayer from '@components/Eliza/ElizaIntegrationLayer.tsx';
 
 export const AgentsUIIntegration: React.FC = () => {
   const { triggerLoginModal, accessToken, loading } = useAuthStore();
-  const login = () => typeof triggerLoginModal === 'function' && triggerLoginModal(true);
+  const login = () =>
+    typeof triggerLoginModal === 'function' && triggerLoginModal(true);
 
   // TODO: Provide these pre-computed from login-button
   const isLoggedIn = !!accessToken;
   const isLoggingIn = loading;
-  
+
   return (
     <ElizaIntegrationLayer
       isLoggedIn={isLoggedIn}
@@ -26,9 +27,7 @@ export const AgentsUIIntegration: React.FC = () => {
   );
 };
 
-const AgentsUI: React.FC = () => (
-  <AgentsUIIntegration />
-);
+const AgentsUI: React.FC = () => <AgentsUIIntegration />;
 
 // to be used in Astro
 export default AgentsUI;

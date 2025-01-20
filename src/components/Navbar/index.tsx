@@ -313,16 +313,20 @@ export const Navbar: React.FC<NavbarProps> = ({
 };
 
 const SessionManagementActions: React.FC = () => {
-  const { accessToken, updateAccessTokenByProjectId, triggerLoginModal, loading } = useAuthStore();
+  const {
+    accessToken,
+    updateAccessTokenByProjectId,
+    triggerLoginModal,
+    loading,
+  } = useAuthStore();
   const isLoggedIn = !!accessToken;
   const isLoggingIn = loading;
-  const { userProjects, setActiveProject, activeProjectId,fetchProjects } = useProjects();
-  const showProjectsDropDown =
-    isLoggedIn
-    && userProjects
-    && activeProjectId;
+  const { userProjects, setActiveProject, activeProjectId, fetchProjects } =
+    useProjects();
+  const showProjectsDropDown = isLoggedIn && userProjects && activeProjectId;
 
-  const login = () => typeof triggerLoginModal === 'function' && triggerLoginModal(true);
+  const login = () =>
+    typeof triggerLoginModal === 'function' && triggerLoginModal(true);
 
   const handleLoginClick = (
     e?: React.MouseEvent<HTMLButtonElement | HTMLAnchorElement>,
@@ -334,13 +338,13 @@ const SessionManagementActions: React.FC = () => {
 
   useEffect(() => {
     if (!isLoggedIn) return;
-    
+
     fetchProjects();
   }, [isLoggedIn]);
 
   useEffect(() => {
     if (!activeProjectId) return;
-    
+
     updateAccessTokenByProjectId(activeProjectId);
   }, [activeProjectId]);
 
@@ -349,7 +353,7 @@ const SessionManagementActions: React.FC = () => {
     const first = accessToken.slice(0, 3);
     const last = accessToken.slice(-3);
 
-    console.log(`[debug] Navbar: accessToken ${first}..${last}`)
+    console.log(`[debug] Navbar: accessToken ${first}..${last}`);
   }, [accessToken]);
 
   // TODO: The loading process can be improved
@@ -373,53 +377,43 @@ const SessionManagementActions: React.FC = () => {
             }
           };
 
-          let buttonText = "Log in";
+          let buttonText = 'Log in';
 
           switch (true) {
             case Boolean(error):
-              buttonText = "Login failed";
+              buttonText = 'Login failed';
               break;
             case isLoading:
-              buttonText = "Loading...";
+              buttonText = 'Loading...';
               break;
             case Boolean(accessToken):
-              buttonText = "Log out";
+              buttonText = 'Log out';
               break;
           }
 
           return (
             <>
-              {
-                showProjectsDropDown
-                && (
-                  <ProjectDropdown
-                    projects={userProjects}
-                    selectedProjectId={activeProjectId}
-                    onProjectChange={setActiveProject}
-                  />
-                )
-              }
-              <Button
-                variant="secondary"
-                size="sm"
-                onClick={handleClick}
-              >
+              {showProjectsDropDown && (
+                <ProjectDropdown
+                  projects={userProjects}
+                  selectedProjectId={activeProjectId}
+                  onProjectChange={setActiveProject}
+                />
+              )}
+              <Button variant="secondary" size="sm" onClick={handleClick}>
                 {buttonText}
               </Button>
-              {
-                !isLoggedIn
-                && (
-                  <Button
-                    disabled={isLoggingIn}
-                    variant="tertiary"
-                    size="sm"
-                    onClick={handleLoginClick}
-                    href="https://app.fleek.xyz/"
-                  >
+              {!isLoggedIn && (
+                <Button
+                  disabled={isLoggingIn}
+                  variant="tertiary"
+                  size="sm"
+                  onClick={handleLoginClick}
+                  href="https://app.fleek.xyz/"
+                >
                   Sign up
-                  </Button>
-                )
-              }
+                </Button>
+              )}
             </>
           );
         }}
