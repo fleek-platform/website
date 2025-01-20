@@ -6,16 +6,19 @@ import { Input } from './Input';
 import { Box } from './Box';
 import { Button } from './Button';
 
-const NEWSLETTER_URL = import.meta.env.PUBLIC_BEEHIIV_API_URL;
+const NEWSLETTER_URL = import.meta.env.PUBLIC_BEEHIIV_PROXY_SERVER_URL;
 
-const onNewUserSubscribe = async (email: string) => {
+const subscribeNewUser = async (email: string) => {
+  if (!NEWSLETTER_URL)
+    throw Error('Missing PUBLIC_BEEHIIV_PROXY_SERVER_URL env variable');
+
   if (!email) return;
 
-  const payload = {
+  const payload = JSON.stringify({
     email,
     utmSource: 'eliza',
     sendWelcomeEmail: true,
-  };
+  });
 
   try {
     await fetch(NEWSLETTER_URL, {
@@ -23,7 +26,7 @@ const onNewUserSubscribe = async (email: string) => {
       headers: {
         'Content-Type': 'application/json',
       },
-      body: JSON.stringify(payload),
+      body: payload,
     });
   } catch (e) {
     console.warn({ status: 'user could not be subscribed', error: e });
@@ -59,7 +62,7 @@ export const NewsletterSubscriber: React.FC<NewsletterSubscriberProps> = ({
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setIsOpen(false);
-    onNewUserSubscribe(email);
+    subscribeNewUser(email);
   };
 
   useEffect(() => {
@@ -74,7 +77,7 @@ export const NewsletterSubscriber: React.FC<NewsletterSubscriberProps> = ({
       return;
     }
 
-    onNewUserSubscribe(newUser.email);
+    subscribeNewUser(newUser.email);
   }, [isLoggedIn]);
 
   if (!isOpen) return null;
