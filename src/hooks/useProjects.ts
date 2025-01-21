@@ -1,20 +1,37 @@
+// TODO: Should the @fleek-platform/login-button
+// provide the user projects drop-down? Seems likely
 import { useState, useEffect } from 'react';
 import type { Project } from '@fleekxyz/sdk/dist-types/generated/graphqlClient/schema';
 import toast from 'react-hot-toast';
 import { useAuthStore } from '@fleek-platform/login-button';
 
 const GRAPHQL_URL = import.meta.env?.PUBLIC_GRAPHQL_ENDPOINT || '';
+const FLEEK_XYZ_USER_PROJECTS_STORAGE_KEY = 'fleek-xyz-user-projects';
 
 // TODO: Add support for persistent store
 // use localStorage
 export const useProjects = () => {
-  const [userProjects, setUserProjects] = useState<Project[] | undefined>();
+  const [userProjects, setUserProjects] = useState<Project[] | undefined>(() => {
+    const stored = localStorage.getItem(FLEEK_XYZ_USER_PROJECTS_STORAGE_KEY);
+    return stored ? JSON.parse(stored) : undefined;
+  });
+
   const [loading, setLoading] = useState(false);
+
   const {
     accessToken,
     projectId: activeProjectId,
     setProjectId,
+    isLoggedIn,
   } = useAuthStore();
+
+  useEffect(() => {
+    if (userProjects) {
+      localStorage.setItem(FLEEK_XYZ_USER_PROJECTS_STORAGE_KEY, JSON.stringify(userProjects));
+    }
+  }, [userProjects]);
+
+  const clearProjectsStorage = () => localStorage.removeItem(FLEEK_XYZ_USER_PROJECTS_STORAGE_KEY);
 
   // TODO: Move to the eliza/api file
   const fetchGraphQLUserProjects = async (
@@ -96,11 +113,18 @@ export const useProjects = () => {
     }
   }, [fetchProjects, userProjects, activeProjectId]);
 
+  useEffect(() => {
+    if (isLoggedIn) return;
+
+    clearProjectsStorage();
+  }, [isLoggedIn]);
+
   return {
     userProjects,
     activeProjectId,
     setActiveProject,
     loading,
     fetchProjects,
+    clearProjectsStorage,
   };
 };
