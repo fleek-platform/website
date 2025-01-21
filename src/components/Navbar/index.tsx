@@ -10,6 +10,7 @@ import { isActivePath } from '@utils/url';
 import { Button } from '../Button';
 import { ProjectDropdown } from './ProjectDropdown/ProjectDropdown';
 import { useProjects } from '@hooks/useProjects.ts';
+import { dashboardApp } from '../../settings.json';
 
 const NavbarMobileItem: React.FC<NavMenuItem> = ({
   label,
@@ -408,7 +409,7 @@ const SessionManagementActions: React.FC = () => {
                   variant="tertiary"
                   size="sm"
                   onClick={handleLoginClick}
-                  href="https://app.fleek.xyz/"
+                  href={dashboardApp.url}
                 >
                   Sign up
                 </Button>
