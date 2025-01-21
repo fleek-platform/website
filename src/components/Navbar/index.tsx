@@ -1,5 +1,5 @@
 import { useEffect } from 'react';
-import { LoginProvider, useAuthStore } from '@fleek-platform/login-button';
+import { type AuthStore, LoginProvider, useAuthStore } from '@fleek-platform/login-button';
 import { navbarMenu, type NavMenuItem, type NavSubMenuItem } from './config';
 import Link, { Target } from '@components/Link';
 import { useCallback, useState } from 'react';
@@ -11,6 +11,8 @@ import { Button } from '../Button';
 import { ProjectDropdown } from './ProjectDropdown/ProjectDropdown';
 import { useProjects } from '@hooks/useProjects.ts';
 import { dashboardApp } from '../../settings.json';
+import type { Project } from '@fleekxyz/sdk/dist-types/generated/graphqlClient/schema';
+import { isClient } from '../../utils/common';
 
 const NavbarMobileItem: React.FC<NavMenuItem> = ({
   label,
@@ -313,16 +315,40 @@ export const Navbar: React.FC<NavbarProps> = ({
   );
 };
 
-const SessionManagementActions: React.FC = () => {
+const SessionManagementActions: React.FC = () => {  
   const {
     accessToken,
     updateAccessTokenByProjectId,
     triggerLoginModal,
     isLoggingIn,
     isLoggedIn,
-  } = useAuthStore();
-  const { userProjects, setActiveProject, activeProjectId, fetchProjects } =
-    useProjects();
+  } = (() => {
+    if (typeof window === 'undefined') {
+      return {
+        accessToken: '',
+        updateAccessTokenByProjectId: () => null,
+        triggerLoginModal: () => null,
+        isLoggingIn: true,
+        isLoggedIn: false,
+      } as unknown as AuthStore;
+    }
+    
+    return useAuthStore();
+  })();
+
+  const { userProjects, setActiveProject, activeProjectId, fetchProjects } = (() => {
+    if (!isClient) {
+      return {
+        userProjects: [],
+        setActiveProject: () => null,
+        activeProjectId: '',
+        fetchProjects: () => null,
+      } as unknown as ReturnType<typeof useProjects>;
+    }
+
+    return useProjects();
+  })();
+
   const showProjectsDropDown = isLoggedIn && userProjects && activeProjectId;
 
   const login = () =>
@@ -356,6 +382,29 @@ const SessionManagementActions: React.FC = () => {
     console.log(`[debug] Navbar: accessToken ${first}..${last}`);
   }, [accessToken]);
 
+
+
+  if (!isClient) {
+    const buttonText = 'Log in';
+
+    return (
+      <>
+        <ButtonContainer
+          showProjectsDropDown={false}
+          userProjects={userProjects || []}
+          activeProjectId={activeProjectId}
+          setActiveProject={setActiveProject}
+          buttonText={buttonText}
+          isLoggingIn={isLoggingIn}
+          isLoggedIn={isLoggedIn}
+          handleLoginClick={handleLoginClick}
+          dashboardAppUrl={dashboardApp.url}
+          handleClick={() => null}
+        />
+      </>
+    );
+  }
+
   // TODO: The loading process can be improved
   // in several states: initial, project queries, etc
   // it might be preferred to present an animation
@@ -377,6 +426,8 @@ const SessionManagementActions: React.FC = () => {
             }
           };
 
+          // TODO: Move the button text computations
+          // into the button container scope
           let buttonText = 'Log in';
 
           switch (true) {
@@ -393,31 +444,75 @@ const SessionManagementActions: React.FC = () => {
 
           return (
             <>
-              {showProjectsDropDown && (
-                <ProjectDropdown
-                  projects={userProjects}
-                  selectedProjectId={activeProjectId}
-                  onProjectChange={setActiveProject}
-                />
-              )}
-              <Button variant="secondary" size="sm" onClick={handleClick}>
-                {buttonText}
-              </Button>
-              {!isLoggedIn && (
-                <Button
-                  disabled={isLoggingIn}
-                  variant="tertiary"
-                  size="sm"
-                  onClick={handleLoginClick}
-                  href={dashboardApp.url}
-                >
-                  Sign up
-                </Button>
-              )}
+              <ButtonContainer
+                showProjectsDropDown={!!showProjectsDropDown}
+                userProjects={userProjects || []}
+                activeProjectId={activeProjectId}
+                setActiveProject={setActiveProject}
+                buttonText={buttonText}
+                isLoggingIn={isLoggingIn}
+                isLoggedIn={isLoggedIn}
+                handleLoginClick={handleLoginClick}
+                dashboardAppUrl={dashboardApp.url}
+                handleClick={handleClick}
+              />
             </>
-          );
+          )
         }}
       </LoginProvider>
+    </>
+  );
+};
+
+type ButtonContainerProps = {
+  showProjectsDropDown: boolean;
+  userProjects: Project[];
+  activeProjectId: string;
+  setActiveProject: (projectId?: string) => Promise<void>;
+  isLoggedIn: boolean;
+  isLoggingIn: boolean;
+  handleLoginClick: (e?: React.MouseEvent<HTMLButtonElement |
+ HTMLAnchorElement>) => void;
+  dashboardAppUrl: string;
+  buttonText: string;
+  handleClick: () => void;
+};
+
+const ButtonContainer: React.FC<ButtonContainerProps> = ({
+  showProjectsDropDown,
+  userProjects,
+  activeProjectId,
+  setActiveProject,
+  isLoggedIn,
+  isLoggingIn,
+  handleLoginClick,
+  dashboardAppUrl,
+  buttonText,
+  handleClick,
+}) => {
+  return (
+    <>
+      {showProjectsDropDown && (
+        <ProjectDropdown
+          projects={userProjects}
+          selectedProjectId={activeProjectId}
+          onProjectChange={setActiveProject}
+        />
+      )}
+      <Button variant="secondary" size="sm" onClick={handleClick}>
+        {buttonText}
+      </Button>
+      {!isLoggedIn && (
+        <Button
+          disabled={isLoggingIn}
+          variant="tertiary"
+          size="sm"
+          onClick={handleLoginClick}
+          href={dashboardAppUrl}
+        >
+          Sign up
+        </Button>
+      )}
     </>
   );
 };

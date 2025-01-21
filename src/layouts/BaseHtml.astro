@@ -190,7 +190,7 @@ const metaTitle = ogMeta['custom_title'] ?? ogMeta?.title;
         <>
           {!hideAnnouncement && <Announcement client:load />}
           <Navbar
-            client:only="react"
+            client:load
             pathname={Astro.url.pathname}
             className={cn(
               'max-w-[1024px] transition-all xl:max-w-[1066px] 2xl:max-w-[1300px]',

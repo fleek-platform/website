@@ -13,7 +13,7 @@ import Footer from '@components/Footer';
 ---
 
 <LandingPageHtml>
-  <Navbar pathname={Astro.url.pathname} client:only="react" />
+  <Navbar pathname={Astro.url.pathname} client:load />
   <Hero />
   <Partners />
   <DeployOnFleek />
