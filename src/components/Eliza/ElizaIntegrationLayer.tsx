@@ -67,6 +67,8 @@ type CreateSubscriptionResponse = {
 
 export interface ElizaIntegrationLayerProps {
   // auth props
+  accessToken?: string;
+  activeProjectId?: string;
   isLoggedIn: boolean;
   isLoggingIn: boolean;
   login: () => void;
@@ -84,6 +86,8 @@ export interface ElizaIntegrationLayerProps {
 /** Package will define and export this component. */
 
 export const ElizaIntegrationLayer: React.FC<ElizaIntegrationLayerProps> = ({
+  accessToken,
+  activeProjectId,
   isLoggedIn,
   isLoggingIn,
   login,
@@ -99,9 +103,6 @@ export const ElizaIntegrationLayer: React.FC<ElizaIntegrationLayerProps> = ({
     productId,
   } = useSubscriptionModal();
   const subscriptionModalCallbackRef = useRef<(value?: boolean) => void>();
-  // TODO: The store can be passed from direct parent container/component relationship
-  const { accessToken, projectId: activeProjectId } = useAuthStore();
-
   const triggerAgentDeployment = async (
     characterfile: string,
     projectId: string,
@@ -151,7 +152,7 @@ export const ElizaIntegrationLayer: React.FC<ElizaIntegrationLayerProps> = ({
         !projectAiAgents.data
       ) {
         console.error(
-          "it wasn't possible to fetch plans, active subscriptions or project ai agents",
+          "Failed to fetch plans, active subscriptions or project AI agents",
           { plans, activeSubscriptions, projectAiAgents },
         );
         return { hasEnoughAiModules: false, amount: 0 };
@@ -182,7 +183,7 @@ export const ElizaIntegrationLayer: React.FC<ElizaIntegrationLayerProps> = ({
           };
     } catch (error) {
       console.error(
-        "it wasn't possible to check user amount available ai modules",
+        "Failed to check user amount available ai modules",
         error,
       );
       return false;
