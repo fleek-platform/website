@@ -11,7 +11,6 @@ import {
   SubscriptionModal,
   useSubscriptionModal,
 } from './components/SubscriptionModal.tsx';
-import { useAuthStore } from '@fleek-platform/login-button';
 import { CoreEliza } from './CoreEliza.tsx';
 
 type getSubscriptionsType = (

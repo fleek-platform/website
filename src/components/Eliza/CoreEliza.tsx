@@ -18,7 +18,7 @@ import { IllustrationIcon } from './components/CustomIcons.tsx';
 import { Box } from './components/Box.tsx';
 import { Text } from './components/Text.tsx';
 
-import settings from '@base/settings.json';
+import { pages } from './settings';
 
 interface ElizaCoreProps {
   isLoggedIn: UseDeployAIAgentProps['isLoggedIn'];
@@ -164,7 +164,7 @@ export const CoreEliza: React.FC<ElizaCoreProps> = ({
             <Text as="h2" variant="description">
               There was an issue with the deployment of your AI agent. Please
               try again, edit info from a previous step or contact{' '}
-              <a href={settings.site.resources.supportExternalUrl}>
+              <a href={pages.supportExternalUrl}>
                 Fleek support
               </a>
               .

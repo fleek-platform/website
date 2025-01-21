@@ -17,4 +17,5 @@ export const pages = {
       "template": "https://fleek.xyz/guides/eliza-guide/#use-a-predefined-template",
     },
   },
+  "supportExternalUrl": "https://support.fleek.xyz/hc/en-us",
 }
