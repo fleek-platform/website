@@ -317,7 +317,6 @@ export const Navbar: React.FC<NavbarProps> = ({
 
 const SessionManagementActions: React.FC = () => {  
   const {
-    accessToken,
     updateAccessTokenByProjectId,
     triggerLoginModal,
     isLoggingIn,
