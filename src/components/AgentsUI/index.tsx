@@ -7,13 +7,9 @@ import { useAuthStore } from '@fleek-platform/login-button';
 import ElizaIntegrationLayer from '@components/Eliza/ElizaIntegrationLayer.tsx';
 
 export const AgentsUIIntegration: React.FC = () => {
-  const { triggerLoginModal, accessToken, loading } = useAuthStore();
+  const { triggerLoginModal, accessToken, isLoggingIn, isLoggedIn } = useAuthStore();
   const login = () =>
     typeof triggerLoginModal === 'function' && triggerLoginModal(true);
-
-  // TODO: Provide these pre-computed from login-button
-  const isLoggedIn = !!accessToken;
-  const isLoggingIn = loading;
 
   return (
     <ElizaIntegrationLayer
