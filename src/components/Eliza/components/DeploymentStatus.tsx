@@ -1,6 +1,6 @@
 import { Box } from './Box';
 import FieldWithCopyButton from './FieldWithCopyButton';
-import { GreenCheck, PendingDots, RedCross } from './Icons';
+import { GreenCheck, RedCross } from './Icons';
 import Link, { Target } from './Link';
 import { Text } from './Text';
 import { getDefined } from '../defined';
@@ -23,7 +23,7 @@ const DeploymentStatus: React.FC<DeploymentStatusProps> = ({
   projectId,
 }) => {
   const dashboardUrl = projectId
-    ? `${publicDashboardUrl}${routes.agentsDashboardPage.replace('[projectId]', projectId)}`
+    ? `${publicDashboardUrl}/${routes.agentsDashboardPage.replace('[projectId]', projectId)}`
     : null;
 
   return (
