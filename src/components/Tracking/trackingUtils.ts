@@ -1,27 +1,12 @@
-const DRY_RUN = false;
+import posthog from 'posthog-js';
 
-const getEnabledTrackers = () => ({
-  posthog: !!window?.posthog,
-  plausible: !!window?.plausible,
-  twitter: !!window?.twq,
-});
+const LOGGER = true;
 
 const trackCustomEvent = (eventName: string, eventProperties?: any) => {
-  if (DRY_RUN) {
+  window.posthog.capture(eventName, eventProperties);
+
+  if (LOGGER) {
     console.log('📊 ~ trackCustomEvent', { eventName, eventProperties });
-    return;
-  }
-
-  const trackers = getEnabledTrackers();
-
-  if (trackers.posthog) {
-    window.posthog.capture(eventName, eventProperties);
-  }
-
-  if (trackers.plausible) {
-  }
-
-  if (trackers.twitter) {
   }
 };
 
