@@ -10,7 +10,6 @@ import { isActivePath } from '@utils/url';
 import { Button } from '../Button';
 import { ProjectDropdown } from './ProjectDropdown/ProjectDropdown';
 import { useProjects } from '@hooks/useProjects.ts';
-import { getDefined } from '../defined';
 
 const NavbarMobileItem: React.FC<NavMenuItem> = ({
   label,
@@ -318,10 +317,9 @@ const SessionManagementActions: React.FC = () => {
     accessToken,
     updateAccessTokenByProjectId,
     triggerLoginModal,
-    loading,
+    isLoggingIn,
+    isLoggedIn,
   } = useAuthStore();
-  const isLoggedIn = !!accessToken;
-  const isLoggingIn = loading;
   const { userProjects, setActiveProject, activeProjectId, fetchProjects } =
     useProjects();
   const showProjectsDropDown = isLoggedIn && userProjects && activeProjectId;
