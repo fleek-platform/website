@@ -322,7 +322,7 @@ const SessionManagementActions: React.FC = () => {
     isLoggingIn,
     isLoggedIn,
   } = (() => {
-    if (typeof window === 'undefined') {
+    if (!isClient) {
       return {
         accessToken: '',
         updateAccessTokenByProjectId: () => null,
