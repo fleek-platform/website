@@ -10,6 +10,7 @@ import { isActivePath } from '@utils/url';
 import { Button } from '../Button';
 import { ProjectDropdown } from './ProjectDropdown/ProjectDropdown';
 import { useProjects } from '@hooks/useProjects.ts';
+import { getDefined } from '../defined';
 
 const NavbarMobileItem: React.FC<NavMenuItem> = ({
   label,

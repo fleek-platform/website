@@ -1,8 +1,7 @@
-// TODO: Prefer to provide settings from Eliza context
-// at the moment is coming from host app
-import settings from '@base/settings.json';
+import { getDefined } from '../defined';
+import { routes } from '../settings';
 
-const API_BASE_URL = import.meta.env.PUBLIC_FLEEK_REST_API_URL;
+const restApiUrl = getDefined('PUBLIC_FLEEK_REST_API_URL');
 
 type AiAgentCreationSuccessData = {
   id: string;
@@ -35,7 +34,7 @@ export const triggerDeployment = async (
     // also, the endpoint settings should come from eliza scope
     // not the host app
     const response = await fetch(
-      `${API_BASE_URL}${settings.elizaPage.endpoints.aiAgents}`,
+      `${restApiUrl}${routes.endpoints.aiAgents}`,
       {
         method: 'POST',
         headers: {
@@ -86,7 +85,7 @@ export const getDeploymentStatus = async (
 ): Promise<DeploymentResponse> => {
   try {
     const response = await fetch(
-      `${API_BASE_URL}${settings.elizaPage.endpoints.aiAgents}/${agentId}/status`,
+      `${restApiUrl}${routes.endpoints.aiAgents}/${agentId}/status`,
       {
         method: 'GET',
         headers: {
@@ -142,7 +141,7 @@ export const getAgentsByProjectId = async (
     };
   try {
     const response = await fetch(
-      `${API_BASE_URL}${settings.elizaPage.endpoints.aiAgents}?projectId=${projectId}`,
+      `${restApiUrl}${routes.endpoints.aiAgents}?projectId=${projectId}`,
       {
         method: 'GET',
         headers: {
@@ -200,7 +199,7 @@ export const getSubscriptions = async (
       // TODO: Should use lib rest-api
       // also, the endpoint settings should come from eliza scope
       // not the host app
-      `${API_BASE_URL}${settings.site.auth.endpoints.subscriptions}?projectId=${projectId}`,
+      `${restApiUrl}${routes.endpoints.subscriptions}?projectId=${projectId}`,
       {
         method: 'GET',
         headers: {
@@ -249,7 +248,7 @@ export const createSubscription = async (
       // TODO: Should use lib rest-api
       // also, the endpoint settings should come from eliza scope
       // not the host app
-      `${API_BASE_URL}${settings.site.auth.endpoints.subscriptions}/checkout`,
+      `${restApiUrl}${routes.endpoints.subscriptions}/checkout`,
       {
         method: 'POST',
         headers: {
@@ -303,7 +302,7 @@ export const getPlans = async (
       // TODO: Should use lib rest-api
       // also, the endpoint settings should come from eliza scope
       // not the host app
-      `${API_BASE_URL}${settings.site.auth.endpoints.plans}`,
+      `${restApiUrl}${routes.endpoints.plans}`,
       {
         method: 'GET',
         headers: {
