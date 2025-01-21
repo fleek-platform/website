@@ -46,17 +46,14 @@ const newUserCheck = () => {
   const isNewUser = parsedStore.state.user.newUser;
   if (!isNewUser) return;
 
-  const email = parsedStore.state.user.email;
   return {
-    email,
-    isPendingEmail: Boolean(!email),
+    email: parsedStore.state.user.email,
   };
 };
 
 const hasUserCompletedNewsletterAction = () => {
   const newsletterStatus = localStorage.getItem(COMPLETED_KEY);
-  if (!newsletterStatus) return false;
-  return Boolean(JSON.parse(newsletterStatus));
+  return Boolean(newsletterStatus);
 };
 
 type NewsletterSubscriberProps = {
@@ -81,8 +78,8 @@ export const NewsletterSubscriber: React.FC<NewsletterSubscriberProps> = ({
     const newUser = newUserCheck();
     if (!newUser) return;
 
-    emailRef.current = newUser.email;
     if (newUser.email) {
+      emailRef.current = newUser.email;
       setEmail(newUser.email);
     }
 
@@ -100,7 +97,7 @@ export const NewsletterSubscriber: React.FC<NewsletterSubscriberProps> = ({
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setIsOpen(false);
-    localStorage.setItem(COMPLETED_KEY, 'true');
+    localStorage.setItem(COMPLETED_KEY, 'completed');
 
     if (!consent) return;
     subscribeNewUser(email);
@@ -115,8 +112,11 @@ export const NewsletterSubscriber: React.FC<NewsletterSubscriberProps> = ({
           Can we send you product updates?
         </Text>
         <Text variant="secondary">
-          Stay in the loop with our latest product updates and expert guides —
-          spam-free, we promise! 😉
+          Subscribe to stay updated on all things AI agents. Spam-free, we
+          promise!
+        </Text>
+        <Text variant="secondary">
+          P.S.: A free version is coming soon—be the first to know!
         </Text>
         <Box className="gap-8 pb-8">
           {isFormVisible && (
