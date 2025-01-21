@@ -70,17 +70,26 @@ export const GetStarted: React.FC<GetStartedProps> = ({
 
   const { reset } = useElizaForm();
 
-  const withCapacityCheck = (callbackFn: () => void) => () => {
-    if (isOverCapacity) {
-      setIsOpen(true);
-    } else {
-      callbackFn();
-    }
+  const withGuardsCheck = (callbackFn: () => void) => {
+    if (!isLoggedIn) return login();
+    if (isOverCapacity) return setIsOpen(true);
+
+    callbackFn();
   };
 
-  const onTemplatePageSelect = () => {
-    reset(TEMPLATE_CHARACTERFILES_MAP['eliza']);
-    goTo('characterfile', { template: 'eliza' });
+  const onUploadCharacterfileClick = () => {
+    withGuardsCheck(() => goTo('upload'));
+  };
+
+  const onBuildFromScratchClick = () => {
+    withGuardsCheck(() => goTo('characterfile'));
+  };
+
+  const onStartWithTemplateClick = () => {
+    withGuardsCheck(() => {
+      reset(TEMPLATE_CHARACTERFILES_MAP['eliza']);
+      goTo('characterfile', { template: 'eliza' });
+    });
   };
 
   return (
@@ -111,19 +120,19 @@ export const GetStarted: React.FC<GetStartedProps> = ({
       </Box>
       <Box className="gap-22">
         <ActionBox
-          onClick={withCapacityCheck(() => goTo('upload'))}
+          onClick={onUploadCharacterfileClick}
           icon={<CloudUploadIcon className="size-34 shrink-0" />}
           title="Upload characterfile"
           description="Already have a characterfile? Create an agent with an upload."
         />
         <ActionBox
-          onClick={withCapacityCheck(() => goTo('characterfile'))}
+          onClick={onBuildFromScratchClick}
           icon={<ReaderIcon className="size-34 shrink-0" />}
           title="Build from scratch"
           description="Create an agent by entering details into a form."
         />
         <ActionBox
-          onClick={withCapacityCheck(() => onTemplatePageSelect())}
+          onClick={onStartWithTemplateClick}
           icon={<ExtensionPuzzleIcon className="size-34 shrink-0" />}
           title="Start with a template"
           description="Create an agent by customizing an existing template."

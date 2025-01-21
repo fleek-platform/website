@@ -1,4 +1,4 @@
-import React, { useCallback } from 'react';
+import React from 'react';
 
 import Step from './components/Step';
 import DeploymentStatus from './components/DeploymentStatus.tsx';
@@ -19,6 +19,7 @@ import { Box } from './components/Box.tsx';
 import { Text } from './components/Text.tsx';
 
 import { pages } from './settings';
+import { NewsletterSubscriber } from './components/NewsletterSubscriber.tsx';
 
 interface ElizaCoreProps {
   isLoggedIn: UseDeployAIAgentProps['isLoggedIn'];
@@ -183,6 +184,7 @@ export const CoreEliza: React.FC<ElizaCoreProps> = ({
 
   return (
     <Layout className="relative" page={navigationState.page}>
+      <NewsletterSubscriber isLoggedIn={isLoggedIn} />
       {isLoggingIn && (
         <div className="absolute z-10 flex h-full w-full items-center justify-center bg-[rgba(0,0,0,1)]">
           <IllustrationIcon className="h-304 animate-pulse pt-48" />
