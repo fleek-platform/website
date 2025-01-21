@@ -5,6 +5,8 @@ import { useAuthStore } from '@fleek-platform/login-button';
 
 const GRAPHQL_URL = import.meta.env?.PUBLIC_GRAPHQL_ENDPOINT || '';
 
+// TODO: Add support for persistent store
+// use localStorage
 export const useProjects = () => {
   const [userProjects, setUserProjects] = useState<Project[] | undefined>();
   const [loading, setLoading] = useState(false);
