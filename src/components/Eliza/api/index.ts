@@ -1,7 +1,16 @@
 import { getDefined } from '../defined';
 import { routes } from '../settings';
 
-const restApiUrl = getDefined('PUBLIC_FLEEK_REST_API_URL');
+// TODO: It'll be replaced by the standalone version
+// which distribution will replace the `process.env`
+// due to `process.env` not working in astro
+// and that the Eliza encapsulation shouldn't use the
+// host application features, e.g. astro `import.meta.env`
+// for this reason, it's hard-typed but will change shortly
+// once ported to the agents-ui repo
+const restApiUrl = typeof process.env.PUBLIC_FLEEK_REST_API_URL === 'undefined'
+  ? import.meta.env.PUBLIC_FLEEK_REST_API_URL
+  : getDefined('PUBLIC_FLEEK_REST_API_URL');
 
 type AiAgentCreationSuccessData = {
   id: string;
