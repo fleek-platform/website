@@ -374,16 +374,9 @@ const SessionManagementActions: React.FC = () => {
     updateAccessTokenByProjectId(activeProjectId);
   }, [activeProjectId]);
 
-  // TODO: Delete after debugging
-  useEffect(() => {
-    const first = accessToken.slice(0, 3);
-    const last = accessToken.slice(-3);
-
-    console.log(`[debug] Navbar: accessToken ${first}..${last}`);
-  }, [accessToken]);
-
-
-
+  // TODO: Alternatively, could installing the package
+  // `use-sync-external-store` prevent need for all this?
+  // placeholder approach to prevent SSR issues
   if (!isClient) {
     const buttonText = 'Log in';
 
