@@ -1,9 +1,11 @@
 export type Defined = {
   PUBLIC_FLEEK_REST_API_URL?: string;
+  PUBLIC_UI_APP_URL?: string;
 };
 
 export const defined: Defined = {
   PUBLIC_FLEEK_REST_API_URL: process.env.PUBLIC_FLEEK_REST_API_URL,
+  PUBLIC_UI_APP_URL: process.env.PUBLIC_UI_APP_URL,
 };
 
 export const getDefined = (key: keyof typeof defined): string => {

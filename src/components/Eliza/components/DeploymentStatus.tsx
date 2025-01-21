@@ -3,9 +3,10 @@ import FieldWithCopyButton from './FieldWithCopyButton';
 import { GreenCheck, PendingDots, RedCross } from './Icons';
 import Link, { Target } from './Link';
 import { Text } from './Text';
-import settings from '@base/settings.json';
+import { getDefined } from '../defined';
+import { routes } from '../settings';
 
-const UI_APP_URL = import.meta.env.PUBLIC_UI_APP_URL;
+const publicDashboardUrl = getDefined('PUBLIC_UI_APP_URL');
 
 interface DeploymentStatusProps {
   deploymentStatus?: any;
@@ -22,7 +23,7 @@ const DeploymentStatus: React.FC<DeploymentStatusProps> = ({
   projectId,
 }) => {
   const dashboardUrl = projectId
-    ? `${UI_APP_URL}${settings.elizaPage.agentsDashboardPage.replace('[projectId]', projectId)}`
+    ? `${publicDashboardUrl}${routes.agentsDashboardPage.replace('[projectId]', projectId)}`
     : null;
 
   return (
