@@ -1,4 +1,3 @@
-import settings from '../../../settings.json';
 import { ActionBox } from './ActionBox';
 import { Text } from './Text';
 import type React from 'react';
@@ -17,6 +16,7 @@ import { Button } from './Button';
 import { Modal } from './Modal';
 import Link, { Target } from './Link';
 import type { UseDeployAIAgentProps } from '../hooks/useDeployAIAgent';
+import { pages } from '../settings';
 
 type OverCapacityModalProps = {
   isOpen: boolean;
@@ -101,7 +101,7 @@ export const GetStarted: React.FC<GetStartedProps> = ({
           provided below. Check our{' '}
           <Link
             target={Target.Blank}
-            href={settings.elizaPage.guides.getStarted}
+            href={pages.guides.getStarted}
             className="underline hover:text-elz-white"
           >
             guide
