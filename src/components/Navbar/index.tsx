@@ -368,7 +368,7 @@ const SessionManagementActions: React.FC = () => {
   }, [isLoggedIn]);
 
   useEffect(() => {
-    if (!activeProjectId) return;
+    if (!activeProjectId || !isLoggedIn) return;
 
     updateAccessTokenByProjectId(activeProjectId);
   }, [activeProjectId]);
