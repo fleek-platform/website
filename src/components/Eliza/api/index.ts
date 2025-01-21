@@ -1,4 +1,4 @@
-import { getDefined } from '../defined';
+// import { getDefined } from '../defined';
 import { routes } from '../settings';
 
 // TODO: It'll be replaced by the standalone version
@@ -8,9 +8,10 @@ import { routes } from '../settings';
 // host application features, e.g. astro `import.meta.env`
 // for this reason, it's hard-typed but will change shortly
 // once ported to the agents-ui repo
+// const restApiUrl = getDefined('PUBLIC_FLEEK_REST_API_URL');
 const restApiUrl = typeof process.env.PUBLIC_FLEEK_REST_API_URL === 'undefined'
   ? import.meta.env.PUBLIC_FLEEK_REST_API_URL
-  : getDefined('PUBLIC_FLEEK_REST_API_URL');
+  : '';
 
 type AiAgentCreationSuccessData = {
   id: string;

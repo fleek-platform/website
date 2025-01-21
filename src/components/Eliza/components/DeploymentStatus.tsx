@@ -3,10 +3,20 @@ import FieldWithCopyButton from './FieldWithCopyButton';
 import { GreenCheck, RedCross } from './Icons';
 import Link, { Target } from './Link';
 import { Text } from './Text';
-import { getDefined } from '../defined';
+// import { getDefined } from '../defined';
 import { routes } from '../settings';
 
-const publicDashboardUrl = getDefined('PUBLIC_UI_APP_URL');
+// TODO: It'll be replaced by the standalone version
+// which distribution will replace the `process.env`
+// due to `process.env` not working in astro
+// and that the Eliza encapsulation shouldn't use the
+// host application features, e.g. astro `import.meta.env`
+// for this reason, it's hard-typed but will change shortly
+// once ported to the agents-ui repo
+// const publicDashboardUrl = getDefined('PUBLIC_UI_APP_URL');
+const publicDashboardUrl = typeof process.env.PUBLIC_UI_APP_URL === 'undefined'
+  ? import.meta.env.PUBLIC_UI_APP_URL
+  : '';
 
 interface DeploymentStatusProps {
   deploymentStatus?: any;
