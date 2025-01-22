@@ -8,6 +8,7 @@ author:
   - 'Fleek'
 is_seo: true
 ---
+
 Imagine this: Sarah, a small business owner, dreams of having an AI agent to handle customer inquiries. But coding feels like a foreign language. Then she discovers a platform where she can create her perfect personalized agent for her business and use case in a few minutes, and her vision becomes reality. This isn’t a far-fetched scenario—it’s the vision Fleek is working towards - a platform designed to simplify AI agent creation and management  for everyone.
 
 This blog kicks off a series on no-code AI agent solutions, showcasing how you can create powerful AI tools without writing a single line of code. Let’s dive into how Fleek makes it all possible.
