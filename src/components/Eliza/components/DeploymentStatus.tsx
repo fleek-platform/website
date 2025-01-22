@@ -5,6 +5,7 @@ import Link, { Target } from './Link';
 import { Text } from './Text';
 // import { getDefined } from '../defined';
 import { routes } from '../settings';
+import { removeTrailingSlash } from '../utils/url';
 
 // TODO: It'll be replaced by the standalone version
 // which distribution will replace the `process.env`
@@ -15,7 +16,7 @@ import { routes } from '../settings';
 // once ported to the agents-ui repo
 // const publicDashboardUrl = getDefined('PUBLIC_UI_APP_URL');
 const publicDashboardUrl = typeof process.env.PUBLIC_UI_APP_URL === 'undefined'
-  ? import.meta.env.PUBLIC_UI_APP_URL
+  ? removeTrailingSlash(import.meta.env.PUBLIC_UI_APP_URL)
   : '';
 
 interface DeploymentStatusProps {
