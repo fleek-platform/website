@@ -39,6 +39,7 @@ export const Navigation: React.FC<NavigationProps> = ({
     trackingUtils.trackCustomEvent('agent-ui-wizard.navigation', {
       from: navigationState.page,
       to: page,
+      template: options?.template,
     });
     if (page === 'getStarted') {
       updateState({ page, options, characterFile: undefined });
