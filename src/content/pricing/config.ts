@@ -25,7 +25,7 @@ export const PricingInfo: Props[] = [
   },
   {
     title: 'Pro Plan',
-    description: 'Our most popular option for AI agents and growing projects',
+    description: 'Our most popular option for growing projects',
     splitDescription: true,
     cost: {
       amount: 20,
