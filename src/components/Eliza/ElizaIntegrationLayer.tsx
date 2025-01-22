@@ -151,7 +151,7 @@ export const ElizaIntegrationLayer: React.FC<ElizaIntegrationLayerProps> = ({
         !projectAiAgents.data
       ) {
         console.error(
-          "Failed to fetch plans, active subscriptions or project AI agents",
+          'Failed to fetch plans, active subscriptions or project AI agents',
           { plans, activeSubscriptions, projectAiAgents },
         );
         return { hasEnoughAiModules: false, amount: 0 };
@@ -181,10 +181,7 @@ export const ElizaIntegrationLayer: React.FC<ElizaIntegrationLayerProps> = ({
             productId: aiAgentProduct?.id,
           };
     } catch (error) {
-      console.error(
-        "Failed to check user amount available ai modules",
-        error,
-      );
+      console.error('Failed to check user amount available ai modules', error);
       return false;
     }
   };

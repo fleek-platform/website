@@ -12,11 +12,15 @@ export const getDefined = (key: keyof typeof defined): string => {
   const value = defined[key];
 
   if (value === undefined || value === null) {
-    throw new Error(`Expected key "${key}" to be defined but got ${typeof value}`);
+    throw new Error(
+      `Expected key "${key}" to be defined but got ${typeof value}`,
+    );
   }
 
   if (typeof value !== 'string') {
-    throw new Error(`Expected key "${key}" to be string but got ${typeof value}`);
+    throw new Error(
+      `Expected key "${key}" to be string but got ${typeof value}`,
+    );
   }
 
   return value;

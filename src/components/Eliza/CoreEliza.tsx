@@ -165,10 +165,7 @@ export const CoreEliza: React.FC<ElizaCoreProps> = ({
             <Text as="h2" variant="description">
               There was an issue with the deployment of your AI agent. Please
               try again, edit info from a previous step or contact{' '}
-              <a href={pages.supportExternalUrl}>
-                Fleek support
-              </a>
-              .
+              <a href={pages.supportExternalUrl}>Fleek support</a>.
             </Text>
           }
           customTopElement={GoBackButton}

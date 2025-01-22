@@ -9,9 +9,10 @@ import { routes } from '../settings';
 // for this reason, it's hard-typed but will change shortly
 // once ported to the agents-ui repo
 // const restApiUrl = getDefined('PUBLIC_FLEEK_REST_API_URL');
-const restApiUrl = typeof process.env.PUBLIC_FLEEK_REST_API_URL === 'undefined'
-  ? import.meta.env.PUBLIC_FLEEK_REST_API_URL
-  : '';
+const restApiUrl =
+  typeof process.env.PUBLIC_FLEEK_REST_API_URL === 'undefined'
+    ? import.meta.env.PUBLIC_FLEEK_REST_API_URL
+    : '';
 
 type AiAgentCreationSuccessData = {
   id: string;
@@ -43,21 +44,18 @@ export const triggerDeployment = async (
     // TODO: Should use lib rest-api
     // also, the endpoint settings should come from eliza scope
     // not the host app
-    const response = await fetch(
-      `${restApiUrl}${routes.endpoints.aiAgents}`,
-      {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-          Authorization: `Bearer ${token}`,
-        },
-        body: JSON.stringify({
-          config: characterFile,
-          projectId,
-          name,
-        }),
+    const response = await fetch(`${restApiUrl}${routes.endpoints.aiAgents}`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        Authorization: `Bearer ${token}`,
       },
-    );
+      body: JSON.stringify({
+        config: characterFile,
+        projectId,
+        name,
+      }),
+    });
 
     if (!response.ok) {
       const errorText = await response.text();

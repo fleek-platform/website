@@ -15,9 +15,10 @@ import { removeTrailingSlash } from '../utils/url';
 // for this reason, it's hard-typed but will change shortly
 // once ported to the agents-ui repo
 // const publicDashboardUrl = getDefined('PUBLIC_UI_APP_URL');
-const publicDashboardUrl = typeof process.env.PUBLIC_UI_APP_URL === 'undefined'
-  ? removeTrailingSlash(import.meta.env.PUBLIC_UI_APP_URL)
-  : '';
+const publicDashboardUrl =
+  typeof process.env.PUBLIC_UI_APP_URL === 'undefined'
+    ? removeTrailingSlash(import.meta.env.PUBLIC_UI_APP_URL)
+    : '';
 
 interface DeploymentStatusProps {
   deploymentStatus?: any;

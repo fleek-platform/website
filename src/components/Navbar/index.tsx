@@ -1,5 +1,9 @@
 import { useEffect } from 'react';
-import { type AuthStore, LoginProvider, useAuthStore } from '@fleek-platform/login-button';
+import {
+  type AuthStore,
+  LoginProvider,
+  useAuthStore,
+} from '@fleek-platform/login-button';
 import { navbarMenu, type NavMenuItem, type NavSubMenuItem } from './config';
 import Link, { Target } from '@components/Link';
 import { useCallback, useState } from 'react';
@@ -315,7 +319,7 @@ export const Navbar: React.FC<NavbarProps> = ({
   );
 };
 
-const SessionManagementActions: React.FC = () => {  
+const SessionManagementActions: React.FC = () => {
   const {
     updateAccessTokenByProjectId,
     triggerLoginModal,
@@ -331,22 +335,23 @@ const SessionManagementActions: React.FC = () => {
         isLoggedIn: false,
       } as unknown as AuthStore;
     }
-    
+
     return useAuthStore();
   })();
 
-  const { userProjects, setActiveProject, activeProjectId, fetchProjects } = (() => {
-    if (!isClient) {
-      return {
-        userProjects: [],
-        setActiveProject: () => null,
-        activeProjectId: '',
-        fetchProjects: () => null,
-      } as unknown as ReturnType<typeof useProjects>;
-    }
+  const { userProjects, setActiveProject, activeProjectId, fetchProjects } =
+    (() => {
+      if (!isClient) {
+        return {
+          userProjects: [],
+          setActiveProject: () => null,
+          activeProjectId: '',
+          fetchProjects: () => null,
+        } as unknown as ReturnType<typeof useProjects>;
+      }
 
-    return useProjects();
-  })();
+      return useProjects();
+    })();
 
   const showProjectsDropDown = isLoggedIn && userProjects && activeProjectId;
 
@@ -449,7 +454,7 @@ const SessionManagementActions: React.FC = () => {
                 handleClick={handleClick}
               />
             </>
-          )
+          );
         }}
       </LoginProvider>
     </>
@@ -463,8 +468,9 @@ type ButtonContainerProps = {
   setActiveProject: (projectId?: string) => Promise<void>;
   isLoggedIn: boolean;
   isLoggingIn: boolean;
-  handleLoginClick: (e?: React.MouseEvent<HTMLButtonElement |
- HTMLAnchorElement>) => void;
+  handleLoginClick: (
+    e?: React.MouseEvent<HTMLButtonElement | HTMLAnchorElement>,
+  ) => void;
   dashboardAppUrl: string;
   buttonText: string;
   handleClick: () => void;
