@@ -1,22 +1,16 @@
-import { useEffect } from 'react';
-import {
-  type AuthStore,
-  LoginProvider,
-  useAuthStore,
-} from '@fleek-platform/login-button';
+import type React from 'react';
 import { navbarMenu, type NavMenuItem, type NavSubMenuItem } from './config';
 import Link, { Target } from '@components/Link';
-import { useCallback, useState } from 'react';
+import { useCallback, useEffect, useState } from 'react';
 import { FaArrowRight, FaDiscord, FaXmark, FaXTwitter } from 'react-icons/fa6';
 import { cn } from '@utils/cn';
 import { RxHamburgerMenu } from 'react-icons/rx';
 import { isActivePath } from '@utils/url';
 import { Button } from '../Button';
+import { AuthProvider } from '@components/AuthProvider/AuthProvider';
+import { useAuthentication } from '@components/AuthProvider/useAuthentication';
 import { ProjectDropdown } from './ProjectDropdown/ProjectDropdown';
-import { useProjects } from '@hooks/useProjects.ts';
-import { dashboardApp } from '../../settings.json';
-import type { Project } from '@fleekxyz/sdk/dist-types/generated/graphqlClient/schema';
-import { isClient } from '../../utils/common';
+import { useProjects } from '@hooks/useProjects';
 
 const NavbarMobileItem: React.FC<NavMenuItem> = ({
   label,
@@ -252,14 +246,12 @@ export const Navbar: React.FC<NavbarProps> = ({
   const [popoverDimensions, setPopoverDimensions] =
     useState<PopoverDimensions | null>(null);
 
-  // TODO: This is causing re-renders
-  // couldn't the hover drop-downs be CSS only?
   const onMouseEnterSubMenu = useCallback(
     ({ idx, left, height }: OnMouseEnterSubMenuProps) => {
       setHovering(idx + 1);
       setPopoverDimensions({ left, height });
     },
-    [setHovering, setPopoverDimensions],
+    [],
   );
 
   return (
@@ -309,7 +301,9 @@ export const Navbar: React.FC<NavbarProps> = ({
           </section>
         </div>
         <section className="flex items-center gap-8">
-          <SessionManagementActions />
+          <AuthProvider>
+            <SessionManagementActions />
+          </AuthProvider>
           <div className="md:hidden">
             <NavbarMobile />
           </div>
@@ -320,43 +314,8 @@ export const Navbar: React.FC<NavbarProps> = ({
 };
 
 const SessionManagementActions: React.FC = () => {
-  const {
-    updateAccessTokenByProjectId,
-    triggerLoginModal,
-    isLoggingIn,
-    isLoggedIn,
-  } = (() => {
-    if (!isClient) {
-      return {
-        accessToken: '',
-        updateAccessTokenByProjectId: () => null,
-        triggerLoginModal: () => null,
-        isLoggingIn: true,
-        isLoggedIn: false,
-      } as unknown as AuthStore;
-    }
-
-    return useAuthStore();
-  })();
-
-  const { userProjects, setActiveProject, activeProjectId, fetchProjects } =
-    (() => {
-      if (!isClient) {
-        return {
-          userProjects: [],
-          setActiveProject: () => null,
-          activeProjectId: '',
-          fetchProjects: () => null,
-        } as unknown as ReturnType<typeof useProjects>;
-      }
-
-      return useProjects();
-    })();
-
-  const showProjectsDropDown = isLoggedIn && userProjects && activeProjectId;
-
-  const login = () =>
-    typeof triggerLoginModal === 'function' && triggerLoginModal(true);
+  const { isLoggedIn, isLoggingIn, logout, login } = useAuthentication();
+  const { userProjects, setActiveProject, activeProjectId } = useProjects();
 
   const handleLoginClick = (
     e?: React.MouseEvent<HTMLButtonElement | HTMLAnchorElement>,
@@ -366,150 +325,52 @@ const SessionManagementActions: React.FC = () => {
     login();
   };
 
-  useEffect(() => {
-    if (!isLoggedIn) return;
-
-    fetchProjects();
-  }, [isLoggedIn]);
+  const [isMounted, setIsMounted] = useState(false);
 
   useEffect(() => {
-    if (!activeProjectId || !isLoggedIn) return;
+    setIsMounted(true);
+  }, []);
 
-    updateAccessTokenByProjectId(activeProjectId);
-  }, [activeProjectId]);
-
-  // TODO: Alternatively, could installing the package
-  // `use-sync-external-store` prevent need for all this?
-  // placeholder approach to prevent SSR issues
-  if (!isClient) {
-    const buttonText = 'Log in';
-
-    return (
-      <>
-        <ButtonContainer
-          showProjectsDropDown={false}
-          userProjects={userProjects || []}
-          activeProjectId={activeProjectId}
-          setActiveProject={setActiveProject}
-          buttonText={buttonText}
-          isLoggingIn={isLoggingIn}
-          isLoggedIn={isLoggedIn}
-          handleLoginClick={handleLoginClick}
-          dashboardAppUrl={dashboardApp.url}
-          handleClick={() => null}
-        />
-      </>
-    );
+  if (!isMounted) {
+    return null;
   }
 
-  // TODO: The loading process can be improved
-  // in several states: initial, project queries, etc
-  // it might be preferred to present an animation
-  // instead of text based? Create design ticket
   return (
     <>
-      <LoginProvider
-        graphqlApiUrl={import.meta.env.PUBLIC_GRAPHQL_ENDPOINT}
-        dynamicEnvironmentId={import.meta.env.PUBLIC_DYNAMIC_ENVIRONMENT_ID}
-      >
-        {(props) => {
-          const { accessToken, isLoading, error, login, logout } = props;
-
-          const handleClick = () => {
-            if (accessToken) {
-              logout();
-            } else {
-              login();
-            }
-          };
-
-          // TODO: Move the button text computations
-          // into the button container scope
-          let buttonText = 'Log in';
-
-          switch (true) {
-            case Boolean(error):
-              buttonText = 'Login failed';
-              break;
-            case isLoading:
-              buttonText = 'Loading...';
-              break;
-            case Boolean(accessToken):
-              buttonText = 'Log out';
-              break;
-          }
-
-          return (
-            <>
-              <ButtonContainer
-                showProjectsDropDown={!!showProjectsDropDown}
-                userProjects={userProjects || []}
-                activeProjectId={activeProjectId}
-                setActiveProject={setActiveProject}
-                buttonText={buttonText}
-                isLoggingIn={isLoggingIn}
-                isLoggedIn={isLoggedIn}
-                handleLoginClick={handleLoginClick}
-                dashboardAppUrl={dashboardApp.url}
-                handleClick={handleClick}
-              />
-            </>
-          );
-        }}
-      </LoginProvider>
-    </>
-  );
-};
-
-type ButtonContainerProps = {
-  showProjectsDropDown: boolean;
-  userProjects: Project[];
-  activeProjectId: string;
-  setActiveProject: (projectId?: string) => Promise<void>;
-  isLoggedIn: boolean;
-  isLoggingIn: boolean;
-  handleLoginClick: (
-    e?: React.MouseEvent<HTMLButtonElement | HTMLAnchorElement>,
-  ) => void;
-  dashboardAppUrl: string;
-  buttonText: string;
-  handleClick: () => void;
-};
-
-const ButtonContainer: React.FC<ButtonContainerProps> = ({
-  showProjectsDropDown,
-  userProjects,
-  activeProjectId,
-  setActiveProject,
-  isLoggedIn,
-  isLoggingIn,
-  handleLoginClick,
-  dashboardAppUrl,
-  buttonText,
-  handleClick,
-}) => {
-  return (
-    <>
-      {showProjectsDropDown && (
-        <ProjectDropdown
-          projects={userProjects}
-          selectedProjectId={activeProjectId}
-          onProjectChange={setActiveProject}
-        />
-      )}
-      <Button variant="secondary" size="sm" onClick={handleClick}>
-        {buttonText}
-      </Button>
-      {!isLoggedIn && (
-        <Button
-          disabled={isLoggingIn}
-          variant="tertiary"
-          size="sm"
-          onClick={handleLoginClick}
-          href={dashboardAppUrl}
-        >
-          Sign up
-        </Button>
+      {isLoggedIn ? (
+        <>
+          {userProjects && !!userProjects && activeProjectId && (
+            <ProjectDropdown
+              projects={userProjects}
+              selectedProjectId={activeProjectId}
+              onProjectChange={setActiveProject}
+            />
+          )}
+          <Button variant="ghost" size="sm" onClick={logout}>
+            Log out
+          </Button>
+        </>
+      ) : (
+        <>
+          <Button
+            disabled={isLoggingIn}
+            variant="secondary"
+            size="sm"
+            onClick={handleLoginClick}
+            href="https://app.fleek.xyz/"
+          >
+            Log in
+          </Button>
+          <Button
+            disabled={isLoggingIn}
+            variant="tertiary"
+            size="sm"
+            onClick={handleLoginClick}
+            href="https://app.fleek.xyz/"
+          >
+            Sign up
+          </Button>
+        </>
       )}
     </>
   );
