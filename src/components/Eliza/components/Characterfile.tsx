@@ -1,4 +1,3 @@
-import settings from '../../../settings.json';
 import { FormField } from './FormField';
 import { ModelProviderDropdown } from './ModelProviderDropdown';
 import { ClientsDropdown } from './ClientsDropdown';
@@ -28,6 +27,7 @@ import { FaChevronLeft } from 'react-icons/fa6';
 import { useState } from 'react';
 import { Input } from './Input';
 import type { CharacterFormSchema } from '../utils/schema';
+import { pages } from '../settings';
 
 type TemplateSelectorProps = {
   template?: Template;
@@ -165,8 +165,8 @@ export const Characterfile: React.FC<CharacterfileProps> = ({
   };
 
   const guideUrl = template
-    ? settings.elizaPage.guides.characterfile.template
-    : settings.elizaPage.guides.characterfile.fromScratch;
+    ? pages.guides.characterfile.template
+    : pages.guides.characterfile.fromScratch;
 
   return (
     <>
