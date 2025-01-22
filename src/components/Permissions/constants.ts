@@ -297,7 +297,7 @@ export const PERMISSIONS_ROLES = {
         createAgent: false,
         listAgents: true,
         viewAgent: true,
-        editAgent: false,
+        editAgent: true,
         deleteAgent: false,
       },
       fleekFunctions: {
@@ -372,7 +372,7 @@ export const PERMISSIONS_ROLES = {
       aiAgents: {
         createAgent: false,
         listAgents: true,
-        viewAgent: false,
+        viewAgent: true,
         editAgent: false,
         deleteAgent: false,
       },
