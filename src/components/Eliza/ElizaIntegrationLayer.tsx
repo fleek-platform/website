@@ -79,6 +79,7 @@ export interface ElizaIntegrationLayerProps {
     projectId?: string,
     productId?: string,
     token?: string,
+    referralId?: string,
   ) => Promise<CreateSubscriptionResponse>;
 
   // settings.json is not passed as props but import should match paths in the host and the package

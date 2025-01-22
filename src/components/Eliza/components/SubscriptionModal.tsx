@@ -4,6 +4,12 @@ import toast from 'react-hot-toast';
 import { createSubscription } from '@components/AuthProvider/api/api';
 import { useAuthentication } from '@components/AuthProvider/useAuthentication';
 
+declare global {
+  interface Window {
+    promotekit_referral: string;
+  }
+}
+
 interface SubscriptionModalProps {
   isVisible: boolean;
   setIsVisible: (isVisible: boolean) => void;
@@ -37,10 +43,13 @@ export const SubscriptionModal: React.FC<SubscriptionModalProps> = ({
 
     setIsLoading(true);
 
+    const referralId = window.promotekit_referral;
+
     const subscriptionCreationResponse = await createSubscription(
       activeProjectId,
       productId,
       token,
+      referralId,
     );
 
     if (
