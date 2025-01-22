@@ -2,6 +2,10 @@ import { z } from 'zod';
 import { CLIENT_NAMES, MODEL_PROVIDER_NAMES } from './constants';
 import type { Character } from './types';
 
+/** Schema for the form builder, which is
+ * slightly different than the final characterfile.
+ * We need it due to how React Hook Form handles arrays.
+ */
 export const characterFormSchema = z.object({
   name: z.string().min(3, 'Name is required, minimum of 3 characters'),
   username: z.string().optional(),
@@ -83,6 +87,7 @@ export const characterFormSchema = z.object({
 
 export type CharacterFormSchema = z.infer<typeof characterFormSchema>;
 
+/** Schema for the characterfile JSON file */
 export const characterfileSchema = z.object({
   name: z.string().min(3, 'Name is required, minimum of 3 characters'),
   username: z.string().optional(),
