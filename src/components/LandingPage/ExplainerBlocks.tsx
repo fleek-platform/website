@@ -73,7 +73,7 @@ const ExplainerBlocks: React.FC = () => {
   return (
     <Container classNameOuterContainer="sm:pt-[72px] sm:pb-[105px]">
       <div className="flex flex-col gap-24 sm:text-center">
-        <Text as="h3">Enjoy the (developer) experience</Text>
+        <Text as="h3">Enjoy the developer experience</Text>
       </div>
       <div className="grid gap-16 overflow-hidden pt-42 sm:grid-cols-2 sm:pt-80 lg:grid-cols-3">
         {List.map((item, index) => {
