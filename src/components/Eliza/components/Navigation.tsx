@@ -12,6 +12,7 @@ import { SettingsPage } from './SettingsPage';
 import { ReviewPage } from './ReviewPage';
 import { UploadPage } from './UploadPage';
 import trackingUtils from '@components/Tracking/trackingUtils';
+import { useEffect } from 'react';
 
 type NavigationProps = {
   onDeployBtnClick: (characterfile: string | undefined) => void;
@@ -54,6 +55,15 @@ export const Navigation: React.FC<NavigationProps> = ({
     updateState({ characterFile });
     onDeployBtnClick(characterFile);
   };
+
+  useEffect(() => {
+    if (
+      navigationState.page === 'getStarted' &&
+      !navigationState.options.from
+    ) {
+      trackingUtils.trackCustomEvent('agent-ui-wizard.journey-init');
+    }
+  }, []);
 
   const pages: Record<Page, React.ReactNode> = {
     getStarted: (

@@ -3,10 +3,13 @@
 ---
 
 <!-- Posthog.js -->
-<script is:inline>
-  const POSTHOG_API_KEY = import.meta.env.PUBLIC_POSTHOG_API_KEY;
-  const POSTHOG_HOST = import.meta.env.PUBLIC_POSTHOG_HOST;
-
+<script
+  is:inline
+  define:vars={{
+    apiKey: import.meta.env.PUBLIC_POSTHOG_API_KEY,
+    hostUrl: import.meta.env.PUBLIC_POSTHOG_HOST,
+  }}
+>
   !(function (t, e) {
     var o, n, p, r;
     e.__SV ||
@@ -55,8 +58,8 @@
       (e.__SV = 1));
   })(document, window.posthog || []);
 
-  posthog.init(POSTHOG_API_KEY, {
-    api_host: POSTHOG_HOST,
+  posthog.init(apiKey, {
+    api_host: hostUrl,
     capture_pageview: true,
     persistence: 'localStorage',
     autocapture: true,

@@ -1,8 +1,7 @@
-import posthog from 'posthog-js';
-
 const LOGGER = true;
 
 const trackCustomEvent = (eventName: string, eventProperties?: any) => {
+  //@ts-ignore
   window.posthog.capture(eventName, eventProperties);
 
   if (LOGGER) {
