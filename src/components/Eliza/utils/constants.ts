@@ -47,6 +47,61 @@ export const MODEL_PROVIDER_NAMES = [
   'livepeer',
 ] as const;
 
+export const CLIENT_NAMES = [
+  'discord',
+  'twitter',
+  'telegram',
+  'farcaster',
+  'lens',
+  'auto',
+  'slack',
+  'github',
+] as const;
+
+export const PLUGIN_NAMES = [
+  // Blockchain & Web3
+  '@elizaos/plugin-0g',
+  '@elizaos/plugin-3d-generation',
+  '@elizaos/plugin-abstract',
+  '@elizaos/plugin-aptos',
+  '@elizaos/plugin-avalanche',
+  '@elizaos/plugin-coinbase',
+  '@elizaos/plugin-conflux',
+  '@elizaos/plugin-cronoszkevm',
+  '@elizaos/plugin-evm',
+  '@elizaos/plugin-flow',
+  '@elizaos/plugin-fuel',
+  '@elizaos/plugin-icp',
+  '@elizaos/plugin-multiversx',
+  '@elizaos/plugin-near',
+  '@elizaos/plugin-solana',
+  '@elizaos/plugin-starknet',
+  '@elizaos/plugin-story',
+  '@elizaos/plugin-sui',
+  '@elizaos/plugin-ton',
+  '@elizaos/plugin-zksync-era',
+
+  // Content & Media Generation
+  '@elizaos/plugin-image-generation',
+  '@elizaos/plugin-nft-generation',
+  '@elizaos/plugin-video-generation',
+
+  // Platform & Integration
+  '@elizaos/plugin-bootstrap',
+  '@elizaos/plugin-echochambers',
+  '@elizaos/plugin-gitbook',
+  '@elizaos/plugin-goat',
+  '@elizaos/plugin-intiface',
+  '@elizaos/plugin-node',
+  '@elizaos/plugin-tee',
+  '@elizaos/plugin-trustdb',
+
+  // Communication & Search
+  '@elizaos/plugin-web-search',
+  '@elizaos/plugin-whatsapp',
+  '@elizaos/plugin-twitter',
+] as const;
+
 export const MODEL_PROVIDER_NAMES_MAP: Record<
   CharacterFormSchema['modelProvider'],
   LabelAndIcon
@@ -149,17 +204,6 @@ export const MODEL_PROVIDER_NAMES_MAP: Record<
     icon: '',
   },
 };
-
-export const CLIENT_NAMES = [
-  'discord',
-  'twitter',
-  'telegram',
-  'farcaster',
-  'lens',
-  'auto',
-  'slack',
-  'github',
-] as const;
 
 export const CLIENTS_MAP: Record<Client, LabelAndIcon> = {
   discord: {
