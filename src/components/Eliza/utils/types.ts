@@ -2,6 +2,7 @@ import type {
   CLIENT_NAMES,
   MODEL_PROVIDER_NAMES,
   PAGES,
+  PLUGIN_NAMES,
   STEPS,
   TEMPLATES,
 } from './constants';
@@ -30,11 +31,18 @@ export type Template = (typeof TEMPLATES)[number];
 
 export type ModelProviderName = (typeof MODEL_PROVIDER_NAMES)[number] | '';
 
+export type Plugin = (typeof PLUGIN_NAMES)[number];
+
 export type NonEmptyModelProviderName = Exclude<ModelProviderName, ''>;
 
 export type LabelAndIcon = {
   label: string;
   icon: React.ReactNode;
+};
+
+export type CategoryLabelDescriptionAndIcon = LabelAndIcon & {
+  category: number;
+  description: string;
 };
 
 export type Client = (typeof CLIENT_NAMES)[number];
@@ -69,7 +77,7 @@ export type MessageExample = {
   content: Content;
 };
 
-export type Plugin = {
+export type CharacterfilePlugin = {
   /** Plugin name */
   name: string;
 
