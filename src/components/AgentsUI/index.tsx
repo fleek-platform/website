@@ -1,24 +1,30 @@
+import { AuthProvider } from '@components/AuthProvider/AuthProvider.tsx';
+import { useAuthentication } from '@components/AuthProvider/useAuthentication.ts';
 import {
   getPlans,
   getSubscriptions,
-  createSubscription,
-} from '@components/Eliza/api';
-import { useAuthStore } from '@fleek-platform/login-button';
+} from '@components/AuthProvider/api/api.ts';
+import { createSubscription } from '@components/AuthProvider/api/api';
+
+// Import local implementation for now.
+// In the future will import package implementation with the same interface.
 import ElizaIntegrationLayer from '@components/Eliza/ElizaIntegrationLayer.tsx';
+// import { ElizaIntegrationLayer } from '@fleek-platform/agents-ui';
+import { useProjects } from '@hooks/useProjects.ts';
 
 export const AgentsUIIntegration: React.FC = () => {
-  const { triggerLoginModal, accessToken, isLoggingIn, isLoggedIn, projectId } =
-    useAuthStore();
-  const login = () =>
-    typeof triggerLoginModal === 'function' && triggerLoginModal(true);
+  const { isLoggedIn, isLoggingIn, login, fetchFleekToken } =
+    useAuthentication();
+
+  const { activeProjectId } = useProjects();
 
   return (
     <ElizaIntegrationLayer
-      accessToken={accessToken}
-      activeProjectId={projectId}
       isLoggedIn={isLoggedIn}
       isLoggingIn={isLoggingIn}
       login={login}
+      activeProjectId={activeProjectId}
+      fetchFleekToken={fetchFleekToken}
       getSubscriptions={getSubscriptions}
       getPlans={getPlans}
       createSubscription={createSubscription}
@@ -26,7 +32,11 @@ export const AgentsUIIntegration: React.FC = () => {
   );
 };
 
-const AgentsUI: React.FC = () => <AgentsUIIntegration />;
+const AgentsUI: React.FC = () => (
+  <AuthProvider>
+    <AgentsUIIntegration />
+  </AuthProvider>
+);
 
 // to be used in Astro
 export default AgentsUI;

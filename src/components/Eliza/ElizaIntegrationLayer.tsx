@@ -1,4 +1,4 @@
-import { useRef } from 'react';
+import { useCallback, useRef } from 'react';
 import { Toaster } from 'react-hot-toast';
 
 import {
@@ -6,12 +6,14 @@ import {
   getDeploymentStatus,
   triggerDeployment,
   type DeploymentStatus,
-} from './api';
+} from './api/api.ts';
 import {
   SubscriptionModal,
   useSubscriptionModal,
 } from './components/SubscriptionModal.tsx';
+
 import { CoreEliza } from './CoreEliza.tsx';
+import { useProjects } from '@hooks/useProjects.ts';
 
 type getSubscriptionsType = (
   projectId?: string,
@@ -66,11 +68,11 @@ type CreateSubscriptionResponse = {
 
 export interface ElizaIntegrationLayerProps {
   // auth props
-  accessToken?: string;
-  activeProjectId?: string;
   isLoggedIn: boolean;
   isLoggingIn: boolean;
-  login: () => void;
+  login: () => Promise<void>;
+  activeProjectId: string;
+  fetchFleekToken: (projectId?: string) => Promise<string | undefined>;
   getSubscriptions: getSubscriptionsType;
   getPlans: getPlansType;
   createSubscription: (
@@ -85,15 +87,15 @@ export interface ElizaIntegrationLayerProps {
 /** Package will define and export this component. */
 
 export const ElizaIntegrationLayer: React.FC<ElizaIntegrationLayerProps> = ({
-  accessToken,
-  activeProjectId,
   isLoggedIn,
   isLoggingIn,
   login,
+  fetchFleekToken,
   getSubscriptions,
   getPlans,
   createSubscription,
 }) => {
+  const { activeProjectId } = useProjects();
   const {
     isSubscriptionModalVisible,
     openSubscriptionModal,
@@ -102,13 +104,15 @@ export const ElizaIntegrationLayer: React.FC<ElizaIntegrationLayerProps> = ({
     productId,
   } = useSubscriptionModal();
   const subscriptionModalCallbackRef = useRef<(value?: boolean) => void>();
+
   const triggerAgentDeployment = async (
     characterfile: string,
     projectId: string,
   ) => {
-    if (!accessToken) return { ok: false };
+    const token = await fetchFleekToken();
+    if (!token) return { ok: false };
 
-    const res = await triggerDeployment(projectId, characterfile, accessToken);
+    const res = await triggerDeployment(projectId, characterfile, token);
 
     return {
       ok: res.ok,
@@ -116,13 +120,17 @@ export const ElizaIntegrationLayer: React.FC<ElizaIntegrationLayerProps> = ({
     };
   };
 
-  const getAgentDeploymentStatus = async (agentId: string) => {
-    if (!accessToken) {
+  const getAgentDeploymentStatus = async (
+    agentId: string,
+    projectId?: string,
+  ) => {
+    const token = await fetchFleekToken(projectId);
+
+    if (!token) {
       return { ok: false, data: {} as DeploymentStatus };
     }
 
-    const res = await getDeploymentStatus(agentId, accessToken);
-
+    const res = await getDeploymentStatus(agentId, token);
     if (!res.ok || !res?.data) {
       return { ok: false, data: {} as DeploymentStatus };
     }
@@ -134,13 +142,14 @@ export const ElizaIntegrationLayer: React.FC<ElizaIntegrationLayerProps> = ({
   };
 
   const checkUserAmountAvailableAiModules = async (projectId: string) => {
-    if (!accessToken) return { hasEnoughAiModules: false, amount: 0 };
+    const token = await fetchFleekToken(projectId);
+    if (!token) return { hasEnoughAiModules: false, amount: 0 };
 
     try {
       const [plans, activeSubscriptions, projectAiAgents] = await Promise.all([
-        getPlans(accessToken),
-        getSubscriptions(projectId, accessToken),
-        getAgentsByProjectId(projectId, accessToken),
+        getPlans(token),
+        getSubscriptions(projectId, token),
+        getAgentsByProjectId(projectId, token),
       ]);
 
       if (
@@ -151,7 +160,7 @@ export const ElizaIntegrationLayer: React.FC<ElizaIntegrationLayerProps> = ({
         !projectAiAgents.data
       ) {
         console.error(
-          'Failed to fetch plans, active subscriptions or project AI agents',
+          "it wasn't possible to fetch plans, active subscriptions or project ai agents",
           { plans, activeSubscriptions, projectAiAgents },
         );
         return { hasEnoughAiModules: false, amount: 0 };
@@ -181,7 +190,10 @@ export const ElizaIntegrationLayer: React.FC<ElizaIntegrationLayerProps> = ({
             productId: aiAgentProduct?.id,
           };
     } catch (error) {
-      console.error('Failed to check user amount available ai modules', error);
+      console.error(
+        "it wasn't possible to check user amount available ai modules",
+        error,
+      );
       return false;
     }
   };
@@ -232,7 +244,6 @@ export const ElizaIntegrationLayer: React.FC<ElizaIntegrationLayerProps> = ({
         subscriptionAmount={subscriptionAmount ?? 0}
         checkUserAmountAvailableAiModules={checkUserAmountAvailableAiModules}
         productId={productId}
-        createSubscription={createSubscription}
       />
     </>
   );
