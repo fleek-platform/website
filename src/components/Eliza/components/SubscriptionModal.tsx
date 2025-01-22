@@ -1,8 +1,8 @@
 import { useState } from 'react';
 import { Bolt, LoadingSpinner } from './Icons';
 import toast from 'react-hot-toast';
-import type { ElizaIntegrationLayerProps } from '@components/Eliza/ElizaIntegrationLayer';
-import { useAuthStore } from '@fleek-platform/login-button';
+import { createSubscription } from '@components/AuthProvider/api/api';
+import { useAuthentication } from '@components/AuthProvider/useAuthentication';
 
 interface SubscriptionModalProps {
   isVisible: boolean;
@@ -12,7 +12,6 @@ interface SubscriptionModalProps {
   subscriptionAmount: number;
   productId?: string;
   checkUserAmountAvailableAiModules: (projectId: string) => Promise<any>;
-  createSubscription: ElizaIntegrationLayerProps['createSubscription'];
 }
 
 const AI_MODULE_PRICE = 20;
@@ -25,23 +24,23 @@ export const SubscriptionModal: React.FC<SubscriptionModalProps> = ({
   subscriptionAmount,
   productId,
   checkUserAmountAvailableAiModules,
-  createSubscription,
 }) => {
+  const { fetchFleekToken } = useAuthentication();
   const [isLoading, setIsLoading] = useState(false);
-  const { accessToken } = useAuthStore();
 
   const handleOnSubmitClick = async () => {
     const POLLING_INTERVAL = 5000;
     const MAX_ATTEMPTS = 20;
 
-    if (!activeProjectId || !accessToken) return;
+    const token = await fetchFleekToken();
+    if (!activeProjectId || !token) return;
 
     setIsLoading(true);
 
     const subscriptionCreationResponse = await createSubscription(
       activeProjectId,
       productId,
-      accessToken,
+      token,
     );
 
     if (
