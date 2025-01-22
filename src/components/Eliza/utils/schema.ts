@@ -5,12 +5,7 @@ import type { Character } from './types';
 export const characterFormSchema = z.object({
   name: z.string().min(3, 'Name is required, minimum of 3 characters'),
   username: z.string().optional(),
-  plugins: z.array(
-    z.object({
-      name: z.string(),
-      description: z.string(),
-    }),
-  ),
+  plugins: z.array(z.string()),
   modelProvider: z.enum(MODEL_PROVIDER_NAMES, {
     errorMap: (_, __) => {
       return { message: 'Select a model provider' };
@@ -91,12 +86,7 @@ export type CharacterFormSchema = z.infer<typeof characterFormSchema>;
 export const characterfileSchema = z.object({
   name: z.string().min(3, 'Name is required, minimum of 3 characters'),
   username: z.string().optional(),
-  plugins: z.array(
-    z.object({
-      name: z.string(),
-      description: z.string(),
-    }),
-  ),
+  plugins: z.array(z.string()),
   modelProvider: z.enum(MODEL_PROVIDER_NAMES, {
     errorMap: (_, __) => {
       return { message: 'Select a model provider' };

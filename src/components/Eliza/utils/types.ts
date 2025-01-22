@@ -151,7 +151,7 @@ export type Character = {
   clients: Client[];
 
   /** Available plugins */
-  plugins: Plugin[];
+  plugins: string[];
 
   /** Optional configuration */
   settings?: {

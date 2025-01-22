@@ -114,6 +114,7 @@ export const ReviewPage: React.FC<ReviewPageProps> = ({
     if (Array.isArray(validated)) {
       return setErrors({ ...errors, form: validated });
     }
+
     const payload = JSON.stringify(parsedCharacterFile);
     onDeployBtnClick(payload);
   };
