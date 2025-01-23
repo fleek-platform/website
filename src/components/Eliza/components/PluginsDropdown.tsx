@@ -14,7 +14,6 @@ import {
 import { useElizaForm } from '../hooks/useElizaForm';
 import { Input } from './Input';
 import { Box } from './Box';
-import { useScrollToError } from '../hooks/useScrollToError';
 import type { CharacterFormSchema } from '../utils/schema';
 import { Text } from './Text';
 import { cn } from '@utils/cn';
@@ -42,12 +41,7 @@ const TriggerLabel: React.FC<TriggerLabelProps> = ({ plugins }) => {
 export const PluginsDropdown: React.FC = () => {
   const [query, setQuery] = useState('');
 
-  const {
-    control,
-    formState: { errors },
-  } = useElizaForm();
-
-  const pluginsDropdownErrorRef = useScrollToError('plugins', errors);
+  const { control } = useElizaForm();
 
   const plugins: CharacterFormSchema['plugins'] = useWatch({
     control,
@@ -76,14 +70,9 @@ export const PluginsDropdown: React.FC = () => {
       name="plugins"
       render={({ field }) => (
         <Dropdown.Root>
-          <Box className="gap-4" ref={pluginsDropdownErrorRef}>
-            <Dropdown.Trigger error={Boolean(errors.plugins)}>
-              <TriggerLabel plugins={plugins} />
-            </Dropdown.Trigger>
-            {errors.clients && (
-              <Input.Hint error>{errors.clients.message}</Input.Hint>
-            )}
-          </Box>
+          <Dropdown.Trigger>
+            <TriggerLabel plugins={plugins} />
+          </Dropdown.Trigger>
           <Dropdown.Content className="max-h-full p-0">
             <Input.Root
               variant="ghost"
@@ -128,11 +117,7 @@ export const PluginsDropdown: React.FC = () => {
                       <Text variant="primary" size="xs">
                         {plugin}
                       </Text>
-                      <Text
-                        variant="secondary"
-                        size="xs"
-                        className="line-clamp-2"
-                      >
+                      <Text variant="secondary" size="xs">
                         {PLUGINS_MAP[plugin].description}
                       </Text>
                     </Box>

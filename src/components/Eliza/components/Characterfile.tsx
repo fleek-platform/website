@@ -12,6 +12,7 @@ import {
   INITIAL_FORM,
   SECRETS_CLIENT_MAP,
   SECRETS_MODEL_PROVIDER_MAP,
+  SECRETS_PLUGIN_MAP,
   TEMPLATE_CHARACTERFILES_MAP,
   TEMPLATES,
   TEMPLATES_MAP,
@@ -141,13 +142,22 @@ export const Characterfile: React.FC<CharacterfileProps> = ({
   const hasErrors = Object.entries(errors).length > 0;
 
   const mapSettingsSecretsAndUpdateForm = (data: CharacterFormSchema) => {
-    const { modelProvider, clients } = data;
+    const { modelProvider, clients, plugins } = data;
     const model = { ...SECRETS_MODEL_PROVIDER_MAP[modelProvider] };
     const client = clients.reduce((acc, client) => {
       const clientData = SECRETS_CLIENT_MAP[client];
       return { ...acc, ...clientData };
     }, {});
-    const updatedSecrets = { ...model, ...client, ...data.settings.secrets };
+    const plugin = plugins.reduce((acc, plugin) => {
+      const pluginData = SECRETS_PLUGIN_MAP[plugin];
+      return { ...acc, ...pluginData };
+    }, {});
+    const updatedSecrets = {
+      ...model,
+      ...client,
+      ...plugin,
+      ...data.settings.secrets,
+    };
     setValue('settings.secrets', updatedSecrets);
   };
 
@@ -209,7 +219,7 @@ export const Characterfile: React.FC<CharacterfileProps> = ({
         >
           <ClientsDropdown />
         </FormField>
-        <FormField label="Plugins (optional)" description="Supported plugins">
+        <FormField label="Plugins" description="Supported plugins" optional>
           <PluginsDropdown />
         </FormField>
         <FormField
@@ -225,8 +235,9 @@ export const Characterfile: React.FC<CharacterfileProps> = ({
           <LoreForm />
         </FormField>
         <FormField
-          label="Knowledge (optional)"
+          label="Knowledge"
           description="Facts or references to ground the character's responses"
+          optional
         >
           <KnowledgeForm />
         </FormField>
