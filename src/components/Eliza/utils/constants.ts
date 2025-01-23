@@ -227,7 +227,7 @@ export const CLIENTS_MAP: Record<Client, LabelAndIcon> = {
   },
 };
 
-export const PLUGIN_CATEGORIES = {
+export const PLUGIN_CATEGORIES: Record<number, string> = {
   0: 'Blockchain & Web3',
   1: 'Content & Media Generation',
   2: 'Platform & Integration',
@@ -238,7 +238,7 @@ export const PLUGINS_MAP: Record<Plugin, CategoryLabelDescriptionAndIcon> = {
   // Blockchain & Web3
   '@elizaos/plugin-0g': {
     category: 0,
-    label: 'Zerog',
+    label: '0g',
     description:
       'A plugin for storing data using the 0G protocol within the ElizaOS ecosystem.',
     icon: '',

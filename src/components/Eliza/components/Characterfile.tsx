@@ -28,6 +28,7 @@ import { useState } from 'react';
 import { Input } from './Input';
 import type { CharacterFormSchema } from '../utils/schema';
 import { pages } from '../settings';
+import { PluginsDropdown } from './PluginsDropdown';
 
 type TemplateSelectorProps = {
   template?: Template;
@@ -207,6 +208,9 @@ export const Characterfile: React.FC<CharacterfileProps> = ({
           description="Supported client types, such as Discord or X"
         >
           <ClientsDropdown />
+        </FormField>
+        <FormField label="Plugins (optional)" description="Supported plugins">
+          <PluginsDropdown />
         </FormField>
         <FormField
           label="Bio"
