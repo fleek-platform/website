@@ -530,17 +530,7 @@
     "ctaLabel": "Learn more",
     "ctaTargetUrl": "/docs/platform/frameworks/#using-framework-templates-to-get-started/"
   },
-  "elizaPage": {
-    "endpoints": {
-      "aiAgents": "/ai-agents"
-    },
-    "agentsDashboardPage": "/projects/[projectId]/agents/",
-    "guides": {
-      "getStarted": "https://fleek.xyz/guides/eliza-guide/",
-      "characterfile": {
-        "fromScratch": "https://fleek.xyz/guides/eliza-guide/#manually-enter-agent-details",
-        "template": "https://fleek.xyz/guides/eliza-guide/#use-a-predefined-template"
-      }
-    }
+  "dashboardApp": {
+    "url": "https://app.fleek.xyz"
   }
 }
