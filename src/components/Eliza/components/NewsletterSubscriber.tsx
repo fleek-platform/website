@@ -30,6 +30,7 @@ const subscribeNewUser = async (email: string) => {
         'Content-Type': 'application/json',
       },
       body: payload,
+      mode: 'no-cors',
     });
   } catch (e) {
     console.error({ status: 'user could not be subscribed', error: e });
