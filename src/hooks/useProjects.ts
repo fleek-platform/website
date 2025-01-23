@@ -1,83 +1,102 @@
-import { useState, useEffect, useCallback, useMemo } from 'react';
+// TODO: Should the @fleek-platform/login-button
+// provide the user projects drop-down? Seems likely
+import { useState, useEffect } from 'react';
 import type { Project } from '@fleekxyz/sdk/dist-types/generated/graphqlClient/schema';
-import settings from '@base/settings.json';
-import { useCookies } from 'react-cookie';
 import toast from 'react-hot-toast';
-import { useAuthentication } from '@components/AuthProvider/useAuthentication';
+import { useAuthStore } from '@fleek-platform/login-button';
 
 const GRAPHQL_URL = import.meta.env?.PUBLIC_GRAPHQL_ENDPOINT || '';
+const FLEEK_XYZ_USER_PROJECTS_STORAGE_KEY = 'fleek-xyz-user-projects';
 
+// TODO: Add support for persistent store
+// use localStorage
 export const useProjects = () => {
-  const { fetchFleekToken, isLoggedIn } = useAuthentication();
-  const [userProjects, setUserProjects] = useState<Project[] | undefined>();
-  const [cookies, setCookie] = useCookies([
-    settings.site.auth.activeProjectCookieKey,
-  ]);
-  const activeProjectId = cookies[settings.site.auth.activeProjectCookieKey];
+  const [userProjects, setUserProjects] = useState<Project[] | undefined>(
+    () => {
+      const stored = localStorage.getItem(FLEEK_XYZ_USER_PROJECTS_STORAGE_KEY);
+      return stored ? JSON.parse(stored) : undefined;
+    },
+  );
+
   const [loading, setLoading] = useState(false);
 
-  const fetchGraphQLUserProjects = useCallback(
-    async (token?: string): Promise<Project[] | undefined> => {
-      if (!token) return;
+  const {
+    accessToken,
+    projectId: activeProjectId,
+    setProjectId,
+    isLoggedIn,
+  } = useAuthStore();
 
-      const query = `query projects($filter: ProjectsPaginationInput) {
-      projects(filter: $filter) {
-        data {
-          id
-          name
-          avatar
+  useEffect(() => {
+    if (userProjects) {
+      localStorage.setItem(
+        FLEEK_XYZ_USER_PROJECTS_STORAGE_KEY,
+        JSON.stringify(userProjects),
+      );
+    }
+  }, [userProjects]);
+
+  const clearProjectsStorage = () =>
+    localStorage.removeItem(FLEEK_XYZ_USER_PROJECTS_STORAGE_KEY);
+
+  // TODO: Move to the eliza/api file
+  const fetchGraphQLUserProjects = async (
+    token?: string,
+  ): Promise<Project[] | undefined> => {
+    if (!token) return;
+
+    const query = `query projects($filter: ProjectsPaginationInput) {
+        projects(filter: $filter) {
+          data {
+            id
+            name
+            avatar
+          }
         }
-      }
-    }`;
+      }`;
 
-      const variables = {};
+    const options = {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        authorization: `Bearer ${token}`,
+      },
+      body: JSON.stringify({
+        operationName: 'projects',
+        query,
+        variables: {},
+      }),
+    };
 
-      const options = {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-          authorization: `Bearer ${token}`,
-        },
-        body: JSON.stringify({
-          operationName: 'projects',
-          query,
-          variables,
-        }),
-      };
-
-      try {
-        const response = await fetch(GRAPHQL_URL, options);
-        const { data } = await response.json();
-
-        const projects = (data?.projects?.data || []) as Project[];
-        return projects;
-      } catch (error) {
-        console.error('Failed to fetch user projects:', error);
-      }
-    },
-    [],
-  );
-
-  const setActiveProject = useCallback(
-    async (projectId?: string) => {
-      if (!projectId) return;
-      setCookie(settings.site.auth.activeProjectCookieKey, projectId, {});
-      if (!userProjects) return;
-      const activeProject = userProjects.find(({ id }) => id === projectId);
-      if (activeProject) {
-        toast.success(`Switched project to: ${activeProject?.name}`);
-      }
-    },
-    [setCookie, userProjects],
-  );
-
-  const fetchProjects = useCallback(async () => {
-    if (loading) return;
-    setLoading(true);
     try {
-      const token = await fetchFleekToken();
-      if (!token) return;
-      const projects = await fetchGraphQLUserProjects(token);
+      const response = await fetch(GRAPHQL_URL, options);
+      const { data } = await response.json();
+
+      const projects = (data?.projects?.data || []) as Project[];
+      return projects;
+    } catch (error) {
+      console.error('Failed to fetch user projects:', error);
+    }
+  };
+
+  const setActiveProject = async (projectId?: string) => {
+    if (!projectId || !userProjects) return;
+
+    const activeProject = userProjects.find(({ id }) => id === projectId);
+    if (activeProject) {
+      toast.success(`Switched project to: ${activeProject?.name}`);
+    }
+
+    setProjectId(projectId);
+  };
+
+  const fetchProjects = async () => {
+    if (loading || !accessToken) return;
+
+    setLoading(true);
+
+    try {
+      const projects = await fetchGraphQLUserProjects(accessToken);
 
       if (projects && projects.length) {
         setUserProjects(projects);
@@ -92,19 +111,19 @@ export const useProjects = () => {
     } finally {
       setLoading(false);
     }
-  }, [
-    activeProjectId,
-    fetchFleekToken,
-    fetchGraphQLUserProjects,
-    setActiveProject,
-    loading,
-  ]);
+  };
 
   useEffect(() => {
     if (!userProjects || !activeProjectId) {
       fetchProjects();
     }
-  }, [fetchProjects, userProjects, activeProjectId, isLoggedIn]);
+  }, [fetchProjects, userProjects, activeProjectId]);
+
+  useEffect(() => {
+    if (isLoggedIn) return;
+
+    clearProjectsStorage();
+  }, [isLoggedIn]);
 
   return {
     userProjects,
@@ -112,5 +131,6 @@ export const useProjects = () => {
     setActiveProject,
     loading,
     fetchProjects,
+    clearProjectsStorage,
   };
 };
