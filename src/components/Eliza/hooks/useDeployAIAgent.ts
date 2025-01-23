@@ -1,7 +1,6 @@
 import { useCallback, useMemo } from 'react';
 import { useState } from 'react';
-
-import type { DeploymentStatus } from '../api/api';
+import type { DeploymentStatus } from '../api';
 import trackingUtils from '@components/Tracking/trackingUtils';
 
 export interface UseDeployAIAgentProps {
