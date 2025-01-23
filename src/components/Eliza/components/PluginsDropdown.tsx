@@ -80,7 +80,7 @@ export const PluginsDropdown: React.FC = () => {
             >
               <FaMagnifyingGlass className="text-elz-neutral-6" />
               <Input.Field
-                placeholder="Search for the plugin..."
+                placeholder="Search for plugins..."
                 value={query}
                 onChange={(e) => setQuery(e.currentTarget.value)}
                 onKeyDown={(e) => e.stopPropagation()}
