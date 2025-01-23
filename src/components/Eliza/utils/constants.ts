@@ -584,6 +584,148 @@ export const SECRETS_CLIENT_MAP: Record<Client, Record<string, string>> = {
   },
 };
 
+export const SECRETS_PLUGIN_MAP: Record<Plugin, Record<string, string>> = {
+  // Blockchain & Web3
+  '@elizaos/plugin-0g': {
+    ZEROG_INDEXER_RPC: '',
+    ZEROG_EVM_RPC: '',
+    ZEROG_PRIVATE_KEY: '',
+    ZEROG_FLOW_ADDRESS: '',
+  },
+  '@elizaos/plugin-3d-generation': {
+    FAL_API_KEY: '',
+  },
+  '@elizaos/plugin-abstract': {
+    ABSTRACT_ADDRESS: '',
+    ABSTRACT_PRIVATE_KEY: '',
+  },
+  '@elizaos/plugin-aptos': {
+    APTOS_PRIVATE_KEY: '',
+    APTOS_NETWORK: '',
+  },
+  '@elizaos/plugin-avalanche': {
+    AVALANCHE_PRIVATE_KEY: '',
+  },
+  '@elizaos/plugin-coinbase': {
+    COINBASE_API_KEY: '',
+    COINBASE_PRIVATE_KEY: '',
+    COINBASE_COMMERCE_KEY: '',
+    COINBASE_NOTIFICATION_URI: '',
+  },
+  '@elizaos/plugin-conflux': {
+    CONFLUX_CORE_PRIVATE_KEY: '',
+    CONFLUX_CORE_SPACE_RPC_URL: '',
+    CONFLUX_MEME_CONTRACT_ADDRESS: '',
+  },
+  '@elizaos/plugin-cronoszkevm': {
+    CRONOSZKEVM_ADDRESS: '',
+    CRONOSZKEVM_PRIVATE_KEY: '',
+  },
+  '@elizaos/plugin-evm': {
+    EVM_PRIVATE_KEY: '',
+  },
+  '@elizaos/plugin-flow': {
+    FLOW_ADDRESS: '',
+    FLOW_PRIVATE_KEY: '',
+    FLOW_NETWORK: '',
+    FLOW_ENDPOINT_URL: '',
+  },
+  '@elizaos/plugin-fuel': {
+    FUEL_PRIVATE_KEY: '',
+    FUEL_PROVIDER_URL: '',
+  },
+  '@elizaos/plugin-icp': {
+    INTERNET_COMPUTER_PRIVATE_KEY: '',
+  },
+  '@elizaos/plugin-multiversx': {
+    MVX_PRIVATE_KEY: '',
+    MVX_NETWORK: '',
+  },
+  '@elizaos/plugin-near': {
+    NEAR_WALLET_SECRET_KEY: '',
+    NEAR_WALLET_PUBLIC_KEY: '',
+    NEAR_ADDRESS: '',
+    NEAR_NETWORK: '',
+    NEAR_RPC_URL: '',
+    NEAR_SLIPPAGE: '',
+  },
+  '@elizaos/plugin-solana': {
+    WALLET_SECRET_KEY: '',
+    WALLET_PUBLIC_KEY: '',
+    SOL_ADDRESS: '',
+    SLIPPAGE: '',
+    SOLANA_RPC_URL: '',
+    HELIUS_API_KEY: '',
+    BIRDEYE_API_KEY: '',
+  },
+  '@elizaos/plugin-starknet': {
+    STARKNET_ADDRESS: '',
+    STARKNET_PRIVATE_KEY: '',
+    STARKNET_RPC_URL: '',
+  },
+  '@elizaos/plugin-story': {},
+  '@elizaos/plugin-sui': {
+    SUI_PRIVATE_KEY: '',
+    SUI_NETWORK: '',
+  },
+  '@elizaos/plugin-ton': {
+    TON_PRIVATE_KEY: '',
+    TON_RPC_URL: '',
+  },
+  '@elizaos/plugin-zksync-era': {
+    ZKSYNC_ADDRESS: '',
+    ZKSYNC_PRIVATE_KEY: '',
+  },
+
+  // Content & Media Generation
+  '@elizaos/plugin-image-generation': {
+    IMAGE_STORAGE_BUCKET: '',
+    STORAGE_ACCESS_KEY: '',
+    STORAGE_SECRET_KEY: '',
+  },
+  '@elizaos/plugin-nft-generation': {
+    RESERVOIR_API_KEY: '',
+  },
+  '@elizaos/plugin-video-generation': {
+    LUMA_API_KEY: '',
+  },
+
+  // Platform & Integration
+  '@elizaos/plugin-bootstrap': {},
+  '@elizaos/plugin-echochambers': {},
+  '@elizaos/plugin-gitbook': {
+    GITBOOK_SPACE_ID: '',
+  },
+  '@elizaos/plugin-goat': {
+    EVM_PRIVATE_KEY: '',
+    EVM_PROVIDER_URL: '',
+  },
+  '@elizaos/plugin-intiface': {
+    INTIFACE_URL: '',
+    INTIFACE_NAME: '',
+    DEVICE_NAME: '',
+  },
+  '@elizaos/plugin-node': {},
+  '@elizaos/plugin-tee': {
+    TEE_MODE: '',
+    WALLET_SECRET_SALT: '',
+  },
+  '@elizaos/plugin-trustdb': {},
+
+  // Communication & Search
+  '@elizaos/plugin-web-search': {
+    TAVILY_API_KEY: '',
+  },
+  '@elizaos/plugin-whatsapp': {
+    WHATSAPP_ACCESS_TOKEN: '',
+    WHATSAPP_PHONE_NUMBER_ID: '',
+  },
+  '@elizaos/plugin-twitter': {
+    TWITTER_USERNAME: '',
+    TWITTER_PASSWORD: '',
+  },
+};
+
 export const PAGES = [
   'getStarted',
   'upload',
