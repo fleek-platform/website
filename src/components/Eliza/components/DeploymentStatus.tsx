@@ -1,24 +1,11 @@
 import { Box } from './Box';
 import FieldWithCopyButton from './FieldWithCopyButton';
-import { GreenCheck, RedCross } from './Icons';
+import { GreenCheck, PendingDots, RedCross } from './Icons';
 import Link, { Target } from './Link';
 import { Text } from './Text';
-// import { getDefined } from '../defined';
-import { routes } from '../settings';
-import { removeTrailingSlash } from '../utils/url';
+import settings from '@base/settings.json';
 
-// TODO: It'll be replaced by the standalone version
-// which distribution will replace the `process.env`
-// due to `process.env` not working in astro
-// and that the Eliza encapsulation shouldn't use the
-// host application features, e.g. astro `import.meta.env`
-// for this reason, it's hard-typed but will change shortly
-// once ported to the agents-ui repo
-// const publicDashboardUrl = getDefined('PUBLIC_UI_APP_URL');
-const publicDashboardUrl =
-  typeof process.env.PUBLIC_UI_APP_URL === 'undefined'
-    ? removeTrailingSlash(import.meta.env.PUBLIC_UI_APP_URL)
-    : '';
+const UI_APP_URL = import.meta.env.PUBLIC_UI_APP_URL;
 
 interface DeploymentStatusProps {
   deploymentStatus?: any;
@@ -35,7 +22,7 @@ const DeploymentStatus: React.FC<DeploymentStatusProps> = ({
   projectId,
 }) => {
   const dashboardUrl = projectId
-    ? `${publicDashboardUrl}/${routes.agentsDashboardPage.replace('[projectId]', projectId)}`
+    ? `${UI_APP_URL}${settings.elizaPage.agentsDashboardPage.replace('[projectId]', projectId)}`
     : null;
 
   return (
