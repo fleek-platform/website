@@ -40,6 +40,7 @@ export const ApiDocs = ({
   endpoint = 'https://api.dev.fleeksandbox.xyz/api-docs/openapi.json',
 }) => {
   const [endpoints, setEndpoints] = useState<Endpoint[]>([]);
+  const [data, setData] = useState<any>(undefined);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
 
@@ -47,7 +48,9 @@ export const ApiDocs = ({
     const loadSpec = async () => {
       try {
         const data = await fetchOpenAPISpec(endpoint);
-        setEndpoints(transformOpenAPISpec(data));
+        setData(data)
+        const x = transformOpenAPISpec(data);
+        setEndpoints(x);
       } catch (err) {
         setError('Failed to load API documentation');
       } finally {
@@ -57,6 +60,29 @@ export const ApiDocs = ({
 
     loadSpec();
   }, [endpoint]);
+
+  const fetchSchemaStuff = (pathForSchema: any) => {
+    if (!data || !pathForSchema.schema.$ref) {
+      return 'Schema not found';
+    }
+  
+    // Remove the '#/' from the beginning of the reference path
+    const refPath = pathForSchema.schema.$ref.replace('#/', '');
+    
+    // Split the path into parts
+    const pathParts = refPath.split('/');
+    
+    // Traverse the data object using the path parts
+    let result = data;
+    for (const part of pathParts) {
+      result = result[part];
+      if (!result) {
+        return 'Schema not found';
+      }
+    }
+    
+    return JSON.stringify(result, null, 2);
+  }
 
   if (loading) return <div className="p-4">Loading API documentation...</div>;
   if (error) return <div className="text-red-500 p-4">{error}</div>;
@@ -106,11 +132,7 @@ export const ApiDocs = ({
                 <h4 className="mb-2 font-semibold">Request Body</h4>
                 <div className="rounded p-4">
                   <pre className="text-sm overflow-auto">
-                    {JSON.stringify(
-                      endpoint.requestBody.content['application/json'].schema,
-                      null,
-                      2,
-                    )}
+                    {fetchSchemaStuff(endpoint.requestBody.content['application/json'])}
                   </pre>
                 </div>
               </div>
