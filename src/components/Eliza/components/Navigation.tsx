@@ -1,3 +1,4 @@
+import { useEffect } from 'react';
 import { GetStarted } from './GetStarted';
 import {
   type Page,
@@ -11,8 +12,7 @@ import type { UseDeployAIAgentProps } from '../hooks/useDeployAIAgent';
 import { SettingsPage } from './SettingsPage';
 import { ReviewPage } from './ReviewPage';
 import { UploadPage } from './UploadPage';
-import trackingUtils from '@components/Tracking/trackingUtils';
-import { useEffect } from 'react';
+import type { TriggerTrackingEventFn } from '../types';
 
 type NavigationProps = {
   onDeployBtnClick: (characterfile: string | undefined) => void;
@@ -21,6 +21,7 @@ type NavigationProps = {
   navigationState: NavigationState;
   isLoggedIn: UseDeployAIAgentProps['isLoggedIn'];
   login: UseDeployAIAgentProps['login'];
+  triggerTrackingEvent?: TriggerTrackingEventFn;
 };
 
 export const Navigation: React.FC<NavigationProps> = ({
@@ -30,13 +31,14 @@ export const Navigation: React.FC<NavigationProps> = ({
   isOverCapacity = false,
   login,
   isLoggedIn,
+  triggerTrackingEvent,
 }) => {
   const updateState = (newState: Partial<NavigationState>) => {
     handleNavigationStateChange({ ...navigationState, ...newState });
   };
 
   const goTo = (page: Page, options?: Options) => {
-    trackingUtils.trackCustomEvent('agent-ui-wizard.navigation', {
+    triggerTrackingEvent?.('agent-ui-wizard.navigation', {
       from: navigationState.page,
       to: page,
       template: options?.template,
@@ -62,9 +64,9 @@ export const Navigation: React.FC<NavigationProps> = ({
       navigationState.page === 'getStarted' &&
       !navigationState.options.from
     ) {
-      trackingUtils.trackCustomEvent('agent-ui-wizard.journey-init');
+      triggerTrackingEvent?.('agent-ui-wizard.journey-init');
     }
-  }, []);
+  });
 
   const pages: Record<Page, React.ReactNode> = {
     getStarted: (
@@ -75,7 +77,9 @@ export const Navigation: React.FC<NavigationProps> = ({
         isLoggedIn={isLoggedIn}
       />
     ),
-    upload: <UploadPage goTo={goTo} />,
+    upload: (
+      <UploadPage goTo={goTo} triggerTrackingEvent={triggerTrackingEvent} />
+    ),
     characterfile: (
       <Characterfile
         goTo={goTo}

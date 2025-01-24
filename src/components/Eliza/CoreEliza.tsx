@@ -20,6 +20,7 @@ import { Text } from './components/Text.tsx';
 
 import { pages } from './settings';
 import { NewsletterSubscriber } from './components/NewsletterSubscriber.tsx';
+import type { TriggerTrackingEventFn } from './types/index.ts';
 
 interface ElizaCoreProps {
   isLoggedIn: UseDeployAIAgentProps['isLoggedIn'];
@@ -29,6 +30,7 @@ interface ElizaCoreProps {
   getAgentDeploymentStatus: UseDeployAIAgentProps['getAgentDeploymentStatus'];
   ensureUserSubscription: UseDeployAIAgentProps['ensureUserSubscription'];
   projectId: string | undefined;
+  triggerTrackingEvent?: TriggerTrackingEventFn;
 }
 
 export const CoreEliza: React.FC<ElizaCoreProps> = ({
@@ -39,6 +41,7 @@ export const CoreEliza: React.FC<ElizaCoreProps> = ({
   ensureUserSubscription,
   getAgentDeploymentStatus,
   projectId,
+  triggerTrackingEvent,
 }) => {
   const elizaIntegrations: UseDeployAIAgentProps = {
     login,
@@ -47,6 +50,7 @@ export const CoreEliza: React.FC<ElizaCoreProps> = ({
     triggerAgentDeployment,
     getAgentDeploymentStatus,
     ensureUserSubscription,
+    triggerTrackingEvent,
   };
 
   const {
@@ -105,6 +109,7 @@ export const CoreEliza: React.FC<ElizaCoreProps> = ({
           onDeployBtnClick={onDeployButtonClick}
           login={login}
           isLoggedIn={isLoggedIn}
+          triggerTrackingEvent={triggerTrackingEvent}
         />
       ),
     },

@@ -1,7 +1,10 @@
-import { PostHog } from 'posthog-js';
+export {};
 
-interface Window {
-  posthog?: typeof PostHog;
-  plausible?: any;
-  twq?: any;
+declare global {
+  interface Window {
+    posthog?: {
+      isFeatureEnabled: (featureFlag: string) => boolean;
+      capture: (eventName: string, eventProperties?: unknown) => void;
+    };
+  }
 }

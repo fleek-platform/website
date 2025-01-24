@@ -1,19 +1,23 @@
-const LOGGER = true;
+import { isProd } from '@utils/common';
+import type { TriggerTrackingEventFn } from './types';
 
-const trackCustomEvent = (eventName: string, eventProperties?: any) => {
-  //@ts-ignore
-  if (!window.posthog.isFeatureEnabled('enable-ai-agent-wizard-tracking')) {
-    return;
+export const trackCustomEvent: TriggerTrackingEventFn = (
+  eventName,
+  eventProperties,
+) => {
+  const LOGGER = !isProd;
+
+  if (window.posthog) {
+    if (!window.posthog.isFeatureEnabled('enable-ai-agent-wizard-tracking')) {
+      return;
+    }
+
+    window.posthog.capture(eventName, eventProperties);
   }
-
-  //@ts-ignore
-  window.posthog.capture(eventName, eventProperties);
 
   if (LOGGER) {
     console.log('📊 ~ trackCustomEvent', { eventName, eventProperties });
   }
 };
 
-const trackingUtils = { trackCustomEvent };
-
-export default trackingUtils;
+export default { trackCustomEvent };

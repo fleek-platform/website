@@ -1,7 +1,6 @@
 import { cn } from '@utils/cn';
 import React, { useRef, useState } from 'react';
 import { CloudUpload } from './Icons';
-import trackingUtils from '@components/Tracking/trackingUtils';
 
 const getFileExtension = (type: string) => {
   switch (type) {
