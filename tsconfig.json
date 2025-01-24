@@ -21,6 +21,7 @@
       }
     ],
     "module": "es2020",
-    "noErrorTruncation": true
+    "noErrorTruncation": true,
+    "types": ["./src/types/global.d.ts"]
   }
 }
