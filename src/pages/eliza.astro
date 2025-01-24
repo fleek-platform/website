@@ -2,6 +2,8 @@
 import settings from '@base/settings.json';
 import ElizaModule from '@components/AgentsUI';
 import BaseHtml from '@layouts/BaseHtml.astro';
+import { isClient } from '@utils/common';
+import { undefined } from 'astro:schema';
 
 declare global {
   interface Window {
@@ -9,7 +11,7 @@ declare global {
   }
 }
 
-const referralId = window.promotekit_referral;
+const referralId = () => (isClient ? window.promotekit_referral : '');
 ---
 
 <BaseHtml
@@ -22,5 +24,5 @@ const referralId = window.promotekit_referral;
   }}
   overflowHorizontally
 >
-  <ElizaModule client:load promoteKitReferralId={referralId} />
+  <ElizaModule client:load promoteKitReferralId={referralId()} />
 </BaseHtml>
