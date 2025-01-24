@@ -6,9 +6,16 @@ import {
 import { useAuthStore } from '@fleek-platform/login-button';
 import ElizaIntegrationLayer from '@components/Eliza/ElizaIntegrationLayer.tsx';
 
-export const AgentsUIIntegration: React.FC = () => {
+export interface AgentsUIIntegrationProps {
+  promoteKitReferralId?: string;
+}
+
+export const AgentsUIIntegration: React.FC<AgentsUIIntegrationProps> = (
+  props,
+) => {
   const { triggerLoginModal, accessToken, isLoggingIn, isLoggedIn, projectId } =
     useAuthStore();
+  const { promoteKitReferralId } = props;
   const login = () =>
     typeof triggerLoginModal === 'function' && triggerLoginModal(true);
 
@@ -18,6 +25,7 @@ export const AgentsUIIntegration: React.FC = () => {
       activeProjectId={projectId}
       isLoggedIn={isLoggedIn}
       isLoggingIn={isLoggingIn}
+      referralId={promoteKitReferralId}
       login={login}
       getSubscriptions={getSubscriptions}
       getPlans={getPlans}
@@ -26,7 +34,9 @@ export const AgentsUIIntegration: React.FC = () => {
   );
 };
 
-const AgentsUI: React.FC = () => <AgentsUIIntegration />;
+const AgentsUI: React.FC<AgentsUIIntegrationProps> = (props) => (
+  <AgentsUIIntegration {...props} />
+);
 
 // to be used in Astro
 export default AgentsUI;
