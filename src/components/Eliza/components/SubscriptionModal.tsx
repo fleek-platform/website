@@ -40,8 +40,6 @@ export const SubscriptionModal: React.FC<SubscriptionModalProps> = ({
 
     setIsLoading(true);
 
-    // const referralId = window.promotekit_referral;
-
     const subscriptionCreationResponse = await createSubscription(
       activeProjectId,
       productId,
