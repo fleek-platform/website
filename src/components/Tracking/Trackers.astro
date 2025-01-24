@@ -2,7 +2,14 @@
 // src/components/Trackers.astro
 ---
 
-<script is:inline>
+<!-- Posthog.js -->
+<script
+  is:inline
+  define:vars={{
+    apiKey: import.meta.env.PUBLIC_POSTHOG_API_KEY,
+    hostUrl: import.meta.env.PUBLIC_POSTHOG_HOST,
+  }}
+>
   !(function (t, e) {
     var o, n, p, r;
     e.__SV ||
@@ -17,6 +24,7 @@
             });
         }
         ((p = t.createElement('script')).type = 'text/javascript'),
+          (p.crossOrigin = 'anonymous'),
           (p.async = !0),
           (p.src = s.api_host + '/static/array.js'),
           (r = t.getElementsByTagName('script')[0]).parentNode.insertBefore(
@@ -50,11 +58,15 @@
       (e.__SV = 1));
   })(document, window.posthog || []);
 
-  posthog.init('phc_SdvLWEagL7nAauyEBun0ZF6v59DxMIk8ofzI91gpIUw', {
-    api_host: 'https://us.i.posthog.com',
+  posthog.init(apiKey, {
+    api_host: hostUrl,
+    capture_pageview: true,
+    persistence: 'localStorage',
+    autocapture: true,
   });
 </script>
 
+<!-- Plausible -->
 <script
   is:inline
   defer
@@ -70,6 +82,7 @@
     };
 </script>
 
+<!-- X Pixel -->
 <script is:inline>
   // @ts-nocheck
   !(function (e, t, n, s, u, a) {
