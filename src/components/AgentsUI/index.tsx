@@ -4,7 +4,7 @@ import {
   createSubscription,
 } from '@components/Eliza/api';
 import { useAuthStore } from '@fleek-platform/login-button';
-import ElizaIntegrationLayer from '@components/Eliza/ElizaIntegrationLayer.tsx';
+import { ElizaIntegrationLayer } from '@fleek-platform/agents-ui';
 
 export const AgentsUIIntegration: React.FC = () => {
   const { triggerLoginModal, accessToken, isLoggingIn, isLoggedIn, projectId } =
