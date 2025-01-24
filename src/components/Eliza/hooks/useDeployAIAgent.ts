@@ -1,6 +1,6 @@
 import { useCallback, useMemo } from 'react';
 import { useState } from 'react';
-import type { DeploymentStatus } from '../api/api';
+import type { DeploymentStatus } from '../api';
 
 export interface UseDeployAIAgentProps {
   isLoggedIn: boolean;
