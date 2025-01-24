@@ -1,10 +1,9 @@
-import {
-  getPlans,
-  getSubscriptions,
-  createSubscription,
-} from '@components/Eliza/api';
+import '@fleek-platform/agents-ui/styles';
+
 import { useAuthStore } from '@fleek-platform/login-button';
-import { ElizaIntegrationLayer } from '@fleek-platform/agents-ui';
+import { ElizaIntegrationLayer, api } from '@fleek-platform/agents-ui';
+
+const { getPlans, getSubscriptions, createSubscription } = api;
 
 export const AgentsUIIntegration: React.FC = () => {
   const { triggerLoginModal, accessToken, isLoggingIn, isLoggedIn, projectId } =
