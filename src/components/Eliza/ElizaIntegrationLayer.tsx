@@ -10,8 +10,9 @@ import {
 import {
   SubscriptionModal,
   useSubscriptionModal,
-} from './components/SubscriptionModal.tsx';
-import { CoreEliza } from './CoreEliza.tsx';
+} from './components/SubscriptionModal';
+import { CoreEliza } from './CoreEliza';
+import { captureEvent } from '@components/Tracking/trackingUtils';
 
 type getSubscriptionsType = (
   projectId?: string,
@@ -214,6 +215,7 @@ export const ElizaIntegrationLayer: React.FC<ElizaIntegrationLayerProps> = ({
         getAgentDeploymentStatus={getAgentDeploymentStatus}
         ensureUserSubscription={ensureUserSubscription}
         projectId={activeProjectId}
+        captureEvent={captureEvent}
       />
 
       <Toaster

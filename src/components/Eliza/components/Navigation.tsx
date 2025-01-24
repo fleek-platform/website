@@ -1,3 +1,4 @@
+import { useEffect } from 'react';
 import { GetStarted } from './GetStarted';
 import {
   type Page,
@@ -11,6 +12,7 @@ import type { UseDeployAIAgentProps } from '../hooks/useDeployAIAgent';
 import { SettingsPage } from './SettingsPage';
 import { ReviewPage } from './ReviewPage';
 import { UploadPage } from './UploadPage';
+import type { CaptureEventFn } from '../types';
 
 type NavigationProps = {
   onDeployBtnClick: (characterfile: string | undefined) => void;
@@ -19,6 +21,7 @@ type NavigationProps = {
   navigationState: NavigationState;
   isLoggedIn: UseDeployAIAgentProps['isLoggedIn'];
   login: UseDeployAIAgentProps['login'];
+  captureEvent: CaptureEventFn;
 };
 
 export const Navigation: React.FC<NavigationProps> = ({
@@ -28,12 +31,18 @@ export const Navigation: React.FC<NavigationProps> = ({
   isOverCapacity = false,
   login,
   isLoggedIn,
+  captureEvent,
 }) => {
   const updateState = (newState: Partial<NavigationState>) => {
     handleNavigationStateChange({ ...navigationState, ...newState });
   };
 
   const goTo = (page: Page, options?: Options) => {
+    captureEvent('agent-ui-wizard.navigation', {
+      from: navigationState.page,
+      to: page,
+      template: options?.template,
+    });
     if (page === 'getStarted') {
       updateState({ page, options, characterFile: undefined });
     } else {
@@ -50,6 +59,15 @@ export const Navigation: React.FC<NavigationProps> = ({
     onDeployBtnClick(characterFile);
   };
 
+  useEffect(() => {
+    if (
+      navigationState.page === 'getStarted' &&
+      !navigationState.options.from
+    ) {
+      captureEvent('agent-ui-wizard.journey-init');
+    }
+  });
+
   const pages: Record<Page, React.ReactNode> = {
     getStarted: (
       <GetStarted
@@ -59,7 +77,7 @@ export const Navigation: React.FC<NavigationProps> = ({
         isLoggedIn={isLoggedIn}
       />
     ),
-    upload: <UploadPage goTo={goTo} />,
+    upload: <UploadPage goTo={goTo} captureEvent={captureEvent} />,
     characterfile: (
       <Characterfile
         goTo={goTo}
