@@ -15,18 +15,13 @@ To follow the guide below, you need to ensure that you have a Fleek account. You
 
 **API Base Endpoint**: https://api.fleek.xyz/api/v1
 
-## Getting a Bearer token
-
-Fleek supports bearer tokens and API tokens, enabling secure access. API tokens are user-specific and share the same permissions as your account. Follow these steps to obtain your bearer token:
-
-1. Log in to the Fleek app.
-2. Open your browser's developer tools and navigate to the Cookies section.
-3. Locate the `accessToken` under `app.fleek.xyz` and copy its value.
-4. This token will be required for authentication when creating an API token.
+:::note
+You can use the Bearer token generated from signing in to your account to authenticate the request to get your API Token [here](https://api.fleek.xyz/api-docs/openapi.json#tag/iamtokens/POST/api/v1/tokens).
+:::
 
 ## Using the Fleek agent APIs
 
-You can find all the APIs on our Scalar documentation [here](https://api.fleek.xyz/api-docs/openapi.json). With these APIs, you can:
+You can find all the APIs on our [Scalar documentation](https://api.fleek.xyz/api-docs/openapi.json). With these APIs, you can:
 
 - Fetch an agent’s details
 - Create agents
