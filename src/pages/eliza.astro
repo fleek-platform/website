@@ -2,6 +2,14 @@
 import settings from '@base/settings.json';
 import ElizaModule from '@components/AgentsUI';
 import BaseHtml from '@layouts/BaseHtml.astro';
+
+declare global {
+  interface Window {
+    promotekit_referral: string;
+  }
+}
+
+const referralId = window.promotekit_referral;
 ---
 
 <BaseHtml
@@ -14,5 +22,5 @@ import BaseHtml from '@layouts/BaseHtml.astro';
   }}
   overflowHorizontally
 >
-  <ElizaModule client:load />
+  <ElizaModule client:load promoteKitReferralId={referralId} />
 </BaseHtml>
