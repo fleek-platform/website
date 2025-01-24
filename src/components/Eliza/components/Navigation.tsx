@@ -62,7 +62,7 @@ export const Navigation: React.FC<NavigationProps> = ({
   useEffect(() => {
     if (
       navigationState.page === 'getStarted' &&
-      !navigationState.options.from
+      !navigationState?.options?.from
     ) {
       captureEvent('agent-ui-wizard.journey-init');
     }
