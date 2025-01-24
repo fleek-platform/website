@@ -242,6 +242,7 @@ export const createSubscription = async (
   projectId?: string,
   productId?: string,
   token?: string,
+  referralId?: string,
 ): Promise<{
   ok: boolean;
   data?: {
@@ -268,6 +269,9 @@ export const createSubscription = async (
           product: {
             id: productId,
             quantity: 1,
+          },
+          metadata: {
+            referralId,
           },
         }),
       },
