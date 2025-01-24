@@ -1,0 +1,29 @@
+---
+order: 6
+title: Agent APIs
+date: 2025-01-24
+desc: AI agent APIs from Fleek.
+---
+
+import { ApiDocs } from '../../../../components/APIDocs';
+
+# Fleek AI Agent APIs
+
+Deploying AI agents on Fleek has never been a hassle and you can now deploy from within your applications and projects as well. By exposing these APIs, Fleek enables users to seamlessly integrate AI agent management capabilities into their applications.
+
+## Prerequisites and setup
+
+To follow the guide below, you need to ensure that you have a Fleek account. You can sign up for one if you don’t already have one at app.fleek.xyz.
+
+**API Base Endpoint**: https://api.fleek.xyz/api/v1
+
+## Getting a Bearer Token
+
+Fleek supports bearer tokens and API tokens, enabling secure access. API tokens are user-specific and share the same permissions as your account. Follow these steps to obtain your bearer token:
+Log in to the Fleek app.
+
+1. Open your browser's developer tools and navigate to the Cookies section.
+2. Locate the `accessToken` under `app.fleek.xyz` and copy its value.
+3. This token will be required for authentication when creating an API token.
+
+<ApiDocs client:load />
