@@ -1,10 +1,7 @@
 import { isProd } from '@utils/common';
-import type { TriggerTrackingEventFn } from './types';
+import type { CaptureEventFn } from './types';
 
-export const trackCustomEvent: TriggerTrackingEventFn = (
-  eventName,
-  eventProperties,
-) => {
+export const captureEvent: CaptureEventFn = (eventName, eventProperties) => {
   const LOGGER = !isProd;
 
   if (window.posthog) {
@@ -16,8 +13,8 @@ export const trackCustomEvent: TriggerTrackingEventFn = (
   }
 
   if (LOGGER) {
-    console.log('📊 ~ trackCustomEvent', { eventName, eventProperties });
+    console.log('📊 ~ captureEvent', { eventName, eventProperties });
   }
 };
 
-export default { trackCustomEvent };
+export default { captureEvent };

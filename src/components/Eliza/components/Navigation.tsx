@@ -12,7 +12,7 @@ import type { UseDeployAIAgentProps } from '../hooks/useDeployAIAgent';
 import { SettingsPage } from './SettingsPage';
 import { ReviewPage } from './ReviewPage';
 import { UploadPage } from './UploadPage';
-import type { TriggerTrackingEventFn } from '../types';
+import type { CaptureEventFn } from '../types';
 
 type NavigationProps = {
   onDeployBtnClick: (characterfile: string | undefined) => void;
@@ -21,7 +21,7 @@ type NavigationProps = {
   navigationState: NavigationState;
   isLoggedIn: UseDeployAIAgentProps['isLoggedIn'];
   login: UseDeployAIAgentProps['login'];
-  triggerTrackingEvent?: TriggerTrackingEventFn;
+  captureEvent: CaptureEventFn;
 };
 
 export const Navigation: React.FC<NavigationProps> = ({
@@ -31,14 +31,14 @@ export const Navigation: React.FC<NavigationProps> = ({
   isOverCapacity = false,
   login,
   isLoggedIn,
-  triggerTrackingEvent,
+  captureEvent,
 }) => {
   const updateState = (newState: Partial<NavigationState>) => {
     handleNavigationStateChange({ ...navigationState, ...newState });
   };
 
   const goTo = (page: Page, options?: Options) => {
-    triggerTrackingEvent?.('agent-ui-wizard.navigation', {
+    captureEvent('agent-ui-wizard.navigation', {
       from: navigationState.page,
       to: page,
       template: options?.template,
@@ -64,7 +64,7 @@ export const Navigation: React.FC<NavigationProps> = ({
       navigationState.page === 'getStarted' &&
       !navigationState.options.from
     ) {
-      triggerTrackingEvent?.('agent-ui-wizard.journey-init');
+      captureEvent('agent-ui-wizard.journey-init');
     }
   });
 
@@ -77,9 +77,7 @@ export const Navigation: React.FC<NavigationProps> = ({
         isLoggedIn={isLoggedIn}
       />
     ),
-    upload: (
-      <UploadPage goTo={goTo} triggerTrackingEvent={triggerTrackingEvent} />
-    ),
+    upload: <UploadPage goTo={goTo} captureEvent={captureEvent} />,
     characterfile: (
       <Characterfile
         goTo={goTo}

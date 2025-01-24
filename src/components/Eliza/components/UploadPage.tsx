@@ -16,15 +16,15 @@ import { characterfileSchema } from '../utils/schema';
 import { useState } from 'react';
 import { cn } from '@utils/cn';
 import { Input } from './Input';
-import type { TriggerTrackingEventFn } from '../types';
+import type { CaptureEventFn } from '../types';
 
 interface UploadPageProps extends GoToProps {
-  triggerTrackingEvent?: TriggerTrackingEventFn;
+  captureEvent: CaptureEventFn;
 }
 
 export const UploadPage: React.FC<UploadPageProps> = ({
   goTo,
-  triggerTrackingEvent,
+  captureEvent,
 }) => {
   const [errors, setErrors] = useState<FormattedError[]>([]);
 
@@ -77,7 +77,7 @@ export const UploadPage: React.FC<UploadPageProps> = ({
         <ChooseCharacterFile
           handleCharacterFileChange={onCharacterfileChange}
           className={cn({ 'border-elz-danger-8': errors.length > 0 })}
-          triggerTrackingEvent={triggerTrackingEvent}
+          captureEvent={captureEvent}
         />
         {errors.length > 0 && (
           <Box className="gap-4 duration-300 animate-in fade-in-75 slide-in-from-top-12">

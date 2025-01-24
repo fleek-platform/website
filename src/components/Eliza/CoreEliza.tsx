@@ -1,26 +1,26 @@
 import React from 'react';
 
 import Step from './components/Step';
-import DeploymentStatus from './components/DeploymentStatus.tsx';
-import DeploymentFailed from './components/DeploymentFailed.tsx';
+import DeploymentStatus from './components/DeploymentStatus';
+import DeploymentFailed from './components/DeploymentFailed';
 
 import {
   useDeployAIAgent,
   type UseDeployAIAgentProps,
-} from './hooks/useDeployAIAgent.ts';
-import { Navigation } from '@components/Eliza/components/Navigation.tsx';
+} from './hooks/useDeployAIAgent';
+import { Navigation } from '@components/Eliza/components/Navigation';
 import { useState } from 'react';
-import { Button } from '@components/Eliza/components/Button.tsx';
+import { Button } from '@components/Eliza/components/Button';
 import { FaChevronLeft } from 'react-icons/fa6';
-import type { NavigationState } from './utils/types.ts';
-import { Layout } from './components/Layout.tsx';
-import { IllustrationIcon } from './components/CustomIcons.tsx';
-import { Box } from './components/Box.tsx';
-import { Text } from './components/Text.tsx';
+import type { NavigationState } from './utils/types';
+import { Layout } from './components/Layout';
+import { IllustrationIcon } from './components/CustomIcons';
+import { Box } from './components/Box';
+import { Text } from './components/Text';
 
 import { pages } from './settings';
-import { NewsletterSubscriber } from './components/NewsletterSubscriber.tsx';
-import type { TriggerTrackingEventFn } from './types/index.ts';
+import { NewsletterSubscriber } from './components/NewsletterSubscriber';
+import type { CaptureEventFn } from './types';
 
 interface ElizaCoreProps {
   isLoggedIn: UseDeployAIAgentProps['isLoggedIn'];
@@ -30,7 +30,7 @@ interface ElizaCoreProps {
   getAgentDeploymentStatus: UseDeployAIAgentProps['getAgentDeploymentStatus'];
   ensureUserSubscription: UseDeployAIAgentProps['ensureUserSubscription'];
   projectId: string | undefined;
-  triggerTrackingEvent?: TriggerTrackingEventFn;
+  captureEvent?: CaptureEventFn;
 }
 
 export const CoreEliza: React.FC<ElizaCoreProps> = ({
@@ -41,8 +41,18 @@ export const CoreEliza: React.FC<ElizaCoreProps> = ({
   ensureUserSubscription,
   getAgentDeploymentStatus,
   projectId,
-  triggerTrackingEvent,
+  captureEvent: externalCaptureEvent,
 }) => {
+  const captureEvent: CaptureEventFn = (eventName, eventProperties) => {
+    if (externalCaptureEvent) {
+      try {
+        externalCaptureEvent(eventName, eventProperties);
+      } catch (error) {
+        console.error(error);
+      }
+    }
+  };
+
   const elizaIntegrations: UseDeployAIAgentProps = {
     login,
     isLoggedIn,
@@ -50,7 +60,7 @@ export const CoreEliza: React.FC<ElizaCoreProps> = ({
     triggerAgentDeployment,
     getAgentDeploymentStatus,
     ensureUserSubscription,
-    triggerTrackingEvent,
+    captureEvent,
   };
 
   const {
@@ -109,7 +119,7 @@ export const CoreEliza: React.FC<ElizaCoreProps> = ({
           onDeployBtnClick={onDeployButtonClick}
           login={login}
           isLoggedIn={isLoggedIn}
-          triggerTrackingEvent={triggerTrackingEvent}
+          captureEvent={captureEvent}
         />
       ),
     },

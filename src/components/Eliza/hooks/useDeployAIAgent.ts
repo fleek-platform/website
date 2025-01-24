@@ -1,7 +1,7 @@
 import { useCallback, useMemo, useState } from 'react';
 
 import type { DeploymentStatus } from '../api';
-import type { TriggerTrackingEventFn } from '../types';
+import type { CaptureEventFn } from '../types';
 
 export interface UseDeployAIAgentProps {
   isLoggedIn: boolean;
@@ -16,7 +16,7 @@ export interface UseDeployAIAgentProps {
     ok?: boolean;
     data?: DeploymentStatus;
   }>;
-  triggerTrackingEvent?: TriggerTrackingEventFn;
+  captureEvent: CaptureEventFn;
 }
 
 export const useDeployAIAgent = ({
@@ -25,7 +25,7 @@ export const useDeployAIAgent = ({
   ensureUserSubscription,
   triggerAgentDeployment,
   getAgentDeploymentStatus,
-  triggerTrackingEvent,
+  captureEvent,
 }: UseDeployAIAgentProps) => {
   const POLLING_TIME = 500;
 
@@ -40,7 +40,7 @@ export const useDeployAIAgent = ({
 
   const pollDeploymentStatus = async (agentId: string) => {
     const MAX_ATTEMPTS = 15;
-    triggerTrackingEvent?.('agent-ui-wizard.deployment-status-polling-started');
+    captureEvent('agent-ui-wizard.deployment-status-polling-started');
 
     const poll = async (attempt: number) => {
       try {
@@ -71,13 +71,13 @@ export const useDeployAIAgent = ({
             setIsDeploymentFailed(hasFailed);
             setIsDeploymentSuccessful(isSuccessful);
             if (isSuccessful) {
-              triggerTrackingEvent?.(
+              captureEvent(
                 'agent-ui-wizard.deployment-status-polling-completed',
                 { msg: 'success' },
               );
               setDeployedAgentId(agentId || undefined);
             } else {
-              triggerTrackingEvent?.(
+              captureEvent(
                 'agent-ui-wizard.deployment-status-polling-completed',
                 { msg: 'failure' },
               );
@@ -102,10 +102,10 @@ export const useDeployAIAgent = ({
     async (characterFile?: string, projectId?: string) => {
       resetDeployment();
       setIsDeploymentPending(true);
-      triggerTrackingEvent?.('agent-ui-wizard.deployment-validation-started');
+      captureEvent('agent-ui-wizard.deployment-validation-started');
 
       if (!characterFile) {
-        triggerTrackingEvent?.('agent-ui-wizard.deployment-validation-failed', {
+        captureEvent('agent-ui-wizard.deployment-validation-failed', {
           msg: 'No characterfile provided',
         });
         setIsDeploymentPending(false);
@@ -113,7 +113,7 @@ export const useDeployAIAgent = ({
       }
 
       if (!isLoggedIn) {
-        triggerTrackingEvent?.('agent-ui-wizard.deployment-validation-failed', {
+        captureEvent('agent-ui-wizard.deployment-validation-failed', {
           msg: 'Not logged in',
         });
         login();
@@ -122,7 +122,7 @@ export const useDeployAIAgent = ({
       }
 
       if (!projectId) {
-        triggerTrackingEvent?.('agent-ui-wizard.deployment-validation-failed', {
+        captureEvent('agent-ui-wizard.deployment-validation-failed', {
           msg: 'No project ID provided',
         });
         setIsDeploymentPending(false);
@@ -131,7 +131,7 @@ export const useDeployAIAgent = ({
 
       const subscriptionResult = await ensureUserSubscription(projectId);
       if (!subscriptionResult) {
-        triggerTrackingEvent?.('agent-ui-wizard.deployment-validation-failed', {
+        captureEvent('agent-ui-wizard.deployment-validation-failed', {
           msg: 'User has not enough subscriptions',
         });
         setIsDeploymentPending(false);
@@ -143,7 +143,7 @@ export const useDeployAIAgent = ({
         projectId,
       );
       if (!deploymentTriggerResult.ok || !deploymentTriggerResult.agentId) {
-        triggerTrackingEvent?.('agent-ui-wizard.deployment-validation-failed', {
+        captureEvent('agent-ui-wizard.deployment-validation-failed', {
           msg: 'Failed to trigger agent deployment',
         });
         setIsDeploymentPending(false);
@@ -151,7 +151,7 @@ export const useDeployAIAgent = ({
         return false;
       }
 
-      triggerTrackingEvent?.('agent-ui-wizard.deployment-validation-success');
+      captureEvent('agent-ui-wizard.deployment-validation-success');
       pollDeploymentStatus(deploymentTriggerResult.agentId);
       return true;
     },

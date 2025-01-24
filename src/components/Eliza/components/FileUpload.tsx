@@ -54,6 +54,7 @@ const FileUpload: React.FC<FileUploadProps> = ({
     setErrorMessage(null);
     const extensionRegex = getFileExtension(fileType);
 
+    // TODO: this logic has to be reviewed as there are probably some leftovers from previous iterations of the product
     if (fileType === 'json' && !extensionRegex.test(file.name)) {
       const msg = 'Please upload a valid characterfile.';
       onFileValidation?.(false, msg);

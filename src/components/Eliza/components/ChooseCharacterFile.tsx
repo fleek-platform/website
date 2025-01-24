@@ -1,19 +1,19 @@
 import FileUpload from '../components/FileUpload';
-import type { TriggerTrackingEventFn } from '../types';
+import type { CaptureEventFn } from '../types';
 
 interface ChooseCharacterFileProps {
   handleCharacterFileChange: (content: string) => void;
   className?: string;
-  triggerTrackingEvent?: TriggerTrackingEventFn;
+  captureEvent: CaptureEventFn;
 }
 
 const ChooseCharacterFile: React.FC<ChooseCharacterFileProps> = ({
   handleCharacterFileChange,
   className,
-  triggerTrackingEvent,
+  captureEvent,
 }) => {
   const onFileValidation = (res: boolean, msg?: string) => {
-    triggerTrackingEvent?.('agent-ui-wizard.file-upload', {
+    captureEvent('agent-ui-wizard.file-upload', {
       res,
       msg,
     });
