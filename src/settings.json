@@ -26,6 +26,12 @@
         "description": "Fleek: Build next-gen apps and AI agents in minutes on an open-source, verifiable, auto-scalable cloud platform. Start for free!",
         "image": "/images/fleek-meta-image.png?202406061658"
       },
+      "affiliates": {
+        "title": "Fleek Affiliate Program",
+        "slug": "affiliates",
+        "description": "Join Fleek's Affiliate Program and help shape the future of the autonomous internet.",
+        "image": "/images/fleek-meta-image.png?202406061658"
+      },
       "blog": {
         "title": "Blog",
         "slug": "blog",
@@ -521,6 +527,23 @@
         "Escape Big Cloud and take back control. Fleek offers everything you love about using public cloud platforms, without the constraints of corporate controlled web infrastructure."
       ],
       "button": "Get started with Fleek"
+    }
+  },
+  "affiliatesPage": {
+    "hero": {
+      "title": "Refer Users to Fleek and Earn Cash Rewards"
+    },
+    "whyBecome": {
+      "title": "Why Become a Fleek Affiliate?"
+    },
+    "whoCanJoin": {
+      "title": "Who Can Join?"
+    },
+    "howItWorks": {
+      "title": "How It Works"
+    },
+    "faq": {
+      "title": "Frequently Asked Questions"
     }
   },
   "templatesPage": {

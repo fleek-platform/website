@@ -1,0 +1,17 @@
+---
+import Layout from '@layouts/Page.astro';
+import AffiliatesModule from '@components/Affiliates';
+import settings from '@base/settings.json';
+
+const { title, description, slug, image } = settings.site.metadata.affiliates;
+
+// Todo: make correct layout
+---
+
+<Layout title={title} description={description} slug={slug} image={image}>
+  <AffiliatesModule.Hero />
+  <AffiliatesModule.WhyBecome />
+  <AffiliatesModule.WhoCanJoin />
+  <AffiliatesModule.HowItWorks />
+  <AffiliatesModule.Faq />
+</Layout>
