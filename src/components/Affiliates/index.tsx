@@ -2,6 +2,8 @@ import settings from '@base/settings.json';
 import { Button } from '@components/Button';
 import { Target } from '@components/Link';
 import Section from './components/Section';
+import { CardsList } from './components/Card';
+import { howItWorksCards, whoCanJoinCards, whyBecomeCards } from './data/cards';
 
 const AboutModule = {
   Hero: () => (
@@ -34,7 +36,7 @@ const AboutModule = {
       title={settings.affiliatesPage.whyBecome.title}
       subTitle={settings.affiliatesPage.whyBecome.subTitle}
     >
-      <div className="">WhyBecome section</div>
+      <CardsList cards={whyBecomeCards} />
     </Section>
   ),
   WhoCanJoin: () => (
@@ -42,12 +44,12 @@ const AboutModule = {
       title={settings.affiliatesPage.whoCanJoin.title}
       subTitle={settings.affiliatesPage.whoCanJoin.subTitle}
     >
-      <div className="">WhoCanJoin section</div>
+      <CardsList cards={whoCanJoinCards} hasFourColumns />
     </Section>
   ),
   HowItWorks: () => (
     <Section title={settings.affiliatesPage.howItWorks.title}>
-      <div className="">HowItWorks section</div>
+      <CardsList cards={howItWorksCards} hasFourColumns />
     </Section>
   ),
   Faq: () => (
