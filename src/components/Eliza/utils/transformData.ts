@@ -1,9 +1,9 @@
 import type { FieldError, FieldErrorsImpl, Merge } from 'react-hook-form';
 import type { Character } from './types';
 import type { CharacterfileSchema, CharacterFormSchema } from './schema';
-import type { ZodError } from 'zod';
+import type { Primitive, ZodError } from 'zod';
 
-type TransformedItem = {
+type TransformedError = {
   label: string;
   message: string;
   type: string;
@@ -16,7 +16,7 @@ export type FormError = Merge<
 
 export const transformErrors = (
   errors: FormError | undefined,
-): TransformedItem[] => {
+): TransformedError[] => {
   if (!errors) return [];
 
   return Object.entries(errors).flatMap(([category, items]) =>
@@ -31,12 +31,14 @@ export const transformErrors = (
 export type FormattedError = {
   path: string;
   message: string;
+  options: Primitive[] | undefined;
 };
 
 export const formatZodError = (error: ZodError): FormattedError[] =>
   error.issues.map((issue) => ({
     path: issue.path.join('.'),
     message: issue.message,
+    options: 'options' in issue ? issue.options : undefined,
   }));
 
 export const transformCharacterToSchema = (
