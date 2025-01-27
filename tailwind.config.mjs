@@ -1,10 +1,5 @@
 import tailwindCustomConfig from './.tailwind/tailwind.custom.config';
 import tailwindPluginTypography from './.tailwind/tailwind.plugin.typography';
-import {
-  elzColors,
-  elzFontFamily,
-  tailwindAnimate,
-} from './src/components/Eliza/.tailwind/tokens';
 
 export const colors = {
   title: '#F1F1F1',
@@ -85,7 +80,6 @@ export default {
         sans: ['AtypDisplay'],
         'plex-sans': ['IBM Plex Sans'],
         'plex-mono': ['IBM Plex Mono'],
-        ...elzFontFamily,
         // System Fonts as used by GitHub
         system:
           '-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol"',
@@ -117,7 +111,6 @@ export default {
       },
       colors: {
         ...colors,
-        ...elzColors,
       },
       animation: {
         float: 'float 5s cubic-bezier(0.5,50,0.6,-50) infinite',
@@ -137,7 +130,6 @@ export default {
     },
   },
   plugins: [
-    tailwindAnimate,
     tailwindPluginTypography,
     function ({ addUtilities }) {
       addUtilities({
