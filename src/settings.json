@@ -537,10 +537,12 @@
       "ctaText": "Join the movement and get rewarded"
     },
     "whyBecome": {
-      "title": "Why Become a Fleek Affiliate?"
+      "title": "Why Become a Fleek Affiliate?",
+      "subTitle": "Discover the benefits of joining our Affiliate Program"
     },
     "whoCanJoin": {
-      "title": "Who Can Join?"
+      "title": "Who Can Join?",
+      "subTitle": "We welcome diverse talents who share our vision for the future of the internet"
     },
     "howItWorks": {
       "title": "How It Works"
