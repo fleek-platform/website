@@ -531,7 +531,10 @@
   },
   "affiliatesPage": {
     "hero": {
-      "title": "Refer Users to Fleek and Earn Cash Rewards"
+      "titleWhite": "Refer Users to Fleek and ",
+      "titleYellow": "Earn Cash Rewards",
+      "subTitle": "Partner with Fleek to shape the future of the web and earn rewards while empowering developers and businesses to build the next generation of AI agents and apps.",
+      "ctaText": "Join the movement and get rewarded"
     },
     "whyBecome": {
       "title": "Why Become a Fleek Affiliate?"
