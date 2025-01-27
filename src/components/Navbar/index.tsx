@@ -367,6 +367,7 @@ const SessionManagementActions: React.FC = () => {
   };
 
   useEffect(() => {
+    console.log(`[debug] Navbar: isLoggedIn = ${isLoggedIn}`)
     if (!isLoggedIn) return;
 
     fetchProjects();
@@ -427,16 +428,12 @@ const SessionManagementActions: React.FC = () => {
           // into the button container scope
           let buttonText = 'Log in';
 
-          switch (true) {
-            case Boolean(error):
-              buttonText = 'Login failed';
-              break;
-            case isLoading:
-              buttonText = 'Loading...';
-              break;
-            case Boolean(accessToken):
-              buttonText = 'Log out';
-              break;
+          if (error) {
+            buttonText = 'Login failed';
+          } else if (isLoading) {
+            buttonText = 'Loading...';
+          } else if (isLoggedIn) {
+            buttonText = 'Log out';
           }
 
           return (
