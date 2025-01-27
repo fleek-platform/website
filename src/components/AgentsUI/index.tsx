@@ -2,6 +2,7 @@ import '@fleek-platform/agents-ui/styles';
 
 import { useAuthStore } from '@fleek-platform/login-button';
 import { ElizaIntegrationLayer, api } from '@fleek-platform/agents-ui';
+import { captureEvent } from '@components/Tracking/trackingUtils';
 
 const { getPlans, getSubscriptions, createSubscription } = api;
 
@@ -29,6 +30,7 @@ export const AgentsUIIntegration: React.FC<AgentsUIIntegrationProps> = (
       getSubscriptions={getSubscriptions}
       getPlans={getPlans}
       createSubscription={createSubscription}
+      captureEvent={captureEvent}
     />
   );
 };
