@@ -367,7 +367,6 @@ const SessionManagementActions: React.FC = () => {
   };
 
   useEffect(() => {
-    console.log(`[debug] Navbar: isLoggedIn = ${isLoggedIn}`)
     if (!isLoggedIn) return;
 
     fetchProjects();
