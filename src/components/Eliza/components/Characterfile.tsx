@@ -219,7 +219,11 @@ export const Characterfile: React.FC<CharacterfileProps> = ({
         >
           <ClientsDropdown />
         </FormField>
-        <FormField label="Plugins" description="Supported plugins" optional>
+        <FormField
+          label="Plugins"
+          description="Plugins extend Eliza's core functionality with additional features."
+          optional
+        >
           <PluginsDropdown />
         </FormField>
         <FormField
