@@ -252,6 +252,8 @@ export const createSubscription = async (
 }> => {
   if (!projectId || !token || !productId) return { ok: false };
 
+  console.log('api createSubscription', referralId);
+
   try {
     const response = await fetch(
       // TODO: Should use lib rest-api

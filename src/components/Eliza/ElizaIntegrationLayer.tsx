@@ -112,6 +112,8 @@ export const ElizaIntegrationLayer: React.FC<ElizaIntegrationLayerProps> = ({
   ) => {
     if (!accessToken) return { ok: false };
 
+    console.log('ElizaIntegrationLayer - referralId', referralId);
+
     const res = await triggerDeployment(projectId, characterfile, accessToken);
 
     return {
