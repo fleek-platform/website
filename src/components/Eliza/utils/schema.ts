@@ -91,10 +91,26 @@ export type CharacterFormSchema = z.infer<typeof characterFormSchema>;
 export const characterfileSchema = z.object({
   name: z.string().min(3, 'Name is required, minimum of 3 characters'),
   username: z.string().optional(),
-  plugins: z.array(z.enum(PLUGIN_NAMES)),
-  modelProvider: z.enum(MODEL_PROVIDER_NAMES),
+  plugins: z.array(
+    z.enum(PLUGIN_NAMES, {
+      errorMap: (_, __) => {
+        return { message: 'Unsupported or invalid plugin' };
+      },
+    }),
+  ),
+  modelProvider: z.enum(MODEL_PROVIDER_NAMES, {
+    errorMap: (_, __) => {
+      return { message: 'Unsupported or invalid model provider' };
+    },
+  }),
   clients: z
-    .array(z.enum(CLIENT_NAMES))
+    .array(
+      z.enum(CLIENT_NAMES, {
+        errorMap: (_, __) => {
+          return { message: 'Unsupported or invalid client' };
+        },
+      }),
+    )
     .min(1, 'At least one client is required'),
   settings: z.object({
     secrets: z.record(z.string().min(1, 'value is missing')),

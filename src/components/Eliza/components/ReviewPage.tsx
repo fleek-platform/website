@@ -16,6 +16,7 @@ import { Input } from './Input';
 import { characterfileSchema } from '../utils/schema';
 import { validateZod } from '../utils/validateHelper';
 import { INITIAL_FORM } from '../utils/constants';
+import { Collapsible } from './Collapsible';
 
 type HeaderProps = {
   from: Options['from'];
@@ -146,11 +147,31 @@ export const ReviewPage: React.FC<ReviewPageProps> = ({
         )}
         {errors.form.length > 0 && (
           <Box className="gap-4 duration-300 animate-in fade-in-75 slide-in-from-top-12">
-            {errors.form.map((error, idx) => (
-              <Input.Hint error key={idx}>
-                - {error.path}: {error.message}
-              </Input.Hint>
-            ))}
+            {errors.form.map((error, idx) => {
+              const isLastItem = idx === errors.form.length - 1;
+              const errorMsg = `${error.path}: ${error.message}`;
+              return (
+                <Box
+                  key={idx}
+                  className={cn({
+                    'border-b border-elz-neutral-3 pb-4': !isLastItem,
+                  })}
+                >
+                  {error.options ? (
+                    <Collapsible
+                      header={<Input.Hint error>{errorMsg}</Input.Hint>}
+                      details={
+                        <Input.Hint>
+                          Supported options: {error.options.join(', ')}
+                        </Input.Hint>
+                      }
+                    />
+                  ) : (
+                    <Input.Hint error>{errorMsg}</Input.Hint>
+                  )}
+                </Box>
+              );
+            })}
           </Box>
         )}
       </Box>
