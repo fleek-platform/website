@@ -3,7 +3,7 @@ import { cn } from '@utils/cn';
 import '@styles/globals.css';
 import { getSiteUrl, hasSecondaryMenuItem } from '@utils/url';
 import settings from '@base/settings.json';
-import Trackers from '@components/Trackers.astro';
+import Trackers from '@components/Tracking/Trackers.astro';
 
 import { Announcement } from '@components/Announcement';
 import Footer from '@components/Footer';
@@ -178,7 +178,12 @@ const metaTitle = ogMeta['custom_title'] ?? ogMeta?.title;
 
     <!-- Trackers -->
     <Trackers />
-  </head>
+    <script
+      async
+      src="https://cdn.promotekit.com/promotekit.js"
+      data-promotekit="1d44aef1-870e-4899-a017-3fd29ed3f6cf"></script></head
+  >
+
   <body
     class={cn(
       'relative flex min-h-dvh flex-col overflow-x-hidden [scrollbar-gutter:stable] bg-black font-sans text-gray-dark-11 selection:bg-yellow-dark-9 selection:text-black',

@@ -35,6 +35,7 @@ interface FileUploadProps {
   className?: string;
   label?: string;
   ctaLabel?: string;
+  onFileValidation?: (result: boolean, msg?: string) => void;
 }
 
 const FileUpload: React.FC<FileUploadProps> = ({
@@ -43,6 +44,7 @@ const FileUpload: React.FC<FileUploadProps> = ({
   className,
   label,
   ctaLabel,
+  onFileValidation,
 }) => {
   const fileInputRef = useRef<HTMLInputElement | null>(null);
   const [isDragging, setIsDragging] = useState(false);
@@ -52,11 +54,16 @@ const FileUpload: React.FC<FileUploadProps> = ({
     setErrorMessage(null);
     const extensionRegex = getFileExtension(fileType);
 
+    // TODO: this logic has to be reviewed as there are probably some leftovers from previous iterations of the product
     if (fileType === 'json' && !extensionRegex.test(file.name)) {
-      setErrorMessage('Please upload a valid characterfile.');
+      const msg = 'Please upload a valid characterfile.';
+      onFileValidation?.(false, msg);
+      setErrorMessage(msg);
       return;
     } else if (!allowedMimeTypes[fileType].includes(file.type)) {
-      setErrorMessage(`Please upload a valid .${fileType} file.`);
+      const msg = `Please upload a valid .${fileType} file.`;
+      onFileValidation?.(false, msg);
+      setErrorMessage(msg);
       return;
     }
 
@@ -68,11 +75,13 @@ const FileUpload: React.FC<FileUploadProps> = ({
           JSON.parse(content);
         }
         onFileUpload(content);
+        onFileValidation?.(true);
         setErrorMessage(null);
       } catch {
-        setErrorMessage(
-          fileType === 'json' ? 'Invalid characterfile' : 'Invalid env file',
-        );
+        const msg =
+          fileType === 'json' ? 'Invalid characterfile' : 'Invalid env file';
+        onFileValidation?.(false, msg);
+        setErrorMessage(msg);
       }
     };
     reader.readAsText(file);

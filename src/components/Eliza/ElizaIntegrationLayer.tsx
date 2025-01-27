@@ -10,8 +10,9 @@ import {
 import {
   SubscriptionModal,
   useSubscriptionModal,
-} from './components/SubscriptionModal.tsx';
-import { CoreEliza } from './CoreEliza.tsx';
+} from './components/SubscriptionModal';
+import { CoreEliza } from './CoreEliza';
+import { captureEvent } from '@components/Tracking/trackingUtils';
 
 type getSubscriptionsType = (
   projectId?: string,
@@ -68,6 +69,7 @@ export interface ElizaIntegrationLayerProps {
   // auth props
   accessToken?: string;
   activeProjectId?: string;
+  referralId?: string;
   isLoggedIn: boolean;
   isLoggingIn: boolean;
   login: () => void;
@@ -77,6 +79,7 @@ export interface ElizaIntegrationLayerProps {
     projectId?: string,
     productId?: string,
     token?: string,
+    referralId?: string,
   ) => Promise<CreateSubscriptionResponse>;
 
   // settings.json is not passed as props but import should match paths in the host and the package
@@ -89,6 +92,7 @@ export const ElizaIntegrationLayer: React.FC<ElizaIntegrationLayerProps> = ({
   activeProjectId,
   isLoggedIn,
   isLoggingIn,
+  referralId,
   login,
   getSubscriptions,
   getPlans,
@@ -211,6 +215,7 @@ export const ElizaIntegrationLayer: React.FC<ElizaIntegrationLayerProps> = ({
         getAgentDeploymentStatus={getAgentDeploymentStatus}
         ensureUserSubscription={ensureUserSubscription}
         projectId={activeProjectId}
+        captureEvent={captureEvent}
       />
 
       <Toaster
@@ -233,6 +238,7 @@ export const ElizaIntegrationLayer: React.FC<ElizaIntegrationLayerProps> = ({
         checkUserAmountAvailableAiModules={checkUserAmountAvailableAiModules}
         productId={productId}
         createSubscription={createSubscription}
+        referralId={referralId}
       />
     </>
   );

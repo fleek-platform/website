@@ -16,8 +16,16 @@ import { characterfileSchema } from '../utils/schema';
 import { useState } from 'react';
 import { cn } from '@utils/cn';
 import { Input } from './Input';
+import type { CaptureEventFn } from '../types';
 
-export const UploadPage: React.FC<GoToProps> = ({ goTo }) => {
+interface UploadPageProps extends GoToProps {
+  captureEvent: CaptureEventFn;
+}
+
+export const UploadPage: React.FC<UploadPageProps> = ({
+  goTo,
+  captureEvent,
+}) => {
   const [errors, setErrors] = useState<FormattedError[]>([]);
 
   const { reset } = useElizaForm();
@@ -69,6 +77,7 @@ export const UploadPage: React.FC<GoToProps> = ({ goTo }) => {
         <ChooseCharacterFile
           handleCharacterFileChange={onCharacterfileChange}
           className={cn({ 'border-elz-danger-8': errors.length > 0 })}
+          captureEvent={captureEvent}
         />
         {errors.length > 0 && (
           <Box className="gap-4 duration-300 animate-in fade-in-75 slide-in-from-top-12">
