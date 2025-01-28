@@ -7,6 +7,8 @@ const textVariants = cva('font-elz-plex-sans', {
     variant: {
       title:
         'text-balance font-elz-sans text-[3.6rem] font-semibold leading-[1.125] -tracking-2 text-elz-neutral-12 md:text-[5.2rem]',
+      subtitle:
+        'font-elz-plex-sans text-[1.6rem] text-elz-neutral-12 font-semibold',
       description: 'text-[1.8rem] font-medium text-elz-neutral-11',
       feature:
         'text-[1.2rem] font-medium uppercase tracking-[0.256rem] text-elz-neutral-11',

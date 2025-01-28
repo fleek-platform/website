@@ -7,18 +7,34 @@ import { cn } from '@utils/cn';
 type CollapsibleProps = {
   header: React.ReactNode;
   details: React.ReactNode;
+  defaultOpen?: boolean;
+  container?: boolean;
 };
 
 export const Collapsible: React.FC<CollapsibleProps> = ({
   header,
   details,
+  defaultOpen = false,
+  container = false,
 }) => {
-  const [isOpen, setIsOpen] = useState(false);
+  const [isOpen, setIsOpen] = useState(defaultOpen);
 
   return (
-    <Box className="gap-4">
+    <Box
+      className={cn({
+        'gap-4': !container,
+        'gap-0 p-0': container,
+      })}
+      variant={container ? 'container' : undefined}
+    >
       <Box
-        className="cursor-pointer select-none flex-row items-center justify-between gap-16"
+        className={cn(
+          'cursor-pointer select-none flex-row items-center justify-between gap-16',
+          {
+            'p-16 hover:bg-elz-neutral-2': container,
+            'border-b border-elz-neutral-6': container && isOpen,
+          },
+        )}
         onClick={() => setIsOpen((prev) => !prev)}
       >
         {header}
@@ -27,7 +43,13 @@ export const Collapsible: React.FC<CollapsibleProps> = ({
         />
       </Box>
       {isOpen && (
-        <Box className="duration-200 animate-in fade-in-50 slide-in-from-top-4">
+        <Box
+          className={cn({
+            'duration-200 animate-in fade-in-50 slide-in-from-top-4':
+              !defaultOpen,
+            'gap-16 p-16': container,
+          })}
+        >
           {details}
         </Box>
       )}
