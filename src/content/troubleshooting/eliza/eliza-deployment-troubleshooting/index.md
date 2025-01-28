@@ -6,7 +6,7 @@ thumbnail: './eliza-references.png'
 image: './eliza-references.png'
 ---
 
-### 1. How do I access my deployed agent’s dashboard on Fleek?
+### How do I access my deployed agent’s dashboard on Fleek?
 
 - Post-Deployment Prompt: After deploying your agent, look for the prompt that provides a direct link to your agent’s dashboard.
 - Via Fleek Web Interface:
@@ -21,19 +21,20 @@ image: './eliza-references.png'
 
 ---
 
-### 2. How do I set up Twitter integration for my Eliza agent?
+### How do I set up Twitter integration for my Eliza agent?
 
-1.  Log in to Twitter.
-2.  Go to Account Settings → Your Account → Automation → Managing Account.
-3.  Select your bot’s Twitter account.
-4.  Enter your Twitter password.
-5.  Verify you’ve applied for the correct automation label.
+To integrate your Eliza agent with Twitter while avoiding account blocks, follow these steps:
 
-Following these steps ensures your bot can interact with Twitter as intended.
+1. **Use a VPN:** Connect to Oregon, as Twitter may block accounts logged in from locations different from where they were created. Fleek deployments are from Oregon-based servers.
+2. **Create a Twitter Account:** Set up your account while connected to the VPN and complete Twitter's verification process.
+3. **Log in via VPN:** Use the VPN to log in and confirm the account setup.
+4. **Deploy Your Agent:** Use your Twitter credentials to connect your Eliza agent. After deployment, the VPN is no longer required.
+
+This ensures smooth integration and avoids login issues.
 
 ---
 
-### 3. Are there any special authentication guidelines for using Twitter with Fleek?
+### Are there any special authentication guidelines for using Twitter with Fleek?
 
 - Enable Automation: Ensure automation is turned on for your deployments.
 - Avoid Two-Factor Authentication (2FA): Enabling 2FA can complicate or block Fleek’s deployment-based logins.
@@ -43,7 +44,7 @@ Following these steps ensures your bot can interact with Twitter as intended.
 
 ---
 
-### 4. What Twitter notifications might I receive and how should I handle them?
+### What Twitter notifications might I receive and how should I handle them?
 
 Twitter typically sends two main types of login alerts when Fleek attempts to access your account:
 
@@ -59,7 +60,7 @@ Twitter typically sends two main types of login alerts when Fleek attempts to ac
 
 ---
 
-### 5. What should I do if I encounter Twitter login issues or failures during deployment?
+### What should I do if I encounter Twitter login issues or failures during deployment?
 
 - Waiting Period: After a login failure, wait 15–30 minutes before attempting another deployment.
 - Stop/Start Feature (Coming Soon):
@@ -72,14 +73,20 @@ This feature will allow you to manage troublesome login situations more easily.
 
 ---
 
-### 6. Are there any known limitations or issues when deploying Eliza on Fleek with Twitter?
+### Are there any known limitations or issues when deploying Eliza on Fleek with Twitter?
 
 - Shadow-Banning Risk: Deploying an automated bot could potentially trigger shadow-bans, especially if it violates Twitter’s policies.
 - Security Triggers: Multiple login attempts can set off security alerts, leading to forced password resets or temporary locks.
 
 ---
 
-### 7. How do I enable emoji usage in Eliza’s responses?
+## How much does it cost to deploy an agent using Fleek?
+
+Deploying an agent on Fleek costs $20 per month per agent. You can find more details on the [pricing page](/pricing). Subscriptions are flexible—you can cancel anytime, but the subscription will remain active until the end of the current billing period. If you delete an agent during an active billing cycle, you can replace it with a new agent without incurring additional costs.
+
+---
+
+### How do I enable emoji usage in Eliza’s responses?
 
 1.  Open your character file.
 2.  Locate the "adjectives" array.
@@ -111,7 +118,7 @@ By instructing Eliza to use emojis in its adjectives, your bot will integrate th
 
 ---
 
-### 8. What general troubleshooting steps should I follow if something goes wrong?
+### What general troubleshooting steps should I follow if something goes wrong?
 
 - Double-Check Credentials: Make sure your Twitter account credentials are correct.
 - Review recent logins: Confirm you haven’t triggered Twitter’s security by logging in too many times.
@@ -120,7 +127,7 @@ By instructing Eliza to use emojis in its adjectives, your bot will integrate th
 
 ---
 
-### 9. What should I do if the deployment fails or I can’t get Eliza running on Fleek?
+### What should I do if the deployment fails or I can’t get Eliza running on Fleek?
 
 1.  Verify API key and billing:
 
@@ -132,13 +139,22 @@ By instructing Eliza to use emojis in its adjectives, your bot will integrate th
 
 ---
 
-### 10. How should I manage my Eliza agent account for long-term use?
+### How should I manage my Eliza agent account for long-term use?
 
-- Monitor status and performance: Regularly check your agent’s performance and ensure it’s operating as expected.
+- Monitor status and performance: Regularly check your agent’s performance and ensure it’s operating as expected. You do this by viewing the agent’s logs.
 - Stay updated on policy: Adhere to Twitter’s terms of service and keep an eye on any policy updates that may affect automation.
 - Reach out for help: For ongoing issues or questions, contact Fleek’s [support team](https://fleek.xyz/support).
 
 ---
+
+### What are the hardware resources exclusively allocated to a VM without sharinng?
+
+Every Eliza instance has the following hardware resources exclusively allocated to a VM without sharing:
+
+- 4 vCPUs (virtual CPUs)
+- 4 GB of RAM
+
+We made patches to Eliza to ensure that memory consumption is always under 4GB.
 
 ### Additional Information
 

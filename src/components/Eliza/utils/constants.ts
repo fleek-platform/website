@@ -1,24 +1,11 @@
 import type { CharacterFormSchema } from './schema';
-import type { Client, LabelAndIcon, Template } from './types';
-
-export const PAGES = [
-  'getStarted',
-  'upload',
-  'characterfile',
-  'settings',
-  'review',
-] as const;
-
-export const STEPS = [0, 1, 2] as const;
-
-export const TEMPLATES = ['eliza', 'trump', 'c3po', 'dobby'] as const;
-
-export const TEMPLATES_MAP: Record<Template, string> = {
-  eliza: 'Eliza',
-  trump: 'Trump',
-  c3po: 'C-3PO',
-  dobby: 'Dobby',
-};
+import type {
+  CategoryLabelDescriptionAndIcon,
+  Client,
+  LabelAndIcon,
+  Plugin,
+  Template,
+} from './types';
 
 export const MODEL_PROVIDER_NAMES = [
   'openai',
@@ -45,6 +32,61 @@ export const MODEL_PROVIDER_NAMES = [
   'venice',
   'akash_chat_api',
   'livepeer',
+] as const;
+
+export const CLIENT_NAMES = [
+  'discord',
+  'twitter',
+  'telegram',
+  'farcaster',
+  'lens',
+  'auto',
+  'slack',
+  'github',
+] as const;
+
+export const PLUGIN_NAMES = [
+  // Blockchain & Web3
+  '@elizaos/plugin-0g',
+  '@elizaos/plugin-3d-generation',
+  '@elizaos/plugin-abstract',
+  '@elizaos/plugin-aptos',
+  '@elizaos/plugin-avalanche',
+  '@elizaos/plugin-coinbase',
+  '@elizaos/plugin-conflux',
+  '@elizaos/plugin-cronoszkevm',
+  '@elizaos/plugin-evm',
+  '@elizaos/plugin-flow',
+  '@elizaos/plugin-fuel',
+  '@elizaos/plugin-icp',
+  '@elizaos/plugin-multiversx',
+  '@elizaos/plugin-near',
+  '@elizaos/plugin-solana',
+  '@elizaos/plugin-starknet',
+  '@elizaos/plugin-story',
+  '@elizaos/plugin-sui',
+  '@elizaos/plugin-ton',
+  '@elizaos/plugin-zksync-era',
+
+  // Content & Media Generation
+  '@elizaos/plugin-image-generation',
+  '@elizaos/plugin-nft-generation',
+  '@elizaos/plugin-video-generation',
+
+  // Platform & Integration
+  '@elizaos/plugin-bootstrap',
+  '@elizaos/plugin-echochambers',
+  '@elizaos/plugin-gitbook',
+  '@elizaos/plugin-goat',
+  '@elizaos/plugin-intiface',
+  '@elizaos/plugin-node',
+  '@elizaos/plugin-tee',
+  '@elizaos/plugin-trustdb',
+
+  // Communication & Search
+  '@elizaos/plugin-web-search',
+  '@elizaos/plugin-whatsapp',
+  '@elizaos/plugin-twitter',
 ] as const;
 
 export const MODEL_PROVIDER_NAMES_MAP: Record<
@@ -150,17 +192,6 @@ export const MODEL_PROVIDER_NAMES_MAP: Record<
   },
 };
 
-export const CLIENT_NAMES = [
-  'discord',
-  'twitter',
-  'telegram',
-  'farcaster',
-  'lens',
-  'auto',
-  'slack',
-  'github',
-] as const;
-
 export const CLIENTS_MAP: Record<Client, LabelAndIcon> = {
   discord: {
     label: 'Discord',
@@ -192,6 +223,258 @@ export const CLIENTS_MAP: Record<Client, LabelAndIcon> = {
   },
   github: {
     label: 'Github',
+    icon: '',
+  },
+};
+
+export const PLUGIN_CATEGORIES: Record<number, string> = {
+  0: 'Blockchain & Web3',
+  1: 'Content & Media Generation',
+  2: 'Platform & Integration',
+  3: 'Communication & Search',
+};
+
+export const PLUGINS_MAP: Record<Plugin, CategoryLabelDescriptionAndIcon> = {
+  // Blockchain & Web3
+  '@elizaos/plugin-0g': {
+    category: 0,
+    label: '0g',
+    description:
+      'A plugin for storing data using the 0G protocol within the ElizaOS ecosystem.',
+    icon: '',
+  },
+  '@elizaos/plugin-3d-generation': {
+    category: 0,
+    label: '3D Generation',
+    description:
+      'A plugin for generating 3D models using the FAL.ai API within the ElizaOS ecosystem.',
+    icon: '',
+  },
+  '@elizaos/plugin-abstract': {
+    category: 0,
+    label: 'Abstract',
+    description:
+      'A plugin for interacting with the Abstract blockchain network within the ElizaOS ecosystem.',
+    icon: '',
+  },
+  '@elizaos/plugin-aptos': {
+    category: 0,
+    label: 'Aptos',
+    description:
+      'A plugin for interacting with the Aptos blockchain network within the ElizaOS ecosystem.',
+    icon: '',
+  },
+  '@elizaos/plugin-avalanche': {
+    category: 0,
+    label: 'Avalanche',
+    description:
+      'A plugin for interacting with the Avalanche blockchain network within the ElizaOS ecosystem.',
+    icon: '',
+  },
+  '@elizaos/plugin-coinbase': {
+    category: 0,
+    label: 'Coinbase',
+    description: `A comprehensive Coinbase integration plugin for ElizaOS that provides access to Coinbase's various APIs and services.`,
+    icon: '',
+  },
+  '@elizaos/plugin-conflux': {
+    category: 0,
+    label: 'Conflux',
+    description:
+      'A plugin for interacting with the Conflux blockchain network within the ElizaOS ecosystem.',
+    icon: '',
+  },
+  '@elizaos/plugin-cronoszkevm': {
+    category: 0,
+    label: 'Cronos zkEVM',
+    description:
+      'A plugin for interacting with the Cronos zkEVM network within the ElizaOS ecosystem.',
+    icon: '',
+  },
+  '@elizaos/plugin-evm': {
+    category: 0,
+    label: 'EVM',
+    description:
+      'This plugin provides actions and providers for interacting with EVM-compatible chains.',
+    icon: '',
+  },
+  '@elizaos/plugin-flow': {
+    category: 0,
+    label: 'Flow',
+    description:
+      'A plugin for interacting with the Flow blockchain within the ElizaOS ecosystem.',
+    icon: '',
+  },
+  '@elizaos/plugin-fuel': {
+    category: 0,
+    label: 'Fuel',
+    description:
+      'A plugin for interacting with the Fuel blockchain within the ElizaOS ecosystem.',
+    icon: '',
+  },
+  '@elizaos/plugin-icp': {
+    category: 0,
+    label: 'Internet Computer',
+    description: 'Internet Computer Protocol (ICP) plugin for Eliza OS.',
+    icon: '',
+  },
+  '@elizaos/plugin-multiversx': {
+    category: 0,
+    label: 'MultiversX',
+    description:
+      'MultiversX blockchain integration plugin for Eliza OS that enables token management and transfers.',
+    icon: '',
+  },
+  '@elizaos/plugin-near': {
+    category: 0,
+    label: 'NEAR',
+    description:
+      'NEAR Protocol integration plugin for Eliza OS that enables token management, transfers, and swaps using Ref Finance.',
+    icon: '',
+  },
+  '@elizaos/plugin-solana': {
+    category: 0,
+    label: 'Solana',
+    description:
+      'Core Solana blockchain plugin for Eliza OS that provides essential services and actions for token operations, trading, and DeFi integrations.',
+    icon: '',
+  },
+  '@elizaos/plugin-starknet': {
+    category: 0,
+    label: 'Starknet',
+    description:
+      'Core Starknet blockchain plugin for Eliza OS that provides essential services and actions for token operations, trading, and DeFi integrations.',
+    icon: '',
+  },
+  '@elizaos/plugin-story': {
+    category: 0,
+    label: 'Story',
+    description: 'Plugin for Story',
+    icon: '',
+  },
+  '@elizaos/plugin-sui': {
+    category: 0,
+    label: 'Sui',
+    description:
+      'Core Sui blockchain plugin for Eliza OS that provides essential services and actions for token operations and wallet management.',
+    icon: '',
+  },
+  '@elizaos/plugin-ton': {
+    category: 0,
+    label: 'TON',
+    description:
+      'A plugin for handling TON (Telegram Open Network) blockchain operations, providing wallet management and transfer capabilities.',
+    icon: '',
+  },
+  '@elizaos/plugin-zksync-era': {
+    category: 0,
+    label: 'zkSync Era',
+    description:
+      'A plugin for integrating ZKSync Era blockchain operations with your application, providing token transfer capabilities and transaction management.',
+    icon: '',
+  },
+
+  // Content & Media Generation
+  '@elizaos/plugin-image-generation': {
+    category: 1,
+    label: 'Image Generation',
+    description:
+      'A plugin designed for generating and managing images, providing features like image manipulation, storage integration, and optimized handling for various use cases.',
+    icon: '',
+  },
+  '@elizaos/plugin-nft-generation': {
+    category: 1,
+    label: 'NFT Generation',
+    description:
+      'NFT collection generation plugin for Eliza OS that enables NFT creation, collection management, and verification on the Solana blockchain.',
+    icon: '',
+  },
+  '@elizaos/plugin-video-generation': {
+    category: 1,
+    label: 'Video Generation',
+    description:
+      'A plugin for AI-powered video generation using Luma AI, providing automated video creation capabilities from text prompts.',
+    icon: '',
+  },
+
+  // Platform & Integration
+  '@elizaos/plugin-bootstrap': {
+    category: 2,
+    label: 'Bootstrap',
+    description:
+      'A plugin providing core functionality and basic actions for ElizaOS agents.',
+    icon: '',
+  },
+  '@elizaos/plugin-echochambers': {
+    category: 2,
+    label: 'EchoChambers',
+    description:
+      'The EchoChambers plugin enables ELIZA to interact in chat rooms, providing conversational capabilities with dynamic interaction handling.',
+    icon: '',
+  },
+  '@elizaos/plugin-gitbook': {
+    category: 2,
+    label: 'GitBook',
+    description:
+      'A plugin for querying and retrieving information from GitBook documentation within the ElizaOS ecosystem.',
+    icon: '',
+  },
+  '@elizaos/plugin-goat': {
+    category: 2,
+    label: 'GOAT',
+    description:
+      'A plugin for integrating blockchain capabilities through the GOAT (Great Onchain Agent Toolkit) framework within the ElizaOS ecosystem.',
+    icon: '',
+  },
+  '@elizaos/plugin-intiface': {
+    category: 2,
+    label: 'Intiface',
+    description:
+      'Intiface/Buttplug.io integration plugin for Eliza OS that enables control of intimate hardware devices.',
+    icon: '',
+  },
+  '@elizaos/plugin-node': {
+    category: 2,
+    label: 'Node',
+    description:
+      'Core Node.js plugin for Eliza OS that provides essential services and actions for file operations, media processing, and cloud integrations.',
+    icon: '',
+  },
+  '@elizaos/plugin-tee': {
+    category: 2,
+    label: 'TEE',
+    description:
+      'A plugin for handling Trusted Execution Environment (TEE) operations, providing secure key derivation and remote attestation capabilities.',
+    icon: '',
+  },
+  '@elizaos/plugin-trustdb': {
+    category: 2,
+    label: 'TrustDB',
+    description:
+      'A plugin for managing trust scores and performance metrics in a secure database, providing recommender tracking and token performance analysis capabilities.',
+    icon: '',
+  },
+
+  // Communication & Search
+  '@elizaos/plugin-web-search': {
+    category: 3,
+    label: 'Web Search',
+    description:
+      'A plugin for powerful web search capabilities, providing efficient search query handling and result processing through a customizable API interface.',
+    icon: '',
+  },
+  '@elizaos/plugin-whatsapp': {
+    category: 3,
+    label: 'WhatsApp',
+    description:
+      'A plugin for integrating WhatsApp Cloud API with your application, providing comprehensive messaging capabilities and webhook handling.',
+    icon: '',
+  },
+  '@elizaos/plugin-twitter': {
+    category: 3,
+    label: 'Twitter',
+    description:
+      'A plugin for Twitter/X integration, providing automated tweet posting capabilities with character-aware content generation.',
     icon: '',
   },
 };
@@ -299,6 +582,167 @@ export const SECRETS_CLIENT_MAP: Record<Client, Record<string, string>> = {
     GITHUB_PATH: '',
     GITHUB_API_TOKEN: '',
   },
+};
+
+export const SECRETS_PLUGIN_MAP: Record<Plugin, Record<string, string>> = {
+  // Blockchain & Web3
+  '@elizaos/plugin-0g': {
+    ZEROG_INDEXER_RPC: '',
+    ZEROG_EVM_RPC: '',
+    ZEROG_PRIVATE_KEY: '',
+    ZEROG_FLOW_ADDRESS: '',
+  },
+  '@elizaos/plugin-3d-generation': {
+    FAL_API_KEY: '',
+  },
+  '@elizaos/plugin-abstract': {
+    ABSTRACT_ADDRESS: '',
+    ABSTRACT_PRIVATE_KEY: '',
+  },
+  '@elizaos/plugin-aptos': {
+    APTOS_PRIVATE_KEY: '',
+    APTOS_NETWORK: '',
+  },
+  '@elizaos/plugin-avalanche': {
+    AVALANCHE_PRIVATE_KEY: '',
+  },
+  '@elizaos/plugin-coinbase': {
+    COINBASE_API_KEY: '',
+    COINBASE_PRIVATE_KEY: '',
+    COINBASE_COMMERCE_KEY: '',
+    COINBASE_NOTIFICATION_URI: '',
+  },
+  '@elizaos/plugin-conflux': {
+    CONFLUX_CORE_PRIVATE_KEY: '',
+    CONFLUX_CORE_SPACE_RPC_URL: '',
+    CONFLUX_MEME_CONTRACT_ADDRESS: '',
+  },
+  '@elizaos/plugin-cronoszkevm': {
+    CRONOSZKEVM_ADDRESS: '',
+    CRONOSZKEVM_PRIVATE_KEY: '',
+  },
+  '@elizaos/plugin-evm': {
+    EVM_PRIVATE_KEY: '',
+  },
+  '@elizaos/plugin-flow': {
+    FLOW_ADDRESS: '',
+    FLOW_PRIVATE_KEY: '',
+    FLOW_NETWORK: '',
+    FLOW_ENDPOINT_URL: '',
+  },
+  '@elizaos/plugin-fuel': {
+    FUEL_PRIVATE_KEY: '',
+    FUEL_PROVIDER_URL: '',
+  },
+  '@elizaos/plugin-icp': {
+    INTERNET_COMPUTER_PRIVATE_KEY: '',
+  },
+  '@elizaos/plugin-multiversx': {
+    MVX_PRIVATE_KEY: '',
+    MVX_NETWORK: '',
+  },
+  '@elizaos/plugin-near': {
+    NEAR_WALLET_SECRET_KEY: '',
+    NEAR_WALLET_PUBLIC_KEY: '',
+    NEAR_ADDRESS: '',
+    NEAR_NETWORK: '',
+    NEAR_RPC_URL: '',
+    NEAR_SLIPPAGE: '',
+  },
+  '@elizaos/plugin-solana': {
+    WALLET_SECRET_KEY: '',
+    WALLET_PUBLIC_KEY: '',
+    SOL_ADDRESS: '',
+    SLIPPAGE: '',
+    SOLANA_RPC_URL: '',
+    HELIUS_API_KEY: '',
+    BIRDEYE_API_KEY: '',
+  },
+  '@elizaos/plugin-starknet': {
+    STARKNET_ADDRESS: '',
+    STARKNET_PRIVATE_KEY: '',
+    STARKNET_RPC_URL: '',
+  },
+  '@elizaos/plugin-story': {},
+  '@elizaos/plugin-sui': {
+    SUI_PRIVATE_KEY: '',
+    SUI_NETWORK: '',
+  },
+  '@elizaos/plugin-ton': {
+    TON_PRIVATE_KEY: '',
+    TON_RPC_URL: '',
+  },
+  '@elizaos/plugin-zksync-era': {
+    ZKSYNC_ADDRESS: '',
+    ZKSYNC_PRIVATE_KEY: '',
+  },
+
+  // Content & Media Generation
+  '@elizaos/plugin-image-generation': {
+    IMAGE_STORAGE_BUCKET: '',
+    STORAGE_ACCESS_KEY: '',
+    STORAGE_SECRET_KEY: '',
+  },
+  '@elizaos/plugin-nft-generation': {
+    RESERVOIR_API_KEY: '',
+  },
+  '@elizaos/plugin-video-generation': {
+    LUMA_API_KEY: '',
+  },
+
+  // Platform & Integration
+  '@elizaos/plugin-bootstrap': {},
+  '@elizaos/plugin-echochambers': {},
+  '@elizaos/plugin-gitbook': {
+    GITBOOK_SPACE_ID: '',
+  },
+  '@elizaos/plugin-goat': {
+    EVM_PRIVATE_KEY: '',
+    EVM_PROVIDER_URL: '',
+  },
+  '@elizaos/plugin-intiface': {
+    INTIFACE_URL: '',
+    INTIFACE_NAME: '',
+    DEVICE_NAME: '',
+  },
+  '@elizaos/plugin-node': {},
+  '@elizaos/plugin-tee': {
+    TEE_MODE: '',
+    WALLET_SECRET_SALT: '',
+  },
+  '@elizaos/plugin-trustdb': {},
+
+  // Communication & Search
+  '@elizaos/plugin-web-search': {
+    TAVILY_API_KEY: '',
+  },
+  '@elizaos/plugin-whatsapp': {
+    WHATSAPP_ACCESS_TOKEN: '',
+    WHATSAPP_PHONE_NUMBER_ID: '',
+  },
+  '@elizaos/plugin-twitter': {
+    TWITTER_USERNAME: '',
+    TWITTER_PASSWORD: '',
+  },
+};
+
+export const PAGES = [
+  'getStarted',
+  'upload',
+  'characterfile',
+  'settings',
+  'review',
+] as const;
+
+export const STEPS = [0, 1, 2] as const;
+
+export const TEMPLATES = ['eliza', 'trump', 'c3po', 'dobby'] as const;
+
+export const TEMPLATES_MAP: Record<Template, string> = {
+  eliza: 'Eliza',
+  trump: 'Trump',
+  c3po: 'C-3PO',
+  dobby: 'Dobby',
 };
 
 export const INITIAL_FORM: CharacterFormSchema = {

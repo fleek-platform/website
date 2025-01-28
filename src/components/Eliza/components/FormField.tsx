@@ -4,12 +4,14 @@ import { Input } from './Input';
 import { useElizaForm } from '../hooks/useElizaForm';
 import { Box } from './Box';
 import type { CharacterFormSchema } from '../utils/schema';
+import { Badge } from './Badge';
 
 type FormFieldProps = PropsWithChildren & {
   name?: keyof CharacterFormSchema;
   label: string;
   description?: string;
   placeholder?: string;
+  optional?: boolean;
 };
 
 export const FormField: React.FC<FormFieldProps> = ({
@@ -18,6 +20,7 @@ export const FormField: React.FC<FormFieldProps> = ({
   label,
   description,
   placeholder,
+  optional = false,
 }) => {
   const {
     register,
@@ -27,9 +30,12 @@ export const FormField: React.FC<FormFieldProps> = ({
   return (
     <Box className="gap-14">
       <Box className="gap-8">
-        <Text size="lg" variant="primary" weight={700}>
-          {label}
-        </Text>
+        <Box className="flex-row items-center gap-8">
+          <Text size="lg" variant="primary" weight={700}>
+            {label}
+          </Text>
+          {optional && <Badge className="text-12">Optional</Badge>}
+        </Box>
         <Text variant="secondary">{description}</Text>
       </Box>
       {name && (

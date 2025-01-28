@@ -106,7 +106,7 @@ PRIVATE_MEILISEARCH_MASTER_KEY=***
 PRIVATE_MEILISEARCH_DOCUMENTS_ADMIN_API_KEY=***
 PUBLIC_MEILISEARCH_DOCUMENTS_CLIENT_API_KEY=***
 PUBLIC_SUPPORT_API_HOST="localhost:3331"
-SUPPORT_ALLOW_ORIGIN_ADDR="http://localhost:4321,https://fleek-xyz-staging.on-fleek.app"
+SUPPORT_ALLOW_ORIGIN_ADDR="http://localhost:4321,https://fleek-xyz-staging.fleeksandbox.xyz"
 SUPPORT_RATE_LIMIT_WINDOW_MINUTES=60
 SUPPORT_RATE_LIMIT_MAX_REQ=15
 SUPPORT_RATE_LIMIT_PATHS="/tickets"
@@ -148,7 +148,7 @@ npm run preview
 
 ## 👀 Preview staging
 
-You can preview the develop branch version by visiting the preview [here](https://fleek-xyz-staging.on-fleek.app).
+You can preview the develop branch version by visiting the preview [here](https://fleek-xyz-staging.fleeksandbox.xyz).
 
 ## 🎀 Code Formatter
 

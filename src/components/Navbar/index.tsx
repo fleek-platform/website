@@ -427,16 +427,12 @@ const SessionManagementActions: React.FC = () => {
           // into the button container scope
           let buttonText = 'Log in';
 
-          switch (true) {
-            case Boolean(error):
-              buttonText = 'Login failed';
-              break;
-            case isLoading:
-              buttonText = 'Loading...';
-              break;
-            case Boolean(accessToken):
-              buttonText = 'Log out';
-              break;
+          if (error) {
+            buttonText = 'Login failed';
+          } else if (isLoading) {
+            buttonText = 'Loading...';
+          } else if (isLoggedIn) {
+            buttonText = 'Log out';
           }
 
           return (
