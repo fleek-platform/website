@@ -8,14 +8,15 @@ const { getPlans, getSubscriptions, createSubscription } = api;
 
 export interface AgentsUIIntegrationProps {
   promoteKitReferralId?: string;
+  apiUrl?: string;
 }
 
-export const AgentsUIIntegration: React.FC<AgentsUIIntegrationProps> = (
-  props,
-) => {
+export const AgentsUIIntegration: React.FC<AgentsUIIntegrationProps> = ({
+  promoteKitReferralId,
+  apiUrl,
+}) => {
   const { triggerLoginModal, accessToken, isLoggingIn, isLoggedIn, projectId } =
     useAuthStore();
-  const { promoteKitReferralId } = props;
   const login = () =>
     typeof triggerLoginModal === 'function' && triggerLoginModal(true);
 
@@ -31,6 +32,7 @@ export const AgentsUIIntegration: React.FC<AgentsUIIntegrationProps> = (
       getPlans={getPlans}
       createSubscription={createSubscription}
       captureEvent={captureEvent}
+      apiUrl={apiUrl}
     />
   );
 };
