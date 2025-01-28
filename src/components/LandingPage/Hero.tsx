@@ -29,11 +29,7 @@ export const Hero = () => {
           </BlurFade>
           <div className="flex items-center gap-12">
             <BlurFade delay={calculateDelay(3)}>
-              <Button
-                href="https://app.fleek.xyz"
-                rel="noopener noreferrer"
-                target={Target.Blank}
-              >
+              <Button href="/eliza/">
                 {settings.landingPage.hero.primaryCta}
               </Button>
             </BlurFade>
