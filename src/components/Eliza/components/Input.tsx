@@ -22,7 +22,8 @@ const inputVariants = cva(
         isLoading: 'border-elz-neutral-4 animate-pulse bg-elz-neutral-4',
         error:
           'border-elz-danger-8 focus-within:border-elz-danger-8 focus-within:outline-elz-danger-8',
-        disabled: 'cursor-not-allowed bg-elz-neutral-3 border-elz-neutral-7',
+        disabled:
+          'cursor-not-allowed bg-elz-neutral-3 border-elz-neutral-7 text-elz-neutral-11',
       },
     },
     compoundVariants: [

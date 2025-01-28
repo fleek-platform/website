@@ -2,6 +2,15 @@ import { z } from 'zod';
 import { CLIENT_NAMES, MODEL_PROVIDER_NAMES, PLUGIN_NAMES } from './constants';
 import type { Character } from './types';
 
+export const settingsSchema = z.object({
+  secrets: z.record(z.string().min(1, 'value is missing')),
+  voice: z.object({
+    model: z.string().optional(),
+  }),
+});
+
+export type SettingsSchema = z.infer<typeof settingsSchema>;
+
 /** Schema for the form builder, which is
  * slightly different than the final characterfile.
  * We need it due to how React Hook Form handles arrays.
@@ -18,12 +27,7 @@ export const characterFormSchema = z.object({
   clients: z
     .array(z.enum(CLIENT_NAMES))
     .min(1, 'At least one client is required'),
-  settings: z.object({
-    secrets: z.record(z.string().min(1, 'value is missing')),
-    voice: z.object({
-      model: z.string().min(3, 'Voice model is required'),
-    }),
-  }),
+  settings: settingsSchema,
   bio: z.array(
     z.object({
       name: z.string().min(3, 'Bio is required, minimum of 3 characters'),
@@ -112,12 +116,7 @@ export const characterfileSchema = z.object({
       }),
     )
     .min(1, 'At least one client is required'),
-  settings: z.object({
-    secrets: z.record(z.string().min(1, 'value is missing')),
-    voice: z.object({
-      model: z.string().min(3, 'Voice model is required'),
-    }),
-  }),
+  settings: settingsSchema,
   bio: z.array(z.string().min(3, 'Bio is required, minimum of 3 characters')),
   lore: z.array(z.string().min(3, 'Lore is required, minimum of 3 characters')),
   knowledge: z.array(z.string()).optional(),

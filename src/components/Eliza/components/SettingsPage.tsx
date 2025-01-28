@@ -6,12 +6,10 @@ import type { GoToProps, Step } from '../utils/types';
 import type React from 'react';
 import Link, { Target } from './Link';
 import { useElizaForm } from '../hooks/useElizaForm';
-import { useState } from 'react';
-import { Controller, useForm } from 'react-hook-form';
-import FileEditor from '@components/Eliza/components/FileEditor';
-import { cn } from '@utils/cn';
+import { useForm } from 'react-hook-form';
 import { Input } from './Input';
-import { transformErrors } from '../utils/transformData';
+import { settingsSchema, type SettingsSchema } from '../utils/schema';
+import { zodResolver } from '@hookform/resolvers/zod';
 
 type HeaderProps = {
   onPrevious: () => void;
@@ -41,27 +39,7 @@ export const SettingsPage: React.FC<SettingsPageProps> = ({
   completeStep,
   completedStep,
 }) => {
-  const [errorJson, setErrorJson] = useState(false);
-
-  const { control, formState, getValues, handleSubmit, reset } = useElizaForm();
-
-  const readableErrors = transformErrors(formState.errors.settings);
-  const hasErrors = readableErrors.length > 0 || errorJson;
-
-  const onPrevious = () => {
-    reset();
-    goTo('characterfile');
-  };
-
-  const onSubmit = () => {
-    if (errorJson) return;
-
-    if (completedStep === 1) {
-      completeStep(2);
-    }
-
-    goTo('review');
-  };
+  const { getValues, reset, setValue } = useElizaForm();
 
   const defaultValues = {
     secrets: { ...getValues().settings.secrets },
@@ -72,7 +50,23 @@ export const SettingsPage: React.FC<SettingsPageProps> = ({
 
   const formValues = Object.entries(defaultValues.secrets);
 
-  const { register } = useForm({ defaultValues });
+  const { register, handleSubmit, formState } = useForm<SettingsSchema>({
+    defaultValues,
+    resolver: zodResolver(settingsSchema),
+  });
+
+  const onPrevious = () => {
+    reset();
+    goTo('characterfile');
+  };
+
+  const onSubmit = (data: SettingsSchema) => {
+    if (completedStep === 1) {
+      completeStep(2);
+    }
+    setValue('settings', data);
+    goTo('review');
+  };
 
   return (
     <Box className="gap-38">
@@ -92,105 +86,56 @@ export const SettingsPage: React.FC<SettingsPageProps> = ({
           to view all the supported secrets.
         </Text>
       </Box>
-      <Box className="gap-8" variant="container">
-        <Box>
-          <Text variant="primary" weight={700} size="md">
-            Add secrets
-          </Text>
-          <Text variant="secondary">Add secrets</Text>
-        </Box>
-        <Box className="grid grid-cols-2 gap-8">
-          <Input.Label>Key</Input.Label>
-          <Input.Label>Value</Input.Label>
-        </Box>
-        {formValues.map(([key]) => (
-          <Box key={key} className="grid grid-cols-2 gap-8">
-            <Input.Root disabled>
-              <Input.Field value={key} disabled />
-            </Input.Root>
-            <Input.Root>
-              <Input.Field {...register(`secrets.${key}`)} />
-            </Input.Root>
+      <Box className="gap-16">
+        <Box className="gap-8" variant="container">
+          <Box>
+            <Text variant="primary" weight={700} size="md">
+              Add secrets
+            </Text>
+            <Text variant="secondary">
+              These are required to connect with your model, clients and
+              plugins.
+            </Text>
           </Box>
-        ))}
-      </Box>
-      <Box className="gap-8" variant="container">
-        <Text variant="primary" weight={700} size="md">
-          Voice
-        </Text>
-        <Input.Root>
-          <Input.Field {...register('voice.model')} />
-        </Input.Root>
-      </Box>
-    </Box>
-  );
-
-  return (
-    <Box className="gap-38">
-      <Box className="items-start gap-16">
-        <Header onPrevious={onPrevious} />
-        <Text>Settings</Text>
-        <Text variant="description" className="text-wrap">
-          Add the secrets for any services your AI agent will access, including
-          LLMs. Click{' '}
-          <Link
-            href="https://github.com/elizaOS/eliza/blob/main/.env.example"
-            className="underline hover:text-white"
-            target={Target.Blank}
-          >
-            here
-          </Link>{' '}
-          to view all the supported secrets.
-        </Text>
-      </Box>
-      <Box className="gap-8">
-        <Controller
-          control={control}
-          name="settings"
-          render={({ field }) => (
-            <FileEditor
-              variant="narrow"
-              fileType="json"
-              fileContent={JSON.stringify(field.value, null, 2)}
-              onChange={(data) => {
-                try {
-                  field.onChange(JSON.parse(data || ''));
-                } catch (e) {
-                  console.warn(
-                    `Settings have not been saved due to a malformed object that can't be parsed. The editor will try again in the next value change.`,
-                  );
-                }
-              }}
-              onValidation={(jsonError) => setErrorJson(!jsonError)}
-              className={cn({
-                'border-elz-danger-8 transition-colors': hasErrors,
-              })}
-            />
+          <Box className="grid grid-cols-2 gap-8 pt-8">
+            <Input.Label>Key</Input.Label>
+            <Input.Label>Value</Input.Label>
+          </Box>
+          {formValues.map(([key]) => {
+            const error = formState.errors.secrets?.[key];
+            return (
+              <Box key={key} className="grid grid-cols-2 gap-8">
+                <Input.Root disabled>
+                  <Input.Field value={key} disabled />
+                </Input.Root>
+                <Input.Root error={Boolean(error)}>
+                  <Input.Field {...register(`secrets.${key}`)} />
+                </Input.Root>
+              </Box>
+            );
+          })}
+          {formState.errors.secrets && (
+            <Input.Hint error>Please add the values missing.</Input.Hint>
           )}
-        />
-        {errorJson && (
-          <Box
-            className={cn('flex-row items-center justify-end', {
-              'justify-between': errorJson,
-            })}
-          >
+        </Box>
+        <Box className="gap-8" variant="container">
+          <Box>
+            <Text variant="primary" weight={700} size="md">
+              Voice
+            </Text>
+            <Text variant="secondary">Optional voice model</Text>
+          </Box>
+          <Input.Root error={Boolean(formState.errors.voice)}>
+            <Input.Field {...register('voice.model')} />
+          </Input.Root>
+          {formState.errors.voice && (
             <Input.Hint error>
-              There was an error parsing your code. Please fix it or revert the
-              change above.
+              {formState.errors.voice.model?.message}
             </Input.Hint>
-          </Box>
-        )}
-        {hasErrors && (
-          <Box className="gap-4 duration-300 animate-in fade-in-75 slide-in-from-top-12">
-            {readableErrors.map((error) => (
-              <Input.Hint key={`${error.label}: ${error.message}`} error>
-                {readableErrors.length > 1 && '-'} {error.label}:{' '}
-                {error.message}
-              </Input.Hint>
-            ))}
-          </Box>
-        )}
+          )}
+        </Box>
       </Box>
+
       <Button variant="primary" onClick={handleSubmit(onSubmit)}>
         Review character
       </Button>
