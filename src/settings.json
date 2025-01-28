@@ -175,7 +175,7 @@
     "hero": {
       "h1": "Build and deploy autonomous apps and AI agents",
       "h2": "Fleek makes it easy to build and deploy next-generation apps and AI agents in minutes on an open-source, verifiable, auto-scalable cloud platform.",
-      "primaryCta": "Get started",
+      "primaryCta": "Deploy an agent",
       "secondaryCta": "Read our docs",
       "imageDesktop": "/images/landing-page/hero/hero-desktop.webp",
       "imageMobile": "/images/landing-page/hero/hero-mobile.webp"
