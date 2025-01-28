@@ -43,7 +43,7 @@ export const SettingsPage: React.FC<SettingsPageProps> = ({
 }) => {
   const [errorJson, setErrorJson] = useState(false);
 
-  const { control, formState, handleSubmit, reset } = useElizaForm();
+  const { control, formState, register, handleSubmit, reset } = useElizaForm();
 
   const readableErrors = transformErrors(formState.errors.settings);
   const hasErrors = readableErrors.length > 0 || errorJson;
@@ -62,6 +62,28 @@ export const SettingsPage: React.FC<SettingsPageProps> = ({
 
     goTo('review');
   };
+
+  return (
+    <Box className="gap-38">
+      <Box className="items-start gap-16">
+        <Header onPrevious={onPrevious} />
+        <Text>Settings</Text>
+        <Text variant="description" className="text-wrap">
+          Add the secrets for any services your AI agent will access, including
+          LLMs. Click{' '}
+          <Link
+            href="https://github.com/elizaOS/eliza/blob/main/.env.example"
+            className="underline hover:text-white"
+            target={Target.Blank}
+          >
+            here
+          </Link>{' '}
+          to view all the supported secrets.
+        </Text>
+      </Box>
+      <Box className="gap-8"></Box>
+    </Box>
+  );
 
   return (
     <Box className="gap-38">
