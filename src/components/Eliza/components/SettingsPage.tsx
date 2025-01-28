@@ -7,7 +7,7 @@ import type React from 'react';
 import Link, { Target } from './Link';
 import { useElizaForm } from '../hooks/useElizaForm';
 import { useState } from 'react';
-import { Controller } from 'react-hook-form';
+import { Controller, useForm } from 'react-hook-form';
 import FileEditor from '@components/Eliza/components/FileEditor';
 import { cn } from '@utils/cn';
 import { Input } from './Input';
@@ -43,7 +43,7 @@ export const SettingsPage: React.FC<SettingsPageProps> = ({
 }) => {
   const [errorJson, setErrorJson] = useState(false);
 
-  const { control, formState, register, handleSubmit, reset } = useElizaForm();
+  const { control, formState, getValues, handleSubmit, reset } = useElizaForm();
 
   const readableErrors = transformErrors(formState.errors.settings);
   const hasErrors = readableErrors.length > 0 || errorJson;
@@ -63,6 +63,17 @@ export const SettingsPage: React.FC<SettingsPageProps> = ({
     goTo('review');
   };
 
+  const defaultValues = {
+    secrets: { ...getValues().settings.secrets },
+    voice: {
+      model: getValues().settings.voice.model,
+    },
+  };
+
+  const formValues = Object.entries(defaultValues.secrets);
+
+  const { register } = useForm({ defaultValues });
+
   return (
     <Box className="gap-38">
       <Box className="items-start gap-16">
@@ -81,7 +92,36 @@ export const SettingsPage: React.FC<SettingsPageProps> = ({
           to view all the supported secrets.
         </Text>
       </Box>
-      <Box className="gap-8"></Box>
+      <Box className="gap-8" variant="container">
+        <Box>
+          <Text variant="primary" weight={700} size="md">
+            Add secrets
+          </Text>
+          <Text variant="secondary">Add secrets</Text>
+        </Box>
+        <Box className="grid grid-cols-2 gap-8">
+          <Input.Label>Key</Input.Label>
+          <Input.Label>Value</Input.Label>
+        </Box>
+        {formValues.map(([key]) => (
+          <Box key={key} className="grid grid-cols-2 gap-8">
+            <Input.Root disabled>
+              <Input.Field value={key} disabled />
+            </Input.Root>
+            <Input.Root>
+              <Input.Field {...register(`secrets.${key}`)} />
+            </Input.Root>
+          </Box>
+        ))}
+      </Box>
+      <Box className="gap-8" variant="container">
+        <Text variant="primary" weight={700} size="md">
+          Voice
+        </Text>
+        <Input.Root>
+          <Input.Field {...register('voice.model')} />
+        </Input.Root>
+      </Box>
     </Box>
   );
 
