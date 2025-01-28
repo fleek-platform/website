@@ -488,6 +488,13 @@ export const SECRETS_MODEL_PROVIDER_MAP: Record<
   CharacterFormSchema['modelProvider'],
   Record<string, string>
 > = {
+  deepseek: {
+    DEEPSEEK_API_KEY: '',
+    DEEPSEEK_API_URL: 'https://api.deepseek.com',
+    SMALL_DEEPSEEK_MODEL: 'deepseek-chat',
+    MEDIUM_DEEPSEEK_MODEL: 'deepseek-chat',
+    LARGE_DEEPSEEK_MODEL: 'deepseek-chat',
+  },
   openai: {
     OPENAI_API_KEY: '',
   },
