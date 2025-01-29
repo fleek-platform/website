@@ -1,4 +1,3 @@
-import { M } from 'dist/_astro/index.BnYr1Hqt';
 import type { CharacterFormSchema } from './schema';
 import type {
   CategoryLabelDescriptionAndIcon,
