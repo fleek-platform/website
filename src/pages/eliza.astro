@@ -10,7 +10,6 @@ declare global {
   }
 }
 
-const referralId = () => (isClient ? window.promotekit_referral : '');
 const getReferralId = () => {
   try {
     return window.promotekit_referral;
@@ -18,6 +17,7 @@ const getReferralId = () => {
     console.warn(
       `Expected a promotekit_referral but got ${typeof window.promotekit_referral}`,
     );
+    return '';
   }
 };
 ---
@@ -34,7 +34,6 @@ const getReferralId = () => {
 >
   <ElizaModule
     client:load
-    promoteKitReferralId={referralId()}
     getReferralId={getReferralId}
   />
 </BaseHtml>
