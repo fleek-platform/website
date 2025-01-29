@@ -12,7 +12,7 @@ export const AgentsUIIntegration = () => {
     useAuthStore();
   const login = () =>
     typeof triggerLoginModal === 'function' && triggerLoginModal(true);
-  
+
   return (
     <ElizaIntegrationLayer
       accessToken={accessToken}
@@ -28,9 +28,7 @@ export const AgentsUIIntegration = () => {
   );
 };
 
-const AgentsUI = () => (
-  <AgentsUIIntegration />
-);
+const AgentsUI = () => <AgentsUIIntegration />;
 
 // to be used in Astro
 export default AgentsUI;

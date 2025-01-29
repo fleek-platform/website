@@ -2,29 +2,27 @@ import { getCookie } from '@utils/cookies';
 
 const getReferralIdFromCookie = () => {
   try {
-     const promotekit_referral = getCookie('promotekit_referral');
+    const promotekit_referral = getCookie('promotekit_referral');
 
-    if (!promotekit_referral) throw Error('Promotekit referral cookie was not found!');
+    if (!promotekit_referral)
+      throw Error('Promotekit referral cookie was not found!');
 
     return promotekit_referral;
   } catch (_err) {
-    console.warn(
-      `User session is not a Promotekit referral`
-    );
+    console.warn(`User session is not a Promotekit referral`);
 
     return '';
   }
-}
+};
 
 export const getReferralId = () => {
   try {
-    if (!window.promotekit_referral) throw Error('Promotekit referral not found in global window object!');
+    if (!window.promotekit_referral)
+      throw Error('Promotekit referral not found in global window object!');
 
     return window.promotekit_referral;
   } catch (_err) {
-    console.warn(
-      `Promotekit referral is not available. Will check cookie`
-    );
+    console.warn(`Promotekit referral is not available. Will check cookie`);
     return getReferralIdFromCookie();
   }
 };
