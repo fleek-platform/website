@@ -254,12 +254,12 @@ export const createSubscription = async (
   if (!projectId || !token || !productId) return { ok: false };
 
   // console.log('api createSubscription', referralId);
-  console.log('[debug] createSubscription: getReferralId: ', typeof getReferralId === 'function' && getReferralId())
+  console.log(
+    '[debug] createSubscription: getReferralId: ',
+    typeof getReferralId === 'function' && getReferralId(),
+  );
 
-  const referralId =
-    typeof getReferralId === 'function'
-    ? getReferralId()
-    : '';
+  const referralId = typeof getReferralId === 'function' ? getReferralId() : '';
 
   try {
     const response = await fetch(
