@@ -8,8 +8,8 @@ import type {
 } from './types';
 
 export const MODEL_PROVIDER_NAMES = [
-  'deepseek',
   'openai',
+  'deepseek',
   'anthropic',
   'claude_vertex',
   'grok',
@@ -33,6 +33,9 @@ export const MODEL_PROVIDER_NAMES = [
   'venice',
   'akash_chat_api',
   'livepeer',
+  'mistral',
+  'nineteen_ai',
+  'infera',
 ] as const;
 
 export const CLIENT_NAMES = [
@@ -49,57 +52,81 @@ export const CLIENT_NAMES = [
 export const PLUGIN_NAMES = [
   // Blockchain & Web3
   '@elizaos/plugin-0g',
-  '@elizaos/plugin-3d-generation',
   '@elizaos/plugin-abstract',
+  '@elizaos/plugin-akash',
+  '@elizaos/plugin-allora',
+  '@elizaos/plugin-anyone',
   '@elizaos/plugin-aptos',
+  '@elizaos/plugin-arthera',
+  '@elizaos/plugin-asterai',
+  '@elizaos/plugin-autonome',
+  '@elizaos/plugin-avail',
   '@elizaos/plugin-avalanche',
+  '@elizaos/plugin-binance',
   '@elizaos/plugin-coinbase',
+  '@elizaos/plugin-coingecko',
+  '@elizaos/plugin-coinmarketcap',
   '@elizaos/plugin-conflux',
+  '@elizaos/plugin-cosmos',
   '@elizaos/plugin-cronoszkevm',
+  '@elizaos/plugin-depin',
   '@elizaos/plugin-evm',
   '@elizaos/plugin-flow',
   '@elizaos/plugin-fuel',
+  '@elizaos/plugin-genlayer',
+  '@elizaos/plugin-hyperliquid',
   '@elizaos/plugin-icp',
   '@elizaos/plugin-multiversx',
   '@elizaos/plugin-near',
+  '@elizaos/plugin-rabbi-trader',
   '@elizaos/plugin-solana',
+  '@elizaos/plugin-spheron',
   '@elizaos/plugin-starknet',
-  '@elizaos/plugin-story',
   '@elizaos/plugin-sui',
   '@elizaos/plugin-ton',
   '@elizaos/plugin-zksync-era',
 
-  // Content & Media Generation
+  // Content & Media
+  '@elizaos/plugin-3d-generation',
+  '@elizaos/plugin-story',
   '@elizaos/plugin-image-generation',
   '@elizaos/plugin-nft-generation',
   '@elizaos/plugin-video-generation',
-
-  // Platform & Integration
-  '@elizaos/plugin-bootstrap',
-  '@elizaos/plugin-echochambers',
+  '@elizaos/plugin-tts',
   '@elizaos/plugin-gitbook',
+  '@elizaos/plugin-obsidian',
+
+  // Development & Platform
+  '@elizaos/plugin-bootstrap',
   '@elizaos/plugin-goat',
   '@elizaos/plugin-intiface',
   '@elizaos/plugin-node',
   '@elizaos/plugin-tee',
+  '@elizaos/plugin-tee-log',
+  '@elizaos/plugin-tee-marlin',
   '@elizaos/plugin-trustdb',
+  '@elizaos/plugin-goplus',
+  '@elizaos/plugin-opacity',
 
-  // Communication & Search
+  // Integration & Services
+  '@elizaos/plugin-twitter',
   '@elizaos/plugin-web-search',
   '@elizaos/plugin-whatsapp',
-  '@elizaos/plugin-twitter',
+  '@elizaos/plugin-echochambers',
+  '@elizaos/plugin-open-weather',
+  '@elizaos/plugin-giphy',
 ] as const;
 
 export const MODEL_PROVIDER_NAMES_MAP: Record<
   CharacterFormSchema['modelProvider'],
   LabelAndIcon
 > = {
-  deepseek: {
-    label: 'DeepSeek',
-    icon: '',
-  },
   openai: {
     label: 'OpenAI',
+    icon: '',
+  },
+  deepseek: {
+    label: 'DeepSeek',
     icon: '',
   },
   anthropic: {
@@ -150,7 +177,6 @@ export const MODEL_PROVIDER_NAMES_MAP: Record<
     label: 'Together',
     icon: '',
   },
-
   eternalai: {
     label: 'EternalAI',
     icon: '',
@@ -195,6 +221,18 @@ export const MODEL_PROVIDER_NAMES_MAP: Record<
     label: 'Livepeer',
     icon: '',
   },
+  mistral: {
+    label: 'Mistral',
+    icon: '',
+  },
+  nineteen_ai: {
+    label: 'Nineteen AI',
+    icon: '',
+  },
+  infera: {
+    label: 'Infera',
+    icon: '',
+  },
 };
 
 export const CLIENTS_MAP: Record<Client, LabelAndIcon> = {
@@ -234,9 +272,9 @@ export const CLIENTS_MAP: Record<Client, LabelAndIcon> = {
 
 export const PLUGIN_CATEGORIES: Record<number, string> = {
   0: 'Blockchain & Web3',
-  1: 'Content & Media Generation',
-  2: 'Platform & Integration',
-  3: 'Communication & Search',
+  1: 'Content & Media',
+  2: 'Development & Platform',
+  3: 'Integration & Services',
 };
 
 export const PLUGINS_MAP: Record<Plugin, CategoryLabelDescriptionAndIcon> = {
@@ -248,11 +286,51 @@ export const PLUGINS_MAP: Record<Plugin, CategoryLabelDescriptionAndIcon> = {
       'A plugin for storing data using the 0G protocol within the ElizaOS ecosystem.',
     icon: '',
   },
-  '@elizaos/plugin-3d-generation': {
+  '@elizaos/plugin-akash': {
     category: 0,
-    label: '3D Generation',
+    label: 'Akash',
+    description: 'Akash Network Plugin for Eliza.',
+    icon: '',
+  },
+  '@elizaos/plugin-allora': {
+    category: 0,
+    label: 'Allora',
     description:
-      'A plugin for generating 3D models using the FAL.ai API within the ElizaOS ecosystem.',
+      'Seamlessly empowers Eliza agents with real-time, advanced, self-improving AI inferences from the Allora Network.',
+    icon: '',
+  },
+  '@elizaos/plugin-anyone': {
+    category: 0,
+    label: 'Anyone',
+    description:
+      'A plugin for integrating Anyone protocol proxy services into Eliza agents.',
+    icon: '',
+  },
+  '@elizaos/plugin-arthera': {
+    category: 0,
+    label: 'Arthera',
+    description:
+      'This plugin provides actions and providers for interacting with Arthera.',
+    icon: '',
+  },
+  '@elizaos/plugin-asterai': {
+    category: 0,
+    label: 'asterai',
+    description: 'A plugin for interacting with asterai plugins and agents.',
+    icon: '',
+  },
+  '@elizaos/plugin-autonome': {
+    category: 0,
+    label: 'Autonome',
+    description:
+      'A plugin that enables launching new Eliza agents through the Autonome platform.',
+    icon: '',
+  },
+  '@elizaos/plugin-avail': {
+    category: 0,
+    label: 'Avail',
+    description:
+      'This is a plugin for using Eliza to interact with the Avail DA network.',
     icon: '',
   },
   '@elizaos/plugin-abstract': {
@@ -260,6 +338,27 @@ export const PLUGINS_MAP: Record<Plugin, CategoryLabelDescriptionAndIcon> = {
     label: 'Abstract',
     description:
       'A plugin for interacting with the Abstract blockchain network within the ElizaOS ecosystem.',
+    icon: '',
+  },
+  '@elizaos/plugin-depin': {
+    category: 0,
+    label: 'DePIN',
+    description:
+      'This plugin empowers the Eliza Agent Framework with Perception and Action capabilities via DePINs, bridging the digital intelligence of AI with the physical world.',
+    icon: '',
+  },
+  '@elizaos/plugin-genlayer': {
+    category: 0,
+    label: 'GenLayer',
+    description:
+      'A plugin for interacting with the GenLayer protocol, enabling contract deployment, interactions, and transaction management.',
+    icon: '',
+  },
+  '@elizaos/plugin-spheron': {
+    category: 0,
+    label: 'Spheron',
+    description:
+      'This plugin integrates the Spheron Protocol SDK into the Eliza ecosystem, providing functionality for managing deployments, escrow operations, and lease management.',
     icon: '',
   },
   '@elizaos/plugin-aptos': {
@@ -276,10 +375,29 @@ export const PLUGINS_MAP: Record<Plugin, CategoryLabelDescriptionAndIcon> = {
       'A plugin for interacting with the Avalanche blockchain network within the ElizaOS ecosystem.',
     icon: '',
   },
+  '@elizaos/plugin-binance': {
+    category: 0,
+    label: 'Binance platform',
+    description:
+      'This plugin enables Eliza to interact with the Binance cryptocurrency exchange, providing capabilities for checking prices, executing trades, and managing spot wallet balances.',
+    icon: '',
+  },
   '@elizaos/plugin-coinbase': {
     category: 0,
     label: 'Coinbase',
     description: `A comprehensive Coinbase integration plugin for ElizaOS that provides access to Coinbase's various APIs and services.`,
+    icon: '',
+  },
+  '@elizaos/plugin-coingecko': {
+    category: 0,
+    label: 'CoinGecko',
+    description: `A plugin for fetching cryptocurrency price data from the CoinGecko API.`,
+    icon: '',
+  },
+  '@elizaos/plugin-coinmarketcap': {
+    category: 0,
+    label: 'CoinMarketCap',
+    description: `A plugin for Eliza that enables cryptocurrency price checking using the CoinMarketCap API.`,
     icon: '',
   },
   '@elizaos/plugin-conflux': {
@@ -287,6 +405,13 @@ export const PLUGINS_MAP: Record<Plugin, CategoryLabelDescriptionAndIcon> = {
     label: 'Conflux',
     description:
       'A plugin for interacting with the Conflux blockchain network within the ElizaOS ecosystem.',
+    icon: '',
+  },
+  '@elizaos/plugin-cosmos': {
+    category: 0,
+    label: 'Cosmos ecosystem',
+    description:
+      'This plugin provides actions and utilities for interacting with Cosmos-compatible blockchains.',
     icon: '',
   },
   '@elizaos/plugin-cronoszkevm': {
@@ -323,6 +448,13 @@ export const PLUGINS_MAP: Record<Plugin, CategoryLabelDescriptionAndIcon> = {
     description: 'Internet Computer Protocol (ICP) plugin for Eliza OS.',
     icon: '',
   },
+  '@elizaos/plugin-hyperliquid': {
+    category: 0,
+    label: 'Hyperliquid',
+    description:
+      'This plugin enables interaction with the Hyperliquid DEX through Eliza, providing spot trading capabilities.',
+    icon: '',
+  },
   '@elizaos/plugin-multiversx': {
     category: 0,
     label: 'MultiversX',
@@ -335,6 +467,12 @@ export const PLUGINS_MAP: Record<Plugin, CategoryLabelDescriptionAndIcon> = {
     label: 'NEAR',
     description:
       'NEAR Protocol integration plugin for Eliza OS that enables token management, transfers, and swaps using Ref Finance.',
+    icon: '',
+  },
+  '@elizaos/plugin-rabbi-trader': {
+    category: 0,
+    label: 'Rabbi Trader',
+    description: 'Plugin for Rabbi Trader.',
     icon: '',
   },
   '@elizaos/plugin-solana': {
@@ -351,12 +489,7 @@ export const PLUGINS_MAP: Record<Plugin, CategoryLabelDescriptionAndIcon> = {
       'Core Starknet blockchain plugin for Eliza OS that provides essential services and actions for token operations, trading, and DeFi integrations.',
     icon: '',
   },
-  '@elizaos/plugin-story': {
-    category: 0,
-    label: 'Story',
-    description: 'Plugin for Story',
-    icon: '',
-  },
+
   '@elizaos/plugin-sui': {
     category: 0,
     label: 'Sui',
@@ -379,12 +512,39 @@ export const PLUGINS_MAP: Record<Plugin, CategoryLabelDescriptionAndIcon> = {
     icon: '',
   },
 
-  // Content & Media Generation
+  // Content & Media
+  '@elizaos/plugin-story': {
+    category: 1,
+    label: 'Story',
+    description: 'Plugin for Story',
+    icon: '',
+  },
+  '@elizaos/plugin-obsidian': {
+    category: 1,
+    label: 'Obsidian',
+    description:
+      'An Obsidian plugin for ELIZA OS that provides seamless integration with Obsidian vaults, enabling powerful file and note management capabilities.',
+    icon: '',
+  },
   '@elizaos/plugin-image-generation': {
     category: 1,
     label: 'Image Generation',
     description:
       'A plugin designed for generating and managing images, providing features like image manipulation, storage integration, and optimized handling for various use cases.',
+    icon: '',
+  },
+  '@elizaos/plugin-3d-generation': {
+    category: 1,
+    label: '3D Generation',
+    description:
+      'A plugin for generating 3D models using the FAL.ai API within the ElizaOS ecosystem.',
+    icon: '',
+  },
+  '@elizaos/plugin-tts': {
+    category: 1,
+    label: 'TTS',
+    description:
+      'A plugin for text-to-speech(TTS) generation using the FAL.ai API within the ElizaOS ecosystem.',
     icon: '',
   },
   '@elizaos/plugin-nft-generation': {
@@ -401,8 +561,15 @@ export const PLUGINS_MAP: Record<Plugin, CategoryLabelDescriptionAndIcon> = {
       'A plugin for AI-powered video generation using Luma AI, providing automated video creation capabilities from text prompts.',
     icon: '',
   },
+  '@elizaos/plugin-gitbook': {
+    category: 1,
+    label: 'GitBook',
+    description:
+      'A plugin for querying and retrieving information from GitBook documentation within the ElizaOS ecosystem.',
+    icon: '',
+  },
 
-  // Platform & Integration
+  // Development & Platform
   '@elizaos/plugin-bootstrap': {
     category: 2,
     label: 'Bootstrap',
@@ -410,18 +577,32 @@ export const PLUGINS_MAP: Record<Plugin, CategoryLabelDescriptionAndIcon> = {
       'A plugin providing core functionality and basic actions for ElizaOS agents.',
     icon: '',
   },
-  '@elizaos/plugin-echochambers': {
+  '@elizaos/plugin-tee-log': {
     category: 2,
-    label: 'EchoChambers',
+    label: 'TEE Log',
     description:
-      'The EchoChambers plugin enables ELIZA to interact in chat rooms, providing conversational capabilities with dynamic interaction handling.',
+      'The TEE Log Plugin is designed to enhance the logging capabilities of the Eliza by providing a structured way to generate, store and verify TEE logs for agents.',
     icon: '',
   },
-  '@elizaos/plugin-gitbook': {
+  '@elizaos/plugin-tee-marlin': {
     category: 2,
-    label: 'GitBook',
+    label: 'Marlin TEE',
     description:
-      'A plugin for querying and retrieving information from GitBook documentation within the ElizaOS ecosystem.',
+      'A plugin for making agents on Eliza verifiable through the use of Trusted Execution Environments',
+    icon: '',
+  },
+  '@elizaos/plugin-goplus': {
+    category: 2,
+    label: 'GoPlus',
+    description:
+      'A plugin that enables on-chain security checks through the GoPlus API integration.',
+    icon: '',
+  },
+  '@elizaos/plugin-opacity': {
+    category: 2,
+    label: 'Opacity',
+    description:
+      'This adapter integrates Opacity proofs into ElizaOS, enabling verifiable inference results from various AI model providers available through the CloudFlare AI Gateway.',
     icon: '',
   },
   '@elizaos/plugin-goat': {
@@ -460,12 +641,32 @@ export const PLUGINS_MAP: Record<Plugin, CategoryLabelDescriptionAndIcon> = {
     icon: '',
   },
 
-  // Communication & Search
+  // Integration & Services
   '@elizaos/plugin-web-search': {
     category: 3,
     label: 'Web Search',
     description:
       'A plugin for powerful web search capabilities, providing efficient search query handling and result processing through a customizable API interface.',
+    icon: '',
+  },
+  '@elizaos/plugin-echochambers': {
+    category: 3,
+    label: 'EchoChambers',
+    description:
+      'The EchoChambers plugin enables ELIZA to interact in chat rooms, providing conversational capabilities with dynamic interaction handling.',
+    icon: '',
+  },
+  '@elizaos/plugin-open-weather': {
+    category: 3,
+    label: 'OpenWeather',
+    description:
+      'A plugin for Eliza that enables weather checking using the OpenWeather API.',
+    icon: '',
+  },
+  '@elizaos/plugin-giphy': {
+    category: 3,
+    label: 'Giphy',
+    description: 'A plugin for sending GIFs in response to user messages.',
     icon: '',
   },
   '@elizaos/plugin-whatsapp': {
@@ -553,6 +754,15 @@ export const SECRETS_MODEL_PROVIDER_MAP: Record<
   livepeer: {
     LIVEPEER_GATEWAY_URL: '',
   },
+  mistral: {
+    MISTRAL_API_KEY: '',
+  },
+  nineteen_ai: {
+    NINETEEN_AI_API_KEY: '',
+  },
+  infera: {
+    INFERA_API_KEY: '',
+  },
 };
 
 export const SECRETS_CLIENT_MAP: Record<Client, Record<string, string>> = {
@@ -593,15 +803,11 @@ export const SECRETS_CLIENT_MAP: Record<Client, Record<string, string>> = {
 };
 
 export const SECRETS_PLUGIN_MAP: Record<Plugin, Record<string, string>> = {
-  // Blockchain & Web3
   '@elizaos/plugin-0g': {
     ZEROG_INDEXER_RPC: '',
     ZEROG_EVM_RPC: '',
     ZEROG_PRIVATE_KEY: '',
     ZEROG_FLOW_ADDRESS: '',
-  },
-  '@elizaos/plugin-3d-generation': {
-    FAL_API_KEY: '',
   },
   '@elizaos/plugin-abstract': {
     ABSTRACT_ADDRESS: '',
@@ -614,16 +820,77 @@ export const SECRETS_PLUGIN_MAP: Record<Plugin, Record<string, string>> = {
   '@elizaos/plugin-avalanche': {
     AVALANCHE_PRIVATE_KEY: '',
   },
+  '@elizaos/plugin-binance': {
+    BINANCE_API_KEY: '',
+    BINANCE_SECRET_KEY: '',
+  },
   '@elizaos/plugin-coinbase': {
     COINBASE_API_KEY: '',
     COINBASE_PRIVATE_KEY: '',
     COINBASE_COMMERCE_KEY: '',
     COINBASE_NOTIFICATION_URI: '',
   },
+  '@elizaos/plugin-coingecko': {
+    COINGECKO_API_KEY: '',
+    COINGECKO_PRO_API_KEY: '',
+  },
+  '@elizaos/plugin-allora': {
+    ALLORA_API_KEY: '',
+  },
+  '@elizaos/plugin-anyone': {},
+  '@elizaos/plugin-arthera': {
+    ARTHERA_PRIVATE_KEY: '',
+  },
+  '@elizaos/plugin-asterai': {
+    ASTERAI_AGENT_ID: '',
+    ASTERAI_PUBLIC_QUERY_KEY: '',
+  },
+  '@elizaos/plugin-autonome': {
+    AUTONOME_JWT_TOKEN: '',
+    AUTONOME_RPC: '',
+  },
+  '@elizaos/plugin-avail': {
+    AVAIL_ADDRESS: '',
+    AVAIL_SEED: '',
+  },
+  '@elizaos/plugin-depin': {
+    SENTAI_API_KEY: '',
+  },
+  '@elizaos/plugin-genlayer': {
+    GENLAYER_PRIVATE_KEY: '',
+  },
+  '@elizaos/plugin-spheron': {
+    PRIVATE_KEY: '',
+    PROVIDER_PROXY_URL: '',
+    WALLET_ADDRESS: '',
+  },
+  '@elizaos/plugin-akash': {
+    AKASH_ENV: 'mainnet',
+    AKASH_NET: 'https://raw.githubusercontent.com/ovrclk/net/master/mainnet',
+    RPC_ENDPOINT: 'https://rpc.akashnet.net:443',
+    AKASH_GAS_PRICES: '0.025uakt',
+    AKASH_GAS_ADJUSTMENT: '1.5',
+    AKASH_KEYRING_BACKEND: 'os',
+    AKASH_FROM: 'default',
+    AKASH_FEES: '20000uakt',
+    AKASH_MNEMONIC: '',
+    AKASH_MANIFEST_MODE: 'auto',
+    AKASH_MANIFEST_VALIDATION_LEVEL: 'strict',
+    AKASH_MANIFEST_PATH: '/path/to/manifests',
+    AKASH_DEPOSIT: '5000000uakt',
+    AKASH_SDL: 'deployment.yml',
+  },
+  '@elizaos/plugin-coinmarketcap': {
+    COINMARKETCAP_API_KEY: '',
+  },
   '@elizaos/plugin-conflux': {
     CONFLUX_CORE_PRIVATE_KEY: '',
     CONFLUX_CORE_SPACE_RPC_URL: '',
     CONFLUX_MEME_CONTRACT_ADDRESS: '',
+  },
+  '@elizaos/plugin-cosmos': {
+    COSMOS_RECOVERY_PHRASE: '',
+    COSMOS_AVAILABLE_CHAINS: '',
   },
   '@elizaos/plugin-cronoszkevm': {
     CRONOSZKEVM_ADDRESS: '',
@@ -645,6 +912,10 @@ export const SECRETS_PLUGIN_MAP: Record<Plugin, Record<string, string>> = {
   '@elizaos/plugin-icp': {
     INTERNET_COMPUTER_PRIVATE_KEY: '',
   },
+  '@elizaos/plugin-hyperliquid': {
+    HYPERLIQUID_PRIVATE_KEY: '',
+    HYPERLIQUID_TESTNET: 'false',
+  },
   '@elizaos/plugin-multiversx': {
     MVX_PRIVATE_KEY: '',
     MVX_NETWORK: '',
@@ -656,6 +927,15 @@ export const SECRETS_PLUGIN_MAP: Record<Plugin, Record<string, string>> = {
     NEAR_NETWORK: '',
     NEAR_RPC_URL: '',
     NEAR_SLIPPAGE: '',
+  },
+  '@elizaos/plugin-rabbi-trader': {
+    WALLET_PRIVATE_KEY: '',
+    WALLET_PUBLIC_KEY: '',
+    BIRDEYE_API_KEY: '',
+    TWITTER_ENABLED: '',
+    TWITTER_USERNAME: '',
+    DEXSCREENER_WATCHLIST_ID: '',
+    COINGECKO_API_KEY: '',
   },
   '@elizaos/plugin-solana': {
     WALLET_SECRET_KEY: '',
@@ -684,12 +964,16 @@ export const SECRETS_PLUGIN_MAP: Record<Plugin, Record<string, string>> = {
     ZKSYNC_ADDRESS: '',
     ZKSYNC_PRIVATE_KEY: '',
   },
-
-  // Content & Media Generation
   '@elizaos/plugin-image-generation': {
     IMAGE_STORAGE_BUCKET: '',
     STORAGE_ACCESS_KEY: '',
     STORAGE_SECRET_KEY: '',
+  },
+  '@elizaos/plugin-3d-generation': {
+    FAL_API_KEY: '',
+  },
+  '@elizaos/plugin-tts': {
+    FAL_API_KEY: '',
   },
   '@elizaos/plugin-nft-generation': {
     RESERVOIR_API_KEY: '',
@@ -697,10 +981,10 @@ export const SECRETS_PLUGIN_MAP: Record<Plugin, Record<string, string>> = {
   '@elizaos/plugin-video-generation': {
     LUMA_API_KEY: '',
   },
-
-  // Platform & Integration
+  '@elizaos/plugin-obsidian': {
+    OBSIDIAN_API_TOKEN: '',
+  },
   '@elizaos/plugin-bootstrap': {},
-  '@elizaos/plugin-echochambers': {},
   '@elizaos/plugin-gitbook': {
     GITBOOK_SPACE_ID: '',
   },
@@ -719,8 +1003,7 @@ export const SECRETS_PLUGIN_MAP: Record<Plugin, Record<string, string>> = {
     WALLET_SECRET_SALT: '',
   },
   '@elizaos/plugin-trustdb': {},
-
-  // Communication & Search
+  '@elizaos/plugin-echochambers': {},
   '@elizaos/plugin-web-search': {
     TAVILY_API_KEY: '',
   },
@@ -731,6 +1014,26 @@ export const SECRETS_PLUGIN_MAP: Record<Plugin, Record<string, string>> = {
   '@elizaos/plugin-twitter': {
     TWITTER_USERNAME: '',
     TWITTER_PASSWORD: '',
+  },
+  '@elizaos/plugin-tee-log': {
+    TEE_LOG_ENABLED: 'true',
+  },
+  '@elizaos/plugin-goplus': {
+    GOPLUS_API_KEY: 'true',
+  },
+  '@elizaos/plugin-opacity': {
+    OPACITY_TEAM_ID: '',
+    OPACITY_CLOUDFLARE_NAME: '',
+    OPACITY_PROVER_URL: '',
+  },
+  '@elizaos/plugin-open-weather': {
+    OPEN_WEATHER_API_KEY: '',
+  },
+  '@elizaos/plugin-giphy': {
+    GIPHY_API_KEY: '',
+  },
+  '@elizaos/plugin-tee-marlin': {
+    TEE_MARLIN: 'yes',
   },
 };
 
