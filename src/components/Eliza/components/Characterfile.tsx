@@ -10,9 +10,6 @@ import type { GoToProps, Step, Template } from '../utils/types';
 import type React from 'react';
 import {
   INITIAL_FORM,
-  SECRETS_CLIENT_MAP,
-  SECRETS_MODEL_PROVIDER_MAP,
-  SECRETS_PLUGIN_MAP,
   TEMPLATE_CHARACTERFILES_MAP,
   TEMPLATES,
   TEMPLATES_MAP,
@@ -27,7 +24,6 @@ import { StyleForm } from './StyleForm';
 import { FaChevronLeft } from 'react-icons/fa6';
 import { useState } from 'react';
 import { Input } from './Input';
-import type { CharacterFormSchema } from '../utils/schema';
 import { pages } from '../settings';
 import { PluginsDropdown } from './PluginsDropdown';
 
@@ -136,30 +132,9 @@ export const Characterfile: React.FC<CharacterfileProps> = ({
     handleSubmit,
     formState: { errors },
     reset,
-    setValue,
   } = useElizaForm();
 
   const hasErrors = Object.entries(errors).length > 0;
-
-  const mapSettingsSecretsAndUpdateForm = (data: CharacterFormSchema) => {
-    const { modelProvider, clients, plugins } = data;
-    const model = { ...SECRETS_MODEL_PROVIDER_MAP[modelProvider] };
-    const client = clients.reduce((acc, client) => {
-      const clientData = SECRETS_CLIENT_MAP[client];
-      return { ...acc, ...clientData };
-    }, {});
-    const plugin = plugins.reduce((acc, plugin) => {
-      const pluginData = SECRETS_PLUGIN_MAP[plugin];
-      return { ...acc, ...pluginData };
-    }, {});
-    const updatedSecrets = {
-      ...model,
-      ...client,
-      ...plugin,
-      ...data.settings.secrets,
-    };
-    setValue('settings.secrets', updatedSecrets);
-  };
 
   const onPrevious = () => {
     completeStep(0);
@@ -167,11 +142,10 @@ export const Characterfile: React.FC<CharacterfileProps> = ({
     goTo('getStarted');
   };
 
-  const onSubmit = (data: CharacterFormSchema) => {
+  const onSubmit = () => {
     if (completedStep === 0) {
       completeStep(1);
     }
-    mapSettingsSecretsAndUpdateForm(data);
     goTo('settings');
   };
 

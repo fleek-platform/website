@@ -10,6 +10,7 @@ import { useForm } from 'react-hook-form';
 import { Input } from './Input';
 import { settingsSchema, type SettingsSchema } from '../utils/schema';
 import { zodResolver } from '@hookform/resolvers/zod';
+import { extractSecretsFromData } from '../utils/transformData';
 
 type HeaderProps = {
   onPrevious: () => void;
@@ -41,19 +42,19 @@ export const SettingsPage: React.FC<SettingsPageProps> = ({
 }) => {
   const { getValues, reset, setValue } = useElizaForm();
 
-  const defaultValues = {
-    secrets: { ...getValues().settings.secrets },
-    voice: {
-      model: getValues().settings.voice.model,
-    },
-  };
+  const data = getValues();
 
-  const formValues = Object.entries(defaultValues.secrets);
+  const defaultValues = {
+    secrets: extractSecretsFromData(data),
+    voice: { model: data.settings.voice.model },
+  };
 
   const { register, handleSubmit, formState } = useForm<SettingsSchema>({
     defaultValues,
     resolver: zodResolver(settingsSchema),
   });
+
+  const formValues = Object.entries(defaultValues.secrets);
 
   const onPrevious = () => {
     reset();

@@ -2,6 +2,11 @@ import type { FieldError, FieldErrorsImpl, Merge } from 'react-hook-form';
 import type { Character } from './types';
 import type { CharacterfileSchema, CharacterFormSchema } from './schema';
 import type { Primitive, ZodError } from 'zod';
+import {
+  SECRETS_CLIENT_MAP,
+  SECRETS_MODEL_PROVIDER_MAP,
+  SECRETS_PLUGIN_MAP,
+} from './constants';
 
 type TransformedError = {
   label: string;
@@ -98,5 +103,24 @@ export const transformSchemaToCharacter = (
       chat: data.style.all.map((entry) => entry.name),
       post: data.style.all.map((entry) => entry.name),
     },
+  };
+};
+
+export const extractSecretsFromData = (data: CharacterFormSchema) => {
+  const { modelProvider, clients, plugins } = data;
+  const model = { ...SECRETS_MODEL_PROVIDER_MAP[modelProvider] };
+  const client = clients.reduce(
+    (acc, client) => ({ ...acc, ...SECRETS_CLIENT_MAP[client] }),
+    {},
+  );
+  const plugin = plugins.reduce(
+    (acc, plugin) => ({ ...acc, ...SECRETS_PLUGIN_MAP[plugin] }),
+    {},
+  );
+  return {
+    ...model,
+    ...client,
+    ...plugin,
+    ...data.settings.secrets,
   };
 };
