@@ -36,7 +36,6 @@ export const AgentsUIIntegration: React.FC<AgentsUIIntegrationProps> = ({
   );
 };
 
-const AgentsUI = () => <AgentsUIIntegration />;
-
-// to be used in Astro
-export default AgentsUI;
+export const AgentsUI: React.FC<AgentsUIIntegrationProps> = ({ apiUrl }) => (
+  <AgentsUIIntegration apiUrl={apiUrl} />
+);
