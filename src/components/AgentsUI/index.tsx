@@ -8,12 +8,10 @@ import { captureEvent } from '@components/Tracking/trackingUtils';
 const { getPlans, getSubscriptions, createSubscription } = api;
 
 export interface AgentsUIIntegrationProps {
-  promoteKitReferralId?: string;
   apiUrl?: string;
 }
 
 export const AgentsUIIntegration: React.FC<AgentsUIIntegrationProps> = ({
-  promoteKitReferralId,
   apiUrl,
 }) => {
   const { triggerLoginModal, accessToken, isLoggingIn, isLoggedIn, projectId } =
