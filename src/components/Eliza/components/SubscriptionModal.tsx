@@ -41,9 +41,7 @@ export const SubscriptionModal: React.FC<SubscriptionModalProps> = ({
     setIsLoading(true);
 
     const referralId =
-      typeof getReferralId === 'function'
-      ? getReferralId()
-      : '';
+      typeof getReferralId === 'function' ? getReferralId() : '';
     const subscriptionCreationResponse = await createSubscription(
       activeProjectId,
       productId,
