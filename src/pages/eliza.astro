@@ -3,10 +3,27 @@ import settings from '@base/settings.json';
 import ElizaModule from '@components/AgentsUI';
 import BaseHtml from '@layouts/BaseHtml.astro';
 import { isClient } from '@utils/common';
+import { getCookie } from '@utils/cookies';
 
 declare global {
   interface Window {
     promotekit_referral: string;
+  }
+}
+
+const getReferralIdFromCookie = () => {
+  try {
+     const promotekit_referral = getCookie('promotekit_referral');
+
+    if (!promotekit_referral) throw Error('Promotekit referral cookie was not found!');
+
+    return promotekit_referral;
+  } catch (_err) {
+    console.warn(
+      `Promotekit referral cookie is not set`,
+    );
+
+    return '';
   }
 }
 
@@ -15,9 +32,9 @@ const getReferralId = () => {
     return window.promotekit_referral;
   } catch (_err) {
     console.warn(
-      `Expected a promotekit_referral but got ${typeof window.promotekit_referral}`,
+      `Expected a promotekit_referral but got ${typeof window.promotekit_referral}. Will try cookie!`,
     );
-    return '';
+    return getReferralIdFromCookie();
   }
 };
 ---
