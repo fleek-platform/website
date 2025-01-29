@@ -23,7 +23,7 @@ export const singleArticleCardItems = [
   {
     id: '1',
     title: 'Node engine errors',
-    link: '/issues/faq/node-engine-errors/',
+    link: '/troubleshooting/faq/node-engine-errors/',
     description:
       "If you are getting node engine mismatch errors, don't worry. It only means the docker image you selected does not have the required node version. However, you can use any docker image published on dockerhub, you don't need to use the ones we provide if...",
   },
@@ -43,7 +43,7 @@ export const singleArticleCardItems = [
   },
   {
     id: '4',
-    link: '/issues/faq/my-links-arent-resolving/',
+    link: '/troubleshooting/faq/my-links-arent-resolving/',
     title: "My links aren't resolving",
     description:
       "Explore Fleek's method for resolving IPFS link issues. This in-depth tutorial steers you through the essential steps, from creating a new Next.js App to adding a custom domain, and finally optimizing y...",
