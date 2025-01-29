@@ -243,6 +243,7 @@ export const createSubscription = async (
   productId?: string,
   token?: string,
   referralId?: string,
+  getReferralId?: () => string,
 ): Promise<{
   ok: boolean;
   data?: {
@@ -253,6 +254,7 @@ export const createSubscription = async (
   if (!projectId || !token || !productId) return { ok: false };
 
   console.log('api createSubscription', referralId);
+  console.log('[debug] createSubscription: getReferralId: ', typeof getReferralId === 'function' && getReferralId())
 
   try {
     const response = await fetch(

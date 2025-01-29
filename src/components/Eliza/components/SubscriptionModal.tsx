@@ -14,6 +14,7 @@ interface SubscriptionModalProps {
   checkUserAmountAvailableAiModules: (projectId: string) => Promise<any>;
   createSubscription: ElizaIntegrationLayerProps['createSubscription'];
   referralId?: string;
+  getReferralId?: () => string;
 }
 
 const AI_MODULE_PRICE = 20;
@@ -28,6 +29,7 @@ export const SubscriptionModal: React.FC<SubscriptionModalProps> = ({
   checkUserAmountAvailableAiModules,
   createSubscription,
   referralId,
+  getReferralId,
 }) => {
   const [isLoading, setIsLoading] = useState(false);
   const { accessToken } = useAuthStore();
@@ -45,6 +47,7 @@ export const SubscriptionModal: React.FC<SubscriptionModalProps> = ({
       productId,
       accessToken,
       referralId,
+      getReferralId,
     );
 
     console.log('SubscriptionModal - referralId', referralId);

@@ -8,6 +8,7 @@ import ElizaIntegrationLayer from '@components/Eliza/ElizaIntegrationLayer.tsx';
 
 export interface AgentsUIIntegrationProps {
   promoteKitReferralId?: string;
+  getReferralId?: () => string;
 }
 
 export const AgentsUIIntegration: React.FC<AgentsUIIntegrationProps> = (
@@ -15,7 +16,7 @@ export const AgentsUIIntegration: React.FC<AgentsUIIntegrationProps> = (
 ) => {
   const { triggerLoginModal, accessToken, isLoggingIn, isLoggedIn, projectId } =
     useAuthStore();
-  const { promoteKitReferralId } = props;
+  const { promoteKitReferralId, getReferralId } = props;
   const login = () =>
     typeof triggerLoginModal === 'function' && triggerLoginModal(true);
 
@@ -26,6 +27,7 @@ export const AgentsUIIntegration: React.FC<AgentsUIIntegrationProps> = (
       isLoggedIn={isLoggedIn}
       isLoggingIn={isLoggingIn}
       referralId={promoteKitReferralId}
+      getReferralId={getReferralId}
       login={login}
       getSubscriptions={getSubscriptions}
       getPlans={getPlans}

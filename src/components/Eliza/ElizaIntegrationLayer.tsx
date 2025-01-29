@@ -70,6 +70,7 @@ export interface ElizaIntegrationLayerProps {
   accessToken?: string;
   activeProjectId?: string;
   referralId?: string;
+  getReferralId?: () => string;
   isLoggedIn: boolean;
   isLoggingIn: boolean;
   login: () => void;
@@ -93,6 +94,7 @@ export const ElizaIntegrationLayer: React.FC<ElizaIntegrationLayerProps> = ({
   isLoggedIn,
   isLoggingIn,
   referralId,
+  getReferralId,
   login,
   getSubscriptions,
   getPlans,
@@ -241,6 +243,7 @@ export const ElizaIntegrationLayer: React.FC<ElizaIntegrationLayerProps> = ({
         productId={productId}
         createSubscription={createSubscription}
         referralId={referralId}
+        getReferralId={getReferralId}
       />
     </>
   );
