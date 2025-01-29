@@ -3,7 +3,6 @@ import settings from '@base/settings.json';
 import ElizaModule from '@components/AgentsUI';
 import BaseHtml from '@layouts/BaseHtml.astro';
 import { isClient } from '@utils/common';
-import { getCookie } from '@utils/cookies';
 
 declare global {
   interface Window {
@@ -11,29 +10,6 @@ declare global {
   }
 }
 
-const getReferralIdFromCookie = () => {
-  try {
-    const promotekit_referral = getCookie('promotekit_referral');
-
-    if (!promotekit_referral)
-      throw Error('Promotekit referral cookie was not found!');
-
-    return promotekit_referral;
-  } catch (_err) {
-    console.warn(`User session is not a Promotekit referral`);
-
-    return '';
-  }
-};
-
-const getReferralId = () => {
-  try {
-    return window.promotekit_referral;
-  } catch (_err) {
-    console.warn(`Promotekit referral is not available. Will check cookie`);
-    return getReferralIdFromCookie();
-  }
-};
 ---
 
 <BaseHtml
@@ -46,5 +22,7 @@ const getReferralId = () => {
   }}
   overflowHorizontally
 >
-  <ElizaModule client:load getReferralId={getReferralId} />
+  <ElizaModule
+    client:load
+  />
 </BaseHtml>

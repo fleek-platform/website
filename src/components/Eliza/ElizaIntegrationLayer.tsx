@@ -205,6 +205,8 @@ export const ElizaIntegrationLayer: React.FC<ElizaIntegrationLayerProps> = ({
     return true;
   };
 
+  console.log(`[debug] ElizaIntegrationLayer: getReferralId: ${typeof getReferralId == 'function' && getReferralId()}`);
+
   return (
     <>
       <CoreEliza
