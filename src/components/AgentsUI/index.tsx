@@ -1,13 +1,21 @@
-import {
-  getPlans,
-  getSubscriptions,
-  createSubscription,
-} from '@components/Eliza/api';
-import { useAuthStore } from '@fleek-platform/login-button';
-import ElizaIntegrationLayer from '@components/Eliza/ElizaIntegrationLayer.tsx';
-import { getReferralId } from '@utils/promotekit';
+import '@fleek-platform/agents-ui/styles';
 
-export const AgentsUIIntegration = () => {
+import { useAuthStore } from '@fleek-platform/login-button';
+import { getReferralId } from '@utils/promotekit';
+import { ElizaIntegrationLayer, api } from '@fleek-platform/agents-ui';
+import { captureEvent } from '@components/Tracking/trackingUtils';
+
+const { getPlans, getSubscriptions, createSubscription } = api;
+
+export interface AgentsUIIntegrationProps {
+  promoteKitReferralId?: string;
+  apiUrl?: string;
+}
+
+export const AgentsUIIntegration: React.FC<AgentsUIIntegrationProps> = ({
+  promoteKitReferralId,
+  apiUrl,
+}) => {
   const { triggerLoginModal, accessToken, isLoggingIn, isLoggedIn, projectId } =
     useAuthStore();
   const login = () =>
@@ -24,6 +32,8 @@ export const AgentsUIIntegration = () => {
       getSubscriptions={getSubscriptions}
       getPlans={getPlans}
       createSubscription={createSubscription}
+      captureEvent={captureEvent}
+      apiUrl={apiUrl}
     />
   );
 };
