@@ -20,7 +20,7 @@ const getReferralIdFromCookie = () => {
     return promotekit_referral;
   } catch (_err) {
     console.warn(
-      `Promotekit referral cookie is not set`,
+      `User session is not a Promotekit referral`
     );
 
     return '';
@@ -32,7 +32,7 @@ const getReferralId = () => {
     return window.promotekit_referral;
   } catch (_err) {
     console.warn(
-      `Expected a promotekit_referral but got ${typeof window.promotekit_referral}. Will try cookie!`,
+      `Promotekit referral is not available. Will check cookie`
     );
     return getReferralIdFromCookie();
   }
