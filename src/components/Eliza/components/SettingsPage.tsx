@@ -69,8 +69,6 @@ export const SettingsPage: React.FC<SettingsPageProps> = ({
     goTo('review');
   };
 
-  console.log(completedStep);
-
   return (
     <Box className="gap-38">
       <Box className="items-start gap-16">
@@ -118,7 +116,7 @@ export const SettingsPage: React.FC<SettingsPageProps> = ({
             );
           })}
           {formState.errors.secrets && (
-            <Input.Hint error>Please add the values missing.</Input.Hint>
+            <Input.Hint error>Please fill the missing values.</Input.Hint>
           )}
         </Box>
         <Box className="gap-8" variant="container">
