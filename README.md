@@ -1185,7 +1185,8 @@ TLDR; Visit [https://fleek-xyz-staging.fleeksandbox.xyz/?via=Helder](https://fle
 1) Visit https://refer.fleek.xyz/ to create an account
 2) Copy the referral link which will include the account ID, e.g. [https://fleek-xyz-staging.fleeksandbox.xyz/?via=Helder](https://fleek-xyz-staging.fleeksandbox.xyz/?via=Helder)
 3) Visit the referral link, e.g. [https://fleek-xyz-staging.fleeksandbox.xyz/?via=Helder](https://fleek-xyz-staging.fleeksandbox.xyz/?via=Helder)
-4) Access the promokit on runtime e.g. window.promotekit_referral
+4) Access the promotekit on runtime e.g. window.promotekit_referral
+5) As a fallback, you can also get the `promotekit_referral`
 
 ## Changelog Resources
 
