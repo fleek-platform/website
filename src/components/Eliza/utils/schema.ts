@@ -16,7 +16,7 @@ export type SettingsSchema = z.infer<typeof settingsSchema>;
  * We need it due to how React Hook Form handles arrays.
  */
 export const characterFormSchema = z.object({
-  name: z.string().min(3, 'Name is required, minimum of 3 characters'),
+  name: z.string().min(1, 'Name is required'),
   username: z.string().optional(),
   plugins: z.array(z.enum(PLUGIN_NAMES)),
   modelProvider: z.enum(MODEL_PROVIDER_NAMES, {
@@ -30,12 +30,12 @@ export const characterFormSchema = z.object({
   settings: settingsSchema,
   bio: z.array(
     z.object({
-      name: z.string().min(3, 'Bio is required, minimum of 3 characters'),
+      name: z.string().min(1, 'Bio is required'),
     }),
   ),
   lore: z.array(
     z.object({
-      name: z.string().min(3, 'Lore is required, minimum of 3 characters'),
+      name: z.string().min(1, 'Lore is required'),
     }),
   ),
   knowledge: z.array(z.object({ name: z.string() })).optional(),
@@ -55,31 +55,23 @@ export const characterFormSchema = z.object({
     .min(1, 'At least one message example is required'),
   postExamples: z.array(
     z.object({
-      name: z
-        .string()
-        .min(3, 'Post example is required, minimum of 3 characters'),
+      name: z.string().min(1, 'Post example is required'),
     }),
   ),
   style: z.object({
     all: z.array(
       z.object({
-        name: z
-          .string()
-          .min(3, `Style for 'All' is required, minimum of 3 characters`),
+        name: z.string().min(1, `Style for 'All' is required`),
       }),
     ),
     chat: z.array(
       z.object({
-        name: z
-          .string()
-          .min(3, `Style for 'Chat' is required, minimum of 3 characters`),
+        name: z.string().min(1, `Style for 'Chat' is required`),
       }),
     ),
     post: z.array(
       z.object({
-        name: z
-          .string()
-          .min(3, `Style for 'Post' is required, minimum of 3 characters`),
+        name: z.string().min(1, `Style for 'Post' is required`),
       }),
     ),
   }),
@@ -93,7 +85,7 @@ export type CharacterFormSchema = z.infer<typeof characterFormSchema>;
 
 /** Schema for the characterfile JSON file */
 export const characterfileSchema = z.object({
-  name: z.string().min(3, 'Name is required, minimum of 3 characters'),
+  name: z.string().min(1, 'Name is required'),
   username: z.string().optional(),
   plugins: z.array(
     z.enum(PLUGIN_NAMES, {
@@ -117,8 +109,8 @@ export const characterfileSchema = z.object({
     )
     .min(1, 'At least one client is required'),
   settings: settingsSchema,
-  bio: z.array(z.string().min(3, 'Bio is required, minimum of 3 characters')),
-  lore: z.array(z.string().min(3, 'Lore is required, minimum of 3 characters')),
+  bio: z.array(z.string().min(1, 'Bio is required')),
+  lore: z.array(z.string().min(1, 'Lore is required')),
   knowledge: z.array(z.string()).optional(),
   messageExamples: z
     .array(
@@ -127,30 +119,18 @@ export const characterfileSchema = z.object({
           z.object({
             user: z.string().min(1, 'User is required'),
             content: z.object({
-              text: z.string().min(1, 'Message example is required'),
+              text: z.string(),
             }),
           }),
         )
         .min(2),
     )
     .min(1, 'At least one message example is required'),
-  postExamples: z.array(
-    z.string().min(3, 'Post example is required, minimum of 3 characters'),
-  ),
+  postExamples: z.array(z.string().min(1, 'Post example is required')),
   style: z.object({
-    all: z.array(
-      z.string().min(3, `Style for 'All' is required, minimum of 3 characters`),
-    ),
-    chat: z.array(
-      z
-        .string()
-        .min(3, `Style for 'Chat' is required, minimum of 3 characters`),
-    ),
-    post: z.array(
-      z
-        .string()
-        .min(3, `Style for 'Post' is required, minimum of 3 characters`),
-    ),
+    all: z.array(z.string().min(1, `Style for 'All' is required`)),
+    chat: z.array(z.string().min(1, `Style for 'Chat' is required`)),
+    post: z.array(z.string().min(1, `Style for 'Post' is required`)),
   }),
   topics: z.array(z.string().min(1)).min(1, 'At least one topic is required'),
   adjectives: z

@@ -69,6 +69,8 @@ export const SettingsPage: React.FC<SettingsPageProps> = ({
     goTo('review');
   };
 
+  console.log(completedStep);
+
   return (
     <Box className="gap-38">
       <Box className="items-start gap-16">

@@ -177,14 +177,17 @@ export const ReviewPage: React.FC<ReviewPageProps> = ({
                 <Box className="gap-4">
                   <Text variant="subtitle">Model provider</Text>
                   <Text variant="secondary">
-                    {MODEL_PROVIDER_NAMES_MAP[data.modelProvider].label}
+                    {MODEL_PROVIDER_NAMES_MAP[data.modelProvider]?.label ||
+                      data.modelProvider}
                   </Text>
                 </Box>
                 <Box className="gap-4">
                   <Text variant="subtitle">Clients</Text>
                   <Box className="flex-row flex-wrap items-center gap-6">
                     {data.clients.map((client) => (
-                      <Badge key={client}>{CLIENTS_MAP[client].label}</Badge>
+                      <Badge key={client}>
+                        {CLIENTS_MAP[client]?.label || client}
+                      </Badge>
                     ))}
                   </Box>
                 </Box>
@@ -193,7 +196,9 @@ export const ReviewPage: React.FC<ReviewPageProps> = ({
                     <Text variant="subtitle">Plugins</Text>
                     <Box className="flex-row flex-wrap items-center gap-6">
                       {data.plugins.map((plugin) => (
-                        <Badge key={plugin}>{PLUGINS_MAP[plugin].label}</Badge>
+                        <Badge key={plugin}>
+                          {PLUGINS_MAP[plugin]?.label || plugin}
+                        </Badge>
                       ))}
                     </Box>
                   </Box>
@@ -210,16 +215,16 @@ export const ReviewPage: React.FC<ReviewPageProps> = ({
                 <Box className="gap-4">
                   <Text variant="subtitle">Bio</Text>
                   <ul className="list-inside list-disc marker:text-elz-neutral-6">
-                    {data.bio.map((entry) => (
-                      <li key={entry.name}>{entry.name}</li>
+                    {data.bio.map((entry, idx) => (
+                      <li key={idx}>{entry.name}</li>
                     ))}
                   </ul>
                 </Box>
                 <Box className="gap-4">
                   <Text variant="subtitle">Lore</Text>
                   <ul className="list-inside list-disc marker:text-elz-neutral-6">
-                    {data.lore.map((entry) => (
-                      <li key={entry.name}>{entry.name}</li>
+                    {data.lore.map((entry, idx) => (
+                      <li key={idx}>{entry.name}</li>
                     ))}
                   </ul>
                 </Box>
@@ -227,8 +232,8 @@ export const ReviewPage: React.FC<ReviewPageProps> = ({
                   <Box>
                     <Text variant="subtitle">Knowledge</Text>
                     <ul className="list-inside list-disc marker:text-elz-neutral-6">
-                      {data.knowledge.map((entry) => (
-                        <li key={entry.name}>{entry.name}</li>
+                      {data.knowledge.map((entry, idx) => (
+                        <li key={idx}>{entry.name}</li>
                       ))}
                     </ul>
                   </Box>
@@ -249,7 +254,7 @@ export const ReviewPage: React.FC<ReviewPageProps> = ({
                       const isEven = innerIdx % 2 === 0;
                       return (
                         <Box
-                          key={msg.content.text}
+                          key={innerIdx}
                           className={cn('w-full max-w-[60%] rounded-16 p-12', {
                             'mr-auto rounded-bl-none bg-elz-neutral-3': isEven,
                             'ml-auto rounded-br-none bg-elz-neutral-4 text-right':
@@ -277,24 +282,24 @@ export const ReviewPage: React.FC<ReviewPageProps> = ({
                 <Box className="gap-4">
                   <Text variant="subtitle">All</Text>
                   <ul className="list-inside list-disc marker:text-elz-neutral-6">
-                    {data.style.all.map((entry) => (
-                      <li key={entry.name}>{entry.name}</li>
+                    {data.style.all.map((entry, idx) => (
+                      <li key={idx}>{entry.name}</li>
                     ))}
                   </ul>
                 </Box>
                 <Box className="gap-4">
                   <Text variant="subtitle">Chat</Text>
                   <ul className="list-inside list-disc marker:text-elz-neutral-6">
-                    {data.style.chat.map((entry) => (
-                      <li key={entry.name}>{entry.name}</li>
+                    {data.style.chat.map((entry, idx) => (
+                      <li key={idx}>{entry.name}</li>
                     ))}
                   </ul>
                 </Box>
                 <Box className="gap-4">
                   <Text variant="subtitle">Post</Text>
                   <ul className="list-inside list-disc marker:text-elz-neutral-6">
-                    {data.style.post.map((entry) => (
-                      <li key={entry.name}>{entry.name}</li>
+                    {data.style.post.map((entry, idx) => (
+                      <li key={idx}>{entry.name}</li>
                     ))}
                   </ul>
                 </Box>
@@ -310,8 +315,8 @@ export const ReviewPage: React.FC<ReviewPageProps> = ({
                 <Box className="gap-4">
                   <Text variant="subtitle">Topics</Text>
                   <Box className="flex-row flex-wrap items-center gap-6">
-                    {data.topics.map((topic) => (
-                      <Badge className="lowercase" key={topic}>
+                    {data.topics.map((topic, idx) => (
+                      <Badge className="lowercase" key={idx}>
                         {topic}
                       </Badge>
                     ))}
@@ -320,8 +325,8 @@ export const ReviewPage: React.FC<ReviewPageProps> = ({
                 <Box className="gap-4">
                   <Text variant="subtitle">Adjectives</Text>
                   <Box className="flex-row flex-wrap items-center gap-6">
-                    {data.adjectives.map((adjective) => (
-                      <Badge className="lowercase" key={adjective}>
+                    {data.adjectives.map((adjective, idx) => (
+                      <Badge className="lowercase" key={idx}>
                         {adjective}
                       </Badge>
                     ))}
