@@ -40,7 +40,7 @@ export const SettingsPage: React.FC<SettingsPageProps> = ({
   completeStep,
   completedStep,
 }) => {
-  const { getValues, reset, setValue } = useElizaForm();
+  const { getValues, setValue } = useElizaForm();
 
   const data = getValues();
 
@@ -49,7 +49,7 @@ export const SettingsPage: React.FC<SettingsPageProps> = ({
     voice: { model: data.settings.voice.model },
   };
 
-  const { register, handleSubmit, formState } = useForm<SettingsSchema>({
+  const { reset, register, handleSubmit, formState } = useForm<SettingsSchema>({
     defaultValues,
     resolver: zodResolver(settingsSchema),
   });
