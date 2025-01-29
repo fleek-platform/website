@@ -8,8 +8,8 @@ import type {
 } from './types';
 
 export const MODEL_PROVIDER_NAMES = [
-  'deepseek',
   'openai',
+  'deepseek',
   'anthropic',
   'claude_vertex',
   'grok',
@@ -33,6 +33,9 @@ export const MODEL_PROVIDER_NAMES = [
   'venice',
   'akash_chat_api',
   'livepeer',
+  'mistral',
+  'nineteen_ai',
+  'infera',
 ] as const;
 
 export const CLIENT_NAMES = [
@@ -94,12 +97,12 @@ export const MODEL_PROVIDER_NAMES_MAP: Record<
   CharacterFormSchema['modelProvider'],
   LabelAndIcon
 > = {
-  deepseek: {
-    label: 'DeepSeek',
-    icon: '',
-  },
   openai: {
     label: 'OpenAI',
+    icon: '',
+  },
+  deepseek: {
+    label: 'DeepSeek',
     icon: '',
   },
   anthropic: {
@@ -150,7 +153,6 @@ export const MODEL_PROVIDER_NAMES_MAP: Record<
     label: 'Together',
     icon: '',
   },
-
   eternalai: {
     label: 'EternalAI',
     icon: '',
@@ -193,6 +195,18 @@ export const MODEL_PROVIDER_NAMES_MAP: Record<
   },
   livepeer: {
     label: 'Livepeer',
+    icon: '',
+  },
+  mistral: {
+    label: 'Mistral',
+    icon: '',
+  },
+  nineteen_ai: {
+    label: 'Nineteen AI',
+    icon: '',
+  },
+  infera: {
+    label: 'Infera',
     icon: '',
   },
 };
@@ -552,6 +566,15 @@ export const SECRETS_MODEL_PROVIDER_MAP: Record<
   },
   livepeer: {
     LIVEPEER_GATEWAY_URL: '',
+  },
+  mistral: {
+    MISTRAL_API_KEY: '',
+  },
+  nineteen_ai: {
+    NINETEEN_AI_API_KEY: '',
+  },
+  infera: {
+    INFERA_API_KEY: '',
   },
 };
 
