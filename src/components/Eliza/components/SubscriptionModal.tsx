@@ -47,6 +47,8 @@ export const SubscriptionModal: React.FC<SubscriptionModalProps> = ({
       referralId,
     );
 
+    console.log('SubscriptionModal - referralId', referralId);
+
     if (
       !subscriptionCreationResponse ||
       !subscriptionCreationResponse.ok ||
