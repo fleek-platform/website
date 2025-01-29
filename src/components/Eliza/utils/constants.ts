@@ -8,6 +8,7 @@ import type {
 } from './types';
 
 export const MODEL_PROVIDER_NAMES = [
+  'deepseek',
   'openai',
   'anthropic',
   'claude_vertex',
@@ -93,6 +94,10 @@ export const MODEL_PROVIDER_NAMES_MAP: Record<
   CharacterFormSchema['modelProvider'],
   LabelAndIcon
 > = {
+  deepseek: {
+    label: 'DeepSeek',
+    icon: '',
+  },
   openai: {
     label: 'OpenAI',
     icon: '',
@@ -483,6 +488,9 @@ export const SECRETS_MODEL_PROVIDER_MAP: Record<
   CharacterFormSchema['modelProvider'],
   Record<string, string>
 > = {
+  deepseek: {
+    DEEPSEEK_API_KEY: '',
+  },
   openai: {
     OPENAI_API_KEY: '',
   },
