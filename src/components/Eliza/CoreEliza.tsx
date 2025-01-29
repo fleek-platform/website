@@ -21,6 +21,7 @@ import { Text } from './components/Text';
 import { pages } from './settings';
 import { NewsletterSubscriber } from './components/NewsletterSubscriber';
 import type { CaptureEventFn } from './types';
+import { FormProviderCharacterBuilder } from './hooks/useElizaForm';
 
 interface ElizaCoreProps {
   isLoggedIn: UseDeployAIAgentProps['isLoggedIn'];
@@ -202,12 +203,14 @@ export const CoreEliza: React.FC<ElizaCoreProps> = ({
           <IllustrationIcon className="h-304 animate-pulse pt-48" />
         </div>
       )}
-      {steps.map(
-        (step) =>
-          step.condition && (
-            <React.Fragment key={step.id}>{step.content}</React.Fragment>
-          ),
-      )}
+      <FormProviderCharacterBuilder>
+        {steps.map(
+          (step) =>
+            step.condition && (
+              <React.Fragment key={step.id}>{step.content}</React.Fragment>
+            ),
+        )}
+      </FormProviderCharacterBuilder>
     </Layout>
   );
 };

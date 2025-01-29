@@ -7,7 +7,6 @@ import {
   type NavigationState,
 } from '../utils/types';
 import { Characterfile } from './Characterfile';
-import { FormProviderCharacterBuilder } from '../hooks/useElizaForm';
 import type { UseDeployAIAgentProps } from '../hooks/useDeployAIAgent';
 import { SettingsPage } from './SettingsPage';
 import { ReviewPage } from './ReviewPage';
@@ -103,9 +102,5 @@ export const Navigation: React.FC<NavigationProps> = ({
     ),
   };
 
-  return (
-    <FormProviderCharacterBuilder>
-      {pages[navigationState.page]}
-    </FormProviderCharacterBuilder>
-  );
+  return pages[navigationState.page];
 };
