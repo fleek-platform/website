@@ -61,6 +61,8 @@ This repository contains the source code and assets for the Fleek.xyz website, w
 - [Custom data](#custom-data)
   - [Get latest posts](#get-latest-posts)
 - [Video Content](#video-content)
+- [Promotekit](#promotekit)
+  - [How to setup](#how-to-setup)
 - [Changelog Resources](#changelog-resources)
 
 # Setup
@@ -1171,6 +1173,20 @@ When visiting the site content, the file will be surfaced absolutely, e.g. `<sou
 ❌ If missing a trailing slash it'll look for the file in the wrong location. At time of writing, trailing slash is not required to resolve the site sections, thus its best practice to declare the file location with `./` as in `<source src="./my-video-filename.mp4">` to avoid confusion.
 
 💡 At time of writing its assumed that video files are put in the directory of a markdown file named `index.md(x)`, e.g. `src/content/guides/my-guide/index.md` and `src/content/guides/my-guide/my-video.mp4`. It's also expected that the base path is the directory of the content and not cross content. It's important to respect the convention for portability, otherwise you'll find unexpected results.
+
+## Promotekit
+
+PromoteKit by Stripe is a tool that helps businesses integrate and manage promotional campaigns, like discounts and referrals, within Stripe's payment system to boost customer engagement and sales. To learn more read the documentation [here](https://docs.promotekit.com/).
+
+### How to setup?
+
+TLDR; Visit [https://fleek-xyz-staging.fleeksandbox.xyz/?via=Helder](https://fleek-xyz-staging.fleeksandbox.xyz/?via=Helder) to have the ability to get a referral link in the window.promotekit_referral
+
+1) Visit https://refer.fleek.xyz/ to create an account
+2) Copy the referral link which will include the account ID, e.g. [https://fleek-xyz-staging.fleeksandbox.xyz/?via=Helder](https://fleek-xyz-staging.fleeksandbox.xyz/?via=Helder)
+3) Visit the referral link, e.g. [https://fleek-xyz-staging.fleeksandbox.xyz/?via=Helder](https://fleek-xyz-staging.fleeksandbox.xyz/?via=Helder)
+4) Access the promotekit on runtime e.g. window.promotekit_referral
+5) As a fallback, you can also get the `promotekit_referral`
 
 ## Changelog Resources
 

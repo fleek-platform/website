@@ -69,7 +69,7 @@ export interface ElizaIntegrationLayerProps {
   // auth props
   accessToken?: string;
   activeProjectId?: string;
-  referralId?: string;
+  getReferralId?: () => string;
   isLoggedIn: boolean;
   isLoggingIn: boolean;
   login: () => void;
@@ -92,7 +92,7 @@ export const ElizaIntegrationLayer: React.FC<ElizaIntegrationLayerProps> = ({
   activeProjectId,
   isLoggedIn,
   isLoggingIn,
-  referralId,
+  getReferralId,
   login,
   getSubscriptions,
   getPlans,
@@ -111,8 +111,6 @@ export const ElizaIntegrationLayer: React.FC<ElizaIntegrationLayerProps> = ({
     projectId: string,
   ) => {
     if (!accessToken) return { ok: false };
-
-    console.log('ElizaIntegrationLayer - referralId', referralId);
 
     const res = await triggerDeployment(projectId, characterfile, accessToken);
 
@@ -240,7 +238,7 @@ export const ElizaIntegrationLayer: React.FC<ElizaIntegrationLayerProps> = ({
         checkUserAmountAvailableAiModules={checkUserAmountAvailableAiModules}
         productId={productId}
         createSubscription={createSubscription}
-        referralId={referralId}
+        getReferralId={getReferralId}
       />
     </>
   );
