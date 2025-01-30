@@ -1,8 +1,8 @@
 ---
-import settings from '@base/settings.json';
 import templates from '@base/templates.json';
 import BaseHtml from '@layouts/BaseHtml.astro';
 import Templates, { type Template } from '@components/Templates';
+import { getSiteUrl } from '@utils/url';
 
 export async function getStaticPaths() {
   const templatesArray: Template[] = Object.values(templates) as Template[];
@@ -58,7 +58,7 @@ const readmeContent = await fetchReadmeContent(
   <main class="container flex flex-col gap-20 sm:flex-row sm:flex-wrap">
     <div class="flex-1">
       <Templates.TemplateDetails.TopActions
-        templateDeploymentUrl={fleekDeploymentUrl}
+        templateDeploymentUrl={`${getSiteUrl()}${fleekDeploymentUrl}`}
       />
       <Templates.TemplateDetails.TemplateHero template={template} />
     </div>

@@ -5,7 +5,7 @@
     "slug": "astro-boilerplate",
     "description": "Start your next project with this Astro boilerplate, designed for seamless development.",
     "banner": "/images/templates/astro-boilerplate.webp",
-    "fleekDeploymentUrl": "https://app.fleek.xyz/templates/clx3f5nem000333n7acqcxiwj/",
+    "fleekDeploymentUrl": "/templates/clx3f5nem000333n7acqcxiwj/",
     "demoUrl": "https://big-midnight-melodic.on-fleek.app/",
     "framework": {
       "name": "Astro",
@@ -42,7 +42,7 @@
     "slug": "blogmaker-by-vitalik",
     "description": "Simple and minimal blog template by Vitalik Buterin",
     "banner": "/images/templates/blogmaker-by-vitalik.webp",
-    "fleekDeploymentUrl": "https://app.fleek.xyz/templates/clyqjmjng0001q94by3huy892/",
+    "fleekDeploymentUrl": "/templates/clyqjmjng0001q94by3huy892/",
     "framework": {
       "name": "Other",
       "avatar": "/svg/templates/cog-icon.svg"
@@ -79,7 +79,7 @@
     "slug": "chess-on-fleek",
     "description": "Chess on Fleek is perfect for developers looking to deploy real-time, interactive applications. This template utilizes Next.js for a fullstck development experience, rendering, ensuring optimal performance with each move.",
     "banner": "/images/templates/chess-on-fleek.webp",
-    "fleekDeploymentUrl": "https://app.fleek.xyz/templates/cm339wqgz0001ogsoksudl8z3/",
+    "fleekDeploymentUrl": "/templates/cm339wqgz0001ogsoksudl8z3/",
     "demoUrl": "https://fat-piano-small.on-fleek.app/",
     "framework": {
       "name": "Next.js",
@@ -116,7 +116,7 @@
     "slug": "fleek-langchain-template",
     "description": "This template scaffolds a LangChain.js + Next.js starter app. It showcases how to use and combine LangChain modules for several use cases.  It is perfect for developers looking to build AI applications in Next.js and on Fleek seamlessly with any features they want.",
     "banner": "/images/templates/fleek-langchain-template.webp",
-    "fleekDeploymentUrl": "https://app.fleek.xyz/templates/cm4j7dptc0001f2jrvmr35yp6/",
+    "fleekDeploymentUrl": "/templates/cm4j7dptc0001f2jrvmr35yp6/",
     "demoUrl": "https://langchain.on-fleek.app/",
     "framework": {
       "name": "Next.js",
@@ -153,7 +153,7 @@
     "slug": "fullstack-nextjs-template",
     "description": "This is the boilerplate code generated directly from running npx create-next-app. Utilize this template to harness Fleek’s optimized hosting for dynamic and performance-driven web applications.",
     "banner": "/images/templates/fullstack-nextjs-template.webp",
-    "fleekDeploymentUrl": "https://app.fleek.xyz/templates/cm337u3fd000d5dlytu1llarf/",
+    "fleekDeploymentUrl": "/templates/cm337u3fd000d5dlytu1llarf/",
     "demoUrl": "https://short-ram-flat.on-fleek.app/",
     "framework": {
       "name": "Next.js",
@@ -190,7 +190,7 @@
     "slug": "fullstack-nextra-on-nextjs",
     "description": "This is a Next.js application generated with Create Nextra. Nextra is a minimalist, fully customizable documentation site built for easy deployment on Fleek. Perfect for showcasing project documentation, this template uses Next.js to deliver a smooth experience.",
     "banner": "/images/templates/fullstack-nextra-on-nextjs.webp",
-    "fleekDeploymentUrl": "https://app.fleek.xyz/templates/cm337yatv000f5dlyix6k7fdw/",
+    "fleekDeploymentUrl": "/templates/cm337yatv000f5dlyix6k7fdw/",
     "demoUrl": "https://big-beard-square.on-fleek.app/",
     "framework": {
       "name": "Next.js",
@@ -227,7 +227,7 @@
     "slug": "fumadocs-on-fleek",
     "description": "This is a Next.js application generated with Create Fumadocs. Fumadocs is a minimalist, fully customizable documentation site built for easy deployment on Fleek. Perfect for showcasing project documentation, this template uses Next.js to deliver a smooth, server-rendered experience.",
     "banner": "/images/templates/fumadocs-on-fleek.webp",
-    "fleekDeploymentUrl": "https://app.fleek.xyz/templates/cm3395bot00038k2o7prx2ofc/",
+    "fleekDeploymentUrl": "/templates/cm3395bot00038k2o7prx2ofc/",
     "demoUrl": "https://hollow-processor-hundreds.on-fleek.app/",
     "framework": {
       "name": "Next.js",
@@ -264,7 +264,7 @@
     "slug": "gatsby-boilerplate",
     "description": "Kick off your Gatsby projects with this boilerplate, equipped to handle your development needs.",
     "banner": "/images/templates/gatsby-boilerplate.webp",
-    "fleekDeploymentUrl": "https://app.fleek.xyz/templates/clx3g0ol70001oewqgw7k7knx/",
+    "fleekDeploymentUrl": "/templates/clx3g0ol70001oewqgw7k7knx/",
     "demoUrl": "https://deafening-nail-thundering.on-fleek.app/",
     "framework": {
       "name": "Gatsby",
@@ -301,7 +301,7 @@
     "slug": "hugo-boilerplate",
     "description": "This Hugo boilerplate provides a solid foundation for static sites, simplified for a fast turnaround on project setup.",
     "banner": "/images/templates/hugo-boilerplate.webp",
-    "fleekDeploymentUrl": "https://app.fleek.xyz/templates/clx3g1cgx0008oewqi0e1cb1x/",
+    "fleekDeploymentUrl": "/templates/clx3g1cgx0008oewqi0e1cb1x/",
     "demoUrl": "https://round-hydrogen-hundreds.on-fleek.app/",
     "framework": {
       "name": "Hugo",
@@ -338,7 +338,7 @@
     "slug": "nextjs-boilerplate",
     "description": "Begin your Next.js project with confidence using this boilerplate, tailored for efficient development.",
     "banner": "/images/templates/nextjs-boilerplate.webp",
-    "fleekDeploymentUrl": "https://app.fleek.xyz/templates/clx3fnwmh0006qy2i55l3vc2c/",
+    "fleekDeploymentUrl": "/templates/clx3fnwmh0006qy2i55l3vc2c/",
     "demoUrl": "https://tall-lamp-great.on-fleek.app/",
     "framework": {
       "name": "Next.js Static",
@@ -375,7 +375,7 @@
     "slug": "nuxt-boilerplate",
     "description": "Accelerate your Nuxt development with this boilerplate, designed to integrate smoothly into your project workflow.",
     "banner": "/images/templates/nuxt-boilerplate.webp",
-    "fleekDeploymentUrl": "https://app.fleek.xyz/templates/clx3hq2e20001vm7ee9wd81o4/",
+    "fleekDeploymentUrl": "/templates/clx3hq2e20001vm7ee9wd81o4/",
     "demoUrl": "https://whining-airplane-many.on-fleek.app/",
     "framework": {
       "name": "Nuxt.js",
@@ -412,7 +412,7 @@
     "slug": "react-boilerplate",
     "description": "Initialize your React applications quickly using this ready-to-use boilerplate, optimized for fast setup.",
     "banner": "/images/templates/react-boilerplate.webp",
-    "fleekDeploymentUrl": "https://app.fleek.xyz/templates/clx3g4dwk0008qy2i5d6aobe4/",
+    "fleekDeploymentUrl": "/templates/clx3g4dwk0008qy2i5d6aobe4/",
     "demoUrl": "https://square-grass-early.on-fleek.app/",
     "framework": {
       "name": "Create React App",
@@ -449,7 +449,7 @@
     "slug": "remix-boilerplate",
     "description": "Utilize this Remix boilerplate to structure your projects for an optimal build experience.",
     "banner": "/images/templates/remix-boilerplate.webp",
-    "fleekDeploymentUrl": "https://app.fleek.xyz/templates/clx3hzhax00078zh3hrrwnexh/",
+    "fleekDeploymentUrl": "/templates/clx3hzhax00078zh3hrrwnexh/",
     "demoUrl": "https://squeaking-monitor-tall.on-fleek.app/",
     "framework": {
       "name": "Vite",
@@ -486,7 +486,7 @@
     "slug": "svelte-boilerplate",
     "description": "Adopt this Svelte boilerplate to streamline your app development, enhanced for easy integration.",
     "banner": "/images/templates/svelte-boilerplate.webp",
-    "fleekDeploymentUrl": "https://app.fleek.xyz/templates/clx3hm85q000ibyl7d17cuufu/",
+    "fleekDeploymentUrl": "/templates/clx3hm85q000ibyl7d17cuufu/",
     "demoUrl": "https://long-animal-ancient.on-fleek.app/",
     "framework": {
       "name": "Svelte",
@@ -523,7 +523,7 @@
     "slug": "vue-boilerplate",
     "description": "Leverage this Vue.js boilerplate to kickstart your web projects, with pre-configurations for immediate use.",
     "banner": "/images/templates/vue-boilerplate.webp",
-    "fleekDeploymentUrl": "https://app.fleek.xyz/templates/clx3gdagl0001byl7romw0ynd/",
+    "fleekDeploymentUrl": "/templates/clx3gdagl0001byl7romw0ynd/",
     "demoUrl": "https://modern-elephant-raspy.on-fleek.app/",
     "framework": {
       "name": "Vue.js",
