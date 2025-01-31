@@ -1,4 +1,7 @@
 import type { APIRoute } from 'astro';
-import templates from '@base/templates.json';
+import { getTemplateByEnvironment } from '@utils/templates';
 
-export const GET: APIRoute = () => new Response(JSON.stringify(templates));
+export const GET: APIRoute = async () => {
+  const templates = await getTemplateByEnvironment();
+  return new Response(JSON.stringify(templates));
+};
