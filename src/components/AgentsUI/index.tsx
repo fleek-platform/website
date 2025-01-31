@@ -1,21 +1,21 @@
-import {
-  getPlans,
-  getSubscriptions,
-  createSubscription,
-} from '@components/Eliza/api';
+import '@fleek-platform/agents-ui/styles';
+
 import { useAuthStore } from '@fleek-platform/login-button';
-import ElizaIntegrationLayer from '@components/Eliza/ElizaIntegrationLayer.tsx';
+import { getReferralId } from '@utils/promotekit';
+import { ElizaIntegrationLayer, api } from '@fleek-platform/agents-ui';
+import { captureEvent } from '@components/Tracking/trackingUtils';
+
+const { getPlans, getSubscriptions, createSubscription } = api;
 
 export interface AgentsUIIntegrationProps {
-  promoteKitReferralId?: string;
+  apiUrl?: string;
 }
 
-export const AgentsUIIntegration: React.FC<AgentsUIIntegrationProps> = (
-  props,
-) => {
+export const AgentsUIIntegration: React.FC<AgentsUIIntegrationProps> = ({
+  apiUrl,
+}) => {
   const { triggerLoginModal, accessToken, isLoggingIn, isLoggedIn, projectId } =
     useAuthStore();
-  const { promoteKitReferralId } = props;
   const login = () =>
     typeof triggerLoginModal === 'function' && triggerLoginModal(true);
 
@@ -25,18 +25,17 @@ export const AgentsUIIntegration: React.FC<AgentsUIIntegrationProps> = (
       activeProjectId={projectId}
       isLoggedIn={isLoggedIn}
       isLoggingIn={isLoggingIn}
-      referralId={promoteKitReferralId}
+      getReferralId={getReferralId}
       login={login}
       getSubscriptions={getSubscriptions}
       getPlans={getPlans}
       createSubscription={createSubscription}
+      captureEvent={captureEvent}
+      apiUrl={apiUrl}
     />
   );
 };
 
-const AgentsUI: React.FC<AgentsUIIntegrationProps> = (props) => (
-  <AgentsUIIntegration {...props} />
+export const AgentsUI: React.FC<AgentsUIIntegrationProps> = ({ apiUrl }) => (
+  <AgentsUIIntegration apiUrl={apiUrl} />
 );
-
-// to be used in Astro
-export default AgentsUI;
