@@ -1,12 +1,13 @@
 ---
 title: 'DeepSeek vs. OpenAI: The Battle for AI Market Dominance'
 date: 2025-01-31
-desc: 'Discover how DeepSeek's efficient and cost-effective AI model training is challenging OpenAI's market dominance, reshaping industry standards and accessibility.'
+desc: "Discover how DeepSeek's efficient and cost-effective AI model training is challenging OpenAI's market dominance, reshaping industry standards and accessibility."
 thumbnail: './thumbnail.png'
 image: './thumbnail.png'
 author:
   - 'Fleek'
 ---
+
 The AI industry is evolving at an unprecedented pace, with two dominant players emerging at completely opposite ends of the spectrum: OpenAI and DeepSeek. OpenAI, with its vast funding and technological advancements, has long been the benchmark for cutting-edge AI. However, DeepSeek has emerged as a formidable challenger by leveraging efficiency, affordability, and an open-source philosophy. Unlike OpenAI, which relies on massive investments and proprietary models, DeepSeek’s approach redefines AI accessibility and sustainability. This article explores the deeper implications of DeepSeek’s rise, examining its technological innovations, financial strategies, market disruption, and broader impact on AI’s future.
 
 ### **Overview of DeepSeek and OpenAI**
