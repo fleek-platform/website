@@ -1,10 +1,11 @@
 ---
 import BaseHtml from '@layouts/BaseHtml.astro';
 import settings from '@base/settings.json';
-import templates from '@base/templates.json';
 import Templates, { type Template } from '@components/Templates';
+import { getTemplateByEnvironment } from '@utils/templates';
 
 const { title, description, image, slug } = settings.site.metadata.templates;
+const templates = await getTemplateByEnvironment();
 const templatesArray = Object.values(templates) as Template[];
 ---
 
