@@ -1,15 +1,14 @@
 ---
 import settings from '@base/settings.json';
-import { AgentsUI } from '@components/AgentsUI';
+import ElizaModule from '@components/AgentsUI';
 import BaseHtml from '@layouts/BaseHtml.astro';
+import { isClient } from '@utils/common';
 
 declare global {
   interface Window {
     promotekit_referral: string;
   }
 }
-
-const apiUrl = import.meta.env.PUBLIC_FLEEK_REST_API_URL;
 ---
 
 <BaseHtml
@@ -22,5 +21,5 @@ const apiUrl = import.meta.env.PUBLIC_FLEEK_REST_API_URL;
   }}
   overflowHorizontally
 >
-  <AgentsUI client:load apiUrl={apiUrl} />
+  <ElizaModule client:load />
 </BaseHtml>
