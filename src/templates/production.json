@@ -110,6 +110,43 @@
     ]
   },
 
+  "fleek-base": {
+    "id": "cm6l72f9h0002znkvhedtkw8h",
+    "name": "Fleek Base Template",
+    "slug": "fleek-base",
+    "description": "This project integrates OnchainKit and the Base Pixel font on Fleek, leveraging the Base Pixel typeface for an expressive and digital-native experience. Additionally, the project is deployed using Fleek’s Next.js adapter, ensuring edge-optimized performance and decentralized hosting.",
+    "banner": "/images/templates/fleek-base.png",
+    "fleekDeploymentUrl": "https://app.fleek.xyz/templates/cm6l72f9h0002znkvhedtkw8h/",
+    "demoUrl": "https://fleek-base.on-fleek.app/",
+    "framework": {
+      "name": "Next.js",
+      "avatar": "/svg/templates/nextjs-icon.svg"
+    },
+    "repository": {
+      "owner": "fleek-tools",
+      "slug": "fleek-onchainkit-base",
+      "html_url": "https://github.com/fleek-tools/fleek-onchainkit-base",
+      "creation_date": "February 01, 2025",
+      "contributors": [
+        {
+          "name": "Tobiloba Adedeji",
+          "avatar_url": "/images/templates/authors/tobiloba.webp"
+        }
+      ]
+    },
+    "category": {
+      "name": "Web3 Starter Kit"
+    },
+    "screenshots": [
+      "https://sites-preview.s3.us-west-2.amazonaws.com/w69Fqs-WD3fa5OK3j4gq"
+    ],
+    "similarTemplateIds": [
+      "web-",
+      "blogmaker-by-vitalik",
+      "fullstack-nextjs-template"
+    ]
+  },
+
   "fleek-langchain-template": {
     "id": "cm4j7dptc0001f2jrvmr35yp6",
     "name": "Fleek Langchain template",
