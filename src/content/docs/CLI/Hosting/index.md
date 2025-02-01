@@ -5,7 +5,7 @@ date: 2023-01-10
 desc: Set and deploy your site with Fleek. Follow our concise CLI guide to create your site and leverage GitHub Actions to automate IPFS deployments through Continuous Integration.
 keywords: [services, documentation, getting started]
 tags:
-  - Accounts
+  - Accounts costumer-cs-id/costumer-cs-id.github.io
   - Guide
   - Learn
   - Fleek
