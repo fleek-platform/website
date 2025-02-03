@@ -396,9 +396,7 @@
     "category": {
       "name": "Web3 Starter Kit"
     },
-    "screenshots": [
-      "https://sites-preview.s3.us-west-2.amazonaws.com/w69Fqs-WD3fa5OK3j4gq"
-    ],
+    "screenshots": ["/images/templates/fleek-base.png"],
     "similarTemplateIds": [
       "web-",
       "blogmaker-by-vitalik",

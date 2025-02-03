@@ -41,15 +41,6 @@ const DetailItem: React.FC<DetailItemProps> = ({
 
 const { reportAbuseUrl } = settings.site.resources;
 
-export const getLinkForTemplateReport = (template: Template): string => {
-  const templateName = `tf_20463899807629=${template.name}`;
-  const templateUrl = `tf_20464104116621=${settings.site.production.url}/templates/${template.slug}`;
-  const subject = 'tf_subject=Abusive Template Report';
-  const params = [templateUrl, templateName, subject].filter(Boolean).join('&');
-
-  return `${reportAbuseUrl}${params?.length ? '&' + params : ''}`;
-};
-
 interface TemplateSpecsProps {
   template: Template;
 }
@@ -95,8 +86,8 @@ export const TemplateSpecs: React.FC<TemplateSpecsProps> = ({ template }) => {
       <a
         target="_blank"
         rel="noopener noreferrer"
-        className="text-12 text-red-dark-11 md:text-16"
-        href={getLinkForTemplateReport(template)}
+        className="text-12 md:text-16"
+        href={reportAbuseUrl}
       >
         Report template for abuse
       </a>
