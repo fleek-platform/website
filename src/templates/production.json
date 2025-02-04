@@ -15,7 +15,7 @@
       "owner": "fleek-tools",
       "slug": "astro-boilerplate",
       "html_url": "https://github.com/fleek-tools/astro-boilerplate",
-      "creation_date": "November, 21, 2023",
+      "creation_date": "2024-06-06T15:35:19.487Z",
       "contributors": [
         {
           "name": "Fleek",
@@ -35,7 +35,6 @@
       "fullstack-nextjs-template"
     ]
   },
-
   "blogmaker-by-vitalik": {
     "id": "clyqjmjng0001q94by3huy892",
     "name": "Blogmaker by Vitalik",
@@ -52,7 +51,7 @@
       "owner": "fleek-tools",
       "slug": "blogmaker",
       "html_url": "https://github.com/fleek-tools/blogmaker",
-      "creation_date": "July, 18, 2024",
+      "creation_date": "2024-07-18T00:38:50.620Z",
       "contributors": [
         {
           "name": "Fleek",
@@ -72,7 +71,6 @@
       "fullstack-nextjs-template"
     ]
   },
-
   "chess-on-fleek": {
     "id": "cm339wqgz0001ogsoksudl8z3",
     "name": "Chess on Fleek",
@@ -89,7 +87,7 @@
       "owner": "fleek-tools",
       "slug": "chess-on-fleek-nextjs",
       "html_url": "https://github.com/fleek-tools/chess-on-fleek-nextjs",
-      "creation_date": "November, 04, 2024",
+      "creation_date": "2024-11-04T17:06:39.490Z",
       "contributors": [
         {
           "name": "Kanishk Khurana",
@@ -109,7 +107,6 @@
       "fullstack-nextjs-template"
     ]
   },
-
   "fleek-base": {
     "id": "cm6l72f9h0002znkvhedtkw8h",
     "name": "Fleek Base Template",
@@ -126,7 +123,7 @@
       "owner": "fleek-tools",
       "slug": "fleek-onchainkit-base",
       "html_url": "https://github.com/fleek-tools/fleek-onchainkit-base",
-      "creation_date": "February 01, 2025",
+      "creation_date": "2025-01-31T20:06:04.229Z",
       "contributors": [
         {
           "name": "Tobiloba Adedeji",
@@ -144,7 +141,6 @@
       "fullstack-nextjs-template"
     ]
   },
-
   "fleek-langchain-template": {
     "id": "cm4j7dptc0001f2jrvmr35yp6",
     "name": "Fleek Langchain template",
@@ -161,7 +157,7 @@
       "owner": "fleek-tools",
       "slug": "langchain-nextjs-fleek",
       "html_url": "https://github.com/fleek-tools/langchain-nextjs-fleek",
-      "creation_date": "December, 11, 2024",
+      "creation_date": "2024-12-11T01:19:54.096Z",
       "contributors": [
         {
           "name": "Tobiloba",
@@ -181,7 +177,6 @@
       "chess-on-fleek"
     ]
   },
-
   "fullstack-nextjs-template": {
     "id": "cm337u3fd000d5dlytu1llarf",
     "name": "Fullstack Nextjs Template",
@@ -198,7 +193,7 @@
       "owner": "fleek-tools",
       "slug": "fleek-nextjs-boilerplate",
       "html_url": "https://github.com/fleek-tools/fleek-nextjs-boilerplate",
-      "creation_date": "November, 04, 2024",
+      "creation_date": "2024-11-04T16:08:37.081Z",
       "contributors": [
         {
           "name": "Kanishk Khurana",
@@ -218,7 +213,6 @@
       "chess-on-fleek"
     ]
   },
-
   "fullstack-nextra-on-nextjs": {
     "id": "cm337yatv000f5dlyix6k7fdw",
     "name": "Fullstack Nextra on Nextjs",
@@ -235,7 +229,7 @@
       "owner": "fleek-tools",
       "slug": "nextra-on-fleek-nextjs",
       "html_url": "https://github.com/fleek-tools/nextra-on-fleek-nextjs",
-      "creation_date": "November, 04, 2024",
+      "creation_date": "2024-11-04T16:11:53.300Z",
       "contributors": [
         {
           "name": "Kanishk Khurana",
@@ -255,7 +249,6 @@
       "chess-on-fleek"
     ]
   },
-
   "fumadocs-on-fleek": {
     "id": "cm3395bot00038k2o7prx2ofc",
     "name": "Fumadocs on Fleek",
@@ -272,7 +265,7 @@
       "owner": "fleek-tools",
       "slug": "fumadocs-on-fleek-nextjs",
       "html_url": "https://github.com/fleek-tools/fumadocs-on-fleek-nextjs",
-      "creation_date": "November, 04, 2024",
+      "creation_date": "2024-11-04T16:45:20.621Z",
       "contributors": [
         {
           "name": "Kanishk Khurana",
@@ -292,7 +285,6 @@
       "chess-on-fleek"
     ]
   },
-
   "gatsby-boilerplate": {
     "id": "clx3g0ol70001oewqgw7k7knx",
     "name": "Gatsby Boilerplate",
@@ -309,7 +301,7 @@
       "owner": "fleek-tools",
       "slug": "gatsby-boilerplate",
       "html_url": "https://github.com/fleek-tools/gatsby-boilerplate",
-      "creation_date": "June, 06, 2024",
+      "creation_date": "2024-06-06T15:59:27.356Z",
       "contributors": [
         {
           "name": "Fleek",
@@ -329,7 +321,6 @@
       "chess-on-fleek"
     ]
   },
-
   "hugo-boilerplate": {
     "id": "clx3g1cgx0008oewqi0e1cb1x",
     "name": "Hugo Boilerplate",
@@ -346,7 +337,7 @@
       "owner": "fleek-tools",
       "slug": "hugo-boilerplate",
       "html_url": "https://github.com/fleek-tools/hugo-boilerplate",
-      "creation_date": "June, 06, 2024",
+      "creation_date": "2024-06-06T15:59:58.305Z",
       "contributors": [
         {
           "name": "Fleek",
@@ -366,7 +357,6 @@
       "chess-on-fleek"
     ]
   },
-
   "nextjs-boilerplate": {
     "id": "clx3fnwmh0006qy2i55l3vc2c",
     "name": "Next.js Boilerplate",
@@ -383,7 +373,7 @@
       "owner": "fleek-tools",
       "slug": "nextjs-boilerplate",
       "html_url": "https://github.com/fleek-tools/nextjs-boilerplate",
-      "creation_date": "June, 06, 2024",
+      "creation_date": "2024-06-06T15:49:31.242Z",
       "contributors": [
         {
           "name": "Fleek",
@@ -403,7 +393,6 @@
       "chess-on-fleek"
     ]
   },
-
   "nuxt-boilerplate": {
     "id": "clx3hq2e20001vm7ee9wd81o4",
     "name": "Nuxt Boilerplate",
@@ -420,7 +409,7 @@
       "owner": "fleek-tools",
       "slug": "nuxt-boilerplate",
       "html_url": "https://github.com/fleek-tools/nuxt-boilerplate",
-      "creation_date": "June, 06, 2024",
+      "creation_date": "2024-06-06T16:47:11.258Z",
       "contributors": [
         {
           "name": "Fleek",
@@ -440,7 +429,6 @@
       "chess-on-fleek"
     ]
   },
-
   "react-boilerplate": {
     "id": "clx3g4dwk0008qy2i5d6aobe4",
     "name": "React Boilerplate",
@@ -457,7 +445,7 @@
       "owner": "fleek-tools",
       "slug": "react-boilerplate",
       "html_url": "https://github.com/fleek-tools/react-boilerplate",
-      "creation_date": "June, 06, 2024",
+      "creation_date": "2024-06-06T16:02:20.133Z",
       "contributors": [
         {
           "name": "Fleek",
@@ -477,7 +465,6 @@
       "chess-on-fleek"
     ]
   },
-
   "remix-boilerplate": {
     "id": "clx3hzhax00078zh3hrrwnexh",
     "name": "Remix Boilerplate",
@@ -494,7 +481,7 @@
       "owner": "fleek-tools",
       "slug": "remix-boilerplate",
       "html_url": "https://github.com/fleek-tools/remix-boilerplate",
-      "creation_date": "June, 06, 2024",
+      "creation_date": "2024-06-06T16:54:30.489Z",
       "contributors": [
         {
           "name": "Fleek",
@@ -514,7 +501,6 @@
       "chess-on-fleek"
     ]
   },
-
   "svelte-boilerplate": {
     "id": "clx3hm85q000ibyl7d17cuufu",
     "name": "Svelte Boilerplate",
@@ -531,7 +517,7 @@
       "owner": "fleek-tools",
       "slug": "svelte-boilerplate",
       "html_url": "https://github.com/fleek-tools/svelte-boilerplate",
-      "creation_date": "June, 06, 2024",
+      "creation_date": "2024-06-06T16:44:12.111Z",
       "contributors": [
         {
           "name": "Fleek",
@@ -551,7 +537,6 @@
       "chess-on-fleek"
     ]
   },
-
   "vue-boilerplate": {
     "id": "clx3gdagl0001byl7romw0ynd",
     "name": "Vue Boilerplate",
@@ -568,7 +553,7 @@
       "owner": "fleek-tools",
       "slug": "vue-boilerplate",
       "html_url": "https://github.com/fleek-tools/vue-boilerplate",
-      "creation_date": "June, 06, 2024",
+      "creation_date": "2024-06-06T16:09:15.574Z",
       "contributors": [
         {
           "name": "Fleek",
