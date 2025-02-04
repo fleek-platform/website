@@ -3,6 +3,7 @@ import { BarChart, Calendar, CodeTag, RocketShip } from '@components/Icons';
 import type { Template } from '../types';
 import ContentBox from '@components/ContentBox';
 import settings from '@base/settings.json';
+import { formatDate } from '@utils/date';
 
 const Separator = () => (
   <div className="separator my-10 border-b-1 border-b-neutral-8" />
@@ -57,11 +58,16 @@ export const TemplateSpecs: React.FC<TemplateSpecsProps> = ({ template }) => {
         Details
       </Text>
 
-      <DetailItem
-        icon={<Calendar />}
-        detailValue={template.repository.creation_date}
-        detailLabel="Creation date"
-      />
+      {template.repository.creation_date && (
+        <DetailItem
+          icon={<Calendar />}
+          detailValue={formatDate({
+            date: new Date(template.repository.creation_date),
+            dateStyle: 'long',
+          })}
+          detailLabel="Creation date"
+        />
+      )}
 
       {deploymentsAmount && (
         <DetailItem
