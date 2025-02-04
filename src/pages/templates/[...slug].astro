@@ -1,25 +1,54 @@
 ---
-import settings from '@base/settings.json';
 import BaseHtml from '@layouts/BaseHtml.astro';
 import Templates, { type Template } from '@components/Templates';
-import { getTemplateByEnvironment } from '@utils/templates';
+import { fetchTemplates } from '@base/api/fetch-templates';
+import { transformTemplates } from '@utils/templates';
+
+const graphqlApiUrl = import.meta.env.PUBLIC_GRAPHQL_ENDPOINT;
+
+if (!graphqlApiUrl) {
+  throw new Error('GraphQL API URL is required to fetch the templates');
+}
 
 export async function getStaticPaths() {
-  const templates = await getTemplateByEnvironment();
-  const templatesArray: Template[] = Object.values(templates) as Template[];
-  return templatesArray.map((template) => ({
+  // must repeat, getStaticPaths can't use local vars
+  const graphqlApiUrl = import.meta.env.PUBLIC_GRAPHQL_ENDPOINT;
+  const response = await fetchTemplates(graphqlApiUrl);
+
+  if (!response.success) {
+    throw new Error(response.error.message);
+  }
+
+  if (!response.data) {
+    throw new Error('Failed to fetch the templates');
+  }
+
+  const templates = response.data.data.map(transformTemplates);
+
+  const paths = templates.map((template) => ({
     params: { slug: template.slug },
-    props: { template: { ...template } },
+    props: { template },
   }));
+
+  return paths;
 }
 
 const { template } = Astro.props;
 const { name, description, banner, slug, screenshots, fleekDeploymentUrl } =
   template;
 
-// Function to fetch and decode README content
-async function fetchReadmeContent(repoOwner: string, repoSlug: string) {
+/*------------------ Readme content -----------------*/
+
+const fetchReadmeContent = async (repoOwner?: string, repoSlug?: string) => {
+  if (!(repoOwner && repoSlug)) {
+    console.error(
+      `repoOwner: ${repoOwner} and repoSlug: ${repoSlug} must be provided`,
+    );
+    return '';
+  }
+
   const url = `https://api.github.com/repos/${repoOwner}/${repoSlug}/readme`;
+
   const headers = {
     'User-Agent': 'octokit.js/2.1.0 octokit-core.js/4.2.4 Mozilla/5.0',
     Accept: 'application/vnd.github.v3+json',
@@ -30,21 +59,37 @@ async function fetchReadmeContent(repoOwner: string, repoSlug: string) {
     console.error(`HTTP error! status: ${response.status}`);
     return '';
   }
+
   const data = await response.json();
   const decodedContent = Buffer.from(data.content, 'base64').toString('utf-8');
   return decodedContent;
-}
+};
 
-const templates = await getTemplateByEnvironment();
-const similarTemplates = (Object.values(templates) as Template[]).filter((el) =>
-  template.similarTemplateIds.includes(el.slug),
-);
+const { owner: repoOwner, slug: repoSlug } = template.repository;
+const readmeContent = await fetchReadmeContent(repoOwner, repoSlug);
 
-// Fetch README content during build
-const readmeContent = await fetchReadmeContent(
-  template.repository.owner ?? '',
-  template.repository.slug ?? '',
-);
+/*------------------ Similar templates -----------------*/
+
+const getSimilarTemplates = async (): Promise<Template[]> => {
+  const response = await fetchTemplates(graphqlApiUrl);
+
+  if (!response.success) {
+    throw new Error(response.error.message);
+  }
+
+  if (!response.data) {
+    throw new Error('Failed to fetch the templates');
+  }
+
+  const templates = response.data.data.map(transformTemplates);
+
+  const similarTemplates = templates.filter((template2) =>
+    template.similarTemplateIds.includes(template2.slug),
+  );
+  return similarTemplates;
+};
+
+const similarTemplates = await getSimilarTemplates();
 ---
 
 <BaseHtml

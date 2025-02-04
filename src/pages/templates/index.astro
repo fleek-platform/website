@@ -1,26 +1,37 @@
 ---
 import BaseHtml from '@layouts/BaseHtml.astro';
 import settings from '@base/settings.json';
-import Templates, { type Template } from '@components/Templates';
-import { getTemplateByEnvironment } from '@utils/templates';
+import Templates from '@components/Templates';
+import { transformTemplates } from '@utils/templates';
+import { fetchTemplates } from '@base/api/fetch-templates';
 
-const { title, description, image, slug } = settings.site.metadata.templates;
-const templates = await getTemplateByEnvironment();
-const templatesArray = Object.values(templates) as Template[];
+const graphqlApiUrl = import.meta.env.PUBLIC_GRAPHQL_ENDPOINT;
+if (!graphqlApiUrl) {
+  throw new Error('GraphQL API URL is required to fetch templates');
+}
+
+const response = await fetchTemplates(graphqlApiUrl);
+
+if (!response.success) {
+  throw new Error(response.error.message);
+}
+
+if (!response.data) {
+  throw new Error('Failed to fetch the templates');
+}
+
+const templates = response.data.data.map(transformTemplates);
+
+const templatesMetadata = settings.site.metadata.templates;
 ---
 
 <BaseHtml
-  title={title}
-  ogMeta={{
-    title,
-    description,
-    image,
-    slug,
-  }}
+  title={templatesMetadata.title}
+  ogMeta={templatesMetadata}
   customContentWrapperClass="px-32 xl:px-0"
 >
   <main>
     <Templates.Header />
-    <Templates.List client:load templates={templatesArray} />
+    <Templates.List client:load {templates} />
   </main>
 </BaseHtml>
