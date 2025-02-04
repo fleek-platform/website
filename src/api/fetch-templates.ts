@@ -27,6 +27,9 @@ export type FetchTemplatesVariables = Partial<{
 
 /*------------------ Output types  -----------------*/
 
+// GraphQL actually returns nulls
+type Maybe<T> = T | null;
+
 type SiteFramework = {
   __typename?: 'SiteFramework';
   id: string;
@@ -37,8 +40,9 @@ type SiteFramework = {
 type Deployment = {
   __typename?: 'Deployment';
   id: string;
-  previewImageUrl?: string;
-  sourceRepositoryOwner?: string;
+  previewImageUrl?: Maybe<string>;
+  sourceRepositoryOwner?: Maybe<string>;
+  sourceRepositoryName?: Maybe<string>;
 };
 
 type User = {
@@ -62,18 +66,18 @@ export type Template = {
   id: string;
   name: string;
   category: TemplateCategory;
-  creator?: User;
+  creator?: Maybe<User>;
   deployment: Deployment;
-  framework?: SiteFramework;
+  framework?: Maybe<SiteFramework>;
   reviewStatus: TemplateReviewStatus;
   banner: File;
   createdAt: string;
   description: string;
-  reviewComment?: string;
-  reviewedAt?: string;
+  reviewComment?: Maybe<string>;
+  reviewedAt?: Maybe<string>;
   /** @deprecated It will be deleted because of security reasons before next release. */
   // site: Site; // omit this
-  siteAvatar?: File;
+  siteAvatar?: Maybe<File>;
   siteId: string;
   siteSlug: string;
   updatedAt: string;
@@ -86,9 +90,9 @@ export type TemplatesWithAggregation = {
   data: Template[];
   isFirstPage: boolean;
   isLastPage: boolean;
-  nextPage?: number;
+  nextPage?: Maybe<number>;
   pageCount: number;
-  previousPage?: number;
+  previousPage?: Maybe<number>;
   totalCount: number;
 };
 
