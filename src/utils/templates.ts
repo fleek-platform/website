@@ -1,7 +1,12 @@
-import type { Template as TemplateGraphQL } from '@base/api/fetch-templates';
+import type { Template as TemplateGraphQL } from '@base/graphql/fetch-templates';
 import type { Template as TemplateJson } from '@components/Templates';
 
 const nonNull = <T>(value: T | null): T | undefined => value || undefined;
+
+const siteSlugDomain = import.meta.env.PUBLIC_UI_SITE_SLUG_DOMAIN;
+if (!siteSlugDomain) {
+  throw new Error('Site slug domain is required to generate demo link');
+}
 
 /**
  * Transform template object shape from GraphQL to old templates.json.
@@ -19,10 +24,13 @@ export const transformTemplates = (
     // banner: templateGraphQL.banner, // protected currently
     banner: 'https://fleek.xyz/images/templates/astro-boilerplate.webp',
 
-    // Todo: handle this with env var
-    // deployment page in dashboard
-    fleekDeploymentUrl: 'https://app.fleek.xyz/' + templateGraphQL.id,
-    demoUrl: templateGraphQL.siteSlug + '.on-fleek.app',
+    // points back to deployment page in dashboard
+    // should go to url like this:
+    // https://app.fleek.xyz/projects/cm4wno6b90001z9tzd3x2e1wr/sites/new/?templateId=clx3f5nem000333n7acqcxiwj
+    // `${import.meta.env.PUBLIC_UI_APP_URL}projects${projectId}/sites/new/?templateId=${templateGraphQL.id}`
+    // at this point only pass templateId, full link includes projectId and must be generated on the client
+    fleekDeploymentUrl: templateGraphQL.id,
+    demoUrl: `https://${templateGraphQL.siteSlug}${siteSlugDomain}`,
 
     dynamicData: {
       usageCount: templateGraphQL.usageCount,

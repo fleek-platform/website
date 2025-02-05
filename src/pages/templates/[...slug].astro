@@ -1,7 +1,7 @@
 ---
 import BaseHtml from '@layouts/BaseHtml.astro';
 import Templates, { type Template } from '@components/Templates';
-import { fetchTemplates } from '@base/api/fetch-templates';
+import { fetchTemplates } from '@base/graphql/fetch-templates';
 import { transformTemplates } from '@utils/templates';
 
 const graphqlApiUrl = import.meta.env.PUBLIC_GRAPHQL_ENDPOINT;
@@ -105,7 +105,8 @@ const similarTemplates = await getSimilarTemplates();
   <main class="container flex flex-col gap-20 sm:flex-row sm:flex-wrap">
     <div class="flex-1">
       <Templates.TemplateDetails.TopActions
-        templateDeploymentUrl={fleekDeploymentUrl}
+        client:load
+        fleekDeploymentUrl={fleekDeploymentUrl}
       />
       <Templates.TemplateDetails.TemplateHero template={template} />
     </div>
