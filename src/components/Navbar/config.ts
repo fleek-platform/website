@@ -1,15 +1,30 @@
-export type NavMenuItem = {
+import { dashboardApp } from '../../settings.json';
+
+type NavMenuItemBase = {
   label: string;
-  subMenu?: NavSubMenuItem[];
-  url?: string;
   description?: string;
   icon?: string;
   openInNewTab?: boolean;
 };
 
-export type NavSubMenuItem = Omit<NavMenuItem, 'subMenu'>;
+type NavMenuItemUrl = NavMenuItemBase & {
+  url: string;
+  action?: never;
+};
 
-export const navbarMenu: NavMenuItem[] = [
+type NavMenuItemAction = NavMenuItemBase & {
+  action: () => void;
+  url?: never;
+};
+
+type NavMenuItemSection = NavMenuItemBase & {
+  subMenu: NavMenuItem[];
+};
+
+export type NavMenuItem = NavMenuItemUrl | NavMenuItemAction;
+export type NavMenuItemRoot = NavMenuItem | NavMenuItemSection;
+
+export const navbarMenu: NavMenuItemRoot[] = [
   {
     label: 'Features',
     subMenu: [
@@ -120,3 +135,58 @@ export const navbarMenu: NavMenuItem[] = [
     url: '/pricing/',
   },
 ];
+
+export function getAuthenticationMenu(
+  isLoggedIn: boolean,
+  isLoggingIn: boolean,
+  isError: boolean,
+  handleLogin: () => void,
+  handleLogout: () => void,
+) {
+  function getAuthenticationSubMenu(): NavMenuItem[] {
+    if (isLoggedIn) {
+      return [
+        {
+          label: 'Dashboard',
+          url: dashboardApp.url,
+          description: 'Manage your account',
+        },
+        {
+          label: 'Log out',
+          action: handleLogout,
+          description: 'Manage your account',
+        },
+      ];
+    }
+
+    function getLoginLabel() {
+      if (isError) {
+        return 'Log in failed';
+      }
+      if (isLoggingIn) {
+        return 'Logging in...';
+      }
+      return 'Log in';
+    }
+
+    return [
+      {
+        label: getLoginLabel(),
+        action: handleLogin,
+        description: 'Access your account',
+      },
+      {
+        label: 'Sign up',
+        action: handleLogin,
+        description: 'Create an account',
+      },
+    ];
+  }
+
+  const authenticationMenu: NavMenuItemRoot = {
+    label: 'Account',
+    subMenu: getAuthenticationSubMenu(),
+  };
+
+  return authenticationMenu;
+}

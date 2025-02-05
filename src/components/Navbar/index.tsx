@@ -1,10 +1,11 @@
 import { useEffect } from 'react';
+import { LoginProvider } from '@fleek-platform/login-button';
 import {
-  type AuthStore,
-  LoginProvider,
-  useAuthStore,
-} from '@fleek-platform/login-button';
-import { navbarMenu, type NavMenuItem, type NavSubMenuItem } from './config';
+  getAuthenticationMenu,
+  navbarMenu,
+  type NavMenuItem,
+  type NavMenuItemRoot,
+} from './config';
 import Link, { Target } from '@components/Link';
 import { useCallback, useState } from 'react';
 import { FaArrowRight, FaDiscord, FaXmark, FaXTwitter } from 'react-icons/fa6';
@@ -13,21 +14,18 @@ import { RxHamburgerMenu } from 'react-icons/rx';
 import { isActivePath } from '@utils/url';
 import { Button } from '../Button';
 import { ProjectDropdown } from './ProjectDropdown/ProjectDropdown';
-import { useProjects } from '@hooks/useProjects.ts';
 import { dashboardApp } from '../../settings.json';
 import type { Project } from '@fleekxyz/sdk/dist-types/generated/graphqlClient/schema';
 import { isClient } from '../../utils/common';
+import { useSession } from '@hooks/useSession';
 
-const NavbarMobileItem: React.FC<NavMenuItem> = ({
-  label,
-  subMenu,
-  url,
-  openInNewTab,
-}) => {
-  if (!subMenu)
+const NavbarMobileItem: React.FC<NavMenuItemRoot> = (props) => {
+  const { label, openInNewTab } = props;
+
+  if (!('subMenu' in props))
     return (
       <Link
-        href={url}
+        href={props.url}
         target={openInNewTab ? Target.Blank : Target.Self}
         rel={openInNewTab ? 'noopener noreferrer' : undefined}
         className="text-16 font-semibold text-gray-dark-12"
@@ -40,25 +38,99 @@ const NavbarMobileItem: React.FC<NavMenuItem> = ({
     <div className="flex flex-col gap-8">
       <span className="text-16 font-semibold text-gray-dark-12">{label}</span>
       <div className="grid gap-8">
-        {subMenu.map((subMenuItem) => (
-          <Link
-            href={subMenuItem.url}
-            key={subMenuItem.label}
-            target={subMenuItem.openInNewTab ? Target.Blank : Target.Self}
-            rel={subMenuItem.openInNewTab ? 'noopener noreferrer' : undefined}
-            className="flex items-center gap-8 rounded-8 border-t border-gray-dark-4 bg-gradient-to-br from-gray-dark-3 via-gray-dark-2 to-gray-dark-2 p-12 shadow-soft active:bg-gray-dark-3"
-          >
-            <img
-              src={subMenuItem.icon}
-              width={14}
-              className="opacity-50"
-              alt={subMenuItem.description}
-            />
-            <span className="text-gray-dark-12">{subMenuItem.label}</span>
-          </Link>
-        ))}
+        {props.subMenu.map((subMenuItem) =>
+          subMenuItem.url ? (
+            <Link
+              href={subMenuItem.url}
+              key={subMenuItem.label}
+              target={subMenuItem.openInNewTab ? Target.Blank : Target.Self}
+              rel={subMenuItem.openInNewTab ? 'noopener noreferrer' : undefined}
+              className="flex items-center gap-8 rounded-8 border-t border-gray-dark-4 bg-gradient-to-br from-gray-dark-3 via-gray-dark-2 to-gray-dark-2 p-12 shadow-soft active:bg-gray-dark-3"
+            >
+              {subMenuItem.icon && (
+                <img
+                  src={subMenuItem.icon}
+                  width={14}
+                  className="opacity-50"
+                  alt={subMenuItem.description}
+                />
+              )}
+              <span className="text-gray-dark-12">{subMenuItem.label}</span>
+            </Link>
+          ) : (
+            <button
+              key={subMenuItem.label}
+              className="flex items-center gap-8 rounded-8 border-t border-gray-dark-4 bg-gradient-to-br from-gray-dark-3 via-gray-dark-2 to-gray-dark-2 p-12 shadow-soft active:bg-gray-dark-3"
+              onClick={subMenuItem.action}
+            >
+              {subMenuItem.icon && (
+                <img
+                  src={subMenuItem.icon}
+                  width={14}
+                  className="opacity-50"
+                  alt={subMenuItem.description}
+                />
+              )}
+              <span className="text-gray-dark-12">{subMenuItem.label}</span>
+            </button>
+          ),
+        )}
       </div>
     </div>
+  );
+};
+
+const NavbarMobileItems: React.FC<{}> = () => {
+  const { isLoggedIn, handleLoginClick } = useSession();
+
+  if (!isClient) {
+    const authenticationMenu = getAuthenticationMenu(
+      isLoggedIn,
+      false,
+      false,
+      handleLoginClick,
+      () => null,
+    );
+
+    return (
+      <>
+        {[authenticationMenu, ...navbarMenu].map((navbarItem) => (
+          <NavbarMobileItem key={navbarItem.label} {...navbarItem} />
+        ))}
+      </>
+    );
+  }
+
+  return (
+    <>
+      <LoginProvider
+        graphqlApiUrl={import.meta.env.PUBLIC_GRAPHQL_ENDPOINT}
+        dynamicEnvironmentId={import.meta.env.PUBLIC_DYNAMIC_ENVIRONMENT_ID}
+      >
+        {(props) => {
+          const { isLoading, error, login, logout } = props;
+
+          const authenticationMenu = getAuthenticationMenu(
+            isLoggedIn,
+            isLoading,
+            !!error,
+            login,
+            logout,
+          );
+
+          return (
+            <NavbarMobileItem
+              key={authenticationMenu.label}
+              {...authenticationMenu}
+            />
+          );
+        }}
+      </LoginProvider>
+
+      {navbarMenu.map((navbarItem) => (
+        <NavbarMobileItem key={navbarItem.label} {...navbarItem} />
+      ))}
+    </>
   );
 };
 
@@ -90,10 +162,8 @@ const NavbarMobile: React.FC = () => {
               <FaXmark className="size-20 cursor-pointer" />
             </Button>
           </div>
-          <div className="-mx-[37px] flex flex-col gap-24 overflow-auto px-[37px] pb-30">
-            {navbarMenu.map((navbarItem) => (
-              <NavbarMobileItem key={navbarItem.label} {...navbarItem} />
-            ))}
+          <div className="-mx-[37px] flex flex-col gap-24 overflow-auto px-[37px] pb-30 [&>div:empty]:hidden">
+            <NavbarMobileItems />
           </div>
           <div className="flex items-center gap-32 pt-28 text-white *:size-24">
             <FaDiscord />
@@ -114,7 +184,7 @@ type OnMouseEnterSubMenuProps = PopoverDimensions & {
   idx: number;
 };
 
-const NavbarSubMenuItem: React.FC<NavSubMenuItem> = ({
+const NavbarSubMenuItem: React.FC<NavMenuItem> = ({
   url,
   icon,
   label,
@@ -148,7 +218,7 @@ const NavbarSubMenuItem: React.FC<NavSubMenuItem> = ({
   );
 };
 
-type NavbarItemProps = NavMenuItem & {
+type NavbarItemProps = NavMenuItemRoot & {
   idx: number;
   pathname: string;
   hovering: number | null;
@@ -161,23 +231,23 @@ type NavbarItemProps = NavMenuItem & {
   removeHovering: () => void;
 };
 
-const NavbarItem: React.FC<NavbarItemProps> = ({
-  idx,
-  pathname,
-  subMenu,
-  url,
-  label,
-  hovering,
-  popoverDimensions,
-  onMouseEnterSubMenu,
-  removeHovering,
-}) => {
-  const isActivePage = isActivePath({ lookup: url || '', pathname });
+const NavbarItem: React.FC<NavbarItemProps> = (props) => {
+  const {
+    idx,
+    pathname,
+    label,
+    hovering,
+    popoverDimensions,
+    onMouseEnterSubMenu,
+    removeHovering,
+  } = props;
 
-  if (!subMenu)
+  if (!('subMenu' in props)) {
+    const isActivePage = isActivePath({ lookup: props.url || '', pathname });
+
     return (
       <Link
-        href={url}
+        href={props.url}
         className={cn(
           'flex h-48 cursor-pointer items-center outline-none ring-0 transition-colors hover:text-white focus-visible:bg-gray-dark-3 focus-visible:text-white md:px-14 lg:px-18',
           { 'text-white': isActivePage },
@@ -188,6 +258,7 @@ const NavbarItem: React.FC<NavbarItemProps> = ({
         {label}
       </Link>
     );
+  }
 
   const isActiveSubMenu = hovering === idx + 1;
 
@@ -227,7 +298,7 @@ const NavbarItem: React.FC<NavbarItemProps> = ({
       >
         {isActiveSubMenu && (
           <div className="rounded-8 border border-gray-dark-4 bg-gray-dark-2/80 p-6 backdrop-blur-lg">
-            {subMenu.map((item, idx) => (
+            {props.subMenu.map((item, idx) => (
               <NavbarSubMenuItem key={idx} {...item} />
             ))}
           </div>
@@ -321,50 +392,16 @@ export const Navbar: React.FC<NavbarProps> = ({
 
 const SessionManagementActions: React.FC = () => {
   const {
-    updateAccessTokenByProjectId,
-    triggerLoginModal,
+    userProjects,
+    activeProjectId,
+    setActiveProject,
+    fetchProjects,
+    showProjectsDropDown,
     isLoggingIn,
     isLoggedIn,
-  } = (() => {
-    if (!isClient) {
-      return {
-        accessToken: '',
-        updateAccessTokenByProjectId: () => null,
-        triggerLoginModal: () => null,
-        isLoggingIn: true,
-        isLoggedIn: false,
-      } as unknown as AuthStore;
-    }
-
-    return useAuthStore();
-  })();
-
-  const { userProjects, setActiveProject, activeProjectId, fetchProjects } =
-    (() => {
-      if (!isClient) {
-        return {
-          userProjects: [],
-          setActiveProject: () => null,
-          activeProjectId: '',
-          fetchProjects: () => null,
-        } as unknown as ReturnType<typeof useProjects>;
-      }
-
-      return useProjects();
-    })();
-
-  const showProjectsDropDown = isLoggedIn && userProjects && activeProjectId;
-
-  const login = () =>
-    typeof triggerLoginModal === 'function' && triggerLoginModal(true);
-
-  const handleLoginClick = (
-    e?: React.MouseEvent<HTMLButtonElement | HTMLAnchorElement>,
-  ) => {
-    e?.preventDefault();
-    e?.stopPropagation();
-    login();
-  };
+    handleLoginClick,
+    updateAccessTokenByProjectId,
+  } = useSession();
 
   useEffect(() => {
     if (!isLoggedIn) return;
@@ -493,7 +530,12 @@ const ButtonContainer: React.FC<ButtonContainerProps> = ({
           onProjectChange={setActiveProject}
         />
       )}
-      <Button variant="secondary" size="sm" onClick={handleClick}>
+      <Button
+        variant="secondary"
+        size="sm"
+        className="hidden md:flex"
+        onClick={handleClick}
+      >
         {buttonText}
       </Button>
       {!isLoggedIn && (
@@ -501,6 +543,7 @@ const ButtonContainer: React.FC<ButtonContainerProps> = ({
           disabled={isLoggingIn}
           variant="tertiary"
           size="sm"
+          className="hidden md:flex"
           onClick={handleLoginClick}
           href={dashboardAppUrl}
         >
