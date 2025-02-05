@@ -1,4 +1,5 @@
 export interface Contributor {
+  /** Github username */
   login: string;
   name?: string;
   avatar_url: string;

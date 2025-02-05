@@ -24,6 +24,7 @@ export type Template = {
   demoUrl: string;
   framework: Framework;
   dynamicData?: DynamicTemplateData;
+  // Todo: create separate type deployment with creator, single item
   repository: Omit<Repo, 'description' | 'contributors_url'>;
   category: Category;
   screenshots: string[];

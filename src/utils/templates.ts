@@ -15,6 +15,30 @@ if (!siteSlugDomain) {
 export const transformTemplates = (
   templateGraphQL: TemplateGraphQL,
 ): TemplateJson => {
+  const repositoryOwner = nonNull(
+    templateGraphQL.deployment.sourceRepositoryOwner,
+  );
+  const repositorySlug = nonNull(
+    templateGraphQL.deployment.sourceRepositoryName,
+  );
+  const repositoryProvider = templateGraphQL.deployment.sourceProvider;
+
+  // Todo: review this, make it strict or fallback to empty string for now
+  const repositoryHtmlUrl =
+    repositoryProvider && repositoryOwner && repositorySlug
+      ? `https://${repositoryProvider.toLocaleLowerCase()}.com/${repositoryOwner}/${repositorySlug}`
+      : '';
+
+  const templateCreator = templateGraphQL.creator?.username
+    ? [
+        {
+          login: templateGraphQL.creator.username,
+          name: templateGraphQL.creator.firstName,
+          avatar_url: templateGraphQL.creator.avatar,
+        },
+      ]
+    : undefined;
+
   return {
     id: templateGraphQL.id,
     name: templateGraphQL.name,
@@ -37,7 +61,7 @@ export const transformTemplates = (
     },
     category: { name: templateGraphQL.category.name },
 
-    // unresolved yet
+    // unresolved yet bellow
 
     // optional in graphql but required in website
     // rendering will need to handle optional
@@ -46,19 +70,23 @@ export const transformTemplates = (
       avatar: 'blank fallback',
     },
 
+    // Todo: repository field should be replaced with deployment in the type and JSX
+    // that will break compatibility with json
     repository: {
       // name of the template and name of repository always equal?
       name: templateGraphQL.name,
       // non existing in the graphql but required in website
-      // possibly can be generated from owner and slug
-      html_url: 'blank for now',
-      owner: nonNull(templateGraphQL.deployment.sourceRepositoryOwner),
+      // generated from owner and slug
+      html_url: repositoryHtmlUrl,
+      owner: repositoryOwner,
       // this one is actually never returned but very needed
       // values will need to be included in database
-      slug: nonNull(templateGraphQL.deployment.sourceRepositoryName),
-      // contributors?: Contributor[];
-      // creation_date?: string;
+      slug: repositorySlug,
+      // maps to template.creator, always single item
+      contributors: templateCreator,
+      creation_date: templateGraphQL.createdAt,
     },
+
     screenshots: [templateGraphQL.deployment.previewImageUrl!],
     similarTemplateIds: [],
   };

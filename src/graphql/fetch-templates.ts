@@ -43,13 +43,18 @@ type Deployment = {
   previewImageUrl?: Maybe<string>;
   sourceRepositoryOwner?: Maybe<string>;
   sourceRepositoryName?: Maybe<string>;
+  sourceProvider?: Maybe<SourceProvider>;
 };
+
+// enums originally, check in the response
+type SourceProvider = 'BITBUCKET' | 'GITHUB' | 'GITLAB';
 
 type User = {
   __typename?: 'User';
   id: string;
   username?: string;
   avatar?: any;
+  firstName?: string;
 };
 
 type TemplateCategory = {
