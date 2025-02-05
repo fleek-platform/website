@@ -4,7 +4,7 @@ import {
   LoginProvider,
   useAuthStore,
 } from '@fleek-platform/login-button';
-import { navbarMenu, type NavMenuItem, type NavSubMenuItem } from './config';
+import { navbarMenu, type NavMenuItem, type NavMenuItemRoot } from './config';
 import Link, { Target } from '@components/Link';
 import { useCallback, useState } from 'react';
 import { FaArrowRight, FaDiscord, FaXmark, FaXTwitter } from 'react-icons/fa6';
@@ -18,16 +18,13 @@ import { dashboardApp } from '../../settings.json';
 import type { Project } from '@fleekxyz/sdk/dist-types/generated/graphqlClient/schema';
 import { isClient } from '../../utils/common';
 
-const NavbarMobileItem: React.FC<NavMenuItem> = ({
-  label,
-  subMenu,
-  url,
-  openInNewTab,
-}) => {
-  if (!subMenu)
+const NavbarMobileItem: React.FC<NavMenuItemRoot> = (props) => {
+  const { label, openInNewTab } = props;
+
+  if (!('subMenu' in props))
     return (
       <Link
-        href={url}
+        href={props.url}
         target={openInNewTab ? Target.Blank : Target.Self}
         rel={openInNewTab ? 'noopener noreferrer' : undefined}
         className="text-16 font-semibold text-gray-dark-12"
@@ -40,23 +37,39 @@ const NavbarMobileItem: React.FC<NavMenuItem> = ({
     <div className="flex flex-col gap-8">
       <span className="text-16 font-semibold text-gray-dark-12">{label}</span>
       <div className="grid gap-8">
-        {subMenu.map((subMenuItem) => (
-          <Link
-            href={subMenuItem.url}
-            key={subMenuItem.label}
-            target={subMenuItem.openInNewTab ? Target.Blank : Target.Self}
-            rel={subMenuItem.openInNewTab ? 'noopener noreferrer' : undefined}
-            className="flex items-center gap-8 rounded-8 border-t border-gray-dark-4 bg-gradient-to-br from-gray-dark-3 via-gray-dark-2 to-gray-dark-2 p-12 shadow-soft active:bg-gray-dark-3"
-          >
-            <img
-              src={subMenuItem.icon}
-              width={14}
-              className="opacity-50"
-              alt={subMenuItem.description}
-            />
-            <span className="text-gray-dark-12">{subMenuItem.label}</span>
-          </Link>
-        ))}
+        {props.subMenu.map((subMenuItem) =>
+          subMenuItem.url ? (
+            <Link
+              href={subMenuItem.url}
+              key={subMenuItem.label}
+              target={subMenuItem.openInNewTab ? Target.Blank : Target.Self}
+              rel={subMenuItem.openInNewTab ? 'noopener noreferrer' : undefined}
+              className="flex items-center gap-8 rounded-8 border-t border-gray-dark-4 bg-gradient-to-br from-gray-dark-3 via-gray-dark-2 to-gray-dark-2 p-12 shadow-soft active:bg-gray-dark-3"
+            >
+              <img
+                src={subMenuItem.icon}
+                width={14}
+                className="opacity-50"
+                alt={subMenuItem.description}
+              />
+              <span className="text-gray-dark-12">{subMenuItem.label}</span>
+            </Link>
+          ) : (
+            <button
+              key={subMenuItem.label}
+              className="flex items-center gap-8 rounded-8 border-t border-gray-dark-4 bg-gradient-to-br from-gray-dark-3 via-gray-dark-2 to-gray-dark-2 p-12 shadow-soft active:bg-gray-dark-3"
+              onClick={subMenuItem.action}
+            >
+              <img
+                src={subMenuItem.icon}
+                width={14}
+                className="opacity-50"
+                alt={subMenuItem.description}
+              />
+              <span className="text-gray-dark-12">{subMenuItem.label}</span>
+            </button>
+          ),
+        )}
       </div>
     </div>
   );
@@ -66,6 +79,47 @@ const NavbarMobile: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false);
 
   const toggle = () => setIsOpen((prev) => !prev);
+
+  const isAuthenticated = false;
+
+  const login = () => console.log('login');
+  const signup = () => console.log('signup');
+  const logout = () => console.log('logout');
+
+  const authenticationSubMenu: NavMenuItem[] = isAuthenticated
+    ? [
+        {
+          label: 'Dashboard',
+          url: dashboardApp.url,
+          description: 'Manage your account',
+          icon: '/svg/cli-navbar-icon.svg',
+        },
+        {
+          label: 'Log out',
+          action: logout,
+          description: 'Manage your account',
+          icon: '/svg/cli-navbar-icon.svg',
+        },
+      ]
+    : [
+        {
+          label: 'Log in',
+          action: login,
+          description: 'Access your account',
+          icon: '/svg/cli-navbar-icon.svg',
+        },
+        {
+          label: 'Sign up',
+          action: signup,
+          description: 'Create an account',
+          icon: '/svg/cli-navbar-icon.svg',
+        },
+      ];
+
+  const authenticationMenu: NavMenuItemRoot = {
+    label: 'Authentication',
+    subMenu: authenticationSubMenu,
+  };
 
   return (
     <>
@@ -91,7 +145,7 @@ const NavbarMobile: React.FC = () => {
             </Button>
           </div>
           <div className="-mx-[37px] flex flex-col gap-24 overflow-auto px-[37px] pb-30">
-            {navbarMenu.map((navbarItem) => (
+            {[authenticationMenu, ...navbarMenu].map((navbarItem) => (
               <NavbarMobileItem key={navbarItem.label} {...navbarItem} />
             ))}
           </div>
@@ -114,7 +168,7 @@ type OnMouseEnterSubMenuProps = PopoverDimensions & {
   idx: number;
 };
 
-const NavbarSubMenuItem: React.FC<NavSubMenuItem> = ({
+const NavbarSubMenuItem: React.FC<NavMenuItem> = ({
   url,
   icon,
   label,
@@ -148,7 +202,7 @@ const NavbarSubMenuItem: React.FC<NavSubMenuItem> = ({
   );
 };
 
-type NavbarItemProps = NavMenuItem & {
+type NavbarItemProps = NavMenuItemRoot & {
   idx: number;
   pathname: string;
   hovering: number | null;
@@ -161,23 +215,23 @@ type NavbarItemProps = NavMenuItem & {
   removeHovering: () => void;
 };
 
-const NavbarItem: React.FC<NavbarItemProps> = ({
-  idx,
-  pathname,
-  subMenu,
-  url,
-  label,
-  hovering,
-  popoverDimensions,
-  onMouseEnterSubMenu,
-  removeHovering,
-}) => {
-  const isActivePage = isActivePath({ lookup: url || '', pathname });
+const NavbarItem: React.FC<NavbarItemProps> = (props) => {
+  const {
+    idx,
+    pathname,
+    label,
+    hovering,
+    popoverDimensions,
+    onMouseEnterSubMenu,
+    removeHovering,
+  } = props;
 
-  if (!subMenu)
+  if (!('subMenu' in props)) {
+    const isActivePage = isActivePath({ lookup: props.url || '', pathname });
+
     return (
       <Link
-        href={url}
+        href={props.url}
         className={cn(
           'flex h-48 cursor-pointer items-center outline-none ring-0 transition-colors hover:text-white focus-visible:bg-gray-dark-3 focus-visible:text-white md:px-14 lg:px-18',
           { 'text-white': isActivePage },
@@ -188,6 +242,7 @@ const NavbarItem: React.FC<NavbarItemProps> = ({
         {label}
       </Link>
     );
+  }
 
   const isActiveSubMenu = hovering === idx + 1;
 
@@ -227,7 +282,7 @@ const NavbarItem: React.FC<NavbarItemProps> = ({
       >
         {isActiveSubMenu && (
           <div className="rounded-8 border border-gray-dark-4 bg-gray-dark-2/80 p-6 backdrop-blur-lg">
-            {subMenu.map((item, idx) => (
+            {props.subMenu.map((item, idx) => (
               <NavbarSubMenuItem key={idx} {...item} />
             ))}
           </div>
