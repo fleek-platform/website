@@ -158,7 +158,7 @@ const NavbarMobile: React.FC = () => {
               <FaXmark className="size-20 cursor-pointer" />
             </Button>
           </div>
-          <div className="-mx-[37px] flex flex-col gap-24 overflow-auto px-[37px] pb-30">
+          <div className="-mx-[37px] flex flex-col gap-24 overflow-auto px-[37px] pb-30 [&>div:empty]:hidden">
             <NavbarMobileItems />
           </div>
           <div className="flex items-center gap-32 pt-28 text-white *:size-24">
