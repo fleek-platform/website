@@ -188,7 +188,7 @@ export function getAuthenticationMenu(
   }
 
   const authenticationMenu: NavMenuItemRoot = {
-    label: 'Authentication',
+    label: 'Account',
     subMenu: getAuthenticationSubMenu(),
   };
 
