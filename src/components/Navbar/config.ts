@@ -1,3 +1,5 @@
+import { dashboardApp } from '../../settings.json';
+
 type NavMenuItemBase = {
   label: string;
   description?: string;
@@ -133,3 +135,62 @@ export const navbarMenu: NavMenuItemRoot[] = [
     url: '/pricing/',
   },
 ];
+
+export function getAuthenticationMenu(
+  isLoggedIn: boolean,
+  isLoggingIn: boolean,
+  isError: boolean,
+  handleLogin: () => void,
+  handleLogout: () => void,
+) {
+  function getAuthenticationSubMenu(): NavMenuItem[] {
+    if (isLoggedIn) {
+      return [
+        {
+          label: 'Dashboard',
+          url: dashboardApp.url,
+          description: 'Manage your account',
+          icon: '/svg/cli-navbar-icon.svg',
+        },
+        {
+          label: 'Log out',
+          action: handleLogout,
+          description: 'Manage your account',
+          icon: '/svg/cli-navbar-icon.svg',
+        },
+      ];
+    }
+
+    function getLoginLabel() {
+      if (isError) {
+        return 'Log in failed';
+      }
+      if (isLoggingIn) {
+        return 'Logging in...';
+      }
+      return 'Log in';
+    }
+
+    return [
+      {
+        label: getLoginLabel(),
+        action: handleLogin,
+        description: 'Access your account',
+        icon: '/svg/cli-navbar-icon.svg',
+      },
+      {
+        label: 'Sign up',
+        action: handleLogin,
+        description: 'Create an account',
+        icon: '/svg/cli-navbar-icon.svg',
+      },
+    ];
+  }
+
+  const authenticationMenu: NavMenuItemRoot = {
+    label: 'Authentication',
+    subMenu: getAuthenticationSubMenu(),
+  };
+
+  return authenticationMenu;
+}
