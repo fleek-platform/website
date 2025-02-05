@@ -98,30 +98,35 @@ const NavbarMobileItems: React.FC<{}> = () => {
   }
 
   return (
-    <LoginProvider
-      graphqlApiUrl={import.meta.env.PUBLIC_GRAPHQL_ENDPOINT}
-      dynamicEnvironmentId={import.meta.env.PUBLIC_DYNAMIC_ENVIRONMENT_ID}
-    >
-      {(props) => {
-        const { isLoading, error, login, logout } = props;
+    <>
+      <LoginProvider
+        graphqlApiUrl={import.meta.env.PUBLIC_GRAPHQL_ENDPOINT}
+        dynamicEnvironmentId={import.meta.env.PUBLIC_DYNAMIC_ENVIRONMENT_ID}
+      >
+        {(props) => {
+          const { isLoading, error, login, logout } = props;
 
-        const authenticationMenu = getAuthenticationMenu(
-          isLoggedIn,
-          isLoading,
-          !!error,
-          login,
-          logout,
-        );
+          const authenticationMenu = getAuthenticationMenu(
+            isLoggedIn,
+            isLoading,
+            !!error,
+            login,
+            logout,
+          );
 
-        return (
-          <>
-            {[authenticationMenu, ...navbarMenu].map((navbarItem) => (
-              <NavbarMobileItem key={navbarItem.label} {...navbarItem} />
-            ))}
-          </>
-        );
-      }}
-    </LoginProvider>
+          return (
+            <NavbarMobileItem
+              key={authenticationMenu.label}
+              {...authenticationMenu}
+            />
+          );
+        }}
+      </LoginProvider>
+
+      {navbarMenu.map((navbarItem) => (
+        <NavbarMobileItem key={navbarItem.label} {...navbarItem} />
+      ))}
+    </>
   );
 };
 
