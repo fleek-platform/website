@@ -47,12 +47,14 @@ const NavbarMobileItem: React.FC<NavMenuItemRoot> = (props) => {
               rel={subMenuItem.openInNewTab ? 'noopener noreferrer' : undefined}
               className="flex items-center gap-8 rounded-8 border-t border-gray-dark-4 bg-gradient-to-br from-gray-dark-3 via-gray-dark-2 to-gray-dark-2 p-12 shadow-soft active:bg-gray-dark-3"
             >
-              <img
-                src={subMenuItem.icon}
-                width={14}
-                className="opacity-50"
-                alt={subMenuItem.description}
-              />
+              {subMenuItem.icon && (
+                <img
+                  src={subMenuItem.icon}
+                  width={14}
+                  className="opacity-50"
+                  alt={subMenuItem.description}
+                />
+              )}
               <span className="text-gray-dark-12">{subMenuItem.label}</span>
             </Link>
           ) : (
@@ -61,12 +63,14 @@ const NavbarMobileItem: React.FC<NavMenuItemRoot> = (props) => {
               className="flex items-center gap-8 rounded-8 border-t border-gray-dark-4 bg-gradient-to-br from-gray-dark-3 via-gray-dark-2 to-gray-dark-2 p-12 shadow-soft active:bg-gray-dark-3"
               onClick={subMenuItem.action}
             >
-              <img
-                src={subMenuItem.icon}
-                width={14}
-                className="opacity-50"
-                alt={subMenuItem.description}
-              />
+              {subMenuItem.icon && (
+                <img
+                  src={subMenuItem.icon}
+                  width={14}
+                  className="opacity-50"
+                  alt={subMenuItem.description}
+                />
+              )}
               <span className="text-gray-dark-12">{subMenuItem.label}</span>
             </button>
           ),

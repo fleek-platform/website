@@ -150,13 +150,11 @@ export function getAuthenticationMenu(
           label: 'Dashboard',
           url: dashboardApp.url,
           description: 'Manage your account',
-          icon: '/svg/cli-navbar-icon.svg',
         },
         {
           label: 'Log out',
           action: handleLogout,
           description: 'Manage your account',
-          icon: '/svg/cli-navbar-icon.svg',
         },
       ];
     }
@@ -176,13 +174,11 @@ export function getAuthenticationMenu(
         label: getLoginLabel(),
         action: handleLogin,
         description: 'Access your account',
-        icon: '/svg/cli-navbar-icon.svg',
       },
       {
         label: 'Sign up',
         action: handleLogin,
         description: 'Create an account',
-        icon: '/svg/cli-navbar-icon.svg',
       },
     ];
   }
