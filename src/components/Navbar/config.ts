@@ -1,15 +1,28 @@
-export type NavMenuItem = {
+type NavMenuItemBase = {
   label: string;
-  subMenu?: NavSubMenuItem[];
-  url?: string;
   description?: string;
   icon?: string;
   openInNewTab?: boolean;
 };
 
-export type NavSubMenuItem = Omit<NavMenuItem, 'subMenu'>;
+type NavMenuItemUrl = NavMenuItemBase & {
+  url: string;
+  action?: never;
+};
 
-export const navbarMenu: NavMenuItem[] = [
+type NavMenuItemAction = NavMenuItemBase & {
+  action: () => void;
+  url?: never;
+};
+
+type NavMenuItemSection = NavMenuItemBase & {
+  subMenu: NavMenuItem[];
+};
+
+export type NavMenuItem = NavMenuItemUrl | NavMenuItemAction;
+export type NavMenuItemRoot = NavMenuItem | NavMenuItemSection;
+
+export const navbarMenu: NavMenuItemRoot[] = [
   {
     label: 'Features',
     subMenu: [
