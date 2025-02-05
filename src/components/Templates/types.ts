@@ -22,13 +22,13 @@ export type Template = {
   banner: string;
   fleekDeploymentUrl: string;
   demoUrl: string;
-  framework: Framework;
+  framework?: Framework;
   dynamicData?: DynamicTemplateData;
   // Todo: create separate type deployment with creator, single item
   repository: Omit<Repo, 'description' | 'contributors_url'>;
   category: Category;
-  screenshots: string[];
-  similarTemplateIds: string[];
+  // always a single screenshot
+  screenshot?: string;
 };
 
 export type Filters = {

@@ -1,6 +1,7 @@
 import ContentBox from '@components/ContentBox';
 import type { Template } from '../types';
 import { ArrowLeft } from '@components/Icons';
+import { GoGear } from 'react-icons/go';
 
 interface TemplateHeroProps {
   template: Template;
@@ -25,11 +26,15 @@ export const TemplateHero: React.FC<TemplateHeroProps> = ({ template }) => {
           <h1 className="mb-2 text-[20px] font-bold leading-[34px] text-neutral-12 md:text-[26px]">
             {template.name}
           </h1>
-          <img
-            alt={`${template.framework.name} Framework logo`}
-            className="mb-4 h-34 w-34 rounded-full"
-            src={template.framework.avatar}
-          />
+          {template.framework ? (
+            <img
+              alt={`${template.framework.name} Framework logo`}
+              className="mb-4 h-34 w-34 rounded-full"
+              src={template.framework.avatar}
+            />
+          ) : (
+            <GoGear className="size-34" />
+          )}
         </div>
 
         <div className="flex w-full flex-col text-[12px] sm:text-[16px]">
@@ -57,6 +62,7 @@ export const TemplateHero: React.FC<TemplateHeroProps> = ({ template }) => {
 
           {contributor && (
             <div className="mb-10 flex items-center">
+              {/* <pre>{JSON.stringify(contributor, null, 2)}</pre> */}
               <div className="mr-10 h-[22px] w-[22px] rounded-full">
                 <img
                   height={22}

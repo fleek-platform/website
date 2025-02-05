@@ -2,7 +2,7 @@
 import BaseHtml from '@layouts/BaseHtml.astro';
 import Templates, { type Template } from '@components/Templates';
 import { fetchTemplates } from '@base/graphql/fetch-templates';
-import { transformTemplates } from '@utils/templates';
+import { randomizeArray, transformTemplates } from '@utils/templates';
 
 const graphqlApiUrl = import.meta.env.PUBLIC_GRAPHQL_ENDPOINT;
 
@@ -34,7 +34,7 @@ export async function getStaticPaths() {
 }
 
 const { template } = Astro.props;
-const { name, description, banner, slug, screenshots, fleekDeploymentUrl } =
+const { name, description, banner, slug, screenshot, fleekDeploymentUrl } =
   template;
 
 /*------------------ Readme content -----------------*/
@@ -81,11 +81,14 @@ const getSimilarTemplates = async (): Promise<Template[]> => {
     throw new Error('Failed to fetch the templates');
   }
 
+  // get 3 random templates that are not the current template
   const templates = response.data.data.map(transformTemplates);
-
-  const similarTemplates = templates.filter((template2) =>
-    template.similarTemplateIds.includes(template2.slug),
+  const otherTemplates = templates.filter(
+    (otherTemplate) => otherTemplate.id !== template.id,
   );
+
+  const similarTemplates = randomizeArray(otherTemplates).slice(0, 3);
+
   return similarTemplates;
 };
 
@@ -123,9 +126,9 @@ const similarTemplates = await getSimilarTemplates();
           )
         }
         {
-          screenshots.length > 0 && (
+          screenshot && (
             <Templates.TemplateDetails.TemplateScreenshot
-              screenShotUrl={screenshots[0]}
+              screenShotUrl={screenshot}
             />
           )
         }

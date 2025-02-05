@@ -69,17 +69,17 @@ export const TemplateSpecs: React.FC<TemplateSpecsProps> = ({ template }) => {
         />
       )}
 
-      {deploymentsAmount && (
+      {deploymentsAmount ? (
         <DetailItem
           icon={<BarChart />}
           detailValue={deploymentsAmount}
           detailLabel="Deployments"
         />
-      )}
+      ) : null}
 
       <DetailItem
         icon={<CodeTag />}
-        detailValue={template.framework.name}
+        detailValue={template.framework?.name ?? 'No framework'}
         detailLabel="Framework"
       />
 

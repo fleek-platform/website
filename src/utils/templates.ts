@@ -45,6 +45,7 @@ export const transformTemplates = (
     slug: templateGraphQL.siteSlug,
     description: templateGraphQL.description,
 
+    // Todo: resolve this field and set type
     // banner: templateGraphQL.banner, // protected currently
     banner: 'https://fleek.xyz/images/templates/astro-boilerplate.webp',
 
@@ -61,14 +62,8 @@ export const transformTemplates = (
     },
     category: { name: templateGraphQL.category.name },
 
-    // unresolved yet bellow
-
-    // optional in graphql but required in website
-    // rendering will need to handle optional
-    framework: templateGraphQL.framework ?? {
-      name: 'blank fallback',
-      avatar: 'blank fallback',
-    },
+    // framework is optional, fall back is gear icon and 'No framework' text
+    framework: nonNull(templateGraphQL.framework),
 
     // Todo: repository field should be replaced with deployment in the type and JSX
     // that will break compatibility with json
@@ -87,7 +82,13 @@ export const transformTemplates = (
       creation_date: templateGraphQL.createdAt,
     },
 
-    screenshots: [templateGraphQL.deployment.previewImageUrl!],
-    similarTemplateIds: [],
+    // only a single screenshot is returned from graphql and supported in the UI
+    screenshot: nonNull(templateGraphQL.deployment.previewImageUrl),
   };
 };
+
+export const randomizeArray = <T>(array: T[]): T[] =>
+  array
+    .map((item) => ({ item, sort: Math.random() }))
+    .sort((a, b) => a.sort - b.sort)
+    .map(({ item }) => item);

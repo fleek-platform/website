@@ -1,7 +1,7 @@
 import ContentBox from '@components/ContentBox';
 import type { Template } from '../types';
 import { cn } from '@utils/cn';
-
+import { GoGear } from 'react-icons/go';
 interface TemplateCardProps {
   template: Template;
   className?: string;
@@ -28,12 +28,14 @@ export const TemplateCard: React.FC<TemplateCardProps> = ({
               {template.name}
             </h3>
 
-            {template.framework && (
+            {template.framework ? (
               <img
-                className="absolute right-0 top-0 h-24 w-24 rounded-full lg:h-28 lg:w-28"
+                className="absolute right-0 top-0 size-24 rounded-full lg:size-28"
                 src={template.framework.avatar}
                 alt={`${template.framework.name} icon`}
               />
+            ) : (
+              <GoGear className="absolute right-0 top-0 size-24 lg:size-28" />
             )}
 
             <p className="mt-12 line-clamp-2 break-words text-[11px] font-normal leading-[16px] text-neutral-11 lg:text-[14px] lg:leading-[20px]">
