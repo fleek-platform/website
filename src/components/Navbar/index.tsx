@@ -1,10 +1,11 @@
 import { useEffect } from 'react';
+import { LoginProvider } from '@fleek-platform/login-button';
 import {
-  type AuthStore,
-  LoginProvider,
-  useAuthStore,
-} from '@fleek-platform/login-button';
-import { navbarMenu, type NavMenuItem, type NavMenuItemRoot } from './config';
+  getAuthenticationMenu,
+  navbarMenu,
+  type NavMenuItem,
+  type NavMenuItemRoot,
+} from './config';
 import Link, { Target } from '@components/Link';
 import { useCallback, useState } from 'react';
 import { FaArrowRight, FaDiscord, FaXmark, FaXTwitter } from 'react-icons/fa6';
@@ -13,10 +14,10 @@ import { RxHamburgerMenu } from 'react-icons/rx';
 import { isActivePath } from '@utils/url';
 import { Button } from '../Button';
 import { ProjectDropdown } from './ProjectDropdown/ProjectDropdown';
-import { useProjects } from '@hooks/useProjects.ts';
 import { dashboardApp } from '../../settings.json';
 import type { Project } from '@fleekxyz/sdk/dist-types/generated/graphqlClient/schema';
 import { isClient } from '../../utils/common';
+import { useSession } from '@hooks/useSession';
 
 const NavbarMobileItem: React.FC<NavMenuItemRoot> = (props) => {
   const { label, openInNewTab } = props;
@@ -75,51 +76,59 @@ const NavbarMobileItem: React.FC<NavMenuItemRoot> = (props) => {
   );
 };
 
+const NavbarMobileItems: React.FC<{}> = () => {
+  const { isLoggedIn, handleLoginClick } = useSession();
+
+  if (!isClient) {
+    const authenticationMenu = getAuthenticationMenu(
+      isLoggedIn,
+      false,
+      false,
+      handleLoginClick,
+      () => null,
+    );
+
+    return (
+      <>
+        {[authenticationMenu, ...navbarMenu].map((navbarItem) => (
+          <NavbarMobileItem key={navbarItem.label} {...navbarItem} />
+        ))}
+      </>
+    );
+  }
+
+  return (
+    <LoginProvider
+      graphqlApiUrl={import.meta.env.PUBLIC_GRAPHQL_ENDPOINT}
+      dynamicEnvironmentId={import.meta.env.PUBLIC_DYNAMIC_ENVIRONMENT_ID}
+    >
+      {(props) => {
+        const { isLoading, error, login, logout } = props;
+
+        const authenticationMenu = getAuthenticationMenu(
+          isLoggedIn,
+          isLoading,
+          !!error,
+          login,
+          logout,
+        );
+
+        return (
+          <>
+            {[authenticationMenu, ...navbarMenu].map((navbarItem) => (
+              <NavbarMobileItem key={navbarItem.label} {...navbarItem} />
+            ))}
+          </>
+        );
+      }}
+    </LoginProvider>
+  );
+};
+
 const NavbarMobile: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false);
 
   const toggle = () => setIsOpen((prev) => !prev);
-
-  const isAuthenticated = false;
-
-  const login = () => console.log('login');
-  const signup = () => console.log('signup');
-  const logout = () => console.log('logout');
-
-  const authenticationSubMenu: NavMenuItem[] = isAuthenticated
-    ? [
-        {
-          label: 'Dashboard',
-          url: dashboardApp.url,
-          description: 'Manage your account',
-          icon: '/svg/cli-navbar-icon.svg',
-        },
-        {
-          label: 'Log out',
-          action: logout,
-          description: 'Manage your account',
-          icon: '/svg/cli-navbar-icon.svg',
-        },
-      ]
-    : [
-        {
-          label: 'Log in',
-          action: login,
-          description: 'Access your account',
-          icon: '/svg/cli-navbar-icon.svg',
-        },
-        {
-          label: 'Sign up',
-          action: signup,
-          description: 'Create an account',
-          icon: '/svg/cli-navbar-icon.svg',
-        },
-      ];
-
-  const authenticationMenu: NavMenuItemRoot = {
-    label: 'Authentication',
-    subMenu: authenticationSubMenu,
-  };
 
   return (
     <>
@@ -145,9 +154,7 @@ const NavbarMobile: React.FC = () => {
             </Button>
           </div>
           <div className="-mx-[37px] flex flex-col gap-24 overflow-auto px-[37px] pb-30">
-            {[authenticationMenu, ...navbarMenu].map((navbarItem) => (
-              <NavbarMobileItem key={navbarItem.label} {...navbarItem} />
-            ))}
+            <NavbarMobileItems />
           </div>
           <div className="flex items-center gap-32 pt-28 text-white *:size-24">
             <FaDiscord />
@@ -376,50 +383,16 @@ export const Navbar: React.FC<NavbarProps> = ({
 
 const SessionManagementActions: React.FC = () => {
   const {
-    updateAccessTokenByProjectId,
-    triggerLoginModal,
+    userProjects,
+    activeProjectId,
+    setActiveProject,
+    fetchProjects,
+    showProjectsDropDown,
     isLoggingIn,
     isLoggedIn,
-  } = (() => {
-    if (!isClient) {
-      return {
-        accessToken: '',
-        updateAccessTokenByProjectId: () => null,
-        triggerLoginModal: () => null,
-        isLoggingIn: true,
-        isLoggedIn: false,
-      } as unknown as AuthStore;
-    }
-
-    return useAuthStore();
-  })();
-
-  const { userProjects, setActiveProject, activeProjectId, fetchProjects } =
-    (() => {
-      if (!isClient) {
-        return {
-          userProjects: [],
-          setActiveProject: () => null,
-          activeProjectId: '',
-          fetchProjects: () => null,
-        } as unknown as ReturnType<typeof useProjects>;
-      }
-
-      return useProjects();
-    })();
-
-  const showProjectsDropDown = isLoggedIn && userProjects && activeProjectId;
-
-  const login = () =>
-    typeof triggerLoginModal === 'function' && triggerLoginModal(true);
-
-  const handleLoginClick = (
-    e?: React.MouseEvent<HTMLButtonElement | HTMLAnchorElement>,
-  ) => {
-    e?.preventDefault();
-    e?.stopPropagation();
-    login();
-  };
+    handleLoginClick,
+    updateAccessTokenByProjectId,
+  } = useSession();
 
   useEffect(() => {
     if (!isLoggedIn) return;
@@ -548,7 +521,12 @@ const ButtonContainer: React.FC<ButtonContainerProps> = ({
           onProjectChange={setActiveProject}
         />
       )}
-      <Button variant="secondary" size="sm" onClick={handleClick}>
+      <Button
+        variant="secondary"
+        size="sm"
+        className="hidden md:flex"
+        onClick={handleClick}
+      >
         {buttonText}
       </Button>
       {!isLoggedIn && (
@@ -556,6 +534,7 @@ const ButtonContainer: React.FC<ButtonContainerProps> = ({
           disabled={isLoggingIn}
           variant="tertiary"
           size="sm"
+          className="hidden md:flex"
           onClick={handleLoginClick}
           href={dashboardAppUrl}
         >
