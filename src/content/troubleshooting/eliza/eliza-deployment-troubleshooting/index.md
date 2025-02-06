@@ -23,20 +23,42 @@ image: './eliza-references.png'
 
 ### How do I set up Twitter integration for my Eliza agent?
 
-To integrate your Eliza agent with Twitter while avoiding account blocks, follow these steps:
+To integrate your Eliza agent with Twitter, you can use the below variables in your Characterfile to properly set up the integration:
 
-1. **Use a VPN:** Connect to Oregon, as Twitter may block accounts logged in from locations different from where they were created. Fleek deployments are from Oregon-based servers.
-2. **Create a Twitter Account:** Set up your account while connected to the VPN and complete Twitter's verification process.
-3. **Log in via VPN:** Use the VPN to log in and confirm the account setup.
-4. **Deploy Your Agent:** Use your Twitter credentials to connect your Eliza agent. After deployment, the VPN is no longer required.
+```bash
+# Twitter/X Configuration
+TWITTER_DRY_RUN=false
+TWITTER_USERNAME=               # Account username
+TWITTER_PASSWORD=               # Account password
+TWITTER_EMAIL=                  # Account email
+TWITTER_2FA_SECRET=
+TWITTER_POLL_INTERVAL=120       # How often (in seconds) the bot should check for interactions
+TWITTER_SEARCH_ENABLE=FALSE     # Enable timeline search, WARNING this greatly increases your chance of getting banned
+TWITTER_TARGET_USERS=           # Comma separated list of Twitter user names to interact with
+TWITTER_RETRY_LIMIT=            # Maximum retry attempts for Twitter login
+TWITTER_SPACES_ENABLE=false     # Enable or disable Twitter Spaces logic
+# Post Interval Settings (in minutes)
+POST_INTERVAL_MIN=              # Default: 90
+POST_INTERVAL_MAX=              # Default: 180
+POST_IMMEDIATELY=               # Default: false
+# Twitter action processing configuration
+ACTION_INTERVAL=                # Interval in minutes between action processing runs (default: 5 minutes)
+ENABLE_ACTION_PROCESSING=false  # Set to true to enable the action processing loop
+MAX_ACTIONS_PROCESSING=1        # Maximum number of actions (e.g., retweets, likes) to process in a single cycle. Helps prevent excessive or uncontrolled actions.
+ACTION_TIMELINE_TYPE=foryou     # Type of timeline to interact with. Options: "foryou" or "following". Default: "foryou"
+# CONFIGURATION FOR APPROVING TWEETS BEFORE IT GETS POSTED
+TWITTER_APPROVAL_DISCORD_CHANNEL_ID= # Channel ID for the Discord bot to listen and send approval messages
+TWITTER_APPROVAL_DISCORD_BOT_TOKEN= # Discord bot token (this could be a different bot token from DISCORD_API_TOKEN)
+TWITTER_APPROVAL_ENABLED=  # Enable or disable Twitter approval logic #Default is false
+TWITTER_APPROVAL_CHECK_INTERVAL=60000  # Default: 60 seconds
+```
 
-This ensures smooth integration and avoids login issues.
+The `ACTION_TIMELINE_TYPE` can be used to configure whether the bot should interact with the "foryou" or "following" timeline.
 
 ---
 
 ### Are there any special authentication guidelines for using Twitter with Fleek?
 
-- Enable Automation: Ensure automation is turned on for your deployments.
 - Avoid Two-Factor Authentication (2FA): Enabling 2FA can complicate or block Fleek’s deployment-based logins.
 - Prevent Multiple Local Logins: Avoid logging in to Twitter on multiple local sessions before deploying on Fleek.
 - Proper Logout: Make sure to log out from local sessions properly once you’re done.
