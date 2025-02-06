@@ -13,7 +13,7 @@ tags:
 
 # Managing Fleek Functions with the Fleek SDK
 
-The Fleek SDK allows you to create, deploy, and manage Fleek Functions. This guide will walk you through the process of setting up a project, creating functions, and deploying them to the Fleek platform.
+The Fleek SDK allows you to create, deploy, and manage Fleek Functions. The SDK enables you to within your applications be able to create functions, and deploy them to the Fleek platform.
 
 :::note
 You need to [authenticate to Fleek](/docs/sdk/#authentication) via the Fleek SDK.
