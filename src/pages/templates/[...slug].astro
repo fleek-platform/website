@@ -41,12 +41,20 @@ const { id, name, description, banner, siteSlug, deployment } = template;
 
 /*------------------ Readme content -----------------*/
 
-const fetchReadmeContent = async (repoOwner?: string, repoSlug?: string) => {
+type ReadmeResult = {
+  content?: string;
+  error?: 'no-readme' | 'error';
+};
+
+const fetchReadmeContent = async (
+  repoOwner: string,
+  repoSlug: string,
+): Promise<ReadmeResult> => {
   if (!(repoOwner && repoSlug)) {
     console.error(
       `repoOwner: ${repoOwner} and repoSlug: ${repoSlug} must be provided`,
     );
-    return '';
+    return { error: 'error' };
   }
 
   const url = `https://api.github.com/repos/${repoOwner}/${repoSlug}/readme`;
@@ -57,20 +65,32 @@ const fetchReadmeContent = async (repoOwner?: string, repoSlug?: string) => {
   };
 
   const response = await fetch(url, { headers });
+  if (response.status === 404) {
+    return { error: 'no-readme' };
+  }
+
   if (!response.ok) {
     console.error(`HTTP error! status: ${response.status}`);
-    return '';
+    return { error: 'error' };
   }
 
   const data = await response.json();
+  if (!data.content) {
+    return { error: 'error' };
+  }
+
   const decodedContent = Buffer.from(data.content, 'base64').toString('utf-8');
-  return decodedContent;
+  return { content: decodedContent };
 };
 
 const repository = getRepository(template);
-const readmeContent = await fetchReadmeContent(
-  repository.owner,
-  repository.slug,
+
+// repository.owner = 'fleekxyz';
+// repository.slug = 'astro-template';
+
+const readmeResult = await fetchReadmeContent(
+  repository.owner!,
+  repository.slug!,
 );
 
 /*------------------ Similar templates -----------------*/
@@ -124,10 +144,20 @@ const screenshot = deployment.previewImageUrl;
         class="flex min-w-0 flex-1 flex-col gap-20 sm:flex-shrink sm:flex-grow"
       >
         {
-          readmeContent && (
+          !readmeResult.error && readmeResult.content && (
             <Templates.TemplateDetails.TemplateReadme
-              readmeContent={readmeContent}
+              readmeContent={readmeResult.content}
             />
+          )
+        }
+        {
+          readmeResult.error === 'no-readme' && (
+            <Templates.TemplateDetails.TemplateNoReadme />
+          )
+        }
+        {
+          readmeResult.error === 'error' && (
+            <Templates.TemplateDetails.TemplateReadmeError />
           )
         }
         {

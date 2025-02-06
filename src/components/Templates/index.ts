@@ -1,7 +1,11 @@
 import { Header } from './TemplatesList/Header';
 import { List } from './TemplatesList/List';
 import { TemplateHero } from './TemplateDetails/TemplateHero';
-import { TemplateReadme } from './TemplateDetails/TemplateReadme';
+import {
+  TemplateReadme,
+  TemplateNoReadme,
+  TemplateReadmeError,
+} from './TemplateDetails/TemplateReadme';
 import { TemplateSpecs } from './TemplateDetails/TemplateSpecs';
 import { TemplateScreenshot } from './TemplateDetails/TemplateScreenshot';
 import { SimilarTemplates } from './TemplateDetails/SimilarTemplates';
@@ -14,6 +18,8 @@ export default {
     TopActions,
     TemplateHero,
     TemplateReadme,
+    TemplateNoReadme,
+    TemplateReadmeError,
     TemplateSpecs,
     TemplateScreenshot,
     SimilarTemplates,
