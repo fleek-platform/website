@@ -1,9 +1,10 @@
 import Text from '@components/Text';
 import { BarChart, Calendar, CodeTag, RocketShip } from '@components/Icons';
-import type { Template } from '../types';
+import type { Template } from '@utils/graphql-client/fetchTemplates';
 import ContentBox from '@components/ContentBox';
 import settings from '@base/settings.json';
 import { formatDate } from '@utils/date';
+import { getRepository } from '@utils/templates';
 
 const Separator = () => (
   <div className="separator my-10 border-b-1 border-b-neutral-8" />
@@ -47,7 +48,8 @@ interface TemplateSpecsProps {
 }
 
 export const TemplateSpecs: React.FC<TemplateSpecsProps> = ({ template }) => {
-  const deploymentsAmount = template.dynamicData?.usageCount;
+  const repository = getRepository(template);
+
   return (
     <ContentBox variant="narrow" className="!h-[fit-content] !bg-neutral-1">
       <Text
@@ -58,21 +60,21 @@ export const TemplateSpecs: React.FC<TemplateSpecsProps> = ({ template }) => {
         Details
       </Text>
 
-      {template.repository.creation_date && (
+      {repository.createdAt && (
         <DetailItem
           icon={<Calendar />}
           detailValue={formatDate({
-            date: new Date(template.repository.creation_date),
+            date: new Date(repository.createdAt),
             dateStyle: 'long',
           })}
           detailLabel="Creation date"
         />
       )}
 
-      {deploymentsAmount ? (
+      {template.usageCount ? (
         <DetailItem
           icon={<BarChart />}
-          detailValue={deploymentsAmount}
+          detailValue={template.usageCount}
           detailLabel="Deployments"
         />
       ) : null}

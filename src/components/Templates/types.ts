@@ -1,34 +1,11 @@
-import type { Repo } from './../../../Services/Github/types';
+import type {
+  SiteFramework,
+  TemplateCategory,
+} from '@utils/graphql-client/fetchTemplates';
 
-type DynamicTemplateData = {
-  usageCount?: number;
-  readmeData?: string;
-};
+export type Framework = Pick<SiteFramework, 'name' | 'avatar'>;
 
-export type Framework = {
-  name: string;
-  avatar: string;
-};
-
-export type Category = {
-  name: string;
-};
-
-export type Template = {
-  id: string;
-  name: string;
-  slug: string;
-  description: string;
-  banner: string;
-  demoUrl: string;
-  framework?: Framework;
-  dynamicData?: DynamicTemplateData;
-  // Todo: create separate type deployment with creator, single item
-  repository: Omit<Repo, 'description' | 'contributors_url'>;
-  category: Category;
-  // always a single screenshot
-  screenshot?: string;
-};
+export type Category = Pick<TemplateCategory, 'name'>;
 
 export type Filters = {
   framework?: string;

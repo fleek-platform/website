@@ -2,7 +2,6 @@
 import BaseHtml from '@layouts/BaseHtml.astro';
 import settings from '@base/settings.json';
 import Templates from '@components/Templates';
-import { transformTemplates } from '@utils/templates';
 import { fetchTemplates } from '@utils/graphql-client/fetchTemplates';
 
 const graphqlApiUrl = import.meta.env.PUBLIC_GRAPHQL_ENDPOINT;
@@ -20,7 +19,7 @@ if (!response.data) {
   throw new Error('Failed to fetch the templates');
 }
 
-const templates = response.data.data.map(transformTemplates);
+const { data: templates } = response.data;
 
 const templatesMetadata = settings.site.metadata.templates;
 ---

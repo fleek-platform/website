@@ -1,14 +1,18 @@
 import ContentBox from '@components/ContentBox';
-import type { Template } from '../types';
+import type { Template } from '@utils/graphql-client/fetchTemplates';
 import { ArrowLeft } from '@components/Icons';
 import { GoGear } from 'react-icons/go';
+import { getDemoUrl, getRepository } from '@utils/templates';
 
 interface TemplateHeroProps {
   template: Template;
 }
 
 export const TemplateHero: React.FC<TemplateHeroProps> = ({ template }) => {
-  const contributor = template.repository.contributors?.[0];
+  const repository = getRepository(template);
+  const { creator } = repository;
+
+  const demoUrl = getDemoUrl(template.siteSlug);
 
   return (
     <ContentBox
@@ -42,7 +46,7 @@ export const TemplateHero: React.FC<TemplateHeroProps> = ({ template }) => {
             target="_blank"
             rel="noopener noreferrer"
             className="mb-10 flex items-center"
-            href={template.repository.html_url}
+            href={repository.repositoryUrl}
           >
             <div className="mr-10 flex h-[22px] w-[22px] items-center justify-center rounded-full bg-white">
               <img
@@ -54,26 +58,25 @@ export const TemplateHero: React.FC<TemplateHeroProps> = ({ template }) => {
               />
             </div>
             <span>
-              {template.repository.owner}
+              {repository.owner}
               <span className="mx-4">/</span>
-              {template.repository.slug}
+              {repository.slug}
             </span>
           </a>
 
-          {contributor && (
+          {creator && (
             <div className="mb-10 flex items-center">
-              {/* <pre>{JSON.stringify(contributor, null, 2)}</pre> */}
               <div className="mr-10 h-[22px] w-[22px] rounded-full">
                 <img
                   height={22}
                   width={22}
                   className="rounded-full"
-                  src={contributor.avatar_url}
-                  alt={`Contributor ${contributor.name} avatar`}
+                  src={creator.avatar}
+                  alt={`Contributor ${creator.username} avatar`}
                 />
               </div>
               <span className="text-neutral-11">Added by</span>
-              <span className="ml-5 text-neutral-12">{contributor.name}</span>
+              <span className="ml-5 text-neutral-12">{creator.username}</span>
             </div>
           )}
 
@@ -81,7 +84,7 @@ export const TemplateHero: React.FC<TemplateHeroProps> = ({ template }) => {
             target="_blank"
             rel="noopener noreferrer"
             className="mb-10 text-neutral-11 transition-colors"
-            href={template.demoUrl}
+            href={demoUrl}
           >
             <div className="flex items-center">
               <div className="mr-10 flex h-[22px] w-[22px] items-center justify-center rounded-full bg-neutral-6">

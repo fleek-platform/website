@@ -19,5 +19,3 @@ export default {
     SimilarTemplates,
   },
 };
-
-export type { Template } from './types';

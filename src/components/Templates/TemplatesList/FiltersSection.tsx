@@ -1,5 +1,6 @@
 import Accordion from '@components/Accordion';
-import type { Category, Filters, Framework, Template } from '../types';
+import type { Category, Filters, Framework } from '../types';
+import type { Template } from '@utils/graphql-client/fetchTemplates';
 import Text from '@components/Text';
 import { FilterList } from './FilterList';
 import { useMemo } from 'react';

@@ -1,5 +1,5 @@
 import Text from '@components/Text';
-import type { Template } from '../types';
+import type { Template } from '@utils/graphql-client/fetchTemplates';
 import { TemplateCard } from '../TemplatesList/TemplateCard';
 import { Button } from '@components/Button';
 

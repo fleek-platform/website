@@ -1,8 +1,11 @@
 ---
 import BaseHtml from '@layouts/BaseHtml.astro';
-import Templates, { type Template } from '@components/Templates';
-import { fetchTemplates } from '@utils/graphql-client/fetchTemplates';
-import { randomizeArray, transformTemplates } from '@utils/templates';
+import Templates from '@components/Templates';
+import {
+  fetchTemplates,
+  type Template,
+} from '@utils/graphql-client/fetchTemplates';
+import { getRepository, randomizeArray } from '@utils/templates';
 
 const graphqlApiUrl = import.meta.env.PUBLIC_GRAPHQL_ENDPOINT;
 
@@ -23,10 +26,10 @@ export async function getStaticPaths() {
     throw new Error('Failed to fetch the templates');
   }
 
-  const templates = response.data.data.map(transformTemplates);
+  const { data: templates } = response.data;
 
   const paths = templates.map((template) => ({
-    params: { slug: template.slug },
+    params: { slug: template.siteSlug },
     props: { template },
   }));
 
@@ -34,7 +37,7 @@ export async function getStaticPaths() {
 }
 
 const { template } = Astro.props;
-const { id, name, description, banner, slug, screenshot } = template;
+const { id, name, description, banner, siteSlug, deployment } = template;
 
 /*------------------ Readme content -----------------*/
 
@@ -64,8 +67,11 @@ const fetchReadmeContent = async (repoOwner?: string, repoSlug?: string) => {
   return decodedContent;
 };
 
-const { owner: repoOwner, slug: repoSlug } = template.repository;
-const readmeContent = await fetchReadmeContent(repoOwner, repoSlug);
+const repository = getRepository(template);
+const readmeContent = await fetchReadmeContent(
+  repository.owner,
+  repository.slug,
+);
 
 /*------------------ Similar templates -----------------*/
 
@@ -80,8 +86,9 @@ const getSimilarTemplates = async (): Promise<Template[]> => {
     throw new Error('Failed to fetch the templates');
   }
 
+  const { data: templates } = response.data;
+
   // get 3 random templates that are not the current template
-  const templates = response.data.data.map(transformTemplates);
   const otherTemplates = templates.filter(
     (otherTemplate) => otherTemplate.id !== template.id,
   );
@@ -92,6 +99,8 @@ const getSimilarTemplates = async (): Promise<Template[]> => {
 };
 
 const similarTemplates = await getSimilarTemplates();
+
+const screenshot = deployment.previewImageUrl;
 ---
 
 <BaseHtml
@@ -100,7 +109,7 @@ const similarTemplates = await getSimilarTemplates();
     title: name,
     description,
     image: banner,
-    slug: `templates/${slug}`,
+    slug: `templates/${siteSlug}`,
   }}
   customContentWrapperClass="px-32 xl:px-0"
 >

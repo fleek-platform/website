@@ -1,7 +1,7 @@
 import { Button } from '@components/Button';
 import { ArrowLeft } from '@components/Icons';
 import { useAuthStore } from '@fleek-platform/login-button';
-import { getDeploymentUrl } from '@utils/url';
+import { getDeploymentUrl } from '@utils/templates';
 
 interface TopActionsProps {
   templateId: string;

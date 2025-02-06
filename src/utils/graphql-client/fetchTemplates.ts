@@ -30,7 +30,7 @@ export type FetchTemplatesVariables = Partial<{
 // GraphQL actually returns nulls
 type Maybe<T> = T | null;
 
-type SiteFramework = {
+export type SiteFramework = {
   __typename?: 'SiteFramework';
   id: string;
   name: string;
@@ -49,7 +49,7 @@ type Deployment = {
 // enums originally, check in the response
 type SourceProvider = 'BITBUCKET' | 'GITHUB' | 'GITLAB';
 
-type User = {
+export type User = {
   __typename?: 'User';
   id: string;
   username?: string;
@@ -57,7 +57,7 @@ type User = {
   firstName?: string;
 };
 
-type TemplateCategory = {
+export type TemplateCategory = {
   __typename?: 'TemplateCategory';
   id: string;
   name: string;
