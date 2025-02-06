@@ -22,74 +22,74 @@ The `FunctionsClient` class provides an interface for managing Fleek Functions, 
 
 ## Methods
 
-### `get`
+### get
 
 Retrieve a specific Fleek Function by its name.
 
-#### **Function Signature**
+#### Function Signature
 
 ```typescript
 get({ name }: GetFleekFunctionArgs): Promise<FleekFunction>
 ```
 
-#### **Parameters**
+#### Parameters
 
 - `name` (string) - The name of the Fleek Function to retrieve.
 
-#### **Returns**
+#### Returns
 
 A `Promise` resolving to an object containing:
 
 - Function metadata, including `id`, `name`, `slug`, `invokeUrl`, `projectId`, `status`, and `createdAt`.
 - Deployment details, including `currentDeployment` and `deployments`.
 
-#### **Usage Example**
+#### Usage Example
 
 ```typescript
 const functionData = await functionsClient.get({ name: 'my-function' });
 console.log(functionData.invokeUrl);
 ```
 
-### `list`
+### list
 
 Retrieve a list of all Fleek Functions.
 
-#### **Function Signature**
+#### Function Signature
 
 ```typescript
 list(): Promise<FleekFunction[]>
 ```
 
-#### **Returns**
+#### Returns
 
 A `Promise` resolving to an array of Fleek Functions with details such as `id`, `name`, `slug`, `status`, and `deployments`.
 
-#### **Usage Example**
+#### Usage Example
 
 ```typescript
 const functions = await functionsClient.list();
 functions.forEach((fn) => console.log(fn.name));
 ```
 
-### `listDeployments`
+### listDeployments
 
 Retrieve all deployments associated with a specific function.
 
-#### **Function Signature**
+#### Function Signature
 
 ```typescript
 listDeployments({ functionId }: ListFleekFunctionArgs): Promise<FleekFunctionDeployment[]>
 ```
 
-#### **Parameters**
+#### Parameters
 
 - `functionId` (string) - The unique identifier of the Fleek Function.
 
-#### **Returns**
+#### Returns
 
 A `Promise` resolving to an array of Fleek Function deployments with attributes such as `id`, `cid`, `createdAt`, `updatedAt`, and `sgx`.
 
-#### **Usage Example**
+#### Usage Example
 
 ```typescript
 const deployments = await functionsClient.listDeployments({
@@ -98,26 +98,26 @@ const deployments = await functionsClient.listDeployments({
 deployments.forEach((deployment) => console.log(deployment.cid));
 ```
 
-### `create`
+### create
 
 Create a new Fleek Function.
 
-#### **Function Signature**
+#### Function Signature
 
 ```typescript
 create({ name, siteId }: CreateFleekFunctionArgs): Promise<FleekFunction>
 ```
 
-#### **Parameters**
+#### Parameters
 
 - `name` (string) - The name of the function to create.
 - `siteId` (string) - The associated site ID.
 
-#### **Returns**
+#### Returns
 
 A `Promise` resolving to a Fleek Function object with details such as `id`, `name`, `slug`, and `invokeUrl`.
 
-#### **Usage Example**
+#### Usage Example
 
 ```typescript
 const newFunction = await functionsClient.create({
@@ -127,17 +127,17 @@ const newFunction = await functionsClient.create({
 console.log(newFunction.id);
 ```
 
-### `deploy`
+### deploy
 
 Deploy a new version of a Fleek Function.
 
-#### **Function Signature**
+#### Function Signature
 
 ```typescript
 deploy({ functionId, cid, sgx, blake3Hash, assetsCid }: DeployFleekFunctionArgs): Promise<FleekFunctionDeployment>
 ```
 
-#### **Parameters**
+#### Parameters
 
 - `functionId` (string) - The function ID to deploy.
 - `cid` (string) - The content identifier (CID) of the deployment.
@@ -145,11 +145,11 @@ deploy({ functionId, cid, sgx, blake3Hash, assetsCid }: DeployFleekFunctionArgs)
 - `blake3Hash` (string) - The Blake3 hash of the deployment.
 - `assetsCid` (string, optional) - CID of associated assets.
 
-#### **Returns**
+#### Returns
 
 A `Promise` resolving to a Fleek Function deployment object with `id`, `cid`, `createdAt`, and `updatedAt`.
 
-#### **Usage Example**
+#### Usage Example
 
 ```typescript
 const deployment = await functionsClient.deploy({
@@ -161,53 +161,53 @@ const deployment = await functionsClient.deploy({
 console.log(deployment.id);
 ```
 
-### `delete`
+### delete
 
 Delete a Fleek Function by ID.
 
-#### **Function Signature**
+#### Function Signature
 
 ```typescript
 delete({ id }: DeleteFleekFunctionArgs): Promise<FleekFunction>
 ```
 
-#### **Parameters**
+#### Parameters
 
 - `id` (string) - The unique identifier of the Fleek Function.
 
-#### **Returns**
+#### Returns
 
 A `Promise` resolving to the deleted Fleek Function's details.
 
-#### **Usage Example**
+#### Usage Example
 
 ```typescript
 const deletedFunction = await functionsClient.delete({ id: '12345' });
 console.log(`Deleted function: ${deletedFunction.name}`);
 ```
 
-### `update`
+### update
 
 Update an existing Fleek Function.
 
-#### **Function Signature**
+#### Function Signature
 
 ```typescript
 update({ id, slug, name, status }: UpdateFleekFunctionArgs): Promise<FleekFunction>
 ```
 
-#### **Parameters**
+#### Parameters
 
 - `id` (string) - The function ID.
 - `slug` (string, optional) - The updated function slug.
 - `name` (string, optional) - The new function name.
 - `status` (FleekFunctionStatus, optional) - The updated function status.
 
-#### **Returns**
+#### Returns
 
 A `Promise` resolving to the updated Fleek Function details.
 
-#### **Usage Example**
+#### Usage Example
 
 ```typescript
 const updatedFunction = await functionsClient.update({
