@@ -3,7 +3,7 @@ import BaseHtml from '@layouts/BaseHtml.astro';
 import settings from '@base/settings.json';
 import Templates from '@components/Templates';
 import { transformTemplates } from '@utils/templates';
-import { fetchTemplates } from '@base/graphql/fetch-templates';
+import { fetchTemplates } from '@utils/graphql-client/fetchTemplates';
 
 const graphqlApiUrl = import.meta.env.PUBLIC_GRAPHQL_ENDPOINT;
 if (!graphqlApiUrl) {

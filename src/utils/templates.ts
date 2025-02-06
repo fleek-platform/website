@@ -1,4 +1,4 @@
-import type { Template as TemplateGraphQL } from '@base/graphql/fetch-templates';
+import type { Template as TemplateGraphQL } from '@utils/graphql-client/fetchTemplates';
 import type { Template as TemplateJson } from '@components/Templates';
 
 const nonNull = <T>(value: T | null): T | undefined => value || undefined;
@@ -45,16 +45,9 @@ export const transformTemplates = (
     slug: templateGraphQL.siteSlug,
     description: templateGraphQL.description,
 
-    // Todo: resolve this field and set type
-    // banner: templateGraphQL.banner, // protected currently
-    banner: 'https://fleek.xyz/images/templates/astro-boilerplate.webp',
+    banner: templateGraphQL.banner,
+    // banner: 'https://fleek.xyz/images/templates/astro-boilerplate.webp',
 
-    // points back to deployment page in dashboard
-    // should go to url like this:
-    // https://app.fleek.xyz/projects/cm4wno6b90001z9tzd3x2e1wr/sites/new/?templateId=clx3f5nem000333n7acqcxiwj
-    // `${import.meta.env.PUBLIC_UI_APP_URL}projects${projectId}/sites/new/?templateId=${templateGraphQL.id}`
-    // at this point only pass templateId, full link includes projectId and must be generated on the client
-    fleekDeploymentUrl: templateGraphQL.id,
     demoUrl: `https://${templateGraphQL.siteSlug}${siteSlugDomain}`,
 
     dynamicData: {

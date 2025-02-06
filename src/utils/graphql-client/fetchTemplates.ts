@@ -1,7 +1,7 @@
 import {
   executeGraphQLOperation,
   type ExecGraphQLOperationResult,
-} from './graphql-client';
+} from './graphqlClient';
 
 /*------------------ Input types  -----------------*/
 
@@ -75,14 +75,15 @@ export type Template = {
   deployment: Deployment;
   framework?: Maybe<SiteFramework>;
   reviewStatus: TemplateReviewStatus;
-  banner: File;
+  // any originally, set it as string
+  banner: string;
   createdAt: string;
   description: string;
   reviewComment?: Maybe<string>;
   reviewedAt?: Maybe<string>;
   /** @deprecated It will be deleted because of security reasons before next release. */
   // site: Site; // omit this
-  siteAvatar?: Maybe<File>;
+  siteAvatar?: Maybe<string>;
   siteId: string;
   siteSlug: string;
   updatedAt: string;

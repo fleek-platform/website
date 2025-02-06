@@ -1,22 +1,16 @@
 import { Button } from '@components/Button';
 import { ArrowLeft } from '@components/Icons';
 import { useAuthStore } from '@fleek-platform/login-button';
+import { getDeploymentUrl } from '@utils/url';
 
 interface TopActionsProps {
-  fleekDeploymentUrl: string;
+  templateId: string;
 }
 
-const appUrl = import.meta.env.PUBLIC_UI_APP_URL;
-if (!appUrl) {
-  throw new Error('App url is required to generate template deployment link');
-}
-
-export const TopActions: React.FC<TopActionsProps> = ({
-  fleekDeploymentUrl,
-}) => {
+export const TopActions: React.FC<TopActionsProps> = ({ templateId }) => {
   const { projectId } = useAuthStore();
 
-  const deploymentUrl = `${appUrl}projects/${projectId}/sites/new/?templateId=${fleekDeploymentUrl}`;
+  const deploymentUrl = getDeploymentUrl(projectId, templateId);
 
   return (
     <div className="mb-20 flex w-full justify-between">

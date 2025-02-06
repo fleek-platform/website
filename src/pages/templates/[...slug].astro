@@ -1,7 +1,7 @@
 ---
 import BaseHtml from '@layouts/BaseHtml.astro';
 import Templates, { type Template } from '@components/Templates';
-import { fetchTemplates } from '@base/graphql/fetch-templates';
+import { fetchTemplates } from '@utils/graphql-client/fetchTemplates';
 import { randomizeArray, transformTemplates } from '@utils/templates';
 
 const graphqlApiUrl = import.meta.env.PUBLIC_GRAPHQL_ENDPOINT;
@@ -34,8 +34,7 @@ export async function getStaticPaths() {
 }
 
 const { template } = Astro.props;
-const { name, description, banner, slug, screenshot, fleekDeploymentUrl } =
-  template;
+const { id, name, description, banner, slug, screenshot } = template;
 
 /*------------------ Readme content -----------------*/
 
@@ -107,10 +106,7 @@ const similarTemplates = await getSimilarTemplates();
 >
   <main class="container flex flex-col gap-20 sm:flex-row sm:flex-wrap">
     <div class="flex-1">
-      <Templates.TemplateDetails.TopActions
-        client:load
-        fleekDeploymentUrl={fleekDeploymentUrl}
-      />
+      <Templates.TemplateDetails.TopActions client:load templateId={id} />
       <Templates.TemplateDetails.TemplateHero template={template} />
     </div>
 
