@@ -5,7 +5,6 @@ date: 2025-02-06
 desc: Create, deploy, and manage serverless functions using the Fleek SDK.
 keywords: [services, Fleek SDK, serverless functions]
 tags:
-  - Accounts
   - Guide
   - Learn
   - Fleek
@@ -13,7 +12,7 @@ tags:
 
 # Managing Fleek Functions with the Fleek SDK
 
-The Fleek SDK allows you to create, deploy, and manage Fleek Functions. The SDK enables you to within your applications be able to create functions, and deploy them to the Fleek platform.
+The Fleek SDK allows you to create, deploy, and manage Fleek Functions. The SDK enables you to within your applications be able to create functions, and deploy them to the Fleek platform. The following documentation provides the methods available to interface with Fleek Functions service.
 
 :::note
 You need to [authenticate to Fleek](/docs/sdk/#authentication) via the Fleek SDK.
