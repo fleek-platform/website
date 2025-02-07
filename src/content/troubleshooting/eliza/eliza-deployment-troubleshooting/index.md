@@ -169,7 +169,54 @@ By instructing Eliza to use emojis in its adjectives, your bot will integrate th
 
 ---
 
-### What are the hardware resources exclusively allocated to a VM without sharinng?
+### How do I ensure my Agent responds to mentions?
+
+You can include the following snippet on your secrets section to ensure your agent responds to mentions and other posts considered relevant for your account.
+
+```js
+ACTION_TIMELINE_TYPE=foryou     # Type of timeline to interact with. Options: "foryou" or "following". Default: "foryou"
+```
+
+---
+
+
+### What are other useful snippets for handling my X automation ?
+
+You can include the following snippets on your secrets section:
+
+```js
+# Twitter/X Configuration
+TWITTER_DRY_RUN=false
+TWITTER_USERNAME=               # Account username
+TWITTER_PASSWORD=               # Account password
+TWITTER_EMAIL=                  # Account email
+TWITTER_2FA_SECRET=
+TWITTER_POLL_INTERVAL=120       # How often (in seconds) the bot should check for interactions
+TWITTER_SEARCH_ENABLE=FALSE     # Enable timeline search, WARNING this greatly increases your chance of getting banned
+TWITTER_TARGET_USERS=           # Comma separated list of Twitter user names to interact with
+TWITTER_RETRY_LIMIT=            # Maximum retry attempts for Twitter login
+TWITTER_SPACES_ENABLE=false     # Enable or disable Twitter Spaces logic
+# Post Interval Settings (in minutes)
+POST_INTERVAL_MIN=              # Default: 90
+POST_INTERVAL_MAX=              # Default: 180
+POST_IMMEDIATELY=               # Default: false
+# Twitter action processing configuration
+ACTION_INTERVAL=                # Interval in minutes between action processing runs (default: 5 minutes)
+ENABLE_ACTION_PROCESSING=false  # Set to true to enable the action processing loop
+MAX_ACTIONS_PROCESSING=1        # Maximum number of actions (e.g., retweets, likes) to process in a single cycle. Helps prevent excessive or uncontrolled actions.
+ACTION_TIMELINE_TYPE=foryou     # Type of timeline to interact with. Options: "foryou" or "following". Default: "foryou"
+# CONFIGURATION FOR APPROVING TWEETS BEFORE IT GETS POSTED
+TWITTER_APPROVAL_DISCORD_CHANNEL_ID= # Channel ID for the Discord bot to listen and send approval messages
+TWITTER_APPROVAL_DISCORD_BOT_TOKEN= # Discord bot token (this could be a different bot token from DISCORD_API_TOKEN)
+TWITTER_APPROVAL_ENABLED=  # Enable or disable Twitter approval logic #Default is false
+TWITTER_APPROVAL_CHECK_INTERVAL=60000  # Default: 60 seconds
+```
+
+You are advised to try and experiment with different values for these settings and find your optimal setup.
+
+---
+
+### What are the hardware resources exclusively allocated to a VM without sharing?
 
 Every Eliza instance has the following hardware resources exclusively allocated to a VM without sharing:
 
