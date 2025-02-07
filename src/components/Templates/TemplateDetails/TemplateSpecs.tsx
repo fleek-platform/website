@@ -3,6 +3,7 @@ import { BarChart, Calendar, CodeTag, RocketShip } from '@components/Icons';
 import type { Template } from '../types';
 import ContentBox from '@components/ContentBox';
 import settings from '@base/settings.json';
+import { formatDate } from '@utils/date';
 
 const Separator = () => (
   <div className="separator my-10 border-b-1 border-b-neutral-8" />
@@ -41,15 +42,6 @@ const DetailItem: React.FC<DetailItemProps> = ({
 
 const { reportAbuseUrl } = settings.site.resources;
 
-export const getLinkForTemplateReport = (template: Template): string => {
-  const templateName = `tf_20463899807629=${template.name}`;
-  const templateUrl = `tf_20464104116621=${settings.site.production.url}/templates/${template.slug}`;
-  const subject = 'tf_subject=Abusive Template Report';
-  const params = [templateUrl, templateName, subject].filter(Boolean).join('&');
-
-  return `${reportAbuseUrl}${params?.length ? '&' + params : ''}`;
-};
-
 interface TemplateSpecsProps {
   template: Template;
 }
@@ -66,11 +58,16 @@ export const TemplateSpecs: React.FC<TemplateSpecsProps> = ({ template }) => {
         Details
       </Text>
 
-      <DetailItem
-        icon={<Calendar />}
-        detailValue={template.repository.creation_date}
-        detailLabel="Creation date"
-      />
+      {template.repository.creation_date && (
+        <DetailItem
+          icon={<Calendar />}
+          detailValue={formatDate({
+            date: new Date(template.repository.creation_date),
+            dateStyle: 'long',
+          })}
+          detailLabel="Creation date"
+        />
+      )}
 
       {deploymentsAmount && (
         <DetailItem
@@ -95,8 +92,8 @@ export const TemplateSpecs: React.FC<TemplateSpecsProps> = ({ template }) => {
       <a
         target="_blank"
         rel="noopener noreferrer"
-        className="text-12 text-red-dark-11 md:text-16"
-        href={getLinkForTemplateReport(template)}
+        className="text-12 md:text-16"
+        href={reportAbuseUrl}
       >
         Report template for abuse
       </a>
