@@ -1,7 +1,7 @@
 {
   "astro-boilerplate": {
     "id": "clx3f5nem000333n7acqcxiwj",
-    "name": "Astro Boilerplate",
+    "name": "Astro Boilerplate from staging.json",
     "slug": "astro-boilerplate",
     "description": "Start your next project with this Astro boilerplate, designed for seamless development.",
     "banner": "/images/templates/astro-boilerplate.webp",
@@ -16,6 +16,15 @@
       "slug": "astro-boilerplate",
       "html_url": "https://github.com/fleek-tools/astro-boilerplate",
       "creation_date": "2024-06-06T15:35:19.487Z",
+      "provider": "GITHUB",
+      "branch": "main",
+      "ref": "505777081a342c3e2680c5f6aadbcc162dcf17e9",
+      "build": {
+        "baseDirectory": null,
+        "buildCommand": "pnpm install && pnpm run build",
+        "distDirectory": "dist",
+        "dockerImage": "fleek/node:lts"
+      },
       "contributors": [
         {
           "name": "Fleek",
