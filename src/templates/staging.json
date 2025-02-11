@@ -60,6 +60,15 @@
       "slug": "blogmaker",
       "html_url": "https://github.com/fleek-tools/blogmaker",
       "creation_date": "2024-07-18T00:38:50.620Z",
+      "provider": "GITHUB",
+      "branch": "main",
+      "ref": "5e43ec663370fbaf8af9876ff7855ec29d4db952",
+      "build": {
+        "baseDirectory": "",
+        "buildCommand": "apt-get update && apt-get install -y pandoc && python publish.py posts/*",
+        "distDirectory": "site",
+        "dockerImage": "python:3.9-slim"
+      },
       "contributors": [
         {
           "name": "Fleek",
@@ -96,6 +105,15 @@
       "slug": "chess-on-fleek-nextjs",
       "html_url": "https://github.com/fleek-tools/chess-on-fleek-nextjs",
       "creation_date": "2024-11-04T17:06:39.490Z",
+      "provider": "GITHUB",
+      "branch": "main",
+      "ref": "e67dac8bc3158b69cfcc4db1efe2ab7fe6f9e722",
+      "build": {
+        "baseDirectory": "client",
+        "buildCommand": "npm install && fleek-next build",
+        "distDirectory": ".fleek",
+        "dockerImage": "fleekplatform/fleek-next:latest"
+      },
       "contributors": [
         {
           "name": "Kanishk Khurana",
@@ -132,6 +150,15 @@
       "slug": "fleek-onchainkit-base",
       "html_url": "https://github.com/fleek-tools/fleek-onchainkit-base",
       "creation_date": "2025-01-31T20:06:04.229Z",
+      "provider": "GITHUB",
+      "branch": "refs/heads/main",
+      "ref": "dade6475f8c224a911bdd38d710be739c2d901ba",
+      "build": {
+        "baseDirectory": "",
+        "buildCommand": "npm install && fleek-next build",
+        "distDirectory": ".fleek",
+        "dockerImage": "fleekplatform/fleek-next:2.2.1"
+      },
       "contributors": [
         {
           "name": "Tobiloba Adedeji",
@@ -166,6 +193,15 @@
       "slug": "langchain-nextjs-fleek",
       "html_url": "https://github.com/fleek-tools/langchain-nextjs-fleek",
       "creation_date": "2024-12-11T01:19:54.096Z",
+      "provider": "GITHUB",
+      "branch": "refs/heads/main",
+      "ref": "b1cf9bb7c76e05be4800c340ff7ed18659d814bb",
+      "build": {
+        "baseDirectory": "",
+        "buildCommand": "npm install && fleek-next build",
+        "distDirectory": ".fleek",
+        "dockerImage": "fleekplatform/fleek-next:2.2.1"
+      },
       "contributors": [
         {
           "name": "Tobiloba",
@@ -202,6 +238,15 @@
       "slug": "fleek-nextjs-boilerplate",
       "html_url": "https://github.com/fleek-tools/fleek-nextjs-boilerplate",
       "creation_date": "2024-11-04T16:08:37.081Z",
+      "provider": "GITHUB",
+      "branch": "refs/heads/main",
+      "ref": "bdc6e0fcf4e8143b6e29621b53033352c4879b86",
+      "build": {
+        "baseDirectory": "",
+        "buildCommand": "npm install && fleek-next build",
+        "distDirectory": ".fleek",
+        "dockerImage": "fleekplatform/fleek-next:latest"
+      },
       "contributors": [
         {
           "name": "Kanishk Khurana",
@@ -238,6 +283,15 @@
       "slug": "nextra-on-fleek-nextjs",
       "html_url": "https://github.com/fleek-tools/nextra-on-fleek-nextjs",
       "creation_date": "2024-11-04T16:11:53.300Z",
+      "provider": "GITHUB",
+      "branch": "main",
+      "ref": "80dbcf340a6eda4fd6a283750b64c9a091897559",
+      "build": {
+        "baseDirectory": "",
+        "buildCommand": "pnpm install && fleek-next build",
+        "distDirectory": ".fleek",
+        "dockerImage": "fleekplatform/fleek-next:latest"
+      },
       "contributors": [
         {
           "name": "Kanishk Khurana",
@@ -274,6 +328,15 @@
       "slug": "fumadocs-on-fleek-nextjs",
       "html_url": "https://github.com/fleek-tools/fumadocs-on-fleek-nextjs",
       "creation_date": "2024-11-04T16:45:20.621Z",
+      "provider": "GITHUB",
+      "branch": "main",
+      "ref": "bd60c70825b8fe7fad01426c6660a4b1054757db",
+      "build": {
+        "baseDirectory": "",
+        "buildCommand": "npm install && fleek-next build",
+        "distDirectory": ".fleek",
+        "dockerImage": "fleekplatform/fleek-next:latest"
+      },
       "contributors": [
         {
           "name": "Kanishk Khurana",
@@ -310,6 +373,15 @@
       "slug": "gatsby-boilerplate",
       "html_url": "https://github.com/fleek-tools/gatsby-boilerplate",
       "creation_date": "2024-06-06T15:59:27.356Z",
+      "provider": "GITHUB",
+      "branch": "refs/heads/main",
+      "ref": "286c9f5f6bb9ff004d9ff2f7e11022eecdff18c9",
+      "build": {
+        "baseDirectory": "",
+        "buildCommand": "npm install && npm run build",
+        "distDirectory": "public",
+        "dockerImage": "fleek/node:lts"
+      },
       "contributors": [
         {
           "name": "Fleek",
@@ -346,6 +418,15 @@
       "slug": "hugo-boilerplate",
       "html_url": "https://github.com/fleek-tools/hugo-boilerplate",
       "creation_date": "2024-06-06T15:59:58.305Z",
+      "provider": "GITHUB",
+      "branch": "refs/heads/main",
+      "ref": "859b9e493dffadadad4c51d79d2d60e2cc0fafe5",
+      "build": {
+        "baseDirectory": "",
+        "buildCommand": "hugo",
+        "distDirectory": "public",
+        "dockerImage": "fleek/hugo-v0.85"
+      },
       "contributors": [
         {
           "name": "Fleek",
@@ -382,6 +463,15 @@
       "slug": "nextjs-boilerplate",
       "html_url": "https://github.com/fleek-tools/nextjs-boilerplate",
       "creation_date": "2024-06-06T15:49:31.242Z",
+      "provider": "GITHUB",
+      "branch": "refs/heads/main",
+      "ref": "153d905a1de0892551c13038f7a4b9820e0b9e8e",
+      "build": {
+        "baseDirectory": "",
+        "buildCommand": "npm install && npm run build",
+        "distDirectory": "out",
+        "dockerImage": "fleek/node:lts"
+      },
       "contributors": [
         {
           "name": "Fleek",
@@ -418,6 +508,15 @@
       "slug": "nuxt-boilerplate",
       "html_url": "https://github.com/fleek-tools/nuxt-boilerplate",
       "creation_date": "2024-06-06T16:47:11.258Z",
+      "provider": "GITHUB",
+      "branch": "refs/heads/main",
+      "ref": "49569de171b5d9711824704b17ed49de92ab6fb4",
+      "build": {
+        "baseDirectory": "",
+        "buildCommand": "npm install && npm run generate",
+        "distDirectory": ".output/public",
+        "dockerImage": "fleek/node:lts"
+      },
       "contributors": [
         {
           "name": "Fleek",
@@ -454,6 +553,15 @@
       "slug": "react-boilerplate",
       "html_url": "https://github.com/fleek-tools/react-boilerplate",
       "creation_date": "2024-06-06T16:02:20.133Z",
+      "provider": "GITHUB",
+      "branch": "refs/heads/main",
+      "ref": "cc93edc9fcb3e8e591bea9268ccaf0b5399cc570",
+      "build": {
+        "baseDirectory": "",
+        "buildCommand": "npm install && npm run build",
+        "distDirectory": "dist",
+        "dockerImage": "fleek/node:lts"
+      },
       "contributors": [
         {
           "name": "Fleek",
@@ -490,6 +598,15 @@
       "slug": "remix-boilerplate",
       "html_url": "https://github.com/fleek-tools/remix-boilerplate",
       "creation_date": "2024-06-06T16:54:30.489Z",
+      "provider": "GITHUB",
+      "branch": "refs/heads/main",
+      "ref": "2077311bc39ad4a366d2bfc2f1a758a73c1db717",
+      "build": {
+        "baseDirectory": "",
+        "buildCommand": "npm install && npm run build",
+        "distDirectory": "public",
+        "dockerImage": "fleek/node:lts"
+      },
       "contributors": [
         {
           "name": "Fleek",
@@ -526,6 +643,15 @@
       "slug": "svelte-boilerplate",
       "html_url": "https://github.com/fleek-tools/svelte-boilerplate",
       "creation_date": "2024-06-06T16:44:12.111Z",
+      "provider": "GITHUB",
+      "branch": "refs/heads/main",
+      "ref": "c1b0ec42387e15e16dd9598c65dad46e57f1e67d",
+      "build": {
+        "baseDirectory": "",
+        "buildCommand": "npm install && npm run build",
+        "distDirectory": "build",
+        "dockerImage": "fleek/node:lts"
+      },
       "contributors": [
         {
           "name": "Fleek",
@@ -562,6 +688,15 @@
       "slug": "vue-boilerplate",
       "html_url": "https://github.com/fleek-tools/vue-boilerplate",
       "creation_date": "2024-06-06T16:09:15.574Z",
+      "provider": "GITHUB",
+      "branch": "refs/heads/main",
+      "ref": "b71dad59452e3be076adca28f476d5b3c5f700a0",
+      "build": {
+        "baseDirectory": "",
+        "buildCommand": "npm install && npm run build",
+        "distDirectory": "dist",
+        "dockerImage": "fleek/node:lts"
+      },
       "contributors": [
         {
           "name": "Fleek",

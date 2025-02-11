@@ -23,9 +23,9 @@ export type Build = {
 
 export type Repository = Omit<Repo, 'description' | 'contributors_url'> & {
   // these are only used in dashboard for deployment, not in the website
-  provider: string;
-  branch: string;
-  ref: string;
+  provider?: string;
+  branch?: string;
+  ref?: string;
   build?: Build;
 };
 
