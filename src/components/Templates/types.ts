@@ -35,7 +35,6 @@ export type Template = {
   slug: string;
   description: string;
   banner: string;
-  fleekDeploymentUrl: string;
   demoUrl: string;
   framework: Framework;
   dynamicData?: DynamicTemplateData;

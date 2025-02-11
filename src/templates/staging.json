@@ -5,7 +5,6 @@
     "slug": "astro-boilerplate",
     "description": "Start your next project with this Astro boilerplate, designed for seamless development.",
     "banner": "/images/templates/astro-boilerplate.webp",
-    "fleekDeploymentUrl": "https://app.fleek.xyz/templates/clx3f5nem000333n7acqcxiwj/",
     "demoUrl": "https://big-midnight-melodic.on-fleek.app/",
     "framework": {
       "name": "Astro",
