@@ -6,6 +6,7 @@ import {
 
 const X_PIXEL_EVENT_IDS = {
   AI_AGENT_PURCHASE: 'tw-o2hcd-p27pq',
+  AI_AGENT_JOURNEY_UNIT: 'tw-o2hcd-ozmgv',
 };
 
 export const captureEvent: CaptureEventFn = (eventName, eventProperties) => {
@@ -22,8 +23,9 @@ export const captureEvent: CaptureEventFn = (eventName, eventProperties) => {
 
   window.posthog.capture(eventName, eventProperties);
 
+  if (!window.twq) return;
+
   if (
-    window.twq &&
     eventName === AgentUIEventTypes.SUBSCRIPTION.PURCHASE_POLLING.COMPLETED &&
     eventProperties?.msg === 'success'
   ) {
@@ -31,6 +33,10 @@ export const captureEvent: CaptureEventFn = (eventName, eventProperties) => {
       value: eventProperties?.conversionValue || undefined,
       email_address: eventProperties?.userEmail || undefined,
     });
+  }
+
+  if (eventName === AgentUIEventTypes.JOURNEY_INIT) {
+    window.twq('event', X_PIXEL_EVENT_IDS.AI_AGENT_JOURNEY_UNIT);
   }
 };
 
