@@ -1,4 +1,5 @@
-import type { Filters, Template } from '../types';
+import type { Filters } from '../types';
+import type { Template } from '@utils/graphql-client/fetchTemplates';
 import { useMemo, useState } from 'react';
 import { FaMagnifyingGlass } from 'react-icons/fa6';
 import { QuestionMark } from '@components/Icons';

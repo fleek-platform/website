@@ -69,7 +69,7 @@ const BiweeklySubscription = () => {
         >
           <div className="flex items-center gap-[1rem]">
             <div>
-              <FaEnvelope className="text-gray-dark-9 " fontSize={19} />
+              <FaEnvelope className="text-gray-dark-9" fontSize={19} />
             </div>
 
             <input

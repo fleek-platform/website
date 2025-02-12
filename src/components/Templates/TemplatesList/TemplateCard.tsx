@@ -1,7 +1,8 @@
 import ContentBox from '@components/ContentBox';
-import type { Template } from '../types';
+import type { Template } from '@utils/graphql-client/fetchTemplates';
 import { cn } from '@utils/cn';
-
+import { GoGear } from 'react-icons/go';
+import { getRepository } from '@utils/templates';
 interface TemplateCardProps {
   template: Template;
   className?: string;
@@ -11,12 +12,13 @@ export const TemplateCard: React.FC<TemplateCardProps> = ({
   template,
   className,
 }) => {
-  const contributor = template.repository.contributors?.[0];
+  const repository = getRepository(template);
+  const { creator } = repository;
 
   return (
     <a
       key={template.id}
-      href={`/templates/${template.slug}/`}
+      href={`/templates/${template.siteSlug}/`}
       className={cn('block transition-colors', className)}
     >
       <ContentBox
@@ -28,30 +30,32 @@ export const TemplateCard: React.FC<TemplateCardProps> = ({
               {template.name}
             </h3>
 
-            {template.framework && (
+            {template.framework ? (
               <img
-                className="absolute right-0 top-0 h-24 w-24 rounded-full lg:h-28 lg:w-28"
+                className="absolute right-0 top-0 size-24 rounded-full lg:size-28"
                 src={template.framework.avatar}
                 alt={`${template.framework.name} icon`}
               />
+            ) : (
+              <GoGear className="absolute right-0 top-0 size-24 lg:size-28" />
             )}
 
             <p className="mt-12 line-clamp-2 break-words text-[11px] font-normal leading-[16px] text-neutral-11 lg:text-[14px] lg:leading-[20px]">
               {template.description}
             </p>
 
-            {contributor && (
+            {creator && (
               <div className="mt-12">
                 <div className="flex items-center text-[10px] font-normal leading-[13px] lg:text-[12px] lg:leading-[16px]">
                   <span className=" text-neutral-11">Added by</span>
 
                   <img
                     className="mx-6 h-20 w-20 rounded-full lg:h-24 lg:w-24"
-                    src={contributor.avatar_url}
-                    alt={`${contributor.name} avatar`}
+                    src={creator.avatar}
+                    alt={`${creator.username} avatar`}
                   />
 
-                  <span className="text-neutral-12">{contributor.name}</span>
+                  <span className="text-neutral-12">{creator.username}</span>
                 </div>
               </div>
             )}

@@ -4,6 +4,7 @@ import { cn } from '@utils/cn';
 import Text from '@components/Text';
 import Link from '@components/Link';
 import ContentBox from '@components/ContentBox';
+import { FaCircleQuestion } from 'react-icons/fa6';
 
 interface TemplateReadmeProps {
   readmeContent: string;
@@ -158,3 +159,41 @@ export const TemplateReadme: React.FC<TemplateReadmeProps> = ({
     </ContentBox>
   );
 };
+
+interface TemplateReadmeFallbackProps {
+  heading: string;
+  text: string;
+}
+
+const TemplateReadmeFallback: React.FC<TemplateReadmeFallbackProps> = ({
+  heading,
+  text,
+}) => (
+  <ContentBox
+    variant="narrow"
+    className="readme-content rounded-sm box-border max-w-full p-3"
+    contentClassName="flex flex-col items-center justify-center gap-5"
+  >
+    <FaCircleQuestion className="size-12" />
+    <Text className="font-bold text-neutral-12" as="h2" style="m">
+      {heading}
+    </Text>
+    <Text className="text-neutral-11" as="p" style="s">
+      {text}
+    </Text>
+  </ContentBox>
+);
+
+export const TemplateNoReadme: React.FC = () => (
+  <TemplateReadmeFallback
+    heading="No Readme"
+    text="This template does not have a readme."
+  />
+);
+
+export const TemplateReadmeError: React.FC = () => (
+  <TemplateReadmeFallback
+    heading="Issue getting Readme info"
+    text="Try refreshing the page."
+  />
+);

@@ -26,6 +26,7 @@ interface ImportMetaEnv {
   readonly PUBLIC_GRAPHQL_ENDPOINT: string;
   readonly PUBLIC_FLEEK_REST_API_URL: string;
   readonly PUBLIC_UI_APP_URL: string;
+  readonly PUBLIC_UI_SITE_SLUG_DOMAIN: string;
 
   readonly PUBLIC_DYNAMIC_ENVIRONMENT_ID: string;
 

@@ -122,6 +122,7 @@ PUBLIC_DYNAMIC_ENVIRONMENT_ID="c4d4ccad-9460-419c-9ca3-494488f8c892"
 PUBLIC_UI_APP_URL="https://staging.fleeksandbox.xyz"
 PUBLIC_POSTHOG_HOST="https://us.i.posthog.com"
 PUBLIC_POSTHOG_API_KEY="phc_SdvLWEagL7nAauyEBun0ZF6v59DxMIk8ofzI91gpIUw"
+PUBLIC_UI_SITE_SLUG_DOMAIN="stg.on-fleek-test.app"
 ```
 
 💡 The SUPPORT_ALLOW_ORIGIN_ADDR and SUPPORT_RATE_LIMIT_PATHS are comma separated values (csv). the MEILISEARCH_DOCUMENTS_CLIENT_API_KEY is required when querying staging, production environments which should be provided in the headers.
@@ -1182,11 +1183,11 @@ PromoteKit by Stripe is a tool that helps businesses integrate and manage promot
 
 TLDR; Visit [https://fleek-xyz-staging.fleeksandbox.xyz/?via=Helder](https://fleek-xyz-staging.fleeksandbox.xyz/?via=Helder) to have the ability to get a referral link in the window.promotekit_referral
 
-1) Visit https://refer.fleek.xyz/ to create an account
-2) Copy the referral link which will include the account ID, e.g. [https://fleek-xyz-staging.fleeksandbox.xyz/?via=Helder](https://fleek-xyz-staging.fleeksandbox.xyz/?via=Helder)
-3) Visit the referral link, e.g. [https://fleek-xyz-staging.fleeksandbox.xyz/?via=Helder](https://fleek-xyz-staging.fleeksandbox.xyz/?via=Helder)
-4) Access the promotekit on runtime e.g. window.promotekit_referral
-5) As a fallback, you can also get the `promotekit_referral`
+1. Visit https://refer.fleek.xyz/ to create an account
+2. Copy the referral link which will include the account ID, e.g. [https://fleek-xyz-staging.fleeksandbox.xyz/?via=Helder](https://fleek-xyz-staging.fleeksandbox.xyz/?via=Helder)
+3. Visit the referral link, e.g. [https://fleek-xyz-staging.fleeksandbox.xyz/?via=Helder](https://fleek-xyz-staging.fleeksandbox.xyz/?via=Helder)
+4. Access the promotekit on runtime e.g. window.promotekit_referral
+5. As a fallback, you can also get the `promotekit_referral`
 
 ## Changelog Resources
 

@@ -1,13 +1,17 @@
 import { Button } from '@components/Button';
 import { ArrowLeft } from '@components/Icons';
+import { useAuthStore } from '@fleek-platform/login-button';
+import { getDeploymentUrl } from '@utils/templates';
 
 interface TopActionsProps {
-  templateDeploymentUrl: string;
+  templateId: string;
 }
 
-export const TopActions: React.FC<TopActionsProps> = ({
-  templateDeploymentUrl,
-}) => {
+export const TopActions: React.FC<TopActionsProps> = ({ templateId }) => {
+  const { projectId } = useAuthStore();
+
+  const deploymentUrl = getDeploymentUrl(projectId, templateId);
+
   return (
     <div className="mb-20 flex w-full justify-between">
       <Button size="sm" variant="ghost" href="/templates/">
@@ -15,11 +19,7 @@ export const TopActions: React.FC<TopActionsProps> = ({
         Go back
       </Button>
 
-      <Button
-        size="sm"
-        variant="app-primary"
-        href={`${templateDeploymentUrl}?deploy=true`}
-      >
+      <Button size="sm" variant="app-primary" href={deploymentUrl}>
         Deploy template
       </Button>
     </div>
