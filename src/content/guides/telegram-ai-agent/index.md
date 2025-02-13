@@ -76,11 +76,11 @@ Now that we have our API keys, it’s time to **personalize your AI agent** and 
 1. **Go to [fleek.xyz/eliza/](https://fleek.xyz/eliza/)**
 2. Click **"Start with a Template."**
 3. **Choose the "Social Pack" Template**
-    - This template is designed for **social media chatbots**, making it the best choice for a Telegram AI agent.
+   - This template is designed for **social media chatbots**, making it the best choice for a Telegram AI agent.
 4. **Select OpenAI as the Model Provider**
-    - Toggle **OpenAI** as your AI model provider.
+   - Toggle **OpenAI** as your AI model provider.
 5. **Select Telegram as the Client**
-    - Choose **Telegram** as the platform where your bot will operate.
+   - Choose **Telegram** as the platform where your bot will operate.
 
 ![](./templatename.png)
 ![](./model.png)
@@ -90,12 +90,12 @@ Now that we have our API keys, it’s time to **personalize your AI agent** and 
 ### **Plugins: Keep Them or Disable Them?**
 
 - **For Beginners:**
-    - **Unselect all plugins** to keep the bot **simple** and focused on being a social media chat assistant.
-    - This is the easiest way to **quickly deploy** a chatbot without any extra setup.
+  - **Unselect all plugins** to keep the bot **simple** and focused on being a social media chat assistant.
+  - This is the easiest way to **quickly deploy** a chatbot without any extra setup.
 - **For Advanced Users:**
-    - You can **keep plugins enabled** for additional functionality, like enhanced API integrations.
-    - Some plugins **require additional API keys** (e.g., retrieval plugins, external API calls).
-    - Be aware that **some third-party plugins may have additional costs** depending on the service.
+  - You can **keep plugins enabled** for additional functionality, like enhanced API integrations.
+  - Some plugins **require additional API keys** (e.g., retrieval plugins, external API calls).
+  - Be aware that **some third-party plugins may have additional costs** depending on the service.
 
 Once you’ve **selected OpenAI, Telegram, and configured your plugins**, your AI agent is ready for deployment! 🎉
 
@@ -107,19 +107,18 @@ Now, let’s get your AI bot live!
 
 1. **Go to the Fleek Deployment Settings**
 2. **Enter Your API Keys**
-    
-    In the **“Add Secrets”** section, fill in:
-    
-    - **OPENAI_API_KEY** → Paste the API key from OpenAI.
-    - **TELEGRAM_BOT_TOKEN** → Enter the Telegram bot token from BotFather.
+
+   In the **“Add Secrets”** section, fill in:
+
+   - **OPENAI_API_KEY** → Paste the API key from OpenAI.
+   - **TELEGRAM_BOT_TOKEN** → Enter the Telegram bot token from BotFather.
 
 ![](./apikey.png)
 
-
 3. **Review Your Character**
-    - Click **"Review Character"** to confirm all your settings.
+   - Click **"Review Character"** to confirm all your settings.
 4. **Click "Deploy Agent"**
-    - This will deploy your AI agent instantly on Fleek
+   - This will deploy your AI agent instantly on Fleek
 
 ![](./agentlive.png)
 
@@ -132,29 +131,26 @@ Once your AI agent is live, **your Telegram bot will be ready to use automatical
 ### **How to Test Your Bot:**
 
 1. **Visit the Dashboard and View Logs**
-    - Click **View Logs**.
-    - Refresh the logs to ensure everything is up to date.
+   - Click **View Logs**.
+   - Refresh the logs to ensure everything is up to date.
 
 ![](./testbot.png)
 
-
 2. **Go back to telegram**
-    - Open the link provided by Telegram.
-    - Click **Start** to activate your bot.
+   - Open the link provided by Telegram.
+   - Click **Start** to activate your bot.
 
 ![](./tgtoken.png)
 
-
 3. **Start Chatting!**
-    - Send a message—your AI should now respond instantly using OpenAI! 🎉
+   - Send a message—your AI should now respond instantly using OpenAI! 🎉
 
 ![](./queenresponse.gif)
 
-
 4. **Customize Your Bot (Optional)**
-    - You can now add a **description, about section, and profile picture** to make your bot more personalized.
-    - Type **/help** in BotFather the chat to see available commands.
-    - If you want a better bot username, you can contact **Telegram Bot Support**, but make sure your bot is fully operational first.
+   - You can now add a **description, about section, and profile picture** to make your bot more personalized.
+   - Type **/help** in BotFather the chat to see available commands.
+   - If you want a better bot username, you can contact **Telegram Bot Support**, but make sure your bot is fully operational first.
 
 ---
 
