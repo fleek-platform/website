@@ -1,5 +1,4 @@
 ---
-import settings from '@base/settings.json';
 import BaseHtml from '@layouts/BaseHtml.astro';
 import Templates, { type Template } from '@components/Templates';
 import { getTemplateByEnvironment } from '@utils/templates';
@@ -14,8 +13,7 @@ export async function getStaticPaths() {
 }
 
 const { template } = Astro.props;
-const { name, description, banner, slug, screenshots, fleekDeploymentUrl } =
-  template;
+const { id, name, description, banner, slug, screenshots } = template;
 
 // Function to fetch and decode README content
 async function fetchReadmeContent(repoOwner: string, repoSlug: string) {
@@ -59,9 +57,7 @@ const readmeContent = await fetchReadmeContent(
 >
   <main class="container flex flex-col gap-20 sm:flex-row sm:flex-wrap">
     <div class="flex-1">
-      <Templates.TemplateDetails.TopActions
-        templateDeploymentUrl={fleekDeploymentUrl}
-      />
+      <Templates.TemplateDetails.TopActions client:load templateId={id} />
       <Templates.TemplateDetails.TemplateHero template={template} />
     </div>
 
