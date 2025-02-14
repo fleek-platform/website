@@ -20,7 +20,6 @@ With Fleek, deploying Eliza-based AI agents is seamless. Whether you’re settin
 2. [Use a predefined template [⚡ : no developer experience needed]](https://fleek.xyz/guides/eliza-guide#use-a-predefined-template)
 3. [Upload a characterfile](https://fleek.xyz/guides/eliza-guide#upload-a-characterfile)
 
-<br/>
 
 ![agent deployment](agent-deployment.png)
 
