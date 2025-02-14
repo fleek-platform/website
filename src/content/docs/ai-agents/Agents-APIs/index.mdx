@@ -45,7 +45,7 @@ Fleek provides an endpoint that proxies requests to an AI agent's API on Fleek, 
 
 ```jsx
 
-https://api.staging.fleeksandbox.xyz/api/v1/ai-agents/{agentId}/api/{*key}
+https://api.fleeksandbox.xyz/api/v1/ai-agents/{agentId}/api/{*key}
 
 ```
 
@@ -61,19 +61,16 @@ https://api.staging.fleeksandbox.xyz/api/v1/ai-agents/{agentId}/api/{*key}
 **Example Request**
 
 ```jsx
-fetch(
-  'https://api.staging.fleeksandbox.xyz/api/v1/ai-agents/12345/api/message',
-  {
-    method: 'POST',
+fetch('https://api.fleek.xyz/api/v1/ai-agents/12345/api/message', {
+  method: 'POST',
 
-    headers: {
-      'X-Api-Key': 'your-api-key',
-      'Content-Type': 'application/json',
-    },
-
-    body: JSON.stringify({ text: 'Hello, AI!' }),
+  headers: {
+    'X-Api-Key': 'your-api-key',
+    'Content-Type': 'application/json',
   },
-);
+
+  body: JSON.stringify({ text: 'Hello, AI!' }),
+});
 ```
 
-For more details, check the [**full API docs**](https://api.staging.fleeksandbox.xyz/api#tag/ai-agents/GET/api/v1/ai-agents/%7BagentId%7D/api/%7B*key%7D).
+For more details, check the [**full API docs**](https://api.fleek.xyz/api#tag/ai-agents/GET/api/v1/ai-agents/%7BagentId%7D/api/%7B*key%7D).

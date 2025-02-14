@@ -7,7 +7,7 @@ desc: You can edit characterfiles of your AI agents after they have been deploye
 
 # Edit characterfile on Fleek
 
-You can edit characterfiles of your AI agents after they have been deployed. Start by navigating to fleek.xyz. If you have deployed agents previously, you will see a list of agents in the sidebar on the screen. Select any of the three deployment options if you have not deployed any agents. To edit a characterfile:
+You can edit characterfiles of your AI agents after they have been deployed. Start by navigating to [fleek.xyz](https://fleek.xyz). If you have deployed agents previously, you will see a list of agents in the sidebar on the screen. Select any of the three deployment options if you have not deployed any agents. To edit a characterfile:
 
 1. Click on the agent’s name and you should see a tab similar to the below:
 
