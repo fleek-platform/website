@@ -17,7 +17,6 @@ A new "Get TDX quote" panel has been added for each agent on the Agents tab on a
 
 1. Navigate to the Agents tab on [app.fleek.xyz](app.fleek.xyz)
 2. Locate the agent for which you want a TDX quote.
-   {{Screenshot}}
 3. Scroll to the panel that says “Remote attestation”
 4. Select "Get hash".
 5. You will see an output display of the raw text output:
