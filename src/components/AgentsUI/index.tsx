@@ -17,6 +17,12 @@ export const AgentsUIIntegration: React.FC<AgentsUIIntegrationProps> = ({
   apiUrl,
 }) => {
   const authStoreInstance = useAuthStore();
+  const apiConfig = {
+    restApiUrl: import.meta.env.PUBLIC_FLEEK_REST_API_URL,
+    uiAppUrl: import.meta.env.PUBLIC_UI_APP_URL,
+    beehiivProxyServerUrl: import.meta.env.PUBLIC_BEEHIIV_PROXY_SERVER_URL,
+    graphqlApiUrl: import.meta.env.PUBLIC_GRAPHQL_API_URL,
+  };
 
   return (
     <ElizaIntegrationLayer
@@ -26,7 +32,7 @@ export const AgentsUIIntegration: React.FC<AgentsUIIntegrationProps> = ({
       getPlans={getPlans}
       createSubscription={createSubscription}
       captureEvent={captureEvent}
-      apiUrl={apiUrl}
+      apiConfig={apiConfig}
     />
   );
 };
