@@ -16,8 +16,7 @@ export interface AgentsUIIntegrationProps {
 export const AgentsUIIntegration: React.FC<AgentsUIIntegrationProps> = ({
   apiUrl,
 }) => {
-  const authStoreInstance =
-    useAuthStore();
+  const authStoreInstance = useAuthStore();
 
   return (
     <ElizaIntegrationLayer
