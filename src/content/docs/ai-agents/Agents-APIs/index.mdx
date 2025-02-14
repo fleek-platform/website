@@ -36,3 +36,44 @@ You can find the API documentation [here](https://api.fleek.xyz/api-docs/openapi
 - Get agent logs
 - Start an agent
 - Stop an agent
+
+## AI agent proxy on Fleek
+
+Fleek provides an endpoint that proxies requests to an AI agent's API on Fleek, supporting **GET, POST, PUT, DELETE**, etc.
+
+**URL structure:**
+
+```jsx
+
+https://api.staging.fleeksandbox.xyz/api/v1/ai-agents/{agentId}/api/{*key}
+
+```
+
+**Headers:**
+
+- **`X-Api-Key`** – Required for authentication.
+
+**Path Parameters:**
+
+- **`agentId`** – AI agent's ID.
+- **`key`** – API path on the agent’s server.
+
+**Example Request**
+
+```jsx
+fetch(
+  'https://api.staging.fleeksandbox.xyz/api/v1/ai-agents/12345/api/message',
+  {
+    method: 'POST',
+
+    headers: {
+      'X-Api-Key': 'your-api-key',
+      'Content-Type': 'application/json',
+    },
+
+    body: JSON.stringify({ text: 'Hello, AI!' }),
+  },
+);
+```
+
+For more details, check the [**full API docs**](https://api.staging.fleeksandbox.xyz/api#tag/ai-agents/GET/api/v1/ai-agents/%7BagentId%7D/api/%7B*key%7D).
