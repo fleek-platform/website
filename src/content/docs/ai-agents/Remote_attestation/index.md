@@ -5,6 +5,8 @@ date: 2025-02-14
 desc: Retrieve a raw text output representing the TDX quote for your agent.
 ---
 
+# Remote Attestation
+
 :::note
 We're improving the UX for TDX quotes in the coming weeks to make the process more intuitive. Your feedback is welcome as we refine this feature.
 :::
