@@ -9,7 +9,14 @@ declare global {
   }
 }
 
-const apiUrl = import.meta.env.PUBLIC_FLEEK_REST_API_URL;
+const overrideDefined = {
+  PUBLIC_FLEEK_REST_API_URL: import.meta.env.PUBLIC_FLEEK_REST_API_URL,
+  PUBLIC_UI_APP_URL: import.meta.env.PUBLIC_UI_APP_URL,
+  PUBLIC_BEEHIIV_PROXY_SERVER_URL: import.meta.env
+    .PUBLIC_BEEHIIV_PROXY_SERVER_URL,
+  PUBLIC_GRAPHQL_API_URL: import.meta.env.PUBLIC_GRAPHQL_API_URL,
+  PUBLIC_DYNAMIC_ENVIRONMENT_ID: import.meta.env.PUBLIC_DYNAMIC_ENVIRONMENT_ID,
+};
 ---
 
 <BaseHtml
@@ -23,5 +30,5 @@ const apiUrl = import.meta.env.PUBLIC_FLEEK_REST_API_URL;
   overflowHorizontally
   customContentWrapperClass="px-0"
 >
-  <AgentsUI client:load apiUrl={apiUrl} />
+  <AgentsUI client:load overrideDefined={overrideDefined} />
 </BaseHtml>
