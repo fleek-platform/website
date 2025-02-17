@@ -4,7 +4,11 @@ import '@fleek-platform/agents-ui/styles';
 
 import { useAuthStore } from '@fleek-platform/login-button';
 import { getReferralId } from '@utils/promotekit';
-import { ElizaIntegrationLayer, api, type Defined } from '@fleek-platform/agents-ui';
+import {
+  ElizaIntegrationLayer,
+  api,
+  type Defined,
+} from '@fleek-platform/agents-ui';
 import { captureEvent } from '@components/Tracking/trackingUtils';
 
 const { getPlans, getSubscriptions, createSubscription } = api;
@@ -31,6 +35,6 @@ export const AgentsUIIntegration: React.FC<AgentsUIIntegrationProps> = ({
   );
 };
 
-export const AgentsUI: React.FC<AgentsUIIntegrationProps> = ({ overrideDefined }) => (
-  <AgentsUIIntegration overrideDefined={overrideDefined} />
-);
+export const AgentsUI: React.FC<AgentsUIIntegrationProps> = ({
+  overrideDefined,
+}) => <AgentsUIIntegration overrideDefined={overrideDefined} />;
