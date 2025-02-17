@@ -4,25 +4,19 @@ import '@fleek-platform/agents-ui/styles';
 
 import { useAuthStore } from '@fleek-platform/login-button';
 import { getReferralId } from '@utils/promotekit';
-import { ElizaIntegrationLayer, api } from '@fleek-platform/agents-ui';
+import { ElizaIntegrationLayer, api, type Defined } from '@fleek-platform/agents-ui';
 import { captureEvent } from '@components/Tracking/trackingUtils';
 
 const { getPlans, getSubscriptions, createSubscription } = api;
 
 export interface AgentsUIIntegrationProps {
-  apiUrl?: string;
+  overrideDefined: Defined;
 }
 
 export const AgentsUIIntegration: React.FC<AgentsUIIntegrationProps> = ({
-  apiUrl,
+  overrideDefined,
 }) => {
   const authStoreInstance = useAuthStore();
-  const apiConfig = {
-    restApiUrl: import.meta.env.PUBLIC_FLEEK_REST_API_URL,
-    uiAppUrl: import.meta.env.PUBLIC_UI_APP_URL,
-    beehiivProxyServerUrl: import.meta.env.PUBLIC_BEEHIIV_PROXY_SERVER_URL,
-    graphqlApiUrl: import.meta.env.PUBLIC_GRAPHQL_API_URL,
-  };
 
   return (
     <ElizaIntegrationLayer
@@ -32,11 +26,11 @@ export const AgentsUIIntegration: React.FC<AgentsUIIntegrationProps> = ({
       getPlans={getPlans}
       createSubscription={createSubscription}
       captureEvent={captureEvent}
-      apiConfig={apiConfig}
+      overrideDefined={overrideDefined}
     />
   );
 };
 
-export const AgentsUI: React.FC<AgentsUIIntegrationProps> = ({ apiUrl }) => (
-  <AgentsUIIntegration apiUrl={apiUrl} />
+export const AgentsUI: React.FC<AgentsUIIntegrationProps> = ({ overrideDefined }) => (
+  <AgentsUIIntegration overrideDefined={overrideDefined} />
 );
