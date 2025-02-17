@@ -11,15 +11,16 @@ We're improving the UX for TDX quotes in the coming weeks to make the process mo
 
 ## Getting a TDX Quote
 
-A new "Get TDX quote" panel has been added for each agent on the Agents tab on [app.fleek.xyz](https://app.fleek.xyz). This option allows you to retrieve a raw text output representing the TDX quote for your agent.
+A new "Settings" panel has been added for each agent on the Agents tab on [fleek.xyz/eliza](https://fleek.xyz/eliza). One of the available settings is "Remote Attestation". This allows you to retrieve a raw text output representing the TDX quote for your agent.
 
 ### How to use:
 
-1. Navigate to the Agents tab on [app.fleek.xyz](https://app.fleek.xyz)
+1. Navigate to the Agents tab on [fleek.xyz/eliza](https://fleek.xyz/eliza)
 2. Locate the agent for which you want a TDX quote.
-3. Scroll to the panel that says “Remote attestation”
-4. Select "Get hash".
-5. You will see an output display of the raw text output:
+3. Go to the settings tab
+4. You will see the panel that says “Remote attestation”
+5. Select "Copy hash".
+6. You will see a text output similar to the below:
 
 ![quote](./tdx.png)
 
