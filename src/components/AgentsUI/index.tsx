@@ -1,3 +1,5 @@
+// TODO: Export on bundle instead remove need for import
+// see related ticket
 import '@fleek-platform/agents-ui/styles';
 
 import { useAuthStore } from '@fleek-platform/login-button';
@@ -14,24 +16,23 @@ export interface AgentsUIIntegrationProps {
 export const AgentsUIIntegration: React.FC<AgentsUIIntegrationProps> = ({
   apiUrl,
 }) => {
-  const { triggerLoginModal, accessToken, isLoggingIn, isLoggedIn, projectId } =
-    useAuthStore();
-  const login = () =>
-    typeof triggerLoginModal === 'function' && triggerLoginModal(true);
+  const authStoreInstance = useAuthStore();
+  const apiConfig = {
+    restApiUrl: import.meta.env.PUBLIC_FLEEK_REST_API_URL,
+    uiAppUrl: import.meta.env.PUBLIC_UI_APP_URL,
+    beehiivProxyServerUrl: import.meta.env.PUBLIC_BEEHIIV_PROXY_SERVER_URL,
+    graphqlApiUrl: import.meta.env.PUBLIC_GRAPHQL_API_URL,
+  };
 
   return (
     <ElizaIntegrationLayer
-      accessToken={accessToken}
-      activeProjectId={projectId}
-      isLoggedIn={isLoggedIn}
-      isLoggingIn={isLoggingIn}
+      authStoreInstance={authStoreInstance}
       getReferralId={getReferralId}
-      login={login}
       getSubscriptions={getSubscriptions}
       getPlans={getPlans}
       createSubscription={createSubscription}
       captureEvent={captureEvent}
-      apiUrl={apiUrl}
+      apiConfig={apiConfig}
     />
   );
 };
