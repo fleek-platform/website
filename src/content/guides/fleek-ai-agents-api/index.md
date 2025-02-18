@@ -7,6 +7,7 @@ image: './step.png'
 author:
   - 'Tobiloba Adedeji'
 ---
+
 ## **Introduction**
 
 This guide provides step-by-step instructions on how to use the Fleek AI Agents API. It covers all available requests, authentication methods, and practical examples to help users interact with the API, even if they are new to it.
@@ -494,7 +495,7 @@ curl 'https://api.fleek.xyz/api/v1/ai-agents/{agentId}/attestation' \
 
 This endpoint is used to proxy requests to the AI agent API. Any method is supported (GET, POST, PUT, DELETE, etc.). It will forward the request to the AI agent API and return the response.
 
-**Request:** GET /api/v1/ai-agents/{agentId}/api/{*key}
+**Request:** GET /api/v1/ai-agents/{agentId}/api/{\*key}
 
 **Example:**
 
