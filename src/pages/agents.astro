@@ -1,0 +1,15 @@
+---
+import Layout from '@layouts/AgentsPage.astro';
+import AgentsModule from '@components/Agents';
+import settings from '@base/settings.json';
+
+const { agents } = settings.site.metadata;
+---
+
+<Layout {...agents}>
+  <AgentsModule.Hero />
+  <AgentsModule.Customize />
+  <AgentsModule.Manage />
+  <AgentsModule.Pricing />
+  <AgentsModule.Faq />
+</Layout>
