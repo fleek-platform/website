@@ -1,41 +1,40 @@
+// TODO: Export on bundle instead remove need for import
+// see related ticket
 import '@fleek-platform/agents-ui/styles';
 
 import { useAuthStore } from '@fleek-platform/login-button';
 import { getReferralId } from '@utils/promotekit';
-import { ElizaIntegrationLayer, api } from '@fleek-platform/agents-ui';
+import {
+  ElizaIntegrationLayer,
+  api,
+  type Defined,
+} from '@fleek-platform/agents-ui';
 import { captureEvent } from '@components/Tracking/trackingUtils';
 
 const { getPlans, getSubscriptions, createSubscription } = api;
 
 export interface AgentsUIIntegrationProps {
-  apiUrl?: string;
+  overrideDefined: Defined;
 }
 
 export const AgentsUIIntegration: React.FC<AgentsUIIntegrationProps> = ({
-  apiUrl,
+  overrideDefined,
 }) => {
-  const { triggerLoginModal, accessToken, isLoggingIn, isLoggedIn, projectId } =
-    useAuthStore();
-  const login = () =>
-    typeof triggerLoginModal === 'function' && triggerLoginModal(true);
+  const authStoreInstance = useAuthStore();
 
   return (
     <ElizaIntegrationLayer
-      accessToken={accessToken}
-      activeProjectId={projectId}
-      isLoggedIn={isLoggedIn}
-      isLoggingIn={isLoggingIn}
+      authStoreInstance={authStoreInstance}
       getReferralId={getReferralId}
-      login={login}
       getSubscriptions={getSubscriptions}
       getPlans={getPlans}
       createSubscription={createSubscription}
       captureEvent={captureEvent}
-      apiUrl={apiUrl}
+      overrideDefined={overrideDefined}
     />
   );
 };
 
-export const AgentsUI: React.FC<AgentsUIIntegrationProps> = ({ apiUrl }) => (
-  <AgentsUIIntegration apiUrl={apiUrl} />
-);
+export const AgentsUI: React.FC<AgentsUIIntegrationProps> = ({
+  overrideDefined,
+}) => <AgentsUIIntegration overrideDefined={overrideDefined} />;
