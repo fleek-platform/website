@@ -30,5 +30,7 @@ const overrideDefined = {
   overflowHorizontally
   customContentWrapperClass="md:px-0"
 >
-  <AgentsUI client:load overrideDefined={overrideDefined} />
+  <div class="agents-ui">
+    <AgentsUI client:load overrideDefined={overrideDefined} />
+  </div>
 </BaseHtml>
