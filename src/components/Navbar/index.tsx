@@ -403,6 +403,8 @@ const SessionManagementActions: React.FC = () => {
     updateAccessTokenByProjectId,
   } = useSession();
 
+  const [isLoadingProject, setLoadingProject] = useState(false);
+
   useEffect(() => {
     if (!isLoggedIn) return;
 
@@ -412,8 +414,14 @@ const SessionManagementActions: React.FC = () => {
   useEffect(() => {
     if (!activeProjectId || !isLoggedIn) return;
 
-    updateAccessTokenByProjectId(activeProjectId);
+    handleProjectChanged();
   }, [activeProjectId]);
+
+  const handleProjectChanged = async () => {
+    setLoadingProject(true);
+    await updateAccessTokenByProjectId(activeProjectId);
+    setLoadingProject(false);
+  };
 
   // TODO: Alternatively, could installing the package
   // `use-sync-external-store` prevent need for all this?
@@ -433,6 +441,7 @@ const SessionManagementActions: React.FC = () => {
           isLoggedIn={isLoggedIn}
           handleLoginClick={handleLoginClick}
           dashboardAppUrl={dashboardApp.url}
+          isLoadingProject={isLoadingProject}
           handleClick={() => null}
         />
       </>
@@ -484,6 +493,7 @@ const SessionManagementActions: React.FC = () => {
                 isLoggedIn={isLoggedIn}
                 handleLoginClick={handleLoginClick}
                 dashboardAppUrl={dashboardApp.url}
+                isLoadingProject={isLoadingProject}
                 handleClick={handleClick}
               />
             </>
@@ -506,6 +516,7 @@ type ButtonContainerProps = {
   ) => void;
   dashboardAppUrl: string;
   buttonText: string;
+  isLoadingProject: boolean;
   handleClick: () => void;
 };
 
@@ -519,6 +530,7 @@ const ButtonContainer: React.FC<ButtonContainerProps> = ({
   handleLoginClick,
   dashboardAppUrl,
   buttonText,
+  isLoadingProject,
   handleClick,
 }) => {
   return (
@@ -527,6 +539,7 @@ const ButtonContainer: React.FC<ButtonContainerProps> = ({
         <ProjectDropdown
           projects={userProjects}
           selectedProjectId={activeProjectId}
+          isLoadingProject={isLoadingProject}
           onProjectChange={setActiveProject}
         />
       )}
