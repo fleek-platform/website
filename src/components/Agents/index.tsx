@@ -1,9 +1,9 @@
 import settings from '@base/settings.json';
 import Section from './components/Section';
-import { CardsList } from './components/Card';
-import { heroCards } from './data/cards';
-import CustomizeAgentsImage from './images/customize-agents.png';
-import ManageAgentsImage from './images/manage-agents.png';
+import { CardsList, SmallCardsList } from './components/Card';
+import { customizeCards, heroCards, manageCards } from './data/cards';
+import CustomizeAgentsImage from './images/background/customize-agents.png';
+import ManageAgentsImage from './images/background/manage-agents.png';
 
 const AboutModule = {
   Hero: () => (
@@ -24,7 +24,7 @@ const AboutModule = {
       subTitle={settings.agentsPage.customize.subTitle}
       image={CustomizeAgentsImage.src}
     >
-      <div>Buttons here</div>
+      <SmallCardsList cards={customizeCards} />
     </Section>
   ),
   Manage: () => (
@@ -34,7 +34,7 @@ const AboutModule = {
       imageReverse
       image={ManageAgentsImage.src}
     >
-      <div>Buttons here</div>
+      <SmallCardsList cards={manageCards} />
     </Section>
   ),
   Pricing: () => (
