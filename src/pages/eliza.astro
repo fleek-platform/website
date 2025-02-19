@@ -27,8 +27,10 @@ const overrideDefined = {
     image: settings.site.metadata.eliza.image,
     slug: settings.site.metadata.eliza.slug,
   }}
-  overflowHorizontally
-  customContentWrapperClass="md:px-0"
+  customNavbarClass="max-w-[1258px]"
+  customContentWrapperClass="max-w-[1300px] xl:px-0"
+  hideAnnouncement
+  hideFooter
 >
   <AgentsUI client:load overrideDefined={overrideDefined} />
 </BaseHtml>
