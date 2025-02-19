@@ -1,7 +1,7 @@
 import type { Project } from '@fleekxyz/sdk/dist-types/generated/graphqlClient/schema';
 import * as DropdownMenu from '@radix-ui/react-dropdown-menu';
 import { AvatarMarble } from '@components/AvatarMarble/AvatarMarble';
-import { FaCheck } from 'react-icons/fa6';
+import { FaCheck, FaSpinner } from 'react-icons/fa6';
 import { RxCaretSort } from 'react-icons/rx';
 import { cn } from '@utils/cn';
 import { useMemo, useState } from 'react';
@@ -56,12 +56,14 @@ const MenuItem: React.FC<MenuItemProps> = ({
 export type ProjectDropdownProps = {
   selectedProjectId?: string;
   projects: Project[];
+  isLoadingProject: boolean;
   onProjectChange: (projectId: string) => void;
 };
 
 export const ProjectDropdown: React.FC<ProjectDropdownProps> = ({
   projects,
   selectedProjectId,
+  isLoadingProject,
   onProjectChange,
 }) => {
   const [isOpen, setIsOpen] = useState(false);
@@ -80,8 +82,13 @@ export const ProjectDropdown: React.FC<ProjectDropdownProps> = ({
   return (
     <DropdownMenu.Root open={isOpen} onOpenChange={setIsOpen}>
       <DropdownMenu.Trigger
+        disabled={isLoadingProject}
+        className={cn(
+          'flex h-[34px] w-fit flex-row justify-center gap-8 rounded-8 bg-neutral-1 p-4',
+          'font-medium text-neutral-12 hover:bg-neutral-2 focus-visible:outline-none',
+          'disabled:cursor-not-allowed disabled:opacity-50 disabled:hover:bg-neutral-1',
+        )}
         onClick={() => setIsOpen((prev) => !prev)}
-        className="flex h-[34px] w-fit flex-row justify-center gap-8 rounded-8 bg-neutral-1 p-4 font-medium text-neutral-12 hover:bg-neutral-2 focus-visible:outline-none"
       >
         {selectedProject?.avatar ? (
           <img
@@ -99,7 +106,11 @@ export const ProjectDropdown: React.FC<ProjectDropdownProps> = ({
           {selectedProject?.name}
         </span>
 
-        <RxCaretSort className="self-center text-[14px]" />
+        {isLoadingProject ? (
+          <FaSpinner className="animate-spin self-center" />
+        ) : (
+          <RxCaretSort className="self-center text-[14px]" />
+        )}
       </DropdownMenu.Trigger>
 
       <DropdownMenu.Content
