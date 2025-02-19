@@ -8,7 +8,9 @@ interface SectionProps {
   className?: string;
   children?: ReactNode;
   // added
-  image?: ReactNode;
+  image?: string;
+  textCenter?: boolean;
+  imageReverse?: boolean;
 }
 
 const Section: FC<SectionProps> = ({
@@ -17,40 +19,65 @@ const Section: FC<SectionProps> = ({
   isHero = false,
   subTitle,
   className,
-  // Todo: add image
+  // new props
   image,
+  textCenter = false,
+  imageReverse = false,
 }) => {
   return (
-    <div
+    <section
       className={cn(
-        'mx-auto max-w-[1280px] px-24 py-96 text-center md:px-32',
-        { 'py-128': isHero },
+        'mx-auto max-w-[1024px] px-24 py-54 md:py-72',
+        {
+          'flex flex-col items-center justify-center gap-40 lg:max-w-[1280px] lg:flex-row':
+            Boolean(image),
+        },
+        {
+          'lg:flex-row-reverse': Boolean(image) && imageReverse,
+        },
         className,
       )}
     >
-      <div className={cn('mb-64', { 'mb-32': isHero })}>
-        {isHero ? (
-          <h1 className="mb-24 font-sans text-36 font-bold leading-40 text-white md:text-60 md:leading-60">
-            {title}
-          </h1>
-        ) : (
-          <h2 className="mb-16 font-sans text-30 font-bold leading-36 text-white md:text-36 md:leading-40">
-            {title}
-          </h2>
-        )}
-        {subTitle && (
-          <p
-            className={cn(
-              'mx-auto font-plex-sans text-[18px] font-medium text-neutral-11 md:text-20',
-              { 'max-w-[672px]': isHero },
-            )}
-          >
-            {subTitle}
-          </p>
-        )}
+      <div
+        className={cn({
+          'w-full lg:max-w-[490px] lg:flex-1': Boolean(image),
+        })}
+      >
+        <div
+          className={cn('mb-48 text-left', {
+            'mb-16': isHero,
+            'text-center': textCenter,
+          })}
+        >
+          {isHero ? (
+            <h1 className="mb-16 font-sans text-40 font-semibold leading-normal text-neutral-12 md:text-52">
+              {title}
+            </h1>
+          ) : (
+            <h2 className="mb-24 font-sans text-40 font-semibold leading-normal text-neutral-12 md:text-52">
+              {title}
+            </h2>
+          )}
+          {subTitle && (
+            <p
+              className={cn(
+                'mx-auto font-plex-sans text-[1.6rem] font-medium text-neutral-11 md:text-18',
+              )}
+            >
+              {subTitle}
+            </p>
+          )}
+        </div>
+        {children && <div className="text-16">{children}</div>}
       </div>
-      {children && <div className="text-16">{children}</div>}
-    </div>
+      {image && (
+        <img
+          src={image}
+          alt="Agents background image"
+          className="w-full lg:max-w-[700px] lg:flex-1"
+        />
+      )}
+    </section>
   );
 };
 
