@@ -30,8 +30,8 @@ export const captureEvent: CaptureEventFn = (eventName, eventProperties) => {
     eventProperties?.msg === 'success'
   ) {
     window.twq('event', X_PIXEL_EVENT_IDS.AI_AGENT_PURCHASE, {
-      value: eventProperties?.conversionValue || undefined,
-      email_address: eventProperties?.userEmail || undefined,
+      value: eventProperties?.['conversion_value'] || undefined,
+      email_address: eventProperties?.['user_email'] || undefined,
     });
   }
 

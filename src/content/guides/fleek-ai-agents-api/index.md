@@ -8,15 +8,15 @@ author:
   - 'Tobiloba Adedeji'
 ---
 
-## **Introduction**
+## Introduction
 
 This guide provides step-by-step instructions on how to use the Fleek AI Agents API. It covers all available requests, authentication methods, and practical examples to help users interact with the API, even if they are new to it.
 
-## **Authentication**
+## Authentication
 
 To use the API, you need an X-Api-Key. Follow these steps to retrieve it:
 
-### **1. Get Your Bearer Token**
+### 1. Get Your Bearer Token
 
 1. Go to [app.fleek.xyz](https://app.fleek.xyz/).
 2. Open the Developer Console (F12 in most browsers).
@@ -28,9 +28,11 @@ To use the API, you need an X-Api-Key. Follow these steps to retrieve it:
 8. Under "Request Headers," find the Authorization field.
 9. Copy the Bearer Token (e.g., Authorization: Bearer YOUR_BEARER_TOKEN_HERE).
 
-### **2. Generate Your X-Api-Key**
+### 2. Generate Your X-Api-Key
 
 Once you have your Bearer Token, use it to generate your X-Api-Key by running the following command:
+
+```bash
 
 curl https://api.fleek.xyz/api/v1/tokens \
 
@@ -48,33 +50,35 @@ curl https://api.fleek.xyz/api/v1/tokens \
 
 }'
 
+```
+
 **Response example:**
 
+```json
 {
+  "id": "your_token_id",
 
-"id": "your_token_id",
+  "name": "NAME_HERE",
 
-"name": "NAME_HERE",
+  "token": "your_x_api_key",
 
-"token": "your_x_api_key",
+  "token_prefix": "your_token_prefix",
 
-"token_prefix": "your_token_prefix",
+  "created_at": "user_specific_timestamp",
 
-"created_at": "user_specific_timestamp",
+  "expires_at": null,
 
-"expires_at": null,
-
-"last_used_at": null
-
+  "last_used_at": null
 }
+```
 
 Use the token field as your X-Api-Key for all API requests.
 
 ---
 
-## **API Requests**
+## API Requests
 
-### **1. List All AI Agents**
+### 1. List All AI Agents
 
 This request retrieves all AI agents associated with your Fleek account.
 
@@ -82,63 +86,63 @@ This request retrieves all AI agents associated with your Fleek account.
 
 **Example:**
 
+```bash
 curl 'https://api.fleek.xyz/api/v1/ai-agents?size=10' \
 
 --header 'X-Api-Key: YOUR_SECRET_TOKEN'
+```
 
 **Response example:**
 
+```json
 {
+  "data": [
+    {
+      "id": "agent_id",
 
-"data": [
+      "projectId": "project_id",
 
-{
+      "name": "AgentName",
 
-"id": "agent_id",
+      "avatar": null,
 
-"projectId": "project_id",
+      "status": "Created",
 
-"name": "AgentName",
+      "character_file": "{...}",
 
-"avatar": null,
+      "host": "server_ip",
 
-"status": "Created",
+      "slotNumber": "user_specific_slot_number",
 
-"character_file": "{...}",
+      "createdBy": "user_id",
 
-"host": "server_ip",
+      "createdAt": "user_specific_created_timestamp",
 
-"slotNumber": user_specific_slot_number,
+      "updatedAt": "user_specific_updated_timestamp",
 
-"createdBy": "user_id",
+      "deletedAt": null
+    }
+  ],
 
-"createdAt": "user_specific_created_timestamp",
+  "next_page": null,
 
-"updatedAt": "user_specific_updated_timestamp",
-
-"deletedAt": null
-
+  "prev_page": null
 }
-
-],
-
-"next_page": null,
-
-"prev_page": null
-
-}
+```
 
 - Replace your_x_api_key with your API key
 
 ---
 
-### **2. Create an AI Agent draft**
+### 2. Create an AI Agent draft
 
 This request allows you to create a new AI agent draft on Fleek, to upload it later.
 
 **Request:** POST /api/v2/ai-agents
 
 **Example:**
+
+```bash
 
 curl https://api.fleek.xyz/api/v2/ai-agents \
 
@@ -159,26 +163,31 @@ curl https://api.fleek.xyz/api/v2/ai-agents \
 "projectId": "your_project_id"
 
 }'
+```
 
 **Response example:**
 
-"id": "your_agent_id",
+```json
+{
+  "id": "your_agent_id",
 
-"projectId": "your_project_id",
+  "projectId": "your_project_id",
 
-"name": "Your Agent's Name",
+  "name": "Your Agent's Name",
 
-"avatar": null,
+  "avatar": null,
 
-"status": "Draft",
+  "status": "Draft",
 
-"characterFile": "{\"foo\":\"valid Eliza character configuration\"}",
+  "characterFile": "{\"foo\":\"valid Eliza character configuration\"}",
 
-"createdBy": "your_user_id",
+  "createdBy": "your_user_id",
 
-"createdAt": "",
+  "createdAt": "",
 
-"updatedAt": ""
+  "updatedAt": ""
+}
+```
 
 - Replace your_x_api_key with your API key
 - Replace {PUT_YOUR_JSON_CONFIGURATION_HERE_AS_A_STRING} with your character file json string
@@ -187,7 +196,7 @@ curl https://api.fleek.xyz/api/v2/ai-agents \
 
 ---
 
-### **3. Publish a draft AI**
+### 3. Publish a draft AI
 
 This request allows you to publish your AI agent draft on Fleek.
 
@@ -195,42 +204,45 @@ This request allows you to publish your AI agent draft on Fleek.
 
 **Example:**
 
+```bash
 curl 'https://api.fleek.xyz/api/v1/ai-agents/{agentId}/publish' \
 
 --request POST \
 
 --header 'X-Api-Key: your_x_api_key'
 
+```
+
 **Response example:**
 
+```json
 {
+  "avatar": "dGVzdGltYWdlZGF0YQ==",
 
-"avatar": "dGVzdGltYWdlZGF0YQ==",
+  "characterFile": "{\"foo\":\"valid Eliza character configuration\"}",
 
-"characterFile": "{\"foo\":\"valid Eliza character configuration\"}",
+  "createdAt": "",
 
-"createdAt": "",
+  "createdBy": "your_user_id",
 
-"createdBy": "your_user_id",
+  "id": "your_agent_id",
 
-"id": "your_agent_id",
+  "name": "Your Agent's Name",
 
-"name": "Your Agent's Name",
+  "projectId": "your_project_id",
 
-"projectId": "your_project_id",
+  "status": "Created",
 
-"status": "Created",
-
-"updatedAt": ""
-
+  "updatedAt": ""
 }
+```
 
 - Replace your_x_api_key with your API key
 - Replace {agentId} with the ID of the agent you want to publish the draft.
 
 ---
 
-### **4. Get an AI Agent**
+### 4. Get an AI Agent
 
 This request fetches details of a specific AI agent using its ID.
 
@@ -238,46 +250,48 @@ This request fetches details of a specific AI agent using its ID.
 
 **Example:**
 
+```bash
 curl 'https://api.fleek.xyz/api/v1/ai-agents/{agentId}' \
 
 --header 'X-Api-Key: your_x_api_key'
+```
 
 **Response example:**
 
+```json
 {
+  "id": "agent_id",
 
-"id": "agent_id",
+  "projectId": "your_project_id",
 
-"projectId": "your_project_id",
+  "name": "AgentName",
 
-"name": "AgentName",
+  "avatar": null,
 
-"avatar": null,
+  "status": "Created",
 
-"status": "Created",
+  "character_file": "{...}",
 
-"character_file": "{...}",
+  "host": "server_ip",
 
-"host": "server_ip",
+  "slotNumber": "user_specific_slot_number",
 
-"slotNumber": user_specific_slot_number,
+  "createdBy": "user_id",
 
-"createdBy": "user_id",
+  "createdAt": "user_specific_created_timestamp",
 
-"createdAt": "user_specific_created_timestamp",
+  "updatedAt": "user_specific_updated_timestamp",
 
-"updatedAt": "user_specific_updated_timestamp",
-
-"deletedAt": null
-
+  "deletedAt": null
 }
+```
 
 - Replace your_x_api_key with your API key
 - Replace {agentId} with your actual agent ID.
 
 ---
 
-### **5. Update an AI Agent**
+### 5. Update an AI Agent
 
 Use this request to modify the name or character file of an AI agent.
 
@@ -285,6 +299,7 @@ Use this request to modify the name or character file of an AI agent.
 
 **Example:**
 
+```bash
 curl 'https://api.fleek.xyz/api/v1/ai-agents/{agentId}' \
 
 --request PUT \
@@ -302,36 +317,37 @@ curl 'https://api.fleek.xyz/api/v1/ai-agents/{agentId}' \
 "name": "UpdatedAgentName"
 
 }'
+```
 
 **Response example:**
 
+```json
 {
+  "id": "new_agent_id",
 
-"id": "new_agent_id",
+  "projectId": "your_project_id",
 
-"projectId": "your_project_id",
+  "name": "UpdatedAgentName",
 
-"name": "UpdatedAgentName",
+  "avatar": null,
 
-"avatar": null,
+  "status": "Created",
 
-"status": "Created",
+  "character_file": "{...}",
 
-"character_file": "{...}",
+  "host": "server_ip",
 
-"host": "server_ip",
+  "slotNumber": "user_specific_slot_number",
 
-"slotNumber": user_specific_slot_number,
+  "createdBy": "user_id",
 
-"createdBy": "user_id",
+  "createdAt": "user_specific_created_timestamp",
 
-"createdAt": "user_specific_created_timestamp",
+  "updatedAt": "user_specific_updated_timestamp",
 
-"updatedAt": "user_specific_updated_timestamp",
-
-"deletedAt": null
-
+  "deletedAt": null
 }
+```
 
 - Replace {agentId} with your actual agent ID.
 - Replace your_x_api_key with your API key
@@ -340,7 +356,7 @@ curl 'https://api.fleek.xyz/api/v1/ai-agents/{agentId}' \
 
 ---
 
-### **6. Delete an AI Agent**
+### 6. Delete an AI Agent
 
 This request removes an AI agent from your Fleek account.
 
@@ -348,26 +364,28 @@ This request removes an AI agent from your Fleek account.
 
 **Example:**
 
+```bash
 curl 'https://api.fleek.xyz/api/v1/ai-agents/{agentId}' \
 
 --request DELETE \
 
 --header 'X-Api-Key: your_x_api_key'
+```
 
 **Response example:**
 
+```json
 {
-
-"message": "AI Agent deleted successfully"
-
+  "message": "AI Agent deleted successfully"
 }
+```
 
 - Replace {agentId} with your actual agent ID.
 - Replace your_x_api_key with your API key
 
 ---
 
-### **7. Get the logs from an AI agent**
+### 7. Get the logs from an AI agent
 
 To retrieve the logs of an AI agent, use the following request:
 
@@ -375,35 +393,33 @@ To retrieve the logs of an AI agent, use the following request:
 
 **Example:**
 
+```bash
 curl 'https://api.fleek.xyz/api/v1/ai-agents/{agentId}/logs' \
 
 --header 'X-Api-Key: your_x_api_key'
+```
 
 **Response example:**
 
+```json
 {
+  "data": [
+    {
+      "id": "s=a6542de1ed8c4c5c98a9080c5dc1e96d;i=17673;b=5956ed0f842c4e01a08da7328fc9a960;m=13a9e975565;t=62e066a5c73c6;x=fb2de8833a54362e",
 
-"data": [
+      "timestamp": 1739454949,
 
-{
+      "message": "  TestforFleek123456 ",
 
-"id": "s=a6542de1ed8c4c5c98a9080c5dc1e96d;i=17673;b=5956ed0f842c4e01a08da7328fc9a960;m=13a9e975565;t=62e066a5c73c6;x=fb2de8833a54362e",
+      "priority": 6
+    }
+  ],
 
-"timestamp": 1739454949,
+  "next_page": "https://api.fleek.xyz/api/v1/ai-agents/{agentId}/logs?cursor=...",
 
-"message": "  TestforFleek123456 ",
-
-"priority": 6
-
-},
-
-],
-
-"next_page": "https://api.fleek.xyz/api/v1/ai-agents/{agentId}/logs?cursor=...",
-
-"prev_page": null
-
+  "prev_page": null
 }
+```
 
 - Replace {agentId} with your actual agent ID.
 - Replace your_x_api_key with your API key.
@@ -411,7 +427,7 @@ curl 'https://api.fleek.xyz/api/v1/ai-agents/{agentId}/logs' \
 
 ---
 
-### **8. Get the Status of an AI Agent**
+### 8. Get the Status of an AI Agent
 
 This request retrieves the status of an AI agent.
 
@@ -419,24 +435,26 @@ This request retrieves the status of an AI agent.
 
 **Example:**
 
+```bash
 curl 'https://api.fleek.xyz/api/v1/ai-agents/{agentId}/status' \
 
 --header 'X-Api-Key: your_x_api_key'
+```
 
 **Response example:**
 
+```json
 {
-
-"status": "true"
-
+  "status": "true"
 }
+```
 
 - Replace {agentId} with your actual agent ID.
 - Replace your_x_api_key with your API key.
 
 ---
 
-### **9. Start an AI agent**
+### 9. Start an AI agent
 
 To start an AI agent, use the following request:
 
@@ -444,6 +462,7 @@ To start an AI agent, use the following request:
 
 **Example:**
 
+```bash
 curl 'https://api.fleek.xyz/api/v1/ai-agents/{agentId}/start' \
 
 --request POST \
@@ -452,10 +471,11 @@ curl 'https://api.fleek.xyz/api/v1/ai-agents/{agentId}/start' \
 
 - Replace {agentId} with your actual agent ID.
 - Replace your_x_api_key with your API key.
+```
 
 ---
 
-### **10. Stop an AI agent**
+### 10. Stop an AI agent
 
 To stop an AI agent, use the following request:
 
@@ -463,6 +483,7 @@ To stop an AI agent, use the following request:
 
 **Example:**
 
+```bash
 curl 'https://api.fleek.xyz/api/v1/ai-agents/{agentId}/stop' \
 
 --request POST \
@@ -471,10 +492,11 @@ curl 'https://api.fleek.xyz/api/v1/ai-agents/{agentId}/stop' \
 
 - Replace {agentId} with your actual agent ID.
 - Replace your_x_api_key with your API key.
+```
 
 ---
 
-### **11. Get the attestation bytes for an AI agent**
+### 11. Get the attestation bytes for an AI agent
 
 This endpoint is used to get the attestation bytes for an AI agent.
 
@@ -482,16 +504,18 @@ This endpoint is used to get the attestation bytes for an AI agent.
 
 **Example:**
 
+```bash
 curl 'https://api.fleek.xyz/api/v1/ai-agents/{agentId}/attestation' \
 
 --header 'X-Api-Key: your_x_api_key'
 
 - Replace {agentId} with your actual agent ID.
 - Replace your_x_api_key with your API key.
+```
 
 ---
 
-### **12. Proxy requests to the AI agent's API**
+### 12. Proxy requests to the AI agent's API
 
 This endpoint is used to proxy requests to the AI agent API. Any method is supported (GET, POST, PUT, DELETE, etc.). It will forward the request to the AI agent API and return the response.
 
@@ -499,14 +523,16 @@ This endpoint is used to proxy requests to the AI agent API. Any method is suppo
 
 **Example:**
 
+```bash
 curl 'https://api.fleek.xyz/api/v1/ai-agents/{agentId}/api/{*key}' \
 
 --header 'X-Api-Key: your_x_api_key'
 
 - Replace {agentId} with your actual agent ID.
 - Replace your_x_api_key with your API key.
+```
 
-### **Conclusion**
+### Conclusion
 
 This guide provides a comprehensive overview of the Fleek AI Agents API, covering authentication, agent management, logging, and status monitoring. By following the step-by-step instructions, users can seamlessly interact with the API to create, update, and manage AI agents efficiently.
 

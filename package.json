@@ -51,7 +51,7 @@
     "@astrojs/react": "^3.3.2",
     "@astrojs/sitemap": "^3.1.4",
     "@astrojs/tailwind": "^5.1.0",
-    "@fleek-platform/agents-ui": "^3.9.1",
+    "@fleek-platform/agents-ui": "^3.10.0",
     "@fleek-platform/login-button": "2.0.7",
     "@fleek-platform/utils-token": "^0.2.2",
     "@fleekxyz/sdk": "^0.7.3",
