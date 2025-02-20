@@ -531,16 +531,16 @@
   },
   "agentsPage": {
     "hero": {
-      "title": "Create and deploy AI agents",
-      "subTitle": "Effortlessly deploy and run Eliza AI agents and enjoy industry-best pricing."
+      "title": "AI Agent Infrastructure for Teams of Every Size",
+      "subTitle": "Create, deploy, and scale AI agents with enterprise-grade performance and industry-best pricing."
     },
     "customize": {
       "title": "Customize agents",
       "subTitle": "Design your own agent and start chatting with it in no time. Customize it with unique features and launch it across your favorite social media platforms."
     },
-    "manage": {
-      "title": "Manage agents",
-      "subTitle": "Design your own agent and start chatting with it in no time. Customize it with unique features and launch it across your favorite social media platforms."
+    "growing": {
+      "title": "For Growing Teams",
+      "subTitle": "Deploy and monitor 1 to multiple agents from a unified dashboard. Centralize configuration, track performance, and maintain consistent security policies."
     },
     "pricing": {
       "title": "Pricing"

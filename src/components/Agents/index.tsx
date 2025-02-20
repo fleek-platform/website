@@ -9,7 +9,7 @@ import {
   pricingCards,
 } from './data/cards';
 import CustomizeAgentsImage from './images/background/customize-agents.png';
-import ManageAgentsImage from './images/background/manage-agents.png';
+import GrowingTeamsImage from './images/background/growing-teams.png';
 import { PricingCardsList } from './components/PricingCard';
 
 const AboutModule = {
@@ -36,10 +36,10 @@ const AboutModule = {
   ),
   Manage: () => (
     <Section
-      title={settings.agentsPage.manage.title}
-      subTitle={settings.agentsPage.manage.subTitle}
+      title={settings.agentsPage.growing.title}
+      subTitle={settings.agentsPage.growing.subTitle}
       imageReverse
-      image={ManageAgentsImage.src}
+      image={GrowingTeamsImage.src}
     >
       <SmallCardsList cards={manageCards} />
     </Section>
