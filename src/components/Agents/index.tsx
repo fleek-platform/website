@@ -23,12 +23,13 @@ const faqsToAccordionItems = (faqs: FaqData[]): AccordionItem[] =>
 
 const AboutModule = {
   Hero: () => (
-    // Caption text above
     <Section
       title={settings.agentsPage.hero.title}
-      isHero
-      textCenter
       subTitle={settings.agentsPage.hero.subTitle}
+      announcementUrl={settings.agentsPage.hero.announcementUrl}
+      announcementMessage={settings.agentsPage.hero.announcementMessage}
+      isHero
+      isTextCenter
     >
       <div className="mb-48 flex flex-wrap items-center justify-center gap-12 md:mb-96">
         <Button href="/eliza/">{settings.agentsPage.hero.primaryCta}</Button>
@@ -56,14 +57,14 @@ const AboutModule = {
     <Section
       title={settings.agentsPage.growing.title}
       subTitle={settings.agentsPage.growing.subTitle}
-      imageReverse
+      isImageReverse
       image={GrowingTeamsImage.src}
     >
       <SmallCardsList cards={manageCards} />
     </Section>
   ),
   Pricing: () => (
-    <Section title={settings.agentsPage.pricing.title} textCenter wide>
+    <Section title={settings.agentsPage.pricing.title} isTextCenter isWide>
       <PricingCardsList cards={pricingCards} />
     </Section>
   ),

@@ -1,5 +1,6 @@
 import { cn } from '@utils/cn';
 import type { ReactNode, FC } from 'react';
+import { Announcement } from './Announcement';
 
 interface SectionProps {
   title: ReactNode;
@@ -9,9 +10,11 @@ interface SectionProps {
   children?: ReactNode;
   // added
   image?: string;
-  textCenter?: boolean;
-  imageReverse?: boolean;
-  wide?: boolean;
+  isTextCenter?: boolean;
+  isImageReverse?: boolean;
+  isWide?: boolean;
+  announcementUrl?: string;
+  announcementMessage?: string;
 }
 
 const Section: FC<SectionProps> = ({
@@ -22,9 +25,11 @@ const Section: FC<SectionProps> = ({
   className,
   // new props
   image,
-  textCenter = false,
-  imageReverse = false,
-  wide = false,
+  isTextCenter = false,
+  isImageReverse = false,
+  isWide = false,
+  announcementUrl,
+  announcementMessage,
 }) => {
   return (
     <section
@@ -35,10 +40,13 @@ const Section: FC<SectionProps> = ({
             Boolean(image),
         },
         {
-          'lg:flex-row-reverse': Boolean(image) && imageReverse,
+          'lg:flex-row-reverse': Boolean(image) && isImageReverse,
         },
         {
-          'lg:max-w-[1280px]': wide,
+          'lg:max-w-[1280px]': isWide,
+        },
+        {
+          '!pt-64': isHero,
         },
         className,
       )}
@@ -51,13 +59,24 @@ const Section: FC<SectionProps> = ({
         <div
           className={cn('mb-48 text-balance text-left', {
             'mb-24': isHero,
-            'text-center': textCenter,
+            'text-center': isTextCenter,
           })}
         >
           {isHero ? (
-            <h1 className="mb-16 font-sans text-40 font-semibold leading-normal text-neutral-12 md:text-52">
-              {title}
-            </h1>
+            <>
+              {announcementUrl && announcementMessage && (
+                <div className="mb-36">
+                  <Announcement
+                    url={announcementUrl}
+                    message={announcementMessage}
+                  />
+                </div>
+              )}
+
+              <h1 className="mb-16 font-sans text-40 font-semibold leading-normal text-neutral-12 md:text-52">
+                {title}
+              </h1>
+            </>
           ) : (
             <h2 className="mb-24 font-sans text-40 font-semibold leading-normal text-neutral-12 md:text-52">
               {title}

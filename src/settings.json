@@ -535,7 +535,9 @@
       "subTitle": "Create, deploy, and scale AI agents with enterprise-grade performance and industry-best pricing.",
       "primaryCta": "Create agent",
       "secondaryCta": "Enterprise Solutions",
-      "tertiaryCta": "Read our docs"
+      "tertiaryCta": "Read our docs",
+      "announcementUrl": "#",
+      "announcementMessage": "Deploy your first AI Agent today in under 5 minutes!"
     },
     "customize": {
       "title": "Customize agents",

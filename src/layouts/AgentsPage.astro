@@ -5,11 +5,12 @@ import '@styles/blogPage.css';
 import BaseHtml from './BaseHtml.astro';
 
 const { title, description, slug, image } = Astro.props;
-// same as About for now
+// it has a separate announcement inside the Hero section
 ---
 
 <BaseHtml
   title={title}
+  hideAnnouncement
   ogMeta={{
     title,
     description,
