@@ -15,6 +15,8 @@ import { faqs, type FaqData } from './data/faq';
 
 import type { AccordionItem } from '@components/Accordion';
 import Accordion from '@components/Accordion';
+import { Button } from '@components/Button';
+import { FaChevronRight } from 'react-icons/fa6';
 
 const faqsToAccordionItems = (faqs: FaqData[]): AccordionItem[] =>
   faqs.map((faq) => ({ label: faq.label, contentElements: [faq.content] }));
@@ -28,7 +30,16 @@ const AboutModule = {
       textCenter
       subTitle={settings.agentsPage.hero.subTitle}
     >
-      <div>CTA buttons here</div>
+      <div className="mb-48 flex flex-wrap items-center justify-center gap-12 md:mb-96">
+        <Button href="/eliza/">{settings.agentsPage.hero.primaryCta}</Button>
+        <Button variant="secondary" href="#">
+          {settings.agentsPage.hero.secondaryCta}
+        </Button>
+        <Button variant="ghost" href="/docs/">
+          {settings.agentsPage.hero.tertiaryCta}
+          <FaChevronRight className="size-12" />
+        </Button>
+      </div>
       <CardsList cards={heroCards} />
     </Section>
   ),

@@ -532,7 +532,10 @@
   "agentsPage": {
     "hero": {
       "title": "AI Agent Infrastructure for Teams of Every Size",
-      "subTitle": "Create, deploy, and scale AI agents with enterprise-grade performance and industry-best pricing."
+      "subTitle": "Create, deploy, and scale AI agents with enterprise-grade performance and industry-best pricing.",
+      "primaryCta": "Create agent",
+      "secondaryCta": "Enterprise Solutions",
+      "tertiaryCta": "Read our docs"
     },
     "customize": {
       "title": "Customize agents",

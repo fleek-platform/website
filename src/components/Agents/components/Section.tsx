@@ -49,8 +49,8 @@ const Section: FC<SectionProps> = ({
         })}
       >
         <div
-          className={cn('mb-48 text-left', {
-            'mb-16': isHero,
+          className={cn('mb-48 text-balance text-left', {
+            'mb-24': isHero,
             'text-center': textCenter,
           })}
         >
