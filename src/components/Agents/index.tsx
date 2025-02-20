@@ -11,6 +11,13 @@ import {
 import CustomizeAgentsImage from './images/background/customize-agents.png';
 import GrowingTeamsImage from './images/background/growing-teams.png';
 import { PricingCardsList } from './components/PricingCard';
+import { faqs, type FaqData } from './data/faq';
+
+import type { AccordionItem } from '@components/Accordion';
+import Accordion from '@components/Accordion';
+
+const faqsToAccordionItems = (faqs: FaqData[]): AccordionItem[] =>
+  faqs.map((faq) => ({ label: faq.label, contentElements: [faq.content] }));
 
 const AboutModule = {
   Hero: () => (
@@ -50,8 +57,15 @@ const AboutModule = {
     </Section>
   ),
   Faq: () => (
-    <Section title={settings.agentsPage.faq.title}>
-      <div>Accordion here</div>
+    <Section
+      title={settings.agentsPage.faq.title}
+      subTitle={settings.agentsPage.faq.subTitle}
+      className="pb-108 md:pb-144"
+    >
+      <Accordion
+        items={faqsToAccordionItems(faqs)}
+        headerClassName="!text-[1.8rem] font-medium text-gray-dark-12"
+      />
     </Section>
   ),
 };
