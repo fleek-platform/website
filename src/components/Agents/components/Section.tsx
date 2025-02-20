@@ -11,6 +11,7 @@ interface SectionProps {
   image?: string;
   textCenter?: boolean;
   imageReverse?: boolean;
+  wide?: boolean;
 }
 
 const Section: FC<SectionProps> = ({
@@ -23,6 +24,7 @@ const Section: FC<SectionProps> = ({
   image,
   textCenter = false,
   imageReverse = false,
+  wide = false,
 }) => {
   return (
     <section
@@ -34,6 +36,9 @@ const Section: FC<SectionProps> = ({
         },
         {
           'lg:flex-row-reverse': Boolean(image) && imageReverse,
+        },
+        {
+          'lg:max-w-[1280px]': wide,
         },
         className,
       )}

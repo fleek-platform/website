@@ -13,6 +13,7 @@ import PersonalizeAgents from '../images/card/small/personalize-agents.svg';
 import ChatInterface from '../images/card/small/chat-interface.svg';
 import LogsActivity from '../images/card/small/logs-activity.svg';
 import CustomizeAgent from '../images/card/small/customize-agent.svg';
+import type { PricingInfo } from '../components/PricingCard';
 
 export interface CardData {
   title: string;
@@ -73,5 +74,62 @@ export const manageCards: CardData[] = [
   {
     title: 'Customize agent',
     icon: CustomizeAgent.src,
+  },
+];
+
+export const pricingCards: PricingInfo[] = [
+  {
+    title: 'Standard Agent Hosting',
+    description:
+      'A simple and efficient agent hosting solution with everything you need to get started - Coming Soon!',
+    cost: {
+      amount: 10,
+      suffix: 'per agent /mo',
+    },
+    features: [
+      'Standard security features',
+      'Basic encryption',
+      'Zero DevOps required',
+      'Perfect for testing and development',
+    ],
+    cta: 'Coming Soon!',
+    variant: 'primary-outline',
+    url: 'https://app.fleek.xyz/',
+  },
+  {
+    title: 'TEE Agent Hosting',
+    description:
+      'Maximum security & privacy with Trusted Execution Environments for enterprise-grade protection.',
+    cost: {
+      amount: 20,
+      suffix: 'per agent /mo',
+    },
+    features: [
+      'Trusted Execution Environment (TEE)',
+      'End-to-End Encryption',
+      'Tamper-proof execution',
+      'Zero DevOps required',
+    ],
+    cta: 'Start Hosting Now',
+    variant: 'primary',
+    url: 'https://app.fleek.xyz/',
+  },
+  {
+    title: 'Enterprise Solutions',
+    description: 'For teams deploying 500+ agents with custom requirements ',
+    cost: {
+      prefix: '',
+      suffix: '',
+      amount: 'Custom Pricing',
+    },
+    features: [
+      'Volume discounts',
+      'Dedicated infrastructure',
+      'Advanced compliance features',
+      'Integration assistance',
+    ],
+    cta: 'Contact Our Team',
+    variant: 'primary-outline',
+    url: 'mailto:amelia@fleek.xyz',
   },
 ];
