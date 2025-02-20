@@ -1,0 +1,15 @@
+---
+import Layout from '@layouts/AffiliatesPage.astro';
+import AffiliatesModule from '@components/Affiliates';
+import settings from '@base/settings.json';
+
+const { affiliates } = settings.site.metadata;
+---
+
+<Layout {...affiliates}>
+  <AffiliatesModule.Hero />
+  <AffiliatesModule.WhyBecome />
+  <AffiliatesModule.WhoCanJoin />
+  <AffiliatesModule.HowItWorks />
+  <AffiliatesModule.Faq />
+</Layout>
