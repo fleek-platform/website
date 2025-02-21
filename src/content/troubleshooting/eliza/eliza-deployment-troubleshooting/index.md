@@ -59,7 +59,6 @@ The `ACTION_TIMELINE_TYPE` can be used to configure whether the bot should inter
 
 ### Are there any special authentication guidelines for using Twitter with Fleek?
 
-- Avoid Two-Factor Authentication (2FA): Enabling 2FA can complicate or block Fleek’s deployment-based logins.
 - Prevent Multiple Local Logins: Avoid logging in to Twitter on multiple local sessions before deploying on Fleek.
 - Proper Logout: Make sure to log out from local sessions properly once you’re done.
 - Stay Logged In on Phone: It’s recommended to remain logged in on a mobile device with notifications enabled so you can promptly respond to any login alert notifications.
