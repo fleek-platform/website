@@ -76,7 +76,7 @@ const AboutModule = {
     >
       <Accordion
         items={faqsToAccordionItems(faqs)}
-        headerClassName="!text-[1.8rem] font-medium text-gray-dark-12"
+        headerClassName="md:!text-[1.8rem] font-medium text-gray-dark-12"
       />
     </Section>
   ),
