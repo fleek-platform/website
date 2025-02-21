@@ -17,6 +17,7 @@ import type { AccordionItem } from '@components/Accordion';
 import Accordion from '@components/Accordion';
 import { Button } from '@components/Button';
 import { FaChevronRight } from 'react-icons/fa6';
+import { NewsletterModal } from './components/NewsletterModal';
 
 const faqsToAccordionItems = (faqs: FaqData[]): AccordionItem[] =>
   faqs.map((faq) => ({ label: faq.label, contentElements: [faq.content] }));
@@ -31,7 +32,8 @@ const AboutModule = {
       isHero
       isTextCenter
     >
-      <div className="mb-48 flex flex-wrap items-center justify-center gap-12 md:mb-96">
+      <div className="mb-48 flex flex-wrap items-center justify-center gap-12 font-plex-sans md:mb-96">
+        <NewsletterModal />
         <Button href="/eliza/">{settings.agentsPage.hero.primaryCta}</Button>
         <Button variant="secondary" href="#">
           {settings.agentsPage.hero.secondaryCta}
