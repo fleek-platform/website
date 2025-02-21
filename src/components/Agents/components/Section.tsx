@@ -73,12 +73,12 @@ const Section: FC<SectionProps> = ({
                 </div>
               )}
 
-              <h1 className="mb-16 font-sans text-40 font-semibold leading-normal text-neutral-12 md:text-52">
+              <h1 className="mb-16 font-sans text-40 font-semibold leading-[1.125] text-neutral-12 md:text-52">
                 {title}
               </h1>
             </>
           ) : (
-            <h2 className="mb-24 font-sans text-40 font-semibold leading-normal text-neutral-12 md:text-52">
+            <h2 className="mb-24 font-sans text-40 font-semibold leading-[1.125] text-neutral-12 md:text-52">
               {title}
             </h2>
           )}

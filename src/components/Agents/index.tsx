@@ -36,7 +36,7 @@ const AboutModule = {
         <Button variant="secondary" href="#">
           {settings.agentsPage.hero.secondaryCta}
         </Button>
-        <Button variant="ghost" href="/docs/">
+        <Button variant="ghost" href="https://api.fleek.xyz/api/">
           {settings.agentsPage.hero.tertiaryCta}
           <FaChevronRight className="size-12" />
         </Button>
