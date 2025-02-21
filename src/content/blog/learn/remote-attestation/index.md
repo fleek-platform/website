@@ -1,7 +1,7 @@
 ---
 title: 'Why Remote Attestation Matters: In-depth Guide'
 date: 2025-02-21
-desc: "Learn how remote attestation and TEEs secure cloud, IoT, AI, and blockchain workloads. Discover how Fleek Machines enable trusted, verifiable computing."
+desc: 'Learn how remote attestation and TEEs secure cloud, IoT, AI, and blockchain workloads. Discover how Fleek Machines enable trusted, verifiable computing.'
 thumbnail: './thumbnail.png'
 image: './thumbnail.png'
 author:
