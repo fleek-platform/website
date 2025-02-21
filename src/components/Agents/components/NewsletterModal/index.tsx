@@ -6,6 +6,7 @@ import { Text } from './components/Text';
 import { Box } from './components/Box';
 import { Input } from './components/Input';
 import { Button } from './components/Button';
+import { Button as AppButton } from '@components/Button';
 import toast from 'react-hot-toast';
 import { FaSpinner } from 'react-icons/fa6';
 
@@ -50,7 +51,7 @@ export const NewsletterModal: React.FC = () => {
   };
 
   if (!isOpen)
-    return <Button onClick={openModal}>Open newsletter modal</Button>;
+    return <AppButton onClick={openModal}>Open newsletter modal</AppButton>;
 
   return (
     <Modal isOpen={isOpen} closeModal={closeModal}>
