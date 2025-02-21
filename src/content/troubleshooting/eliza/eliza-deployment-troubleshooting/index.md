@@ -95,21 +95,26 @@ This feature will allow you to manage troublesome login situations more easily.
 Aditionally, try adding 2FA into your character file's secrets. Here's how:
 
 ### 1. Go to Your Agent’s Twitter Settings
+
 Navigate to:
+
 - **Security and account access** → **Security** → **Two-factor authentication**.
 - Enable **Authentication App**.
 
 ### 2. Retrieve Your 2FA Secret
+
 - Click the button under the QR code to view it as a string.
 - It will be a **16-character code** with uppercase letters and numbers.
 - Complete the 2FA setup using an app like **Google Authenticator**.
 
 ### 3. Update Your Agent File on Fleek
+
 - Edit your agent file on [Fleek](https://fleek.xyz/eliza) and add the following secret:
   ```ini
   "TWITTER_2FA_SECRET":"YOUR_SECRET_CODE"
   ```
 - Restart your agent on [Fleek App](https://app.fleek.xyz).
+
 ---
 
 ### Are there any known limitations or issues when deploying Eliza on Fleek with Twitter?
