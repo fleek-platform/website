@@ -1,0 +1,9 @@
+---
+import Layout from '@layouts/APIDocs.astro';
+import settings from '@base/settings.json';
+import BadMagicClient from '@components/OpenAPIPanel/BadmagicClient';
+---
+
+<Layout>
+  <BadMagicClient client:only />
+</Layout>

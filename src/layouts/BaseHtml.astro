@@ -20,6 +20,7 @@ interface Props {
     slug: string;
     custom_title?: string;
   };
+
   singlePage?: boolean;
   customBodyClass?: string;
   customContentWrapperClass?: string;
@@ -132,6 +133,7 @@ const metaTitle = ogMeta['custom_title'] ?? ogMeta?.title;
       type="font/woff2"
       crossorigin
     />
+
     <meta name="generator" content={Astro.generator} />
     <!-- HTML Meta Tags -->
     <title>
