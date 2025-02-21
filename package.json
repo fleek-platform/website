@@ -65,6 +65,7 @@
     "@types/react": "^18.2.74",
     "@types/react-dom": "^18.2.24",
     "astro": "^4.15.3",
+    "badmagic": "^0.0.40",
     "class-variance-authority": "^0.7.0",
     "hono": "^4.4.11",
     "lite-youtube-embed": "^0.3.3",

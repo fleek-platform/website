@@ -1,0 +1,141 @@
+---
+import '@styles/globals.css';
+import { getSiteUrl } from '@utils/url';
+import settings from '@base/settings.json';
+import Trackers from '@components/Tracking/Trackers.astro';
+import { generateCanonicalUrl } from '@utils/generateCanonicalUrl';
+
+const baseUrl = getSiteUrl();
+const canonicalUrl = generateCanonicalUrl();
+---
+
+<!doctype html>
+<html lang="en" class="overflow-x-hidden">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, height=device-height, initial-scale=1, viewport-fit=cover"
+    />
+    <link rel="canonical" href={`${canonicalUrl}`} />
+    <link rel="icon" type="image/svg+xml" href="/favicon.ico" />
+    <link rel="sitemap" href="/sitemap-index.xml" />
+    <link
+      rel="preload"
+      href="/fonts/atyp/AtypDisplay-Regular.woff2"
+      as="font"
+      type="font/woff2"
+      crossorigin
+    />
+    <link
+      rel="preload"
+      href="/fonts/atyp/AtypDisplay-Medium.woff2"
+      as="font"
+      type="font/woff2"
+      crossorigin
+    />
+    <link
+      rel="preload"
+      href="/fonts/atyp/AtypDisplay-Semibold.woff2"
+      as="font"
+      type="font/woff2"
+      crossorigin
+    />
+    <link
+      rel="preload"
+      href="/fonts/atyp/AtypDisplay-Bold.woff2"
+      as="font"
+      type="font/woff2"
+      crossorigin
+    />
+    <link
+      rel="preload"
+      href="/fonts/ibm-plex-mono/IBMPlexMono-Regular.woff2"
+      as="font"
+      type="font/woff2"
+      crossorigin
+    />
+    <link
+      rel="preload"
+      href="/fonts/ibm-plex-mono/IBMPlexMono-Medium.woff2"
+      as="font"
+      type="font/woff2"
+      crossorigin
+    />
+    <link
+      rel="preload"
+      href="/fonts/ibm-plex-mono/IBMPlexMono-Bold.woff2"
+      as="font"
+      type="font/woff2"
+      crossorigin
+    />
+    <link
+      rel="preload"
+      href="/fonts/ibm-plex-sans/IBMPlexSans-Regular.woff2"
+      as="font"
+      type="font/woff2"
+      crossorigin
+    />
+    <link
+      rel="preload"
+      href="/fonts/ibm-plex-sans/IBMPlexSans-Medium.woff2"
+      as="font"
+      type="font/woff2"
+      crossorigin
+    />
+    <link
+      rel="preload"
+      href="/fonts/ibm-plex-sans/IBMPlexSans-Bold.woff2"
+      as="font"
+      type="font/woff2"
+      crossorigin
+    />
+    <meta name="generator" content={Astro.generator} />
+    <!-- HTML Meta Tags -->
+    <title>{settings.site.metadata.default.title}</title>
+    <meta
+      name="description"
+      content={settings.site.metadata.default.description}
+    />
+    <!-- Facebook Meta Tags -->
+    <meta property="og:url" content={baseUrl} />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content={settings.site.metadata.default.title} />
+    <meta
+      property="og:description"
+      content={settings.site.metadata.default.description}
+    />
+    <meta
+      property="og:image"
+      content={`${baseUrl}/${settings.site.metadata.default.image?.replace(/^\/+/, '')}`}
+    />
+    <!-- Twitter Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta property="twitter:domain" content={baseUrl} />
+    <meta property="twitter:url" content={baseUrl} />
+    <meta name="twitter:title" content={settings.site.metadata.default.title} />
+    <meta
+      name="twitter:description"
+      content={settings.site.metadata.default.description}
+    />
+    <meta
+      name="twitter:image"
+      content={`${baseUrl}/${settings.site.metadata.default.image?.replace(/^\/+/, '')}`}
+    />
+    <link
+      href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css"
+      rel="stylesheet"
+    />
+    <!-- Trackers -->
+    <Trackers />
+    <script
+      async
+      src="https://cdn.promotekit.com/promotekit.js"
+      data-promotekit="1d44aef1-870e-4899-a017-3fd29ed3f6cf"></script>
+  </head>
+  <body
+    class="relative flex min-h-dvh flex-col overflow-x-hidden bg-black font-sans text-gray-dark-11 [scrollbar-gutter:stable] selection:bg-yellow-dark-9 selection:text-black"
+  >
+    <slot />
+  </body>
+</html>
