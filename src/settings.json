@@ -531,10 +531,10 @@
   },
   "agentsPage": {
     "hero": {
-      "title": "AI Agent Infrastructure for Teams of Every Size",
+      "title": "AI agent infrastructure for teams of every size",
       "subTitle": "Create, deploy, and scale AI agents with enterprise-grade performance and industry-best pricing.",
       "primaryCta": "Create agent",
-      "secondaryCta": "Enterprise Solutions",
+      "secondaryCta": "Enterprise solutions",
       "tertiaryCta": "Read our docs",
       "announcementUrl": "#",
       "announcementMessage": "Deploy your first AI Agent today in under 5 minutes!"
@@ -544,7 +544,7 @@
       "subTitle": "Design your own agent and start chatting with it in no time. Customize it with unique features and launch it across your favorite social media platforms."
     },
     "growing": {
-      "title": "For Growing Teams",
+      "title": "For growing teams",
       "subTitle": "Deploy and monitor 1 to multiple agents from a unified dashboard. Centralize configuration, track performance, and maintain consistent security policies."
     },
     "pricing": {

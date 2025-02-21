@@ -61,7 +61,7 @@ const PricingCard: FC<PricingCardProps> = (props) => {
               {props.cost.amount}
             </span>
             <span className="font-plex-sans text-[1.8rem] font-medium text-gray-dark-11">
-              {props.cost?.suffix ?? ' /month'}
+              {' ' + (props.cost?.suffix ?? '/mo')}
             </span>
           </p>
           <p>{props.cost?.bottomText}</p>
