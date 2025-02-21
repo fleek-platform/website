@@ -2,14 +2,20 @@
 import Layout from '@layouts/AgentsPage.astro';
 import AgentsModule from '@components/Agents';
 import settings from '@base/settings.json';
+import { Toaster } from 'react-hot-toast';
 
 const { agents } = settings.site.metadata;
 ---
 
 <Layout {...agents}>
-  <AgentsModule.Hero />
+  <AgentsModule.Hero client:load />
   <AgentsModule.Customize />
   <AgentsModule.Manage />
   <AgentsModule.Pricing />
   <AgentsModule.Faq />
+  <Toaster
+    client:load
+    position="bottom-right"
+    containerClassName="font-plex-sans text-[1.3rem]"
+  />
 </Layout>
