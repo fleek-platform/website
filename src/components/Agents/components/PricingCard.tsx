@@ -46,7 +46,7 @@ const PricingCard: FC<PricingCardProps> = (props) => {
           </p>
         </div>
         <div>
-          <p className="space-x-2">
+          <p className="flex min-h-36 items-end gap-4">
             <span className="font-plex-sans text-[1.8rem] font-medium text-gray-dark-12">
               {props.cost?.prefix ?? '$'}
             </span>
