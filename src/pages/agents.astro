@@ -8,6 +8,7 @@ const { agents } = settings.site.metadata;
 ---
 
 <Layout {...agents}>
+  <AgentsModule.Modal client:load />
   <AgentsModule.Hero client:load />
   <AgentsModule.Customize />
   <AgentsModule.Manage />

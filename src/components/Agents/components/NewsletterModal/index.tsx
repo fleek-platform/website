@@ -1,14 +1,17 @@
 import type React from 'react';
 import { Modal } from './components/Modal';
 import { useBeehiiv } from './hooks/useBeehiiv';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { Text } from './components/Text';
 import { Box } from './components/Box';
 import { Input } from './components/Input';
 import { Button } from './components/Button';
-import { Button as AppButton } from '@components/Button';
+import { useSession } from '@hooks/useSession';
 import toast from 'react-hot-toast';
 import { FaSpinner } from 'react-icons/fa6';
+
+// 10 seconds
+const SHOW_MODAL_DELAY = 10 * 1000;
 
 export const NewsletterModal: React.FC = () => {
   const { subscribeNewUser } = useBeehiiv();
@@ -17,11 +20,31 @@ export const NewsletterModal: React.FC = () => {
   const [email, setEmail] = useState('');
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [error, setError] = useState('');
+  // show modal only once, should be in global state for all pages
+  const [hasOpenedBefore, setHasOpenedBefore] = useState(false);
+
+  const { isLoggedIn } = useSession();
 
   const openModal = () => {
     setEmail('');
     setIsOpen(true);
+    setHasOpenedBefore(true);
   };
+
+  // 10 seconds after mount show modal for non-existing users
+  useEffect(() => {
+    const showModal = () => {
+      if (isLoggedIn || hasOpenedBefore) return;
+
+      openModal();
+    };
+
+    const timer = setTimeout(() => showModal(), SHOW_MODAL_DELAY);
+
+    return () => {
+      clearTimeout(timer);
+    };
+  }, [isLoggedIn, hasOpenedBefore, openModal]);
 
   const closeModal = () => setIsOpen(false);
 
@@ -50,11 +73,14 @@ export const NewsletterModal: React.FC = () => {
     }
   };
 
-  if (!isOpen)
-    return <AppButton onClick={openModal}>Open newsletter modal</AppButton>;
+  if (!isOpen) return null;
 
   return (
-    <Modal isOpen={isOpen} closeModal={closeModal}>
+    <Modal
+      modalContainerClassName="top-1/2 -translate-y-1/2 w-fit lg:max-w-[600px]"
+      isOpen={isOpen}
+      closeModal={closeModal}
+    >
       <form className="flex flex-col gap-16" onSubmit={handleSubmit}>
         <Text variant="description" className="text-gray-dark-12">
           Can we send you product updates?

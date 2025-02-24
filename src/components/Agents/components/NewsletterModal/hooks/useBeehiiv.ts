@@ -5,10 +5,12 @@ type SubscribeNewUserArgs = {
 
 const BEEHIIV_URL = import.meta.env.PUBLIC_BEEHIIV_PROXY_SERVER_URL;
 
+const UTM_SOURCE = 'agents-landing-page' as const;
+
 export const useBeehiiv = () => {
   const subscribeNewUser = async ({
     email,
-    utmSource = 'agents-landing-page',
+    utmSource = UTM_SOURCE,
   }: SubscribeNewUserArgs) => {
     if (!BEEHIIV_URL)
       throw Error('Missing PUBLIC_BEEHIIV_PROXY_SERVER_URL env variable');
