@@ -22,13 +22,11 @@ import { NewsletterModal } from './components/NewsletterModal';
 const faqsToAccordionItems = (faqs: FaqData[]): AccordionItem[] =>
   faqs.map((faq) => ({ label: faq.label, contentElements: [faq.content] }));
 
-const AboutModule = {
+const AgentsModule = {
   Hero: () => (
     <Section
       title={settings.agentsPage.hero.title}
       subTitle={settings.agentsPage.hero.subTitle}
-      announcementUrl={settings.agentsPage.hero.announcementUrl}
-      announcementMessage={settings.agentsPage.hero.announcementMessage}
       isHero
       isTextCenter
     >
@@ -84,4 +82,4 @@ const AboutModule = {
   ),
 };
 
-export default AboutModule;
+export default AgentsModule;

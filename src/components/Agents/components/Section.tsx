@@ -1,6 +1,7 @@
 import { cn } from '@utils/cn';
 import type { ReactNode, FC } from 'react';
-import { Announcement } from './Announcement';
+import { Announcement } from '@components/Announcement';
+import settings from '@base/settings.json';
 
 interface SectionProps {
   title: ReactNode;
@@ -13,8 +14,6 @@ interface SectionProps {
   isTextCenter?: boolean;
   isImageReverse?: boolean;
   isWide?: boolean;
-  announcementUrl?: string;
-  announcementMessage?: string;
 }
 
 const Section: FC<SectionProps> = ({
@@ -28,8 +27,6 @@ const Section: FC<SectionProps> = ({
   isTextCenter = false,
   isImageReverse = false,
   isWide = false,
-  announcementUrl,
-  announcementMessage,
 }) => {
   return (
     <section
@@ -64,12 +61,11 @@ const Section: FC<SectionProps> = ({
         >
           {isHero ? (
             <>
-              {announcementUrl && announcementMessage && (
-                <div className="mb-36">
-                  <Announcement
-                    url={announcementUrl}
-                    message={announcementMessage}
-                  />
+              {!settings.agentsPage.hero.hideAnnouncement && (
+                <div className="mb-36 flex justify-center">
+                  <div className="w-fit">
+                    <Announcement variant="content" />
+                  </div>
                 </div>
               )}
 

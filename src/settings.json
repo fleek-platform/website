@@ -536,8 +536,7 @@
       "primaryCta": "Create agent",
       "secondaryCta": "Enterprise solutions",
       "tertiaryCta": "API documentation",
-      "announcementUrl": "#",
-      "announcementMessage": "Deploy your first AI Agent today in under 5 minutes!"
+      "hideAnnouncement": false
     },
     "customize": {
       "title": "Customize agents",
