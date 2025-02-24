@@ -28,7 +28,7 @@ const PricingCard: FC<PricingCardProps> = (props) => {
   return (
     <div
       className={cn(
-        'flex min-h-full w-full flex-col justify-end gap-16 rounded-12 border p-16 ',
+        'flex min-h-full w-full flex-col justify-start gap-16 rounded-12 border p-16 ',
         {
           'border-yellow-dark-9 bg-pro-pricing-card':
             props.variant === 'primary',
@@ -36,7 +36,7 @@ const PricingCard: FC<PricingCardProps> = (props) => {
         },
       )}
     >
-      <div className="flex flex-col gap-10 border-b border-b-gray-dark-6 pb-16">
+      <div className="flex grow flex-col justify-between gap-10 border-b border-b-gray-dark-6 pb-16">
         <div className="space-y-6">
           <h3 className="font-plex-sans text-[1.8rem] font-semibold text-gray-dark-12">
             {props.title}
