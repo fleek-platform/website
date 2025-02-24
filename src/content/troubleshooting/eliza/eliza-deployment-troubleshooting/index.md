@@ -59,7 +59,6 @@ The `ACTION_TIMELINE_TYPE` can be used to configure whether the bot should inter
 
 ### Are there any special authentication guidelines for using Twitter with Fleek?
 
-- Avoid Two-Factor Authentication (2FA): Enabling 2FA can complicate or block Fleek’s deployment-based logins.
 - Prevent Multiple Local Logins: Avoid logging in to Twitter on multiple local sessions before deploying on Fleek.
 - Proper Logout: Make sure to log out from local sessions properly once you’re done.
 - Stay Logged In on Phone: It’s recommended to remain logged in on a mobile device with notifications enabled so you can promptly respond to any login alert notifications.
@@ -85,13 +84,36 @@ Twitter typically sends two main types of login alerts when Fleek attempts to ac
 ### What should I do if I encounter Twitter login issues or failures during deployment?
 
 - Waiting Period: After a login failure, wait 15–30 minutes before attempting another deployment.
-- Stop/Start Feature (Coming Soon):
+- Stop/Start Feature:
 
 1.  Stop your existing deployment.
 2.  Wait 20 minutes.
 3.  Restart it (without deleting).
 
 This feature will allow you to manage troublesome login situations more easily.
+
+Aditionally, try adding 2FA into your character file's secrets. Here's how:
+
+### 1. Go to Your Agent’s Twitter Settings
+
+Navigate to:
+
+- **Security and account access** → **Security** → **Two-factor authentication**.
+- Enable **Authentication App**.
+
+### 2. Retrieve Your 2FA Secret
+
+- Click the button under the QR code to view it as a string.
+- It will be a **16-character code** with uppercase letters and numbers.
+- Complete the 2FA setup using an app like **Google Authenticator**.
+
+### 3. Update Your Agent File on Fleek
+
+- Edit your agent file on [Fleek](https://fleek.xyz/eliza) and add the following secret:
+  ```ini
+  "TWITTER_2FA_SECRET":"YOUR_SECRET_CODE"
+  ```
+- Restart your agent on [Fleek App](https://app.fleek.xyz).
 
 ---
 
