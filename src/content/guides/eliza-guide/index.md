@@ -133,7 +133,7 @@ Let’s explore these options one-by-one!
    To deploy your agent, Fleek charges a \$20 per month, per agent fee through the AI Agent Plan. Be sure to [review the pricing details](https://fleek.xyz/pricing) before you proceed.
 
 2. **Known Issue: X (Twitter) 2FA**  
-   Agents deployed to X may experience issues logging in. To solve this, you have to add an additional secret TWITTER_2FA_SECRET. To retrieve this code, you have to enable Two-factor authentication on twitter, and retrieve your 2FA secret. To retrieve the 2FA secret, click the button under the QR code to view it as a string (it’s a 16-character code with uppercase letters and numbers).
+   Agents deployed to X may experience issues logging in. To solve this, you have to add an additional secret TWITTER_2FA_SECRET. To retrieve this code, you have to enable two-factor authentication on twitter, and retrieve your 2FA secret. To retrieve the 2FA secret, click the button under the QR code to view it as a string (it’s a 16-character code with uppercase letters and numbers).
 
 ---
 
