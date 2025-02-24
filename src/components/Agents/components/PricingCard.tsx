@@ -36,7 +36,7 @@ const PricingCard: FC<PricingCardProps> = (props) => {
         },
       )}
     >
-      <div className="flex grow flex-col justify-between gap-10 border-b border-b-gray-dark-6 pb-16">
+      <div className="flex flex-col gap-10 border-b border-b-gray-dark-6 pb-16">
         <div className="space-y-6">
           <h3 className="font-plex-sans text-[1.8rem] font-semibold text-gray-dark-12">
             {props.title}
@@ -67,7 +67,7 @@ const PricingCard: FC<PricingCardProps> = (props) => {
           <p>{props.cost?.bottomText}</p>
         </div>
       </div>
-      <div className="flex flex-col gap-18">
+      <div className="flex grow flex-col gap-18">
         {props?.featuresDescription && (
           <p className="typo-m block text-left text-gray-dark-12">
             {props?.featuresDescription}
