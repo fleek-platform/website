@@ -29,11 +29,19 @@ After selecting the file, click the "Upload" button.
 
 ![](./b-flow-3.png)
 
-You will be directed to a page to confirm your agent details.
-Review the information provided and click 'Deploy Agent'.
+## Review AI agent details and deploy
 
-![](./b-flow-3-1.png)
-Your AI agent is now ready to interact seamlessly with external services.
+You will be directed to a page to confirm your agent details. You can choose one of two ways to review your agent's details:
+
+1. **As Text**. You can see an overview of all the agent's details in foldable sections. You will not be able to edit any of the details:
+
+![Review agent](./review-agent.png)
+
+2. **As JSON**. You can see all the agent's details as they are in the characterfile you uploaded. You can edit the JSON directly:
+
+![Review agent JSON](./review-json.png)
+
+Review the information provided and click 'Deploy agent'. Your AI agent will go live instantly and will be ready to interact with services.
 
 ## How to handle secrets
 
@@ -42,7 +50,7 @@ The recommended way to do this is to include it in the "settings" key of your ch
 
 ```json
 {
-   "name": "TestEliza",
+   "name": "Detective",
     "clients": ["twitter"],
     "modelProvider": "openai",
     "settings": {
