@@ -9,14 +9,15 @@ import { Button } from './components/Button';
 import { useSession } from '@hooks/useSession';
 import toast from 'react-hot-toast';
 import { FaSpinner } from 'react-icons/fa6';
-import { getItem, setItem, type StorageKey } from '@utils/storage';
+import { agentsLandingPageKey, getItem, setItem } from '@utils/storage';
 
 // 10 seconds
 const SHOW_MODAL_DELAY = 10 * 1000;
 
 type StorageValue = { agentsNewsletterDisplayedOnce: boolean };
 
-const storageKey: StorageKey = 'fleek-xyz-marketing' as const;
+const storageKey = agentsLandingPageKey;
+
 // display modal again in 7 days
 const storageExpiresInDays = 7 as const;
 

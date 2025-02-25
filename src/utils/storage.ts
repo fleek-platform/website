@@ -1,12 +1,20 @@
 import { isClient } from './common';
 
+/** Single value per localStorage key. */
 export type StorageItem<T> = {
   value: T;
   /** ISO string for expiration datetime */
   expiresAt: string;
 };
 
-export type StorageKey = 'fleek-xyz-marketing';
+const PREFIX = 'fleek-xyz-marketing' as const;
+const SEPARATOR = '---' as const;
+const PAGE = 'agents-landing-page' as const;
+
+export const agentsLandingPageKey = `${PREFIX}${SEPARATOR}${PAGE}` as const;
+
+// union for all pages
+export type StorageKey = typeof agentsLandingPageKey;
 
 export const setItem = <T>(
   key: StorageKey,
@@ -50,10 +58,4 @@ export const removeItem = (key: StorageKey): void => {
   if (!isClient) return;
 
   localStorage.removeItem(key);
-};
-
-export const clearStorage = (): void => {
-  if (!isClient) return;
-
-  localStorage.clear();
 };
