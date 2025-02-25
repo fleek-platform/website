@@ -85,7 +85,7 @@ export const NewsletterModal: React.FC = () => {
 
   return (
     <Modal
-      modalContainerClassName="top-1/2 -translate-y-1/2 w-fit lg:max-w-[600px]"
+      modalContainerClassName="bottom-auto top-1/2 -translate-y-1/2 w-fit lg:max-w-[600px]"
       isOpen={isOpen}
       closeModal={closeModal}
     >
