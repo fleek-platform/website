@@ -9,9 +9,16 @@ import { Button } from './components/Button';
 import { useSession } from '@hooks/useSession';
 import toast from 'react-hot-toast';
 import { FaSpinner } from 'react-icons/fa6';
+import { getItem, setItem, type StorageKey } from '@utils/storage';
 
 // 10 seconds
 const SHOW_MODAL_DELAY = 10 * 1000;
+
+type StorageValue = { agentsNewsletterDisplayedOnce: boolean };
+
+const storageKey: StorageKey = 'fleek-xyz-marketing' as const;
+// display modal again in 7 days
+const storageExpiresInDays = 7 as const;
 
 export const NewsletterModal: React.FC = () => {
   const { subscribeNewUser } = useBeehiiv();
@@ -20,21 +27,22 @@ export const NewsletterModal: React.FC = () => {
   const [email, setEmail] = useState('');
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [error, setError] = useState('');
-  // show modal only once, should be in global state for all pages
-  const [hasOpenedBefore, setHasOpenedBefore] = useState(false);
 
   const { isLoggedIn } = useSession();
 
   const openModal = () => {
     setEmail('');
     setIsOpen(true);
-    setHasOpenedBefore(true);
+    const storageValue: StorageValue = { agentsNewsletterDisplayedOnce: true };
+    setItem(storageKey, storageValue, storageExpiresInDays);
   };
 
   // 10 seconds after mount show modal for non-existing users
   useEffect(() => {
     const showModal = () => {
-      if (isLoggedIn || hasOpenedBefore) return;
+      const displayedOnce = getItem<StorageValue>(storageKey);
+
+      if (isLoggedIn || displayedOnce?.agentsNewsletterDisplayedOnce) return;
 
       openModal();
     };
@@ -44,7 +52,7 @@ export const NewsletterModal: React.FC = () => {
     return () => {
       clearTimeout(timer);
     };
-  }, [isLoggedIn, hasOpenedBefore, openModal]);
+  }, [isLoggedIn, openModal]);
 
   const closeModal = () => setIsOpen(false);
 
