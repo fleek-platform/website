@@ -33,10 +33,10 @@ const AgentsModule = {
     >
       <div className="mb-48 flex flex-wrap items-center justify-center gap-12 font-plex-sans md:mb-96">
         <Button href="/eliza/">{settings.agentsPage.hero.primaryCta}</Button>
-        <Button variant="secondary" href="#">
+        {/* <Button variant="secondary" href="#">
           {settings.agentsPage.hero.secondaryCta}
-        </Button>
-        <Button variant="ghost" href="https://api.fleek.xyz/api/">
+        </Button> */}
+        <Button variant="ghost" href="https://api.fleek.xyz/api">
           {settings.agentsPage.hero.tertiaryCta}
           <FaChevronRight className="size-12" />
         </Button>

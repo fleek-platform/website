@@ -17,6 +17,7 @@ export type PricingInfo = {
   cta?: string;
   variant: VariantProps<typeof buttonVariants>['variant'];
   url?: string;
+  disabled?: boolean;
   splitDescription?: boolean;
 };
 
@@ -25,14 +26,15 @@ export type PricingCardProps = PricingInfo;
 const PricingCard: FC<PricingCardProps> = (props) => {
   const isCustomPrice = props.cost?.prefix === '' && props.cost?.suffix === '';
 
+  const isHighlightedCard = !props.disabled && props.variant === 'primary';
+
   return (
     <div
       className={cn(
         'flex min-h-full w-full flex-col justify-start gap-16 rounded-12 border p-16 ',
         {
-          'border-yellow-dark-9 bg-pro-pricing-card':
-            props.variant === 'primary',
-          'border-gray-dark-6 bg-pricing-card': props.variant !== 'primary',
+          'border-yellow-dark-9 bg-pro-pricing-card': isHighlightedCard,
+          'border-gray-dark-6 bg-pricing-card': !isHighlightedCard,
         },
       )}
     >
@@ -86,7 +88,12 @@ const PricingCard: FC<PricingCardProps> = (props) => {
           })}
         </ul>
       </div>
-      <Button href={props.url} variant={props.variant} size="lg">
+      <Button
+        {...(!props.disabled && props.url ? { href: props.url } : {})}
+        disabled={props.disabled}
+        variant={props.variant}
+        size="lg"
+      >
         {props.cta}
       </Button>
     </div>

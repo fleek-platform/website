@@ -93,8 +93,9 @@ export const pricingCards: PricingInfo[] = [
       'Perfect for testing and development',
     ],
     cta: 'Coming soon!',
-    variant: 'primary-outline',
-    url: 'https://app.fleek.xyz/',
+    variant: 'primary',
+    disabled: true,
+    url: '#',
   },
   {
     title: 'TEE Agent Hosting',
@@ -112,7 +113,7 @@ export const pricingCards: PricingInfo[] = [
     ],
     cta: 'Start hosting now',
     variant: 'primary',
-    url: 'https://app.fleek.xyz/',
+    url: '/eliza/',
   },
   {
     title: 'Enterprise Solutions',
