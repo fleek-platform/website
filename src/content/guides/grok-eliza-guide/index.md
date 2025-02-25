@@ -70,7 +70,7 @@ Next, select a template that fits your preferences, e.g., C-3PO template.
 
 8.  After review, click "Deploy agent" at the bottom. Your agent should be active in a few seconds.
 
-Great! Your agent will be live on X and ready to interact. Tag it for responses or head back to edit its Characterfile anytimet:
+Great! Your agent will be live on X and ready to interact. Tag it for responses or head back to edit its Characterfile anytime:
 
 ![Agent tweet](./agent-tweet.png)
 
