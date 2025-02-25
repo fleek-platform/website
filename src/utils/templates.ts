@@ -23,7 +23,7 @@ export const getDeploymentUrl = (
 ): string => {
   if (!isClient) return '';
 
-  const deploymentUrl = `${appUrl}projects/${projectId}/sites/new/?templateId=${templateId}`;
+  const deploymentUrl = `${appUrl}/projects/${projectId}/sites/new/?templateId=${templateId}`;
 
   return deploymentUrl;
 };
