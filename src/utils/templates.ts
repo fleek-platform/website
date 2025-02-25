@@ -1,5 +1,5 @@
-import { isProd } from '@utils/common';
-import { isClient } from '@utils/common';
+import { isProd, isClient } from '@utils/common';
+import { removeTrailingSlash } from '@utils/url';
 
 const appUrl = import.meta.env.PUBLIC_UI_APP_URL;
 if (!appUrl) {
@@ -23,7 +23,7 @@ export const getDeploymentUrl = (
 ): string => {
   if (!isClient) return '';
 
-  const deploymentUrl = `${appUrl}/projects/${projectId}/sites/new/?templateId=${templateId}`;
+  const deploymentUrl = `${removeTrailingSlash(appUrl)}/projects/${projectId}/sites/new/?templateId=${templateId}`;
 
   return deploymentUrl;
 };
