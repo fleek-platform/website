@@ -28,7 +28,7 @@ To get a Grok API key:
 
 1. Navigate to the [XAI console](https://x.ai/api) and then sign in to the console.
 
-2. Click on the key icon on the sidebar, you should see the below page:
+2. In the sidebar, tap the key icon labeled "API Keys." You'll find the following panel:
 
 ![XAI Console](./x-api-key.png)
 
@@ -46,9 +46,9 @@ Next, select a template that fits your preferences, e.g., C-3PO template.
 
 1. Click on the C-3PO button, the form on the page will be filled instantly with the necessary details.
 
-2. Go to the “Model providers” section and click to open the dropdown.
+2. Locate "Model providers" and click to reveal the dropdown options.
 
-3. After opening the dropdown menu, scroll through the options until you find "Grok". It should appear as shown below:
+3. Scroll to find "Grok" in the dropdown menu as shown below::
 
 ![Model providers](./models.png)
 
@@ -74,9 +74,9 @@ Great! Your agent will be live on X and ready to interact. Tag it for responses 
 
 ![Agent tweet](./agent-tweet.png)
 
-For more resources:
+To learn more, check out:
 
-- [AI Agents doc](/docs/ai-agents/)
-- [Deploy an AI Agent guide](/guides/eliza-guide/)
-- [Deploy a Telegram AI Agent with OpenAI](/guides/telegram-ai-agent)
-- [Deploy a Discord AI Agent with DeepSeek](https://fleek.xyz/guides/deploy-ai-agent-deepseek-fleek)
+- [The AI agents documentation](/docs/ai-agents/)
+- [Learn to deploy an Eliza AI agent with our guide](/guides/eliza-guide/)
+- [Learn to deploy a Telegram AI Agent with OpenAI](/guides/telegram-ai-agent)
+- [Learn to deploy a Discord AI Agent with DeepSeek](https://fleek.xyz/guides/deploy-ai-agent-deepseek-fleek)
