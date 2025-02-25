@@ -17,10 +17,10 @@ In this guide, we will go over how to deploy a Grok Eliza AI agent on Fleek.
 ## Prerequisites
 
 1. An [XAI API key](https://x.ai/api) and credits in your account.
-2. A [Fleek account](https://app.fleek.xyz/) if you don’t already have one.
-3. A Twitter account with your credentials ready
+2. A [Fleek account](https://fleek.xyz/) if you don’t already have one.
+3. A Twitter account with existing authentication and login status
 
-Little to no knowledge of Eliza or AI agents is welcome.
+No prior knowledge of AI agents or Eliza is required to participate.
 
 ## How to get your Grok API key
 
@@ -32,45 +32,45 @@ To get a Grok API key:
 
 ![XAI Console](./x-api-key.png)
 
-3. Then click on “Create API key”. Note that you have to ensure that you need to have some API credits in your account to have a valid API key.
+3. Next, click on "Create API key". Note that you must have API credits in your account for the API key to be valid.
 
 ![Credits page](./credits-page.png)
 
 ## Deploy your AI agent from Fleek
 
-Start by going to [fleek.xyz/eliza/](https://fleek.xyz/eliza/). On the page here you will see three deployment options. We would go ahead to use a template. So we select the “Start with a template” option:
+Start by going to [fleek.xyz/eliza/](https://fleek.xyz/eliza/). You'll find three deployment options. Go ahead and select the “Start with a template” option:
 
 ![Get started page](./options-page.png)
 
-Now, we will be using one of the template options available there. Say the C-3PO template. Now, to deploy our agent:
+Next, select a template that fits your preferences, e.g., C-3PO template.
 
 1. Click on the C-3PO button, the form on the page will be filled instantly with the necessary details.
 
 2. Go to the “Model providers” section and click to open the dropdown.
 
-3. With the dropdown open, scroll to look for “Grok”. You should see the below:
+3. After opening the dropdown menu, scroll through the options until you find "Grok". It should appear as shown below:
 
 ![Model providers](./models.png)
 
-4. Now with Grok selected, you need not change anything, but, you can add an avatar and maybe update the name based on your preferences.
+4. After selecting Grok, no additional configuration is necessary. However, you have the option to customize your experience by adding an avatar or updating the name as desired.
 
 ![Avatar](./avatar.png)
 
-5. With that done, scroll to the bottom and click on the “Continue to settings” button.
+5. Once ready, scroll to the bottom and click the "Continue to settings" button.
 
-6. On this page you will fill in all required information. Some of the other fields have been already filled in and you wouldn’t need to edit those:
+6. Fill in all the necessary information on this panel. You'll notice that some fields are already completed, which you can skip.
 
 ![Settings page](./settings.png)
 
-7. After all that, you review your agent details and confirm that all the provided information is correct:
+7. Once completed, examine your agent details carefully to ensure all provided information is correct.
 
 ![Reviews page](./reviews.png)
 
-**Note:** you can switch tabs to the “JSON” (Characterfile) one in case there is anything you would like to edit or modify.
+**Note:** Advanced users can switch to the "JSON" (Characterfile) tab to manually edit or modify configuration details.
 
-8. After reviewing the information to confirm that all is well you then scroll to the bottom to click the “Deploy agent” button and you should see your agent go live in less than 30 seconds.
+8.  After review, click "Deploy agent" at the bottom. Your agent should be active in a few seconds.
 
-Immediately after the deployment of your agent, you will see your agent already posting on X and you can even tag your agent to things for responses if need be. You can also go back to edit your Characterfile if you want to change anything about your agent:
+Great! Your agent will be live on X and ready to interact. Tag it for responses or head back to edit its Characterfile anytimet:
 
 ![Agent tweet](./agent-tweet.png)
 
