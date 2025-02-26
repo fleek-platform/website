@@ -65,4 +65,4 @@ The draft state is for agents that are being worked on and are not currently run
 
 You can identify draft state agents by an icon beside them and they look like the below example. You also see the agent creation form with all the current details of the agent that is being worked on.
 
-![Agent draft](./agent-draft.png)
+![Agent draft state](./agent-draft.png)
