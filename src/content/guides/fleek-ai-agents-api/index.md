@@ -16,61 +16,20 @@ This guide provides step-by-step instructions on how to use the Fleek AI Agents 
 
 To use the API, you need an X-Api-Key. Follow these steps to retrieve it:
 
-### 1. Get Your Bearer Token
+### 1. Generate Your X-Api-Key
 
-1. Go to [app.fleek.xyz](https://app.fleek.xyz/).
-2. Open the Developer Console (F12 in most browsers).
-3. Navigate to the "Network" tab.
-4. Select your project where you have an AI agent deployed.
-5. Go to the "AI Agents" tab.
-6. On the “Network” tab, filter by api.fleek.xyz.
-7. Select the request that includes your project ID.
-8. Under "Request Headers," find the Authorization field.
-9. Copy the Bearer Token (e.g., Authorization: Bearer YOUR_BEARER_TOKEN_HERE).
+To get an API key:
 
-### 2. Generate Your X-Api-Key
+1. Go to the [fleek.xyz/eliza](https://fleek.xyz/eliza) page. Click on the "Account settings" button at the bottom of the page.
 
-Once you have your Bearer Token, use it to generate your X-Api-Key by running the following command:
+2. The "API tokens" tab shows up with all the API keys you have created.
 
-```bash
+![Eliza page tokens](./eliza-page-tokens.png)
 
-curl https://api.fleek.xyz/api/v1/tokens \
+3. To get an API key from the Eliza deployment page, click on the "Create API token" button and a modal appears.
+4. Type in the name of the API key you want to create and click on the "Create API token" button.
 
---request POST \
-
---header 'Content-Type: application/json' \
-
---header 'Authorization: Bearer YOUR_BEARER_TOKEN_HERE' \
-
---data '{
-
-"expires_in_days": null,
-
-"name": "YOUR_API_NAME_HERE"
-
-}'
-
-```
-
-**Response example:**
-
-```json
-{
-  "id": "your_token_id",
-
-  "name": "NAME_HERE",
-
-  "token": "your_x_api_key",
-
-  "token_prefix": "your_token_prefix",
-
-  "created_at": "user_specific_timestamp",
-
-  "expires_at": null,
-
-  "last_used_at": null
-}
-```
+![Create API token](./create-api-token.png)
 
 Use the token field as your X-Api-Key for all API requests.
 
