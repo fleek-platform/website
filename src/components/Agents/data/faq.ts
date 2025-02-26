@@ -20,11 +20,6 @@ export const faqs: FaqData[] = [
       'We accept all major credit cards (Visa, Mastercard, American Express), PayPal, and bank transfers for enterprise customers. Contact our sales team for custom payment arrangements.',
   },
   {
-    label: 'Can I try Fleek without a card on file?',
-    content:
-      'Yes! You can sign up and explore our platform without adding payment information. We offer a free tier that lets you test our basic features and understand how our service works.',
-  },
-  {
     label: 'Can I upgrade or downgrade at any time?',
     content:
       'Absolutely! You can change your plan at any time. Changes take effect immediately, and your billing will be prorated based on your usage. There are no penalties or fees for changing plans.',

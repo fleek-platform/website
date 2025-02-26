@@ -98,9 +98,6 @@ export const NewsletterModal: React.FC = () => {
           Subscribe to stay updated on all things AI agents. Spam-free, we
           promise!
         </Text>
-        <Text variant="secondary">
-          P.S.: A free version is coming soon—be the first to know!
-        </Text>
         <Box className="gap-8 pb-8">
           <Input.Label htmlFor="email">Email</Input.Label>
           <Input.Root>
