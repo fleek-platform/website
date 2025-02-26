@@ -30,7 +30,7 @@ export const navbarMenu: NavMenuItemRoot[] = [
     subMenu: [
       {
         label: 'AI agent hosting',
-        url: '/eliza/',
+        url: '/agents/',
         description: 'Build autonomous agents',
         icon: '/svg/robot.svg',
       },
