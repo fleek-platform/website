@@ -26,12 +26,6 @@
         "description": "Fleek: Build next-gen apps and AI agents in minutes on an open-source, verifiable, auto-scalable cloud platform. Start for free!",
         "image": "/images/fleek-meta-image.png?202406061658"
       },
-      "agents": {
-        "title": "Agents",
-        "slug": "agents",
-        "description": "Effortlessly deploy and run Eliza AI agents and enjoy industry-best pricing.",
-        "image": "/images/fleek-meta-image.png?202406061658"
-      },
       "blog": {
         "title": "Blog",
         "slug": "blog",
@@ -527,31 +521,6 @@
         "Escape Big Cloud and take back control. Fleek offers everything you love about using public cloud platforms, without the constraints of corporate controlled web infrastructure."
       ],
       "button": "Get started with Fleek"
-    }
-  },
-  "agentsPage": {
-    "hero": {
-      "title": "AI agent infrastructure for teams of every size",
-      "subTitle": "Create, deploy, and scale AI agents with enterprise-grade performance and industry-best pricing.",
-      "primaryCta": "Create agent",
-      "secondaryCta": "Enterprise solutions",
-      "tertiaryCta": "API documentation",
-      "hideAnnouncement": false
-    },
-    "customize": {
-      "title": "Customize agents",
-      "subTitle": "Design your own agent and start chatting with it in no time. Customize it with unique features and launch it across your favorite social media platforms."
-    },
-    "growing": {
-      "title": "For growing teams",
-      "subTitle": "Deploy and monitor 1 to multiple agents from a unified dashboard. Centralize configuration, track performance, and maintain consistent security policies."
-    },
-    "pricing": {
-      "title": "Pricing"
-    },
-    "faq": {
-      "title": "FAQ",
-      "subTitle": "Solutions to many of our most commonly asked questions."
     }
   },
   "templatesPage": {
