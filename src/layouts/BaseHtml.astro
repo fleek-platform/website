@@ -60,6 +60,60 @@ const metaTitle = ogMeta['custom_title'] ?? ogMeta?.title;
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width" />
 
+    <script type="application/ld+json">
+      {
+        "@context": "http://schema.org",
+        "@graph": [
+          {
+            "@type": "Organization",
+            "name": "Fleek",
+            "description": "Fleek makes it easy to build and deploy next-generation apps and AI agents in minutes on an open-source, verifiable, auto-scalable cloud platform.",
+            "url": "https://fleek.xyz",
+            "logo": "https://fleek.xyz/favicon.ico",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "139 Powers St",
+              "addressLocality": "Brooklyn",
+              "addressRegion": "NY",
+              "postalCode": "11211",
+              "addressCountry": "USA"
+            },
+            "contactPoint": [
+              {
+                "@type": "ContactPoint",
+                "email": "business@fleek.xyz",
+                "contactType": "Customer Support"
+              }
+            ],
+            "sameAs": [
+              "https://twitter.com/Fleek",
+              "https://www.linkedin.com/company/fleekxyz/",
+              "https://github.com/fleek-platform"
+            ],
+            "founder": {
+              "@type": "Person",
+              "name": "Harrison Hines"
+            },
+            "ceo": {
+              "@type": "Person",
+              "name": "Harrison Hines"
+            }
+          },
+          {
+            "@type": "WebSite",
+            "name": "Fleek",
+            "url": "https://fleek.xyz",
+            "description": "Fleek makes it easy to build and deploy next-generation apps and AI agents in minutes on an open-source, verifiable, auto-scalable cloud platform.",
+            "potentialAction": {
+              "@type": "SearchAction",
+              "target": "https://fleek.xyz/search?q={search_term_string}",
+              "query-input": "required name=q"
+            }
+          }
+        ]
+      }
+    </script>
+
     <link
       rel="icon"
       type="image/png"
