@@ -13,7 +13,7 @@ export const useDisableScroll = ({ condition }: UseDisableScrollArgs) => {
     document.body.style.overflowY = 'hidden';
 
     return () => {
-      document.body.style.overflowY = 'auto';
+      document.body.style.overflowY = '';
     };
   }, [condition]);
 };

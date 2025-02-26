@@ -86,13 +86,10 @@ const Root = forwardRef<HTMLDivElement, InputRootProps>(
     },
     ref,
   ) => {
-    const status = isLoading
-      ? 'isLoading'
-      : disabled
-        ? 'disabled'
-        : error
-          ? 'error'
-          : undefined;
+const status = 
+  (isLoading && "isLoading") ??
+  (disabled && "disabled") ??
+  (error && "error");
 
     return (
       <div
