@@ -73,7 +73,7 @@ export default {
   product: [
     {
       text: 'AI agent hosting',
-      url: '/agents/',
+      url: '/docs/ai-agents/',
     },
     {
       text: 'Web app hosting',

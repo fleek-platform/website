@@ -1,7 +1,7 @@
 import { cn } from '@utils/cn';
 import { Fragment } from 'react';
 
-export interface AccordionItem {
+interface AccordionItem {
   label: string;
   contentElements: (string | JSX.Element)[];
 }
