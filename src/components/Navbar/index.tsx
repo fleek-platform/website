@@ -19,6 +19,16 @@ import type { Project } from '@fleekxyz/sdk/dist-types/generated/graphqlClient/s
 import { isClient } from '../../utils/common';
 import { useSession } from '@hooks/useSession';
 
+const dashboardUrl = import.meta.env.PUBLIC_UI_APP_URL;
+
+const onAuthenticationSuccess = () => {
+  if (!isClient) return;
+
+  if (window.location.pathname.startsWith('/eliza')) return;
+
+  window.location.assign(dashboardUrl);
+};
+
 const NavbarMobileItem: React.FC<NavMenuItemRoot> = (props) => {
   const { label, openInNewTab } = props;
 
@@ -106,6 +116,7 @@ const NavbarMobileItems: React.FC<{}> = () => {
       <LoginProvider
         graphqlApiUrl={import.meta.env.PUBLIC_GRAPHQL_ENDPOINT}
         dynamicEnvironmentId={import.meta.env.PUBLIC_DYNAMIC_ENVIRONMENT_ID}
+        onAuthenticationSuccess={onAuthenticationSuccess}
       >
         {(props) => {
           const { isLoading, error, login, logout } = props;
@@ -463,6 +474,7 @@ const SessionManagementActions: React.FC = () => {
       <LoginProvider
         graphqlApiUrl={import.meta.env.PUBLIC_GRAPHQL_ENDPOINT}
         dynamicEnvironmentId={import.meta.env.PUBLIC_DYNAMIC_ENVIRONMENT_ID}
+        onAuthenticationSuccess={onAuthenticationSuccess}
       >
         {(props) => {
           const { accessToken, isLoading, error, login, logout } = props;
