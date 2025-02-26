@@ -23,11 +23,11 @@ const dashboardUrl = import.meta.env.PUBLIC_UI_APP_URL;
 
 const onAuthenticationSuccess = () => {
   if (!isClient) return;
-  
+
   if (window.location.pathname.startsWith('/eliza')) return;
 
   window.location.assign(dashboardUrl);
-}
+};
 
 const NavbarMobileItem: React.FC<NavMenuItemRoot> = (props) => {
   const { label, openInNewTab } = props;
