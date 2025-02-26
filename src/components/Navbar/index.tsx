@@ -26,7 +26,7 @@ const onAuthenticationSuccess = () => {
   
   if (window.location.pathname.startsWith('/eliza')) return;
 
-  window.location.assign(dashboardUrl)
+  window.location.assign(dashboardUrl);
 }
 
 const NavbarMobileItem: React.FC<NavMenuItemRoot> = (props) => {
