@@ -14,6 +14,7 @@ interface SectionProps {
   isTextCenter?: boolean;
   isImageReverse?: boolean;
   isWide?: boolean;
+  isSubTitleNoBalance?: boolean;
 }
 
 const Section: FC<SectionProps> = ({
@@ -27,6 +28,7 @@ const Section: FC<SectionProps> = ({
   isTextCenter = false,
   isImageReverse = false,
   isWide = false,
+  isSubTitleNoBalance = false,
 }) => {
   return (
     <section
@@ -82,6 +84,9 @@ const Section: FC<SectionProps> = ({
             <p
               className={cn(
                 'mx-auto font-plex-sans text-[1.6rem] font-medium text-neutral-11 md:text-18',
+                {
+                  'text-wrap ': isSubTitleNoBalance,
+                },
               )}
             >
               {subTitle}
