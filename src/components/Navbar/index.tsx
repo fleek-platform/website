@@ -312,11 +312,13 @@ type NavbarProps = {
   variant?: 'fixed' | 'sticky';
   pathname: string;
   className?: string;
+  wrapperClassName?: string;
 };
 
 export const Navbar: React.FC<NavbarProps> = ({
   pathname,
   className,
+  wrapperClassName,
   variant = 'sticky',
 }) => {
   const [hovering, setHovering] = useState<number | null>(null);
@@ -335,9 +337,13 @@ export const Navbar: React.FC<NavbarProps> = ({
 
   return (
     <div
-      className={cn('sticky top-0 z-50 w-full px-24', {
-        fixed: variant === 'fixed',
-      })}
+      className={cn(
+        'sticky top-0 z-50 w-full px-24',
+        {
+          fixed: variant === 'fixed',
+        },
+        wrapperClassName,
+      )}
     >
       <div className="absolute top-0 -z-1 -mx-24 h-80 w-full bg-gray-dark-1/70 backdrop-blur-sm [mask-image:linear-gradient(to_bottom,rgba(0,0,0,1),rgba(0,0,0,1),rgba(0,0,0,0))]"></div>
       <nav
