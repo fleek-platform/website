@@ -22,7 +22,7 @@ To get an API key:
 
 1. Go to the [fleek.xyz/eliza](https://fleek.xyz/eliza/) page. Click on the "Account settings" button at the bottom of the page.
 
-2. The "API tokens" tab lists all your created API keys.
+2. The "API tokens" tab lists all your managed API keys.
 
 ![Eliza page tokens](./eliza-page-tokens.png)
 
