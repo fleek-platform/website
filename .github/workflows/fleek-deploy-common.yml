@@ -92,7 +92,7 @@ jobs:
       - name: Setup fleek.config.json
         run: |
           DIST="out"
-          BUILD="npm run build:ci && cp ${{ env.DASHBOARD_UNARCHIVED_PATH }} $DIST"
+          BUILD="npm run build:ci && cp -r $DASHBOARD_UNARCHIVED_PATH $DIST"
           
           ./scripts/setup-fleek-config \
             "$FLEEK_SLUG" \
