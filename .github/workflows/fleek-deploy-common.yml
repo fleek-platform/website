@@ -17,6 +17,7 @@ jobs:
       FLEEK_PROJECT_ID: ${{ secrets.FLEEK_PROJECT_ID }}
       FLEEK_SLUG: ${{ secrets.FLEEK_SLUG }}
       DOPPLER_TOKEN: ${{ secrets.DOPPLER_TOKEN }}
+      DASHBOARD_UNARCHIVED_PATH: "temp/dashboard"
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -52,6 +53,10 @@ jobs:
       - name: Install Fleek CLI
         run: npm i -g @fleek-platform/cli
 
+      # TODO: Maybe separate into three steps:
+      # - Site build
+      # - Dashboard
+      # - Deploy
       - name: Install Packages
         run: npm install
 
@@ -74,17 +79,20 @@ jobs:
       - name: Prepare Dashboard files
         env:
           ARTIFACT: ${{ steps.download_dashboard_artifact.outputs.latest_dashboard_artifact }}
-          OUTPUT_PATH: "dist"
+          OUTPUT_PATH: ${{ env.DASHBOARD_UNARCHIVED_PATH }}
         run: |
           if ! scripts/unarchive_dashboard_files "$ARTIFACT" "$OUTPUT_PATH"; then
             echo "👹 Oops! Failed to unarchive the dashboard files for some reason..."
             exit 1
           fi
+
+          echo "✅ Unarchived the archive file $ARTIFACT, to $OUTPUT_PATH. It's contents are listed below:"
+          ls -la "$OUTPUT_PATH"
         
       - name: Setup fleek.config.json
         run: |
           DIST="out"
-          BUILD="pnpm run build"
+          BUILD="npm run build:ci && cp ${{ env.DASHBOARD_UNARCHIVED_PATH }} $DIST"
           
           ./scripts/setup-fleek-config \
             "$FLEEK_SLUG" \
