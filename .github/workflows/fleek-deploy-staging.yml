@@ -5,6 +5,9 @@ on:
   push:
     branches:
       - develop
+  # The workflow's dispatched on Release by develop hash
+  repository_dispatch:
+    types: [Release]
 
 jobs:
   deploy-to-staging:
