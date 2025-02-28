@@ -561,6 +561,16 @@ const ButtonContainer: React.FC<ButtonContainerProps> = ({
           onProjectChange={setActiveProject}
         />
       )}
+      {isLoggedIn && (
+        <Button
+          variant="tertiary"
+          size="sm"
+          className="hidden md:flex"
+          href={dashboardAppUrl}
+        >
+          Dashboard
+        </Button>
+      )}
       <Button
         variant="secondary"
         size="sm"
