@@ -70,7 +70,7 @@ You can find the API documentation <a href="https://api.fleek.xyz/api-docs/opena
 
 Users with an existing subscription can add additional agents by updating their subscription quantity.
 
-1. First, retrieve the current subscription details using the Get Subscription by ID endpoint:}
+1. First, retrieve the current subscription details using the Get Subscription by ID endpoint:
 
    - [GET /api/v1/subscriptions/{subscription_id}](https://api.fleek.xyz/api#tag/subscriptions/GET/api/v1/subscriptions/{subscription_id})
    - This provides the current quantity of agents assigned to the subscription.
