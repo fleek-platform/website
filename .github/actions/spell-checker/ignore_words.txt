@@ -7,6 +7,7 @@ abi
 abtesting
 ach
 activedirectory
+agentid
 agile
 ai
 akash
@@ -47,10 +48,13 @@ bun
 bunjs
 calldata
 cassandra
+catcha
 cdn
 changelog
 changelogs
 chaosengineering
+characterfile
+characterfiles
 chef
 cherrypick
 ci/cd
@@ -117,6 +121,7 @@ ef
 eigenlayer
 eigenlayer's
 eip
+eliza
 elkstack
 emacs
 email
@@ -435,6 +440,7 @@ toolset
 tooltip
 tooltips
 totp
+tranferred
 transaction
 transparency
 triple-des
@@ -521,3 +527,9 @@ zero-trust
 zimbabwe
 zip
 zw
+
+
+
+
+
+
