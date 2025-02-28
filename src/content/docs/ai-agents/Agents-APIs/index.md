@@ -66,6 +66,22 @@ You can find the API documentation <a href="https://api.fleek.xyz/api-docs/opena
 - Start an agent
 - Stop an agent
 
+## Adding an AI agent via API
+
+Users with an existing subscription can add additional agents by updating their subscription quantity.
+
+1. First, retrieve the current subscription details using the Get Subscription by ID endpoint:
+
+   - [GET /api/v1/subscriptions/{subscription_id}](https://api.fleek.xyz/api#tag/subscriptions/GET/api/v1/subscriptions/{subscription_id})
+   - This provides the current quantity of agents assigned to the subscription.
+
+2. Next, call the Update Subscription endpoint to increase the quantity:
+
+   - [PUT /api/v1/subscriptions/{subscription_id}](https://api.fleek.xyz/api#tag/subscriptions/PUT/api/v1/subscriptions/{subscription_id})
+   - Update with the new quantity number
+
+You can view your list of subscriptions to get the {subscriptionId} with the endpoint [here](https://api.fleek.xyz/api#tag/subscriptions/GET/api/v1/subscriptions).
+
 ## AI agent proxy on Fleek
 
 Fleek provides an endpoint that proxies requests to an AI agent's API on Fleek, supporting **GET, POST, PUT, DELETE**, etc.
