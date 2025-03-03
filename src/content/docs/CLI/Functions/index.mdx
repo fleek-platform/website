@@ -291,7 +291,8 @@ You can make use of environment variables through any combination of the followi
 
 :::warn
 
-Your Fleek Function are stored on IPFS. They are publicly accessible by default, and will expose all of your code associated with the function including any environment variables which are bundled into your code. Ensure you are not inadvertently exposing data you are interested in keeping private.
+Your Fleek Functions are stored on IPFS by default, making them [publicly accessible](https://docs.ipfs.tech/concepts/privacy-and-encryption/). This will expose all your source code, including any environment variables bundled with it.
+To protect sensitive data and keep it private, you must deploy your Fleek Function with the `--private` flag. Click [here](https://fleek.xyz/docs/cli/functions/#making-fleek-functions-private--alpha) to learn more.
 
 :::
 
