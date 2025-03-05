@@ -222,3 +222,66 @@ console.log(updatedFunction.name);
 - Ensure that API authentication is properly configured.
 - Function names must be unique within a project.
 - Deleting a function removes its reference, but deployments may persist.
+
+## Creating and Deploying a Fleek Function
+
+Using the Fleek SDK, you can create and deploy [Fleek Functions](./docs/platform/fleek-functions) seamlessly in your applications. The process involves three key steps:
+
+1. **Upload** the function file to Fleek storage and retrieve its content ID (CID).
+2. **Create** a new Fleek Function and obtain its function ID.
+3. **Deploy** the uploaded function file to the newly created function.
+
+### Example: Deploying a Fleek Function
+
+The following script demonstrates how to authenticate, upload a function file, create a Fleek Function, and deploy it using the Fleek SDK:
+
+```typescript
+import { FleekSdk, PersonalAccessTokenService } from '@fleek-platform/sdk/node';
+import { filesFromPaths } from 'files-from-path';
+
+// Authentication setup
+const personalAccessToken = 'pat_{{token}}';
+const projectId = 'PROJECT_ID';
+
+const accessTokenService = new PersonalAccessTokenService({
+  personalAccessToken,
+  projectId,
+});
+
+const fleekSdk = new FleekSdk({ accessTokenService });
+
+const functionName = 'my-function';
+
+(async () => {
+  try {
+    // Step 1: Upload the function file
+    console.log('Uploading function file...');
+    const files = await filesFromPaths(['./src/test.js']);
+    const uploadResult = await fleekSdk
+      .storage()
+      .uploadFile({ file: files[0] });
+    console.log('File uploaded successfully:', uploadResult.pin.cid);
+
+    // Step 2: Create the Fleek Function
+    console.log('Creating Fleek Function...');
+    const functionData = await fleekSdk
+      .functions()
+      .create({ name: functionName });
+    console.log('Function created:', functionData.id);
+
+    // Step 3: Deploy the function
+    console.log('Deploying function...');
+    const deployment = await fleekSdk.functions().deploy({
+      functionId: functionData.id,
+      cid: uploadResult.pin.cid,
+    });
+
+    console.log('Function deployed successfully:', deployment.id);
+  } catch (error) {
+    console.error('Deployment failed:', error);
+    process.exit(1);
+  }
+
+  process.exit(0);
+})();
+```
