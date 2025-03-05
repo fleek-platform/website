@@ -6,6 +6,7 @@ import BlogHeader from '@components/BlogHeader.astro';
 import settings from '@base/settings.json';
 
 import type { CollectionEntry } from 'astro:content';
+import AnnouncementModal from '@components/AnnouncementModal';
 
 const indexNameGuides = import.meta.env.PUBLIC_MEILISEARCH_INDEX_GUIDES;
 
@@ -24,6 +25,7 @@ const allPosts: CollectionEntry<'guides'>[] = (
   slug={settings.site.metadata.guides.slug}
   description={settings.site.metadata.guides.description}
 >
+  <AnnouncementModal pathname={Astro.url.pathname} client:only="react" />
   <main class="container min-h-container">
     <BlogHeader title="Guides" indexName={indexNameGuides} />
     <BlogPosts allPosts={allPosts} collection={collection} />

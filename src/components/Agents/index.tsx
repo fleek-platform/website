@@ -23,7 +23,7 @@ const faqsToAccordionItems = (faqs: FaqData[]): AccordionItem[] =>
   faqs.map((faq) => ({ label: faq.label, contentElements: [faq.content] }));
 
 const AgentsModule = {
-  Modal: () => <NewsletterModal />,
+  NewsletterModal: () => <NewsletterModal />,
   Hero: () => (
     <Section
       title={settings.agentsPage.hero.title}

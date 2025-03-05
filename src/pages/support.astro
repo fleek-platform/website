@@ -5,6 +5,7 @@ import CategoryCards from '@components/Support/CategoryCards';
 import FeaturedArticles from '@components/Support/FeaturedArticles';
 import UsefulVideos from '@components/Support/UsefulVideos';
 import settings from '@base/settings.json';
+import AnnouncementModal from '@components/AnnouncementModal';
 const pageOriginURL = Astro.url.href;
 ---
 
@@ -14,6 +15,7 @@ const pageOriginURL = Astro.url.href;
   slug={settings.site.metadata.support.slug}
   description={settings.site.metadata.support.description}
 >
+  <AnnouncementModal pathname={Astro.url.pathname} client:only="react" />
   <main class="support container font-plex-sans">
     <HomePageHero client:load />
     <CategoryCards client:load />
