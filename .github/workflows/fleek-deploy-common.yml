@@ -13,11 +13,15 @@ jobs:
     runs-on: ubuntu-latest
     environment: ${{ inputs.environment }}
     env:
-      FLEEK_TOKEN: ${{ secrets.FLEEK_TOKEN }}
-      FLEEK_PROJECT_ID: ${{ secrets.FLEEK_PROJECT_ID }}
-      FLEEK_SLUG: ${{ secrets.FLEEK_SLUG }}
-      DOPPLER_TOKEN: ${{ secrets.DOPPLER_TOKEN }}
       DASHBOARD_UNARCHIVED_PATH: "temp/dashboard"
+      FLEEK_PROJECT_ID: ${{ env.FLEEK_PROJECT_ID }}
+      FLEEK_SLUG: ${{ env.FLEEK_SLUG }}
+      FLEEK_TOKEN: ${{ secrets.FLEEK_TOKEN }}
+      GITHUB_SOURCE_REPO: ${{ github.repository }}
+      DOPPLER_CONFIG: ${{ env.DOPPLER_CONFIG }}
+      DOPPLER_PROJECT: ${{ env.DOPPLER_PROJECT }}
+      DOPPLER_TOKEN: ${{ secrets.DOPPLER_TOKEN }}
+      TARGET_ENVIRONMENT: ${{ inputs.environment }}
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -33,9 +37,9 @@ jobs:
 
       - name: Setup Doppler
         run: |
-          doppler configure set token ${{ secrets.DOPPLER_TOKEN }}
-          doppler configure set project ${{ secrets.DOPPLER_PROJECT }}
-          doppler configure set config ${{ secrets.DOPPLER_CONFIG }}
+          doppler configure set token "$DOPPLER_TOKEN"
+          doppler configure set project "$DOPPLER_PROJECT"
+          doppler configure set config "$DOPPLER_CONFIG"
 
       - name: Env vars health check
         run: |
@@ -64,8 +68,8 @@ jobs:
         id: download_dashboard_artifact
         run: |
           github_token="$GITHUB_TOKEN"
-          source_repo="fleek-platform/dashboard"
-          dashboard_build_output_filename="build-output-fleek-dashboard-staging"
+          source_repo="$GITHUB_SOURCE_REPO"
+          dashboard_build_output_filename="build-output-fleek-xyz-$TARGET_ENVIRONMENT"
           latest_artifact_file="$dashboard_build_output_filename.zip"
 
           .scripts/download_artifact \
@@ -91,8 +95,8 @@ jobs:
         
       - name: Setup fleek.config.json
         run: |
-          DIST="out"
-          BUILD="npm run build:ci && cp -r $DASHBOARD_UNARCHIVED_PATH $DIST"
+          DIST="dist"
+          BUILD="npm run build && cp -r $DASHBOARD_UNARCHIVED_PATH $DIST"
           
           ./scripts/setup-fleek-config \
             "$FLEEK_SLUG" \
