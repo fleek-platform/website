@@ -52,7 +52,7 @@ const AnnouncementModal: React.FC<{ pathname: string }> = ({ pathname }) => {
   };
 
   const hasBeenDismissed = (): boolean => {
-    if (typeof window === 'undefined') return false;
+    if (isServer) return false;
 
     const storage = getItem<StorageValue>(storageKey);
     if (!storage) return false;
