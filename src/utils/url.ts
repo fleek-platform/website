@@ -13,6 +13,25 @@ export const getSiteUrl = (): string => {
   return (settings.site as any)[env].url;
 };
 
+export const getTopLevelDomain = (url: string) => {
+  if (!url) throw Error('Oops! Invalid URL');
+
+  try {
+    const { hostname } = new URL(url);
+
+    // The only expected hostnames
+    // are a maximum of three levels
+    // at time of writting
+    // e.g. staging -> fleek-xyz-staging.on-fleek.app
+    // and prod -> fleek.xyz
+    const topLevelDomain = hostname.split('.').slice(-2).join('.');
+
+    return topLevelDomain;
+  } catch (e) {
+    throw Error('Oops! Failed to parse the URL');
+  }
+};
+
 export const isActivePath = ({
   lookup,
   pathname,
@@ -78,6 +97,18 @@ export const removeProtocolFromUrl = (userUrl: string) => {
   }
 };
 
-export function capitalizeFirstLetter(string: string): string {
-  return string.charAt(0).toUpperCase() + string.slice(1);
-}
+export const isValidUrl = (url: string) => {
+  try {
+    new URL(url);
+  } catch (error) {
+    return false;
+  }
+
+  return true;
+};
+
+export const removeTrailingSlash = (url: string): string => {
+  if (!isValidUrl(url)) throw new Error('Invalid URL provided');
+
+  return url.endsWith('/') && url.length > 1 ? url.slice(0, -1) : url;
+};

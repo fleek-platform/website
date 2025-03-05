@@ -6,7 +6,7 @@ thumbnail: './self-hosted.png'
 image: './self-hosted.png'
 author:
   - 'Fleek'
-isSeoPost: true
+is_seo: true
 ---
 
 In the ever-evolving world of software development, **open-source** and **self-hosted applications** have become a preferred option for modern developers. Organizations and developers increasingly lean toward open-source solutions to enhance flexibility, reduce costs and vendor-lock in, and drive innovation. Meanwhile, self-hosted applications offer unparalleled control over infrastructure, data, and performance optimization. This trend is not just a technological shift—it’s a philosophical one that prioritizes transparency, community collaboration, and full control over one's software stack.

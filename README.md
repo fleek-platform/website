@@ -35,6 +35,9 @@ This repository contains the source code and assets for the Fleek.xyz website, w
     - [Open Graph preview](#open-graph-preview)
     - [Troubleshooting open graph](#troubleshooting-open-graph)
     - [Customize Blog Categories](#customize-blog-categories)
+  - [Templates](#templates)
+    - [Manage templates](#manage-templates)
+    - [Validate templates](#validate-templates)
 - [Development](#-development)
   - [Services](#services)
     - [Support](#support)
@@ -52,11 +55,14 @@ This repository contains the source code and assets for the Fleek.xyz website, w
       - [Delete Indexes](#💣-delete-indexes)
       - [Manual Indexation](#manual-indexation-cicd)
     - [Images (optimization)](#-images-optimization)
+    - [Beehiiv Proxy](#beehiiv-proxy)
 - [Migration](#-migration)
   - [Migrate Gatsby content](#migrate-gatsby-content)
 - [Custom data](#custom-data)
   - [Get latest posts](#get-latest-posts)
 - [Video Content](#video-content)
+- [Promotekit](#promotekit)
+  - [How to setup](#how-to-setup)
 - [Changelog Resources](#changelog-resources)
 
 # Setup
@@ -102,13 +108,20 @@ PRIVATE_MEILISEARCH_MASTER_KEY=***
 PRIVATE_MEILISEARCH_DOCUMENTS_ADMIN_API_KEY=***
 PUBLIC_MEILISEARCH_DOCUMENTS_CLIENT_API_KEY=***
 PUBLIC_SUPPORT_API_HOST="localhost:3331"
-SUPPORT_ALLOW_ORIGIN_ADDR="http://localhost:4321,https://fleek-xyz-staging.on-fleek.app"
+SUPPORT_ALLOW_ORIGIN_ADDR="http://localhost:4321,https://fleek-xyz-staging.fleeksandbox.xyz"
 SUPPORT_RATE_LIMIT_WINDOW_MINUTES=60
 SUPPORT_RATE_LIMIT_MAX_REQ=15
 SUPPORT_RATE_LIMIT_PATHS="/tickets"
 NODE_ENV=develop
 PUBLIC_BEHIIV_API_KEY=***
 PUBLIC_BEHIIV_SUBSCRIBE_URL=***
+PUBLIC_BEEHIIV_PROXY_SERVER_URL=***
+PUBLIC_GRAPHQL_ENDPOINT="https://graphql.service.staging.fleeksandbox.xyz/graphql"
+PUBLIC_FLEEK_REST_API_URL="https://api.staging.fleeksandbox.xyz/api/v1"
+PUBLIC_DYNAMIC_ENVIRONMENT_ID="c4d4ccad-9460-419c-9ca3-494488f8c892"
+PUBLIC_UI_APP_URL="https://staging.fleeksandbox.xyz"
+PUBLIC_POSTHOG_HOST="https://us.i.posthog.com"
+PUBLIC_POSTHOG_API_KEY="phc_SdvLWEagL7nAauyEBun0ZF6v59DxMIk8ofzI91gpIUw"
 ```
 
 💡 The SUPPORT_ALLOW_ORIGIN_ADDR and SUPPORT_RATE_LIMIT_PATHS are comma separated values (csv). the MEILISEARCH_DOCUMENTS_CLIENT_API_KEY is required when querying staging, production environments which should be provided in the headers.
@@ -143,7 +156,7 @@ npm run preview
 
 ## 👀 Preview staging
 
-You can preview the develop branch version by visiting the preview [here](https://fleek-xyz-staging.on-fleek.app).
+You can preview the develop branch version by visiting the preview [here](https://fleek-xyz-staging.fleeksandbox.xyz).
 
 ## 🎀 Code Formatter
 
@@ -189,7 +202,7 @@ A blog post is organized as a directory that should include all the necessary im
 
 The directory should be named after the slug, a system-friendly name, e.g. "My short title" would become "my-short-title". Additionally, the markdown filename containing all the text should be named as "index.md".
 
-For example, let's assume the creation of an hypothetical blog post named "My Blog post".
+For example, let's assume the creation of a hypothetical blog post named "My Blog post".
 
 #### 1) Create the directory with corresponding slug "my-blog-post" in the `src/content/blog` location, as follows:
 
@@ -486,7 +499,7 @@ The Announcement Marquee is placed at the very top of the site. To enable
 ```
 "site": {
   ...
-  "annoucementMarquee": {
+  "announcementMarquee": {
     "message": "Introducing Fleek Functions: lightning-fast edge functions built on Fleek Network’s onchain cloud infrastructure. Read more here.",
     "url": "/blog/announcements/introducing-fleek-functions",
     "visible": true
@@ -711,6 +724,38 @@ You can extend the category field with any category name. Notice that category n
     }
   }
 ```
+
+## Templates
+
+This section provides guidance on managing and validating templates within the system.
+
+### Manage Templates
+
+Managing templates involves adding, updating, and removing templates from the system. Follow these steps to manage templates effectively:
+
+- Adding a Template:
+
+  - Clone an existing template in `src/templates.json` and add all required fields.
+  - Ensure all necessary assets (e.g., banner images, icons) are placed in the correct directories.
+
+- Updating a Template:
+
+  - Locate the existing template entry in `src/templates.json`.
+  - Update the necessary fields, such as description or URLs.
+  - Replace or update any associated assets as needed.
+
+- Removing a Template:
+  - Delete the template entry from `src/templates.json`.
+  - Remove all associated assets from the file system.
+  - Update any references to the template in other parts of the system.
+
+### Validate Templates
+
+- Build the project to make sure there are no building issues.
+- Run a local dev server to preview
+- Verify that the template appears in the listing and all assets load correctly.
+- Ensure all links (e.g., demo, deployment) are functional.
+- Confirm that filtering and similar templates display correctly.
 
 # 👷‍♀️Development
 
@@ -962,6 +1007,33 @@ The Job will index data that exists in the selected `main` branch. Learn how to 
 
 The build process can optimize the images but that requires the user to use the correct image components. Use the instructions provided to optimize the images.
 
+## Beehiiv Proxy
+
+Create new subscriptions by sending an HTTP POST request to the endpoint:
+
+```sh
+https://faas-lon1-917a94a7.doserverless.co/api/v1/web/fn-5aaf2a72-1b
+5b-4ac6-8c42-a2e735a32d8b/main/create-subscription
+```
+
+Here's an example:
+
+```js
+const response = await fetch(url, {
+  method: 'POST',
+  headers: {
+    'Content-Type': 'application/json',
+  },
+  body: JSON.stringify(data),
+});
+
+const result = await response.json();
+
+console.log(result);
+```
+
+Learn more about it [here](/Services/Beehiiv/README.md).
+
 ### 🪐 Astro
 
 For astro components (<component-name>.astro) do:
@@ -1107,6 +1179,20 @@ When visiting the site content, the file will be surfaced absolutely, e.g. `<sou
 ❌ If missing a trailing slash it'll look for the file in the wrong location. At time of writing, trailing slash is not required to resolve the site sections, thus its best practice to declare the file location with `./` as in `<source src="./my-video-filename.mp4">` to avoid confusion.
 
 💡 At time of writing its assumed that video files are put in the directory of a markdown file named `index.md(x)`, e.g. `src/content/guides/my-guide/index.md` and `src/content/guides/my-guide/my-video.mp4`. It's also expected that the base path is the directory of the content and not cross content. It's important to respect the convention for portability, otherwise you'll find unexpected results.
+
+## Promotekit
+
+PromoteKit by Stripe is a tool that helps businesses integrate and manage promotional campaigns, like discounts and referrals, within Stripe's payment system to boost customer engagement and sales. To learn more read the documentation [here](https://docs.promotekit.com/).
+
+### How to setup?
+
+TLDR; Visit [https://fleek-xyz-staging.fleeksandbox.xyz/?via=Helder](https://fleek-xyz-staging.fleeksandbox.xyz/?via=Helder) to have the ability to get a referral link in the window.promotekit_referral
+
+1) Visit https://refer.fleek.xyz/ to create an account
+2) Copy the referral link which will include the account ID, e.g. [https://fleek-xyz-staging.fleeksandbox.xyz/?via=Helder](https://fleek-xyz-staging.fleeksandbox.xyz/?via=Helder)
+3) Visit the referral link, e.g. [https://fleek-xyz-staging.fleeksandbox.xyz/?via=Helder](https://fleek-xyz-staging.fleeksandbox.xyz/?via=Helder)
+4) Access the promotekit on runtime e.g. window.promotekit_referral
+5) As a fallback, you can also get the `promotekit_referral`
 
 ## Changelog Resources
 

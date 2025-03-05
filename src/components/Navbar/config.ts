@@ -1,53 +1,73 @@
-export type NavMenuItem = {
+import { dashboardApp } from '../../settings.json';
+
+type NavMenuItemBase = {
   label: string;
-  subMenu?: NavSubMenuItem[];
-  url?: string;
   description?: string;
   icon?: string;
   openInNewTab?: boolean;
 };
 
-export type NavSubMenuItem = Omit<NavMenuItem, 'subMenu'>;
+type NavMenuItemUrl = NavMenuItemBase & {
+  url: string;
+  action?: never;
+};
 
-export const navbarMenu: NavMenuItem[] = [
+type NavMenuItemAction = NavMenuItemBase & {
+  action: () => void;
+  url?: never;
+};
+
+type NavMenuItemSection = NavMenuItemBase & {
+  subMenu: NavMenuItem[];
+};
+
+export type NavMenuItem = NavMenuItemUrl | NavMenuItemAction;
+export type NavMenuItemRoot = NavMenuItem | NavMenuItemSection;
+
+export const navbarMenu: NavMenuItemRoot[] = [
   {
-    label: 'Features',
+    label: 'Product',
     subMenu: [
       {
-        label: 'Platform',
-        url: '/docs/platform',
-        description: 'Build and deploy easily',
+        label: 'AI agent hosting',
+        url: '/agents/',
+        description: 'Build autonomous agents',
+        icon: '/svg/robot.svg',
+      },
+      {
+        label: 'Web app hosting',
+        url: '/docs/platform/hosting',
+        description: 'Host web applications',
         icon: '/svg/navbar-platform-icon.svg',
       },
       {
-        label: 'Infrastructure',
-        url: '/docs/infrastructure/',
-        description: 'The power of Fleek',
-        icon: '/svg/infra-navbar-icon.svg',
+        label: 'Fleek Machines',
+        url: '/docs/platform/fleek-machines',
+        description: 'Run lightweight TEE VMs',
+        icon: '/svg/machine.svg',
       },
       {
-        label: 'CLI/SDK',
-        url: '/docs/cli/',
-        description: 'Integrate or build locally',
-        icon: '/svg/cli-navbar-icon.svg',
-      },
-      {
-        label: 'Templates',
-        url: 'https://app.fleek.xyz/templates/',
-        description: 'Use pre-built apps',
-        icon: '/svg/templates-navbar-icon.svg',
+        label: 'Fleek Functions',
+        url: '/docs/platform/fleek-functions',
+        description: 'Run serverless functions',
+        icon: '/svg/globe-filled.svg',
       },
     ],
   },
   {
-    label: 'Developers',
+    label: 'Resources',
     subMenu: [
       {
-        label: 'Fleek Network',
-        url: 'https://fleek.network',
-        description: 'Edge-optimized infrastructure',
-        icon: '/svg/infra-navbar-icon.svg',
-        openInNewTab: true,
+        label: 'Documentation',
+        url: '/docs/',
+        description: 'Learn about Fleek',
+        icon: '/svg/blog-navbar-icon.svg',
+      },
+      {
+        label: 'Guides',
+        url: '/guides/',
+        description: 'Tips and tricks',
+        icon: '/svg/guides-navbar-icon.svg',
       },
       {
         label: 'Github',
@@ -68,23 +88,6 @@ export const navbarMenu: NavMenuItem[] = [
         description: 'Status uptime monitoring',
         icon: '/svg/status-navbar-icon.svg',
         openInNewTab: true,
-      },
-    ],
-  },
-  {
-    label: 'Resources',
-    subMenu: [
-      {
-        label: 'Documentation',
-        url: '/docs/',
-        description: 'Learn about Fleek',
-        icon: '/svg/blog-navbar-icon.svg',
-      },
-      {
-        label: 'Guides',
-        url: '/guides/',
-        description: 'Tips and tricks',
-        icon: '/svg/guides-navbar-icon.svg',
       },
       {
         label: 'Media kit',
@@ -114,3 +117,58 @@ export const navbarMenu: NavMenuItem[] = [
     url: '/pricing/',
   },
 ];
+
+export function getAuthenticationMenu(
+  isLoggedIn: boolean,
+  isLoggingIn: boolean,
+  isError: boolean,
+  handleLogin: () => void,
+  handleLogout: () => void,
+) {
+  function getAuthenticationSubMenu(): NavMenuItem[] {
+    if (isLoggedIn) {
+      return [
+        {
+          label: 'Dashboard',
+          url: dashboardApp.url,
+          description: 'Manage your account',
+        },
+        {
+          label: 'Log out',
+          action: handleLogout,
+          description: 'Manage your account',
+        },
+      ];
+    }
+
+    function getLoginLabel() {
+      if (isError) {
+        return 'Log in failed';
+      }
+      if (isLoggingIn) {
+        return 'Logging in...';
+      }
+      return 'Log in';
+    }
+
+    return [
+      {
+        label: getLoginLabel(),
+        action: handleLogin,
+        description: 'Access your account',
+      },
+      {
+        label: 'Sign up',
+        action: handleLogin,
+        description: 'Create an account',
+      },
+    ];
+  }
+
+  const authenticationMenu: NavMenuItemRoot = {
+    label: 'Account',
+    subMenu: getAuthenticationSubMenu(),
+  };
+
+  return authenticationMenu;
+}

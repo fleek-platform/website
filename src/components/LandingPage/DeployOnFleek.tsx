@@ -39,10 +39,10 @@ const DeployOnFleek: React.FC = () => {
       <div className="flex flex-col items-center justify-between gap-20 md:flex-row">
         <div className="w-full md:max-w-[520px]">
           <div className="space-y-24">
-            <Text as="h3">Deploy apps in a flash</Text>
+            <Text as="h3">Deploy in a flash</Text>
             <Text variant="description">
-              Link your repo and go live. Deploy from a Git Provider or the
-              Fleek CLI.
+              Link your app or agent's repo and go live. Deploy from a Git
+              Provider or the Fleek CLI.
             </Text>
           </div>
           <img

@@ -48,9 +48,9 @@ jobs:
           PRIVATE_MEILISEARCH_DOCUMENTS_ADMIN_API_KEY: ${{ secrets.PRIVATE_MEILISEARCH_DOCUMENTS_ADMIN_API_KEY}}
           PUBLIC_MEILISEARCH_HOST: ${{ vars.PUBLIC_MEILISEARCH_HOST }}
 
-      - name: References Indexation
+      - name: Troubleshooting Indexation
         run: |
-          npm run search:index_references
+          npm run search:index_troubleshooting
         env:
           PRIVATE_MEILISEARCH_DOCUMENTS_ADMIN_API_KEY: ${{ secrets.PRIVATE_MEILISEARCH_DOCUMENTS_ADMIN_API_KEY}}
           PUBLIC_MEILISEARCH_HOST: ${{ vars.PUBLIC_MEILISEARCH_HOST }}

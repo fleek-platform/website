@@ -1,0 +1,73 @@
+---
+import Layout from '@layouts/BlogPage.astro';
+import { getCollection } from 'astro:content';
+import BlogPosts from '@components/BlogPosts.astro';
+import BlogHeader from '@components/BlogHeader.astro';
+import { listSubDirectories } from '@utils/paths';
+import settings from '@base/settings.json';
+
+import type { CollectionEntry } from 'astro:content';
+import { generateFullSlug } from '@utils/generateFullSlug';
+
+type CategoryDetails = {
+  title: string;
+  description: string;
+};
+
+type TroubleshootingCustomCategoryMetadata = Record<string, CategoryDetails>;
+
+export async function getStaticPaths() {
+  const blogCats = await listSubDirectories({
+    path: './src/content/troubleshooting',
+  });
+  const params = blogCats.map((category) => ({
+    params: {
+      category,
+    },
+  }));
+
+  return [...params];
+}
+
+const indexNameCommonIssues = import.meta.env
+  .PUBLIC_MEILISEARCH_INDEX_TROUBLESHOOTING;
+
+const { category } = Astro.params;
+
+const troubleShootingSettings = settings.site.metadata.troubleshooting
+  .category as TroubleshootingCustomCategoryMetadata;
+
+const troubleShootingTitle = settings.site.metadata.troubleshooting.title;
+const catTitle = troubleShootingSettings[category].title;
+const title = catTitle
+  ? `${troubleShootingTitle} - ${catTitle}`
+  : troubleShootingTitle;
+const description =
+  troubleShootingSettings[category].description ||
+  settings.site.metadata.troubleshooting.description;
+
+const collection = 'troubleshooting';
+const image = settings.site.metadata.troubleshooting.image;
+const slug = generateFullSlug({
+  basePath: settings.site.metadata.troubleshooting.slug,
+  slug: category,
+});
+
+const allPosts: CollectionEntry<'troubleshooting'>[] = (
+  await getCollection(
+    'troubleshooting',
+    ({ slug }) => slug.split('/')[0] === category,
+  )
+).sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf());
+---
+
+<Layout title={title} description={description} image={image} slug={slug}>
+  <main class="container min-h-container">
+    <BlogHeader
+      title={troubleShootingTitle}
+      indexName={indexNameCommonIssues}
+      category={category}
+    />
+    <BlogPosts allPosts={allPosts} collection={collection} />
+  </main>
+</Layout>

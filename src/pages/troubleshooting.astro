@@ -1,0 +1,33 @@
+---
+import Layout from '@layouts/BlogPage.astro';
+import { getCollection } from 'astro:content';
+import BlogPosts from '@components/BlogPosts.astro';
+import BlogHeader from '@components/BlogHeader.astro';
+import settings from '@base/settings.json';
+
+import type { CollectionEntry } from 'astro:content';
+
+const indexNameCommonIssues = import.meta.env
+  .PUBLIC_MEILISEARCH_INDEX_TROUBLESHOOTING;
+
+const collection = 'troubleshooting';
+
+const allPosts: CollectionEntry<'troubleshooting'>[] = (
+  await getCollection('troubleshooting')
+).sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf());
+---
+
+<Layout
+  title={settings.site.metadata.troubleshooting.title}
+  image={settings.site.metadata.troubleshooting.image}
+  slug={settings.site.metadata.troubleshooting.slug}
+  description={settings.site.metadata.troubleshooting.description}
+>
+  <main class="container min-h-container">
+    <BlogHeader
+      title={settings.site.metadata.troubleshooting.title}
+      indexName={indexNameCommonIssues}
+    />
+    <BlogPosts allPosts={allPosts} collection={collection} />
+  </main>
+</Layout>

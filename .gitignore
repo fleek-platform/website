@@ -34,3 +34,7 @@ meili_data
 
 #fleek
 fleek.config.json
+fleek.*.config.json
+
+#lock files
+pnpm-lock.yaml

@@ -31,7 +31,7 @@ jobs:
         if [[ "$currDate" == "${{ inputs.dateSafeGuard }}" ]]; then
           echo "✅ Date safe-guard is ok!"
         else
-          echo "👹 Oops! The date provided ${currDate} doesn't correspond to ${{ inputs.date }}"
+          echo "👹 Oops! The date provided ${currDate} doesn't correspond to ${{ inputs.dateSafeGuard }}"
 
           exit 1
         fi

@@ -7,6 +7,8 @@ import Accordion from '@components/Accordion';
 import settings from '@base/settings.json';
 import data from './data.json';
 import { parseContentWithLinkPlaceholders } from '@utils/parseContentWithLinkPlaceholders';
+import { Button } from '@components/Button';
+import { PricingPlanHero } from './PricingPlanHero';
 
 const resources = settings.support.resources || {};
 
@@ -21,17 +23,17 @@ const Pricing = () => {
   return (
     <>
       <div className="grid grid-flow-dense grid-cols-16 gap-x-16 pb-80 pt-50">
-        <div className="col-span-16 text-center">
-          <Text className="mb-24">Pricing you can get pumped about</Text>
-          <Text variant="description" className="mb-76">
-            Try for free and only pay for what you use. Transparent, simple and
-            flexible.
-          </Text>
-          <div className="mb-24 mt-44 flex flex-col justify-between gap-20 lg:flex-row">
-            {PricingInfo.map((item, index) => {
-              return <PricingCard key={index} {...item} />;
-            })}
+        <div className="col-span-16">
+          <div className="text-center">
+            <Text as="h1" className="mb-24">
+              Pricing you can get pumped about
+            </Text>
+            <Text variant="description" className="mb-76">
+              Try for free and only pay for what you use. Transparent, simple
+              and flexible.
+            </Text>
           </div>
+          <PricingPlanHero />
           <TableMobile />
           <TableDesktop />
 

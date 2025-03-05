@@ -12,24 +12,31 @@
     "develop": {
       "url": "http://localhost:4321"
     },
+    "mocksEnabled": true,
     "metadata": {
       "default": {
-        "title": "Fleek | Build and deploy performant apps",
+        "title": "Fleek | Build and deploy autonomous apps and AI agents",
         "slug": "",
-        "description": "Fleek makes it easy to ship performant apps in minutes. Deploy instantly, run globally, scale automatically.",
-        "image": "/images/fleek-meta.png?202406061658"
+        "description": "Fleek: Build next-gen apps and AI agents in minutes on an open-source, verifiable, auto-scalable cloud platform. Start for free!",
+        "image": "/images/fleek-meta-image.png?202406061658"
       },
       "about": {
         "title": "About",
         "slug": "about",
-        "description": "Fleek is an open-source cloud platform built on permissionless infrastructure, offering secure, scalable, and censorship-free services for builders. Learn More.",
-        "image": "/images/fleek-meta.png?202406061658"
+        "description": "Fleek: Build next-gen apps and AI agents in minutes on an open-source, verifiable, auto-scalable cloud platform. Start for free!",
+        "image": "/images/fleek-meta-image.png?202406061658"
+      },
+      "agents": {
+        "title": "Agents",
+        "slug": "agents",
+        "description": "Effortlessly deploy and run Eliza AI agents and enjoy industry-best pricing.",
+        "image": "/images/fleek-meta-image.png?202406061658"
       },
       "blog": {
         "title": "Blog",
         "slug": "blog",
         "description": "Stay updated with blog posts from the Fleek team and community. Explore articles and insights on the latest trends and advancements in web development.",
-        "image": "/images/fleek-meta.png?202406061658",
+        "image": "/images/fleek-meta-image.png?202406061658",
         "category": {
           "announcements": {
             "title": "Announcements",
@@ -57,62 +64,93 @@
         "title": "Links",
         "slug": "links",
         "description": "Fleek links",
-        "image": "/images/fleek-meta.png?202406061658"
+        "image": "/images/fleek-meta-image.png?202406061658"
       },
       "changelog": {
         "title": "Changelog",
         "slug": "changelog",
         "description": "Stay updated with our changelog.",
-        "image": "/images/fleek-meta.png?202406061658"
+        "image": "/images/fleek-meta-image.png?202406061658"
       },
       "docs": {
         "title": "Docs",
         "slug": "docs",
         "description": "Kickstart your Fleek journey with our documentation, detailed guides and references. Browse our platform resources for a deep dive into our features.",
-        "image": "/images/fleek-meta.png?202406061658"
+        "image": "/images/fleek-meta-image.png?202406061658"
+      },
+      "eliza": {
+        "title": "Eliza",
+        "slug": "eliza",
+        "description": "Deploy your AI agent using the Eliza framework.",
+        "image": "/images/fleek-meta-image.png?202406061658"
       },
       "guides": {
         "title": "Guides",
         "slug": "guides",
         "description": "Discover step-by-step guides and tutorials on Fleek to streamline your app and web development. Leverage our resources to build smarter, faster, and stress free.",
-        "image": "/images/fleek-meta.png?202406061658"
+        "image": "/images/fleek-meta-image.png?202406061658"
       },
       "pricing": {
         "title": "Pricing",
         "slug": "pricing",
         "description": "Fleek is an edge-optimized cloud platform. Effortlessly build, ship and scale highly performant apps. Try for free and deploy an app in 5 minutes.",
-        "image": "/images/fleek-meta.png?202406061658"
+        "image": "/images/fleek-meta-image.png?202406061658"
       },
       "support": {
         "title": "Support",
         "slug": "support",
         "description": "Visit the Fleek Support Center for detailed FAQs, troubleshooting guides, and documentation. Quickly report issues or submit support requests to get the help you need.",
-        "image": "/images/fleek-meta.png?202406061658"
+        "image": "/images/fleek-meta-image.png?202406061658"
       },
-      "references": {
-        "title": "References",
-        "slug": "references",
-        "description": "Explore the Fleek References page for troubleshooting guides designed to address common errors when using Fleek.",
-        "image": "/images/fleek-meta.png?202406061658"
+      "troubleshooting": {
+        "title": "Troubleshooting",
+        "slug": "troubleshooting",
+        "description": "Explore the Fleek common issues page for troubleshooting guides designed to address common errors when using Fleek.",
+        "image": "/images/fleek-meta-image.png?202406061658",
+        "category": {
+          "hosting": {
+            "title": "Hosting",
+            "description": "Stay informed with the latest announcements from Fleek. Get insights on new features, updates, and company developments."
+          },
+          "faq": {
+            "title": "FAQ",
+            "description": "Keep track of all the updates and improvements on Fleek. Our changelog provides detailed information about the latest changes to our platform to help you stay ahead."
+          },
+          "eliza": {
+            "title": "Eliza",
+            "description": "Get information quickly about Eliza and how to deploy your AI agent using the Eliza framework."
+          },
+          "uncategorized": {
+            "title": "Uncategorized",
+            "description": ""
+          }
+        }
       },
       "requests": {
         "reportSite": {
           "title": "Report a Site",
           "slug": "requests/report-site",
           "description": "Report any site violating Fleek's Terms of Service to help maintain a secure and compliant environment.",
-          "image": "/images/fleek-meta.png?202406061658"
+          "image": "/images/fleek-meta-image.png?202406061658"
         },
         "submitRequest": {
           "title": "Submit a Request",
           "slug": "requests/new",
           "description": "If you're encountering issues with Fleek's platform, we're here to assist! Please fill out the form with details about your issue to receive help from our support team.",
-          "image": "/images/fleek-meta.png?202406061658"
+          "image": "/images/fleek-meta-image.png?202406061658"
         }
+      },
+      "templates": {
+        "title": "Templates - Fleek",
+        "slug": "templates",
+        "description": "Start building faster with our templates! Pick a simple framework setup or dive into a full web3 starter kit.",
+        "image": "/images/fleek-meta-image.png?202406061658"
       }
     },
     "resources": {
       "careersUrl": "https://wellfound.com/company/fleekhq",
-      "reportAbuseUrl": "https://support.fleek.xyz/hc/en-us/requests/new?ticket_form_id=16807535390093",
+      "reportAbuseUrl": "https://fleek.xyz/requests/report-site/",
+      "reportTemplateAbuseUrl": "https://support.fleek.xyz/hc/en-us/requests/new?ticket_form_id=20459864851469",
       "fleekNetworkWebsiteUrl": "https://fleek.network",
       "discordFleekCommunityUrl": "https://discord.gg/fleek",
       "supportExternalUrl": "https://support.fleek.xyz/hc/en-us",
@@ -121,19 +159,29 @@
       "statusURl": "https://status.fleek.xyz/",
       "fleekTwitterUrl": "https://twitter.com/fleek",
       "mediaKit": "https://fleek.notion.site/Fleek-Brand-Kit-9a2bcf7eb40740a9b7e951fc951b478a",
-      "templatesUrl": "https://app.fleek.xyz/templates"
+      "templatesUrl": "https://fleek.xyz/templates/"
     },
-    "annoucementMarquee": {
-      "message": "Introducing Fleek Machines (Early access): One-click verified and private compute",
-      "url": "/blog/announcements/fleek-machines-fleek-functions/",
+    "auth": {
+      "authTokenCookieKey": "accessToken",
+      "activeProjectCookieKey": "projectId",
+      "endpoints": {
+        "projects": "/projects",
+        "teams": "/teams",
+        "subscriptions": "/subscriptions",
+        "plans": "/plans"
+      }
+    },
+    "announcementMarquee": {
+      "message": "Introducing Fleek AI agent hosting, with Eliza framework support",
+      "url": "/eliza/",
       "visible": true
     }
   },
   "landingPage": {
     "hero": {
-      "h1": "Build on a lightning-fast, open-source cloud platform.",
-      "h2": "Fleek makes it easy to ship performant apps in minutes. Deploy instantly, run globally, scale automatically.",
-      "primaryCta": "Get started",
+      "h1": "Build and deploy autonomous apps and AI agents",
+      "h2": "Fleek makes it easy to build and deploy next-generation apps and AI agents in minutes on an open-source, verifiable, auto-scalable cloud platform.",
+      "primaryCta": "Deploy an agent",
       "secondaryCta": "Read our docs",
       "imageDesktop": "/images/landing-page/hero/hero-desktop.webp",
       "imageMobile": "/images/landing-page/hero/hero-mobile.webp"
@@ -175,27 +223,33 @@
     "menu": {
       "order": [
         {
-          "category": "Platform",
+          "category": "ai-agents",
           "order": 1
         },
         {
-          "category": "Infrastructure",
+          "category": "Platform",
           "order": 2
         },
         {
-          "category": "CLI",
+          "category": "Infrastructure",
           "order": 3
         },
         {
-          "category": "SDK",
+          "category": "CLI",
           "order": 4
         },
         {
-          "category": "FAQ",
+          "category": "SDK",
           "order": 5
+        },
+        {
+          "category": "FAQ",
+          "order": 6
         }
       ],
-      "customTitlesByDirectoryName": {}
+      "customTitlesByDirectoryName": {
+        "ai-agents": "AI agents"
+      }
     }
   },
   "blog": {
@@ -384,28 +438,28 @@
     "supportMenu": [
       {
         "id": 1,
-        "path": "/support",
+        "path": "/support/",
         "title": "Overview"
       },
 
       {
         "id": 2,
-        "path": "/references",
-        "title": "References"
+        "path": "/troubleshooting/",
+        "title": "Troubleshooting"
       },
       {
         "id": 3,
-        "path": "/guides",
+        "path": "/guides/",
         "title": "Guides"
       },
       {
         "id": 5,
-        "path": "/requests/report-site",
+        "path": "/requests/report-site/",
         "title": "Report a site"
       },
       {
         "id": 6,
-        "path": "/requests/new",
+        "path": "/requests/new/",
         "title": "Submit a request"
       }
     ]
@@ -426,8 +480,8 @@
     "hero": {
       "title": "About Fleek",
       "subText": [
-        "Fleek is an open source, trustless cloud platform built on Fleek Network’s next-gen permissionless cloud infrastructure. Picture Cloudflare meets Uber, but more secure, reliable, verifiable, and without the data tampering, price gouging and censorship plaguing Big Cloud.",
-        "The result is a high-performance modern cloud platform where builders can run their software and apps with lower costs, enhanced security and privacy, and better guarantees, all while maintaining best in class speed, scalability, and developer experience."
+        "Fleek is an open source app and AI agent deployment platform built on TEEs (Trusted Execution Environments) and Fleek Network’s next-gen permissionless cloud infrastructure. Picture your favorite development platform, but more secure, reliable, verifiable, and without the data tampering, price gouging and censorship plaguing Big Cloud.",
+        "The result is a high-performance modern platform where builders can run their apps and AI agents with lower costs, enhanced security and privacy, and better guarantees, all while maintaining best in class speed, scalability, and developer experience. So easy that even non developers can use it."
       ],
       "content": [
         {
@@ -474,5 +528,40 @@
       ],
       "button": "Get started with Fleek"
     }
+  },
+  "agentsPage": {
+    "hero": {
+      "title": "AI agent infrastructure for teams of every size",
+      "subTitle": "Create, deploy, and scale AI agents with enterprise-grade performance and industry-best pricing.",
+      "primaryCta": "Create agent",
+      "secondaryCta": "Enterprise solutions",
+      "tertiaryCta": "API documentation",
+      "hideAnnouncement": false
+    },
+    "customize": {
+      "title": "Customize agents",
+      "subTitle": "Design your own agent and start chatting with it in no time. Customize it with unique features and launch it across your favorite social media platforms."
+    },
+    "growing": {
+      "title": "For growing teams",
+      "subTitle": "Deploy and monitor 1 to multiple agents from a unified dashboard. Centralize configuration, track performance, and maintain consistent security policies."
+    },
+    "pricing": {
+      "title": "Pricing"
+    },
+    "faq": {
+      "title": "FAQ",
+      "subTitle": "Solutions to many of our most commonly asked questions."
+    }
+  },
+  "templatesPage": {
+    "title": "TEMPLATES",
+    "subTitle": "Begin with a template",
+    "description": "Use a template to kick start your application. Pick from just a framework or a full web3 starter kit, the possibilities are limitless.",
+    "ctaLabel": "Learn more",
+    "ctaTargetUrl": "/docs/platform/frameworks/#using-framework-templates-to-get-started/"
+  },
+  "dashboardApp": {
+    "url": "https://app.fleek.xyz"
   }
 }

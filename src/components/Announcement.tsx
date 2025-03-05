@@ -22,12 +22,12 @@ export const Announcement: React.FC<AnnouncementProps> = ({
 
   const shouldShowMarquee = useMediaQuery('(max-width: 800px)');
 
-  if (!settings.site.annoucementMarquee.visible) return null;
+  if (!settings.site.announcementMarquee.visible) return null;
 
   if (variant === 'docs')
     return (
       <Link
-        href={settings.site.annoucementMarquee.url}
+        href={settings.site.announcementMarquee.url}
         target={Target.Blank}
         rel="noopener noreferrer"
         className="group flex flex-col gap-4 text-balance rounded-8 border-t border-gray-dark-4 bg-gradient-to-br from-gray-dark-2 to-gray-dark-1 p-8 font-plex-sans text-13 font-normal leading-tight text-gray-dark-11 hover:border-gray-dark-5 hover:from-gray-dark-3 hover:to-gray-dark-2 hover:text-gray-dark-12"
@@ -35,13 +35,13 @@ export const Announcement: React.FC<AnnouncementProps> = ({
         <span className="shrink-0 text-10 font-medium uppercase text-yellow-dark-11">
           ✨ new
         </span>
-        {settings.site.annoucementMarquee.message}
+        {settings.site.announcementMarquee.message}
       </Link>
     );
 
   return (
     <Link
-      href={settings.site.annoucementMarquee.url}
+      href={settings.site.announcementMarquee.url}
       target={Target.Blank}
       rel="noopener noreferrer"
       className={cn(
@@ -58,10 +58,10 @@ export const Announcement: React.FC<AnnouncementProps> = ({
       <span className="line-clamp-1 text-14 font-normal text-gray-dark-12 sm:text-15 md:line-clamp-none">
         {mounted && shouldShowMarquee && (
           <Marquee speed={20} delay={1} className="flex gap-24">
-            {settings.site.annoucementMarquee.message}
+            {settings.site.announcementMarquee.message}
           </Marquee>
         )}
-        {!shouldShowMarquee && settings.site.annoucementMarquee.message}
+        {!shouldShowMarquee && settings.site.announcementMarquee.message}
       </span>
 
       <FaArrowRight className="absolute -right-8 size-12 text-gray-dark-12 opacity-0 transition-all group-hover:right-8 group-hover:opacity-100 group-focus-visible:right-8 group-focus-visible:opacity-100" />

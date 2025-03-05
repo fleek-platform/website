@@ -1,0 +1,25 @@
+---
+import '@styles/globals.css';
+import '@styles/blogPage.css';
+
+import BaseHtml from './BaseHtml.astro';
+
+const { title, description, slug, image } = Astro.props;
+// announcement is loaded inside the Hero section
+---
+
+<BaseHtml
+  title={title}
+  hideAnnouncement
+  ogMeta={{
+    title,
+    description,
+    image,
+    slug,
+  }}
+  customContentWrapperClass="max-w-none xl:max-w-none 2xl:max-w-none py-[0px] px-[0px]"
+>
+  <main class="min-h-container">
+    <slot />
+  </main>
+</BaseHtml>

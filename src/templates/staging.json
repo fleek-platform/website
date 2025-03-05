@@ -1,0 +1,704 @@
+{
+  "astro-boilerplate": {
+    "id": "clx3f5nem000333n7acqcxiwj",
+    "name": "Astro Boilerplate",
+    "slug": "astro-boilerplate",
+    "description": "Start your next project with this Astro boilerplate, designed for seamless development.",
+    "banner": "/images/templates/astro-boilerplate.webp",
+    "demoUrl": "https://big-midnight-melodic.on-fleek.app/",
+    "framework": {
+      "name": "Astro",
+      "avatar": "/svg/templates/astro-icon.svg"
+    },
+    "repository": {
+      "owner": "fleek-tools",
+      "slug": "astro-boilerplate",
+      "html_url": "https://github.com/fleek-tools/astro-boilerplate",
+      "creation_date": "2024-06-06T15:35:19.487Z",
+      "provider": "GITHUB",
+      "branch": "main",
+      "ref": "505777081a342c3e2680c5f6aadbcc162dcf17e9",
+      "build": {
+        "baseDirectory": null,
+        "buildCommand": "pnpm install && pnpm run build",
+        "distDirectory": "dist",
+        "dockerImage": "fleek/node:lts"
+      },
+      "contributors": [
+        {
+          "name": "Fleek",
+          "avatar_url": "/images/templates/authors/fleek.webp"
+        }
+      ]
+    },
+    "category": {
+      "name": "Bootstrap"
+    },
+    "screenshots": [
+      "https://sites-preview.s3.us-west-2.amazonaws.com/AvmD3i6-cwgEdhrNgp9Y"
+    ],
+    "similarTemplateIds": [
+      "blogmaker-by-vitalik",
+      "chess-on-fleek",
+      "fullstack-nextjs-template"
+    ]
+  },
+  "blogmaker-by-vitalik": {
+    "id": "clyqjmjng0001q94by3huy892",
+    "name": "Blogmaker by Vitalik",
+    "slug": "blogmaker-by-vitalik",
+    "description": "Simple and minimal blog template by Vitalik Buterin",
+    "banner": "/images/templates/blogmaker-by-vitalik.webp",
+    "framework": {
+      "name": "Other",
+      "avatar": "/svg/templates/cog-icon.svg"
+    },
+    "demoUrl": "https://vitaliks-blogmaker.on-fleek.app/",
+    "repository": {
+      "owner": "fleek-tools",
+      "slug": "blogmaker",
+      "html_url": "https://github.com/fleek-tools/blogmaker",
+      "creation_date": "2024-07-18T00:38:50.620Z",
+      "provider": "GITHUB",
+      "branch": "main",
+      "ref": "5e43ec663370fbaf8af9876ff7855ec29d4db952",
+      "build": {
+        "baseDirectory": "",
+        "buildCommand": "apt-get update && apt-get install -y pandoc && python publish.py posts/*",
+        "distDirectory": "site",
+        "dockerImage": "python:3.9-slim"
+      },
+      "contributors": [
+        {
+          "name": "Fleek",
+          "avatar_url": "/images/templates/authors/fleek.webp"
+        }
+      ]
+    },
+    "category": {
+      "name": "Blog"
+    },
+    "screenshots": [
+      "https://sites-preview.s3.us-west-2.amazonaws.com/chrl0_bQYBfzqpDznZve"
+    ],
+    "similarTemplateIds": [
+      "astro-boilerplate",
+      "chess-on-fleek",
+      "fullstack-nextjs-template"
+    ]
+  },
+  "chess-on-fleek": {
+    "id": "cm339wqgz0001ogsoksudl8z3",
+    "name": "Chess on Fleek",
+    "slug": "chess-on-fleek",
+    "description": "Chess on Fleek is perfect for developers looking to deploy real-time, interactive applications. This template utilizes Next.js for a fullstck development experience, rendering, ensuring optimal performance with each move.",
+    "banner": "/images/templates/chess-on-fleek.webp",
+    "demoUrl": "https://fat-piano-small.on-fleek.app/",
+    "framework": {
+      "name": "Next.js",
+      "avatar": "/svg/templates/nextjs-icon.svg"
+    },
+    "repository": {
+      "owner": "fleek-tools",
+      "slug": "chess-on-fleek-nextjs",
+      "html_url": "https://github.com/fleek-tools/chess-on-fleek-nextjs",
+      "creation_date": "2024-11-04T17:06:39.490Z",
+      "provider": "GITHUB",
+      "branch": "main",
+      "ref": "e67dac8bc3158b69cfcc4db1efe2ab7fe6f9e722",
+      "build": {
+        "baseDirectory": "client",
+        "buildCommand": "npm install && fleek-next build",
+        "distDirectory": ".fleek",
+        "dockerImage": "fleekplatform/fleek-next:latest"
+      },
+      "contributors": [
+        {
+          "name": "Kanishk Khurana",
+          "avatar_url": "/images/templates/authors/kanishk_khurana.webp"
+        }
+      ]
+    },
+    "category": {
+      "name": "Web3 Starter Kit"
+    },
+    "screenshots": [
+      "https://sites-preview.s3.us-west-2.amazonaws.com/w69Fqs-WD3fa5OK3j4gq"
+    ],
+    "similarTemplateIds": [
+      "astro-boilerplate",
+      "blogmaker-by-vitalik",
+      "fullstack-nextjs-template"
+    ]
+  },
+  "fleek-base": {
+    "id": "cm6l72f9h0002znkvhedtkw8h",
+    "name": "Fleek Base Template",
+    "slug": "fleek-base",
+    "description": "This project integrates OnchainKit and the Base Pixel font on Fleek, leveraging the Base Pixel typeface for an expressive and digital-native experience. Additionally, the project is deployed using Fleek’s Next.js adapter, ensuring edge-optimized performance and decentralized hosting.",
+    "banner": "/images/templates/fleek-base.png",
+    "demoUrl": "https://fleek-base.on-fleek.app/",
+    "framework": {
+      "name": "Next.js",
+      "avatar": "/svg/templates/nextjs-icon.svg"
+    },
+    "repository": {
+      "owner": "fleek-tools",
+      "slug": "fleek-onchainkit-base",
+      "html_url": "https://github.com/fleek-tools/fleek-onchainkit-base",
+      "creation_date": "2025-01-31T20:06:04.229Z",
+      "provider": "GITHUB",
+      "branch": "refs/heads/main",
+      "ref": "dade6475f8c224a911bdd38d710be739c2d901ba",
+      "build": {
+        "baseDirectory": "",
+        "buildCommand": "npm install && fleek-next build",
+        "distDirectory": ".fleek",
+        "dockerImage": "fleekplatform/fleek-next:2.2.1"
+      },
+      "contributors": [
+        {
+          "name": "Tobiloba Adedeji",
+          "avatar_url": "/images/templates/authors/tobiloba.webp"
+        }
+      ]
+    },
+    "category": {
+      "name": "Web3 Starter Kit"
+    },
+    "screenshots": ["/images/templates/fleek-base.png"],
+    "similarTemplateIds": [
+      "web-",
+      "blogmaker-by-vitalik",
+      "fullstack-nextjs-template"
+    ]
+  },
+  "fleek-langchain-template": {
+    "id": "cm4j7dptc0001f2jrvmr35yp6",
+    "name": "Fleek Langchain template",
+    "slug": "fleek-langchain-template",
+    "description": "This template scaffolds a LangChain.js + Next.js starter app. It showcases how to use and combine LangChain modules for several use cases.  It is perfect for developers looking to build AI applications in Next.js and on Fleek seamlessly with any features they want.",
+    "banner": "/images/templates/fleek-langchain-template.webp",
+    "demoUrl": "https://langchain.on-fleek.app/",
+    "framework": {
+      "name": "Next.js",
+      "avatar": "/svg/templates/nextjs-icon.svg"
+    },
+    "repository": {
+      "owner": "fleek-tools",
+      "slug": "langchain-nextjs-fleek",
+      "html_url": "https://github.com/fleek-tools/langchain-nextjs-fleek",
+      "creation_date": "2024-12-11T01:19:54.096Z",
+      "provider": "GITHUB",
+      "branch": "refs/heads/main",
+      "ref": "b1cf9bb7c76e05be4800c340ff7ed18659d814bb",
+      "build": {
+        "baseDirectory": "",
+        "buildCommand": "npm install && fleek-next build",
+        "distDirectory": ".fleek",
+        "dockerImage": "fleekplatform/fleek-next:2.2.1"
+      },
+      "contributors": [
+        {
+          "name": "Tobiloba",
+          "avatar_url": "/images/templates/authors/tobiloba.webp"
+        }
+      ]
+    },
+    "category": {
+      "name": "Bootstrap"
+    },
+    "screenshots": [
+      "https://sites-preview.s3.us-west-2.amazonaws.com/_gDw9JyC54-IhbWpBGlo"
+    ],
+    "similarTemplateIds": [
+      "astro-boilerplate",
+      "blogmaker-by-vitalik",
+      "chess-on-fleek"
+    ]
+  },
+  "fullstack-nextjs-template": {
+    "id": "cm337u3fd000d5dlytu1llarf",
+    "name": "Fullstack Nextjs Template",
+    "slug": "fullstack-nextjs-template",
+    "description": "This is the boilerplate code generated directly from running npx create-next-app. Utilize this template to harness Fleek’s optimized hosting for dynamic and performance-driven web applications.",
+    "banner": "/images/templates/fullstack-nextjs-template.webp",
+    "demoUrl": "https://short-ram-flat.on-fleek.app/",
+    "framework": {
+      "name": "Next.js",
+      "avatar": "/svg/templates/nextjs-icon.svg"
+    },
+    "repository": {
+      "owner": "fleek-tools",
+      "slug": "fleek-nextjs-boilerplate",
+      "html_url": "https://github.com/fleek-tools/fleek-nextjs-boilerplate",
+      "creation_date": "2024-11-04T16:08:37.081Z",
+      "provider": "GITHUB",
+      "branch": "refs/heads/main",
+      "ref": "bdc6e0fcf4e8143b6e29621b53033352c4879b86",
+      "build": {
+        "baseDirectory": "",
+        "buildCommand": "npm install && fleek-next build",
+        "distDirectory": ".fleek",
+        "dockerImage": "fleekplatform/fleek-next:latest"
+      },
+      "contributors": [
+        {
+          "name": "Kanishk Khurana",
+          "avatar_url": "/images/templates/authors/kanishk_khurana.webp"
+        }
+      ]
+    },
+    "category": {
+      "name": "Web3 Starter Kit"
+    },
+    "screenshots": [
+      "https://sites-preview.s3.us-west-2.amazonaws.com/OlsfGskSE7OK1_hDxROu"
+    ],
+    "similarTemplateIds": [
+      "astro-boilerplate",
+      "blogmaker-by-vitalik",
+      "chess-on-fleek"
+    ]
+  },
+  "fullstack-nextra-on-nextjs": {
+    "id": "cm337yatv000f5dlyix6k7fdw",
+    "name": "Fullstack Nextra on Nextjs",
+    "slug": "fullstack-nextra-on-nextjs",
+    "description": "This is a Next.js application generated with Create Nextra. Nextra is a minimalist, fully customizable documentation site built for easy deployment on Fleek. Perfect for showcasing project documentation, this template uses Next.js to deliver a smooth experience.",
+    "banner": "/images/templates/fullstack-nextra-on-nextjs.webp",
+    "demoUrl": "https://big-beard-square.on-fleek.app/",
+    "framework": {
+      "name": "Next.js",
+      "avatar": "/svg/templates/nextjs-icon.svg"
+    },
+    "repository": {
+      "owner": "fleek-tools",
+      "slug": "nextra-on-fleek-nextjs",
+      "html_url": "https://github.com/fleek-tools/nextra-on-fleek-nextjs",
+      "creation_date": "2024-11-04T16:11:53.300Z",
+      "provider": "GITHUB",
+      "branch": "main",
+      "ref": "80dbcf340a6eda4fd6a283750b64c9a091897559",
+      "build": {
+        "baseDirectory": "",
+        "buildCommand": "pnpm install && fleek-next build",
+        "distDirectory": ".fleek",
+        "dockerImage": "fleekplatform/fleek-next:latest"
+      },
+      "contributors": [
+        {
+          "name": "Kanishk Khurana",
+          "avatar_url": "/images/templates/authors/kanishk_khurana.webp"
+        }
+      ]
+    },
+    "category": {
+      "name": "Web3 Starter Kit"
+    },
+    "screenshots": [
+      "https://sites-preview.s3.us-west-2.amazonaws.com/zWzLjMcFC41zpiuCcL83"
+    ],
+    "similarTemplateIds": [
+      "astro-boilerplate",
+      "blogmaker-by-vitalik",
+      "chess-on-fleek"
+    ]
+  },
+  "fumadocs-on-fleek": {
+    "id": "cm3395bot00038k2o7prx2ofc",
+    "name": "Fumadocs on Fleek",
+    "slug": "fumadocs-on-fleek",
+    "description": "This is a Next.js application generated with Create Fumadocs. Fumadocs is a minimalist, fully customizable documentation site built for easy deployment on Fleek. Perfect for showcasing project documentation, this template uses Next.js to deliver a smooth, server-rendered experience.",
+    "banner": "/images/templates/fumadocs-on-fleek.webp",
+    "demoUrl": "https://hollow-processor-hundreds.on-fleek.app/",
+    "framework": {
+      "name": "Next.js",
+      "avatar": "/svg/templates/nextjs-icon.svg"
+    },
+    "repository": {
+      "owner": "fleek-tools",
+      "slug": "fumadocs-on-fleek-nextjs",
+      "html_url": "https://github.com/fleek-tools/fumadocs-on-fleek-nextjs",
+      "creation_date": "2024-11-04T16:45:20.621Z",
+      "provider": "GITHUB",
+      "branch": "main",
+      "ref": "bd60c70825b8fe7fad01426c6660a4b1054757db",
+      "build": {
+        "baseDirectory": "",
+        "buildCommand": "npm install && fleek-next build",
+        "distDirectory": ".fleek",
+        "dockerImage": "fleekplatform/fleek-next:latest"
+      },
+      "contributors": [
+        {
+          "name": "Kanishk Khurana",
+          "avatar_url": "/images/templates/authors/kanishk_khurana.webp"
+        }
+      ]
+    },
+    "category": {
+      "name": "Blog"
+    },
+    "screenshots": [
+      "https://sites-preview.s3.us-west-2.amazonaws.com/tANxdtb9XEvq7D0wR-7y"
+    ],
+    "similarTemplateIds": [
+      "astro-boilerplate",
+      "blogmaker-by-vitalik",
+      "chess-on-fleek"
+    ]
+  },
+  "gatsby-boilerplate": {
+    "id": "clx3g0ol70001oewqgw7k7knx",
+    "name": "Gatsby Boilerplate",
+    "slug": "gatsby-boilerplate",
+    "description": "Kick off your Gatsby projects with this boilerplate, equipped to handle your development needs.",
+    "banner": "/images/templates/gatsby-boilerplate.webp",
+    "demoUrl": "https://deafening-nail-thundering.on-fleek.app/",
+    "framework": {
+      "name": "Gatsby",
+      "avatar": "/svg/templates/gatsby-icon.svg"
+    },
+    "repository": {
+      "owner": "fleek-tools",
+      "slug": "gatsby-boilerplate",
+      "html_url": "https://github.com/fleek-tools/gatsby-boilerplate",
+      "creation_date": "2024-06-06T15:59:27.356Z",
+      "provider": "GITHUB",
+      "branch": "refs/heads/main",
+      "ref": "286c9f5f6bb9ff004d9ff2f7e11022eecdff18c9",
+      "build": {
+        "baseDirectory": "",
+        "buildCommand": "npm install && npm run build",
+        "distDirectory": "public",
+        "dockerImage": "fleek/node:lts"
+      },
+      "contributors": [
+        {
+          "name": "Fleek",
+          "avatar_url": "/images/templates/authors/fleek.webp"
+        }
+      ]
+    },
+    "category": {
+      "name": "Bootstrap"
+    },
+    "screenshots": [
+      "https://sites-preview.s3.us-west-2.amazonaws.com/LQuf7cczzf2uzG1cKUnH"
+    ],
+    "similarTemplateIds": [
+      "astro-boilerplate",
+      "blogmaker-by-vitalik",
+      "chess-on-fleek"
+    ]
+  },
+  "hugo-boilerplate": {
+    "id": "clx3g1cgx0008oewqi0e1cb1x",
+    "name": "Hugo Boilerplate",
+    "slug": "hugo-boilerplate",
+    "description": "This Hugo boilerplate provides a solid foundation for static sites, simplified for a fast turnaround on project setup.",
+    "banner": "/images/templates/hugo-boilerplate.webp",
+    "demoUrl": "https://round-hydrogen-hundreds.on-fleek.app/",
+    "framework": {
+      "name": "Hugo",
+      "avatar": "/svg/templates/hugo-icon.svg"
+    },
+    "repository": {
+      "owner": "fleek-tools",
+      "slug": "hugo-boilerplate",
+      "html_url": "https://github.com/fleek-tools/hugo-boilerplate",
+      "creation_date": "2024-06-06T15:59:58.305Z",
+      "provider": "GITHUB",
+      "branch": "refs/heads/main",
+      "ref": "859b9e493dffadadad4c51d79d2d60e2cc0fafe5",
+      "build": {
+        "baseDirectory": "",
+        "buildCommand": "hugo",
+        "distDirectory": "public",
+        "dockerImage": "fleek/hugo-v0.85"
+      },
+      "contributors": [
+        {
+          "name": "Fleek",
+          "avatar_url": "/images/templates/authors/fleek.webp"
+        }
+      ]
+    },
+    "category": {
+      "name": "Bootstrap"
+    },
+    "screenshots": [
+      "https://sites-preview.s3.us-west-2.amazonaws.com/wrtz3plkn8Bg1p9l7dIZ"
+    ],
+    "similarTemplateIds": [
+      "astro-boilerplate",
+      "blogmaker-by-vitalik",
+      "chess-on-fleek"
+    ]
+  },
+  "nextjs-boilerplate": {
+    "id": "clx3fnwmh0006qy2i55l3vc2c",
+    "name": "Next.js Boilerplate",
+    "slug": "nextjs-boilerplate",
+    "description": "Begin your Next.js project with confidence using this boilerplate, tailored for efficient development.",
+    "banner": "/images/templates/nextjs-boilerplate.webp",
+    "demoUrl": "https://tall-lamp-great.on-fleek.app/",
+    "framework": {
+      "name": "Next.js Static",
+      "avatar": "/svg/templates/nextjs-icon.svg"
+    },
+    "repository": {
+      "owner": "fleek-tools",
+      "slug": "nextjs-boilerplate",
+      "html_url": "https://github.com/fleek-tools/nextjs-boilerplate",
+      "creation_date": "2024-06-06T15:49:31.242Z",
+      "provider": "GITHUB",
+      "branch": "refs/heads/main",
+      "ref": "153d905a1de0892551c13038f7a4b9820e0b9e8e",
+      "build": {
+        "baseDirectory": "",
+        "buildCommand": "npm install && npm run build",
+        "distDirectory": "out",
+        "dockerImage": "fleek/node:lts"
+      },
+      "contributors": [
+        {
+          "name": "Fleek",
+          "avatar_url": "/images/templates/authors/fleek.webp"
+        }
+      ]
+    },
+    "category": {
+      "name": "Bootstrap"
+    },
+    "screenshots": [
+      "https://sites-preview.s3.us-west-2.amazonaws.com/jXLuXuUQMCyM7LTD-6bW"
+    ],
+    "similarTemplateIds": [
+      "astro-boilerplate",
+      "blogmaker-by-vitalik",
+      "chess-on-fleek"
+    ]
+  },
+  "nuxt-boilerplate": {
+    "id": "clx3hq2e20001vm7ee9wd81o4",
+    "name": "Nuxt Boilerplate",
+    "slug": "nuxt-boilerplate",
+    "description": "Accelerate your Nuxt development with this boilerplate, designed to integrate smoothly into your project workflow.",
+    "banner": "/images/templates/nuxt-boilerplate.webp",
+    "demoUrl": "https://whining-airplane-many.on-fleek.app/",
+    "framework": {
+      "name": "Nuxt.js",
+      "avatar": "/svg/templates/nuxt-icon.svg"
+    },
+    "repository": {
+      "owner": "fleek-tools",
+      "slug": "nuxt-boilerplate",
+      "html_url": "https://github.com/fleek-tools/nuxt-boilerplate",
+      "creation_date": "2024-06-06T16:47:11.258Z",
+      "provider": "GITHUB",
+      "branch": "refs/heads/main",
+      "ref": "49569de171b5d9711824704b17ed49de92ab6fb4",
+      "build": {
+        "baseDirectory": "",
+        "buildCommand": "npm install && npm run generate",
+        "distDirectory": ".output/public",
+        "dockerImage": "fleek/node:lts"
+      },
+      "contributors": [
+        {
+          "name": "Fleek",
+          "avatar_url": "/images/templates/authors/fleek.webp"
+        }
+      ]
+    },
+    "category": {
+      "name": "Bootstrap"
+    },
+    "screenshots": [
+      "https://sites-preview.s3.us-west-2.amazonaws.com/wLNRjWvrXcARhzEg05Bz"
+    ],
+    "similarTemplateIds": [
+      "astro-boilerplate",
+      "blogmaker-by-vitalik",
+      "chess-on-fleek"
+    ]
+  },
+  "react-boilerplate": {
+    "id": "clx3g4dwk0008qy2i5d6aobe4",
+    "name": "React Boilerplate",
+    "slug": "react-boilerplate",
+    "description": "Initialize your React applications quickly using this ready-to-use boilerplate, optimized for fast setup.",
+    "banner": "/images/templates/react-boilerplate.webp",
+    "demoUrl": "https://square-grass-early.on-fleek.app/",
+    "framework": {
+      "name": "Create React App",
+      "avatar": "/svg/templates/cra-icon.svg"
+    },
+    "repository": {
+      "owner": "fleek-tools",
+      "slug": "react-boilerplate",
+      "html_url": "https://github.com/fleek-tools/react-boilerplate",
+      "creation_date": "2024-06-06T16:02:20.133Z",
+      "provider": "GITHUB",
+      "branch": "refs/heads/main",
+      "ref": "cc93edc9fcb3e8e591bea9268ccaf0b5399cc570",
+      "build": {
+        "baseDirectory": "",
+        "buildCommand": "npm install && npm run build",
+        "distDirectory": "dist",
+        "dockerImage": "fleek/node:lts"
+      },
+      "contributors": [
+        {
+          "name": "Fleek",
+          "avatar_url": "/images/templates/authors/fleek.webp"
+        }
+      ]
+    },
+    "category": {
+      "name": "Bootstrap"
+    },
+    "screenshots": [
+      "https://sites-preview.s3.us-west-2.amazonaws.com/mUUn0pmdjqTwpYjnMmyL"
+    ],
+    "similarTemplateIds": [
+      "astro-boilerplate",
+      "blogmaker-by-vitalik",
+      "chess-on-fleek"
+    ]
+  },
+  "remix-boilerplate": {
+    "id": "clx3hzhax00078zh3hrrwnexh",
+    "name": "Remix Boilerplate",
+    "slug": "remix-boilerplate",
+    "description": "Utilize this Remix boilerplate to structure your projects for an optimal build experience.",
+    "banner": "/images/templates/remix-boilerplate.webp",
+    "demoUrl": "https://squeaking-monitor-tall.on-fleek.app/",
+    "framework": {
+      "name": "Vite",
+      "avatar": "/svg/templates/vite-icon.svg"
+    },
+    "repository": {
+      "owner": "fleek-tools",
+      "slug": "remix-boilerplate",
+      "html_url": "https://github.com/fleek-tools/remix-boilerplate",
+      "creation_date": "2024-06-06T16:54:30.489Z",
+      "provider": "GITHUB",
+      "branch": "refs/heads/main",
+      "ref": "2077311bc39ad4a366d2bfc2f1a758a73c1db717",
+      "build": {
+        "baseDirectory": "",
+        "buildCommand": "npm install && npm run build",
+        "distDirectory": "public",
+        "dockerImage": "fleek/node:lts"
+      },
+      "contributors": [
+        {
+          "name": "Fleek",
+          "avatar_url": "/images/templates/authors/fleek.webp"
+        }
+      ]
+    },
+    "category": {
+      "name": "Bootstrap"
+    },
+    "screenshots": [
+      "https://sites-preview.s3.us-west-2.amazonaws.com/VMYjFUfeS1pi1QDqAvop"
+    ],
+    "similarTemplateIds": [
+      "astro-boilerplate",
+      "blogmaker-by-vitalik",
+      "chess-on-fleek"
+    ]
+  },
+  "svelte-boilerplate": {
+    "id": "clx3hm85q000ibyl7d17cuufu",
+    "name": "Svelte Boilerplate",
+    "slug": "svelte-boilerplate",
+    "description": "Adopt this Svelte boilerplate to streamline your app development, enhanced for easy integration.",
+    "banner": "/images/templates/svelte-boilerplate.webp",
+    "demoUrl": "https://long-animal-ancient.on-fleek.app/",
+    "framework": {
+      "name": "Svelte",
+      "avatar": "/svg/templates/svelte-icon.svg"
+    },
+    "repository": {
+      "owner": "fleek-tools",
+      "slug": "svelte-boilerplate",
+      "html_url": "https://github.com/fleek-tools/svelte-boilerplate",
+      "creation_date": "2024-06-06T16:44:12.111Z",
+      "provider": "GITHUB",
+      "branch": "refs/heads/main",
+      "ref": "c1b0ec42387e15e16dd9598c65dad46e57f1e67d",
+      "build": {
+        "baseDirectory": "",
+        "buildCommand": "npm install && npm run build",
+        "distDirectory": "build",
+        "dockerImage": "fleek/node:lts"
+      },
+      "contributors": [
+        {
+          "name": "Fleek",
+          "avatar_url": "/images/templates/authors/fleek.webp"
+        }
+      ]
+    },
+    "category": {
+      "name": "Bootstrap"
+    },
+    "screenshots": [
+      "https://sites-preview.s3.us-west-2.amazonaws.com/8dfvQ_V2wZunQ2W0oJ5y"
+    ],
+    "similarTemplateIds": [
+      "astro-boilerplate",
+      "blogmaker-by-vitalik",
+      "chess-on-fleek"
+    ]
+  },
+  "vue-boilerplate": {
+    "id": "clx3gdagl0001byl7romw0ynd",
+    "name": "Vue Boilerplate",
+    "slug": "vue-boilerplate",
+    "description": "Leverage this Vue.js boilerplate to kickstart your web projects, with pre-configurations for immediate use.",
+    "banner": "/images/templates/vue-boilerplate.webp",
+    "demoUrl": "https://modern-elephant-raspy.on-fleek.app/",
+    "framework": {
+      "name": "Vue.js",
+      "avatar": "/svg/templates/vue-icon.svg"
+    },
+    "repository": {
+      "owner": "fleek-tools",
+      "slug": "vue-boilerplate",
+      "html_url": "https://github.com/fleek-tools/vue-boilerplate",
+      "creation_date": "2024-06-06T16:09:15.574Z",
+      "provider": "GITHUB",
+      "branch": "refs/heads/main",
+      "ref": "b71dad59452e3be076adca28f476d5b3c5f700a0",
+      "build": {
+        "baseDirectory": "",
+        "buildCommand": "npm install && npm run build",
+        "distDirectory": "dist",
+        "dockerImage": "fleek/node:lts"
+      },
+      "contributors": [
+        {
+          "name": "Fleek",
+          "avatar_url": "/images/templates/authors/fleek.webp"
+        }
+      ]
+    },
+    "category": {
+      "name": "Bootstrap"
+    },
+    "screenshots": [
+      "https://sites-preview.s3.us-west-2.amazonaws.com/4PnH1w27EDpprEMkupTn"
+    ],
+    "similarTemplateIds": [
+      "astro-boilerplate",
+      "blogmaker-by-vitalik",
+      "chess-on-fleek"
+    ]
+  }
+}

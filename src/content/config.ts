@@ -23,20 +23,21 @@ const schema = ({ image }: { image: ImageFunction }) =>
     author: z.union([z.string(), z.array(z.string())]).optional(),
     order: z.number().optional(),
     tags: z.array(z.string()).optional(),
+    custom_title: z.string().optional(),
   });
 
 const docsCollection = createCollection('content', z.object({}));
 
 const blogCollection = createCollection(
   'content',
-  z.object({ isSeoPost: z.boolean().optional() }),
+  z.object({ is_seo: z.boolean().optional() }),
 );
 
 const guidesCollection = createCollection('content', z.object({}));
 
 const templatesCollection = createCollection('content', z.object({}));
 
-const referencesCollection = createCollection('content', z.object({}));
+const troubleshootingCollection = createCollection('content', z.object({}));
 
 const legalCollection = createCollection('content', z.object({}));
 
@@ -48,7 +49,7 @@ export const collections = {
   blog: blogCollection,
   guides: guidesCollection,
   templates: templatesCollection,
-  references: referencesCollection,
+  troubleshooting: troubleshootingCollection,
   legal: legalCollection,
   changelog: changelogCollection,
 };

@@ -3,7 +3,7 @@ import { cn } from '@utils/cn';
 import '@styles/globals.css';
 import { getSiteUrl, hasSecondaryMenuItem } from '@utils/url';
 import settings from '@base/settings.json';
-import Trackers from '@components/Trackers.astro';
+import Trackers from '@components/Tracking/Trackers.astro';
 
 import { Announcement } from '@components/Announcement';
 import Footer from '@components/Footer';
@@ -18,6 +18,7 @@ interface Props {
     description: string;
     image: string;
     slug: string;
+    custom_title?: string;
   };
   singlePage?: boolean;
   customBodyClass?: string;
@@ -25,6 +26,7 @@ interface Props {
   customNavbarClass?: string;
   hideFooter?: boolean;
   hideAnnouncement?: boolean;
+  overflowHorizontally?: boolean;
 }
 
 const {
@@ -35,6 +37,7 @@ const {
   customNavbarClass,
   hideFooter = false,
   hideAnnouncement = false,
+  overflowHorizontally,
 } = Astro.props;
 
 const baseUrl = getSiteUrl();
@@ -42,14 +45,91 @@ const hasSecondaryMenu = hasSecondaryMenuItem(Astro.url.pathname);
 
 const contentSlug = ogMeta?.slug || Astro.url.pathname;
 const canonicalUrl = generateCanonicalUrl(contentSlug);
+const metaTitle = ogMeta['custom_title'] ?? ogMeta?.title;
 ---
 
 <!doctype html>
-<html lang="en" class="overflow-x-hidden">
+<html
+  lang="en"
+  class={cn({
+    'overflow-x-hidden': !overflowHorizontally,
+    '[scrollbar-gutter:stable]': overflowHorizontally,
+  })}
+>
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.ico" />
+
+    <script type="application/ld+json">
+      {
+        "@context": "http://schema.org",
+        "@graph": [
+          {
+            "@type": "Organization",
+            "name": "Fleek",
+            "description": "Fleek makes it easy to build and deploy next-generation apps and AI agents in minutes on an open-source, verifiable, auto-scalable cloud platform.",
+            "url": "https://fleek.xyz",
+            "logo": "https://fleek.xyz/favicon.ico",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "139 Powers St",
+              "addressLocality": "Brooklyn",
+              "addressRegion": "NY",
+              "postalCode": "11211",
+              "addressCountry": "USA"
+            },
+            "contactPoint": [
+              {
+                "@type": "ContactPoint",
+                "email": "business@fleek.xyz",
+                "contactType": "Customer Support"
+              }
+            ],
+            "sameAs": [
+              "https://twitter.com/Fleek",
+              "https://www.linkedin.com/company/fleekxyz/",
+              "https://github.com/fleek-platform"
+            ],
+            "founder": {
+              "@type": "Person",
+              "name": "Harrison Hines"
+            },
+            "ceo": {
+              "@type": "Person",
+              "name": "Harrison Hines"
+            }
+          },
+          {
+            "@type": "WebSite",
+            "name": "Fleek",
+            "url": "https://fleek.xyz",
+            "description": "Fleek makes it easy to build and deploy next-generation apps and AI agents in minutes on an open-source, verifiable, auto-scalable cloud platform.",
+            "potentialAction": {
+              "@type": "SearchAction",
+              "target": "https://fleek.xyz/search?q={search_term_string}",
+              "query-input": "required name=q"
+            }
+          }
+        ]
+      }
+    </script>
+
+    <link
+      rel="icon"
+      type="image/png"
+      href="/favicon/favicon-96x96.png"
+      sizes="96x96"
+    />
+    <link rel="icon" type="image/svg+xml" href="/favicon/favicon.svg" />
+    <link rel="shortcut icon" href="/favicon/favicon.ico" />
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="/favicon/apple-touch-icon.png"
+    />
+    <meta name="apple-mobile-web-app-title" content="Fleek" />
+    <link rel="manifest" href="/favicon/site.webmanifest" />
+
     <link rel="canonical" href={`${canonicalUrl}`} />
     <link rel="sitemap" href="/sitemap-index.xml" />
     <link
@@ -125,7 +205,7 @@ const canonicalUrl = generateCanonicalUrl(contentSlug);
     <meta name="generator" content={Astro.generator} />
     <!-- HTML Meta Tags -->
     <title>
-      {`Fleek | ${ogMeta?.title || settings.site.metadata.default.title}`}
+      {`Fleek | ${metaTitle || settings.site.metadata.default.title}`}
     </title>
     <meta
       name="description"
@@ -137,7 +217,7 @@ const canonicalUrl = generateCanonicalUrl(contentSlug);
     <meta property="og:type" content="website" />
     <meta
       property="og:title"
-      content={ogMeta?.title || settings.site.metadata.default.title}
+      content={`Fleek | ${metaTitle || settings.site.metadata.default.title}`}
     />
     <meta
       property="og:description"
@@ -154,7 +234,7 @@ const canonicalUrl = generateCanonicalUrl(contentSlug);
     <meta property="twitter:url" content={`${baseUrl}/${ogMeta?.slug || ''}`} />
     <meta
       name="twitter:title"
-      content={ogMeta?.title || settings.site.metadata.default.title}
+      content={`Fleek | ${metaTitle || settings.site.metadata.default.title}`}
     />
     <meta
       name="twitter:description"
@@ -168,10 +248,15 @@ const canonicalUrl = generateCanonicalUrl(contentSlug);
 
     <!-- Trackers -->
     <Trackers />
-  </head>
+    <script
+      async
+      src="https://cdn.promotekit.com/promotekit.js"
+      data-promotekit="1d44aef1-870e-4899-a017-3fd29ed3f6cf"></script></head
+  >
+
   <body
     class={cn(
-      'relative flex min-h-dvh flex-col overflow-x-hidden bg-black font-sans text-gray-dark-11 selection:bg-yellow-dark-9 selection:text-black',
+      'relative flex min-h-dvh flex-col overflow-x-hidden [scrollbar-gutter:stable] bg-black font-sans text-gray-dark-11 selection:bg-yellow-dark-9 selection:text-black',
       customBodyClass,
     )}
   >
