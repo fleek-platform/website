@@ -7,8 +7,8 @@ import { formatDate } from '@utils/date';
 import ChangelogListBody from '@components/Changelog/ChangelogListBody.astro';
 import { IconArrowUpRight } from '@components/IconArrow';
 import { Image } from 'astro:assets';
-import { dynamicWidgets } from 'instantsearch.js/es/widgets';
 import { loadDynamicImage } from '@utils/dynamicLoadImage';
+import AnnouncementModal from '@components/AnnouncementModal';
 
 const initialChangelogs = (await getCollection('changelog'))
   .sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf())
@@ -24,6 +24,7 @@ const generateChangelogDetailsUrl = (changelog: CollectionEntry<'changelog'>) =>
   slug={settings.site.metadata.changelog.slug}
   description={settings.site.metadata.changelog.description}
 >
+  <AnnouncementModal pathname={Astro.url.pathname} client:only="react" />
   <section class="m-auto flex max-w-768 flex-col px-20 pb-128 font-plex-sans">
     <div class="pb-42">
       <h1 class="text-34 font-medium text-gray-dark-12">Changelog</h1>
