@@ -1,11 +1,11 @@
 import type React from 'react';
-import { Modal } from './components/Modal';
+import { Modal } from '@components/Modal/Modal';
 import { useBeehiiv } from './hooks/useBeehiiv';
 import { useEffect, useState } from 'react';
-import { Text } from './components/Text';
-import { Box } from './components/Box';
-import { Input } from './components/Input';
-import { Button } from './components/Button';
+import { Text } from '@components/Modal/components/Text';
+import { Box } from '@components/Modal/components/Box';
+import { Input } from '@components/Modal/components/Input';
+import { Button } from '@components/Modal/components/Button';
 import { useSession } from '@hooks/useSession';
 import toast from 'react-hot-toast';
 import { FaSpinner } from 'react-icons/fa6';

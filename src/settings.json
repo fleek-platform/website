@@ -175,6 +175,24 @@
       "message": "Introducing Fleek AI agent hosting, with Eliza framework support",
       "url": "/eliza/",
       "visible": true
+    },
+    "announcementModal": {
+      "generic": {
+        "visible": false,
+        "title": "Announcement Modal title",
+        "message": "Announcement Modal message. Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+        "button": "Button label"
+      },
+      "perPath": [
+        {
+          "id": "at-capacity-2025.03.05-1741186241237",
+          "visible": false,
+          "title": "Announcement Modal on Eliza",
+          "message": "Pois, Announcement Modal message on Eliza. Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+          "button": "I understand",
+          "path": "/eliza"
+        }
+      ]
     }
   },
   "landingPage": {

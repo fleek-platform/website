@@ -1,9 +1,9 @@
 import type React from 'react';
 
 import { cn } from '@utils/cn';
-import { useOnKeyDown } from '../hooks/useOnKeyDown';
-import { useDisableScroll } from '../hooks/useDisableScroll';
-import { Box } from './Box';
+import { useOnKeyDown } from './hooks/useOnKeyDown';
+import { useDisableScroll } from './hooks/useDisableScroll';
+import { Box } from './components/Box';
 
 type ModalProps = {
   isOpen: boolean;
