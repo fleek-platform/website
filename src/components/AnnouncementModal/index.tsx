@@ -81,7 +81,7 @@ const AnnouncementModal: React.FC<{ pathname: string }> = ({ pathname }) => {
       setIsOpen(true);
     };
 
-    const timer = setTimeout(() => showModal(), SHOW_MODAL_DELAY);
+    const timer = window.setTimeout(() => showModal(), SHOW_MODAL_DELAY);
 
     return () => {
       clearTimeout(timer);
