@@ -14,7 +14,6 @@ import { RxHamburgerMenu } from 'react-icons/rx';
 import { isActivePath } from '@utils/url';
 import { Button } from '../Button';
 import { ProjectDropdown } from './ProjectDropdown/ProjectDropdown';
-import { dashboardApp } from '../../settings.json';
 import type { Project } from '@fleekxyz/sdk/dist-types/generated/graphqlClient/schema';
 import { isClient } from '../../utils/common';
 import { useSession } from '@hooks/useSession';
@@ -457,7 +456,7 @@ const SessionManagementActions: React.FC = () => {
           isLoggingIn={isLoggingIn}
           isLoggedIn={isLoggedIn}
           handleLoginClick={handleLoginClick}
-          dashboardAppUrl={dashboardApp.url}
+          dashboardAppUrl={dashboardUrl}
           isLoadingProject={isLoadingProject}
           handleClick={() => null}
         />
@@ -510,7 +509,7 @@ const SessionManagementActions: React.FC = () => {
                 isLoggingIn={isLoggingIn}
                 isLoggedIn={isLoggedIn}
                 handleLoginClick={handleLoginClick}
-                dashboardAppUrl={dashboardApp.url}
+                dashboardAppUrl={dashboardUrl}
                 isLoadingProject={isLoadingProject}
                 handleClick={handleClick}
               />
