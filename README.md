@@ -27,8 +27,9 @@ This repository contains the source code and assets for the Fleek.xyz website, w
     - [Sidebar menu item ordering](#-sidebar-menu-item-ordering)
     - [Override category title](#-override-category-title)
   - [Spell checker](#-spell-checker)
-  - [Announcement Marquee](#announcement-marquee)
-  - [Announcement Modal](#announcement-modal)
+  - [Announcement](#announcement)
+    - [Announcement Marquee](#announcement-marquee)
+    - [Announcement Modal](#announcement-modal)
   - [Admonitions](#-admonitions)
   - [Navigation bar](#-navigation-bar)
     - [Configuration](#-configuration)
@@ -484,7 +485,9 @@ It should be similar to the following:
 
 ![Locate the spell checker in CI/CD](public/images/repo/spell-checker-in-cicd.png?202406011433)
 
-## Announcement Marquee
+## Announcement
+
+### Announcement Marquee
 
 The Announcement Marquee is placed at the very top of the site. To enable
 
@@ -506,11 +509,11 @@ The Announcement Marquee is placed at the very top of the site. To enable
 3. Edit the message and url
 4. Set "visible" to true
 
-## Announcement Modal
+### Announcement Modal
 
 The Announcement Modal is a customizable popup that can be displayed site-wide or on specific pages. It supports dismissal tracking to avoid repeatedly showing the same announcement to users who have already dismissed it.
 
-### Configuration
+#### Configuration
 
 1. Open the settings file located at `/src/settings.json`.
 2. Locate the `announcementModal` section under "site":
@@ -539,22 +542,26 @@ The Announcement Modal is a customizable popup that can be displayed site-wide o
 }
 ```
 
-### Usage Options
+#### Usage Options
 
-#### Site-wide Modal
+##### Site-wide Modal
 
 To display a modal across the entire site:
 
-1. `Set announcementModal.generic.visible` to `true`
+1. Set the `visible` to `true` in the `generic` property of `announcementModal` of [settings.json](src/settings.json)
 2. Configure the `title`, `message`, and `button` text
-3. The generic modal takes precedence over path-specific modals
 
-#### Path-specific Modals
+:::warn
+The generic modal takes precedence over path-specific modals
+:::
+
+##### Path-specific Modals
 
 To display modals only on specific pages:
 
 1. Add entries to the `perPath` array
 2. Each entry should include:
+   - `id`: String to uniquely identify the modal - important to identify which modals the user has dismissed or not
    - `visible`: Boolean to control display
    - `title`: Modal title text
    - `message`: Modal body text
@@ -1245,10 +1252,10 @@ PromoteKit by Stripe is a tool that helps businesses integrate and manage promot
 
 TLDR; Visit [https://fleek.xyz/?via=Helder](https://fleek.xyz/?via=Helder) to enable referral links in the `window.promotekit_referral`
 
-1. Visit https://refer.fleek.xyz/ to create an account
-2. Copy the referral link which will include the account ID, e.g. [https://fleek-xyz-staging.fleeksandbox.xyz/?via=Helder](https://fleek-xyz-staging.fleeksandbox.xyz/?via=Helder)
-3. Visit the referral link, e.g. [https://fleek-xyz-staging.fleeksandbox.xyz/?via=Helder](https://fleek-xyz-staging.fleeksandbox.xyz/?via=Helder)
-4. Access the promotekit on runtime e.g. window.promotekit_referral
+1. Visit [refer.fleek.xyz](https://refer.fleek.xyz) to create an account
+2. Copy the referral link, which will include the account ID, e.g. [https://fleek.xyz/?via=Helder](https://fleek.xyz/?via=Helder)
+3. Visit the referral link, e.g. [https://fleek.xyz/?via=Helder](https://fleek.xyz/?via=Helder)
+4. Access the promotekit on runtime, e.g. `window.promotekit_referral`
 5. As a fallback, you can also get the `promotekit_referral`
 
 ## Changelog Resources

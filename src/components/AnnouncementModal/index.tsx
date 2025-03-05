@@ -5,6 +5,7 @@ import { Text } from '@components/Modal/components/Text';
 import { Button } from '@components/Modal/components/Button';
 import { getItem, setItem, websiteKey } from '@utils/storage';
 import settings from '@base/settings.json';
+import { Box } from '@components/Modal/components/Box';
 
 // 5  seconds
 const SHOW_MODAL_DELAY = 5 * 1000;
@@ -29,6 +30,9 @@ const AnnouncementModal: React.FC<{ pathname: string }> = ({ pathname }) => {
       )
     : null;
   const shouldOpenModal = isGenericModal || routeSpecificModal?.visible;
+  const targetModal = isGenericModal
+    ? settings.site.announcementModal.generic
+    : routeSpecificModal;
 
   const saveModalDismissed = () => {
     const existingStorage = getItem<StorageValue>(storageKey) || {
@@ -39,7 +43,9 @@ const AnnouncementModal: React.FC<{ pathname: string }> = ({ pathname }) => {
     if (isGenericModal) {
       existingStorage.genericModalDismissed = true;
     } else if (routeSpecificModal) {
-      existingStorage.pathModalsDismissed[routeSpecificModal.path] = true;
+      existingStorage.pathModalsDismissed[
+        routeSpecificModal?.id || routeSpecificModal.path
+      ] = true;
     }
 
     setItem(storageKey, existingStorage, storageExpiresInDays);
@@ -54,7 +60,9 @@ const AnnouncementModal: React.FC<{ pathname: string }> = ({ pathname }) => {
     if (isGenericModal) {
       return storage.genericModalDismissed;
     } else if (routeSpecificModal) {
-      return !!storage?.pathModalsDismissed[routeSpecificModal.path];
+      return !!storage?.pathModalsDismissed[
+        routeSpecificModal?.id || routeSpecificModal.path
+      ];
     }
 
     return false;
@@ -65,8 +73,8 @@ const AnnouncementModal: React.FC<{ pathname: string }> = ({ pathname }) => {
     saveModalDismissed();
   };
 
-  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
+  const handleSubmit = (e?: React.MouseEvent<HTMLButtonElement>) => {
+    e?.preventDefault();
     closeModal();
   };
 
@@ -84,7 +92,7 @@ const AnnouncementModal: React.FC<{ pathname: string }> = ({ pathname }) => {
     const timer = window.setTimeout(() => showModal(), SHOW_MODAL_DELAY);
 
     return () => {
-      clearTimeout(timer);
+      window.clearTimeout(timer);
     };
   }, [pathname, shouldOpenModal]);
 
@@ -96,24 +104,14 @@ const AnnouncementModal: React.FC<{ pathname: string }> = ({ pathname }) => {
       isOpen={isOpen}
       closeModal={closeModal}
     >
-      <form className="flex flex-col gap-16" onSubmit={handleSubmit}>
+      <Box className="flex flex-col gap-16">
         <Text variant="description" className="text-gray-dark-12">
-          {isGenericModal
-            ? settings.site.announcementModal.generic.title
-            : routeSpecificModal?.title}
+          {targetModal?.title}
         </Text>
-        <Text variant="secondary">
-          {isGenericModal
-            ? settings.site.announcementModal.generic.message
-            : routeSpecificModal?.message}
-        </Text>
+        <Text variant="secondary">{targetModal?.message}</Text>
 
-        <Button>
-          {isGenericModal
-            ? settings.site.announcementModal.generic.button
-            : routeSpecificModal?.button}
-        </Button>
-      </form>
+        <Button onClick={handleSubmit}>{targetModal?.button}</Button>
+      </Box>
     </Modal>
   );
 };
