@@ -1,4 +1,4 @@
-import { dashboardApp } from '../../settings.json';
+const dashboardUrl = import.meta.env.PUBLIC_UI_APP_URL;
 
 type NavMenuItemBase = {
   label: string;
@@ -130,7 +130,7 @@ export function getAuthenticationMenu(
       return [
         {
           label: 'Dashboard',
-          url: dashboardApp.url,
+          url: dashboardUrl,
           description: 'Manage your account',
         },
         {
