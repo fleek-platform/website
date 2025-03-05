@@ -80,7 +80,7 @@ const AnnouncementModal: React.FC<{ pathname: string }> = ({ pathname }) => {
 
   // show after delay if it wasn't dismissed previously
   useEffect(() => {
-    if (typeof window === 'undefined') return;
+    if (isServer) return;
 
     if (!shouldOpenModal) return;
 
