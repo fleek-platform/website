@@ -1,6 +1,6 @@
 ---
 order: 11
-title: Access agent instances via SSH
+title: Agent SSH access
 date: 2025-03-05
 desc: Use SSH access to interact with your agents deployed on Fleek Machines..
 ---
