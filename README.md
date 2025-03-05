@@ -1243,7 +1243,7 @@ PromoteKit by Stripe is a tool that helps businesses integrate and manage promot
 
 ### How to setup?
 
-TLDR; Visit [https://fleek-xyz-staging.fleeksandbox.xyz/?via=Helder](https://fleek-xyz-staging.fleeksandbox.xyz/?via=Helder) to have the ability to get a referral link in the window.promotekit_referral
+TLDR; Visit [https://fleek.xyz/?via=Helder](https://fleek.xyz/?via=Helder) to enable referral links in the `window.promotekit_referral`
 
 1. Visit https://refer.fleek.xyz/ to create an account
 2. Copy the referral link which will include the account ID, e.g. [https://fleek-xyz-staging.fleeksandbox.xyz/?via=Helder](https://fleek-xyz-staging.fleeksandbox.xyz/?via=Helder)
