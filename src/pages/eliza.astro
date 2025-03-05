@@ -1,7 +1,7 @@
 ---
 import settings from '@base/settings.json';
 import { AgentsUI } from '@components/AgentsUI';
-import BaseHtml from '@layouts/BaseHtml.astro';
+import AnnouncementModal from '@components/AnnouncementModal';
 import ElizaHtml from '@layouts/ElizaHtml.astro';
 
 declare global {
@@ -29,5 +29,6 @@ const overrideDefined = {
     slug: settings.site.metadata.eliza.slug,
   }}
 >
+  <AnnouncementModal pathname={Astro.url.pathname} client:only="react" />
   <AgentsUI client:load overrideDefined={overrideDefined} />
 </ElizaHtml>
