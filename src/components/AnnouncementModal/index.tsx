@@ -6,6 +6,7 @@ import { Button } from '@components/Modal/components/Button';
 import { getItem, setItem, websiteKey } from '@utils/storage';
 import settings from '@base/settings.json';
 import { Box } from '@components/Modal/components/Box';
+import { isServer } from '@utils/common';
 
 // 5  seconds
 const SHOW_MODAL_DELAY = 5 * 1000;
