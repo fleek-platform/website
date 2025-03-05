@@ -12,9 +12,10 @@ const SEPARATOR = '---' as const;
 const PAGE = 'agents-landing-page' as const;
 
 export const agentsLandingPageKey = `${PREFIX}${SEPARATOR}${PAGE}` as const;
+export const websiteKey = `${PREFIX}${SEPARATOR}*` as const;
 
 // union for all pages
-export type StorageKey = typeof agentsLandingPageKey;
+export type StorageKey = typeof agentsLandingPageKey | typeof websiteKey;
 
 export const setItem = <T>(
   key: StorageKey,

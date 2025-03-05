@@ -1,6 +1,7 @@
 ---
 import settings from '@base/settings.json';
 import AboutModule from '@components/About';
+import AnnouncementModal from '@components/AnnouncementModal';
 import Layout from '@layouts/AboutPage.astro';
 ---
 
@@ -10,6 +11,7 @@ import Layout from '@layouts/AboutPage.astro';
   slug={settings.site.metadata.about.slug}
   image={settings.site.metadata.about.image}
 >
+  <AnnouncementModal pathname={Astro.url.pathname} client:only="react" />
   <AboutModule.Hero />
   <AboutModule.WhyExists />
   <AboutModule.OpenSourceCore client:load />
