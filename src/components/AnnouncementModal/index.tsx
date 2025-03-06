@@ -8,8 +8,22 @@ import settings from '@base/settings.json';
 import { Box } from '@components/Modal/components/Box';
 import { isServer } from '@utils/common';
 
-// 5  seconds
-const SHOW_MODAL_DELAY = 5 * 1000;
+type AnnouncementModalSettings = {
+  id?: string;
+  visible: boolean;
+  title: string;
+  message: string;
+  button: string;
+  path?: string;
+  expiresInDays?: number;
+  modalDelayInSeconds?: number;
+};
+
+// delay showing the modal by 5 seconds if not configured in the settings
+const DEFAULT_SHOW_MODAL_DELAY = 5;
+
+// display modal again in 7 days if not configured in the settings
+const DEFAULT_STORAGE_EXPIRATION = 7 as const;
 
 type StorageValue = {
   genericModalDismissed: boolean;
@@ -17,9 +31,6 @@ type StorageValue = {
 };
 
 const storageKey = websiteKey;
-
-// display modal again in 7 days
-const storageExpiresInDays = 7 as const;
 
 const AnnouncementModal: React.FC<{ pathname: string }> = ({ pathname }) => {
   const [isOpen, setIsOpen] = useState(false);
@@ -32,7 +43,7 @@ const AnnouncementModal: React.FC<{ pathname: string }> = ({ pathname }) => {
     : null;
   const shouldOpenModal = isGenericModal || routeSpecificModal?.visible;
   const targetModal = isGenericModal
-    ? settings.site.announcementModal.generic
+    ? (settings.site.announcementModal.generic as AnnouncementModalSettings)
     : routeSpecificModal;
 
   const saveModalDismissed = () => {
@@ -49,7 +60,13 @@ const AnnouncementModal: React.FC<{ pathname: string }> = ({ pathname }) => {
       ] = true;
     }
 
-    setItem(storageKey, existingStorage, storageExpiresInDays);
+    setItem(
+      storageKey,
+      existingStorage,
+      typeof targetModal?.expiresInDays === 'number'
+        ? targetModal.expiresInDays
+        : DEFAULT_STORAGE_EXPIRATION,
+    );
   };
 
   const hasBeenDismissed = (): boolean => {
@@ -90,7 +107,12 @@ const AnnouncementModal: React.FC<{ pathname: string }> = ({ pathname }) => {
       setIsOpen(true);
     };
 
-    const timer = window.setTimeout(() => showModal(), SHOW_MODAL_DELAY);
+    const timer = window.setTimeout(
+      () => showModal(),
+      (typeof targetModal?.modalDelayInSeconds === 'number'
+        ? targetModal.modalDelayInSeconds
+        : DEFAULT_SHOW_MODAL_DELAY) * 1000,
+    );
 
     return () => {
       window.clearTimeout(timer);
@@ -109,7 +131,9 @@ const AnnouncementModal: React.FC<{ pathname: string }> = ({ pathname }) => {
         <Text variant="description" className="text-gray-dark-12">
           {targetModal?.title}
         </Text>
-        <Text variant="secondary">{targetModal?.message}</Text>
+        <Text variant="secondary" className="mb-16">
+          {targetModal?.message}
+        </Text>
 
         <Button onClick={handleSubmit}>{targetModal?.button}</Button>
       </Box>
