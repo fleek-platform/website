@@ -99,6 +99,7 @@ jobs:
           ls -la "$OUTPUT_PATH"
         
       - name: Setup fleek.config.json
+        working-directory: ./
         run: |
           DIST="dist"
           BUILD="npm run build && cp -r $DASHBOARD_UNARCHIVED_PATH $DIST"
