@@ -58,8 +58,11 @@ jobs:
       - name: Setup Doppler
         run: |
           doppler configure set token "$DOPPLER_TOKEN"
-          doppler configure set project "$DOPPLER_PROJECT"
-          doppler configure set config "$DOPPLER_CONFIG"
+          # doppler configure set project "$DOPPLER_PROJECT"
+          # doppler configure set config "$DOPPLER_CONFIG"
+
+          echo "[debug] TIAS doppler setup"
+          doppler setup
 
       - name: Env vars health check
         run: |
