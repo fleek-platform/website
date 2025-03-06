@@ -33,15 +33,7 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
         with:
-          ref: ${{ inputs.source_branch }}
-
-      - name: Debug
-        run: |
-          echo "[debug] ls -la"
-          ls -la
-
-          echo "[debug] git log"
-          git log --oneline
+          ref: ${{ github.ref }}
 
       - uses: oven-sh/setup-bun@v2
         with:
@@ -116,9 +108,6 @@ jobs:
         run: |
           DIST="dist"
           BUILD="npm run build && cp -r $DASHBOARD_UNARCHIVED_PATH $DIST"
-
-          echo "[debug] ls -la"
-          ls -la
 
           ./scripts/setup-fleek-config \
             "$FLEEK_SLUG" \

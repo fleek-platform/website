@@ -11,7 +11,6 @@ jobs:
     uses: ./.github/workflows/fleek-deploy-common.yml
     with:
       environment: staging
-      source_branch: develop
     secrets:
       fleek_token: ${{ secrets.FLEEK_TOKEN }}
       doppler_token: ${{ secrets.DOPPLER_TOKEN }}
