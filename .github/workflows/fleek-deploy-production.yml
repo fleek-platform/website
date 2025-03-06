@@ -1,17 +1,19 @@
-name: ⚡️ Deploy Dashboard (Production)
+# TODO: Once satisfied with staging setup uncomment the following workflow
 
-on:
-  workflow_dispatch:
-  push:
-    branches:
-      - main
-  # The workflow's dispatched on Release by develop hash
-  repository_dispatch:
-    types: [Release]
+# name: ⚡️ Deploy Dashboard (Production)
 
-jobs:
-  deploy-to-staging:
-    uses: ./.github/workflows/fleek-deploy-common.yml
-    with:
-      environment: production
-    secrets: inherit
+# on:
+#   workflow_dispatch:
+#   push:
+#     branches:
+#       - main
+#   # The workflow's dispatched on Release by develop hash
+#   repository_dispatch:
+#     types: [Release]
+
+# jobs:
+#   deploy-to-staging:
+#     uses: ./.github/workflows/fleek-deploy-common.yml
+#     with:
+#       environment: production
+#     secrets: inherit
