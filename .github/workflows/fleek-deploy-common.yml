@@ -7,21 +7,6 @@ on:
       environment:
         required: true
         type: string
-      fleek_project_id:
-        required: true
-        type: string
-      fleek_slug:
-        required: true
-        type: string
-      github_source_repo:
-        required: true
-        type: string
-      doppler_config:
-        required: true
-        type: string
-      doppler_project:
-        required: true
-        type: string
     secrets:
       fleek_token:
         required: true
@@ -34,14 +19,12 @@ jobs:
     environment: ${{ inputs.environment }}
     env:
       DASHBOARD_UNARCHIVED_PATH: "temp/dashboard"
-      FLEEK_PROJECT_ID: ${{ inputs.fleek_project_id }}
-      FLEEK_SLUG: ${{ inputs.fleek_slug }}
       FLEEK_TOKEN: ${{ secrets.fleek_token }}
-      GITHUB_SOURCE_REPO: ${{ inputs.github_source_repo }}
-      DOPPLER_CONFIG: ${{ inputs.doppler_config }}
-      DOPPLER_PROJECT: ${{ inputs.doppler_project }}
       DOPPLER_TOKEN: ${{ secrets.doppler_token }}
       TARGET_ENVIRONMENT: ${{ inputs.environment }}
+      FLEEK_PROJECT_ID: ${{ vars.FLEEK_PROJECT_ID }}
+      FLEEK_SLUG: ${{ vars.FLEEK_SLUG }}
+      GITHUB_SOURCE_REPO: ${{ github.repository }}
     steps:
       - name: Checkout
         uses: actions/checkout@v4
