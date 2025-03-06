@@ -41,11 +41,6 @@ jobs:
       - name: Setup Doppler
         run: |
           doppler configure set token "$DOPPLER_TOKEN"
-          # doppler configure set project "$DOPPLER_PROJECT"
-          # doppler configure set config "$DOPPLER_CONFIG"
-
-          echo "[debug] TIAS doppler setup"
-          doppler setup
 
       - name: Env vars health check
         run: |
@@ -81,7 +76,7 @@ jobs:
           dashboard_build_output_filename="build-output-fleek-xyz-$TARGET_ENVIRONMENT"
           latest_artifact_file="$dashboard_build_output_filename.zip"
 
-          .scripts/download_artifact \
+          scripts/download_artifact \
             "$github_token" \
             "$source_repo" \
             "$dashboard_build_output_filename" \
