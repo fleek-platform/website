@@ -111,7 +111,7 @@ Navigate to:
 
 - Edit your agent file on [Fleek](https://fleek.xyz/eliza) and add the following secret:
   ```ini
-  "TWITTER_2FA_SECRET":"YOUR_SECRET_CODE"
+  "TWITTER_2FA_SECRET": "YOUR_SECRET_CODE"
   ```
 - Restart your agent on [Fleek App](https://app.fleek.xyz).
 

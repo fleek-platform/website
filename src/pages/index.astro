@@ -10,9 +10,11 @@ import ExplainerBlocks from '@components/LandingPage/ExplainerBlocks';
 import PricingLanding from '@components/LandingPage/PricingLanding';
 import ReadyToLive from '@components/LandingPage/ReadyToLive';
 import Footer from '@components/Footer';
+import AnnouncementModal from '@components/AnnouncementModal';
 ---
 
 <LandingPageHtml>
+  <AnnouncementModal pathname={Astro.url.pathname} client:only="react" />
   <Navbar pathname={Astro.url.pathname} client:load />
   <Hero />
   <Partners />
