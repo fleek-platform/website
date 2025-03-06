@@ -7,9 +7,6 @@ on:
       environment:
         required: true
         type: string
-      source_branch:
-        required: true
-        type: string
     secrets:
       fleek_token:
         required: true
