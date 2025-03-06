@@ -103,7 +103,10 @@ jobs:
         run: |
           DIST="dist"
           BUILD="npm run build && cp -r $DASHBOARD_UNARCHIVED_PATH $DIST"
-          
+
+          echo "[debug] ls -la"
+          ls -la
+
           ./scripts/setup-fleek-config \
             "$FLEEK_SLUG" \
             "$DIST" \
