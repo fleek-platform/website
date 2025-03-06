@@ -1,4 +1,4 @@
-name: ⚡️ Deploy Dashboard (Staging)
+name: ⚡️ Deploy site (Staging)
 
 on:
   workflow_dispatch:
