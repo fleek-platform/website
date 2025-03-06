@@ -140,6 +140,12 @@ npm run build
 
 Tweak environment settings (src/settings.json), such as the site URL. Declare the `NODE_ENV` with value `prod` or `production` to switch environment target settings.
 
+Alternatively, you can skip build checkups and build assets only:
+
+```
+npm run build:static_assets
+```
+
 ## 🙈 Preview locally
 
 You can preview the distribution build locally by starting the preview HTTP server:
