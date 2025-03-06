@@ -544,12 +544,25 @@ The Announcement Modal is a customizable popup that can be displayed site-wide o
 
 #### Usage Options
 
+##### Announcement Modal settings
+
+Each modal entry has the following properties:
+
+- `id`: (optional) **String** to uniquely identify the modal - important to identify which modals the user has dismissed or not
+- `visible`: **Boolean** to control display
+- `title`: **String** to be displayed as modal title
+- `message`: **String** to be displayed as modal body
+- `button`: **String** to be displayed as modal button label
+- `expiresInDays`: (optional) **Number** of days after which the modal should be displayed again after being dismissed
+- `modalDelayInSeconds`: (optional) **Number** of seconds after which the modal should be revealed
+- `path`: (required on perPath) **String** URL path where the modal should appear (supports partial matching)
+
 ##### Site-wide Modal
 
 To display a modal across the entire site:
 
-1. Set the `visible` to `true` in the `generic` property of `announcementModal` of [settings.json](src/settings.json)
-2. Configure the `title`, `message`, and `button` text
+1. Locate the `generic` property of `announcementModal` of [settings.json](src/settings.json)
+2. Configure the [modal's structure](#announcement-modal-settings)
 
 :::warn
 The generic modal takes precedence over path-specific modals
@@ -560,13 +573,7 @@ The generic modal takes precedence over path-specific modals
 To display modals only on specific pages:
 
 1. Add entries to the `perPath` array
-2. Each entry should include:
-   - `id`: String to uniquely identify the modal - important to identify which modals the user has dismissed or not
-   - `visible`: Boolean to control display
-   - `title`: Modal title text
-   - `message`: Modal body text
-   - `button`: Button label text
-   - `path`: URL path where the modal should appear (supports partial matching)
+2. Each entry should adopt the [modal's structure](#announcement-modal-settings)
 
 ### Behavior
 
