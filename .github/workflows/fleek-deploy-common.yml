@@ -40,6 +40,9 @@ jobs:
           echo "[debug] ls -la"
           ls -la
 
+          echo "[debug] git log"
+          git log --oneline
+
       - uses: oven-sh/setup-bun@v2
         with:
           bun-version: latest
