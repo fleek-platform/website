@@ -5,13 +5,17 @@ on:
   push:
     branches:
       - develop
-  # The workflow's dispatched on Release by develop hash
-  repository_dispatch:
-    types: [Release]
 
 jobs:
   deploy-to-staging:
     uses: ./.github/workflows/fleek-deploy-common.yml
     with:
       environment: staging
-    secrets: inherit
+      fleek_project_id: ${{ vars.FLEEK_PROJECT_ID }}
+      fleek_slug: ${{ vars.FLEEK_SLUG }}
+      github_source_repo: ${{ github.repository }}
+      doppler_config: ${{ vars.DOPPLER_CONFIG }}
+      doppler_project: ${{ vars.DOPPLER_PROJECT }}
+    secrets:
+      fleek_token: ${{ secrets.FLEEK_TOKEN }}
+      doppler_token: ${{ secrets.DOPPLER_TOKEN }}
