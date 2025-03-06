@@ -185,12 +185,14 @@
       },
       "perPath": [
         {
-          "id": "at-capacity-2025.03.05-1741186241237",
+          "id": "at-capacity-1741246058603",
           "visible": false,
-          "title": "Announcement Modal on Eliza",
-          "message": "Pois, Announcement Modal message on Eliza. Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
-          "button": "I understand",
-          "path": "/eliza"
+          "title": "We're currently at capacity",
+          "message": "We are briefly postponing new deployments until we spin up enough VMs to meet growing demand for our AI agent hosting service. Thank you for your understanding and please try again later today!",
+          "button": "OK",
+          "path": "/eliza",
+          "expiresInDays": 0.0417,
+          "modalDelayInSeconds": 0
         }
       ]
     }
