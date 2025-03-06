@@ -38,3 +38,6 @@ fleek.*.config.json
 
 #lock files
 pnpm-lock.yaml
+
+# dev
+dev_*

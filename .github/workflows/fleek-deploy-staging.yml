@@ -1,0 +1,17 @@
+name: ⚡️ Deploy Dashboard (Staging)
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - develop
+  # The workflow's dispatched on Release by develop hash
+  repository_dispatch:
+    types: [Release]
+
+jobs:
+  deploy-to-staging:
+    uses: ./.github/workflows/fleek-deploy-common.yml
+    with:
+      environment: staging
+    secrets: inherit

@@ -1,0 +1,115 @@
+name: ⚡️ Deploy site (Common)
+
+on:
+  workflow_dispatch:
+  workflow_call:
+    inputs:
+      environment:
+        required: true
+        type: string
+
+jobs:
+  deploy-to-fleek:
+    runs-on: ubuntu-latest
+    environment: ${{ inputs.environment }}
+    env:
+      DASHBOARD_UNARCHIVED_PATH: "temp/dashboard"
+      FLEEK_PROJECT_ID: ${{ env.FLEEK_PROJECT_ID }}
+      FLEEK_SLUG: ${{ env.FLEEK_SLUG }}
+      FLEEK_TOKEN: ${{ secrets.FLEEK_TOKEN }}
+      GITHUB_SOURCE_REPO: ${{ github.repository }}
+      DOPPLER_CONFIG: ${{ env.DOPPLER_CONFIG }}
+      DOPPLER_PROJECT: ${{ env.DOPPLER_PROJECT }}
+      DOPPLER_TOKEN: ${{ secrets.DOPPLER_TOKEN }}
+      TARGET_ENVIRONMENT: ${{ inputs.environment }}
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - uses: oven-sh/setup-bun@v2
+        with:
+          bun-version: latest
+
+      - uses: ./.github/actions/setup-nodejs
+
+      - name: Install Doppler CLI
+        uses: dopplerhq/cli-action@v3
+
+      - name: Setup Doppler
+        run: |
+          doppler configure set token "$DOPPLER_TOKEN"
+          doppler configure set project "$DOPPLER_PROJECT"
+          doppler configure set config "$DOPPLER_CONFIG"
+
+      - name: Env vars health check
+        run: |
+          if ! doppler run -- printenv | grep -q 'NEXT_PUBLIC_SDK__AUTHENTICATION_URL'; then
+            echo "👹 Oops! Missing required environment variable during health check..."
+            exit 1           
+          fi
+
+          echo "🚑 Doppler envVars seem healthy!"
+
+      - name: Setup dotenv
+        run: |
+          scripts/setup-ci-dotenv
+
+      - name: Install Fleek CLI
+        run: npm i -g @fleek-platform/cli
+
+      # TODO: Maybe separate into three steps:
+      # - Site build
+      # - Dashboard
+      # - Deploy
+      - name: Install Packages
+        run: npm install
+
+      # TODO: It might be wiser to use a regular
+      # NPM package deployment and copy distribution
+      # to the local path
+      - name: Download Dashboard artifact
+        id: download_dashboard_artifact
+        run: |
+          github_token="$GITHUB_TOKEN"
+          source_repo="$GITHUB_SOURCE_REPO"
+          dashboard_build_output_filename="build-output-fleek-xyz-$TARGET_ENVIRONMENT"
+          latest_artifact_file="$dashboard_build_output_filename.zip"
+
+          .scripts/download_artifact \
+            "$github_token" \
+            "$source_repo" \
+            "$dashboard_build_output_filename" \
+            "$latest_artifact_file"
+
+          echo "latest_dashboard_artifact=$latest_artifact_file" >> "$GITHUB_OUTPUT"
+
+      - name: Prepare Dashboard files
+        env:
+          ARTIFACT: ${{ steps.download_dashboard_artifact.outputs.latest_dashboard_artifact }}
+          OUTPUT_PATH: ${{ env.DASHBOARD_UNARCHIVED_PATH }}
+        run: |
+          if ! scripts/unarchive_dashboard_files "$ARTIFACT" "$OUTPUT_PATH"; then
+            echo "👹 Oops! Failed to unarchive the dashboard files for some reason..."
+            exit 1
+          fi
+
+          echo "✅ Unarchived the archive file $ARTIFACT, to $OUTPUT_PATH. It's contents are listed below:"
+          ls -la "$OUTPUT_PATH"
+        
+      - name: Setup fleek.config.json
+        run: |
+          DIST="dist"
+          BUILD="npm run build && cp -r $DASHBOARD_UNARCHIVED_PATH $DIST"
+          
+          ./scripts/setup-fleek-config \
+            "$FLEEK_SLUG" \
+            "$DIST" \
+            "$BUILD"
+
+      - name: Build & deploy
+        run: |
+          fleek sites deploy
+
+      - name: Clear
+        run: |
+          rm .env
