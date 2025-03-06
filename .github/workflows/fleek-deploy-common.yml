@@ -24,7 +24,7 @@ jobs:
       TARGET_ENVIRONMENT: ${{ inputs.environment }}
       FLEEK_PROJECT_ID: ${{ vars.FLEEK_PROJECT_ID }}
       FLEEK_SLUG: ${{ vars.FLEEK_SLUG }}
-      GITHUB_SOURCE_REPO: ${{ github.repository }}
+      GITHUB_DASHBOARD_SOURCE_REPO: "fleek-platform/dashboard"
       GITHUB_TOKEN: ${{ github.token }}
     steps:
       - name: Checkout
@@ -73,7 +73,7 @@ jobs:
         id: download_dashboard_artifact
         run: |
           github_token="$GITHUB_TOKEN"
-          source_repo="$GITHUB_SOURCE_REPO"
+          source_repo="$GITHUB_DASHBOARD_SOURCE_REPO"
           dashboard_build_output_filename="build-output-fleek-xyz-$TARGET_ENVIRONMENT"
           latest_artifact_file="$dashboard_build_output_filename.zip"
 
