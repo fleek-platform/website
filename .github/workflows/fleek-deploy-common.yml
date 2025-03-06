@@ -7,6 +7,9 @@ on:
       environment:
         required: true
         type: string
+      source_branch:
+        required: true
+        type: string
     secrets:
       fleek_token:
         required: true
@@ -30,7 +33,7 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
         with:
-          ref: ${{ github.ref }}
+          ref: ${{ inputs.source_branch }}
 
       - name: Debug
         run: |
