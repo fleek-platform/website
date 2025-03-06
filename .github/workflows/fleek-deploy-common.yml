@@ -32,6 +32,11 @@ jobs:
         with:
           ref: ${{ github.ref }}
 
+      - name: Debug
+        run: |
+          echo "[debug] ls -la"
+          ls -la
+
       - uses: oven-sh/setup-bun@v2
         with:
           bun-version: latest
