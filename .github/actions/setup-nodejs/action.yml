@@ -1,0 +1,10 @@
+name: 🤖 Setup Nodejs
+
+runs:
+  using: 'composite'
+  steps:
+    - name: Setup node
+      uses: actions/setup-node@v4
+      with:
+        node-version: 20
+        cache: 'npm'
