@@ -23,4 +23,8 @@ if ! npm i --no-save "$packageName@$tag"; then
   exit 1
 fi
 
+if [[ ! -d "$targetPath" ]]; then
+  mkdir "$targetPath"
+fi
+
 cp -r "$sourcePath" "$targetPath"
