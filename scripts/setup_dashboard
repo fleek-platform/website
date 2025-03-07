@@ -36,3 +36,6 @@ else
 fi
 
 cp -r "$sourcePath" "$targetPath"
+
+echo "✅ Completed the dashboard setup! It's contents are listed below:"
+ls -la "$targetPath"

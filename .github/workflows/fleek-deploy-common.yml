@@ -91,9 +91,6 @@ jobs:
             exit 1
           fi
 
-          echo "✅ Completed the dashboard setup! It's contents are listed below:"
-          ls -la "$DASHBOARD_TEMP_PATH"
-
       - name: Setup fleek.config.json
         working-directory: ./
         run: |
