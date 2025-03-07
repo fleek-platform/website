@@ -27,7 +27,12 @@ if [[ ! -d "$targetPath" ]]; then
   echo "🤖 Should create $targetPath"
   if ! mkdir -p "$targetPath"; then
     echo "👹 Oops! Failed to create directory $targetPath..."
+    exit 1
+  else
+    echo "✅ Successfully created directory $targetPath"
   fi
+else
+  echo "✅ Directory $targetPath already exists"
 fi
 
 cp -r "$sourcePath" "$targetPath"

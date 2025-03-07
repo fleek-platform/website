@@ -86,7 +86,7 @@ jobs:
 
       - name: Prepare Dashboard files
         run: |
-          if ! scripts/setup_dashboard "$TARGET_ENVIRONMENT" "$DASHBOARD_TEMP_PATH "; then
+          if ! scripts/setup_dashboard "$TARGET_ENVIRONMENT" "$DASHBOARD_TEMP_PATH"; then
             echo "👹 Oops! Failed to setup the dashboard files for some reason..."
             exit 1
           fi
