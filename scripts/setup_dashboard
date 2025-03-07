@@ -1,24 +1,26 @@
 #!/bin/bash
 
 ENV="$1"
+TARGET_PATH="$2"
 
-if [[ -z "$ENV" ]]; then
+if [[ -z "$ENV" || -z "$TARGET_PATH" ]]; then
   echo "👹 Oops! Missing environment variable"
   exit 1
 fi
 
-
 tag="prerelease"
 packageName="@fleek-platform/dashboard"
+sourcePath="node_modules/@fleek-platform/agents-ui/dist"
+targetPath="$TARGET_PATH"
 
 if [[ "$TARGET_ENVIRONMENT" == 'production' ]]; then
   tag="latest"
 fi
 
-if ! npm i "$packageName@$tag"; then
+if ! npm i --no-save "$packageName@$tag"; then
   echo "👹 Oops! Failed to install the $packageName of tag $tag for some reason..."
 
   exit 1
 fi
 
-
+cp -r "$sourcePath" "$targetPath"

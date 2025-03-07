@@ -18,7 +18,7 @@ jobs:
     runs-on: ubuntu-latest
     environment: ${{ inputs.environment }}
     env:
-      DASHBOARD_UNARCHIVED_PATH: "temp/dashboard"
+      DASHBOARD_TEMP_PATH: "temp/dashboard"
       FLEEK_TOKEN: ${{ secrets.fleek_token }}
       DOPPLER_TOKEN: ${{ secrets.doppler_token }}
       TARGET_ENVIRONMENT: ${{ inputs.environment }}
@@ -84,47 +84,25 @@ jobs:
       - name: Install Packages
         run: npm install
 
-      # TODO: It might be wiser to use a regular
-      # NPM package deployment and copy distribution
-      # to the local path
-      - name: Download Dashboard artifact
-        id: download_dashboard_artifact
-        run: |
-          github_token="$GITHUB_TOKEN"
-          source_repo="$GITHUB_DASHBOARD_SOURCE_REPO"
-          dashboard_build_output_filename="build-output-fleek-xyz-$TARGET_ENVIRONMENT"
-          latest_artifact_file="$dashboard_build_output_filename.zip"
-
-          scripts/download_artifact \
-            "$github_token" \
-            "$source_repo" \
-            "$dashboard_build_output_filename" \
-            "$latest_artifact_file"
-
-          echo "latest_dashboard_artifact=$latest_artifact_file" >> "$GITHUB_OUTPUT"
-
       - name: Prepare Dashboard files
-        env:
-          ARTIFACT: ${{ steps.download_dashboard_artifact.outputs.latest_dashboard_artifact }}
-          OUTPUT_PATH: ${{ env.DASHBOARD_UNARCHIVED_PATH }}
         run: |
-          if ! scripts/unarchive_dashboard_files "$ARTIFACT" "$OUTPUT_PATH"; then
-            echo "👹 Oops! Failed to unarchive the dashboard files for some reason..."
+          if ! scripts/setup_dashboard "$TARGET_ENVIRONMENT" "$DASHBOARD_TEMP_PATH "; then
+            echo "👹 Oops! Failed to setup the dashboard files for some reason..."
             exit 1
           fi
 
-          echo "✅ Unarchived the archive file $ARTIFACT, to $OUTPUT_PATH. It's contents are listed below:"
-          ls -la "$OUTPUT_PATH"
-        
+          echo "✅ Completed the dashboard setup! It's contents are listed below:"
+          ls -la "$DASHBOARD_TEMP_PATH"
+
       - name: Setup fleek.config.json
         working-directory: ./
         run: |
-          DIST="dist"
-          BUILD="npm run build && cp -r $DASHBOARD_UNARCHIVED_PATH $DIST"
+          DIST_PATH="dist/dashboard"
+          BUILD="npm run build && cp -r $DASHBOARD_TEMP_PATH $DIST_PATH"
 
           ./scripts/setup-fleek-config \
             "$FLEEK_SLUG" \
-            "$DIST" \
+            "$DIST_PATH" \
             "$BUILD"
 
       - name: Build & deploy
