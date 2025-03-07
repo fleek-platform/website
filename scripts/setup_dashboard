@@ -1,0 +1,24 @@
+#!/bin/bash
+
+ENV="$1"
+
+if [[ -z "$ENV" ]]; then
+  echo "👹 Oops! Missing environment variable"
+  exit 1
+fi
+
+
+tag="prerelease"
+packageName="@fleek-platform/dashboard"
+
+if [[ "$TARGET_ENVIRONMENT" == 'production' ]]; then
+  tag="latest"
+fi
+
+if ! npm i "$packageName@$tag"; then
+  echo "👹 Oops! Failed to install the $packageName of tag $tag for some reason..."
+
+  exit 1
+fi
+
+
