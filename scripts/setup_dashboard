@@ -11,7 +11,7 @@ fi
 tag="prerelease"
 packageName="@fleek-platform/dashboard"
 sourcePath="node_modules/@fleek-platform/agents-ui/dist/"
-targetPath="$TARGET_PATH"
+targetPath="$TARGET_PATH/"
 
 if [[ "$TARGET_ENVIRONMENT" == 'production' ]]; then
   tag="latest"
