@@ -10,7 +10,7 @@ fi
 
 tag="prerelease"
 packageName="@fleek-platform/dashboard"
-sourcePath="node_modules/@fleek-platform/agents-ui/dist"
+sourcePath="node_modules/@fleek-platform/dashboard/out"
 targetPath="$TARGET_PATH"
 
 if [[ "$TARGET_ENVIRONMENT" == 'production' ]]; then
@@ -39,5 +39,3 @@ cp -r "$sourcePath/." "$targetPath"
 
 echo "✅ Completed the dashboard setup! It's contents are listed below:"
 ls -la "$targetPath"
-
-tree -L 2 dist
