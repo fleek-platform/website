@@ -1,9 +1,9 @@
 ---
-title: 'Fleek changelog: SSH access for custom AI agent actions, API key generation, and more'
+title: 'Fleek changelog: Version toggling, API key generation, and more'
 date: 2025-03-03
-desc: 'Eliza deployments SSH access for custom AI agent actions or plugins, API key generation, and more'
-thumbnail: './fleekchangelog.png'
-image: './fleekchangelog.png'
+desc: 'Eliza version selector for AI agent deployment, API key generation, and more'
+thumbnail: './fleek-changelog.png'
+image: './fleek-changelog.png'
 author:
   - 'Tobiloba Adedeji'
 ---
@@ -12,19 +12,25 @@ Hey, Fleek community!
 
 We’ve rolled out some exciting updates over the past few days, and we’re excited to share them with you! Here’s a breakdown of what’s new:
 
-## SSH Access to VM for Custom Actions & Plugins
+---
 
-Users can now SSH into their Eliza instance VM to add custom actions and plugins effortlessly. Previously, users had to rely on official Eliza plugins, but now, with just a few commands in the terminal, you can extend functionality as needed.
+## Eliza Version Control
 
-**How it works:**
+Fleek allows users to switch between different versions of Eliza while building AI agents. Through the **Agent Deployment Portal**, users can select a specific Eliza version and adapt their agent’s instance on Fleek’s virtual machines.
 
-1. Copy your auto-generated SSH command, paste it into your terminal, and run it.
-2. Enter your password to access your VM.
-3. Navigate to the `eliza` repo and add any `packages`—such as actions or plugins.
+### Supported Versions
 
-This new flexibility allows users to tailor their Eliza instances to their specific needs.
+Fleek currently supports [Eliza v0.25.9](https://elizaos.github.io/eliza/docs/changelog/) and [Eliza v0.1.8](https://elizaos.github.io/eliza/docs/changelog/#v018-alpha1-january-31-2025). You can track updates and available versions [here](https://elizaos.github.io/eliza/docs/changelog/).
 
-![SSH access](./ssh-feature.png)
+### Switching Eliza Versions
+
+To switch between Eliza versions:
+
+1. Visit [fleek.xyz/eliza/](https://fleek.xyz/eliza/).
+2. Use the **dropdown toggle** to select the desired version.
+3. Proceed with one of the [three deployment options](/docs/ai-agents/#deploy-ai-agents) on the Deployment Portal.
+
+This flexibility allows developers to test, iterate, and deploy AI agents on the latest stable versions while maintaining compatibility.
 
 ---
 
