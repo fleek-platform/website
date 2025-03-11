@@ -1,0 +1,45 @@
+#!/bin/bash
+
+ENV="$1"
+TARGET_PATH="$2"
+
+if [[ -z "$ENV" || -z "$TARGET_PATH" ]]; then
+  echo "👹 Oops! Missing environment variable"
+  exit 1
+fi
+
+packageName="@fleek-platform/dashboard"
+sourcePath="node_modules/@fleek-platform/dashboard/out"
+targetPath="$TARGET_PATH"
+pkgJson="package.json"
+pkgJsonTemp="$pkgJson.bak"
+version=$(jq '.dependencies["@fleek-platform/dashboard"]' "$pkgJson" | tr -d '"^')
+
+if [[ "$ENV" == 'production' ]]; then
+  version=$(jq ".dependencies[\"$packageName\"] |= sub(\"-rc.*\"; "")" package.json | jq '.dependencies["@fleek-platform/dashboard"]' | tr -d '"^')
+
+  echo "💡 Given release candidate use in staging, the $ENV must install release version $version"
+fi
+
+if ! npm i "$packageName@$version"; then
+  echo "👹 Oops! Failed to install the $packageName of version $version for some reason..."
+
+  exit 1
+fi
+
+if [[ ! -d "$targetPath" ]]; then
+  echo "🤖 Should create $targetPath"
+  if ! mkdir -p "$targetPath"; then
+    echo "👹 Oops! Failed to create directory $targetPath..."
+    exit 1
+  else
+    echo "✅ Successfully created directory $targetPath"
+  fi
+else
+  echo "✅ Directory $targetPath already exists"
+fi
+
+cp -r "$sourcePath/." "$targetPath"
+
+echo "✅ Completed the dashboard setup! It's contents are listed below:"
+ls -la "$targetPath"

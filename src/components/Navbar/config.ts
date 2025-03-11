@@ -1,4 +1,4 @@
-import { dashboardApp } from '../../settings.json';
+const dashboardUrl = import.meta.env.PUBLIC_UI_APP_URL;
 
 type NavMenuItemBase = {
   label: string;
@@ -30,7 +30,7 @@ export const navbarMenu: NavMenuItemRoot[] = [
     subMenu: [
       {
         label: 'AI agent hosting',
-        url: '/eliza/',
+        url: '/agents/',
         description: 'Build autonomous agents',
         icon: '/svg/robot.svg',
       },
@@ -130,7 +130,7 @@ export function getAuthenticationMenu(
       return [
         {
           label: 'Dashboard',
-          url: dashboardApp.url,
+          url: dashboardUrl,
           description: 'Manage your account',
         },
         {

@@ -27,7 +27,9 @@ This repository contains the source code and assets for the Fleek.xyz website, w
     - [Sidebar menu item ordering](#-sidebar-menu-item-ordering)
     - [Override category title](#-override-category-title)
   - [Spell checker](#-spell-checker)
-  - [Announcement Marquee](#announcement-marquee)
+  - [Announcement](#announcement)
+    - [Announcement Marquee](#announcement-marquee)
+    - [Announcement Modal](#announcement-modal)
   - [Admonitions](#-admonitions)
   - [Navigation bar](#-navigation-bar)
     - [Configuration](#-configuration)
@@ -137,6 +139,12 @@ npm run build
 💡 By default, the development server is available in the address [http://localhost:4321](http://localhost:4321).
 
 Tweak environment settings (src/settings.json), such as the site URL. Declare the `NODE_ENV` with value `prod` or `production` to switch environment target settings.
+
+Alternatively, you can skip build checkups and build assets only:
+
+```
+npm run build:static_assets
+```
 
 ## 🙈 Preview locally
 
@@ -483,7 +491,9 @@ It should be similar to the following:
 
 ![Locate the spell checker in CI/CD](public/images/repo/spell-checker-in-cicd.png?202406011433)
 
-## Announcement Marquee
+## Announcement
+
+### Announcement Marquee
 
 The Announcement Marquee is placed at the very top of the site. To enable
 
@@ -504,6 +514,79 @@ The Announcement Marquee is placed at the very top of the site. To enable
 
 3. Edit the message and url
 4. Set "visible" to true
+
+### Announcement Modal
+
+The Announcement Modal is a customizable popup that can be displayed site-wide or on specific pages. It supports dismissal tracking to avoid repeatedly showing the same announcement to users who have already dismissed it.
+
+#### Configuration
+
+1. Open the settings file located at `/src/settings.json`.
+2. Locate the `announcementModal` section under "site":
+
+```json
+"site": {
+  ...
+  "announcementModal": {
+    "generic": {
+      "visible": false,
+      "title": "Announcement Modal title",
+      "message": "Announcement Modal message. Lorem ipsum dolor sit amet",
+      "button": "Button label"
+    },
+    "perPath": [
+      {
+        "visible": true,
+        "title": "Announcement Modal on Eliza",
+        "message": "Announcement Modal message on Eliza. Lorem ipsum dolor sit amet",
+        "button": "Button label on Eliza",
+        "path": "/eliza"
+      }
+    ]
+  },
+  ...
+}
+```
+
+#### Usage Options
+
+##### Announcement Modal settings
+
+Each modal entry has the following properties:
+
+- `id`: (optional) **String** to uniquely identify the modal - important to identify which modals the user has dismissed or not
+- `visible`: **Boolean** to control display
+- `title`: **String** to be displayed as modal title
+- `message`: **String** to be displayed as modal body
+- `button`: **String** to be displayed as modal button label
+- `expiresInDays`: (optional) **Number** of days after which the modal should be displayed again after being dismissed
+- `modalDelayInSeconds`: (optional) **Number** of seconds after which the modal should be revealed
+- `path`: (required on perPath) **String** URL path where the modal should appear (supports partial matching)
+
+##### Site-wide Modal
+
+To display a modal across the entire site:
+
+1. Locate the `generic` property of `announcementModal` of [settings.json](src/settings.json)
+2. Configure the [modal's structure](#announcement-modal-settings)
+
+:::warn
+The generic modal takes precedence over path-specific modals
+:::
+
+##### Path-specific Modals
+
+To display modals only on specific pages:
+
+1. Add entries to the `perPath` array
+2. Each entry should adopt the [modal's structure](#announcement-modal-settings)
+
+### Behavior
+
+- Modals appear after a 5-second delay
+- When a user dismisses a modal, it won't appear again for 7 days
+- Generic and path-specific dismissals are tracked separately
+- Path-specific dismissals only apply to that specific path
 
 ## 🎯 Admonitions
 
@@ -1180,13 +1263,13 @@ PromoteKit by Stripe is a tool that helps businesses integrate and manage promot
 
 ### How to setup?
 
-TLDR; Visit [https://fleek-xyz-staging.fleeksandbox.xyz/?via=Helder](https://fleek-xyz-staging.fleeksandbox.xyz/?via=Helder) to have the ability to get a referral link in the window.promotekit_referral
+TLDR; Visit [https://fleek.xyz/?via=Helder](https://fleek.xyz/?via=Helder) to enable referral links in the `window.promotekit_referral`
 
-1) Visit https://refer.fleek.xyz/ to create an account
-2) Copy the referral link which will include the account ID, e.g. [https://fleek-xyz-staging.fleeksandbox.xyz/?via=Helder](https://fleek-xyz-staging.fleeksandbox.xyz/?via=Helder)
-3) Visit the referral link, e.g. [https://fleek-xyz-staging.fleeksandbox.xyz/?via=Helder](https://fleek-xyz-staging.fleeksandbox.xyz/?via=Helder)
-4) Access the promotekit on runtime e.g. window.promotekit_referral
-5) As a fallback, you can also get the `promotekit_referral`
+1. Visit [refer.fleek.xyz](https://refer.fleek.xyz) to create an account
+2. Copy the referral link, which will include the account ID, e.g. [https://fleek.xyz/?via=Helder](https://fleek.xyz/?via=Helder)
+3. Visit the referral link, e.g. [https://fleek.xyz/?via=Helder](https://fleek.xyz/?via=Helder)
+4. Access the promotekit on runtime, e.g. `window.promotekit_referral`
+5. As a fallback, you can also get the `promotekit_referral`
 
 ## Changelog Resources
 

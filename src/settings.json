@@ -26,6 +26,12 @@
         "description": "Fleek: Build next-gen apps and AI agents in minutes on an open-source, verifiable, auto-scalable cloud platform. Start for free!",
         "image": "/images/fleek-meta-image.png?202406061658"
       },
+      "agents": {
+        "title": "Agents",
+        "slug": "agents",
+        "description": "Effortlessly deploy and run Eliza AI agents and enjoy industry-best pricing.",
+        "image": "/images/fleek-meta-image.png?202406061658"
+      },
       "blog": {
         "title": "Blog",
         "slug": "blog",
@@ -169,6 +175,26 @@
       "message": "Introducing Fleek AI agent hosting, with Eliza framework support",
       "url": "/eliza/",
       "visible": true
+    },
+    "announcementModal": {
+      "generic": {
+        "visible": false,
+        "title": "Announcement Modal title",
+        "message": "Announcement Modal message. Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+        "button": "Button label"
+      },
+      "perPath": [
+        {
+          "id": "at-capacity-1741246058603",
+          "visible": false,
+          "title": "We're currently at capacity",
+          "message": "We are briefly postponing new deployments until we spin up enough VMs to meet growing demand for our AI agent hosting service. Thank you for your understanding and please try again later today!",
+          "button": "OK",
+          "path": "/eliza",
+          "expiresInDays": 0.0417,
+          "modalDelayInSeconds": 0
+        }
+      ]
     }
   },
   "landingPage": {
@@ -523,14 +549,36 @@
       "button": "Get started with Fleek"
     }
   },
+  "agentsPage": {
+    "hero": {
+      "title": "AI agent infrastructure for teams of every size",
+      "subTitle": "Create, deploy, and scale AI agents with enterprise-grade performance and industry-best pricing.",
+      "primaryCta": "Create agent",
+      "secondaryCta": "Enterprise solutions",
+      "tertiaryCta": "API documentation",
+      "hideAnnouncement": false
+    },
+    "customize": {
+      "title": "Customize agents",
+      "subTitle": "Design your own agent and start chatting with it in no time. Customize it with unique features and launch it across your favorite social media platforms."
+    },
+    "growing": {
+      "title": "For growing teams",
+      "subTitle": "Deploy and monitor 1 to multiple agents from a unified dashboard. Centralize configuration, track performance, and maintain consistent security policies."
+    },
+    "pricing": {
+      "title": "Pricing"
+    },
+    "faq": {
+      "title": "FAQ",
+      "subTitle": "Solutions to many of our most commonly asked questions."
+    }
+  },
   "templatesPage": {
     "title": "TEMPLATES",
     "subTitle": "Begin with a template",
     "description": "Use a template to kick start your application. Pick from just a framework or a full web3 starter kit, the possibilities are limitless.",
     "ctaLabel": "Learn more",
     "ctaTargetUrl": "/docs/platform/frameworks/#using-framework-templates-to-get-started/"
-  },
-  "dashboardApp": {
-    "url": "https://app.fleek.xyz"
   }
 }

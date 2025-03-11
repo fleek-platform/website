@@ -1,0 +1,30 @@
+#!/bin/bash
+
+if [[ -z "$1" || -z "$2" || -z "$3" ]]; then
+  echo "👹 Oops! Missing arguments required for slug, distDir and buildCommand."
+  exit 1
+fi
+
+slug="$1"
+distDir="$2"
+buildCommand="$3"
+fleekConfigPath="./fleek.config.json"
+
+if ! jq -n "{
+  \"sites\": [
+    {
+      \"slug\": \"$slug\",
+      \"distDir\": \"$distDir\",
+      \"buildCommand\": \"$buildCommand\"
+    }
+  ]
+}" > "$fleekConfigPath"; then
+  echo "👹 Oops! Failed to set $fleekConfigPath for some reason..."
+  exit 1
+fi
+
+echo "🔍 The $fleekConfigPath content is:"
+cat "$fleekConfigPath"
+echo
+
+echo "✅ Completed fleek config setup!"
