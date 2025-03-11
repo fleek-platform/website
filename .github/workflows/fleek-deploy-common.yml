@@ -95,7 +95,7 @@ jobs:
         working-directory: ./
         run: |
           DIST_PATH="./dist"
-          BUILD="npm run build && cp -r $DASHBOARD_TEMP_PATH $DIST_PATH"
+          BUILD="npm run build && rsync -va $DASHBOARD_TEMP_PATH/ $DIST_PATH"
 
           ./scripts/setup-fleek-config \
             "$FLEEK_SLUG" \
