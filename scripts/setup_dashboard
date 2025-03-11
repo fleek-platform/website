@@ -8,17 +8,21 @@ if [[ -z "$ENV" || -z "$TARGET_PATH" ]]; then
   exit 1
 fi
 
-tag="prerelease"
 packageName="@fleek-platform/dashboard"
 sourcePath="node_modules/@fleek-platform/dashboard/out"
 targetPath="$TARGET_PATH"
+pkgJson="package.json"
+pkgJsonTemp="$pkgJson.bak"
+version=$(jq '.dependencies["@fleek-platform/dashboard"]' "$pkgJson")
 
-if [[ "$TARGET_ENVIRONMENT" == 'production' ]]; then
-  tag="latest"
+if [[ "$ENV" == 'production' ]]; then
+  version=$(jq ".dependencies[\"$packageName\"] |= sub(\"-rc.*\"; "")" package.json | jq '.dependencies["@fleek-platform/dashboard"]')
+
+  echo "💡 Given release candidate use in staging, the $ENV must install release version $version"
 fi
 
-if ! npm i --no-save "$packageName@$tag"; then
-  echo "👹 Oops! Failed to install the $packageName of tag $tag for some reason..."
+if ! npm i "$packageName@$version"; then
+  echo "👹 Oops! Failed to install the $packageName of version $version for some reason..."
 
   exit 1
 fi
