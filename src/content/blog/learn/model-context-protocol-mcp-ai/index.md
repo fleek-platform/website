@@ -7,6 +7,7 @@ image: './mcp.png'
 author:
   - 'Fleek'
 ---
+
 Artificial Intelligence (AI) is the backbone of innovation across industries. But even the most advanced Large Language Models (LLMs) like Claude, ChatGPT or DeepSeek hit a wall when it comes to accessing real-time data or interacting with external tools. Enter the **Model Context Protocol (MCP)**, an open-source standard from Anthropic that’s rewriting the rules of AI integration. Imagine a universal adapter that connects your AI assistant to everything from Google Drive to GitHub with a single, elegant protocol. That’s MCP and it’s here to change how we build smarter, context-aware AI systems.
 
 In the following we’ll explore what MCP is, why it’s a big deal, how it works, and why builders should care. Whether you’re a developer, a tech enthusiast, or a business leader, this guide will show you how MCP could be the key to unlocking AI’s full potential.
@@ -69,21 +70,20 @@ Picture this: You use RAG to fetch web articles about a topic, then feed them in
 Here are some killer applications using MCP:
 
 1. **Code Smarter with Sourcegraph**
-    
-    Sourcegraph’s Cody uses MCP to pull in Postgres schemas or Linear issues, letting developers query their database or write code with full context right in their IDE.
-    
+
+   Sourcegraph’s Cody uses MCP to pull in Postgres schemas or Linear issues, letting developers query their database or write code with full context right in their IDE.
+
 2. **Streamlined Workflows with Slack**
-    
-    An MCP server for Slack lets your AI summarize threads, draft replies, or fetch files without leaving the chat interface.
-    
+
+   An MCP server for Slack lets your AI summarize threads, draft replies, or fetch files without leaving the chat interface.
+
 3. **Dynamic Content Creation**
-    
-    Marketing teams can connect MCP to Google Drive, pulling in brand guidelines and campaign data to generate SEO-optimized content (like this blog!) in real time.
-    
+
+   Marketing teams can connect MCP to Google Drive, pulling in brand guidelines and campaign data to generate SEO-optimized content (like this blog!) in real time.
+
 4. **Fleek-Powered AI agents**
-    
-    At Fleek, we’re excited about MCP’s potential for powering AI agents. Imagine an AI agent capable of connecting to any third-party service and handling any tasks given entirely on a Trusted Execution Environment (TEE) powered infrastructure.
-    
+
+   At Fleek, we’re excited about MCP’s potential for powering AI agents. Imagine an AI agent capable of connecting to any third-party service and handling any tasks given entirely on a Trusted Execution Environment (TEE) powered infrastructure.
 
 ---
 
@@ -97,149 +97,141 @@ Ready to dive in? MCP’s open-source nature and developer-friendly tools make i
 
 Here’s a quick code snippet to spin up an MCP server that exposes a calculator tool and some data using the MCP SDK:
 
-import { McpServer, ResourceTemplate } from "@modelcontextprotocol/sdk/server/mcp.js";
+```ts
+import {
+  McpServer,
+  ResourceTemplate,
+} from '@modelcontextprotocol/sdk/server/mcp.js';
 
-import { StdioServerTransport } from "@modelcontextprotocol/sdk/server/stdio.js";
+import { StdioServerTransport } from '@modelcontextprotocol/sdk/server/stdio.js';
 
-import { z } from "zod";
+import { z } from 'zod';
 
 // Create an MCP server
 
 const server = new McpServer({
+  name: 'Demo',
 
-name: "Demo",
-
-version: "1.0.0"
-
+  version: '1.0.0',
 });
 
 // Add an addition tool
 
-server.tool("add",
+server.tool(
+  'add',
 
-{ a: z.number(), b: z.number() },
+  { a: z.number(), b: z.number() },
 
-async ({ a, b }) => ({
-
-content: [{ type: "text", text: String(a + b) }]
-
-})
-
+  async ({ a, b }) => ({
+    content: [{ type: 'text', text: String(a + b) }],
+  }),
 );
 
 // Add a dynamic greeting resource
 
 server.resource(
+  'greeting',
 
-"greeting",
+  new ResourceTemplate('greeting://{name}', { list: undefined }),
 
-new ResourceTemplate("greeting://{name}", { list: undefined }),
+  async (uri, { name }) => ({
+    contents: [
+      {
+        uri: uri.href,
 
-async (uri, { name }) => ({
-
-contents: [{
-
-uri: uri.href,
-
-text: `Hello, ${name}!`
-
-}]
-
-})
-
+        text: `Hello, ${name}!`,
+      },
+    ],
+  }),
 );
 
 // Start receiving messages on stdin and sending messages on stdout
 
 const transport = new StdioServerTransport();
 
-await server.connect(transport)
+await server.connect(transport);
+```
 
 You can run that and connect it to your client like the Claude desktop application. To run the code, go to the terminal on your machine and then:
 
 1. Create a directory using the below command:
 
+```bash
 mkdir mcp-server
+```
 
 2. Start a new Node project using the below command:
 
+```bash
 cd mcp-server
-
 npm init -y
+```
 
 3. Create an `src` folder and then create a file called `index.ts` in it:
 
+```bash
 mkdir src
-
 cd src
-
 touch index.ts
+```
 
 4. Open the file in any code editor and then make sure the `package.json` matches the below:
 
+```json
 {
+  "name": "mcp-fleek",
 
-"name": "mcp-fleek",
+  "version": "1.0.0",
 
-"version": "1.0.0",
+  "main": "index.js",
 
-"main": "index.js",
+  "scripts": {
+    "build": "tsc && node -e \"require('fs').chmodSync('build/index.js', '755')\"",
 
-"scripts": {
+    "esBuild": "esbuild --bundle ./src/index.ts --platform=node > bundle.js"
+  },
 
-"build": "tsc && node -e \"require('fs').chmodSync('build/index.js', '755')\"",
+  "type": "module",
 
-"esBuild": "esbuild --bundle ./src/index.ts --platform=node > bundle.js"
+  "bin": {
+    "weather": "./build/index.js"
+  },
 
-},
+  "files": ["build"],
 
-"type": "module",
+  "keywords": [],
 
-"bin": {
+  "author": "",
 
-"weather": "./build/index.js"
+  "license": "ISC",
 
-},
+  "description": "",
 
-"files": [
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.6.1",
 
-"build"
+    "zod": "^3.24.2"
+  },
 
-],
+  "devDependencies": {
+    "@types/node": "^22.13.9",
 
-"keywords": [],
-
-"author": "",
-
-"license": "ISC",
-
-"description": "",
-
-"dependencies": {
-
-"@modelcontextprotocol/sdk": "^1.6.1",
-
-"zod": "^3.24.2"
-
-},
-
-"devDependencies": {
-
-"@types/node": "^22.13.9",
-
-"typescript": "^5.8.2",
-
+    "typescript": "^5.8.2"
+  }
 }
-
-}
+```
 
 5. Run the below command in your terminal to install all dependencies for your server:
 
+```bash
 npm install
+```
 
 6. After that, you then build the server:
 
+```bash
 npm run build
+```
 
 With all that done, you can then proceed to [test your MCP server with a client](https://modelcontextprotocol.io/quickstart/server#test-with-commands).
 
@@ -253,4 +245,4 @@ At Fleek, we see MCP as a perfect fit for enabling more capabilities for AI agen
 
 So, what’s next? Explore MCP on [MCP's official site](https://modelcontextprotocol.io/introduction), join the [MCP GitHub community](https://github.com/modelcontextprotocol), or drop us a line at Fleek to chat about its potential. The future of AI integration is here, and it’s called MCP.
 
-*Have questions about MCP or how Fleek can leverage it for your next project? Let us know in the comments below!*
+_Have questions about MCP or how Fleek can leverage it for your next project? Let us know in the comments below!_
