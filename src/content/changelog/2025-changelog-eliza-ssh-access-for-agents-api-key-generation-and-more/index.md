@@ -20,7 +20,7 @@ Fleek allows users to switch between different versions of Eliza while building 
 
 ### Supported Versions
 
-Fleek currently supports [Eliza v0.25.9](https://elizaos.github.io/eliza/docs/changelog/) and [Eliza v0.1.8](https://elizaos.github.io/eliza/docs/changelog/#v018-alpha1-january-31-2025). You can track updates and available versions [here](https://elizaos.github.io/eliza/docs/changelog/).
+Fleek currently supports [Eliza v0.25.9](https://elizaos.github.io/eliza/docs/changelog/), [Eliza v0.1.9](https://elizaos.github.io/eliza/docs/changelog/#v019-2025-02-01), [Eliza v0.1.8](https://elizaos.github.io/eliza/docs/changelog/#v018-alpha1-january-31-2025) and [Eliza v0.1.7alpha2](https://elizaos.github.io/eliza/docs/changelog/#version-017-alpha2-2024-12-28). You can track updates and available versions [here](https://elizaos.github.io/eliza/docs/changelog/).
 
 ### Switching Eliza Versions
 
