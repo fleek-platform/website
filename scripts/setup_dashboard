@@ -39,7 +39,7 @@ else
   echo "✅ Directory $targetPath already exists"
 fi
 
-rsync -va "$sourcePath"/ "$targetPath"
+cp -r "$sourcePath/." "$targetPath"
 
 echo "✅ Completed the dashboard setup! It's contents are listed below:"
 ls -la "$targetPath"
