@@ -94,8 +94,9 @@ jobs:
       - name: Setup fleek.config.json
         working-directory: ./
         run: |
+          SOURCE_PATH="node_modules/@fleek-platform/dashboard/out"
           DIST_PATH="./dist"
-          BUILD="npm run build && cp -r $DASHBOARD_TEMP_PATH $DIST_PATH"
+          BUILD="npm run build && rsync -va $SOURCE_PATH/ $DIST_PATH"
 
           ./scripts/setup-fleek-config \
             "$FLEEK_SLUG" \
