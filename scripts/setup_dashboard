@@ -13,10 +13,10 @@ sourcePath="node_modules/@fleek-platform/dashboard/out"
 targetPath="$TARGET_PATH"
 pkgJson="package.json"
 pkgJsonTemp="$pkgJson.bak"
-version=$(jq '.dependencies["@fleek-platform/dashboard"]' "$pkgJson")
+version=$(jq '.dependencies["@fleek-platform/dashboard"]' "$pkgJson" | tr -d '"^')
 
 if [[ "$ENV" == 'production' ]]; then
-  version=$(jq ".dependencies[\"$packageName\"] |= sub(\"-rc.*\"; "")" package.json | jq '.dependencies["@fleek-platform/dashboard"]')
+  version=$(jq ".dependencies[\"$packageName\"] |= sub(\"-rc.*\"; "")" package.json | jq '.dependencies["@fleek-platform/dashboard"]' | tr -d '"^')
 
   echo "💡 Given release candidate use in staging, the $ENV must install release version $version"
 fi
