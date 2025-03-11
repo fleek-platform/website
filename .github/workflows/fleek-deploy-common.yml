@@ -54,6 +54,16 @@ jobs:
 
       - uses: ./.github/actions/setup-nodejs
 
+      - name: Cache astro build
+        uses: actions/cache@v3
+        with:
+          path: |
+            .astro
+            ./node_modules/.astro
+          key: ${{ runner.os }}-build-${{ hashFiles('**/package-lock.json') }}
+          restore-keys: |
+            ${{ runner.os }}-build-
+
       - name: Install Doppler CLI
         uses: dopplerhq/cli-action@v3
 
@@ -105,6 +115,13 @@ jobs:
       - name: Build & deploy
         run: |
           fleek sites deploy
+
+      - name: TIAS Public dir
+        run: |
+          echo "[debug] ls -la ./dist"
+          ls -la ./dist
+          echo "[debug] ls -la ./dist/dashboard"
+          ls -la ./dist/dashboard
 
       - name: Clear
         run: |
