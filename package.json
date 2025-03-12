@@ -125,5 +125,8 @@
   "engines": {
     "bun": ">=0.5.8",
     "node": ">=18.18.2"
+  },
+  "optionalDependencies": {
+    "@rollup/rollup-linux-x64-gnu": "^4.9.2"
   }
 }
