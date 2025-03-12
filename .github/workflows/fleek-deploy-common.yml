@@ -18,7 +18,7 @@ jobs:
     runs-on: ubuntu-latest
     environment: ${{ inputs.environment }}
     env:
-      DASHBOARD_TEMP_PATH: "temp/dashboard"
+      ASTRO_PUBLIC_DASHBOARD_PATH: "public/dashboard"
       FLEEK_TOKEN: ${{ secrets.fleek_token }}
       DOPPLER_TOKEN: ${{ secrets.doppler_token }}
       TARGET_ENVIRONMENT: ${{ inputs.environment }}
@@ -54,6 +54,16 @@ jobs:
 
       - uses: ./.github/actions/setup-nodejs
 
+      - name: Cache astro build
+        uses: actions/cache@v3
+        with:
+          path: |
+            .astro
+            ./node_modules/.astro
+          key: ${{ runner.os }}-build-${{ hashFiles('**/package-lock.json') }}
+          restore-keys: |
+            ${{ runner.os }}-build-
+
       - name: Install Doppler CLI
         uses: dopplerhq/cli-action@v3
 
@@ -86,7 +96,7 @@ jobs:
 
       - name: Prepare Dashboard files
         run: |
-          if ! scripts/setup_dashboard "$TARGET_ENVIRONMENT" "$DASHBOARD_TEMP_PATH"; then
+          if ! scripts/setup_dashboard "$TARGET_ENVIRONMENT" "$ASTRO_PUBLIC_DASHBOARD_PATH"; then
             echo "👹 Oops! Failed to setup the dashboard files for some reason..."
             exit 1
           fi
@@ -95,7 +105,7 @@ jobs:
         working-directory: ./
         run: |
           DIST_PATH="./dist"
-          BUILD="npm run build && cp -r $DASHBOARD_TEMP_PATH $DIST_PATH"
+          BUILD="npm run build"
 
           ./scripts/setup-fleek-config \
             "$FLEEK_SLUG" \
@@ -105,6 +115,13 @@ jobs:
       - name: Build & deploy
         run: |
           fleek sites deploy
+
+      - name: TIAS Public dir
+        run: |
+          echo "[debug] ls -la ./dist"
+          ls -la ./dist
+          echo "[debug] ls -la ./dist/dashboard"
+          ls -la ./dist/dashboard
 
       - name: Clear
         run: |
