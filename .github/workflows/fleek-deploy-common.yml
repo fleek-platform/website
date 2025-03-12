@@ -53,15 +53,15 @@ jobs:
 
       - uses: ./.github/actions/setup-nodejs
 
-      - name: Cache astro build
-        uses: actions/cache@v3
-        with:
-          path: |
-            .astro
-            ./node_modules/.astro
-          key: ${{ runner.os }}-build-${{ hashFiles('**/package-lock.json') }}
-          restore-keys: |
-            ${{ runner.os }}-build-
+      # - name: Cache astro build
+      #   uses: actions/cache@v3
+      #   with:
+      #     path: |
+      #       .astro
+      #       ./node_modules/.astro
+      #     key: ${{ runner.os }}-build-${{ hashFiles('**/package-lock.json') }}
+      #     restore-keys: |
+      #       ${{ runner.os }}-build-
 
       - name: Install Doppler CLI
         uses: dopplerhq/cli-action@v3
