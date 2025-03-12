@@ -30,5 +30,5 @@ const overrideDefined = {
   }}
 >
   <AnnouncementModal pathname={Astro.url.pathname} client:only="react" />
-  <AgentsUI client:load overrideDefined={overrideDefined} />
+  <AgentsUI client:only="react" overrideDefined={overrideDefined} />
 </ElizaHtml>
