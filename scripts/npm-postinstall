@@ -1,0 +1,26 @@
+#!/bin/bash
+
+TARGET_ENVIRONMENT=${TARGET_ENVIRONMENT:-staging}
+
+prepareDependencyFiles() {
+  local targetEnvironment="$1" 
+  local targetPublicAppPath="$2"
+  local pkgName="$3"
+  local pkgDirOutDir="$4"
+
+  echo "🤖 Must prepare Dashboard files for environment $targetEnvironment..."
+
+  if ! scripts/setup-dashboard "$targetEnvironment" "$targetPublicAppPath" "$pkgName" "$pkgDirOutDir"; then
+    echo "👹 Oops! Failed to setup the $pkgName files for some reason..."
+
+    exit 1
+  fi
+
+  echo "👍 Done preparing $pkgName files!"  
+}
+
+prepareDependencyFiles \
+  "$TARGET_ENVIRONMENT" \
+  "public/dashboard" \
+  "@fleek-platform/dashboard" \
+  "out"

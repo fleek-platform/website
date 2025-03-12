@@ -1,0 +1,54 @@
+#!/bin/bash
+
+# The TARGET_ENVIRONMENT is only relevant in CI/CD
+# e.g. it's used to remove the release-candidate suffix
+# but can be defined locally for testing the script
+TARGET_ENVIRONMENT="$1"
+TARGET_PUBLIC_APP_PATH="$2"
+PACKAGE_NAME="$3"
+PACKAGE_DIST_OUTPUT_DIR="$4"
+
+if [[ -z "$TARGET_ENVIRONMENT" || -z "$TARGET_PUBLIC_APP_PATH" || -z "$PACKAGE_NAME" || -z "$PACKAGE_DIST_OUTPUT_DIR" ]]; then
+  echo "👹 Oops! Missing environment variables"
+  exit 1
+fi
+
+packageName="$PACKAGE_NAME"
+sourcePath="node_modules/$packageName/$PACKAGE_DIST_OUTPUT_DIR"
+targetPath="$TARGET_PUBLIC_APP_PATH"
+pkgJson="package.json"
+pkgJsonTemp="$pkgJson.bak"
+version=$(jq '.dependencies["@fleek-platform/dashboard"]' "$pkgJson" | tr -d '"^')
+
+if [[ "$TARGET_ENVIRONMENT" == 'production' ]]; then
+  version=$(jq ".dependencies[\"$packageName\"] |= sub(\"-rc.*\"; "")" package.json | jq '.dependencies["@fleek-platform/dashboard"]' | tr -d '"^')
+
+  echo "💡 Given release candidate use in staging, the $TARGET_ENVIRONMENT must install release version $version"
+fi
+
+if ! npm i "$packageName@$version"; then
+  echo "👹 Oops! Failed to install the $packageName of version $version for some reason..."
+
+  exit 1
+fi
+
+if [[ ! -d "$targetPath" ]]; then
+  echo "🤖 Should create $targetPath"
+  if ! mkdir -p "$targetPath"; then
+    echo "👹 Oops! Failed to create directory $targetPath..."
+
+    exit 1
+  else
+    echo "✅ Successfully created directory $targetPath"
+  fi
+else
+  echo "✅ Directory $targetPath already exists"
+fi
+
+if ! rsync -va "$sourcePath/" "$targetPath"; then
+  echo "👹 Oops! Failed to copy $sourcePath to $targetPath"
+
+  exit 1
+fi
+
+echo "✅ Completed the dashboard setup!"

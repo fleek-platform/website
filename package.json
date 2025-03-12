@@ -1,7 +1,7 @@
 {
   "name": "Fleekxyz Website",
   "type": "module",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/fleekxyz/fleekxyz-website.git"
@@ -21,6 +21,7 @@
     "check:strict": "npx astro check --minimumFailingSeverity error --minimumSeverity error",
     "check:json": "./scripts/validate-json.ts",
     "check:markdown": "./scripts/check-markdown.ts",
+    "postinstall": "scripts/npm-postinstall",
     "search:serve": "npm run clear:meili_data && ./Services/Search/dev.bash",
     "search:index_all": "npm run search:index_blog && npm run search:index_docs && npm run search:index_guides && npm run search:index_troubleshooting && npm run search:index_changelog",
     "search:index_blog": "./Services/Search/Indexer/indexation.ts \"blog\" \"fleekxyz_website_blog\"",
