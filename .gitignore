@@ -41,3 +41,7 @@ pnpm-lock.yaml
 
 # dev
 dev_*
+
+# external apps
+public/dashboard/
+public/agents/
