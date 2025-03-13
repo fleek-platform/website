@@ -51,7 +51,7 @@ You can now apply the generated key as your `X-Api-Key` request header when maki
 
 ## AI agent management improvements
 
-We've made significant improvements to AI agent status tracking and management, making it easier to monitor, edit, and organize your agents efficiently.
+We've made significant improvements to AI agent management, including status monitoring. It's easier to monitor, edit, and organize your agents efficiently.
 
 - **Draft status indicators**: Draft agents are now clearly marked next to their name on the Eliza deployment page and Fleek dashboard, allowing easy identification and management.
 - **Status tracking updates**: Instantly see which agents are active, inactive, or in draft mode with updated AI agent avatars visible in the sidebar, settings panel, and list views.
