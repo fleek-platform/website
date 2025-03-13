@@ -1,7 +1,7 @@
 {
   "name": "Fleekxyz Website",
   "type": "module",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/fleekxyz/fleekxyz-website.git"
@@ -21,6 +21,7 @@
     "check:strict": "npx astro check --minimumFailingSeverity error --minimumSeverity error",
     "check:json": "./scripts/validate-json.ts",
     "check:markdown": "./scripts/check-markdown.ts",
+    "postinstall": "scripts/npm-postinstall",
     "search:serve": "npm run clear:meili_data && ./Services/Search/dev.bash",
     "search:index_all": "npm run search:index_blog && npm run search:index_docs && npm run search:index_guides && npm run search:index_troubleshooting && npm run search:index_changelog",
     "search:index_blog": "./Services/Search/Indexer/indexation.ts \"blog\" \"fleekxyz_website_blog\"",
@@ -52,9 +53,9 @@
     "@astrojs/react": "^3.3.2",
     "@astrojs/sitemap": "^3.1.4",
     "@astrojs/tailwind": "^5.1.0",
-    "@fleek-platform/agents-ui": "^4.12.1",
+    "@fleek-platform/agents-ui": "^6.3.1",
     "@fleek-platform/dashboard": "^0.3.34-rc.923a529",
-    "@fleek-platform/login-button": "^2.5.0",
+    "@fleek-platform/login-button": "^2.6.0",
     "@fleek-platform/utils-token": "^0.2.2",
     "@fleekxyz/sdk": "^0.7.3",
     "@hookform/resolvers": "^3.9.1",
@@ -85,6 +86,7 @@
     "rehype-pretty-code": "^0.13.1",
     "remark-directive": "^3.0.0",
     "remark-gfm": "^4.0.0",
+    "sharp": "^0.33.5",
     "swiper": "^11.1.0",
     "tailwind-merge": "^2.5.2",
     "tailwindcss": "^3.4.3",
@@ -124,5 +126,8 @@
   "engines": {
     "bun": ">=0.5.8",
     "node": ">=18.18.2"
+  },
+  "optionalDependencies": {
+    "@rollup/rollup-linux-x64-gnu": "^4.9.2"
   }
 }
