@@ -23,6 +23,10 @@ jobs:
           bun-version: latest
 
       - name: Install dependencies
+        # TODO: Stopped working from
+        # https://github.com/fleek-platform/website/actions/runs/13831800908/job/38697801421
+        # using npm i as a fallback for now
+        # run: bun i
         run: npm i
 
       - name: Commit checks
