@@ -27,7 +27,7 @@ jobs:
         # https://github.com/fleek-platform/website/actions/runs/13831800908/job/38697801421
         # using npm i as a fallback for now
         # run: bun i
-        run: npm install --include=optional sharp
+        run: npm i
 
       - name: Commit checks
         run: ./.husky/pre-commit

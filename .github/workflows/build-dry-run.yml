@@ -40,7 +40,7 @@ jobs:
           cache: 'npm'
 
       - name: Install
-        run: npm ci --include=optional sharp
+        run: npm ci
 
       - name: Build site
         run: npm run build
