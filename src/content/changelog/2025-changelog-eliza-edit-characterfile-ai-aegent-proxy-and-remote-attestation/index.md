@@ -1,7 +1,7 @@
 ---
 title: 'Fleek Changelog: Characterfile editing, AI agent API and Remote attestation'
 date: 2025-02-17
-desc: 'Fleek’s AI Agent capabilities, including a new AI Agent Proxy API and the ability to edit characterfiles directly from the UI'
+desc: 'Fleek now offers direct UI character file editing alongside a new AI agent API for seamless integration.'
 thumbnail: './fleekchangelog.png'
 image: './fleekchangelog.png'
 author:
