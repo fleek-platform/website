@@ -124,6 +124,7 @@ PUBLIC_DYNAMIC_ENVIRONMENT_ID="c4d4ccad-9460-419c-9ca3-494488f8c892"
 PUBLIC_UI_APP_URL="https://staging.fleeksandbox.xyz"
 PUBLIC_POSTHOG_HOST="https://us.i.posthog.com"
 PUBLIC_POSTHOG_API_KEY="phc_SdvLWEagL7nAauyEBun0ZF6v59DxMIk8ofzI91gpIUw"
+PUBLIC_OPEN_API_ENDPOINT="https://api.fleek.xyz/api/openapi.json"
 ```
 
 💡 The SUPPORT_ALLOW_ORIGIN_ADDR and SUPPORT_RATE_LIMIT_PATHS are comma separated values (csv). the MEILISEARCH_DOCUMENTS_CLIENT_API_KEY is required when querying staging, production environments which should be provided in the headers.
