@@ -18,16 +18,12 @@ jobs:
         uses: actions/checkout@v4
 
       - name: Set up Bun
-        uses: oven-sh/setup-bun@v1
+        uses: oven-sh/setup-bun@v2
         with:
           bun-version: latest
 
       - name: Install dependencies
-        # TODO: Stopped working from
-        # https://github.com/fleek-platform/website/actions/runs/13831800908/job/38697801421
-        # using npm i as a fallback for now
-        # run: bun i
-        run: npm i
+        run: bun i
 
       - name: Commit checks
         run: ./.husky/pre-commit
