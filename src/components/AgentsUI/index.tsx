@@ -15,10 +15,12 @@ const { getPlans, getSubscriptions, createSubscription } = api;
 
 export interface AgentsUIIntegrationProps {
   overrideDefined: Defined;
+  basePath: string;
 }
 
 export const AgentsUIIntegration: React.FC<AgentsUIIntegrationProps> = ({
   overrideDefined,
+  basePath,
 }) => {
   const authStoreInstance = useAuthStore();
 
@@ -31,10 +33,14 @@ export const AgentsUIIntegration: React.FC<AgentsUIIntegrationProps> = ({
       createSubscription={createSubscription}
       captureEvent={captureEvent}
       overrideDefined={overrideDefined}
+      basePath={basePath}
     />
   );
 };
 
+// TODO: Should the base path for eliza be defined
+// as an environment variable?
 export const AgentsUI: React.FC<AgentsUIIntegrationProps> = ({
   overrideDefined,
-}) => <AgentsUIIntegration overrideDefined={overrideDefined} />;
+  basePath,
+}) => <AgentsUIIntegration basePath={basePath} overrideDefined={overrideDefined} />;
