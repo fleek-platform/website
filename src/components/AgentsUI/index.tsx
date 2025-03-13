@@ -15,7 +15,7 @@ const { getPlans, getSubscriptions, createSubscription } = api;
 
 export interface AgentsUIIntegrationProps {
   overrideDefined: Defined;
-  basePath: string;
+  basePath: `/${string}`;
 }
 
 export const AgentsUIIntegration: React.FC<AgentsUIIntegrationProps> = ({
