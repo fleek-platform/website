@@ -5,7 +5,7 @@ date: 2025-01-24
 desc: AI agent APIs from Fleek.
 ---
 
-import AIAgentsAPIViewer from '../../../../components/AgentsAPIViewer/APIViewer.astro';
+import AIAgentsAPIViewer from '@base/components/AgentsAPIViewer/APIViewer.tsx';
 
 # Fleek AI Agent APIs
 
@@ -112,4 +112,4 @@ For more details, check the <a href="https://api.fleek.xyz/api#tag/ai-agents" ta
 Each request to the Fleek AI agent API must include the `X-Api-Key` header with the API key you generated.
 :::
 
-<AIAgentsAPIViewer />
+<AIAgentsAPIViewer client:only="react"  />
