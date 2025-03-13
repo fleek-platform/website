@@ -43,4 +43,6 @@ export const AgentsUIIntegration: React.FC<AgentsUIIntegrationProps> = ({
 export const AgentsUI: React.FC<AgentsUIIntegrationProps> = ({
   overrideDefined,
   basePath,
-}) => <AgentsUIIntegration basePath={basePath} overrideDefined={overrideDefined} />;
+}) => (
+  <AgentsUIIntegration basePath={basePath} overrideDefined={overrideDefined} />
+);
