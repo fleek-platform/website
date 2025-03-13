@@ -49,7 +49,7 @@ You can now apply the generated key as your `X-Api-Key` request header when maki
 
 ---
 
-## AI agent status and management
+## AI agent management improvements
 
 We've made significant improvements to AI agent status tracking and management, making it easier to monitor, edit, and organize your agents efficiently.
 
