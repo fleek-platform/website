@@ -1,9 +1,9 @@
 ---
-title: 'Fleek changelog: Version toggling, API key generation, and more'
+title: 'Fleek changelog: Agent chat, Version toggling, API key generation, and more'
 date: 2025-03-03
 desc: 'Latest update brings Eliza version selection functionality for AI agent deployments, an API key generation tool, and various platform optimizations'
-thumbnail: './fleek-changelog.png'
-image: './fleek-changelog.png'
+thumbnail: './changelog.png'
+image: './changelog.png'
 author: 'Tobiloba Adedeji'
 ---
 
@@ -12,6 +12,19 @@ Hey, Fleek community!
 We’ve rolled out some exciting updates over the past few days, and we’re excited to share them with you! Here’s a breakdown of what’s new:
 
 ---
+
+## Agent chat
+
+Fleek now supports **real-time AI agent chat**, enabling users to interact with their deployed agents directly from the Eliza deployment platform.
+
+### How to Chat with Your AI Agent
+
+1. Select the AI agent you want to interact with at [fleek.xyz/eliza](https://fleek.xyz/eliza).
+2. Navigate to the **Agent chat** tab.
+3. Type a message in the chatbox and press enter.
+4. Your AI agent will respond immediately, allowing you to refine interactions dynamically.
+
+![](./agent-chat.png)
 
 ## Eliza version control
 
