@@ -54,7 +54,7 @@ let apiData: OpenAPIData | null = null;
 let error: string | null = null;
 
 try {
-  const response = await fetch('https://api.fleek.xyz/api/openapi.json');
+  const response = await fetch(import.meta.env.PUBLIC_OPEN_API_ENDPOINT);
   if (!response.ok) {
     throw new Error(
       `Failed to fetch API spec: ${response.status} ${response.statusText}`,
