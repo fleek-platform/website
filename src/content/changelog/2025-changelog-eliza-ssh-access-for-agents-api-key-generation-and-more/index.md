@@ -39,7 +39,7 @@ Generating API tokens for Fleek’s [AI agents APIs](/docs/ai-agents/agents-apis
 
 **Steps to generate an API key:**
 
-1. Visit the [Eliza deployment page](https://fleek.xyz/eliza) and click **"Account settings"** at the bottom.
+1. Visit the [Eliza deployment page](https://fleek.xyz/eliza) and click **Account settings** at the bottom.
 2. Navigate to the **API Tokens** tab to view all your generated API keys.
 3. Click **Create API Token**. A pop-up should show up requesting to enter a name for your key and a confirmation.
 
