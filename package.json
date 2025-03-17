@@ -54,7 +54,7 @@
     "@astrojs/sitemap": "^3.1.4",
     "@astrojs/tailwind": "^5.1.0",
     "@fleek-platform/agents-ui": "^6.7.1",
-    "@fleek-platform/dashboard": "^0.3.34-rc.ddfbab3",
+    "@fleek-platform/dashboard": "^0.4.0-rc.ea39b45",
     "@fleek-platform/login-button": "^2.6.0",
     "@fleek-platform/utils-token": "^0.2.2",
     "@fleekxyz/sdk": "^0.7.3",
