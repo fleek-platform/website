@@ -108,13 +108,6 @@ jobs:
         run: |
           fleek sites deploy
 
-      - name: TIAS Public dir
-        run: |
-          echo "[debug] ls -la ./dist"
-          ls -la ./dist
-          echo "[debug] ls -la ./dist/dashboard"
-          ls -la ./dist/dashboard
-
       - name: Clear
         run: |
           rm .env
