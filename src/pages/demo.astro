@@ -12,22 +12,14 @@ import ReadyToLive from '@components/LandingPage/ReadyToLive';
 import Footer from '@components/Footer';
 import AnnouncementModal from '@components/AnnouncementModal';
 import { FaCircleArrowUp } from "react-icons/fa6";
-import { ChatToAIAgentDeploy } from '@components/ChatToAIAgentDeploy';
+import { ChatOrDeployDemo } from '@components/ChatToAIAgentDeploy';
 ---
 
 <LandingPageHtml>
-  <AnnouncementModal pathname={Astro.url.pathname} client:only="react" />
   <Navbar pathname={Astro.url.pathname} client:load />
-  <ChatToAIAgentDeploy
+  <ChatOrDeployDemo
     client:load
-    personagenEndpoint={import.meta.env.PUBLIC_PERSONAGEN_ENDPOINT}
+    fleekRestApi={import.meta.env.PUBLIC_FLEEK_REST_API_URL}
   />
-  <Partners />
-  <DeployOnFleek />
-  <ImpressUsers client:load />
-  <ExplainerBlocks />
-  <PricingLanding />
-  <BuildUseCases />
-  <ReadyToLive />
   <Footer />
 </LandingPageHtml>
