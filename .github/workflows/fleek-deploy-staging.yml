@@ -12,5 +12,4 @@ jobs:
     with:
       environment: staging
     secrets:
-      fleek_token: ${{ secrets.FLEEK_TOKEN }}
-      doppler_token: ${{ secrets.DOPPLER_TOKEN }}
+      inherit
