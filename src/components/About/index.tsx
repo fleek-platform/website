@@ -188,7 +188,7 @@ const AboutModule = {
         variant="app-primary"
         className="m-auto mt-[45px] w-full max-w-[215px] p-[16px]"
         aria-label={settings.aboutPage.call_to_action.button}
-        href="https://app.fleek.xyz/"
+        href="https://fleek.xyz"
         rel="noopener noreferrer"
         target={Target.Blank}
       >

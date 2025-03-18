@@ -13,6 +13,8 @@ interface LinksProps {
   featuredPost: CollectionEntry<'blog'>;
 }
 
+// TODO: fleek dashboard, app URL should be computed
+// from env var. See href fleek.xyz
 const Links: React.FC<LinksProps> = ({ featuredPost }) => {
   const newsletterFeatureFlag = false;
 
@@ -85,7 +87,7 @@ const Links: React.FC<LinksProps> = ({ featuredPost }) => {
         className="w-full md:h-[48px] md:text-[18px]"
         size="sm"
         aria-label="Fleek Platform"
-        href="https://app.fleek.xyz/"
+        href="https://fleek.xyz"
         rel="noopener noreferrer"
         target={Target.Blank}
       >
