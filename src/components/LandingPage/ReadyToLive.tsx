@@ -13,11 +13,7 @@ const ReadyToLive: React.FC = () => {
       classNameInnerContainer="flex flex-col items-center space-y-40 text-center"
     >
       <Text as="h3">Are you on Fleek yet?</Text>
-      <Button
-        href="https://fleek.xyz"
-        variant="app-primary"
-        className="w-fit"
-      >
+      <Button href="https://fleek.xyz" variant="app-primary" className="w-fit">
         Get started with Fleek
       </Button>
     </Container>
