@@ -32,6 +32,8 @@ if ! npm i "$packageName@$version"; then
   exit 1
 fi
 
+echo "✅ Installed $packageName@$version"
+
 if [[ ! -d "$targetPath" ]]; then
   echo "🤖 Should create $targetPath"
   if ! mkdir -p "$targetPath"; then
