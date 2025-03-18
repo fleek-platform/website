@@ -3,6 +3,8 @@ import clsx from 'clsx';
 
 import type { Plan, PlanKeys, SectionFeatures } from './types';
 
+// TODO: App or dashboard url should be computed
+// from env var. See href fleek.xyz
 export const PLAN_SECTIONS: SectionFeatures = {
   compute: {
     icon: '/svg/applicationIconPricing.svg',
@@ -143,7 +145,7 @@ export const PRICING_PLANS: Record<PlanKeys, Plan> = {
         'For those just starting.\n⚡ Up to $5 in free usage every month. ⚡',
       cta: {
         text: ' Start with Free',
-        href: 'https://app.fleek.xyz/',
+        href: 'https://fleek.xyz',
         variant: 'app-success',
       },
     },
@@ -203,7 +205,7 @@ export const PRICING_PLANS: Record<PlanKeys, Plan> = {
         'Pricing that scales with your project. Free $5 included monthly. #WAGMI',
       cta: {
         text: 'Go fast with Pro',
-        href: 'https://app.fleek.xyz/projects/[projectId]/billing',
+        href: 'https://fleek.xyz/dashboard/projects/[projectId]/billing',
         variant: 'app-primary',
       },
     },

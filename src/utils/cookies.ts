@@ -16,7 +16,7 @@ export function setCookie(key: string, value: string, days: number) {
   expires.setTime(expires.getTime() + days * 24 * 60 * 60 * 1000);
   // We're required to set the "Domain" attribute
   // to make cookies available on domain and subdomains
-  // e.g. fleek.xyz and app.fleek.xyz
+  // e.g. fleek.xyz
   // https://developer.mozilla.org/en-US/docs/Web/HTTP/Cookies#define_where_cookies_are_sent
   document.cookie = `${key}=${value};expires=${expires.toUTCString()};path=/;domain=${siteHostname}`;
 }
@@ -25,7 +25,7 @@ export function clearCookie(name: string) {
   if (isServer) return '';
   // We're required to set the "Domain" attribute
   // to make cookies available on domain and subdomains
-  // e.g. fleek.xyz and app.fleek.xyz
+  // e.g. fleek.xyz
   // https://developer.mozilla.org/en-US/docs/Web/HTTP/Cookies#define_where_cookies_are_sent
   document.cookie =
     name +

@@ -29,7 +29,7 @@ Ensure you have:
 
 1. **Frontend Skills**: Familiarity with React or Next.js.
 2. **Node.js & npm**: Installed on your system.
-3. **Fleek Account & CLI**: Sign up at [Fleek](https://app.fleek.xyz/) and install the [Fleek CLI](https://fleek.xyz/docs/cli/).
+3. **Fleek Account & CLI**: Sign up at [Fleek](https://fleek.xyz/dashboard/) and install the [Fleek CLI](https://fleek.xyz/docs/cli/).
 4. **Reown Project**: Create one at [Reown](https://reown.com/).
 5. **Test Crypto Wallet**: Required for contract interactions.
 6. **Web3 Basics**: Understanding of smart contracts and blockchain fundamentals.

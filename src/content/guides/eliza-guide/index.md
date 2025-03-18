@@ -22,7 +22,7 @@ Let’s learn how we can deploy AI Agents on Fleek in one click!
 
 Before getting started, make sure you have:
 
-1. A [Fleek account](https://app.fleek.xyz/)
+1. A [Fleek account](https://fleek.xyz/dashboard/)
 2. A basic understanding of [Eliza](https://elizaos.github.io/eliza/docs/intro/)
 3. An X (Twitter) account
 4. An OpenAI API key

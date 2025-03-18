@@ -10,7 +10,7 @@ author:
 
 It’s that time again! We’re back for another bi-weekly update to the Fleek.xyz Alpha– this time with a new template option, faster file uploads, a few new features, and fixes.
 
-Application form for the Fleek.xyz Alpha is closed, you can access the platform [here](https://app.fleek.xyz)!
+Application form for the Fleek.xyz Alpha is closed, you can access the platform [here](https://fleek.xyz/dashboard)!
 
 Let’s get into the changes coming to the Fleek.xyz alpha with v0.0.2:
 

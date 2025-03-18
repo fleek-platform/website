@@ -108,7 +108,7 @@ IPFS increases data availability by storing copies of data across multiple nodes
 ### **Practical example**
 
 1. **Installing Fleek CLI**:
-   - Download the Fleek CLI installation package from the <u>[official website](https://app.fleek.xyz/)</u>.
+   - Download the Fleek CLI installation package from the <u>[official website](https://fleek.xyz/dashboard/)</u>.
    - Follow the installation instructions for your operating system.
 2. **Initializing Fleek storage**:
    - Open your terminal or command prompt.

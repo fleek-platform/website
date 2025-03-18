@@ -66,7 +66,7 @@ Why the switch? Two main reasons.
 
 As we mentioned in the intro, unless you’ve been living under a rock you’ve probably heard that we [raised $25M to build Fleek.xyz + Fleek Network](/blog/announcements/introducing-fleek-network-and-fleek-xyz/). Part of the move to this new platform is sunsetting the Fleek.co platform and domain in favor of Fleek.xyz.
 
-While we don’t have specifics on the move yet, you can expect us to move pretty much everything to the new .xyz domain. You’ll access our UI from something like app.fleek.xyz and our APIs from something akin to api.fleek.xyz.
+While we don’t have specifics on the move yet, you can expect us to move pretty much everything to the new .xyz domain. You’ll access our UI from something like [fleek.xyz/dashboard](https://fleek.xyz/dashboard) and our APIs from something akin to api.fleek.xyz.
 
 However, this is not even our endgame. One of our main goals with the new platform is to reduce our users’ reliance on Fleek domains for their services by encouraging users to connect their own custom domains so that we can help to spin up your own custom routes to power things like your own gateway, APIs, deployment preview URLs, and more! 🔥
 

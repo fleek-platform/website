@@ -53,7 +53,7 @@ Now that we have a fully functional Svelte app we can proceed to the next step �
 
 ### Fleek Account Creation
 
-The first thing we’ll need to do is create a Fleek account: head over to [https://app.fleek.xyz](https://app.fleek.xyz), and click on the `Create a Free Account` button.
+The first thing we’ll need to do is create a Fleek account: head over to [https://fleek.xyz/dashboard](https://fleek.xyz/dashboard), and click on the `Create a Free Account` button.
 
 > 💡 Feel free to skip this step if you already have an account on Fleek.xyz!
 
@@ -148,7 +148,7 @@ Fleek will begin uploading the files in our `dist` folder to IPFS. You should ge
 
 Your site has been successfully deployed!
 
-Now head over to the dashboard http://app.fleek.xyz, and ensure you are on the right project (open the drop-down menu on the top left of the homepage and select the current project).
+Now head over (authenticated) to the dashboard [fleek.xyz/dashboard](http://fleek.xyz/dashboard), and ensure you are on the right project (open the drop-down menu on the top left of the homepage and select the current project).
 
 ![](./svelte6.png)
 

@@ -31,7 +31,7 @@ npm install @fleek-platform/sdk
 
 Authentication requires providing an access token. There are currently two methods available:
 
-- The [ApplicationAccessTokenService](#applicationaccesstokenservice): For public-facing applications, which tokens are generated via the Fleek Platform user account's [dashboard](https://app.fleek.xyz)
+- The [ApplicationAccessTokenService](#applicationaccesstokenservice): For public-facing applications, which tokens are generated via the Fleek Platform user account's [dashboard](https://fleek.xyz/dashboard)
 - The [PersonalAccessTokenService](#personalaccesstokenservice): Used typically for server-side applications, which tokens are managed via [CLI](/docs/cli). You must keep these tokens secure and hidden
 
 These services differ in their application, depending on whether you're deploying them in a client-side or server-side context.

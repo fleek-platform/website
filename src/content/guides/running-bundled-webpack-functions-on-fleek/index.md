@@ -28,7 +28,7 @@ Before we start, we need to have a few things in check. We start with defining a
 
 ### Requirements:
 
-- Account on <u>[app.fleek.xyz/](https://app.fleek.xyz/)</u>, if you don’t already have one
+- Account on <u>[fleek.xyz/](https://fleek.xyz)</u>, if you don’t already have one
 - <u>[Fleek CLI](https://fleek.xyz/docs/cli/)</u>
 - <u>[Webpack](https://webpack.js.org/guides/getting-started/#basic-setup)</u>
 - <u>[ethers](https://docs.ethers.org/v5/)</u>

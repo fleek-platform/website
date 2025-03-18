@@ -74,7 +74,7 @@ Once logged-in to the Fleek Platform via the browser, go back to the terminal.
 
 ```sh
 🤖 Please follow the link to log in to Fleek Platform.
-🔗 https://app.fleek.xyz/login/xxxxxxx
+🔗 https://fleek.xyz/dashboard/login/xxxxxxx
 ```
 
 Once successful, you'll receive a confirmation message.

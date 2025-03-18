@@ -27,11 +27,11 @@ Let’s walk through accessing these benefits by building a basic NodeJs app tha
 ## **Requirements:**
 
 - **[Fleek SDK](/docs/sdk)**
-- Account on [Fleek.xyz](https://app.fleek.xyz)
+- Account on [Fleek.xyz](https://fleek.xyz/dashboard)
 - NodeJs 18+
   - Head to the [Node Official Website](https://nodejs.org/en) for help getting started with NodeJs
 
-After creating or logging into your account on [Fleek.xyz](https://app.fleek.xyz), follow these steps to get started with the Fleek SDK:
+After creating or logging into your account on [Fleek.xyz](https://fleek.xyz/dashboard), follow these steps to get started with the Fleek SDK:
 
 1. **Install the [Fleek CLI](/docs/cli/)**:
 

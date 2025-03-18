@@ -161,7 +161,7 @@ The rapid advancements in technology and growing ecosystem support are further s
 
 As we move forward, serverless cloud computing trends will likely continue to evolve, as cloud platforms address current limitations and expanding its capabilities. Whether you're a startup looking to minimize overhead or a large enterprise seeking to enhance agility, this is a powerful solution for navigating the complexities of the digital age.
 
-- <u>[Sign up](https://app.fleek.xyz)</u> to try yourself
+- <u>[Sign up](https://fleek.xyz/dashboard)</u> to try yourself
 - Join our <u>[Community Chat](https://discord.com/invite/fleek)</u>
 - Follow on <u>[X
   ](https://twitter.com/fleek)</u>

@@ -8,7 +8,7 @@ author:
   - 'Olayinka Oshidipe'
 ---
 
-In this guide, you’ll learn how to build a file upload web app that takes any file and uploads it to IPFS. With Fleek there are a few ways you could upload files to IPFS, one being that you could use the Fleek CLI — we have a guide on that [here](https://www.youtube.com/watch?v=2OzwtDH7K0A&t=38s). You could also upload files directly from the [platform](https://app.fleek.xyz) or via the [SDK](/docs/sdk/).
+In this guide, you’ll learn how to build a file upload web app that takes any file and uploads it to IPFS. With Fleek there are a few ways you could upload files to IPFS, one being that you could use the Fleek CLI — we have a guide on that [here](https://www.youtube.com/watch?v=2OzwtDH7K0A&t=38s). You could also upload files directly from the [platform](https://fleek.xyz/dashboard) or via the [SDK](/docs/sdk/).
 
 ## What is Vue Js?
 
@@ -21,7 +21,7 @@ Before we get started, let’s go over the requirements we’ll need to bring th
 # Requirements
 
 - NodeJs 18+
-- [Fleek Account](https://app.fleek.xyz)
+- [Fleek Account](https://fleek.xyz/dashboard)
 - [GitHub Account](https://github.com)
 - Fleek SDK
 - Fleek CLI
@@ -31,9 +31,9 @@ Before we get started, let’s go over the requirements we’ll need to bring th
 
 ## Fleek Account Creation
 
-The first thing we’ll need to do is create a Fleek account: head over to http://app.fleek.xyz, and click on the `Create a Free Account` button.
+The first thing we’ll need to do is create a Fleek account: head over to [fleek.xyz](http://fleek.xyz), and click on the `Signup` / `Created account` button.
 
-> 💡 Feel free to skip this step if you already have an account on [Fleek.xyz](https://app.fleek.xyz/)!
+> 💡 Feel free to skip this step if you already have an account on [Fleek.xyz](https://fleek.xyz/dashboard/)!
 
 ![](./ghnextjs1.png)
 
@@ -335,7 +335,7 @@ Fleek will begin uploading the files in our `dist` folder to IPFS. You should 
 
 Your site has been successfully deployed!
 
-Now head over to the dashboard [https://app.fleek.xyz](http://app.fleek.xyz/), and ensure you are on the right project (open the drop-down menu on the top left of the homepage and select the current project).
+Now head over to the dashboard [https://fleek.xyz/dashboard](http://fleek.xyz/), and ensure you are on the right project (open the drop-down menu on the top left of the homepage and select the current project).
 
 ![](./vuefleek1.png)
 

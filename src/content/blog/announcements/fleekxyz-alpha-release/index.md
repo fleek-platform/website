@@ -9,7 +9,7 @@ author: 'Fleek'
 
 The day is finally here– the first step of the new [Fleek](https://fleek.xyz/), both app and brand ⚡
 
-Let’s set the stage: **This is not the full release of the new [Fleek app](https://app.fleek.xyz/).** Today marks the start of our **initial closed testing phase**, leading up to an open testing period, and **later in September the full v1 release** of the new app.
+Let’s set the stage: **This is not the full release of the new [Fleek app](https://fleek.xyz/dashboard/).** Today marks the start of our **initial closed testing phase**, leading up to an open testing period, and **later in September the full v1 release** of the new app.
 
 We wanted to draw a line in the sand in August to go public with a release, and force us to start gathering feedback early, and stress-test the platform before opening up with migration tools to move from Fleek.co.
 

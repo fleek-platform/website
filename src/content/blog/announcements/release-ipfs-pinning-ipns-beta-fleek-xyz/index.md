@@ -24,7 +24,7 @@ Today we present the first of Fleek’s building blocks and interface: the Fleek
 
     npm install -g @fleek-platform/cli
     $ fleek login
-    🔗 Opening browser on https://app.fleek.xyz/login.html?verificationSession=...
+    🔗 Opening browser on https://fleek.xyz/dashboard/login.html?verificationSession=...
     🧑‍💻 Please login to continue
     ✅ Successfully logged in.
 

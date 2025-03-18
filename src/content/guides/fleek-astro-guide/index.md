@@ -8,7 +8,7 @@ author:
   - 'Olayinka Oshidipe'
 ---
 
-The [Fleek.xyz](https://app.fleek.xyz/projects/clpr76gbq0000jt0861oo66rh/home/) platform empowers developers to build lightning-fast web apps and services that are edge-optimized for performance. In this detailed guide, you’ll learn how to deploy a Astro web app onto Fleek using the Fleek CLI.
+The [Fleek.xyz](https://fleek.xyz/dashboard/projects/clpr76gbq0000jt0861oo66rh/home/) platform empowers developers to build lightning-fast web apps and services that are edge-optimized for performance. In this detailed guide, you’ll learn how to deploy a Astro web app onto Fleek using the Fleek CLI.
 
 ### What is Astro?
 
@@ -17,7 +17,7 @@ Astro is a web framework designed for creating content-driven websites, such as 
 ### Requirements:
 
 - Fleek account
-- [Fleek CLI Installation](https://app.fleek.xyz/) (preferably - v2.8.8)
+- [Fleek CLI Installation](https://fleek.xyz/dashboard/) (preferably - v2.8.8)
 - NodeJS 18+( preferably - v18.17.0)
 
 Let’s get started:
@@ -66,7 +66,7 @@ Once we’ve successfully built our app, we can start the deployment process.
 
 ### Fleek account creation
 
-The first thing we’ll need to do is create a Fleek account: head over to [https://app.fleek.xyz](https://app.fleek.xyz/), and click on the `Create a free account` button.
+The first thing we’ll need to do is create a Fleek account: head over to [https://fleek.xyz/dashboard](https://fleek.xyz/dashboard/), and click on the `Create a free account` button.
 
 > 💡 Feel free to skip this step if you already have an account on Fleek.xyz!
 
@@ -156,6 +156,6 @@ Fleek will begin uploading the files in our `dist` folder to IPFS. You should 
 
 Your site has been successfully deployed!
 
-Now head over to the dashboard [https://app.fleek.xyz](https://app.fleek.xyz/), and ensure you are on the right project (open the drop-down menu on the top left of the homepage and select the current project).
+Now head over to the dashboard [https://fleek.xyz/dashboard](https://fleek.xyz/dashboard/), and ensure you are on the right project (open the drop-down menu on the top left of the homepage and select the current project).
 
 Congratulations! You should find your newly-created site on your dashboard.

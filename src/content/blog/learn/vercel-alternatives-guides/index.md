@@ -50,7 +50,7 @@ Fleek is positioning itself as a top-tier **Vercel alternative** by offering a p
 
 **Start building with Fleek**: If you’re seeking a **Vercel alternative** that combines minimal DevOps overhead, performance, and cost-efficiency, Fleek is a powerful choice. Start building with Fleek today and experience the benefits of this streamlined, high-performing platform.
 
-**[Start for free](https://app.fleek.xyz/)**
+**[Start for free](https://fleek.xyz/dashboard/)**
 
 ## **2. [Netlify](https://www.netlify.com/): A popular and feature-rich option**
 

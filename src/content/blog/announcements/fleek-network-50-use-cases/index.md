@@ -395,7 +395,7 @@ Together, we’re building the unstoppable future of the internet.
 
 ### **Get started building on Fleek:**
 
-- [Sign Up](https://app.fleek.xyz/)
+- [Sign Up](https://fleek.xyz/dashboard/)
 - [Getting Started with Next.js on Fleek](https://fleek.xyz/docs/cli/fleek-next-adapter/)
 - [Fleek CLI](https://fleek.xyz/docs/cli/)
 - [Fleek SDK](https://fleek.xyz/docs/sdk/)

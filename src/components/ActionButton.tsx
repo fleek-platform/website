@@ -1,9 +1,11 @@
 import Text from '@components/Text';
 import imgFleekBolt from '@images/fleek-bolt.png';
 
+// TODO: App URL should come from env var
+// see href fleek.xyz
 const ActionButton: React.FC<React.PropsWithChildren> = () => {
   return (
-    <a href="https://app.fleek.xyz" target="_blank" rel="noopener noreferrer">
+    <a href="https://fleek.xyz" target="_blank" rel="noopener noreferrer">
       <button className="inline-block w-full max-w-[230px] rounded-10 bg-brand-rainbow p-1">
         <span className="flex items-center justify-center rounded-10 bg-ui-black px-20 py-8">
           <Text as="span" style="btn-action" className="mr-10">

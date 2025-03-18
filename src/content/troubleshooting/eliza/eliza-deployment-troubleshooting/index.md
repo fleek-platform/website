@@ -11,7 +11,7 @@ image: './eliza-references.png'
 - Post-Deployment Prompt: After deploying your agent, look for the prompt that provides a direct link to your agent’s dashboard.
 - Via Fleek Web Interface:
 
-  - Go to [app.fleek.xyz](https://app.fleek.xyz)
+  - Go to [fleek.xyz](https://fleek.xyz)
   - Log in to your account
   - Navigate to the Agents tab to locate your deployed agent
 
@@ -113,7 +113,7 @@ Navigate to:
   ```ini
   "TWITTER_2FA_SECRET": "YOUR_SECRET_CODE"
   ```
-- Restart your agent on [Fleek App](https://app.fleek.xyz).
+- Restart your agent on [Fleek App](https://fleek.xyz/dashboard).
 
 ---
 
