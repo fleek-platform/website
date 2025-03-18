@@ -1,5 +1,7 @@
 import type { Props } from '../../components/PricingCard';
 
+const dashboardUrl = import.meta.env.PUBLIC_UI_APP_URL;
+
 export const PricingInfo: Props[] = [
   {
     title: 'Free Plan',
@@ -21,7 +23,7 @@ export const PricingInfo: Props[] = [
     ],
     cta: 'Start with Free',
     variant: 'primary-outline',
-    url: 'https://app.fleek.xyz',
+    url: dashboardUrl,
   },
   {
     title: 'Pro Plan',
@@ -40,7 +42,7 @@ export const PricingInfo: Props[] = [
     ],
     cta: 'Go fast with Pro',
     variant: 'primary-outline',
-    url: 'https://app.fleek.xyz/projects/[projectId]/billing',
+    url: `${dashboardUrl}/projects/[projectId]/billing`,
   },
   {
     title: 'Enterprise Plan',

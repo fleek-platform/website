@@ -29,7 +29,7 @@ Fleek now fully supports Next.js, including SSR for dynamic apps, enabling you t
 
 We expanded our templates collection and included templates for Next.js SSR apps that you can just deploy directly from the Fleek platform to see the full extent of the new Next.js support we just released.
 
-You can start building and shipping with the Next.js templates we have [here](https://app.fleek.xyz/).
+You can start building and shipping with the Next.js templates we have [here](https://fleek.xyz/dashboard/).
 
 <video width="100%" height="auto" autoplay loop controls>
   <source src="./nextjs-templates.mp4" type="video/mp4" />

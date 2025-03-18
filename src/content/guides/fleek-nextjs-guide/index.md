@@ -90,7 +90,7 @@ Once we’ve successfully built our app, we can start the deployment process.
 
 ### Fleek Account Creation
 
-The first thing we’ll need to do is create a Fleek account: head over to http://app.fleek.xyz, and click on the `Create a free account` button.
+The first thing we’ll need to do is create a Fleek account: head over to [fleek.xyz](http://fleek.xyz), and click on the `Create a free account` button.
 
 > 💡 Feel free to skip this step if you already have an account on Fleek.xyz!
 
@@ -182,7 +182,7 @@ You should get a response that looks like this
 
 Congratulations! Your site has been successfully deployed!
 
-Now head over to the dashboard http://app.fleek.xyz, and ensure you are on the right project (open the drop-down menu on the top left of the homepage and select the current project).
+Now head over (authenticated) to the dashboard [fleek.xyz/dashboard](http://fleek.xyz/dashboard), and ensure you are on the right project (open the drop-down menu on the top left of the homepage and select the current project).
 
 ![](./projectscliguide.png)
 

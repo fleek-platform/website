@@ -31,7 +31,7 @@ In this tutorial, we will be showing you how to fork this template and deploy yo
 
 ## Requirements
 
-- An account on <u>[app.fleek.xyz](https://app.fleek.xyz/)</u>
+- An account on <u>[fleek.xyz](https://fleek.xyz)</u>
 - <u>[Python](https://www.python.org/)</u> installed locally
 - <u>[PIP](https://pip.pypa.io/en/stable/installation/)</u> installed locally
 - <u>[Pandoc](https://pandoc.org/installing.html) installed</u>
@@ -132,7 +132,7 @@ Awesome! You have now explored blogmaker properly and added your own blog post t
 
 ## Deploying Blogmaker on Fleek
 
-1. Head over to <u>[app.fleek.xyz](https://app.fleek.xyz/)</u> and log in. For the purpose of this tutorial we will be logging in using our email account -
+1. Head over to <u>[fleek.xyz](https://fleek.xyz)</u> and log in. For the purpose of this tutorial we will be logging in using our email account -
 
 <br/>
 

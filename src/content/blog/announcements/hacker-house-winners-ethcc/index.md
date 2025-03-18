@@ -89,6 +89,6 @@ Thank you <u>[@0xabhk](https://x.com/0xabhk)</u>, <u>[@remi_gai](https://x.com/r
 
 We are excited to continue working closely with developers to further refine and improve Fleek Functions. Stay tuned for further improvements, features, functionality, and use cases around Fleek Functions being rolled out over the rest of the summer.
 
-In the meantime feel free to check out the <u>[docs](https://fleek.xyz/docs/cli/)</u>, or <u>[download the CLI](https://app.fleek.xyz/)</u> and try deploying your own Fleek Function today!
+In the meantime feel free to check out the <u>[docs](https://fleek.xyz/docs/cli/)</u>, or <u>[download the CLI](https://fleek.xyz/dashboard/)</u> and try deploying your own Fleek Function today!
 
 Fleek Team ⚡

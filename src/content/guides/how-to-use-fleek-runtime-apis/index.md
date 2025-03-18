@@ -22,7 +22,7 @@ In this guide, we'll explore a simple script using Fleek runtime APIs and a Flee
 
 ### **Prerequisites**
 
-- Account on <u>[Fleek app](https://app.fleek.xyz/)</u>, if you don’t already have one.
+- Account on <u>[Fleek app](https://fleek.xyz/dashboard/)</u>, if you don’t already have one.
 - <u>[Fleek CLI](https://fleek.xyz/docs/cli/)</u>
 - Code editor of your choice
 - Your terminal

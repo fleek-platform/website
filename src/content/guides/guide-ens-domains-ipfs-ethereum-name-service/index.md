@@ -177,7 +177,7 @@ Now that you know how to register your first ENS domain, and how to use it toget
 
 **Stay tuned for more updates** on ENS features that are coming to Fleek ⚡ We’re currently working on an adjustment that would change how Fleek is given access to modify/update the records on your ENS domains automatically, by using the “setAuthorisation” function of the resolver, which is a more flexible approach than assigning us as the Controller itself because it allows users to continue to create subdomains themselves.
 
-- [Sign up](https://app.fleek.xyz/) to try Fleek
+- [Sign up](https://fleek.xyz/dashboard/) to try Fleek
 - Join our [Community Chat](https://discord.com/invite/fleek)
 - Follow us on [Twitter](https://twitter.com/fleek)
 - Check out our [Tech Docs](/docs/)

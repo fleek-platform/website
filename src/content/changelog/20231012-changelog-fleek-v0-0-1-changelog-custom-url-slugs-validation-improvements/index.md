@@ -10,7 +10,7 @@ author:
 
 We’re back with another Alpha update, this time with a focus on laying down the foundation for an even more reliable platform and some new incoming features. Plus, if you’ve been hanging out on our alpha waitlist, we’ve got some good news: **you have been approved**.
 
-Application form for the Fleek.xyz Alpha is closed, you can access the platform [here](https://app.fleek.xyz)
+Application form for the Fleek.xyz Alpha is closed, you can access the platform [here](https://fleek.xyz/dashboard)
 
 Let’s get into the changes coming to the Fleek.xyz alpha with v0.0.1:
 
@@ -69,6 +69,6 @@ See you soon ⚡
 
 ## Useful links ⚡
 
-- [App](https://app.fleek.xyz)
+- [App](https://fleek.xyz/dashboard)
 - [Read our documentation in full](https://fleek.xyz/docs/)
 - [Bookmark the changelog so you don’t miss a single thing](/changelog/)

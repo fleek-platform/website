@@ -29,7 +29,7 @@ Let’s go!
 
 ### Step 1: Fleek account creation
 
-The first thing we’ll need to do is create a Fleek account: head over to [https://app.fleek.xyz](https://app.fleek.xyz/), and click on the `Create a Free Account` button.
+The first thing we’ll need to do is create a Fleek account: head over to [https://fleek.xyz/dashboard](https://fleek.xyz/dashboard/), and click on the `Create a Free Account` button.
 
 💡 Feel free to skip this step if you already have an account on Fleek.xyz!
 
@@ -63,7 +63,7 @@ Simply clone this repo onto your account, and we can move to the next step.
 
 Once we have our repo cloned, the next step is the deployment!
 
-Head over to the [Fleek dashboard](https://app.fleek.xyz/), Create a new project, and give it a name. You’ll be automatically switched to that project.
+Head over to the [Fleek dashboard](https://fleek.xyz/dashboard/), Create a new project, and give it a name. You’ll be automatically switched to that project.
 
 ![](./create.png)
 
