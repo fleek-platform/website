@@ -25,7 +25,7 @@ export function clearCookie(name: string) {
   if (isServer) return '';
   // We're required to set the "Domain" attribute
   // to make cookies available on domain and subdomains
-  // e.g. fleek.xyz and app.fleek.xyz
+  // e.g. fleek.xyz
   // https://developer.mozilla.org/en-US/docs/Web/HTTP/Cookies#define_where_cookies_are_sent
   document.cookie =
     name +
