@@ -539,7 +539,7 @@ This request retrieves all subscriptions associated with a specific project.
 **Example:**
 
 ```bash
-curl 'https://api.fleek.xyz/api/v1/subscriptions?projectId={projectId}' \ 
+curl 'https://api.fleek.xyz/api/v1/subscriptions?projectId={projectId}' \
 
 --header 'X-Api-Key: your_x_api_key'
 ```
@@ -552,12 +552,12 @@ curl 'https://api.fleek.xyz/api/v1/subscriptions?projectId={projectId}' \
   "id": "sub_9WgRMUCEFZDhHTzLISMgFEwp",
   "items": [
     {
-        "id": null,
-        "priceId": "…",
-        "productId": "…",
-        "quantity": 1,
-        "unitAmount": null,
-        "usageType": "PerUnit"
+      "id": null,
+      "priceId": "…",
+      "productId": "…",
+      "quantity": 1,
+      "unitAmount": null,
+      "usageType": "PerUnit"
     }
   ],
   "periodEndDate": "2025-02-02T00:00:00",
@@ -567,7 +567,6 @@ curl 'https://api.fleek.xyz/api/v1/subscriptions?projectId={projectId}' \
   "startDate": "2025-01-02T00:00:00",
   "status": "Active"
 }
-
 ```
 
 - Replace your_x_api_key with your API key
@@ -606,8 +605,6 @@ curl 'https://api.fleek.xyz/api/v1/payment-methods?projectId={projectId}' \
   "next": "next_cursor",
   "prev": "prev_cursor"
 }
-
-
 ```
 
 - Replace your_x_api_key with your API key
@@ -642,7 +639,6 @@ curl https://api.fleek.xyz/api/v1/payment-methods/manage \
 {
   "url": "https://checkout.stripe.com/c/test_a1b2C3d4E5f6G7h8I9j0KlmNopQr"
 }
-
 ```
 
 - Replace your_x_api_key with your API key
@@ -704,7 +700,6 @@ curl https://api.fleek.xyz/api/v1/subscriptions \
   "startDate": "2025-01-02T00:00:00",
   "status": "Active"
 }
-
 ```
 
 - Replace your_x_api_key with your API key
@@ -758,7 +753,6 @@ curl 'https://api.fleek.xyz/api/v1/subscriptions/{subscription_id}/quantity' \
   "startDate": "2025-01-02T00:00:00",
   "status": "Active"
 }
-
 ```
 
 - Replace your_x_api_key with your API key
@@ -807,13 +801,13 @@ curl 'https://api.fleek.xyz/api/v1/subscriptions/{subscription_id}' \
   "startDate": "2025-01-02T00:00:00",
   "status": "Active"
 }
-
 ```
 
 - Replace your_x_api_key with your API key
 - Replace subscription_id with the correct product ID.
 
 ---
+
 ### Conclusion
 
 This guide provides a comprehensive overview of the Fleek AI Agents API, covering authentication, agent management, logging, status monitoring, and the Subscriptions API Requests. By following the step-by-step instructions, users can seamlessly interact with the API to create, update, and manage AI agents efficiently.
