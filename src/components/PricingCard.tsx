@@ -3,6 +3,7 @@ import { Button, buttonVariants } from './Button';
 import type { VariantProps } from 'class-variance-authority';
 import clsx from 'clsx';
 import { Text } from './LandingPage/Text';
+import { getCookie } from '@utils/cookies';
 
 export type Props = {
   title: string;
@@ -20,6 +21,16 @@ export type Props = {
   url?: string;
   splitDescription?: boolean;
 };
+
+const replaceProjectIdInUrl = (url: string | undefined) => {
+  if (!url) return '/dashboard';
+  
+  const projectId = getCookie('projectId');
+
+  if (!projectId) return '/dashboard';
+  
+  return url.replace('[projectId]', projectId);
+}
 
 const PricingCard: React.FC<Props> = (props) => {
   const renderDescription = () => {
@@ -97,7 +108,7 @@ const PricingCard: React.FC<Props> = (props) => {
             })}
           </ul>
         </div>
-        <Button href={props.url} variant={props.variant} size="lg">
+        <Button href={replaceProjectIdInUrl(props.url)} variant={props.variant} size="lg">
           {props.cta}
         </Button>
       </div>
