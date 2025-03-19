@@ -481,6 +481,7 @@ const SessionManagementActions: React.FC = () => {
           // TODO: This should be removed added temporary
           // due to an issue with the expectation for /prices
           // for users who aren't logged in
+          // See src/components/PricingCard.tsx
           if (isClient) {
             (window as any).__DYNAMIC_TOGGLE_LOGIN__ = login;
           }
