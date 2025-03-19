@@ -4,6 +4,7 @@ import type { VariantProps } from 'class-variance-authority';
 import clsx from 'clsx';
 import { Text } from './LandingPage/Text';
 import { getCookie } from '@utils/cookies';
+import { isClient } from '@utils/common';
 
 export type Props = {
   title: string;
@@ -22,16 +23,6 @@ export type Props = {
   splitDescription?: boolean;
 };
 
-const replaceProjectIdInUrl = (url: string | undefined) => {
-  if (!url) return '/dashboard';
-  
-  const projectId = getCookie('projectId');
-
-  if (!projectId) return '/dashboard';
-  
-  return url.replace('[projectId]', projectId);
-}
-
 const PricingCard: React.FC<Props> = (props) => {
   const renderDescription = () => {
     if (props.splitDescription) {
@@ -45,6 +36,20 @@ const PricingCard: React.FC<Props> = (props) => {
       );
     }
     return props.description;
+  };
+
+  const replaceProjectIdInUrl = (url: string | undefined) => {
+    const projectId = getCookie('projectId');
+
+    if (!url || !projectId) {
+      if (typeof (window as any).__DYNAMIC_TOGGLE_LOGIN__ === 'function') {
+       (window as any).__DYNAMIC_TOGGLE_LOGIN__();      
+      }
+
+      return;
+    }
+
+    window.location.href = url.replace('[projectId]', projectId);
   };
 
   return (
@@ -108,7 +113,12 @@ const PricingCard: React.FC<Props> = (props) => {
             })}
           </ul>
         </div>
-        <Button href={replaceProjectIdInUrl(props.url)} variant={props.variant} size="lg">
+        <Button
+          href='#'
+          variant={props.variant}
+          size="lg"
+          onClick={() => replaceProjectIdInUrl(props.url)}
+        >
           {props.cta}
         </Button>
       </div>
