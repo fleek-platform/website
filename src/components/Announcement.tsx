@@ -1,10 +1,10 @@
 import Link, { Target } from '@components/Link';
-import { useEffect, useState, type PropsWithChildren } from 'react';
+import { useEffect, useState, useRef, type PropsWithChildren } from 'react';
 import { FaArrowRight } from 'react-icons/fa6';
 import settings from '@base/settings.json';
 import Marquee from 'react-fast-marquee';
-import { useMediaQuery } from '@hooks/useMediaQuery';
 import { cn } from '@utils/cn';
+import { debounce } from 'lodash-es';
 
 type AnnouncementProps = PropsWithChildren & {
   variant?: 'content' | 'full' | 'docs';
@@ -13,14 +13,28 @@ type AnnouncementProps = PropsWithChildren & {
 export const Announcement: React.FC<AnnouncementProps> = ({
   variant = 'full',
 }) => {
-  const [mounted, setMounted] = useState(false);
+  const containerRef = useRef<HTMLDivElement>(null);
+  const textRef = useRef<HTMLSpanElement>(null);
+  const [shouldShowMarquee, setShouldShowMarquee] = useState(false);
 
   useEffect(() => {
-    // Init marquee on component mounted
-    setMounted(true);
-  }, []);
+    const checkOverflow = () => {
+      if (!containerRef.current || !textRef.current) return;
+      const containerWidth = containerRef.current.clientWidth;
+      const textWidth = textRef.current.offsetWidth;
+      setShouldShowMarquee(textWidth > containerWidth);
+    };
 
-  const shouldShowMarquee = useMediaQuery('(max-width: 800px)');
+    const debouncedCheck = debounce(checkOverflow, 150);
+
+    checkOverflow();
+    window.addEventListener('resize', debouncedCheck);
+
+    return () => {
+      window.removeEventListener('resize', debouncedCheck);
+      debouncedCheck.cancel();
+    };
+  }, []);
 
   if (!settings.site.announcementMarquee.visible) return null;
 
@@ -55,14 +69,28 @@ export const Announcement: React.FC<AnnouncementProps> = ({
         ✨ new
       </span>
 
-      <span className="line-clamp-1 text-14 font-normal text-gray-dark-12 sm:text-15 md:line-clamp-none">
-        {mounted && shouldShowMarquee && (
+      <div
+        ref={containerRef}
+        className="relative overflow-hidden whitespace-nowrap text-14 font-normal text-gray-dark-12 sm:text-15"
+      >
+        {/* Hidden element for consistent measurement */}
+        <span
+          ref={textRef}
+          aria-hidden="true"
+          className="invisible absolute whitespace-nowrap"
+        >
+          {settings.site.announcementMarquee.message}
+        </span>
+
+        {/* Visible content */}
+        {shouldShowMarquee ? (
           <Marquee speed={20} delay={1} className="flex gap-24">
             {settings.site.announcementMarquee.message}
           </Marquee>
+        ) : (
+          settings.site.announcementMarquee.message
         )}
-        {!shouldShowMarquee && settings.site.announcementMarquee.message}
-      </span>
+      </div>
 
       <FaArrowRight className="absolute -right-8 size-12 text-gray-dark-12 opacity-0 transition-all group-hover:right-8 group-hover:opacity-100 group-focus-visible:right-8 group-focus-visible:opacity-100" />
     </Link>
