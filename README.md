@@ -101,7 +101,7 @@ If you'll be interacting with services, you'll need to set up the environment va
 Create a local file named `.env` and declare the following
 
 ```
-PUBLIC_MEILISEARCH_HOST=localhost:7700
+PUBLIC_MEILISEARCH_HOST=https://meilisearch-prod-eu-lon-1-01.flkservices.io
 PUBLIC_MEILISEARCH_INDEX_BLOG="fleekxyz_website_blog"
 PUBLIC_MEILISEARCH_INDEX_DOCS="fleekxyz_website_docs"
 PUBLIC_MEILISEARCH_INDEX_GUIDES="fleekxyz_website_guides"
@@ -109,8 +109,8 @@ PUBLIC_MEILISEARCH_INDEX_REFERENCES="fleekxyz_website_references"
 PRIVATE_MEILISEARCH_MASTER_KEY=***
 PRIVATE_MEILISEARCH_DOCUMENTS_ADMIN_API_KEY=***
 PUBLIC_MEILISEARCH_DOCUMENTS_CLIENT_API_KEY=***
-PUBLIC_SUPPORT_API_HOST="localhost:3331"
-SUPPORT_ALLOW_ORIGIN_ADDR="http://localhost:4321,https://fleek-xyz-staging.fleeksandbox.xyz"
+PUBLIC_SUPPORT_API_HOST="support-prod-eu-lon-1-01.flkservices.io"
+SUPPORT_ALLOW_ORIGIN_ADDR="http://localhost:4321,https://fleek.xyz"
 SUPPORT_RATE_LIMIT_WINDOW_MINUTES=60
 SUPPORT_RATE_LIMIT_MAX_REQ=15
 SUPPORT_RATE_LIMIT_PATHS="/tickets"
@@ -118,10 +118,10 @@ NODE_ENV=develop
 PUBLIC_BEHIIV_API_KEY=***
 PUBLIC_BEHIIV_SUBSCRIBE_URL=***
 PUBLIC_BEEHIIV_PROXY_SERVER_URL=***
-PUBLIC_GRAPHQL_ENDPOINT="https://graphql.service.staging.fleeksandbox.xyz/graphql"
-PUBLIC_FLEEK_REST_API_URL="https://api.staging.fleeksandbox.xyz/api/v1"
-PUBLIC_DYNAMIC_ENVIRONMENT_ID="c4d4ccad-9460-419c-9ca3-494488f8c892"
-PUBLIC_UI_APP_URL="https://staging.fleeksandbox.xyz"
+PUBLIC_GRAPHQL_ENDPOINT="https://graphql.service.fleek.xyz/graphql"
+PUBLIC_FLEEK_REST_API_URL="https://api.fleek.xyz/api/v1"
+PUBLIC_DYNAMIC_ENVIRONMENT_ID="de23a5f0-aaa5-412e-8212-4fb056a3b30d"
+PUBLIC_UI_APP_URL="https://fleek.xyz/dashboard"
 PUBLIC_POSTHOG_HOST="https://us.i.posthog.com"
 PUBLIC_POSTHOG_API_KEY="phc_SdvLWEagL7nAauyEBun0ZF6v59DxMIk8ofzI91gpIUw"
 PUBLIC_OPEN_API_ENDPOINT="https://api.fleek.xyz/api/openapi.json"
