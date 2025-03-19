@@ -16,7 +16,7 @@ import AnnouncementModal from '@components/AnnouncementModal';
 <LandingPageHtml>
   <AnnouncementModal pathname={Astro.url.pathname} client:only="react" />
   <Navbar pathname={Astro.url.pathname} client:load />
-  <Hero />
+  <Hero client:load />
   <Partners />
   <DeployOnFleek />
   <ImpressUsers client:load />
