@@ -29,4 +29,4 @@ prepareDependencyFiles \
   "$TARGET_ENVIRONMENT" \
   "public/agents" \
   "@fleek-platform/agents-ui" \
-  "out"
+  "dist"

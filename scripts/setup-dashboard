@@ -18,10 +18,10 @@ sourcePath="node_modules/$packageName/$PACKAGE_DIST_OUTPUT_DIR"
 targetPath="$TARGET_PUBLIC_APP_PATH"
 pkgJson="package.json"
 pkgJsonTemp="$pkgJson.bak"
-version=$(jq '.dependencies["@fleek-platform/dashboard"]' "$pkgJson" | tr -d '"^')
+version=$(jq ".dependencies[\"$packageName\"]" "$pkgJson" | tr -d '"^')
 
 if [[ "$TARGET_ENVIRONMENT" == 'production' ]]; then
-  version=$(jq ".dependencies[\"$packageName\"] |= sub(\"-rc.*\"; "")" package.json | jq '.dependencies["@fleek-platform/dashboard"]' | tr -d '"^')
+  version=$(jq ".dependencies[\"$packageName\"] |= sub(\"-rc.*\"; "")" package.json | jq ".dependencies[\"$packageName\"]" | tr -d '"^')
 
   echo "💡 Given release candidate use in staging, the $TARGET_ENVIRONMENT must install release version $version"
 fi
@@ -51,4 +51,4 @@ if ! rsync -va "$sourcePath/" "$targetPath"; then
   exit 1
 fi
 
-echo "✅ Completed the dashboard setup!"
+echo "✅ Completed the $packageName setup!"
