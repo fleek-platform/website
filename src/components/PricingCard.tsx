@@ -39,6 +39,12 @@ const PricingCard: React.FC<Props> = (props) => {
   };
 
   const replaceProjectIdInUrl = (url: string | undefined) => {
+    if (url?.includes('typeform')) {
+      window.location.href = url;
+
+      return;
+    }
+
     const projectId = getCookie('projectId');
 
     if (!url || !projectId) {
