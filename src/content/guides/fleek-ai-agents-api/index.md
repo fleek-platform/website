@@ -618,13 +618,13 @@ This endpoint initiates a session for managing payment methods.
 
 Users can use this session to add or update payment methods for a project.
 
-**Request:** POST /api/v1/payment-methods/manage
+**Request:** PUT /api/v1/payment-methods/manage
 
 **Example:**
 
 ```bash
 curl https://api.fleek.xyz/api/v1/payment-methods/manage \
-  --request POST \
+  --request PUT \
   --header 'Content-Type: application/json' \
   --header 'X-Api-Key: your_x_api_key' \
   --data '{
