@@ -49,7 +49,7 @@ const PricingCard: React.FC<Props> = (props) => {
 
     if (!url || !projectId) {
       if (typeof (window as any).__DYNAMIC_TOGGLE_LOGIN__ === 'function') {
-       (window as any).__DYNAMIC_TOGGLE_LOGIN__();      
+        (window as any).__DYNAMIC_TOGGLE_LOGIN__();
       }
 
       return;
@@ -120,7 +120,7 @@ const PricingCard: React.FC<Props> = (props) => {
           </ul>
         </div>
         <Button
-          href='#'
+          href="#"
           variant={props.variant}
           size="lg"
           onClick={() => replaceProjectIdInUrl(props.url)}

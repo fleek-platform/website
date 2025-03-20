@@ -1,11 +1,11 @@
 ---
 title: 'Fleek AI Agents API: Step-by-step guide'
 date: 2025-02-18
-desc: 'Discover how to use the Fleek AI Agents API. This guide covers authentication, available requests, and practical examples for both new and experienced users.'
+desc: 'Discover how to use the Fleek AI Agents API. This guide covers authentication, available requests, subscription management, payment methods, and practical examples for both new and experienced users.'
 thumbnail: './step.png'
 image: './step.png'
 author:
-  - 'Tobiloba Adedeji'
+  - 'Guillermo Morgan'
 ---
 
 ## Introduction
@@ -35,7 +35,7 @@ Use the token field as your X-Api-Key for all API requests.
 
 ---
 
-## API Requests
+## Agents API Requests
 
 ### 1. List All AI Agents
 
@@ -491,8 +491,325 @@ curl 'https://api.fleek.xyz/api/v1/ai-agents/{agentId}/api/{*key}' \
 - Replace your_x_api_key with your API key.
 ```
 
+---
+
+## Subscriptions API Requests
+
+### 1. Get All Available Plans
+
+This request retrieves all available subscription plans. It is needed for the subscription flow.
+
+**Request:** GET /api/v1/plans
+
+**Example:**
+
+```bash
+curl 'https://api.fleek.xyz/api/v1/plans' \
+
+--header 'X-Api-Key: your_x_api_key'
+```
+
+**Response example:**
+
+```json
+{
+  "id": "prod_RXPrGVnrVm8Dbg",
+  "name": "AI Agent",
+  "description": null,
+  "price": 2000,
+  "createdAt": "2025-01-06T18:27:40Z",
+  "updatedAt": "2025-01-06T18:27:59Z",
+  "metadata": {
+    "app": "fleek-platform"
+  }
+},
+
+```
+
+- Replace your_x_api_key with your API key
+
+---
+
+### 2. List All Subscriptions
+
+This request retrieves all subscriptions associated with a specific project.
+
+**Request:** GET /api/v1/subscriptions?projectId={projectId}
+
+**Example:**
+
+```bash
+curl 'https://api.fleek.xyz/api/v1/subscriptions?projectId={projectId}' \
+
+--header 'X-Api-Key: your_x_api_key'
+```
+
+**Response example:**
+
+```json
+{
+  "endDate": "2025-03-02T00:00:00",
+  "id": "sub_9WgRMUCEFZDhHTzLISMgFEwp",
+  "items": [
+    {
+      "id": null,
+      "priceId": "…",
+      "productId": "…",
+      "quantity": 1,
+      "unitAmount": null,
+      "usageType": "PerUnit"
+    }
+  ],
+  "periodEndDate": "2025-02-02T00:00:00",
+  "periodStartDate": "2025-01-02T00:00:00",
+  "productId": "prod_fas25qQLqfQrsN",
+  "scheduleId": null,
+  "startDate": "2025-01-02T00:00:00",
+  "status": "Active"
+}
+```
+
+- Replace your_x_api_key with your API key
+- Replace {projectId} with your actual project ID
+
+---
+
+### 3. List Payment Methods
+
+This request returns a paginated list of saved payment methods for a given project.
+
+**Request:** GET /api/v1/payment-methods?projectId={projectId}
+
+**Example:**
+
+```bash
+curl 'https://api.fleek.xyz/api/v1/payment-methods?projectId={projectId}' \
+
+--header 'X-Api-Key: your_x_api_key'
+```
+
+**Response example:**
+
+```json
+{
+  "data": [
+    {
+      "brand": "visa",
+      "country": "US",
+      "expiryMonth": "9",
+      "expiryYear": "2034",
+      "id": "pm_IxuwEtErgYZejkQl",
+      "last4": "4014"
+    }
+  ],
+  "next": "next_cursor",
+  "prev": "prev_cursor"
+}
+```
+
+- Replace your_x_api_key with your API key
+- Replace {projectId} with your actual project ID
+
+---
+
+### 4. Create Payment Portal Session
+
+This endpoint initiates a session for managing payment methods.
+
+Users can use this session to add or update payment methods for a project.
+
+**Request:** POST /api/v1/payment-methods/manage
+
+**Example:**
+
+```bash
+curl https://api.fleek.xyz/api/v1/payment-methods/manage \
+  --request POST \
+  --header 'Content-Type: application/json' \
+  --header 'X-Api-Key: your_x_api_key' \
+  --data '{
+    "projectId": "your_project_id"
+  }'
+
+```
+
+**Response example:**
+
+```json
+{
+  "url": "https://checkout.stripe.com/c/test_a1b2C3d4E5f6G7h8I9j0KlmNopQr"
+}
+```
+
+- Replace your_x_api_key with your API key
+- Replace your_project_id with your Project ID
+
+---
+
+### 5. Create a Subscription
+
+This endpoint creates a new subscription for a specified product.
+
+To use this request, the project must have a payment method set up. It requires:
+
+`projectId` (your project’s ID)
+`product.id` (the ID of the product you want to subscribe to)
+`quantity` (number of units for the subscription)
+
+**Request:** POST /api/v1/subscriptions
+
+**Example:**
+
+```bash
+curl https://api.fleek.xyz/api/v1/subscriptions \
+  --request POST \
+  --header 'Content-Type: application/json' \
+  --header 'X-Api-Key: your_x_api_key' \
+  --data '{
+    "metadata": null,
+    "planId": null,
+    "product": {
+      "id": "product_id",
+      "quantity": 2
+    },
+    "projectId": "your_project_id"
+  }'
+
+```
+
+**Response example:**
+
+```json
+{
+  "endDate": "2025-03-02T00:00:00",
+  "id": "sub_9WgRMUCEFZDhHTzLISMgFEwp",
+  "items": [
+    {
+      "id": null,
+      "priceId": "…",
+      "productId": "…",
+      "quantity": 1,
+      "unitAmount": null,
+      "usageType": "PerUnit"
+    }
+  ],
+  "periodEndDate": "2025-02-02T00:00:00",
+  "periodStartDate": "2025-01-02T00:00:00",
+  "productId": "prod_fas25qQLqfQrsN",
+  "scheduleId": null,
+  "startDate": "2025-01-02T00:00:00",
+  "status": "Active"
+}
+```
+
+- Replace your_x_api_key with your API key
+- Replace your_project_id with your Project ID
+- Replace product_id with the correct product ID.
+
+---
+
+### 6. Update Subscription Quantity
+
+This endpoint allows modifying the quantity of an existing subscription by applying a relative adjustment.
+
+Use `updateBy` to increase or decrease the quantity.
+
+**Request:** POST /api/v1/subscriptions/{subscription_id}/quantity
+
+**Example:**
+
+```bash
+curl 'https://api.fleek.xyz/api/v1/subscriptions/{subscription_id}/quantity' \
+  --request POST \
+  --header 'Content-Type: application/json' \
+  --header 'X-Api-Key: your_x_api_key' \
+  --data '{
+    "projectId": "your_project_id",
+    "updateBy": 1
+  }'
+
+```
+
+**Response example:**
+
+```json
+{
+  "endDate": "2025-03-02T00:00:00",
+  "id": "sub_9WgRMUCEFZDhHTzLISMgFEwp",
+  "items": [
+    {
+      "id": null,
+      "priceId": "…",
+      "productId": "…",
+      "quantity": 1,
+      "unitAmount": null,
+      "usageType": "PerUnit"
+    }
+  ],
+  "periodEndDate": "2025-02-02T00:00:00",
+  "periodStartDate": "2025-01-02T00:00:00",
+  "productId": "prod_fas25qQLqfQrsN",
+  "scheduleId": null,
+  "startDate": "2025-01-02T00:00:00",
+  "status": "Active"
+}
+```
+
+- Replace your_x_api_key with your API key
+- Replace your_project_id with your Project ID
+- Replace subscription_id with the correct product ID.
+
+---
+
+### 7. Cancel a Subscription
+
+This endpoint cancels an active subscription by its subscription_id.
+
+The subscription remains active until the end of the current billing period. After cancellation, it will not renew, but the user can continue using it until expiration.
+
+**Request:** DELETE /api/v1/subscriptions/{subscription_id}
+
+**Example:**
+
+```bash
+curl 'https://api.fleek.xyz/api/v1/subscriptions/{subscription_id}' \
+  --request DELETE \
+  --header 'X-Api-Key: your_x_api_key'
+
+```
+
+**Response example:**
+
+```json
+{
+  "endDate": "2025-03-02T00:00:00",
+  "id": "sub_9WgRMUCEFZDhHTzLISMgFEwp",
+  "items": [
+    {
+      "id": null,
+      "priceId": "…",
+      "productId": "…",
+      "quantity": 1,
+      "unitAmount": null,
+      "usageType": "PerUnit"
+    }
+  ],
+  "periodEndDate": "2025-02-02T00:00:00",
+  "periodStartDate": "2025-01-02T00:00:00",
+  "productId": "prod_fas25qQLqfQrsN",
+  "scheduleId": null,
+  "startDate": "2025-01-02T00:00:00",
+  "status": "Active"
+}
+```
+
+- Replace your_x_api_key with your API key
+- Replace subscription_id with the correct product ID.
+
+---
+
 ### Conclusion
 
-This guide provides a comprehensive overview of the Fleek AI Agents API, covering authentication, agent management, logging, and status monitoring. By following the step-by-step instructions, users can seamlessly interact with the API to create, update, and manage AI agents efficiently.
+This guide provides a comprehensive overview of the Fleek AI Agents API, covering authentication, agent management, logging, status monitoring, and the Subscriptions API Requests. By following the step-by-step instructions, users can seamlessly interact with the API to create, update, and manage AI agents efficiently.
 
 For additional support or further assistance, please visit our [Support Center](https://fleek.xyz/support/).
