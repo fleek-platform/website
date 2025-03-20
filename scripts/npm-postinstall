@@ -19,9 +19,14 @@ prepareDependencyFiles() {
   echo "👍 Done preparing $pkgName files!"  
 }
 
-# TODO: Prevent from running until further notice
-# prepareDependencyFiles \
-#   "$TARGET_ENVIRONMENT" \
-#   "public/dashboard" \
-#   "@fleek-platform/dashboard" \
-#   "out"
+prepareDependencyFiles \
+  "$TARGET_ENVIRONMENT" \
+  "public/dashboard" \
+  "@fleek-platform/dashboard" \
+  "out"
+
+prepareDependencyFiles \
+  "$TARGET_ENVIRONMENT" \
+  "public/agents" \
+  "@fleek-platform/agents-ui" \
+  "out"
