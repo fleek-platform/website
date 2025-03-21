@@ -17,6 +17,7 @@ This repository contains the source code and assets for the Fleek.xyz website, w
   - [Preview (locally)](#-preview-locally)
   - [Preview (staging)](#-preview-staging)
   - [Code formatter](#-code-formatter)
+  - [External apps](#external-apps)
   - [Contribution guideline](#-contribution-guideline)
 - [Instructions](#-instructions)
   - [Blog](#-blog)
@@ -174,6 +175,24 @@ Changes will be written in file. Alternatively, you can run a code format check 
 ```sh
 npm run fmt:check
 ```
+
+## Updating external apps
+
+The website hosts external static apps, such as the [Dashboard](https://github.com/fleek-platform/dashboard).
+
+To install a particular version, you'd pick a `prerelease` version.
+
+```sh
+npm install @fleek-platform/dashboard@prerelease
+```
+
+Or, more specifically:
+
+```sh
+npm install @fleek-platform/dashboard@0.9.1-rc.d996275
+```
+
+On release to production, the `-rc*` suffix's removed and the application deploys the production version.
 
 ## 🙏 Contribution guideline
 
