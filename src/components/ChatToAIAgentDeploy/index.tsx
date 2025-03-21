@@ -1,8 +1,11 @@
+import '@fleek-platform/agents-ui/styles';
+
 import React, { useState } from 'react';
 import { FaCircleArrowUp } from "react-icons/fa6";
 import { Button } from '@components/Button';
 import { getCookie } from '@utils/cookies';
 import { isClient } from '@utils/common';
+import { ChatBox } from '@fleek-platform/agents-ui';
 
 const FLEEK_LOCALSTORAGE_KEY_PERSONAGEN = 'fleek-xyz-personagen';
 
@@ -53,28 +56,8 @@ export const ChatToAIAgentDeploy = ({
   };
 
   return (
-    <div className="m-20">
-      <div className="text-center p-20">
-        <h1 className="text-balance font-sans text-[3.6rem] font-semibold leading-[1.125] -tracking-2 text-gray-dark-12 md:text-[5.2rem]">What's your ideal agent?</h1>
-        <p className="text-28 leading-[2]">Bring it to life in a few seconds by powering it into Fleek</p>
-      </div>
-      <div className="z-20 mx-auto flex flex-col w-full max-w-[768px] items-center justify-between rounded-16 border border-gray-dark-8 m-10 p-10 border-gray-dark-4 bg-gray-dark-6">
-        <form onSubmit={handleSubmit} className="w-full flex flex-col px-10 bg-transparent items-end">
-          <textarea 
-            className="flex w-full bg-transparent focus-visible:outline-none text-16 h-100 font-medium mb-10 resize-none text-wrap" 
-            value={content}
-            onChange={(e) => setContent(e.target.value)}
-            placeholder="Describe your ideal AI agent..."
-          />
-          <button 
-            className="text-20 transition ease-out hover:opacity-80 hover:scale-[1.10]" 
-            type="submit"
-            disabled={isSubmitting}
-          >
-            <FaCircleArrowUp />
-          </button>
-        </form>
-      </div>
+    <div className="agents-ui m-20 text-14">
+      <ChatBox />
     </div>
   );
 };
