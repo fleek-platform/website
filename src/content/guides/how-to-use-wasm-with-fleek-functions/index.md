@@ -34,7 +34,7 @@ The focus of this guide is to ensure that we are able to provide a basic underst
 
 ## Setup and requirements
 
-1. An account on app.fleek.xyz
+1. An account on fleek.xyz
 2. <u>[tsc](https://www.npmjs.com/package/tsc)</u> and <u>[rollup](https://rollupjs.org/introduction/#installation)</u> to bundle all necessary files properly
 3. <u>[AssemblyScript](https://www.npmjs.com/package/assemblyscript)</u>
 4. Code editor of your choice

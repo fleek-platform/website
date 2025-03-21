@@ -11,7 +11,7 @@ We're back with a new update to the Fleek platform, this time packed with new fe
 
 In this recap, we’ll cover the new phishing protection mechanisms, refined application credentials management, and improved image handling improvements that were rolled out to the Fleek platform last month ⚡
 
-Or, you can just try all the new features yourself on [Fleek](https://app.fleek.xyz/) **which is now in Open Beta**– anyone can now create an account and start trying the new platform, no whitelist required 🤙
+Or, you can just try all the new features yourself on [Fleek](https://fleek.xyz/dashboard/) **which is now in Open Beta**– anyone can now create an account and start trying the new platform, no whitelist required 🤙
 
 Let’s get into what the devs were cookin’ throughout February:
 

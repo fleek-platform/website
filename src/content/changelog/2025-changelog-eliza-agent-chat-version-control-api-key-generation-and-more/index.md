@@ -48,7 +48,7 @@ This provides greater control over testing, iterating, and deploying AI agents o
 
 ## API key generation made easier
 
-Generating API tokens for Fleek’s [AI agents APIs](/docs/ai-agents/agents-apis/) is now more streamlined. You can create, view, copy, and regenerate API keys directly from the [Eliza deployment page](/eliza/) or the [Fleek dashboard](https://app.fleek.xyz/).
+Generating API tokens for Fleek’s [AI agents APIs](/docs/ai-agents/agents-apis/) is now more streamlined. You can create, view, copy, and regenerate API keys directly from the [Eliza deployment page](/eliza/) or the [Fleek dashboard](https://fleek.xyz/dashboard/).
 
 **Steps to generate an API key:**
 

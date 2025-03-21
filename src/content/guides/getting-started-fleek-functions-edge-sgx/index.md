@@ -27,7 +27,7 @@ The purpose of this guide is to walk you through the process of compiling your c
 
 Before we get into setting things up, you need to have the following:
 
-1. An account on [app.fleek.xyz](https://app.fleek.xyz/)
+1. An account on [fleek.xyz](https://fleek.xyz/dashboard/)
 2. [Fleek CLI](https://fleek.xyz/docs/cli/)
 3. [Sgxkit](https://github.com/fleek-network/lightning/tree/sgx-alpha/lib/sgxkit)
 4. [Rust](https://www.rust-lang.org/tools/install)

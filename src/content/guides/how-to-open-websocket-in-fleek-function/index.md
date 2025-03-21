@@ -16,7 +16,7 @@ Below we will build a simple Web3 Function that uses a websocket within a Fleek 
 
 ### **Prerequisites**
 
-- Account on <u>[app.fleek.xyz/](https://app.fleek.xyz/)</u>, if you don’t already have one.
+- Account on <u>[fleek.xyz](https://fleek.xyz)</u>, if you don’t already have one.
 - <u>[Fleek CLI](https://fleek.xyz/docs/cli/)</u>
 - <u>[Web3.js](https://www.npmjs.com/package/web3)</u>
 - <u>[Webpack](https://webpack.js.org/guides/getting-started/#basic-setup)</u>

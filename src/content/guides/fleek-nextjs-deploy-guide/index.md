@@ -18,7 +18,7 @@ Next.js is a React framework that simplifies the creation of server-rendered Rea
 
 # Requirements
 
-- [Fleek Account](https://app.fleek.xyz)
+- [Fleek Account](https://fleek.xyz/dashboard)
 - [GitHub Account](https://github.com)
 - Repository of the app you’d like to deploy
 
@@ -30,7 +30,7 @@ Next.js is a React framework that simplifies the creation of server-rendered Rea
 
 ## Fleek Account Creation
 
-The first thing we’ll need to do is create a Fleek account: head over to http://app.fleek.xyz, and click on the `Create a Free Account` button.
+The first thing we’ll need to do is create a Fleek account: head over to [fleek.xyz](http://fleek.xyz), and click on the `Create a Free Account` button.
 
 > 💡 Feel free to skip this step if you already have an account on Fleek.xyz!
 
@@ -52,7 +52,7 @@ You’ll also need to head over to http://github.com to create an account. For t
 
 Once we have our repo cloned, the next step is the deployment!
 
-Head over to the dashboard [https://app.fleek.xyz](https://app.fleek.xyz/), Create a new project, give it a name. You’ll automatically get switched to that project.
+Head over to the dashboard [https://fleek.xyz/dashboard](https://fleek.xyz/dashboard/), Create a new project, give it a name. You’ll automatically get switched to that project.
 
 ![](./ghnextjs3.png)
 

@@ -78,6 +78,6 @@ As we move across each phase, we will keep everyone posted and up to speed with 
 
 1. The sunsetting won’t catch you by surprise.
 2. The migration will be seamless and won’t affect current usage or users.
-3. The new platform you’ll arrive on will be [harder, better, faster, stronger](https://app.fleek.xyz).
+3. The new platform you’ll arrive on will be [harder, better, faster, stronger](https://fleek.xyz/dashboard).
 
 Stay tuned, because we’ll share more about each phase as we progress. If you need more resources, please visit our [LinkTree](https://linktr.ee/fleek)!

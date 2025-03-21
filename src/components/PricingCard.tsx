@@ -3,6 +3,8 @@ import { Button, buttonVariants } from './Button';
 import type { VariantProps } from 'class-variance-authority';
 import clsx from 'clsx';
 import { Text } from './LandingPage/Text';
+import { getCookie } from '@utils/cookies';
+import { isClient } from '@utils/common';
 
 export type Props = {
   title: string;
@@ -34,6 +36,26 @@ const PricingCard: React.FC<Props> = (props) => {
       );
     }
     return props.description;
+  };
+
+  const replaceProjectIdInUrl = (url: string | undefined) => {
+    if (url?.includes('typeform')) {
+      window.location.href = url;
+
+      return;
+    }
+
+    const projectId = getCookie('projectId');
+
+    if (!url || !projectId) {
+      if (typeof (window as any).__DYNAMIC_TOGGLE_LOGIN__ === 'function') {
+        (window as any).__DYNAMIC_TOGGLE_LOGIN__();
+      }
+
+      return;
+    }
+
+    window.location.href = url.replace('[projectId]', projectId);
   };
 
   return (
@@ -97,7 +119,12 @@ const PricingCard: React.FC<Props> = (props) => {
             })}
           </ul>
         </div>
-        <Button href={props.url} variant={props.variant} size="lg">
+        <Button
+          href="#"
+          variant={props.variant}
+          size="lg"
+          onClick={() => replaceProjectIdInUrl(props.url)}
+        >
           {props.cta}
         </Button>
       </div>

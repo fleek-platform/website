@@ -12,7 +12,7 @@ What’s up Fleek Freaks?
 
 We're back with an update to the Fleek.xyz Alpha! This jam-packed v.0.0.4 update brings us to near-feature parity with the Fleek.co platform, an important goal for the team as we approach the start of the [Fleek.co to Fleek.xyz migration](/blog/announcements/fleek-co-to-fleek-xyz-migration-details/).
 
-The application form for the Fleek.xyz Alpha is closed, you can access the platform [here](https://app.fleek.xyz)
+The application form for the Fleek.xyz Alpha is closed, you can access the platform [here](https://fleek.xyz/dashboard)
 
 Let’s get into everything coming with v0.0.4, starting with ENS:
 

@@ -10,7 +10,7 @@ author:
 
 Fleek Functions, being on-chain serverless edge functions, use HTTP requests and responses as their primary means of access when users interact with them. In this guide, we will take a pragmatic look at how Fleek function types can be used within your Fleek Functions.
 
-If you are reading this, it is expected that you already know what HTTP and <u>[Fleek Functions](https://fleek.xyz/docs/platform/fleek-functions/)</u> are, and that you have a Fleek account; you can sign up <u>[here](https://app.fleek.xyz/)</u> if you don’t have an account already.
+If you are reading this, it is expected that you already know what HTTP and <u>[Fleek Functions](https://fleek.xyz/docs/platform/fleek-functions/)</u> are, and that you have a Fleek account; you can sign up <u>[here](https://fleek.xyz/dashboard/)</u> if you don’t have an account already.
 
 As you follow along, you will notice a few Fleek Function aliases which you may already be familiar with. If not, you can take a look <u>[here](https://fleek-network.github.io/js-docs/fleek-node-api.html#Type%20Aliases)</u> to see the type aliases provided by the Fleek runtime which we interact with via Fleek Functions.
 

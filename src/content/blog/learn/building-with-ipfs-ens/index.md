@@ -122,7 +122,7 @@ Onchain websites are poised to reshape how information is accessed and transmitt
 
 The current onchain infrastructure is far from being a developer's playground. However, with Fleek, developers can outsource the complexities and focus on building onchain websites, their business logic, and beyond.
 
-**Try out our full suite of IPFS-powered storage, hosting, and publishing tools. Get started with** <u>[Fleek](https://app.fleek.xyz)</u> **today.**
+**Try out our full suite of IPFS-powered storage, hosting, and publishing tools. Get started with** <u>[Fleek](https://fleek.xyz/dashboard)</u> **today.**
 
 ---
 
