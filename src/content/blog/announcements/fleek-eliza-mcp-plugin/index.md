@@ -61,7 +61,9 @@ npm install @fleek-platform/eliza-plugin-mcp
 ```bash
 pnpm install @fleek-platform/eliza-plugin-mcp
 ```
+
 # or
+
 ```bash
 yarn add @fleek-platform/eliza-plugin-mcp
 ```
@@ -134,6 +136,6 @@ The MCP plugin is a huge leap for the Eliza ecosystem and agent development in g
 
 We’re just getting started – and we’d love to hear what you build.
 
-🔗 [GitHub Repo + ReadMe](https://github.com/fleek-platform/eliza-plugin-mcp) 
-📚 [Learn more about MCP](https://fleek.xyz/blog/learn/model-context-protocol-mcp-ai/) 
+🔗 [GitHub Repo + ReadMe](https://github.com/fleek-platform/eliza-plugin-mcp)
+📚 [Learn more about MCP](https://fleek.xyz/blog/learn/model-context-protocol-mcp-ai/)
 💬 Have questions or feedback? [Join our Discord](http://discord.gg/fleek)
