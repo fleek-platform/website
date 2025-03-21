@@ -35,7 +35,7 @@ The reality of today’s AI infrastructure is inefficiency. Builders pay for mul
 
 Now, compare this to a world where every component needed to deploy an AI agent is available in one place—where hosting, LLM access, integrations, and security are seamlessly handled. That’s the future Fleek is bringing to life.
 
-(could be ideal to show all the services an enterprise users needs to use vs using fleek)
+(could be ideal to show all the services an enterprise user needs to use vs using Fleek)
 
 ---
 
