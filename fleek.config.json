@@ -1,0 +1,9 @@
+{
+  "sites": [
+    {
+      "slug": "fleek-xyz-development",
+      "distDir": "dist",
+      "buildCommand": "npm i && npm run build"
+    }
+  ]
+}

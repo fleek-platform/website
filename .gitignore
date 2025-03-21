@@ -32,10 +32,6 @@ meili_data
 # vscode settings folder
 .vscode/
 
-#fleek
-fleek.config.json
-fleek.*.config.json
-
 #lock files
 pnpm-lock.yaml
 
@@ -45,3 +41,4 @@ dev_*
 # external apps
 public/dashboard/
 public/agents/
+public/agents-experimental/

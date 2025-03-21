@@ -1,0 +1,34 @@
+---
+import settings from '@base/settings.json';
+import { AgentsUI } from '@components/AgentsUI';
+import AnnouncementModal from '@components/AnnouncementModal';
+import ElizaHtml from '@layouts/ElizaHtml.astro';
+
+declare global {
+  interface Window {
+    promotekit_referral: string;
+  }
+}
+
+const overrideDefined = {
+  PUBLIC_FLEEK_REST_API_URL: import.meta.env.PUBLIC_FLEEK_REST_API_URL,
+  PUBLIC_UI_APP_URL: import.meta.env.PUBLIC_UI_APP_URL,
+  PUBLIC_BEEHIIV_PROXY_SERVER_URL: import.meta.env
+    .PUBLIC_BEEHIIV_PROXY_SERVER_URL,
+  PUBLIC_GRAPHQL_API_URL: import.meta.env.PUBLIC_GRAPHQL_API_URL,
+  PUBLIC_DYNAMIC_ENVIRONMENT_ID: import.meta.env.PUBLIC_DYNAMIC_ENVIRONMENT_ID,
+};
+---
+
+<ElizaHtml
+  title={settings.site.metadata.eliza.title}
+  ogMeta={{
+    title: settings.site.metadata.eliza.title,
+    description: settings.site.metadata.eliza.description,
+    image: settings.site.metadata.eliza.image,
+    slug: settings.site.metadata.eliza.slug,
+  }}
+>
+  <AnnouncementModal pathname={Astro.url.pathname} client:only="react" />
+  <AgentsUI client:only overrideDefined={overrideDefined} basePath="/eliza" />
+</ElizaHtml>

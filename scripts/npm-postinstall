@@ -10,7 +10,7 @@ prepareDependencyFiles() {
 
   echo "🤖 Must prepare Dashboard files for environment $targetEnvironment..."
 
-  if ! scripts/setup-dashboard "$targetEnvironment" "$targetPublicAppPath" "$pkgName" "$pkgDirOutDir"; then
+  if ! scripts/setup-packaged-app "$targetEnvironment" "$targetPublicAppPath" "$pkgName" "$pkgDirOutDir"; then
     echo "👹 Oops! Failed to setup the $pkgName files for some reason..."
 
     exit 1
@@ -27,6 +27,6 @@ prepareDependencyFiles \
 
 prepareDependencyFiles \
   "$TARGET_ENVIRONMENT" \
-  "public/agents" \
+  "public/agents-experimental" \
   "@fleek-platform/agents-ui" \
   "dist"
