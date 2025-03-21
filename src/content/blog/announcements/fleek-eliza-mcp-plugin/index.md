@@ -78,27 +78,19 @@ Then, add this to your config:
 
 ```json
 {
-
-"name": "Your Character",
-
-"plugins": ["@fleek-platform/eliza-plugin-mcp"],
-
-"settings": {
-
-"mcp": {
-
-"servers": {
-
-"github": {
-
-"type": "stdio",
-
-"name": "Code Server",
-
-"command": "npx",
-
-"args": ["-y", "@modelcontextprotocol/server-github"]
-
+  "name": "Your Character",
+  "plugins": ["@fleek-platform/eliza-plugin-mcp"],
+  "settings": {
+    "mcp": {
+      "servers": {
+        "github": {
+          "type": "stdio",
+          "name": "Code Server",
+          "command": "npx",
+          "args": ["-y", "@modelcontextprotocol/server-github"]
+        }
+      }
+    }
   }
 }
 ```
