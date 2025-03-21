@@ -79,7 +79,7 @@ For teams deploying multiple agents at scale, **Fleek’s enterprise pricing mod
 
 The future of AI isn’t just about automation—it’s about true autonomy, security, and decentralized execution. For AI agents to operate independently, they need a secure and verifiable environment, which is where **TEE-secured compute** comes in. Fleek’s infrastructure ensures AI agents run in **tamper-proof, privacy-preserving environments**, safeguarding their operations from interference. But autonomy isn’t just about security—these agents also need financial independence. By integrating with **crypto and smart contract rails**, they can pay for services, receive payments, and interact seamlessly with decentralized systems, bypassing traditional financial constraints. The next step? **On-chain execution**. AI will no longer rely on centralized intermediaries but will instead execute tasks directly through smart contracts, enabling seamless interaction with decentralized applications. Fleek is bridging AI to this future—where intelligence operates freely, securely, and without centralized control.
 
-**Read more about how fleek safeguards apps and agents:**  https://fleek.xyz/blog/learn/privacy-first-consumer-apps-with-fleek-machines/
+**Read more about how Fleek safeguards apps and agents:**  https://fleek.xyz/blog/learn/privacy-first-consumer-apps-with-fleek-machines/
 
 ---
 
