@@ -17,13 +17,28 @@ import { ProjectDropdown } from './ProjectDropdown/ProjectDropdown';
 import type { Project } from '@fleekxyz/sdk/dist-types/generated/graphqlClient/schema';
 import { isClient } from '../../utils/common';
 import { useSession } from '@hooks/useSession';
+import { getCookie } from '@utils/cookies';
 
 const dashboardUrl = import.meta.env.PUBLIC_UI_APP_URL;
+const agentsUrl = import.meta.env.PUBLIC_UI_AGENTS_APP_URL;
 
 const onAuthenticationSuccess = () => {
   if (!isClient) return;
 
+  // Keep the path if matching `/eliza`
+  // Otherwise, pending ChatBox interactions go to `/agents`
+  // Otherwise, default to `/dashboard`
+
   if (window.location.pathname.startsWith('/eliza')) return;
+
+  const data = getCookie('fleek-agents-lead');
+
+  console.log('[debug] Navbar: data: ', data);
+  if (data) {
+    window.location.assign(agentsUrl);
+
+    return;
+  }
 
   window.location.assign(dashboardUrl);
 };
@@ -482,6 +497,7 @@ const SessionManagementActions: React.FC = () => {
           // due to an issue with the expectation for /prices
           // for users who aren't logged in
           // See src/components/PricingCard.tsx
+          //  useAuthStore toggleLogin @fleek-platform/login-button
           if (isClient) {
             (window as any).__DYNAMIC_TOGGLE_LOGIN__ = login;
           }
