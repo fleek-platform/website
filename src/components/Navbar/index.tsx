@@ -18,9 +18,13 @@ import type { Project } from '@fleekxyz/sdk/dist-types/generated/graphqlClient/s
 import { isClient } from '../../utils/common';
 import { useSession } from '@hooks/useSession';
 import { getCookie } from '@utils/cookies';
+import { retrieveFunnelData } from '@utils/funnel';
+import { FLEEK_KEY_AGENTS_LEAD, clearFunnelData } from '@utils/funnel';
+import { setCookie } from '@utils/cookies';
 
 const dashboardUrl = import.meta.env.PUBLIC_UI_APP_URL;
 const agentsUrl = import.meta.env.PUBLIC_UI_AGENTS_APP_URL;
+const chatDeployFunnelUrl = `${agentsUrl}/chat-deploy-funnel`;
 
 const onAuthenticationSuccess = () => {
   if (!isClient) return;
@@ -31,11 +35,16 @@ const onAuthenticationSuccess = () => {
 
   if (window.location.pathname.startsWith('/eliza')) return;
 
-  const data = getCookie('fleek-agents-lead');
+  const hasSessionFleekLead = retrieveFunnelData({ key: 'fleek-xyz-agents-lead'});
+  const hasCookieFleekLead = getCookie(FLEEK_KEY_AGENTS_LEAD);
 
-  console.log('[debug] Navbar: data: ', data);
-  if (data) {
-    window.location.assign(agentsUrl);
+  console.log('[debug] Navbar: data: ', {
+    hasSessionFleekLead,
+    hasCookieFleekLead,
+  });
+
+  if (hasSessionFleekLead && hasCookieFleekLead) {
+    window.location.assign(chatDeployFunnelUrl);
 
     return;
   }

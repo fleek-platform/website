@@ -3,8 +3,9 @@ import '@fleek-platform/agents-ui/styles';
 import { useEffect, useState } from 'react';
 import { ChatBox, type FileWithPreview } from '@fleek-platform/agents-ui';
 import { useAuthStore } from '@fleek-platform/login-button';
-import { storeFunnelData, clearFunnelData } from '@utils/funnel';
+import { FLEEK_KEY_AGENTS_LEAD, storeFunnelData, clearFunnelData } from '@utils/funnel';
 import { fileToBase64 } from '@utils/file';
+import { clearCookie, setCookie } from '@utils/cookies';
 
 const MAX_FILE_SIZE = 10 * 1024 * 1024;
 
@@ -15,12 +16,12 @@ export const ChatToAIAgentDeploy = ({
   personagenEndpoint: string;
   agentsAppUrl: string;
 }) => {
-  const { triggerLoginModal, isLoggedIn } = useAuthStore();
+  const { triggerLoginModal, isLoggedIn, isLoggingIn } = useAuthStore();
 
   useEffect(() => {
     const clear = () => {
-      console.log('[debug] clear storage fleek agents lead')
-      clearFunnelData({ key: 'fleek-xyz-agents-lead' });
+      console.log('[debug] clear cookie fleek agents lead')
+      clearCookie(FLEEK_KEY_AGENTS_LEAD);
     };
 
     window.addEventListener('beforeunload', clear);
@@ -49,6 +50,7 @@ export const ChatToAIAgentDeploy = ({
       }))
     };
 
+    setCookie(FLEEK_KEY_AGENTS_LEAD, new Date().toISOString(), 1);
     storeFunnelData({
       key: 'fleek-xyz-agents-lead',
       data,
@@ -73,12 +75,18 @@ export const ChatToAIAgentDeploy = ({
 
   return (
     <div className="agents-ui m-20 text-14">
-      <ChatBox
-        onSubmit={onSubmit}
-        onSuccess={onSuccess}
-        onError={onError}
-        maxFileSize={MAX_FILE_SIZE}
-      />
+      {
+        isLoggingIn
+        ? 'Logging...'
+        : (          
+          <ChatBox
+            onSubmit={onSubmit}
+            onSuccess={onSuccess}
+            onError={onError}
+            maxFileSize={MAX_FILE_SIZE}
+          />
+        )
+      }
     </div>
   );
 };
