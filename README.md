@@ -183,13 +183,13 @@ The website hosts external static apps, such as the [Dashboard](https://github.c
 To install a particular version, you'd pick a `prerelease` version.
 
 ```sh
-npm install @fleek-platform/dashboard@prerelease
+npm install -E @fleek-platform/dashboard@prerelease
 ```
 
 Or, more specifically:
 
 ```sh
-npm install @fleek-platform/dashboard@0.9.1-rc.d996275
+npm install -E @fleek-platform/dashboard@0.9.1-rc.d996275
 ```
 
 On release to production, the `-rc*` suffix's removed and the application deploys the production version.
