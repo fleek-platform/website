@@ -85,57 +85,47 @@ jobs:
         echo "✅ Created the release preparation branch with name ${{ env.PREPARE_RELEASE_BRANCH }} successfuly"
 
 
-    - name: TIAS
-      env:
-        COMMIT_HASH: ${{ inputs.commitHash }}
+    - name: Merge into main
       run: |
-        echo "[debug] TIAS commitHash = $COMMIT_HASH"
-
-        git merge --ff-only ${{ github.event.inputs.commitHash }}
-
-        git log --oneline
-
-    # - name: Merge into main
-    #   run: |
-    #     if ! git checkout "${{ env.RELEASE_BRANCH }}"; then
-    #       echo "👹 Oops! The develop branch wasn't found"
+        if ! git checkout "${{ env.RELEASE_BRANCH }}"; then
+          echo "👹 Oops! The develop branch wasn't found"
           
-    #       exit 1
-    #     fi
+          exit 1
+        fi
 
-    #     if ! git merge --ff-only ${{ github.event.inputs.commitHash }}; then
-    #       echo "👹 Oops! Failed to merge into main for some reason..."
+        if ! git merge --ff-only ${{ github.event.inputs.commitHash }}; then
+          echo "👹 Oops! Failed to merge into main for some reason..."
 
-    #       exit 1
-    #     fi
+          exit 1
+        fi
         
-    #     if ! git push origin "${{ env.RELEASE_BRANCH }}"; then
-    #       echo "👹 Oops! Failed to push changes to the ${{ env.RELEASE_BRANCH }} branch for some reason..."
+        if ! git push origin "${{ env.RELEASE_BRANCH }}"; then
+          echo "👹 Oops! Failed to push changes to the ${{ env.RELEASE_BRANCH }} branch for some reason..."
 
-    #       exit 1
-    #     fi
+          exit 1
+        fi
 
-    # - name: Delete temporary release branch
-    #   run: |
-    #     if ! git branch -D "${{ env.PREPARE_RELEASE_BRANCH }}"; then
-    #       echo "👹 Oops! Failed to delete the release preparation branch with name ${{ env.PREPARE_RELEASE_BRANCH }} for some reason. You are advised to look into why this happens as you may have to delete this manually, as the original intent is to use it temporarily per job run."
+    - name: Delete temporary release branch
+      run: |
+        if ! git branch -D "${{ env.PREPARE_RELEASE_BRANCH }}"; then
+          echo "👹 Oops! Failed to delete the release preparation branch with name ${{ env.PREPARE_RELEASE_BRANCH }} for some reason. You are advised to look into why this happens as you may have to delete this manually, as the original intent is to use it temporarily per job run."
 
-    #       exit 1
-    #     fi
+          exit 1
+        fi
 
-    #     echo "✅ Deleted the release preparation branch with name ${{ env.PREPARE_RELEASE_BRANCH }} successfuly"
+        echo "✅ Deleted the release preparation branch with name ${{ env.PREPARE_RELEASE_BRANCH }} successfuly"
 
-    # - name: Dispatch Event
-    #   env:
-    #     PAT: ${{ secrets.GITHUB_TOKEN }}
-    #     ENDPOINT: 'https://api.github.com/repos/${{ github.repository }}/dispatches'
-    #     EVENT_NAME: 'Release'
-    #   run: |
-    #     if ! curl -H "Accept: application/vnd.github+json" \
-    #       -H "Authorization: token $PAT" \
-    #       --request POST \
-    #       --data "{ \"event_type\": \"$EVENT_NAME\" }" $ENDPOINT; then
-    #       echo "⚠️ Warning: Failed to dispatch $EVENT_NAME. Since this triggers the indexer listener, you should dispatch the action manually. If this issue persists, report it internally."
-    #     else
-    #       echo "✅ Dispatched event $EVENT_NAME"
-    #     fi
+    - name: Dispatch Event
+      env:
+        PAT: ${{ secrets.GITHUB_TOKEN }}
+        ENDPOINT: 'https://api.github.com/repos/${{ github.repository }}/dispatches'
+        EVENT_NAME: 'Release'
+      run: |
+        if ! curl -H "Accept: application/vnd.github+json" \
+          -H "Authorization: token $PAT" \
+          --request POST \
+          --data "{ \"event_type\": \"$EVENT_NAME\" }" $ENDPOINT; then
+          echo "⚠️ Warning: Failed to dispatch $EVENT_NAME. Since this triggers the indexer listener, you should dispatch the action manually. If this issue persists, report it internally."
+        else
+          echo "✅ Dispatched event $EVENT_NAME"
+        fi
