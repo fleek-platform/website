@@ -1,11 +1,12 @@
 import '@fleek-platform/agents-ui/styles';
 
-import { useEffect, useState } from 'react';
+import { useEffect } from 'react';
 import { ChatBox, type FileWithPreview } from '@fleek-platform/agents-ui';
 import { useAuthStore } from '@fleek-platform/login-button';
-import { FLEEK_KEY_AGENTS_LEAD, storeFunnelData, clearFunnelData } from '@utils/funnel';
+import { storeFunnelData, clearFunnelData } from '@utils/funnel';
 import { fileToBase64 } from '@utils/file';
 import { clearCookie, setCookie } from '@utils/cookies';
+import { FLEEK_WEBSITE_CHAT_LEAD_KEY } from '@fleek-platform/agents-ui';
 
 const MAX_FILE_SIZE = 10 * 1024 * 1024;
 
@@ -21,7 +22,7 @@ export const ChatToAIAgentDeploy = ({
   useEffect(() => {
     const clear = () => {
       console.log('[debug] clear cookie fleek agents lead')
-      clearCookie(FLEEK_KEY_AGENTS_LEAD);
+      clearCookie(FLEEK_WEBSITE_CHAT_LEAD_KEY);
     };
 
     window.addEventListener('beforeunload', clear);
@@ -50,9 +51,9 @@ export const ChatToAIAgentDeploy = ({
       }))
     };
 
-    setCookie(FLEEK_KEY_AGENTS_LEAD, new Date().toISOString(), 1);
+    setCookie(FLEEK_WEBSITE_CHAT_LEAD_KEY, new Date().toISOString(), 1);
     storeFunnelData({
-      key: 'fleek-xyz-agents-lead',
+      key: FLEEK_WEBSITE_CHAT_LEAD_KEY,
       data,
     });
 
@@ -74,17 +75,19 @@ export const ChatToAIAgentDeploy = ({
   };
 
   return (
-    <div className="agents-ui m-20 text-14">
+    <div className="agents-ui m-20 text-14 w-full">
       {
         isLoggingIn
         ? 'Logging...'
-        : (          
-          <ChatBox
-            onSubmit={onSubmit}
-            onSuccess={onSuccess}
-            onError={onError}
-            maxFileSize={MAX_FILE_SIZE}
-          />
+        : (
+          <div className="mx-auto w-[80rem]">
+            <ChatBox
+              onSubmit={onSubmit}
+              onSuccess={onSuccess}
+              onError={onError}
+              maxFileSize={MAX_FILE_SIZE}
+            />
+          </div>
         )
       }
     </div>
