@@ -49,7 +49,7 @@ const onAuthenticationSuccess = () => {
     return;
   }
 
-  window.location.assign(dashboardUrl);
+  window.location.assign(chatDeployFunnelUrl);
 };
 
 const NavbarMobileItem: React.FC<NavMenuItemRoot> = (props) => {

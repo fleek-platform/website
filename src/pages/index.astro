@@ -20,7 +20,7 @@ import { ChatToAIAgentDeploy } from '@components/ChatToAIAgentDeploy';
   <Navbar pathname={Astro.url.pathname} client:load />
   <ChatToAIAgentDeploy
     client:load
-    personagenEndpoint={import.meta.env.PUBLIC_PERSONAGEN_ENDPOINT}
+    personagenEndpoint={import.meta.env.PUBLIC_GENERATE_ENDPOINT}
     agentsAppUrl={import.meta.env.PUBLIC_UI_AGENTS_APP_URL}
   />
   <Partners />

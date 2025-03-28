@@ -1,3 +1,4 @@
 /dashboard/* /dashboard/index.html 200
 /eliza/* /eliza/index.html 200
 /agents/* /agents/index.html 200
+/agents-experimental/* /agents-experimental/index.html 200

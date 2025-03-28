@@ -76,20 +76,14 @@ export const ChatToAIAgentDeploy = ({
 
   return (
     <div className="agents-ui m-20 text-14 w-full">
-      {
-        isLoggingIn
-        ? 'Logging...'
-        : (
-          <div className="mx-auto w-[80rem]">
-            <ChatBox
-              onSubmit={onSubmit}
-              onSuccess={onSuccess}
-              onError={onError}
-              maxFileSize={MAX_FILE_SIZE}
-            />
-          </div>
-        )
-      }
+      <div className="mx-auto w-[80rem]">
+        <ChatBox
+          onSubmit={onSubmit}
+          onSuccess={onSuccess}
+          onError={onError}
+          maxFileSize={MAX_FILE_SIZE}
+        />
+      </div>
     </div>
   );
 };
