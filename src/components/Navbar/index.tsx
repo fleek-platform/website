@@ -21,11 +21,8 @@ import { useSession } from '@hooks/useSession';
 const dashboardUrl = import.meta.env.PUBLIC_UI_APP_URL;
 
 const onAuthenticationSuccess = () => {
-  if (!isClient) return;
-
-  if (window.location.pathname.startsWith('/eliza')) return;
-
-  window.location.assign(dashboardUrl);
+  // TODO: Auto redirect if the user's initiated
+  // a conversation (agent chat box)
 };
 
 const NavbarMobileItem: React.FC<NavMenuItemRoot> = (props) => {
