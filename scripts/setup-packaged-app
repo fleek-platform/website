@@ -26,7 +26,7 @@ if [[ "$TARGET_ENVIRONMENT" == 'production' ]]; then
   echo "💡 Given release candidate use in staging, the $TARGET_ENVIRONMENT must install release version $version"
 fi
 
-if ! npm i "$packageName@$version"; then
+if ! npm i "$packageName@$version" --save-exact; then
   echo "👹 Oops! Failed to install the $packageName of version $version for some reason..."
 
   exit 1
