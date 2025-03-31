@@ -120,7 +120,6 @@ PUBLIC_BEHIIV_API_KEY=***
 PUBLIC_BEHIIV_SUBSCRIBE_URL=***
 PUBLIC_BEEHIIV_PROXY_SERVER_URL=***
 PUBLIC_GRAPHQL_ENDPOINT="https://graphql.service.fleek.xyz/graphql"
-PUBLIC_FLEEK_REST_API_URL="https://api.fleek.xyz/api/v1"
 PUBLIC_DYNAMIC_ENVIRONMENT_ID="de23a5f0-aaa5-412e-8212-4fb056a3b30d"
 PUBLIC_UI_APP_URL="https://fleek.xyz/dashboard"
 PUBLIC_POSTHOG_HOST="https://us.i.posthog.com"
