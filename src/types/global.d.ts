@@ -13,5 +13,6 @@ declare global {
         properties?: Record<string, string | number | boolean | undefined>,
       ): void;
     };
+    promotekit_referral: string;
   }
 }
