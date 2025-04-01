@@ -16,7 +16,7 @@ export const Hero = () => {
       <div className="flex flex-col justify-center pt-64 text-center">
         <div className="flex flex-col gap-48">
           <div className="flex flex-col gap-36">
-            <div className="flex flex-col gap-24 self-center">
+            <div className="flex flex-col gap-24">
               {settings.site.announcementMarquee.visible && (
                 <BlurFade
                   delay={calculateDelay(0)}
@@ -25,7 +25,7 @@ export const Hero = () => {
                   <Announcement variant="content" />
                 </BlurFade>
               )}
-              <div className="flex max-w-800 flex-col gap-24 pt-12">
+              <div className="flex max-w-800 flex-col gap-24 self-center pt-12">
                 <BlurFade delay={calculateDelay(1)}>
                   <Text as="h1">{settings.landingPage.hero.h1}</Text>
                 </BlurFade>
