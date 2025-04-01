@@ -70,4 +70,4 @@ In an exciting development, Fleek recently added support for t DeepSeek, in addi
 
 - Ai Agent hosting announcement: https://fleek.xyz/blog/announcements/fleek-ai-agent-hosting-eliza-framework/
 - Ai Agents doc: https://fleek.xyz/docs/ai-agents/
-- Deploy an AI Agent guide: https://fleek.xyz/guides/eliza-guide/
+- Deploy an AI Agent guide: https://first_project/
