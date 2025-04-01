@@ -26,6 +26,8 @@ export const buttonVariants = cva(
           'bg-yellow-dark-3 hover:bg-yellow-dark-4 active:bg-yellow-dark-3 text-yellow-dark-11 ring-yellow-dark-8',
         'app-success':
           'bg-ui-green hover:bg-ui-light-green text-ui-faded-green ring-ui-faded-green',
+        'light-outline':
+          'bg-transparent hover:bg-gray-dark-4 active:bg-gray-dark-3 text-white ring-gray-dark-8 border',
       },
       size: {
         sm: 'h-32 gap-4 px-8 rounded-8 text-[1.4rem]',
