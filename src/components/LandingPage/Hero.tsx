@@ -70,7 +70,7 @@ export const Hero = () => {
                     Improve prompt
                   </Button>
                   <Button
-                    variant="secondary"
+                    variant="app-primary"
                     size="sm"
                     disabled
                     className="ml-auto"
