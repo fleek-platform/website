@@ -1,9 +1,9 @@
 export const AgentsVideo = () => {
-	return (
-		<img
-			src="/images/agents-video-preview.jpg"
-			alt="Agents video"
-			className="max-w-[800px] my-100 mx-auto rounded-10"
-		/>
-	);
+  return (
+    <img
+      src="/images/agents-video-preview.jpg"
+      alt="Agents video"
+      className="mx-auto my-100 max-w-[800px] rounded-10"
+    />
+  );
 };
