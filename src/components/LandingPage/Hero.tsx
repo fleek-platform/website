@@ -1,8 +1,6 @@
 import settings from '@base/settings.json';
-import { FaChevronRight, FaPaperPlane } from 'react-icons/fa6';
 import { Announcement } from '../Announcement';
 import { Button } from '../Button';
-import { Target } from '@components/Link';
 import { Text } from './Text';
 import { BlurFade } from './BlurFade';
 import { IoMdArrowForward } from 'react-icons/io';
