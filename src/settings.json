@@ -200,8 +200,8 @@
   },
   "landingPage": {
     "hero": {
-      "h1": "Build and deploy autonomous apps and AI agents",
-      "h2": "Fleek makes it easy to build and deploy next-generation apps and AI agents in minutes on an open-source, verifiable, auto-scalable cloud platform.",
+      "h1": "Create useful AI agents",
+      "h2": "Fleek is the no-code platform for creating AI agents that save you time",
       "primaryCta": "Deploy an agent",
       "secondaryCta": "Read our docs",
       "imageDesktop": "/images/landing-page/hero/hero-desktop.webp",
@@ -231,11 +231,6 @@
       {
         "name": "Berachain",
         "logo": "/images/landing-page/partners/berachain.svg",
-        "caseStudyUrl": ""
-      },
-      {
-        "name": "ENS",
-        "logo": "/images/landing-page/partners/ens.svg",
         "caseStudyUrl": ""
       }
     ]
