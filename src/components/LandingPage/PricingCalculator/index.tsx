@@ -41,7 +41,7 @@ export const PricingCalculator: React.FC = () => {
   };
 
   return (
-    <div className="mx-auto flex flex-col items-center gap-24 px-24 text-center sm:text-left">
+    <div className="mx-auto my-100 flex flex-col items-center gap-24 px-24 text-center sm:text-left">
       <Text>Pricing that just makes sense</Text>
       <Text variant="description">
         Can't find the answer here?{' '}
