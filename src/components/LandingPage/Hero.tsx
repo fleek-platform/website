@@ -1,5 +1,4 @@
 import settings from '@base/settings.json';
-import { FaChevronRight } from 'react-icons/fa6';
 import { Announcement } from '../Announcement';
 import { Button } from '../Button';
 import { Text } from './Text';
@@ -10,6 +9,7 @@ import {
   setReferralQueryKeyValuePair,
 } from '@utils/referrals';
 import { IoMdArrowForward } from 'react-icons/io';
+import { IoAttach, IoColorWand, IoPaperPlane } from 'react-icons/io5';
 
 const calculateDelay = (factor: number) => 0.25 * factor;
 
@@ -55,10 +55,31 @@ export const Hero = () => {
               </div>
             </div>
             <BlurFade delay={calculateDelay(3)}>
-              <textarea
-                className="h-[168px] w-full max-w-[700px] resize-none self-center rounded-8 border border-gray-dark-6 bg-gray-dark-2 p-12 text-14 placeholder:text-neutral-8"
-                placeholder="What do you want your AI agent to do?"
-              />
+              <div className="relative mx-auto h-[168px] w-full max-w-[700px]">
+                <textarea
+                  className="size-full resize-none self-center rounded-8 border border-gray-dark-6 bg-gray-dark-2 p-12 text-14 placeholder:text-neutral-8"
+                  placeholder="What do you want your AI agent to do?"
+                />
+                <div className="absolute bottom-12 left-12 right-12 flex gap-8">
+                  <Button variant="secondary-ghost" size="sm" disabled>
+                    <IoAttach />
+                    Upload
+                  </Button>
+                  <Button variant="secondary-ghost" size="sm" disabled>
+                    <IoColorWand />
+                    Improve prompt
+                  </Button>
+                  <Button
+                    variant="secondary"
+                    size="sm"
+                    disabled
+                    className="ml-auto"
+                  >
+                    <IoPaperPlane />
+                    Create agent
+                  </Button>
+                </div>
+              </div>
             </BlurFade>
           </div>
           <div className="mx-auto flex max-w-[600px] flex-wrap justify-center gap-12">
