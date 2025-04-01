@@ -12,7 +12,7 @@ const { product, developers, company, resources, fleekPlatformOrgUrl } = config;
 
 const Footer: React.FC = () => {
   return (
-    <Container classNameInnerContainer="pb-40">
+    <Container classNameOuterContainer="mt-92" classNameInnerContainer="pb-40">
       <footer className="grid font-plex-sans text-14 text-gray-dark-11 sm:grid-cols-6">
         <div className="col-span-2 mb-24 flex flex-col">
           <img
