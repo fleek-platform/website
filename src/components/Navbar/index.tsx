@@ -24,13 +24,13 @@ const onAuthenticationSuccess = () => {
   if (!isClient) return;
 
   const currentParams = new URLSearchParams(window.location.search);
-  
+
   const targetUrl = new URL(dashboardUrl);
-  
+
   currentParams.forEach((value, key) => {
     targetUrl.searchParams.append(key, value);
   });
-  
+
   window.location.assign(targetUrl.toString());
 };
 
