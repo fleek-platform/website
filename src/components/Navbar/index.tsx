@@ -1,5 +1,5 @@
 import { useEffect } from 'react';
-import { LoginProvider } from '@fleek-platform/login-button';
+import { AuthButton, LoginProvider } from '@fleek-platform/login-button';
 import {
   getAuthenticationMenu,
   navbarMenu,
@@ -14,7 +14,6 @@ import { RxHamburgerMenu } from 'react-icons/rx';
 import { isActivePath } from '@utils/url';
 import { Button } from '../Button';
 import { ProjectDropdown } from './ProjectDropdown/ProjectDropdown';
-import type { Project } from '@fleekxyz/sdk/dist-types/generated/graphqlClient/schema';
 import { isClient } from '../../utils/common';
 import { useSession } from '@hooks/useSession';
 
@@ -443,25 +442,7 @@ const SessionManagementActions: React.FC = () => {
   // `use-sync-external-store` prevent need for all this?
   // placeholder approach to prevent SSR issues
   if (!isClient) {
-    const buttonText = 'Log in';
-
-    return (
-      <>
-        <ButtonContainer
-          showProjectsDropDown={false}
-          userProjects={userProjects || []}
-          activeProjectId={activeProjectId}
-          setActiveProject={setActiveProject}
-          buttonText={buttonText}
-          isLoggingIn={isLoggingIn}
-          isLoggedIn={isLoggedIn}
-          handleLoginClick={handleLoginClick}
-          dashboardAppUrl={dashboardUrl}
-          isLoadingProject={isLoadingProject}
-          handleClick={() => null}
-        />
-      </>
-    );
+    return <ShellButtonContainer />
   }
 
   // TODO: The loading process can be improved
@@ -476,7 +457,7 @@ const SessionManagementActions: React.FC = () => {
         onAuthenticationSuccess={onAuthenticationSuccess}
       >
         {(props) => {
-          const { accessToken, isLoading, error, login, logout } = props;
+          const { login } = props;
 
           // TODO: This should be removed added temporary
           // due to an issue with the expectation for /prices
@@ -486,118 +467,74 @@ const SessionManagementActions: React.FC = () => {
             (window as any).__DYNAMIC_TOGGLE_LOGIN__ = login;
           }
 
-          const handleClick = () => {
-            if (accessToken) {
-              logout();
-            } else {
-              login();
-            }
-          };
-
-          // TODO: Move the button text computations
-          // into the button container scope
-          let buttonText = 'Log in';
-
-          if (error) {
-            buttonText = 'Login failed';
-          } else if (isLoading) {
-            buttonText = 'Loading...';
-          } else if (isLoggedIn) {
-            buttonText = 'Log out';
-          }
-
           return (
             <>
-              <ButtonContainer
-                showProjectsDropDown={!!showProjectsDropDown}
-                userProjects={userProjects || []}
-                activeProjectId={activeProjectId}
-                setActiveProject={setActiveProject}
-                buttonText={buttonText}
-                isLoggingIn={isLoggingIn}
-                isLoggedIn={isLoggedIn}
-                handleLoginClick={handleLoginClick}
-                dashboardAppUrl={dashboardUrl}
-                isLoadingProject={isLoadingProject}
-                handleClick={handleClick}
+              {showProjectsDropDown && (
+                <ProjectDropdown
+                  projects={userProjects || []}
+                  selectedProjectId={activeProjectId}
+                  isLoadingProject={isLoadingProject}
+                  onProjectChange={setActiveProject}
+                />
+              )}
+              {isLoggedIn && (
+                <Button
+                  variant="tertiary"
+                  size="sm"
+                  className="hidden md:flex"
+                  href={dashboardUrl}
+                >
+                  Dashboard
+                </Button>
+              )}
+              <AuthButton
+                size="sm"
+                variant="secondary"
+                ButtonComponent={Button}
+                className="hidden md:flex"
+                text={{
+                  default: 'Log in',
+                  loading: 'Loading...',
+                  error: 'Login failed',
+                  loggedIn: 'Log out'
+                }}
+                {...props}
               />
+              {!isLoggedIn && (
+                <Button
+                  disabled={isLoggingIn}
+                  variant="tertiary"
+                  size="sm"
+                  className="hidden md:flex"
+                  onClick={handleLoginClick}
+                  href={dashboardUrl}
+                >
+                  Sign up
+                </Button>
+              )}
             </>
-          );
+          )
         }}
       </LoginProvider>
     </>
   );
 };
 
-type ButtonContainerProps = {
-  showProjectsDropDown: boolean;
-  userProjects: Project[];
-  activeProjectId: string;
-  setActiveProject: (projectId?: string) => Promise<void>;
-  isLoggedIn: boolean;
-  isLoggingIn: boolean;
-  handleLoginClick: (
-    e?: React.MouseEvent<HTMLButtonElement | HTMLAnchorElement>,
-  ) => void;
-  dashboardAppUrl: string;
-  buttonText: string;
-  isLoadingProject: boolean;
-  handleClick: () => void;
-};
-
-const ButtonContainer: React.FC<ButtonContainerProps> = ({
-  showProjectsDropDown,
-  userProjects,
-  activeProjectId,
-  setActiveProject,
-  isLoggedIn,
-  isLoggingIn,
-  handleLoginClick,
-  dashboardAppUrl,
-  buttonText,
-  isLoadingProject,
-  handleClick,
-}) => {
-  return (
-    <>
-      {showProjectsDropDown && (
-        <ProjectDropdown
-          projects={userProjects}
-          selectedProjectId={activeProjectId}
-          isLoadingProject={isLoadingProject}
-          onProjectChange={setActiveProject}
-        />
-      )}
-      {isLoggedIn && (
-        <Button
-          variant="tertiary"
-          size="sm"
-          className="hidden md:flex"
-          href={dashboardAppUrl}
-        >
-          Dashboard
-        </Button>
-      )}
-      <Button
-        variant="secondary"
-        size="sm"
-        className="hidden md:flex"
-        onClick={handleClick}
-      >
-        {buttonText}
-      </Button>
-      {!isLoggedIn && (
-        <Button
-          disabled={isLoggingIn}
-          variant="tertiary"
-          size="sm"
-          className="hidden md:flex"
-          onClick={handleLoginClick}
-          href={dashboardAppUrl}
-        >
-          Sign up
-        </Button>
-      )}
-    </>
-  );
-};
+const ShellButtonContainer = () => (
+  <>
+    <Button
+      size="sm"
+      variant="secondary"
+      className="hidden md:flex"
+    >
+      Log in
+    </Button>
+    <Button
+      size="sm"
+      variant="tertiary"
+      className="hidden md:flex"
+    >
+      Sign up
+    </Button>
+  </>
+)
