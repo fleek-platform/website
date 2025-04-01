@@ -30,35 +30,6 @@ export type NavMenuItemRoot = NavMenuItem | NavMenuItemSection;
 
 export const navbarMenu: NavMenuItemRoot[] = [
   {
-    label: 'Product',
-    subMenu: [
-      {
-        label: 'AI agent hosting',
-        url: '/agents/',
-        description: 'Build autonomous agents',
-        icon: '/svg/robot.svg',
-      },
-      {
-        label: 'Web app hosting',
-        url: '/docs/platform/hosting',
-        description: 'Host web applications',
-        icon: '/svg/navbar-platform-icon.svg',
-      },
-      {
-        label: 'Fleek Machines',
-        url: '/docs/platform/fleek-machines',
-        description: 'Run lightweight TEE VMs',
-        icon: '/svg/machine.svg',
-      },
-      {
-        label: 'Fleek Functions',
-        url: '/docs/platform/fleek-functions',
-        description: 'Run serverless functions',
-        icon: '/svg/globe-filled.svg',
-      },
-    ],
-  },
-  {
     label: 'Resources',
     subMenu: [
       {
