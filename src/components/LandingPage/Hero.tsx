@@ -50,10 +50,12 @@ export const Hero = () => {
                 </BlurFade>
               </div>
             </div>
-            <textarea
-              className="h-[168px] w-full max-w-[700px] resize-none self-center rounded-8 border border-neutral-6 bg-neutral-2 p-12 text-14 placeholder:text-neutral-8"
-              placeholder="What do you want your AI agent to do?"
-            />
+            <BlurFade delay={calculateDelay(3)}>
+              <textarea
+                className="h-[168px] w-full max-w-[700px] resize-none self-center rounded-8 border border-neutral-6 bg-neutral-2 p-12 text-14 placeholder:text-neutral-8"
+                placeholder="What do you want your AI agent to do?"
+              />
+            </BlurFade>
           </div>
           <div className="mx-auto flex max-w-[600px] flex-wrap justify-center gap-12">
             {Array.from({ length: 7 }).map((item, index) => (
