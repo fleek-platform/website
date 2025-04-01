@@ -24,13 +24,13 @@ const onAuthenticationSuccess = () => {
   if (!isClient) return;
 
   const currentParams = new URLSearchParams(window.location.search);
-  
+
   const targetUrl = new URL(dashboardUrl);
-  
+
   currentParams.forEach((value, key) => {
     targetUrl.searchParams.append(key, value);
   });
-  
+
   window.location.assign(targetUrl.toString());
 };
 
@@ -265,7 +265,7 @@ const NavbarItem: React.FC<NavbarItemProps> = (props) => {
       <Link
         href={props.url}
         className={cn(
-          'flex h-48 cursor-pointer items-center outline-none ring-0 transition-colors hover:text-white focus-visible:bg-gray-dark-3 focus-visible:text-white md:px-14 lg:px-18',
+          'flex h-48 cursor-pointer items-center text-neutral-12 outline-none ring-0 transition-colors hover:text-white focus-visible:bg-gray-dark-3 focus-visible:text-white md:px-12',
           { 'text-white': isActivePage },
         )}
         onFocus={removeHovering}
@@ -283,7 +283,7 @@ const NavbarItem: React.FC<NavbarItemProps> = (props) => {
       <section
         tabIndex={0}
         className={cn(
-          'relative flex h-48 cursor-pointer items-center outline-none ring-0 transition-colors hover:text-white focus-visible:bg-gray-dark-3 focus-visible:text-white md:px-14 lg:px-18',
+          'relative flex h-48 cursor-pointer items-center text-neutral-12 outline-none ring-0 transition-colors hover:text-white focus-visible:bg-gray-dark-3 focus-visible:text-white md:px-12',
           {
             'text-white': isActiveSubMenu,
           },
@@ -365,11 +365,11 @@ export const Navbar: React.FC<NavbarProps> = ({
       <nav
         onMouseLeave={() => setHovering(null)}
         className={cn(
-          'z-20 mx-auto mt-18 flex h-50 w-full max-w-[1000px] items-center justify-between rounded-12 border border-gray-dark-3 bg-gray-dark-1/[.97] pr-12 font-plex-sans text-[1.4rem] font-medium text-gray-dark-11',
+          'z-20 mx-auto mt-18 flex h-50 w-full max-w-[1000px] items-center justify-between rounded-12 pr-12 font-plex-sans text-[1.4rem] font-medium text-gray-dark-11',
           className,
         )}
       >
-        <div className="flex items-center gap-12 lg:gap-24">
+        <div className="flex items-center gap-6">
           <Link
             tabIndex={0}
             href="/"
@@ -379,8 +379,8 @@ export const Navbar: React.FC<NavbarProps> = ({
           >
             <img
               src="/svg/fleek-logo.svg"
-              width={66}
-              height={25}
+              width={75}
+              height={30}
               alt="fleek logo"
             />
           </Link>
@@ -502,7 +502,7 @@ const SessionManagementActions: React.FC = () => {
 
           // TODO: Move the button text computations
           // into the button container scope
-          let buttonText = 'Log in';
+          let buttonText = 'Sign in';
 
           if (error) {
             buttonText = 'Login failed';
@@ -585,7 +585,7 @@ const ButtonContainer: React.FC<ButtonContainerProps> = ({
         </Button>
       )}
       <Button
-        variant="secondary"
+        variant="light-outline"
         size="sm"
         className="hidden md:flex"
         onClick={handleClick}
