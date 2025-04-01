@@ -13,6 +13,7 @@ const textVariants = cva([], {
       feature:
         'font-plex-sans text-[1.2rem] font-medium uppercase tracking-[0.256rem] text-gray-dark-11',
       paragraph: 'font-plex-sans text-[1.4rem] text-gray-dark-11',
+      tertiary: 'font-plex-sans text-[1.4rem] text-gray-dark-12 font-medium',
     },
   },
   defaultVariants: {
