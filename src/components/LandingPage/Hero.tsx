@@ -5,10 +5,24 @@ import { Button } from '../Button';
 import { Target } from '@components/Link';
 import { Text } from './Text';
 import { BlurFade } from './BlurFade';
+import { useAuthStore } from '@fleek-platform/login-button';
 
 const calculateDelay = (factor: number) => 0.25 * factor;
 
 export const Hero = () => {
+  const { isLoggedIn, triggerLoginModal } = useAuthStore();
+
+  const onDeployAgentCTA = () => {
+    if (!isLoggedIn) {
+      typeof triggerLoginModal === 'function' &&
+      triggerLoginModal(true);
+
+      return;
+    }
+
+    window.location.href = import.meta.env.PUBLIC_UI_AGENTS_APP_URL;
+  }
+  
   return (
     <header className="relative mx-auto w-full max-w-[1048px] px-24">
       <div className="pointer-events-none absolute -left-320 -top-1/2 -z-1 h-800 w-800 bg-[radial-gradient(closest-side,rgb(34_34_34_/0.85),transparent)] sm:-left-304 sm:-top-240 sm:h-400" />
@@ -29,7 +43,7 @@ export const Hero = () => {
           </BlurFade>
           <div className="flex items-center gap-12">
             <BlurFade delay={calculateDelay(3)}>
-              <Button href="/eliza/">
+              <Button href="#" onClick={onDeployAgentCTA}>
                 {settings.landingPage.hero.primaryCta}
               </Button>
             </BlurFade>
