@@ -56,7 +56,7 @@ export const Hero = () => {
             </div>
             <BlurFade delay={calculateDelay(3)}>
               <textarea
-                className="h-[168px] w-full max-w-[700px] resize-none self-center rounded-8 border border-neutral-6 bg-neutral-2 p-12 text-14 placeholder:text-neutral-8"
+                className="h-[168px] w-full max-w-[700px] resize-none self-center rounded-8 border border-gray-dark-6 bg-gray-dark-2 p-12 text-14 placeholder:text-neutral-8"
                 placeholder="What do you want your AI agent to do?"
               />
             </BlurFade>
