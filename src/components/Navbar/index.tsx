@@ -21,8 +21,17 @@ import { useSession } from '@hooks/useSession';
 const dashboardUrl = import.meta.env.PUBLIC_UI_APP_URL;
 
 const onAuthenticationSuccess = () => {
-  // TODO: Auto redirect if the user's initiated
-  // a conversation (agent chat box)
+  if (!isClient) return;
+
+  const currentParams = new URLSearchParams(window.location.search);
+  
+  const targetUrl = new URL(dashboardUrl);
+  
+  currentParams.forEach((value, key) => {
+    targetUrl.searchParams.append(key, value);
+  });
+  
+  window.location.assign(targetUrl.toString());
 };
 
 const NavbarMobileItem: React.FC<NavMenuItemRoot> = (props) => {
