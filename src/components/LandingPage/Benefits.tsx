@@ -15,7 +15,7 @@ export const Benefits = () => {
   return (
     <div className="mx-auto flex max-w-[800px] flex-col items-center py-100 text-center">
       <Badge>
-        <IoThumbsUp />
+        <IoThumbsUp className="size-16" />
         Benefits
       </Badge>
       <Text className="pt-24">

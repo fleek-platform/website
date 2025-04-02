@@ -6,7 +6,7 @@ export const Features = () => {
   return (
     <div className="mx-auto flex max-w-[800px] flex-col items-center py-100 text-center">
       <Badge>
-        <IoGrid />
+        <IoGrid className="size-16" />
         Features
       </Badge>
       <Text className="pt-24">

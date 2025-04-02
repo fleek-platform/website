@@ -144,7 +144,7 @@ export const Templates = () => {
   return (
     <div className="flex flex-col items-center px-24 py-100 text-center">
       <Badge>
-        <IoGrid />
+        <IoGrid className="size-16" />
         Templates
       </Badge>
       <Text className="max-w-[600px] pt-24">

@@ -13,7 +13,7 @@ export const SecurityInMind: React.FC = () => {
   return (
     <div className="mx-auto flex flex-col items-center gap-24 px-24 py-100 text-center sm:text-left">
       <Badge>
-        <IoShieldCheckmark />
+        <IoShieldCheckmark className="size-16" />
         Security
       </Badge>
       <Text className="max-w-[600px] text-center">

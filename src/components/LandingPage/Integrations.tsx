@@ -40,7 +40,7 @@ export const Integrations = () => {
   return (
     <div className="mx-auto flex flex-col items-center py-100 text-center">
       <Badge>
-        <IoExtensionPuzzle />
+        <IoExtensionPuzzle className="size-16" />
         Integrations
       </Badge>
       <Text className="pt-24">
