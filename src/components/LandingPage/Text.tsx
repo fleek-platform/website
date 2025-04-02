@@ -6,7 +6,7 @@ const textVariants = cva([], {
   variants: {
     variant: {
       title:
-        'text-balance font-sans text-[3.6rem] font-semibold leading-[1.125] -tracking-2 text-gray-dark-12 md:text-[5.2rem]',
+        'text-balance font-sans text-[3.6rem] font-semibold leading-[1.125] text-gray-dark-12',
       subtitle: 'font-plex-sans text-[1.8rem] text-gray-dark-12 font-semibold',
       description:
         'text-balance font-plex-sans text-[1.8rem] font-medium text-gray-dark-11',
