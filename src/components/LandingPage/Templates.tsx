@@ -3,6 +3,7 @@ import {
   IoBriefcase,
   IoBulb,
   IoCopy,
+  IoGrid,
   IoHappy,
   IoHelpCircle,
   IoStatsChart,
@@ -10,6 +11,7 @@ import {
 import type { IconType } from 'react-icons/lib';
 import 'keen-slider/keen-slider.min.css';
 import { useKeenSlider } from 'keen-slider/react';
+import { Badge } from './Badge';
 
 const categories = [
   'FUN',
@@ -140,7 +142,11 @@ export const Templates = () => {
 
   return (
     <div className="flex flex-col items-center px-24 py-100 text-center">
-      <p className="max-w-[600px] font-sans text-36 font-semibold text-neutral-12">
+      <Badge>
+        <IoGrid />
+        Templates
+      </Badge>
+      <p className="max-w-[600px] pt-24 text-36 font-semibold text-neutral-12">
         <span className="text-yellow">Get started</span> with an agent using our
         expertly-crafted templates
       </p>
