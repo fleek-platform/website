@@ -6,6 +6,7 @@ const {
   statusURl,
   mediaKit,
   fleekNetworkWebsiteUrl,
+  affiliatesUrl,
 } = settings.site.resources;
 
 const { fleekPlatformOrgUrl } = settings.github;
@@ -111,6 +112,12 @@ export default {
     {
       text: 'Report abuse',
       url: reportAbuseUrl,
+      target: '_blank',
+      rel: 'noopener noreferrer',
+    },
+    {
+      text: 'Affiliates',
+      url: affiliatesUrl,
       target: '_blank',
       rel: 'noopener noreferrer',
     },
