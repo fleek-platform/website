@@ -43,7 +43,7 @@ export const PricingCalculator: React.FC = () => {
   return (
     <div className="mx-auto flex flex-col items-center gap-24 px-24 py-100 text-center sm:text-left">
       <Text>Pricing that just makes sense</Text>
-      <Text variant="description">
+      <Text variant="description" className="font-normal">
         Can't find the answer here?{' '}
         <Link
           href={settings.support.resources.newRequest}
