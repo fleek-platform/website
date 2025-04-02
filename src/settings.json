@@ -209,28 +209,28 @@
     },
     "partners": [
       {
-        "name": "Polygon",
-        "logo": "/images/landing-page/partners/polygon.svg",
+        "name": "Coinbase",
+        "logo": "/images/landing-page/partners/coinbase.png",
         "caseStudyUrl": ""
       },
       {
-        "name": "Filecoin",
-        "logo": "/images/landing-page/partners/filecoin.svg",
+        "name": "Polychain Capital",
+        "logo": "/images/landing-page/partners/polychaincapital.png",
         "caseStudyUrl": ""
       },
       {
-        "name": "Velodrome",
-        "logo": "/images/landing-page/partners/velodrome.svg",
+        "name": "DCG",
+        "logo": "/images/landing-page/partners/dcg.png",
         "caseStudyUrl": ""
       },
       {
-        "name": "Protocol Labs",
-        "logo": "/images/landing-page/partners/protocollabs.svg",
+        "name": "Eliza OS",
+        "logo": "/images/landing-page/partners/elizaos.png",
         "caseStudyUrl": ""
       },
       {
-        "name": "Berachain",
-        "logo": "/images/landing-page/partners/berachain.svg",
+        "name": "Venice",
+        "logo": "/images/landing-page/partners/venice.png",
         "caseStudyUrl": ""
       }
     ],
