@@ -9,7 +9,14 @@ type PartnerProps = {
 };
 
 const Partner: React.FC<PartnerProps> = ({ name, logo }) => {
-  return <img src={logo} alt={name} loading="lazy" />;
+  return (
+    <img
+      src={logo}
+      alt={name}
+      loading="lazy"
+      className="scale-[.65] sm:scale-100"
+    />
+  );
 };
 
 export const Partners: React.FC = () => {
@@ -19,7 +26,7 @@ export const Partners: React.FC = () => {
       <h3 className="mt-48 max-w-480 text-balance text-center font-plex-sans text-20 font-medium leading-tight text-gray-dark-11 sm:text-18">
         Trusted by industry leaders and developers
       </h3>
-      <div className="mt-36 grid w-full max-w-[650px] grid-cols-2 items-center justify-center gap-46 sm:grid-cols-5">
+      <div className="mt-36 grid w-full max-w-[650px] grid-cols-2 items-center justify-center gap-24 sm:grid-cols-5 sm:gap-46">
         {settings.landingPage.partners.map((partner) => (
           <Partner key={partner.name} {...partner} />
         ))}

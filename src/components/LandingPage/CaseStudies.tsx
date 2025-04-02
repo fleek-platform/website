@@ -62,6 +62,7 @@ export const CaseStudies: React.FC = () => {
               className="hidden sm:block"
               width={218}
               height={168}
+              loading="lazy"
             />
           </div>
           <div className="flex rounded-8 border border-gray-dark-6 bg-gray-dark-1">
@@ -83,6 +84,7 @@ export const CaseStudies: React.FC = () => {
               className="hidden sm:block"
               width={218}
               height={168}
+              loading="lazy"
             />
           </div>
         </div>

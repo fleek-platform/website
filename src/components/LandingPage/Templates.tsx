@@ -155,7 +155,7 @@ export const Templates = () => {
         No need to start from scratch. Customize 100+ templates.
       </p>
 
-      <div className="mt-24 flex gap-8">
+      <div className="mt-24 flex flex-wrap justify-center gap-8">
         {categories.map((item) => (
           <CategoryButton key={item} category={item} />
         ))}

@@ -13,7 +13,7 @@ import { Text } from './Text';
 
 export const Benefits = () => {
   return (
-    <div className="mx-auto flex max-w-[800px] flex-col items-center py-48 text-center sm:py-100">
+    <div className="mx-auto flex max-w-[800px] flex-col items-center px-24 py-48 text-center sm:py-100">
       <Badge>
         <IoThumbsUp className="size-16" />
         Benefits
@@ -26,7 +26,7 @@ export const Benefits = () => {
         focus on what matters.
       </p>
 
-      <div className="mt-36 grid grid-cols-3 gap-24 text-start">
+      <div className="mt-36 grid gap-24 text-start sm:grid-cols-3">
         <CardWithIcon
           title="Make money"
           description="Use agents to find leads, convert users, or even run micro-businesses while you sleep."
