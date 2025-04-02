@@ -36,31 +36,7 @@ export const Hero = () => {
               </div>
             </div>
             <BlurFade delay={calculateDelay(3)}>
-              <div className="relative mx-auto h-[168px] w-full max-w-[700px]">
-                <textarea
-                  className="size-full resize-none self-center rounded-8 border border-gray-dark-6 bg-gray-dark-2 p-12 text-14 placeholder:text-neutral-8"
-                  placeholder="What do you want your AI agent to do?"
-                />
-                <div className="absolute bottom-12 left-12 right-12 flex gap-8">
-                  <Button variant="secondary-ghost" size="sm" disabled>
-                    <IoAttach />
-                    Upload
-                  </Button>
-                  <Button variant="secondary-ghost" size="sm" disabled>
-                    <IoColorWand />
-                    Improve prompt
-                  </Button>
-                  <Button
-                    variant="app-primary"
-                    size="sm"
-                    disabled
-                    className="ml-auto"
-                  >
-                    <IoPaperPlane />
-                    Create agent
-                  </Button>
-                </div>
-              </div>
+              <CreateAgentTextarea />
             </BlurFade>
           </div>
           <div className="mx-auto flex max-w-[600px] flex-wrap justify-center gap-12">
@@ -80,5 +56,30 @@ export const Hero = () => {
         </div>
       </div>
     </header>
+  );
+};
+
+export const CreateAgentTextarea = () => {
+  return (
+    <div className="relative mx-auto h-[168px] w-full max-w-[700px]">
+      <textarea
+        className="size-full resize-none self-center rounded-8 border border-gray-dark-6 bg-gray-dark-2 p-12 text-14 placeholder:text-neutral-8"
+        placeholder="What do you want your AI agent to do?"
+      />
+      <div className="absolute bottom-12 left-12 right-12 flex gap-8">
+        <Button variant="secondary-ghost" size="sm" disabled>
+          <IoAttach />
+          Upload
+        </Button>
+        <Button variant="secondary-ghost" size="sm" disabled>
+          <IoColorWand />
+          Improve prompt
+        </Button>
+        <Button variant="app-primary" size="sm" disabled className="ml-auto">
+          <IoPaperPlane />
+          Create agent
+        </Button>
+      </div>
+    </div>
   );
 };
