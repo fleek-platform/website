@@ -15,6 +15,7 @@ jobs:
   build-dry-run:
     runs-on: ubuntu-latest
     env:
+      DOPPLER_TOKEN: ${{ secrets.DOPPLER_TOKEN }} 
       PRIVATE_MEILISEARCH_DOCUMENTS_ADMIN_API_KEY: dry.run
       PUBLIC_MEILISEARCH_DOCUMENTS_CLIENT_API_KEY: dry.run
       PUBLIC_MEILISEARCH_HOST: dry.run
@@ -38,6 +39,26 @@ jobs:
         with:
           node-version: 18
           cache: 'npm'
+
+      - name: Install Doppler CLI
+        uses: dopplerhq/cli-action@v3
+
+      - name: Setup Doppler
+        run: |
+          doppler configure set token "$DOPPLER_TOKEN"
+
+      - name: Env vars health check
+        run: |
+          if ! doppler run -- printenv | grep -q 'NEXT_PUBLIC_SDK__AUTHENTICATION_URL'; then
+            echo "👹 Oops! Missing required environment variable during health check..."
+            exit 1           
+          fi
+
+          echo "🚑 Doppler envVars seem healthy!"
+
+      - name: Setup dotenv
+        run: |
+          scripts/setup-ci-dotenv
 
       - name: Install
         run: npm ci
