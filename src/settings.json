@@ -232,6 +232,28 @@
         "logo": "/images/landing-page/partners/berachain.svg",
         "caseStudyUrl": ""
       }
+    ],
+    "LLMs": [
+      {
+        "name": "OpenAI",
+        "logo": "/images/landing-page/llms/openai.png",
+        "caseStudyUrl": ""
+      },
+      {
+        "name": "DeepSeek",
+        "logo": "/images/landing-page/llms/deepseek.png",
+        "caseStudyUrl": ""
+      },
+      {
+        "name": "Claude",
+        "logo": "/images/landing-page/llms/claude.png",
+        "caseStudyUrl": ""
+      },
+      {
+        "name": "Grok",
+        "logo": "/images/landing-page/llms/grok.png",
+        "caseStudyUrl": ""
+      }
     ]
   },
   "docs": {
