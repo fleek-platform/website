@@ -20,7 +20,7 @@ import { MultiUse } from '@components/LandingPage/MultiUse';
 
 <LandingPageHtml>
   <AnnouncementModal pathname={Astro.url.pathname} client:only="react" />
-  <Navbar pathname={Astro.url.pathname} client:load />
+  <Navbar pathname={Astro.url.pathname} variant="fixed" client:load />
   <Hero client:load />
   <Partners />
   <AgentsVideo />
