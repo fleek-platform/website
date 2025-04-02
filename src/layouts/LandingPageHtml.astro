@@ -10,7 +10,7 @@ const canonicalUrl = generateCanonicalUrl();
 ---
 
 <!doctype html>
-<html lang="en">
+<html lang="en" class="h-auto">
   <head>
     <meta charset="UTF-8" />
     <meta
@@ -200,6 +200,10 @@ const canonicalUrl = generateCanonicalUrl();
   >
     <div
       class="pointer-events-none absolute left-0 top-0 h-[50vw] w-full bg-[radial-gradient(ellipse_60%_60%_at_top,rgba(255,230,41,0.25)_0%,transparent_100%)] sm:h-[30vw]"
+    >
+    </div>
+    <div
+      class="pointer-events-none absolute bottom-[374px] left-0 h-[50vw] w-full bg-[radial-gradient(ellipse_60%_60%_at_bottom,rgba(255,230,41,0.25)_0%,transparent_100%)] sm:h-[30vw]"
     >
     </div>
     <slot />
