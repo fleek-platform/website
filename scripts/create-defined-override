@@ -1,0 +1,33 @@
+#!/bin/bash
+
+if [[ -z "$1" ]]; then
+  echo "👹 Oops! Missing argument for the application distribution path..."
+
+  exit 1
+fi
+
+targetAppDistPath="$1"
+tempJson="dump.json"
+definedOverridesJson="defined_overrides.json"
+
+echo "🤖 Will attempt to generate $definedOverridesJson for $targetAppDistPath..."
+
+if ! doppler secrets download \
+  --no-file \
+  --format=json > "$tempJson"; then
+  echo "👹 Oops! Failed to get doppler's data..."
+
+  exit 1
+fi
+
+cat "$tempJson" | jq 'with_entries(select(.key | startswith("NEXT_PUBLIC_") or startswith("PUBLIC_")))' > "$definedOverridesJson"
+
+if ! rm "$tempJson"; then
+  echo "⚠️Warning: Failed to delete $tempJson"
+fi
+
+echo "💡 Created $definedOverridesJson which content is:"
+cat "$definedOverridesJson"
+
+echo
+echo "✅ Completed defined override setup!"
