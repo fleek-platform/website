@@ -8,7 +8,7 @@ import { Target } from '@components/Link';
 
 export const CaseStudies: React.FC = () => {
   return (
-    <div className="mx-auto flex flex-col items-center gap-24 px-24 py-100 sm:text-left">
+    <div className="mx-auto flex flex-col items-center gap-24 px-24 py-48 sm:py-100 sm:text-left">
       <Badge>
         <IoBook className="size-16" />
         Case studies
@@ -17,7 +17,7 @@ export const CaseStudies: React.FC = () => {
         How companies are using Fleek to{' '}
         <span className="text-yellow-dark-11">boost their business</span>
       </Text>
-      <Text variant="description" className="font-normal">
+      <Text variant="description" className="text-center">
         Join others in making the agents to ease your life.
       </Text>
       <div className="grid w-full max-w-[800px] gap-24 pt-24 md:grid-cols-3">
@@ -44,7 +44,7 @@ export const CaseStudies: React.FC = () => {
         </div>
         <div className="flex flex-col gap-24 md:col-span-2">
           <div className="flex rounded-8 border border-gray-dark-6 bg-gray-dark-1">
-            <div className="flex flex-col justify-between p-16">
+            <div className="flex flex-1 flex-col justify-between gap-24 p-16 sm:gap-0">
               <div className="flex flex-col gap-8">
                 <Text variant="subtitle">ElizaOS</Text>
                 <Text variant="paragraph">
@@ -59,12 +59,13 @@ export const CaseStudies: React.FC = () => {
             <img
               alt="ElizaOS"
               src="/images/case-studies/eliza.png"
+              className="hidden sm:block"
               width={218}
               height={168}
             />
           </div>
           <div className="flex rounded-8 border border-gray-dark-6 bg-gray-dark-1">
-            <div className="flex flex-col justify-between p-16">
+            <div className="flex flex-1 flex-col justify-between gap-24 p-16 sm:gap-0">
               <div className="flex flex-col gap-8">
                 <Text variant="subtitle">Venice</Text>
                 <Text variant="paragraph">
@@ -79,6 +80,7 @@ export const CaseStudies: React.FC = () => {
             <img
               alt="ElizaOS"
               src="/images/case-studies/venice.png"
+              className="hidden sm:block"
               width={218}
               height={168}
             />

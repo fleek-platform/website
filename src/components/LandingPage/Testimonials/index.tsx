@@ -5,7 +5,7 @@ import { TESTIMONIALS } from './config';
 
 export const Testimonials: React.FC = () => {
   return (
-    <div className="mx-auto flex flex-col items-center gap-24 px-24 py-100 sm:text-left">
+    <div className="mx-auto flex flex-col items-center gap-24 px-24 py-48 sm:py-100 sm:text-left">
       <Badge>
         <IoStar className="size-16" />
         Testimonials
@@ -13,7 +13,7 @@ export const Testimonials: React.FC = () => {
       <Text className="max-w-[580px] text-center">
         Why users <span className="text-yellow-dark-11">love using Fleek</span>
       </Text>
-      <Text variant="description" className="font-normal">
+      <Text variant="description" className="text-center">
         Join others in making the agents to ease your life.
       </Text>
       <div className="grid w-full max-w-[800px] gap-24 pt-12 md:grid-cols-3">

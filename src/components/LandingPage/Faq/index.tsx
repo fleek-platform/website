@@ -55,7 +55,7 @@ const Item: React.FC<ItemProps> = ({ item }) => {
 
 export const Faq: React.FC = () => {
   return (
-    <div className="mx-auto flex flex-col items-center gap-24 px-24 py-100 text-center sm:text-left">
+    <div className="mx-auto flex flex-col items-center gap-24 px-24 py-48 text-center sm:py-100 sm:text-left">
       <Text>Frequently asked questions</Text>
       <Text variant="description" className="font-normal">
         Can't find the answer here?{' '}

@@ -11,7 +11,7 @@ import { Text } from './Text';
 
 export const MultiUse = () => {
   return (
-    <div className="flex flex-col items-center px-24 py-100 text-center">
+    <div className="flex flex-col items-center px-24 py-48 text-center sm:py-100">
       <Badge>
         <IoBrowsers className="size-16" />
         Multi-use

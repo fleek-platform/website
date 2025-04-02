@@ -4,7 +4,7 @@ import { Text } from './Text';
 
 export const Features = () => {
   return (
-    <div className="mx-auto flex max-w-[800px] flex-col items-center py-100 text-center">
+    <div className="mx-auto flex max-w-[800px] flex-col items-center py-48 text-center sm:py-100">
       <Badge>
         <IoGrid className="size-16" />
         Features

@@ -2,7 +2,7 @@ import type { PropsWithChildren } from 'react';
 
 export const IdeaToAgentSteps = () => {
   return (
-    <div className="flex flex-col py-100 text-center">
+    <div className="flex flex-col py-48 text-center sm:py-100">
       <p className="font-sans text-36 font-semibold text-neutral-12">
         Idea to agent in <span className="text-yellow">three steps</span>
       </p>

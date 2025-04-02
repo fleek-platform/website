@@ -38,7 +38,7 @@ export const Integrations = () => {
   const rightScroll = useTransform(scrollYProgress, [0, 1], [0, -200]);
 
   return (
-    <div className="mx-auto flex flex-col items-center py-100 text-center">
+    <div className="mx-auto flex flex-col items-center py-48 text-center sm:py-100">
       <Badge>
         <IoExtensionPuzzle className="size-16" />
         Integrations

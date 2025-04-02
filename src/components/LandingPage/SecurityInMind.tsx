@@ -11,7 +11,7 @@ import { Badge } from './Badge';
 
 export const SecurityInMind: React.FC = () => {
   return (
-    <div className="mx-auto flex flex-col items-center gap-24 px-24 py-100 text-center sm:text-left">
+    <div className="mx-auto flex flex-col items-center gap-24 px-24 py-48 text-center sm:py-100 sm:text-left">
       <Badge>
         <IoShieldCheckmark className="size-16" />
         Security
@@ -23,7 +23,7 @@ export const SecurityInMind: React.FC = () => {
       <Text variant="description" className="font-normal">
         Join others in making the agents to ease your life.
       </Text>
-      <div className="grid max-w-[800px] grid-cols-3 gap-24 pt-24">
+      <div className="grid max-w-[800px] gap-24 pt-24 sm:grid-cols-3">
         <CardWithIcon
           title="No training on your data"
           description="Your data remains private and is never utilized for model training purposes."
