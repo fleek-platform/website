@@ -23,7 +23,7 @@ prepareDependencyFiles \
   "$TARGET_ENVIRONMENT" \
   "public/dashboard" \
   "@fleek-platform/dashboard" \
-  "out/dashboard"
+  "out"
 
 prepareDependencyFiles \
   "$TARGET_ENVIRONMENT" \
