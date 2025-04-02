@@ -11,10 +11,10 @@ import type { IconType } from 'react-icons/lib';
 export const Benefits = () => {
   return (
     <div className="mx-auto flex max-w-[800px] flex-col items-center py-100 text-center">
-      <p className="max-w-[600px] text-36 font-semibold text-neutral-12">
+      <p className="max-w-[600px] font-sans text-36 font-semibold text-neutral-12">
         What agents can do <span className="text-yellow">for you</span>
       </p>
-      <p className="mt-24 text-18 text-neutral-11">
+      <p className="mt-24 max-w-[600px] text-18 text-neutral-11">
         Work smarter, move faster, and let agents handle the grind so you can
         focus on what matters.
       </p>
