@@ -1,9 +1,13 @@
+import type { IconType } from 'react-icons/lib';
+import { MdHandshake } from 'react-icons/md';
+import settings from '@base/settings.json';
+
 const dashboardUrl = import.meta.env.PUBLIC_UI_APP_URL;
 
 type NavMenuItemBase = {
   label: string;
   description?: string;
-  icon?: string;
+  icon?: string | IconType;
   openInNewTab?: boolean;
 };
 
@@ -101,6 +105,13 @@ export const navbarMenu: NavMenuItemRoot[] = [
         url: '/support/',
         description: 'Get help',
         icon: '/svg/community-navbar-icon.svg',
+      },
+      {
+        label: 'Affiliates',
+        url: settings.site.resources.affiliatesUrl,
+        description: 'Earn with Fleek',
+        icon: MdHandshake,
+        openInNewTab: true,
       },
     ],
   },
