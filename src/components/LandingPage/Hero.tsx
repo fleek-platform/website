@@ -11,7 +11,6 @@ const calculateDelay = (factor: number) => 0.25 * factor;
 export const Hero = () => {
   return (
     <header className="relative mx-auto w-full max-w-[1048px] px-24 pt-80">
-      <div className="pointer-events-none absolute -left-320 -top-1/2 -z-1 h-800 w-800 bg-[radial-gradient(closest-side,rgb(34_34_34_/0.85),transparent)] sm:-left-304 sm:-top-240 sm:h-400" />
       <div className="flex flex-col justify-center pt-64 text-center">
         <div className="flex flex-col gap-48">
           <div className="flex flex-col gap-36">
