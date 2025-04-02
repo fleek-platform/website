@@ -14,7 +14,7 @@ const Partner: React.FC<PartnerProps> = ({ name, logo }) => {
       src={logo}
       alt={name}
       loading="lazy"
-      className="scale-[.65] sm:scale-100"
+      className="scale-[.65] last:col-span-2 last:mx-auto sm:scale-100 sm:last:col-span-1"
     />
   );
 };
