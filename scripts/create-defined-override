@@ -8,9 +8,9 @@ fi
 
 targetAppDistPath="$1"
 tempJson="dump.json"
-definedOverridesJson="defined_overrides.json"
+definedOverridesJson="$targetAppDistPath/defined_overrides.json"
 
-echo "🤖 Will attempt to generate $definedOverridesJson for $targetAppDistPath..."
+echo "🤖 Will attempt to generate $definedOverridesJson..."
 
 if ! doppler secrets download \
   --no-file \
