@@ -20,7 +20,7 @@ export const SecurityInMind: React.FC = () => {
         We keep <span className="text-yellow-dark-11">security in mind</span>{' '}
         for working with AI agents
       </Text>
-      <Text variant="description">
+      <Text variant="description" className="font-normal">
         Join others in making the agents to ease your life.
       </Text>
       <div className="grid max-w-[800px] grid-cols-3 gap-24 pt-24">
