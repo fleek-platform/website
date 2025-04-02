@@ -31,6 +31,3 @@ cat "$definedOverridesJson"
 
 echo
 echo "✅ Completed defined override setup!"
-
-echo "[debug] ls -la: targetAppDistPath = $targetAppDistPath"
-ls -la "$targetAppDistPath"
