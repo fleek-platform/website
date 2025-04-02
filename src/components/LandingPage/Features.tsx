@@ -1,5 +1,6 @@
 import { IoGrid } from 'react-icons/io5';
 import { Badge } from './Badge';
+import { Text } from './Text';
 
 export const Features = () => {
   return (
@@ -8,12 +9,12 @@ export const Features = () => {
         <IoGrid />
         Features
       </Badge>
-      <p className="max-w-[600px] pt-24 text-36 font-semibold text-neutral-12">
+      <Text className="pt-24">
         Fleek lets you <span className="text-yellow">easily create</span> the
         agent you've always wanted
-      </p>
+      </Text>
 
-      <div className="mt-36 flex gap-16 text-start">
+      <div className="flex gap-16 pt-36 text-start">
         <div className="flex flex-col rounded-10 bg-gradient-to-br from-neutral-2 to-neutral-1">
           <div className="mx-18 mb-auto mt-18">
             <p className="text-18 font-bold text-neutral-12">

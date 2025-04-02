@@ -1,6 +1,9 @@
 import { motion, useScroll, useTransform } from 'framer-motion';
 import { useRef } from 'react';
 import { shuffle } from 'lodash-es';
+import { Text } from './Text';
+import { Badge } from './Badge';
+import { IoExtensionPuzzle } from 'react-icons/io5';
 
 const integrations = [
   '/images/integrations/apple.png',
@@ -36,11 +39,15 @@ export const Integrations = () => {
 
   return (
     <div className="mx-auto flex flex-col items-center py-100 text-center">
-      <p className="max-w-[600px] font-sans text-36 font-semibold text-neutral-12">
+      <Badge>
+        <IoExtensionPuzzle />
+        Integrations
+      </Badge>
+      <Text className="pt-24">
         Integrate with the
         <br />
         <span className="text-yellow">tools you use every day</span>
-      </p>
+      </Text>
       <p className="mt-24 max-w-[600px] text-18 text-neutral-11">
         Whatever your agent's workflow looks like—whether it's for work or just
         personal stuff—we've got the integrations to help make it happen.

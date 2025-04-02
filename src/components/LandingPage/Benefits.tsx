@@ -9,6 +9,7 @@ import {
 } from 'react-icons/io5';
 import { CardWithIcon } from './CardWithIcon';
 import { Badge } from './Badge';
+import { Text } from './Text';
 
 export const Benefits = () => {
   return (
@@ -17,9 +18,9 @@ export const Benefits = () => {
         <IoThumbsUp />
         Benefits
       </Badge>
-      <p className="max-w-[600px] pt-24 text-36 font-semibold text-neutral-12">
+      <Text className="pt-24">
         What agents can do <span className="text-yellow">for you</span>
-      </p>
+      </Text>
       <p className="mt-24 max-w-[600px] text-18 text-neutral-11">
         Work smarter, move faster, and let agents handle the grind so you can
         focus on what matters.

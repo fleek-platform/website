@@ -12,6 +12,7 @@ import type { IconType } from 'react-icons/lib';
 import 'keen-slider/keen-slider.min.css';
 import { useKeenSlider } from 'keen-slider/react';
 import { Badge } from './Badge';
+import { Text } from './Text';
 
 const categories = [
   'FUN',
@@ -146,10 +147,10 @@ export const Templates = () => {
         <IoGrid />
         Templates
       </Badge>
-      <p className="max-w-[600px] pt-24 text-36 font-semibold text-neutral-12">
+      <Text className="max-w-[600px] pt-24">
         <span className="text-yellow">Get started</span> with an agent using our
         expertly-crafted templates
-      </p>
+      </Text>
       <p className="mt-24 text-18 text-neutral-11">
         No need to start from scratch. Customize 100+ templates.
       </p>
