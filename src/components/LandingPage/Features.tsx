@@ -1,12 +1,20 @@
+import { IoGrid } from 'react-icons/io5';
+import { Badge } from './Badge';
+import { Text } from './Text';
+
 export const Features = () => {
   return (
     <div className="mx-auto flex max-w-[800px] flex-col items-center py-100 text-center">
-      <p className="max-w-[600px] font-sans text-36 font-semibold text-neutral-12">
+      <Badge>
+        <IoGrid />
+        Features
+      </Badge>
+      <Text className="pt-24">
         Fleek lets you <span className="text-yellow">easily create</span> the
         agent you've always wanted
-      </p>
+      </Text>
 
-      <div className="mt-36 flex gap-16 text-start">
+      <div className="flex gap-16 pt-36 text-start">
         <div className="flex flex-col rounded-10 bg-gradient-to-br from-neutral-2 to-neutral-1">
           <div className="mx-18 mb-auto mt-18">
             <p className="text-18 font-bold text-neutral-12">
