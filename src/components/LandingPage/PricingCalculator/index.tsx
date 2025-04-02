@@ -41,7 +41,7 @@ export const PricingCalculator: React.FC = () => {
   };
 
   return (
-    <div className="mx-auto flex flex-col items-center gap-24 px-24 py-100 text-center sm:text-left">
+    <div className="mx-auto flex w-full flex-col items-center gap-24 px-24 py-100 text-center sm:text-left">
       <Text>Pricing that just makes sense</Text>
       <Text variant="description" className="font-normal">
         Can't find the answer here?{' '}
@@ -54,7 +54,7 @@ export const PricingCalculator: React.FC = () => {
         </Link>
         .
       </Text>
-      <div className="mt-24 flex w-full flex-col gap-20 rounded-8 border border-gray-dark-6 bg-gray-dark-1 p-16">
+      <div className="mt-24 flex w-full max-w-[800px] flex-col gap-20 rounded-8 border border-gray-dark-6 bg-gray-dark-1 p-16">
         <div className="flex flex-col gap-8">
           <Text variant="tertiary">Type of agent</Text>
           <div className="flex flex-wrap items-center gap-8 *:flex-1">
