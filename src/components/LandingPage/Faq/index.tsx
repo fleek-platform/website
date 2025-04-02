@@ -68,7 +68,7 @@ export const Faq: React.FC = () => {
         </Link>
         .
       </Text>
-      <div className="mt-24 flex w-full max-w-screen-md flex-col overflow-hidden rounded-8 border border-gray-dark-6 bg-gray-dark-1">
+      <div className="mt-24 flex w-full max-w-[800px] flex-col overflow-hidden rounded-8 border border-gray-dark-6 bg-gray-dark-1">
         {FAQ_ITEMS.map((item) => (
           <Item key={item.question} item={item} />
         ))}
