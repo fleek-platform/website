@@ -46,3 +46,4 @@ dev_*
 public/dashboard/
 public/agents/
 public/eliza/
+public/**/defined_overrides.json
