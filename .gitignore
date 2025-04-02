@@ -45,3 +45,4 @@ dev_*
 # external apps
 public/dashboard/
 public/agents/
+public/eliza/
