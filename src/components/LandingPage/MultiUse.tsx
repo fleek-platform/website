@@ -42,7 +42,7 @@ export const MultiUse = () => {
 
       <div className="neutral-1 mt-56 grid w-full max-w-[800px] place-content-center rounded-10 border border-neutral-6 bg-neutral-1 bg-[radial-gradient(#2e2e2e_1px,transparent_1px)] bg-[length:24px_24px] p-8 py-40">
         <img
-          src="/images/agent-chat-widget.png"
+          src="/images/landing-page/agent-chat-widget.png"
           alt="Embed widget agent chat"
           width={265}
         />
