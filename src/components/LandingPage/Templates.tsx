@@ -140,7 +140,7 @@ export const Templates = () => {
 
   return (
     <div className="flex flex-col items-center px-24 py-100 text-center">
-      <p className="max-w-[600px] text-36 font-semibold text-neutral-12">
+      <p className="max-w-[600px] font-sans text-36 font-semibold text-neutral-12">
         <span className="text-yellow">Get started</span> with an agent using our
         expertly-crafted templates
       </p>
