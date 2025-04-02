@@ -13,6 +13,7 @@ import { Faq } from '@components/LandingPage/Faq';
 import { Features } from '@components/LandingPage/Features';
 import { LLMs } from '@components/LandingPage/LLMs';
 import { Benefits } from '@components/LandingPage/Benefits';
+import { Integrations } from '@components/LandingPage/Integrations';
 ---
 
 <LandingPageHtml>
@@ -26,6 +27,7 @@ import { Benefits } from '@components/LandingPage/Benefits';
   <Features />
   <LLMs />
   <Benefits />
+  <Integrations client:load />
   <Faq client:load />
   <PricingCalculator client:load />
   <Footer />
