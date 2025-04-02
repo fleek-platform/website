@@ -53,4 +53,12 @@ if ! rsync -va "$sourcePath/" "$targetPath"; then
   exit 1
 fi
 
+echo "🤖 Override App defined"
+if ! ./scripts/create-defined-override \
+  "$targetPath"; then
+  echo "👹 Oops! Failed to create defined overrides for $targetPath for some reason..."
+
+  exit 1
+fi
+
 echo "✅ Completed the $packageName setup!"
