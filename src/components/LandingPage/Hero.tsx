@@ -45,7 +45,9 @@ export const Hero = () => {
               )}
               <div className="flex max-w-800 flex-col gap-24 self-center pt-12">
                 <BlurFade delay={calculateDelay(1)}>
-                  <Text as="h1">{settings.landingPage.hero.h1}</Text>
+                  <h1 className="font-sans text-52 font-semibold text-neutral-12">
+                    {settings.landingPage.hero.h1}
+                  </h1>
                 </BlurFade>
                 <BlurFade delay={calculateDelay(2)}>
                   <Text variant="description" as="h2">
