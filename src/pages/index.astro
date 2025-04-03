@@ -21,6 +21,10 @@ import { Testimonials } from '@components/LandingPage/Testimonials';
 ---
 
 <LandingPageHtml>
+  <div
+    class="pointer-events-none absolute left-0 top-0 h-[50vw] w-full bg-[radial-gradient(ellipse_60%_60%_at_top,rgba(255,230,41,0.25)_0%,transparent_100%)] sm:h-[30vw]"
+  >
+  </div>
   <AnnouncementModal pathname={Astro.url.pathname} client:only="react" />
   <Navbar pathname={Astro.url.pathname} variant="fixed" client:load />
   <Hero client:load />
@@ -38,5 +42,11 @@ import { Testimonials } from '@components/LandingPage/Testimonials';
   <SecurityInMind />
   <Faq client:load />
   <PricingCalculator client:load />
-  <Footer />
+  <div class="relative">
+    <div
+      class="pointer-events-none absolute bottom-0 top-0 h-[50vw] w-full -translate-y-full bg-[radial-gradient(ellipse_60%_60%_at_bottom,rgba(255,230,41,0.25)_0%,transparent_100%)] sm:h-[30vw]"
+    >
+    </div>
+    <Footer />
+  </div>
 </LandingPageHtml>
