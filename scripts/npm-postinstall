@@ -7,10 +7,16 @@ prepareDependencyFiles() {
   local targetPublicAppPath="$2"
   local pkgName="$3"
   local pkgDirOutDir="$4"
+  local envVarsPrefix="$5"
 
   echo "🤖 Must prepare Dashboard files for environment $targetEnvironment..."
 
-  if ! scripts/setup-packaged-app "$targetEnvironment" "$targetPublicAppPath" "$pkgName" "$pkgDirOutDir"; then
+  if ! scripts/setup-packaged-app \
+    "$targetEnvironment" \
+    "$targetPublicAppPath" \
+    "$pkgName" \
+    "$pkgDirOutDir" \
+    "$envVarsPrefix"; then
     echo "👹 Oops! Failed to setup the $pkgName files for some reason..."
 
     exit 1
