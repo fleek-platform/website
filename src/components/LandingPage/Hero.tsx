@@ -59,20 +59,22 @@ export const Hero = () => {
               <CreateAgentTextarea />
             </BlurFade>
           </div>
-          <div className="mx-auto flex max-w-[600px] flex-wrap justify-center gap-12">
-            {Array.from({ length: 7 }).map((item, index) => (
-              <Button
-                // biome-ignore lint/suspicious/noArrayIndexKey: <explanation>
-                key={index}
-                variant="secondary-ghost"
-                size="sm"
-                className="shrink-0 rounded-full"
-              >
-                Data Detective
-                <IoMdArrowForward className="size-16" />
-              </Button>
-            ))}
-          </div>
+          <BlurFade delay={calculateDelay(4)}>
+            <div className="mx-auto flex max-w-[600px] flex-wrap justify-center gap-12">
+              {Array.from({ length: 7 }).map((item, index) => (
+                <Button
+                  // biome-ignore lint/suspicious/noArrayIndexKey: <explanation>
+                  key={index}
+                  variant="secondary-ghost"
+                  size="sm"
+                  className="shrink-0 rounded-full"
+                >
+                  Data Detective
+                  <IoMdArrowForward className="size-16" />
+                </Button>
+              ))}
+            </div>
+          </BlurFade>
         </div>
       </div>
     </header>
