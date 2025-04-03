@@ -7,6 +7,7 @@ TARGET_ENVIRONMENT="$1"
 TARGET_PUBLIC_APP_PATH="$2"
 PACKAGE_NAME="$3"
 PACKAGE_DIST_OUTPUT_DIR="$4"
+ENV_VARS_PREFIX="$5"
 
 if [[ -z "$TARGET_ENVIRONMENT" || -z "$TARGET_PUBLIC_APP_PATH" || -z "$PACKAGE_NAME" || -z "$PACKAGE_DIST_OUTPUT_DIR" ]]; then
   echo "👹 Oops! Missing environment variables"
@@ -19,6 +20,7 @@ targetPath="$TARGET_PUBLIC_APP_PATH"
 pkgJson="package.json"
 pkgJsonTemp="$pkgJson.bak"
 version=$(jq ".dependencies[\"$packageName\"]" "$pkgJson" | tr -d '"^')
+envVarsPrefix="$ENV_VARS_PREFIX"
 
 if [[ "$TARGET_ENVIRONMENT" == 'production' ]]; then
   version=$(jq ".dependencies[\"$packageName\"] |= sub(\"-rc.*\"; "")" package.json | jq ".dependencies[\"$packageName\"]" | tr -d '"^')
@@ -55,7 +57,8 @@ fi
 
 echo "🤖 Override App defined"
 if ! ./scripts/create-defined-override \
-  "$targetPath"; then
+  "$targetPath" \
+  "$envVarsPrefix"; then
   echo "👹 Oops! Failed to create defined overrides for $targetPath for some reason..."
 
   exit 1

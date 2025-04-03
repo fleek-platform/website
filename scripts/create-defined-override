@@ -1,12 +1,13 @@
 #!/bin/bash
 
-if [[ -z "$1" ]]; then
-  echo "👹 Oops! Missing argument for the application distribution path..."
+if [[ -z "$1" || -z "$2" ]]; then
+  echo "👹 Oops! Missing argument for the application distribution path ($1) or env vars prefix ($2)..."
 
   exit 1
 fi
 
 targetAppDistPath="$1"
+envVarsPrefix="$2"
 tempJson="dump.json"
 definedOverridesJson="$targetAppDistPath/defined_overrides.json"
 
@@ -20,7 +21,7 @@ if ! doppler secrets download \
   exit 1
 fi
 
-cat "$tempJson" | jq 'with_entries(select(.key | startswith("NEXT_PUBLIC_") or startswith("PUBLIC_")))' > "$definedOverridesJson"
+cat "$tempJson" | jq "with_entries(select(.key | startswith(\"$envVarsPrefix\") ))" > "$definedOverridesJson"
 
 if ! rm "$tempJson"; then
   echo "⚠️Warning: Failed to delete $tempJson"

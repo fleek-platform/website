@@ -23,10 +23,12 @@ prepareDependencyFiles \
   "$TARGET_ENVIRONMENT" \
   "public/dashboard" \
   "@fleek-platform/dashboard" \
-  "out"
+  "out" \
+  "NEXT_"
 
 prepareDependencyFiles \
   "$TARGET_ENVIRONMENT" \
   "public/eliza" \
   "@fleek-platform/agents-ui" \
-  "dist"
+  "dist" \
+  "PUBLIC_"
