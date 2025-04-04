@@ -24,7 +24,7 @@ export const Hero = () => {
       return;
     }
 
-    window.location.href = `${import.meta.env.PUBLIC_UI_AGENTS_APP_URL}?${getReferralQueryKeyValuePair('agents')}`;
+    window.location.href = import.meta.env.PUBLIC_UI_AGENTS_APP_URL;
   };
 
   return (
