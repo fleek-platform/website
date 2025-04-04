@@ -3,31 +3,12 @@ import { Announcement } from '../Announcement';
 import { Button } from '../Button';
 import { Text } from './Text';
 import { BlurFade } from './BlurFade';
-import { useAuthStore } from '@fleek-platform/login-button';
-import {
-  getReferralQueryKeyValuePair,
-  setReferralQueryKeyValuePair,
-} from '@utils/referrals';
 import { IoMdArrowForward } from 'react-icons/io';
 import { IoAttach, IoColorWand, IoPaperPlane } from 'react-icons/io5';
 
 const calculateDelay = (factor: number) => 0.25 * factor;
 
 export const Hero = () => {
-  const { isLoggedIn, triggerLoginModal } = useAuthStore();
-
-  const onDeployAgentCTA = () => {
-    if (!isLoggedIn) {
-      setReferralQueryKeyValuePair('agents');
-
-      typeof triggerLoginModal === 'function' && triggerLoginModal(true);
-
-      return;
-    }
-
-    window.location.href = import.meta.env.PUBLIC_UI_AGENTS_APP_URL;
-  };
-
   return (
     <header className="relative mx-auto w-full max-w-[1048px] px-24 pt-42 sm:pt-80">
       <div className="flex flex-col justify-center pt-64 text-center">
