@@ -25,7 +25,7 @@ To begin interacting with your AI agent using the **Agent Chat Feature**, follow
 
 1. **Access the AI Agent Chat Panel**
 
-   - Go to [fleek.xyz/eliza](https://fleek.xyz/eliza) and log in to your Fleek account.
+   - Go to [fleek.xyz/agents](https://fleek.xyz/agents) and log in to your Fleek account.
 
 2. **Select Your AI Agent**
 
@@ -61,6 +61,6 @@ To begin interacting with your AI agent using the **Agent Chat Feature**, follow
 
 ## Use Cases
 
-The Agent Chat Feature is useful for various AI applications. You can start by deploying from the many AI agents templates that we have at [fleek.xyz/eliza](https://fleek.xyz/eliza)
+The Agent Chat Feature is useful for various AI applications. You can start by deploying from the many AI agents templates that we have at [fleek.xyz/agents](https://fleek.xyz/agents)
 
 This feature ensures that AI agents deployed on Fleek provide high-quality interactions, making it easier than ever to build, refine, and optimize AI-powered solutions.

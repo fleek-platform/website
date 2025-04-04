@@ -75,7 +75,7 @@ Our platform supports the evolution from single agents to complex interconnected
 
 The launch of Fleek AI Agent Hosting marks a significant milestone in AI development. We invite developers to join us in shaping the future of AI agent deployment. Together, we're creating an environment where security, simplicity, and scalability enable unprecedented possibilities.
 
-Visit [fleek.xyz/eliza](https://fleek.xyz/eliza/) to begin deploying AI agents with enhanced security, simplified processes and scalable infrastructure.
+Visit [fleek.xyz/agents](https://fleek.xyz/agents/) to begin deploying AI agents with enhanced security, simplified processes and scalable infrastructure.
 
 ### **What’s To Come?**
 

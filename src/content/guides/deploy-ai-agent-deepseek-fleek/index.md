@@ -99,7 +99,7 @@ Now that we have both **DeepSeek and Discord credentials**, it’s time to **cus
 
 ## **Step 3: Customize Your AI Agent’s Personality**
 
-Now that we have all the keys ready, it’s time to give your AI agent its unique personality. Head over to [**fleek.xyz/eliza/**](https://fleek.xyz/eliza/) and choose the option **“Start with a Template.”** For this guide, we’ll use the pre-designed **Dobby** template to create a fun, engaging AI agent.
+Now that we have all the keys ready, it’s time to give your AI agent its unique personality. Head over to [**fleek.xyz/agents/**](https://fleek.xyz/agents/) and choose the option **“Start with a Template.”** For this guide, we’ll use the pre-designed **Dobby** template to create a fun, engaging AI agent.
 
 ### **Customizing Your AI Agent**
 

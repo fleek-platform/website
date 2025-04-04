@@ -71,7 +71,7 @@ For teams deploying multiple agents at scale, **Fleek’s enterprise pricing mod
 
 ![](./discord.png)
 
-**Try Fleek AI Agent Hosting today: https://fleek.xyz/eliza/**
+**Try Fleek AI Agent Hosting today: https://fleek.xyz/agents/**
 
 ---
 
@@ -91,5 +91,5 @@ Fleek is building that foundation—an infrastructure that blends speed, cost-ef
 
 **AI agents are not just an evolution; they are a revolution. And Fleek is the infrastructure powering their future.**
 
-- Start today: https://fleek.xyz/eliza/
+- Start today: https://fleek.xyz/agents/
 - Explore our API docs: https://fleek.xyz/docs/ai-agents/agents-apis/

@@ -79,5 +79,5 @@ Remote attestation is no longer optional—it’s a necessity for securing cloud
 Leverage Fleek’s remote attestation technology to enhance security across your digital ecosystem.
 
 📖 Read the docs: https://fleek.xyz/docs/ai-agents/remote_attestation/
-🚀 Deploy an AI agent or secure your workloads: https://fleek.xyz/eliza/
+🚀 Deploy an AI agent or secure your workloads: https://fleek.xyz/agents/
 🔒 [Sign up for Fleek Machines early access](https://fleek.typeform.com/machinesaccess)

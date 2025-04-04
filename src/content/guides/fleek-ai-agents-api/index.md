@@ -20,7 +20,7 @@ To use the API, you need an X-Api-Key. Follow these steps to retrieve it:
 
 To get an API key:
 
-1. Go to the [fleek.xyz/eliza](https://fleek.xyz/eliza/) page. Click on the "Account settings" button at the bottom of the page.
+1. Go to the [fleek.xyz/agents](https://fleek.xyz/agents/) page. Click on the "Account settings" button at the bottom of the page.
 
 2. The "API tokens" tab lists all your managed API keys.
 

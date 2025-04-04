@@ -73,7 +73,7 @@ You’ll need this token when deploying your agent on Fleek.
 
 Now that we have our API keys, it’s time to **personalize your AI agent** and configure it to work on Telegram.
 
-1. **Go to [fleek.xyz/eliza/](https://fleek.xyz/eliza/)**
+1. **Go to [fleek.xyz/agents/](https://fleek.xyz/agents/)**
 2. Click **"Start with a Template."**
 3. **Choose the "Social Pack" Template**
    - This template is designed for **social media chatbots**, making it the best choice for a Telegram AI agent.
@@ -168,6 +168,6 @@ With Fleek and OpenAI, deploying AI agents has never been easier. **Ready, set, 
 
 ### **Want to Deploy AI Even Faster?**
 
-Explore more **templates** on [Fleek Eliza](https://fleek.xyz/eliza/) and launch your next AI project in seconds.
+Explore more **templates** on [Fleek Eliza](https://fleek.xyz/agents/) and launch your next AI project in seconds.
 
 ---

@@ -14,7 +14,7 @@ We’re excited to announce the launch of Fleek AI agent hosting with full suppo
 
 ## Eliza AI agent deployment
 
-With Fleek, deploying Eliza-based AI agents is seamless. Whether you’re setting up AI researchers, chatbot assistants, or social media responders. Go to [fleek.xyz/eliza](https://fleek.xyz/eliza/) where you can use any of three deployment options:
+With Fleek, deploying Eliza-based AI agents is seamless. Whether you’re setting up AI researchers, chatbot assistants, or social media responders. Go to [fleek.xyz/agents](https://fleek.xyz/agents/) where you can use any of three deployment options:
 
 1. [Manually enter details [⚡ : no developer experience needed]](https://fleek.xyz/guides/eliza-guide#manually-enter-agent-details)
 2. [Use a predefined template [⚡ : no developer experience needed]](https://fleek.xyz/guides/eliza-guide#use-a-predefined-template)

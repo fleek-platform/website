@@ -113,7 +113,7 @@ export const pricingCards: PricingInfo[] = [
     ],
     cta: 'Start hosting now',
     variant: 'primary',
-    url: '/eliza/',
+    url: '/agents/',
   },
   {
     title: 'Enterprise Solutions',

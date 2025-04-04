@@ -69,7 +69,7 @@ Imagine creating a governance bot for a DAO with Eliza and deploying it on Fleek
 
 But Fleek’s impact doesn’t stop there. Its user-friendly interface and intuitive deployment tools make it possible for non-technical users to bring AI agents to life. By lowering the barrier to entry, Fleek democratizes access to AI technology, ensuring that intelligent agents are no longer confined to the realm of developers. Now, anyone can create, customize, and deploy an AI agent, unlocking endless possibilities for individuals and businesses alike.
 
-Try Fleek: https://fleek.xyz/eliza/
+Try Fleek: https://fleek.xyz/agents/
 
 ### **Reflections on Eliza’s Legacy and Future**
 

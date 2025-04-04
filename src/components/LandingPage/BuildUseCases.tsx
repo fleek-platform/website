@@ -17,7 +17,7 @@ const BuildUseCases: React.FC = () => (
               'Deploy Eliza agents in one click. Leverage TEEs for autonomy, verifiability and privacy.',
             icon: { src: '/svg/react-icon.svg', alt: 'React App' },
             cta: {
-              url: 'https://fleek.xyz/eliza/',
+              url: 'https://fleek.xyz/agents/',
               text: 'try it',
             },
             image: '/svg/eliza.svg',
