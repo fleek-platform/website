@@ -2,10 +2,13 @@ import settings from '@base/settings.json';
 import { FaChevronRight } from 'react-icons/fa6';
 import { Announcement } from '../Announcement';
 import { Button } from '../Button';
-import { Target } from '@components/Link';
 import { Text } from './Text';
 import { BlurFade } from './BlurFade';
 import { useAuthStore } from '@fleek-platform/login-button';
+import {
+  getReferralQueryKeyValuePair,
+  setReferralQueryKeyValuePair,
+} from '@utils/referrals';
 
 const calculateDelay = (factor: number) => 0.25 * factor;
 
@@ -14,12 +17,14 @@ export const Hero = () => {
 
   const onDeployAgentCTA = () => {
     if (!isLoggedIn) {
+      setReferralQueryKeyValuePair('agents');
+
       typeof triggerLoginModal === 'function' && triggerLoginModal(true);
 
       return;
     }
 
-    window.location.href = import.meta.env.PUBLIC_UI_AGENTS_APP_URL;
+    window.location.href = `${import.meta.env.PUBLIC_UI_AGENTS_APP_URL}?${getReferralQueryKeyValuePair('agents')}`;
   };
 
   return (

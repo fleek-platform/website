@@ -17,6 +17,7 @@ import { ProjectDropdown } from './ProjectDropdown/ProjectDropdown';
 import type { Project } from '@fleekxyz/sdk/dist-types/generated/graphqlClient/schema';
 import { isClient } from '../../utils/common';
 import { useSession } from '@hooks/useSession';
+import { isReferralNamed } from '@utils/referrals';
 
 const dashboardUrl = import.meta.env.PUBLIC_UI_APP_URL;
 
@@ -25,11 +26,15 @@ const onAuthenticationSuccess = () => {
 
   const currentParams = new URLSearchParams(window.location.search);
 
-  const targetUrl = new URL(dashboardUrl);
+  let targetUrl = new URL(dashboardUrl);
 
   currentParams.forEach((value, key) => {
     targetUrl.searchParams.append(key, value);
   });
+
+  if (isReferralNamed('agents')) {
+    targetUrl = import.meta.env.PUBLIC_UI_AGENTS_APP_URL;
+  }
 
   window.location.assign(targetUrl.toString());
 };
