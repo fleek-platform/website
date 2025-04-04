@@ -13,6 +13,9 @@ jobs:
     defaults:
       run:
         shell: bash
+    environment: 'staging'
+    env:
+      DOPPLER_TOKEN: ${{ secrets.DOPPLER_TOKEN }} 
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
@@ -23,6 +26,26 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: '20'
+
+      - name: Install Doppler CLI
+        uses: dopplerhq/cli-action@v3
+
+      - name: Setup Doppler
+        run: |
+          doppler configure set token "$DOPPLER_TOKEN"
+
+      - name: Env vars health check
+        run: |
+          if ! doppler run -- printenv | grep -q 'NEXT_PUBLIC_SDK__AUTHENTICATION_URL'; then
+            echo "👹 Oops! Missing required environment variable during health check..."
+            exit 1           
+          fi
+
+          echo "🚑 Doppler envVars seem healthy!"
+
+      - name: Setup dotenv
+        run: |
+          scripts/setup-ci-dotenv
 
       - name: Install dependencies
         run: npm ci
