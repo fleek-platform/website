@@ -34,7 +34,9 @@ const Hero = () => {
       isTextCenter
     >
       <div className="mb-48 flex flex-wrap items-center justify-center gap-12 font-plex-sans md:mb-96">
-        <Button href="#" onClick={onDeployAgentCTA}>{settings.agentsPage.hero.primaryCta}</Button>
+        <Button href="#" onClick={onDeployAgentCTA}>
+          {settings.agentsPage.hero.primaryCta}
+        </Button>
         {/* <Button variant="secondary" href="#">
           {settings.agentsPage.hero.secondaryCta}
         </Button> */}
@@ -46,11 +48,11 @@ const Hero = () => {
       <CardsList cards={heroCards} />
     </Section>
   );
-}
+};
 
 const AgentsModule = {
   NewsletterModal: () => <NewsletterModal />,
-  Hero: () => (<Hero />),
+  Hero: () => <Hero />,
   Customize: () => (
     <Section
       title={settings.agentsPage.customize.title}

@@ -1,10 +1,7 @@
 import { useCallback } from 'react';
 import { useAuthStore } from '@fleek-platform/login-button';
 
-import {
-  setReferralQueryKeyValuePair,
-} from '@utils/referrals';
-
+import { setReferralQueryKeyValuePair } from '@utils/referrals';
 
 export const useLoginWithAgentsCTA = () => {
   const { isLoggedIn, triggerLoginModal } = useAuthStore();
