@@ -5,7 +5,7 @@ const referralKeyName = 'referral';
 export const getReferralQueryKeyValuePair = (name: ReferralName) =>
   `${referralKeyName}=${name}`;
 
-export const isReferralNamed = (name: ReferralName) => {
+export const isReferralName = (name: ReferralName) => {
   const urlParams = new URLSearchParams(window.location.search);
 
   if (!urlParams.has(referralKeyName)) return false;

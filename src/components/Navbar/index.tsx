@@ -14,10 +14,10 @@ import { RxHamburgerMenu } from 'react-icons/rx';
 import { isActivePath } from '@utils/url';
 import { Button } from '../Button';
 import { ProjectDropdown } from './ProjectDropdown/ProjectDropdown';
-import type { Project } from '@fleekxyz/sdk/dist-types/generated/graphqlClient/schema';
+import type { Project } from '@fleek-platform/sdk/browser';
 import { isClient } from '../../utils/common';
 import { useSession } from '@hooks/useSession';
-import { isReferralNamed } from '@utils/referrals';
+import { isReferralName } from '@utils/referrals';
 
 const dashboardUrl = import.meta.env.PUBLIC_UI_APP_URL;
 
@@ -32,7 +32,7 @@ const onAuthenticationSuccess = () => {
     targetUrl.searchParams.append(key, value);
   });
 
-  if (isReferralNamed('agents')) {
+  if (isReferralName('agents')) {
     targetUrl = import.meta.env.PUBLIC_UI_AGENTS_APP_URL;
   }
 
