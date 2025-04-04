@@ -4,28 +4,12 @@ import { Announcement } from '../Announcement';
 import { Button } from '../Button';
 import { Text } from './Text';
 import { BlurFade } from './BlurFade';
-import { useAuthStore } from '@fleek-platform/login-button';
-import {
-  getReferralQueryKeyValuePair,
-  setReferralQueryKeyValuePair,
-} from '@utils/referrals';
+import { useLoginWithAgentsCTA } from '@hooks/useLoginWithAgentsCTA';
 
 const calculateDelay = (factor: number) => 0.25 * factor;
 
 export const Hero = () => {
-  const { isLoggedIn, triggerLoginModal } = useAuthStore();
-
-  const onDeployAgentCTA = () => {
-    if (!isLoggedIn) {
-      setReferralQueryKeyValuePair('agents');
-
-      typeof triggerLoginModal === 'function' && triggerLoginModal(true);
-
-      return;
-    }
-
-    window.location.href = import.meta.env.PUBLIC_UI_AGENTS_APP_URL;
-  };
+  const { onDeployAgentCTA } = useLoginWithAgentsCTA();
 
   return (
     <header className="relative mx-auto w-full max-w-[1048px] px-24">
