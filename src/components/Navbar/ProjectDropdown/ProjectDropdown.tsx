@@ -84,7 +84,7 @@ export const ProjectDropdown: React.FC<ProjectDropdownProps> = ({
       <DropdownMenu.Trigger
         disabled={isLoadingProject}
         className={cn(
-          'flex h-[34px] w-fit flex-row justify-center gap-8 rounded-8 bg-neutral-1 p-4',
+          'flex h-[34px] w-fit flex-row justify-center gap-8 rounded-8 border border-neutral-8 p-4',
           'font-medium text-neutral-12 hover:bg-neutral-2 focus-visible:outline-none',
           'disabled:cursor-not-allowed disabled:opacity-50 disabled:hover:bg-neutral-1',
         )}
