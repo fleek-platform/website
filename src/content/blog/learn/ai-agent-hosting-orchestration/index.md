@@ -130,7 +130,7 @@ AI agents do not have to face challenges in achieving seamless hosting, orchestr
 
 With just Fleek’s one-click deployment, watch your AI agents enjoy a simplified deployment process, high scalability and performance, verifiable and secure execution environment, integration without complex setup and affordable cost.
 
-**Start today:** https://fleek.xyz/eliza/
+**Start today:** https://fleek.xyz/agents/
 
 **Resources:**
 

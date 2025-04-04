@@ -19,7 +19,7 @@ Fleek now supports **real-time AI agent chat**, enabling users to interact with 
 
 ### How to Chat with Your AI Agent
 
-1. Select the AI agent you want to interact with at [fleek.xyz/eliza](https://fleek.xyz/eliza).
+1. Select the AI agent you want to interact with at [fleek.xyz/agents](https://fleek.xyz/agents).
 2. Navigate to the **Agent chat** tab.
 3. Type a message in the chatbox and press enter.
 4. Your AI agent will respond immediately, allowing you to refine interactions dynamically.
@@ -38,7 +38,7 @@ Currently, Fleek supports specific Eliza versions: [Eliza v0.25.9](https://eliza
 
 When preparing to deploy an AI agent on Fleek, you can select the Eliza version by:
 
-1. Visiting [fleek.xyz/eliza/](https://fleek.xyz/eliza/).
+1. Visiting [fleek.xyz/agents/](https://fleek.xyz/agents/).
 2. Using the **drop-down toggle** to select the desired version.
 3. Proceeding with one of the [three deployment options](/docs/ai-agents/#deploy-ai-agents).
 
@@ -52,7 +52,7 @@ Generating API tokens for Fleek’s [AI agents APIs](/docs/ai-agents/agents-apis
 
 **Steps to generate an API key:**
 
-1. Visit the [Eliza deployment page](https://fleek.xyz/eliza) and click **Account settings** at the bottom.
+1. Visit the [Eliza deployment page](https://fleek.xyz/agents) and click **Account settings** at the bottom.
 2. Navigate to the **API Tokens** tab to view all your generated API keys.
 3. Click **Create API Token**. A pop-up should show up requesting to enter a name for your key and a confirmation.
 

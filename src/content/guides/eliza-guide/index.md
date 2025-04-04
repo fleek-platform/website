@@ -117,7 +117,7 @@ This file specifies “TechAI” as an AI researcher who focuses on practical AI
 
 ## Getting started
 
-Go to [fleek.xyz/eliza](https://fleek.xyz/eliza/) where you’ll see three deployment options:
+Go to [fleek.xyz/agents](https://fleek.xyz/agents/) where you’ll see three deployment options:
 
 1. [Manually enter details [⚡ : no developer experience needed]](/guides/eliza-guide#manually-enter-agent-details)
 2. [Use a predefined template [⚡ : no developer experience needed]](/guides/eliza-guide#use-a-predefined-template)

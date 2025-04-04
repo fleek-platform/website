@@ -64,7 +64,7 @@ DeepSeek’s rise signifies a shift in AI development—moving from exclusivity 
 
 In an exciting development, Fleek recently added support for t DeepSeek, in addition to existing support for OpenAI and other leading LLM’s, allowing users to deploy their own AI agents powered by DeepSeek’s advanced models. This integration will provide developers with seamless access to cost-efficient AI solutions, further strengthening DeepSeek’s impact in the industry and making AI development more accessible than ever.
 
-**You can try to deploy your AI agent instantly [here.](https://fleek.xyz/eliza/)**
+**You can try to deploy your AI agent instantly [here.](https://fleek.xyz/agents/)**
 
 **More resources:**
 
