@@ -1,7 +1,7 @@
 // TODO: Should the @fleek-platform/login-button
 // provide the user projects drop-down? Seems likely
 import { useState, useEffect } from 'react';
-import type { Project } from '@fleekxyz/sdk/dist-types/generated/graphqlClient/schema';
+import type { Project } from '@fleek-platform/sdk/browser';
 import toast from 'react-hot-toast';
 import { useAuthStore } from '@fleek-platform/login-button';
 
