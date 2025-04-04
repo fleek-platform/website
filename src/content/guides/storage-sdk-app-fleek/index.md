@@ -87,7 +87,7 @@ Populate the `server.js` file with the code below:
 
 ```tsx
 
-import { FleekSdk, PersonalAccessTokenService } from '@fleekxyz/sdk';
+import { FleekSdk, PersonalAccessTokenService } from '@fleek-platform/sdk';
 import { filesFromPaths } from 'files-from-path'
 import express from 'express';
 import multer from 'multer';
@@ -226,7 +226,7 @@ app.get('/list-files', async (req, res) => {
 Our full `server.js` file should look like this
 
 ```tsx
-import { FleekSdk, PersonalAccessTokenService } from '@fleekxyz/sdk';
+import { FleekSdk, PersonalAccessTokenService } from '@fleek-platform/sdk';
 import { filesFromPaths } from 'files-from-path';
 import express from 'express';
 import multer from 'multer';
