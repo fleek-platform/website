@@ -1,4 +1,8 @@
-import { FleekSdk, ApplicationAccessTokenService, type IpfsFile  } from '@fleek-platform/sdk/browser';
+import {
+  FleekSdk,
+  ApplicationAccessTokenService,
+  type IpfsFile,
+} from '@fleek-platform/sdk/browser';
 
 // type IpfsFile = { content: File; path: string; };
 
