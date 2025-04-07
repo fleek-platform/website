@@ -150,10 +150,8 @@
     "resources": {
       "careersUrl": "https://wellfound.com/company/fleekhq",
       "reportAbuseUrl": "https://fleek.xyz/requests/report-site/",
-      "reportTemplateAbuseUrl": "https://support.fleek.xyz/hc/en-us/requests/new?ticket_form_id=20459864851469",
       "fleekNetworkWebsiteUrl": "https://fleek.network",
       "discordFleekCommunityUrl": "https://discord.gg/fleek",
-      "supportExternalUrl": "https://support.fleek.xyz/hc/en-us",
       "arweaveUrl": "https://www.arweave.org",
       "ipfsUrl": "https://ipfs.tech/",
       "statusURl": "https://status.fleek.xyz/",
