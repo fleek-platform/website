@@ -4,9 +4,12 @@ import { Button } from '../Button';
 import { Text } from './Text';
 import { BlurFade } from './BlurFade';
 import { IoMdArrowForward } from 'react-icons/io';
-import { IoAttach, IoColorWand, IoPaperPlane } from 'react-icons/io5';
+import { ChatToAIAgentDeploy } from '@components/ChatToAIAgentDeploy';
 
 const calculateDelay = (factor: number) => 0.25 * factor;
+
+const personagenEndpoint = import.meta.env.PUBLIC_GENERATE_ENDPOINT;
+const agentsAppUrl = import.meta.env.PUBLIC_UI_AGENTS_APP_URL;
 
 export const Hero = () => {
   return (
@@ -64,40 +67,11 @@ export const Hero = () => {
 
 export const CreateAgentTextarea = () => {
   return (
-    <div className="relative mx-auto h-[210px] w-full max-w-[700px] sm:h-[168px]">
-      <textarea
-        className="size-full resize-none self-center rounded-8 border border-gray-dark-6 bg-gray-dark-2 p-12 text-14 placeholder:text-neutral-8"
-        placeholder="What do you want your AI agent to do?"
-      />
-      <div className="absolute bottom-12 left-12 right-12 flex flex-wrap gap-8">
-        <Button
-          variant="secondary-ghost"
-          size="sm"
-          className="flex-1 sm:flex-none"
-          disabled
-        >
-          <IoAttach />
-          Upload
-        </Button>
-        <Button
-          variant="secondary-ghost"
-          size="sm"
-          className="flex-1 sm:flex-none"
-          disabled
-        >
-          <IoColorWand />
-          Improve prompt
-        </Button>
-        <Button
-          variant="app-primary"
-          size="sm"
-          disabled
-          className="w-full sm:ml-auto sm:w-fit"
-        >
-          <IoPaperPlane />
-          Create agent
-        </Button>
-      </div>
-    </div>
+    <>
+      <ChatToAIAgentDeploy
+        personagenEndpoint={personagenEndpoint}
+        agentsAppUrl={agentsAppUrl}
+      />  
+    </>
   );
 };

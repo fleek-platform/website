@@ -18,6 +18,7 @@ import type { Project } from '@fleek-platform/sdk/browser';
 import { isClient } from '../../utils/common';
 import { useSession } from '@hooks/useSession';
 import { isReferralName } from '@utils/referrals';
+import { FLEEK_CONVERSATIONAL_FUNNEL_ROUTE_NAME } from '@fleek-platform/agents-ui';
 
 const dashboardUrl = import.meta.env.PUBLIC_UI_APP_URL;
 
@@ -33,7 +34,8 @@ const onAuthenticationSuccess = () => {
   });
 
   if (isReferralName('agents')) {
-    targetUrl = import.meta.env.PUBLIC_UI_AGENTS_APP_URL;
+    // TODO: Add input parser/validation
+    targetUrl = new URL(`${import.meta.env.PUBLIC_UI_AGENTS_APP_URL}/${FLEEK_CONVERSATIONAL_FUNNEL_ROUTE_NAME}`);
   }
 
   window.location.assign(targetUrl.toString());
