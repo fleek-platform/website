@@ -9,7 +9,6 @@ import { imagetools } from 'vite-imagetools';
 import mdx from '@astrojs/mdx';
 import rehypeSlug from 'rehype-slug';
 import rehypeAutolinkHeadings from 'rehype-autolink-headings';
-import createRedirect from './middleware/redirect';
 
 const configRemarkCalloutDirectives = {
   callouts: {
@@ -61,7 +60,6 @@ export default defineConfig({
       lastmod: new Date(),
     }),
     mdx(),
-    createRedirect(),
   ],
   markdown: {
     remarkPlugins: [
