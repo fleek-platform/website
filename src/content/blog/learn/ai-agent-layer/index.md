@@ -7,6 +7,7 @@ image: './agentlayer.png'
 author:
   - 'Fleek'
 ---
+
 ### The End of the Interface
 
 For decades, software innovation has centered around interface. From the rise of the GUI to the explosion of mobile apps, progress has meant designing better frontends - faster, smoother, more intuitive ways for humans to interact with machines.
@@ -35,7 +36,7 @@ Apps made digital experiences easy. But they are still passive. They wait.
 
 And now, that’s not enough.
 
-###  Agents: The Next Interface Layer
+### Agents: The Next Interface Layer
 
 Agents don’t wait. They move.
 
@@ -48,7 +49,7 @@ In fact, their power comes from that independence.
 We’ve already built the ingredients:
 
 - APIs are programmable
-- LLMs enable reasoning- 
+- LLMs enable reasoning-
 - On-chain logic allows economic coordination
 - TEEs enable verifiability and privacy
 
