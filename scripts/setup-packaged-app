@@ -7,6 +7,7 @@ TARGET_ENVIRONMENT="$1"
 TARGET_PUBLIC_APP_PATH="$2"
 PACKAGE_NAME="$3"
 PACKAGE_DIST_OUTPUT_DIR="$4"
+ENV_VARS_PREFIX="$5"
 
 if [[ -z "$TARGET_ENVIRONMENT" || -z "$TARGET_PUBLIC_APP_PATH" || -z "$PACKAGE_NAME" || -z "$PACKAGE_DIST_OUTPUT_DIR" ]]; then
   echo "👹 Oops! Missing environment variables"
@@ -18,10 +19,11 @@ sourcePath="node_modules/$packageName/$PACKAGE_DIST_OUTPUT_DIR"
 targetPath="$TARGET_PUBLIC_APP_PATH"
 pkgJson="package.json"
 pkgJsonTemp="$pkgJson.bak"
-version=$(jq '.dependencies["@fleek-platform/dashboard"]' "$pkgJson" | tr -d '"^')
+version=$(jq ".dependencies[\"$packageName\"]" "$pkgJson" | tr -d '"^')
+envVarsPrefix="$ENV_VARS_PREFIX"
 
 if [[ "$TARGET_ENVIRONMENT" == 'production' ]]; then
-  version=$(jq ".dependencies[\"$packageName\"] |= sub(\"-rc.*\"; "")" package.json | jq '.dependencies["@fleek-platform/dashboard"]' | tr -d '"^')
+  version=$(jq ".dependencies[\"$packageName\"] |= sub(\"-rc.*\"; "")" package.json | jq ".dependencies[\"$packageName\"]" | tr -d '"^')
 
   echo "💡 Given release candidate use in staging, the $TARGET_ENVIRONMENT must install release version $version"
 fi
@@ -53,4 +55,13 @@ if ! rsync -va "$sourcePath/" "$targetPath"; then
   exit 1
 fi
 
-echo "✅ Completed the dashboard setup!"
+echo "🤖 Override App defined"
+if ! ./scripts/create-defined-override \
+  "$targetPath" \
+  "$envVarsPrefix"; then
+  echo "👹 Oops! Failed to create defined overrides for $targetPath for some reason..."
+
+  exit 1
+fi
+
+echo "✅ Completed the $packageName setup!"

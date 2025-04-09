@@ -2,13 +2,15 @@ import settings from '@base/settings.json';
 import { FaChevronRight } from 'react-icons/fa6';
 import { Announcement } from '../Announcement';
 import { Button } from '../Button';
-import { Target } from '@components/Link';
 import { Text } from './Text';
 import { BlurFade } from './BlurFade';
+import { useLoginWithAgentsCTA } from '@hooks/useLoginWithAgentsCTA';
 
 const calculateDelay = (factor: number) => 0.25 * factor;
 
 export const Hero = () => {
+  const { onDeployAgentCTA } = useLoginWithAgentsCTA();
+
   return (
     <header className="relative mx-auto w-full max-w-[1048px] px-24">
       <div className="pointer-events-none absolute -left-320 -top-1/2 -z-1 h-800 w-800 bg-[radial-gradient(closest-side,rgb(34_34_34_/0.85),transparent)] sm:-left-304 sm:-top-240 sm:h-400" />
@@ -29,7 +31,7 @@ export const Hero = () => {
           </BlurFade>
           <div className="flex items-center gap-12">
             <BlurFade delay={calculateDelay(3)}>
-              <Button href="/eliza/">
+              <Button href="#" onClick={onDeployAgentCTA}>
                 {settings.landingPage.hero.primaryCta}
               </Button>
             </BlurFade>

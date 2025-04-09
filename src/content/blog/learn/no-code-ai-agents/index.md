@@ -41,7 +41,7 @@ Fleek’s simplicity makes it easy to build your AI agent in minutes. Let’s ex
 
 For a quick and seamless start, Fleek provides pre-built templates, such as the **Trump Template.**
 
-- **Step 1:** Visit https://fleek.xyz/eliza/
+- **Step 1:** Visit https://fleek.xyz/agents/
 - **Step 2:** Browse the Templates Library and choose a template that fits your needs.
 - **Step 3:** Customize the agent’s responses, tweak the settings, and click “Deploy.”
 
@@ -122,7 +122,7 @@ With Fleek, creating an AI agent is no longer a daunting task. It’s simple, fa
 
 Why wait? Start building your own AI agent with Fleek now. Whether you use a template or start from scratch, the possibilities are endless.
 
-[**Start Now**](http://fleek.xyz/eliza/)
+[**Start Now**](https://fleek.xyz/agents/)
 
 **Resources:**
 

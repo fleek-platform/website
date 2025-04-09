@@ -45,3 +45,5 @@ dev_*
 # external apps
 public/dashboard/
 public/agents/
+public/eliza/
+public/**/defined_overrides.json

@@ -38,7 +38,7 @@ To get a Grok API key:
 
 ## Deploy your AI agent from Fleek
 
-Start by going to [fleek.xyz/eliza/](https://fleek.xyz/eliza/). You'll find three deployment options. Go ahead and select the “Start with a template” option:
+Start by going to [fleek.xyz/agents/](https://fleek.xyz/agents/). You'll find three deployment options. Go ahead and select the “Start with a template” option:
 
 ![Get started page](./options-page.png)
 

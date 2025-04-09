@@ -36,6 +36,7 @@ jobs:
       PUBLIC_POSTHOG_HOST: ${{ vars.PUBLIC_POSTHOG_HOST }}
       PUBLIC_SUPPORT_API_HOST: ${{ vars.PUBLIC_SUPPORT_API_HOST }}
       PUBLIC_UI_APP_URL: ${{ vars.PUBLIC_UI_APP_URL }}
+      PUBLIC_UI_AGENTS_APP_URL: ${{ vars.PUBLIC_UI_AGENTS_APP_URL }}
     steps:
       - name: Checkout
         uses: actions/checkout@v4

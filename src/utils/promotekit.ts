@@ -17,10 +17,10 @@ const getReferralIdFromCookie = () => {
 
 export const getReferralId = () => {
   try {
-    if (!window.promotekit_referral)
+    if (!(window as any).promotekit_referral)
       throw Error('Promotekit referral not found in global window object!');
 
-    return window.promotekit_referral;
+    return (window as any).promotekit_referral;
   } catch (_err) {
     console.warn(`Promotekit referral is not available. Will check cookie`);
     return getReferralIdFromCookie();

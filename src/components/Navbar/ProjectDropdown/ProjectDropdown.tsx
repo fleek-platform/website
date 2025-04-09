@@ -1,4 +1,4 @@
-import type { Project } from '@fleekxyz/sdk/dist-types/generated/graphqlClient/schema';
+import type { Project } from '@fleek-platform/sdk/browser';
 import * as DropdownMenu from '@radix-ui/react-dropdown-menu';
 import { AvatarMarble } from '@components/AvatarMarble/AvatarMarble';
 import { FaCheck, FaSpinner } from 'react-icons/fa6';

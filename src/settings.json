@@ -150,16 +150,15 @@
     "resources": {
       "careersUrl": "https://wellfound.com/company/fleekhq",
       "reportAbuseUrl": "https://fleek.xyz/requests/report-site/",
-      "reportTemplateAbuseUrl": "https://support.fleek.xyz/hc/en-us/requests/new?ticket_form_id=20459864851469",
       "fleekNetworkWebsiteUrl": "https://fleek.network",
       "discordFleekCommunityUrl": "https://discord.gg/fleek",
-      "supportExternalUrl": "https://support.fleek.xyz/hc/en-us",
       "arweaveUrl": "https://www.arweave.org",
       "ipfsUrl": "https://ipfs.tech/",
       "statusURl": "https://status.fleek.xyz/",
       "fleekTwitterUrl": "https://twitter.com/fleek",
       "mediaKit": "https://fleek.notion.site/Fleek-Brand-Kit-9a2bcf7eb40740a9b7e951fc951b478a",
-      "templatesUrl": "https://fleek.xyz/templates/"
+      "templatesUrl": "https://fleek.xyz/templates/",
+      "affiliatesUrl": "https://affiliates.fleek.xyz"
     },
     "auth": {
       "authTokenCookieKey": "accessToken",
@@ -173,7 +172,7 @@
     },
     "announcementMarquee": {
       "message": "Introducing Fleek AI agent hosting, with Eliza framework support",
-      "url": "/eliza/",
+      "url": "/agents/",
       "visible": true
     },
     "announcementModal": {

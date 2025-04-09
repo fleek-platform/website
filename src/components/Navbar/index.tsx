@@ -14,18 +14,29 @@ import { RxHamburgerMenu } from 'react-icons/rx';
 import { isActivePath } from '@utils/url';
 import { Button } from '../Button';
 import { ProjectDropdown } from './ProjectDropdown/ProjectDropdown';
-import type { Project } from '@fleekxyz/sdk/dist-types/generated/graphqlClient/schema';
+import type { Project } from '@fleek-platform/sdk/browser';
 import { isClient } from '../../utils/common';
 import { useSession } from '@hooks/useSession';
+import { isReferralName } from '@utils/referrals';
 
 const dashboardUrl = import.meta.env.PUBLIC_UI_APP_URL;
 
 const onAuthenticationSuccess = () => {
   if (!isClient) return;
 
-  if (window.location.pathname.startsWith('/eliza')) return;
+  const currentParams = new URLSearchParams(window.location.search);
 
-  window.location.assign(dashboardUrl);
+  let targetUrl = new URL(dashboardUrl);
+
+  currentParams.forEach((value, key) => {
+    targetUrl.searchParams.append(key, value);
+  });
+
+  if (isReferralName('agents')) {
+    targetUrl = import.meta.env.PUBLIC_UI_AGENTS_APP_URL;
+  }
+
+  window.location.assign(targetUrl.toString());
 };
 
 const NavbarMobileItem: React.FC<NavMenuItemRoot> = (props) => {
@@ -43,6 +54,22 @@ const NavbarMobileItem: React.FC<NavMenuItemRoot> = (props) => {
       </Link>
     );
 
+  const getIconComp = (subMenuItem: NavMenuItem) => {
+    if (!subMenuItem.icon) return null;
+    if (typeof subMenuItem.icon === 'string') {
+      return (
+        <img
+          src={subMenuItem.icon}
+          width={14}
+          className="opacity-50"
+          alt={subMenuItem.description}
+        />
+      );
+    }
+    const Icon = subMenuItem.icon;
+    return <Icon className="size-16 opacity-50" />;
+  };
+
   return (
     <div className="flex flex-col gap-8">
       <span className="text-16 font-semibold text-gray-dark-12">{label}</span>
@@ -56,30 +83,17 @@ const NavbarMobileItem: React.FC<NavMenuItemRoot> = (props) => {
               rel={subMenuItem.openInNewTab ? 'noopener noreferrer' : undefined}
               className="flex items-center gap-8 rounded-8 border-t border-gray-dark-4 bg-gradient-to-br from-gray-dark-3 via-gray-dark-2 to-gray-dark-2 p-12 shadow-soft active:bg-gray-dark-3"
             >
-              {subMenuItem.icon && (
-                <img
-                  src={subMenuItem.icon}
-                  width={14}
-                  className="opacity-50"
-                  alt={subMenuItem.description}
-                />
-              )}
+              {getIconComp(subMenuItem)}
               <span className="text-gray-dark-12">{subMenuItem.label}</span>
             </Link>
           ) : (
             <button
+              type="button"
               key={subMenuItem.label}
               className="flex items-center gap-8 rounded-8 border-t border-gray-dark-4 bg-gradient-to-br from-gray-dark-3 via-gray-dark-2 to-gray-dark-2 p-12 shadow-soft active:bg-gray-dark-3"
               onClick={subMenuItem.action}
             >
-              {subMenuItem.icon && (
-                <img
-                  src={subMenuItem.icon}
-                  width={14}
-                  className="opacity-50"
-                  alt={subMenuItem.description}
-                />
-              )}
+              {getIconComp(subMenuItem)}
               <span className="text-gray-dark-12">{subMenuItem.label}</span>
             </button>
           ),
@@ -201,6 +215,19 @@ const NavbarSubMenuItem: React.FC<NavMenuItem> = ({
   description,
   openInNewTab,
 }) => {
+  const getIconComp = () => {
+    if (!icon) return null;
+    const className =
+      'absolute translate-x-0 transition-all group-hover:translate-x-5 group-hover:opacity-0 group-focus-visible:translate-x-5 group-focus-visible:opacity-0';
+    if (typeof icon === 'string') {
+      return (
+        <img src={icon} width={18} className={className} alt={description} />
+      );
+    }
+    const Icon = icon;
+    return <Icon className={cn(className, 'size-22')} />;
+  };
+
   return (
     <Link
       tabIndex={0}
@@ -211,12 +238,7 @@ const NavbarSubMenuItem: React.FC<NavMenuItem> = ({
     >
       <div className="flex size-18 items-center justify-center">
         <FaArrowRight className="absolute size-14 -translate-x-5 text-gray-dark-11 opacity-0 transition-all group-hover:translate-x-0 group-hover:opacity-100 group-focus-visible:translate-x-0 group-focus-visible:opacity-100" />
-        <img
-          src={icon}
-          width={18}
-          className="absolute translate-x-0 transition-all group-hover:translate-x-5 group-hover:opacity-0 group-focus-visible:translate-x-5 group-focus-visible:opacity-0"
-          alt={description}
-        />
+        {getIconComp()}
       </div>
       <div className="flex flex-col">
         <span className="text-14 font-semibold text-gray-dark-12">{label}</span>
@@ -307,7 +329,12 @@ const NavbarItem: React.FC<NavbarItemProps> = (props) => {
         className="absolute top-64 grid min-w-256 transition-all"
       >
         {isActiveSubMenu && (
-          <div className="rounded-8 border border-gray-dark-4 bg-gray-dark-2/80 p-6 backdrop-blur-lg">
+          <div
+            className={cn(
+              'rounded-8 border border-gray-dark-4 bg-gray-dark-2/80 p-6 backdrop-blur-lg',
+              props.subMenu.length >= 6 && 'grid grid-cols-2',
+            )}
+          >
             {props.subMenu.map((item, idx) => (
               <NavbarSubMenuItem key={idx} {...item} />
             ))}

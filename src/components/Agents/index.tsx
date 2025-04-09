@@ -18,13 +18,15 @@ import Accordion from '@components/Accordion';
 import { Button } from '@components/Button';
 import { FaChevronRight } from 'react-icons/fa6';
 import { NewsletterModal } from './components/NewsletterModal';
+import { useLoginWithAgentsCTA } from '@hooks/useLoginWithAgentsCTA';
 
 const faqsToAccordionItems = (faqs: FaqData[]): AccordionItem[] =>
   faqs.map((faq) => ({ label: faq.label, contentElements: [faq.content] }));
 
-const AgentsModule = {
-  NewsletterModal: () => <NewsletterModal />,
-  Hero: () => (
+const Hero = () => {
+  const { onDeployAgentCTA } = useLoginWithAgentsCTA();
+
+  return (
     <Section
       title={settings.agentsPage.hero.title}
       subTitle={settings.agentsPage.hero.subTitle}
@@ -32,7 +34,9 @@ const AgentsModule = {
       isTextCenter
     >
       <div className="mb-48 flex flex-wrap items-center justify-center gap-12 font-plex-sans md:mb-96">
-        <Button href="/eliza/">{settings.agentsPage.hero.primaryCta}</Button>
+        <Button href="#" onClick={onDeployAgentCTA}>
+          {settings.agentsPage.hero.primaryCta}
+        </Button>
         {/* <Button variant="secondary" href="#">
           {settings.agentsPage.hero.secondaryCta}
         </Button> */}
@@ -43,7 +47,12 @@ const AgentsModule = {
       </div>
       <CardsList cards={heroCards} />
     </Section>
-  ),
+  );
+};
+
+const AgentsModule = {
+  NewsletterModal: () => <NewsletterModal />,
+  Hero: () => <Hero />,
   Customize: () => (
     <Section
       title={settings.agentsPage.customize.title}
