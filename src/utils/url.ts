@@ -6,9 +6,7 @@ export const getSiteUrl = (): string => {
   const url = import.meta.env[name];
 
   if (!url) {
-    throw new Error(
-      `👹 Oops! Environment "${name}" is not setup`,
-    );
+    throw new Error(`👹 Oops! Environment "${name}" is not setup`);
   }
 
   return url;

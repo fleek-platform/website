@@ -1,0 +1,21 @@
+---
+import settings from '@base/settings.json';
+import { AutofunHero } from '@components/Autofun';
+import BaseHtml from '@layouts/BaseHtml.astro';
+
+const { title, description, image, slug } = settings.site.metadata.pricing;
+---
+
+<BaseHtml
+  title={title}
+  ogMeta={{
+    title,
+    description,
+    image,
+    slug,
+  }}
+  hideFooter
+  hideAnnouncement
+>
+  <AutofunHero client:only="react" />
+</BaseHtml>
