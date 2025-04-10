@@ -34,7 +34,7 @@ prepareDependencyFiles \
 
 prepareDependencyFiles \
   "$TARGET_ENVIRONMENT" \
-  "public/eliza" \
+  "public/agents" \
   "@fleek-platform/agents-ui" \
   "dist" \
   "PUBLIC_"
