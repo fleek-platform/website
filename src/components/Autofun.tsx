@@ -7,7 +7,7 @@ const AUTOFUN_KEY = 'autofun_token_id';
 
 const Layout: React.FC<PropsWithChildren> = ({ children }) => {
   return (
-    <div className="flex h-full w-full max-w-[600px] flex-col justify-center gap-36 justify-self-center px-24 font-plex-sans text-14 text-gray-dark-11">
+    <div className="flex h-full w-full max-w-[600px] flex-col justify-center gap-36 justify-self-center px-24 pb-[6.4rem] font-plex-sans text-14 text-gray-dark-11">
       <img
         src="/images/autofun/logo.svg"
         alt="Auto.fun logo"

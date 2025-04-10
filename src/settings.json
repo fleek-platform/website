@@ -72,6 +72,12 @@
         "description": "Deploy your AI agent using the Eliza framework.",
         "image": "/images/fleek-meta-image.png?202406061658"
       },
+      "autofun": {
+        "title": "AI Agents",
+        "slug": "autofun",
+        "description": "Create and customize your AI agent using Fleek.",
+        "image": "/images/fleek-meta-image.png?202406061658"
+      },
       "guides": {
         "title": "Guides",
         "slug": "guides",
