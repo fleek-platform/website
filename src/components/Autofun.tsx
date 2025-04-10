@@ -9,7 +9,7 @@ const Layout: React.FC<PropsWithChildren> = ({ children }) => {
   return (
     <div className="flex h-full w-full max-w-[600px] flex-col justify-center gap-36 justify-self-center px-24 font-plex-sans text-14 text-gray-dark-11">
       <img
-        src="images/autofun/logo.svg"
+        src="/images/autofun/logo.svg"
         alt="Auto.fun logo"
         width={154}
         height={77}
