@@ -22,12 +22,6 @@ pkgJsonTemp="$pkgJson.bak"
 version=$(jq ".dependencies[\"$packageName\"]" "$pkgJson" | tr -d '"^')
 envVarsPrefix="$ENV_VARS_PREFIX"
 
-if [[ "$TARGET_ENVIRONMENT" == 'production' ]]; then
-  version=$(jq ".dependencies[\"$packageName\"] |= sub(\"-rc.*\"; "")" package.json | jq ".dependencies[\"$packageName\"]" | tr -d '"^')
-
-  echo "💡 Given release candidate use in staging, the $TARGET_ENVIRONMENT must install release version $version"
-fi
-
 if ! npm i "$packageName@$version" --save-exact; then
   echo "👹 Oops! Failed to install the $packageName of version $version for some reason..."
 
