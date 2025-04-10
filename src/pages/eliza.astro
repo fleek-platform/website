@@ -1,25 +1,11 @@
 ---
-const websiteUrl = import.meta.env.PUBLIC_FLEEK_WEBSITE_URL
 ---
-
-<BaseHtml
-  title={title}
-  ogMeta={}
-  customNavbarClass="max-w-[1452px] xl:max-w-[1452px] 2xl:max-w-[1452px]"
-  customContentWrapperClass="max-w-[1500px] xl:max-w-[1500px] 2xl:max-w-[1500px] md:pt-24 pb-0"
-  hideAnnouncement
-  hideFooter
->
-  <script is:inline defer>
-  window.location.href = websiteUrl;
-  </script>
-</BaseHtml>
 
 <html>
 <head>
-    <meta http-equiv="refresh" content={`0; url=${websiteUrl}`}>
+    <meta http-equiv="refresh" content={`0; url=${import.meta.env.PUBLIC_UI_AGENTS_APP_URL}`}>
     <script>
-        window.location.href = websiteUrl;
+        window.location.href = import.meta.env.PUBLIC_UI_AGENTS_APP_URL;
     </script>
     <style>
         body {
@@ -38,7 +24,7 @@ const websiteUrl = import.meta.env.PUBLIC_FLEEK_WEBSITE_URL
 <body>
     <noscript>
       <p>
-        If you are not redirected automatically, please <a href={websiteUrl}>click here</a>.
+        If you are not redirected automatically, please <a href={import.meta.env.PUBLIC_UI_AGENTS_APP_URL}>click here</a>.
       </p>
     </noscript>
 </body>
