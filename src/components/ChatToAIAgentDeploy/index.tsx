@@ -1,9 +1,13 @@
 import '@fleek-platform/agents-ui/styles';
 
 import { useEffect } from 'react';
-import { ChatBox, type FileWithPreview } from '@fleek-platform/agents-ui';
+import {
+  ChatBox,
+  FLEEK_CONVERSATIONAL_FUNNEL_ROUTE_NAME,
+  type FileWithPreview,
+} from '@fleek-platform/agents-ui';
 import { useAuthStore } from '@fleek-platform/login-button';
-import { storeFunnelData, clearFunnelData } from '@utils/funnel';
+import { storeFunnelData } from '@utils/funnel';
 import { fileToBase64 } from '@utils/file';
 import { clearCookie, setCookie } from '@utils/cookies';
 import { setReferralQueryKeyValuePair } from '@utils/referrals';
@@ -23,12 +27,12 @@ export const ChatToAIAgentDeploy = ({
 
   useEffect(() => {
     const clear = () => {
-      console.log('[debug] clear cookie fleek agents lead')
+      console.log('[debug] clear cookie fleek agents lead');
       clearCookie(FLEEK_WEBSITE_CHAT_LEAD_KEY);
     };
 
     window.addEventListener('beforeunload', clear);
-    
+
     return () => {
       window.removeEventListener('beforeunload', clear);
     };
@@ -40,7 +44,7 @@ export const ChatToAIAgentDeploy = ({
 
     // TODO: Validate data
 
-    const fileDataPromises = files.map(file => fileToBase64(file));
+    const fileDataPromises = files.map((file) => fileToBase64(file));
     const fileDataArray = await Promise.all(fileDataPromises);
 
     const data = {
@@ -49,8 +53,8 @@ export const ChatToAIAgentDeploy = ({
         preview: base64,
         name: files[index].name,
         type: files[index].type,
-        size: files[index].size
-      }))
+        size: files[index].size,
+      })),
     };
 
     setReferralQueryKeyValuePair('agents');
@@ -60,8 +64,24 @@ export const ChatToAIAgentDeploy = ({
       data,
     });
 
+    if (isLoggedIn) {
+      const currentParams = new URLSearchParams(window.location.search);
+
+      const targetUrl = new URL(
+        `${import.meta.env.PUBLIC_UI_AGENTS_APP_URL}/${FLEEK_CONVERSATIONAL_FUNNEL_ROUTE_NAME}`,
+      );
+
+      currentParams.forEach((value, key) => {
+        targetUrl.searchParams.append(key, value);
+      });
+
+      window.location.assign(targetUrl.toString());
+
+      return true;
+    }
+
     if (typeof triggerLoginModal !== 'function') {
-      console.log('[debug] triggerLoginModal is not a fn!')
+      console.log('[debug] triggerLoginModal is not a fn!');
 
       return false;
     }
@@ -80,7 +100,7 @@ export const ChatToAIAgentDeploy = ({
   };
 
   return (
-    <div className="agents-ui m-20 text-14 w-full">
+    <div className="agents-ui m-20 w-full text-14">
       <div className="mx-auto w-[80rem]">
         <ChatBox
           onSubmit={onSubmit}
@@ -92,4 +112,3 @@ export const ChatToAIAgentDeploy = ({
     </div>
   );
 };
-

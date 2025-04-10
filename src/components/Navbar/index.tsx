@@ -35,7 +35,9 @@ const onAuthenticationSuccess = () => {
 
   if (isReferralName('agents')) {
     // TODO: Add input parser/validation
-    targetUrl = new URL(`${import.meta.env.PUBLIC_UI_AGENTS_APP_URL}/${FLEEK_CONVERSATIONAL_FUNNEL_ROUTE_NAME}`);
+    targetUrl = new URL(
+      `${import.meta.env.PUBLIC_UI_AGENTS_APP_URL}/${FLEEK_CONVERSATIONAL_FUNNEL_ROUTE_NAME}`,
+    );
   }
 
   window.location.assign(targetUrl.toString());

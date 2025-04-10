@@ -71,7 +71,7 @@ export const CreateAgentTextarea = () => {
       <ChatToAIAgentDeploy
         personagenEndpoint={personagenEndpoint}
         agentsAppUrl={agentsAppUrl}
-      />  
+      />
     </>
   );
 };

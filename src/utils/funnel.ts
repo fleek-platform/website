@@ -7,20 +7,14 @@ const keys = [FLEEK_KEY_AGENTS_LEAD] as const;
 // if the user journey happens in a particular route path
 export const storeFunnelData = ({
   key,
-  data
+  data,
 }: {
-  key: typeof keys[number];
+  key: (typeof keys)[number];
   data: any;
 }) => window.localStorage.setItem(key, JSON.stringify(data));
 
-export const retrieveFunnelData = ({
-  key,
-}: {
-  key: typeof keys[number];
-}) => window.localStorage.getItem(key);
+export const retrieveFunnelData = ({ key }: { key: (typeof keys)[number] }) =>
+  window.localStorage.getItem(key);
 
-export const clearFunnelData = ({
-  key,
-}: {
-  key: typeof keys[number];  
-}) => window.localStorage.removeItem(key);
+export const clearFunnelData = ({ key }: { key: (typeof keys)[number] }) =>
+  window.localStorage.removeItem(key);
