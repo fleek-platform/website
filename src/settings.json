@@ -177,7 +177,7 @@
           "title": "We're currently at capacity",
           "message": "We are briefly postponing new deployments until we spin up enough VMs to meet growing demand for our AI agent hosting service. Thank you for your understanding and please try again later today!",
           "button": "OK",
-          "path": "/eliza",
+          "path": "/agents",
           "expiresInDays": 0.0417,
           "modalDelayInSeconds": 0
         }
