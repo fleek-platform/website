@@ -1,17 +1,5 @@
 {
   "site": {
-    "production": {
-      "url": "https://fleek.xyz"
-    },
-    "staging": {
-      "url": "https://fleek-xyz-staging.on-fleek.app"
-    },
-    "development": {
-      "url": "http://localhost:4321"
-    },
-    "develop": {
-      "url": "http://localhost:4321"
-    },
     "mocksEnabled": true,
     "metadata": {
       "default": {
