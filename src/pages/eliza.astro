@@ -1,0 +1,45 @@
+---
+const websiteUrl = import.meta.env.PUBLIC_FLEEK_WEBSITE_URL
+---
+
+<BaseHtml
+  title={title}
+  ogMeta={}
+  customNavbarClass="max-w-[1452px] xl:max-w-[1452px] 2xl:max-w-[1452px]"
+  customContentWrapperClass="max-w-[1500px] xl:max-w-[1500px] 2xl:max-w-[1500px] md:pt-24 pb-0"
+  hideAnnouncement
+  hideFooter
+>
+  <script is:inline defer>
+  window.location.href = websiteUrl;
+  </script>
+</BaseHtml>
+
+<html>
+<head>
+    <meta http-equiv="refresh" content={`0; url=${websiteUrl}`}>
+    <script>
+        window.location.href = websiteUrl;
+    </script>
+    <style>
+        body {
+            background-color: #000000;
+            margin: 0;
+            padding: 0;
+            height: 100vh;
+            width: 100vw;
+        }
+        p {
+          color: #fff;
+        }
+    </style>
+    <title>Redirecting...</title>
+</head>
+<body>
+    <noscript>
+      <p>
+        If you are not redirected automatically, please <a href={websiteUrl}>click here</a>.
+      </p>
+    </noscript>
+</body>
+</html>
