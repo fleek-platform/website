@@ -90,6 +90,5 @@ export default defineConfig({
       '/blog/learn/hottest-trends-2024-serverless-cloud-computing/',
     '/issues/eliza/eliza-deployment-troubleshooting':
       '/troubleshooting/eliza/eliza-deployment-troubleshooting',
-    '/eliza': '/agents',
   },
 });
