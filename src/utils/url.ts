@@ -2,15 +2,14 @@ import fs from 'fs';
 import settings from '@base/settings.json';
 
 export const getSiteUrl = (): string => {
-  const env = process.env.NODE_ENV || 'staging';
+  const name = 'PUBLIC_FLEEK_WEBSITE_URL';
+  const url = import.meta.env[name];
 
-  if (!(settings.site as any)[env]) {
-    throw new Error(
-      `👹 Oops! Environment "${env}" is not configured in settings.`,
-    );
+  if (!url) {
+    throw new Error(`👹 Oops! Environment "${name}" is not setup`);
   }
 
-  return (settings.site as any)[env].url;
+  return url;
 };
 
 export const getTopLevelDomain = (url: string) => {

@@ -1,17 +1,5 @@
 {
   "site": {
-    "production": {
-      "url": "https://fleek.xyz"
-    },
-    "staging": {
-      "url": "https://fleek-xyz-staging.on-fleek.app"
-    },
-    "development": {
-      "url": "http://localhost:4321"
-    },
-    "develop": {
-      "url": "http://localhost:4321"
-    },
     "mocksEnabled": true,
     "metadata": {
       "default": {
@@ -84,6 +72,12 @@
         "description": "Deploy your AI agent using the Eliza framework.",
         "image": "/images/fleek-meta-image.png?202406061658"
       },
+      "autofun": {
+        "title": "AI Agents",
+        "slug": "autofun",
+        "description": "Create and customize your AI agent using Fleek.",
+        "image": "/images/fleek-meta-image.png?202406061658"
+      },
       "guides": {
         "title": "Guides",
         "slug": "guides",
@@ -150,10 +144,8 @@
     "resources": {
       "careersUrl": "https://wellfound.com/company/fleekhq",
       "reportAbuseUrl": "https://fleek.xyz/requests/report-site/",
-      "reportTemplateAbuseUrl": "https://support.fleek.xyz/hc/en-us/requests/new?ticket_form_id=20459864851469",
       "fleekNetworkWebsiteUrl": "https://fleek.network",
       "discordFleekCommunityUrl": "https://discord.gg/fleek",
-      "supportExternalUrl": "https://support.fleek.xyz/hc/en-us",
       "arweaveUrl": "https://www.arweave.org",
       "ipfsUrl": "https://ipfs.tech/",
       "statusURl": "https://status.fleek.xyz/",
@@ -174,7 +166,7 @@
     },
     "announcementMarquee": {
       "message": "Introducing Fleek AI agent hosting, with Eliza framework support",
-      "url": "/eliza/",
+      "url": "/agents/",
       "visible": true
     },
     "announcementModal": {
@@ -191,7 +183,7 @@
           "title": "We're currently at capacity",
           "message": "We are briefly postponing new deployments until we spin up enough VMs to meet growing demand for our AI agent hosting service. Thank you for your understanding and please try again later today!",
           "button": "OK",
-          "path": "/eliza",
+          "path": "/agents",
           "expiresInDays": 0.0417,
           "modalDelayInSeconds": 0
         }

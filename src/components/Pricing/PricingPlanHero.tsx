@@ -31,7 +31,7 @@ export const PricingPlanHero: React.FC = () => {
             </div>
             <div className="flex flex-wrap items-center justify-end gap-16">
               <Text variant="subtitle">$20 / month</Text>
-              <Button href="/eliza">Create agent</Button>
+              <Button href="/agents">Create agent</Button>
             </div>
           </div>
         </div>

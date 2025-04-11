@@ -1,0 +1,37 @@
+---
+
+---
+
+<html>
+  <head>
+    <meta
+      http-equiv="refresh"
+      content={`0; url=${import.meta.env.PUBLIC_UI_AGENTS_APP_URL}`}
+    />
+    <script>
+      window.location.href = import.meta.env.PUBLIC_UI_AGENTS_APP_URL;
+    </script>
+    <style>
+      body {
+        background-color: #000000;
+        margin: 0;
+        padding: 0;
+        height: 100vh;
+        width: 100vw;
+      }
+      p {
+        color: #fff;
+      }
+    </style>
+    <title>Redirecting...</title>
+  </head>
+  <body>
+    <noscript>
+      <p>
+        If you are not redirected automatically, please <a
+          href={import.meta.env.PUBLIC_UI_AGENTS_APP_URL}>click here</a
+        >.
+      </p>
+    </noscript>
+  </body>
+</html>

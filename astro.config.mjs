@@ -1,14 +1,16 @@
+import dotenv from 'dotenv';
 import { defineConfig } from 'astro/config';
 import tailwind from '@astrojs/tailwind';
 import remarkDirective from 'remark-directive';
 import remarkCalloutDirectives from '@microflash/remark-callout-directives';
 import react from '@astrojs/react';
 import sitemap from '@astrojs/sitemap';
-import settings from './src/settings.json';
 import { imagetools } from 'vite-imagetools';
 import mdx from '@astrojs/mdx';
 import rehypeSlug from 'rehype-slug';
 import rehypeAutolinkHeadings from 'rehype-autolink-headings';
+
+dotenv.config();
 
 const configRemarkCalloutDirectives = {
   callouts: {
@@ -35,16 +37,9 @@ const configRemarkCalloutDirectives = {
   },
 };
 
-// Environment
-const env = import.meta.env.PROD
-  ? 'production'
-  : import.meta.env.DEV
-    ? 'development'
-    : 'staging';
-
 // https://astro.build/config
 export default defineConfig({
-  site: settings.site[env].url,
+  site: process.env.PUBLIC_FLEEK_WEBSITE_URL,
   vite: {
     plugins: [imagetools()],
   },
