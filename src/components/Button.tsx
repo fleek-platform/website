@@ -4,7 +4,7 @@ import { type VariantProps, cva } from 'class-variance-authority';
 import { cn } from '@utils/cn';
 
 export const buttonVariants = cva(
-  'flex font-medium no-underline gap-4 select-none font-plex-sans cursor-pointer items-center justify-center transition-all ring-0 outline-none focus-visible:ring-2',
+  'flex font-medium no-underline gap-4 border border-transparent select-none font-plex-sans cursor-pointer items-center justify-center transition-all ring-0 outline-none focus-visible:ring-2',
   {
     variants: {
       variant: {
@@ -15,7 +15,7 @@ export const buttonVariants = cva(
         secondary:
           'bg-gray-dark-3 hover:bg-gray-dark-4 active:bg-gray-dark-3 !text-gray-dark-11 ring-gray-dark-8',
         'secondary-ghost':
-          'bg-transparent hover:bg-gray-dark-4 active:bg-gray-dark-3 !text-gray-dark-11 ring-gray-dark-8 border-neutral-8 border',
+          'bg-transparent hover:bg-gray-dark-4 active:bg-gray-dark-3 !text-gray-dark-11 ring-gray-dark-8 border-neutral-6 border',
         tertiary:
           'bg-gray-dark-12 text-gray-dark-1 hover:bg-gray-dark-11 active:bg-gray-dark-12 ring-gray-dark-8',
         ghost:
@@ -26,6 +26,8 @@ export const buttonVariants = cva(
           'bg-yellow-dark-3 hover:bg-yellow-dark-4 active:bg-yellow-dark-3 text-yellow-dark-11 ring-yellow-dark-8',
         'app-success':
           'bg-ui-green hover:bg-ui-light-green text-ui-faded-green ring-ui-faded-green',
+        'light-outline':
+          'bg-transparent hover:bg-gray-dark-4 active:bg-gray-dark-3 text-white ring-gray-dark-8 border',
       },
       size: {
         sm: 'h-32 gap-4 px-8 rounded-8 text-[1.4rem]',

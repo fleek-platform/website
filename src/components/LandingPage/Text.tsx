@@ -6,13 +6,14 @@ const textVariants = cva([], {
   variants: {
     variant: {
       title:
-        'text-balance font-sans text-[3.6rem] font-semibold leading-[1.125] -tracking-2 text-gray-dark-12 md:text-[5.2rem]',
-      subtitle: 'font-plex-sans text-[1.8rem] text-gray-dark-12 font-semibold',
+        'text-balance font-sans text-[3.6rem] font-semibold leading-[1.125] text-gray-dark-12',
+      subtitle: 'font-plex-sans text-[1.8rem] text-gray-dark-12 font-medium',
       description:
         'text-balance font-plex-sans text-[1.8rem] font-medium text-gray-dark-11',
       feature:
         'font-plex-sans text-[1.2rem] font-medium uppercase tracking-[0.256rem] text-gray-dark-11',
       paragraph: 'font-plex-sans text-[1.4rem] text-gray-dark-11',
+      tertiary: 'font-plex-sans text-[1.4rem] text-gray-dark-12 font-medium',
     },
   },
   defaultVariants: {
