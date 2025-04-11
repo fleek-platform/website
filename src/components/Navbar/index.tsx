@@ -474,7 +474,7 @@ const SessionManagementActions: React.FC = () => {
   // `use-sync-external-store` prevent need for all this?
   // placeholder approach to prevent SSR issues
   if (!isClient) {
-    const buttonText = 'Log in';
+    const buttonText = 'Sign in';
 
     return (
       <>
@@ -530,11 +530,11 @@ const SessionManagementActions: React.FC = () => {
           let buttonText = 'Sign in';
 
           if (error) {
-            buttonText = 'Login failed';
+            buttonText = 'Sign in failed';
           } else if (isLoading) {
             buttonText = 'Loading...';
           } else if (isLoggedIn) {
-            buttonText = 'Log out';
+            buttonText = 'Sign out';
           }
 
           return (
