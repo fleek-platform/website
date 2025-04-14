@@ -16,66 +16,61 @@ Paying for your **Fleek Plan using crypto** is simple and only takes a few minut
 
 Navigate to the [AI Agents tab](https://fleek.xyz/agents/) from your Fleek dashboard.
 
-![](./deepseekapi.png)
+![](./CPG-Step-1.png)
+
+---
+
+## **Step 2: Fund your Fleek Wallet**
+
+Click on the Fleek Funds Wallet icon located at the top right of the page.
+
+![](./CPG-Step-2.png)
+
+---
+
+## **Step 3: Choose Amount and Payment Type**
+
+- Select the amount you'd like to credit to your account.
+- Make sure to choose **Crypto** as your payment method.
+
+![](./CPG-Step-3.png)
+
+---
+
+## **Step 4: Enter Details and Select Currency**
+
+Fill in your basic information, then choose your preferred currency and network for the payment.
+
+![](./CPG-Step-4.png)
 
 ---
 
 ---
 
-## **Step 1: Go to the AI Agents Tab**
+## **Step 5: Connect Your Wallet**
 
-Navigate to the [AI Agents tab](https://fleek.xyz/agents/) from your Fleek dashboard.
+Connect your wallet (e.g., MetaMask, WalletConnect) to proceed with the payment.
 
-![](./deepseekapi.png)
-
----
+![](./CPG-Step-5.png)
 
 ---
 
-## **Step 1: Go to the AI Agents Tab**
+## **Step 6: Confirm Payment**
 
-Navigate to the [AI Agents tab](https://fleek.xyz/agents/) from your Fleek dashboard.
+Double-check all your information, then confirm and complete the transaction.
 
-![](./deepseekapi.png)
-
----
+![](./CPG-Step-6.png)
 
 ---
 
-## **Step 1: Go to the AI Agents Tab**
+## **Step 7: Subscribe to a Plan**
 
-Navigate to the [AI Agents tab](https://fleek.xyz/agents/) from your Fleek dashboard.
+Once your account is funded, click **Subscribe** when prompted to upgrade your plan. This will subscribe to the plan you selected, with the credits from your account.
 
-![](./deepseekapi.png)
-
----
+![](./CPG-Step-7.png)
 
 ---
 
-## **Step 1: Go to the AI Agents Tab**
+Your **subscription will now deduct credits from your balance** on a monthly basis.
+If your balance runs out, your subscription will be **paused** until you add more funds.
 
-Navigate to the [AI Agents tab](https://fleek.xyz/agents/) from your Fleek dashboard.
-
-![](./deepseekapi.png)
-
----
-
----
-
-## **Step 1: Go to the AI Agents Tab**
-
-Navigate to the [AI Agents tab](https://fleek.xyz/agents/) from your Fleek dashboard.
-
-![](./deepseekapi.png)
-
----
-
----
-
-## **Step 1: Go to the AI Agents Tab**
-
-Navigate to the [AI Agents tab](https://fleek.xyz/agents/) from your Fleek dashboard.
-
-![](./deepseekapi.png)
-
----
