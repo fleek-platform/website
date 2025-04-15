@@ -37,7 +37,7 @@ Click on the Fleek Funds Wallet icon located at the top right of the page.
 
 ---
 
-## **Step 4: Enter Details and Select Currency**
+## Step 4: Enter Details and Select Currency
 
 Fill in your basic information, then choose your preferred currency and network for the payment.
 
