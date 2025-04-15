@@ -12,7 +12,7 @@ Paying for your **Fleek Plan using crypto** is simple and only takes a few minut
 
 ---
 
-## **Step 1: Go to the AI Agents Tab**
+## Step 1: Go to the AI Agents Tab
 
 Navigate to the [AI Agents tab](https://fleek.xyz/agents/) from your Fleek dashboard.
 
