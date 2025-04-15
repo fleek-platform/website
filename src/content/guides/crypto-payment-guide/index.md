@@ -16,7 +16,7 @@ Paying for your **Fleek Plan using crypto** is simple and only takes a few minut
 
 Navigate to the [AI Agents tab](https://fleek.xyz/agents/) from your Fleek dashboard.
 
-![](./CPG-Step-1.png)
+![crypto-payment-guide-fleek](./CPG-Step-1.png)
 
 ---
 
@@ -24,7 +24,7 @@ Navigate to the [AI Agents tab](https://fleek.xyz/agents/) from your Fleek dashb
 
 Click on the Fleek Funds Wallet icon located at the top right of the page.
 
-![](./CPG-Step-2.png)
+![fund-your-wallet-fleek](./CPG-Step-2.png)
 
 ---
 
@@ -33,7 +33,7 @@ Click on the Fleek Funds Wallet icon located at the top right of the page.
 - Choose how much you'd like to add to your account.
 - Make sure to choose **Crypto** as your payment method.
 
-![](./CPG-Step-3.png)
+![add-funds-fleek](./CPG-Step-3.png)
 
 ---
 
@@ -41,7 +41,7 @@ Click on the Fleek Funds Wallet icon located at the top right of the page.
 
 Fill in your basic information, then choose your preferred currency and network for the payment.
 
-![](./CPG-Step-4.png)
+![supported-currencies-fleek](./CPG-Step-4.png)
 
 ---
 
@@ -51,7 +51,7 @@ Fill in your basic information, then choose your preferred currency and network 
 
 Connect your wallet (e.g., MetaMask, WalletConnect) to proceed with the payment.
 
-![](./CPG-Step-5.png)
+![supported-wallets-fleek](./CPG-Step-5.png)
 
 ---
 
@@ -59,7 +59,7 @@ Connect your wallet (e.g., MetaMask, WalletConnect) to proceed with the payment.
 
 Review your details and confirm to complete the transaction.
 
-![](./CPG-Step-6.png)
+![crypto-payment-fleek-confirm](./CPG-Step-6.png)
 
 ---
 
@@ -67,7 +67,7 @@ Review your details and confirm to complete the transaction.
 
 Once your account is funded, click **Subscribe** to finalize your plan upgrade using the account credits.
 
-![](./CPG-Step-7.png)
+![subscribe-to-plan](./CPG-Step-7.png)
 
 ---
 
