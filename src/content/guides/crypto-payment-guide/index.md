@@ -63,7 +63,7 @@ Review your details and confirm to complete the transaction.
 
 ---
 
-## **Step 7: Subscribe to a Plan**
+## Step 7: Subscribe to a Plan
 
 Once your account is funded, click **Subscribe** when prompted to upgrade your plan. This will subscribe to the plan you selected, with the credits from your account.
 
