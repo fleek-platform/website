@@ -57,7 +57,7 @@ Connect your wallet (e.g., MetaMask, WalletConnect) to proceed with the payment.
 
 ## Step 6: Confirm Payment
 
-Double-check all your information, then confirm and complete the transaction.
+Review your details and confirm to complete the transaction.
 
 ![](./CPG-Step-6.png)
 
