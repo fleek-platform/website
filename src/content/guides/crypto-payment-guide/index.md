@@ -20,7 +20,7 @@ Navigate to the [AI Agents tab](https://fleek.xyz/agents/) from your Fleek dashb
 
 ---
 
-## **Step 2: Fund your Fleek Wallet**
+## Step 2: Fund your Fleek Wallet
 
 Click on the Fleek Funds Wallet icon located at the top right of the page.
 
