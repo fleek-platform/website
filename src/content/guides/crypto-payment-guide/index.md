@@ -47,7 +47,7 @@ Fill in your basic information, then choose your preferred currency and network 
 
 ---
 
-## **Step 5: Connect Your Wallet**
+## Step 5: Connect Your Wallet
 
 Connect your wallet (e.g., MetaMask, WalletConnect) to proceed with the payment.
 
