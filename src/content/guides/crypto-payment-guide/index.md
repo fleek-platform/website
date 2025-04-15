@@ -30,7 +30,7 @@ Click on the Fleek Funds Wallet icon located at the top right of the page.
 
 ## Step 3: Choose Amount and Payment Type
 
-- Select the amount you'd like to credit to your account.
+- Choose how much you'd like to add to your account.
 - Make sure to choose **Crypto** as your payment method.
 
 ![](./CPG-Step-3.png)
