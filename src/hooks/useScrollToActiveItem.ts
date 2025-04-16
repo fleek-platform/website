@@ -19,7 +19,7 @@ export const useScrollToActiveItem = (
 
       // Scroll only when the item is not visible in the screen
       if (!isItemVisible) {
-        // Calculate the aproximate center position
+        // Calculate the approximate center position
         const containerHeight = containerRect.height;
         const itemPosY = itemRect.top - containerRect.top;
         const centerOffset = containerHeight / 2 - itemRect.height / 2;
