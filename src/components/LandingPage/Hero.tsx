@@ -8,9 +8,6 @@ import { ChatToAIAgentDeploy } from '@components/ChatToAIAgentDeploy';
 
 const calculateDelay = (factor: number) => 0.25 * factor;
 
-const personagenEndpoint = import.meta.env.PUBLIC_GENERATE_ENDPOINT;
-const agentsAppUrl = import.meta.env.PUBLIC_UI_AGENTS_APP_URL;
-
 export const Hero = () => {
   return (
     <header className="relative mx-auto w-full max-w-[1048px] px-24 pt-42 sm:pt-80">
@@ -68,10 +65,7 @@ export const Hero = () => {
 export const CreateAgentTextarea = () => {
   return (
     <>
-      <ChatToAIAgentDeploy
-        personagenEndpoint={personagenEndpoint}
-        agentsAppUrl={agentsAppUrl}
-      />
+      <ChatToAIAgentDeploy />
     </>
   );
 };

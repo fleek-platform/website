@@ -12,13 +12,7 @@ import { setReferralQueryKeyValuePair } from '@utils/referrals';
 
 const MAX_FILE_SIZE = 10 * 1024 * 1024;
 
-export const ChatToAIAgentDeploy = ({
-  personagenEndpoint,
-  agentsAppUrl,
-}: {
-  personagenEndpoint: string;
-  agentsAppUrl: string;
-}) => {
+export const ChatToAIAgentDeploy = () => {
   const { triggerLoginModal, isLoggedIn } = useAuthStore();
 
   const onSubmit = async (description: string, files: FileWithPreview[]) => {
