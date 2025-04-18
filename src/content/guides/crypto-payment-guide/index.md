@@ -73,4 +73,3 @@ Once your account is funded, click **Subscribe** to finalize your plan upgrade u
 
 Your **subscription will now deduct credits from your balance** on a monthly basis.
 If your balance runs out, your subscription will be **paused** until you add more funds.
-
