@@ -7,7 +7,8 @@ image: './thumbnail.png'
 author:
   - 'Fleek'
 ---
-*Embedded agents, credits, managed LLMs and conversational creation on the way*
+
+_Embedded agents, credits, managed LLMs and conversational creation on the way_
 
 The agent economy is heating up and we’re building the rails for it.
 
@@ -35,7 +36,7 @@ Use credits to cover:
 - LLM calls
 - More features soon
 
-*You can view and manage your balance directly in your dashboard or from the Account Settings page.*
+_You can view and manage your balance directly in your dashboard or from the Account Settings page._
 
 **Native crypto payments**
 
@@ -43,7 +44,7 @@ You can now pay for your agent with crypto, directly through the credits system.
 
 No third-party plugins. Just connect your wallet, top up with USDC, and let your credits handle the rest.
 
-*Right now, crypto payments are supported for agent subscriptions. Hosting support is coming soon.*
+_Right now, crypto payments are supported for agent subscriptions. Hosting support is coming soon._
 
 ## Coming Soon
 
