@@ -18,11 +18,11 @@ This week, we’re shipping updates that make it easier to launch, customize, an
 
 ### Drop your agent into any site
 
-### Your agent doesn’t have to live in a dashboard anymore.
+Your agent doesn’t have to live in a dashboard anymore.
 
-### You can now embed it as a floating chat widget on your website. Go to **Settings → Share**, copy the snippet, and drop it into your site. That’s it.
+You can now embed it as a floating chat widget on your website. Go to **Settings → Share**, copy the snippet, and drop it into your site. That’s it.
 
-### Now your users can chat with your agent, wherever they already are.
+Now your users can chat with your agent, wherever they already are.
 
 ### Credits are live (fiat + crypto)
 
