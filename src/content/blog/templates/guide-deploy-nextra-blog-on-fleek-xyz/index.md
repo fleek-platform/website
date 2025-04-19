@@ -55,7 +55,7 @@ The initialization will create fleek.json file on your project, that hold the co
       "buildCommand": "npm run build"
     }
 
-You only need to intialize your site once, but you can always modify the settings on your fleek.json file.
+You only need to initialize your site once, but you can always modify the settings on your fleek.json file.
 
 With your deployment configured, **use the CLI to trigger the** push to IPFS. Fleek will follow the json configuration to build and deploy the site.
 
