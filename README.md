@@ -31,6 +31,8 @@ This repository contains the source code and assets for the Fleek.xyz website, w
   - [Announcement](#announcement)
     - [Announcement Marquee](#announcement-marquee)
     - [Announcement Modal](#announcement-modal)
+  - [Agents Admin Notifications]
+    - [Custom admin notifications](#custom-admin-notifications)
   - [Admonitions](#-admonitions)
   - [Navigation bar](#-navigation-bar)
     - [Configuration](#-configuration)
@@ -63,6 +65,7 @@ This repository contains the source code and assets for the Fleek.xyz website, w
   - [Migrate Gatsby content](#migrate-gatsby-content)
 - [Custom data](#custom-data)
   - [Get latest posts](#get-latest-posts)
+  - [Get Agents UI Admin notifications](#get-agents-ui-admin-notifications)
 - [Video Content](#video-content)
 - [Promotekit](#promotekit)
   - [How to setup](#how-to-setup)
@@ -601,6 +604,29 @@ To display modals only on specific pages:
 
 1. Add entries to the `perPath` array
 2. Each entry should adopt the [modal's structure](#announcement-modal-settings)
+
+## Agents Admin Notifications
+
+The Agents app can display administration notifications for all users. The admin team can provide a raw text message and toggle the enabled property. Once settings are modified, the website has to be deployed to reflect this changes in the static API that the Agents app consumes.
+
+### Custom admin notifications
+
+Open the [settings.json](./src/settings.json) and locate the property `agentsAdminNotification`.
+
+```js
+"agentsAdminNotification": {
+  "authenticatedUsers": {
+    "message": "When we have capacity to deploy new AI agents you will be first in line. Please try again later!",
+    "enable": false      
+  },
+  "default": {
+    "message": "We're currently over capacity and unable to deploy new AI agents. Sign in now to save time and try again later!",
+    "enable": false
+  }
+}
+```
+
+Create a new PR, have it approved, merged, tested and if happy release it.
 
 ### Behavior
 
@@ -1241,6 +1267,36 @@ You'd get a list to iterate over as the following:
     },
     ...
   ]
+}
+```
+
+Everytime a build happens, the static JSON data should be updated.
+
+### Get Agents UI Admin notifications
+
+Make a HTTP GET request to the path `/api/agentsAdminNotification.json` for the target environment, e.g. production as `https://fleek.xyz`.
+
+In the example we make a HTTP GET request and [parse](https://developer.mozilla.org/en-US/docs/Web/API/Response/json) the body text as JSON data.
+
+```js
+const res = await fetch('https://fleek.xyz/api/agentsAdminNotification.json');
+const json = await res.json();
+
+console.log(json);
+```
+
+You'll get a response similar to:
+
+```sh
+{
+  "authenticatedUsers": {
+    "message": "When we have capacity to deploy new AI agents you will be first in line. Please try again later!",
+    "enable": false
+  },
+  "default": {
+    "message": "We're currently over capacity and unable to deploy new AI agents. Sign in now to save time and try again later!",
+    "enable": false
+  }
 }
 ```
 
