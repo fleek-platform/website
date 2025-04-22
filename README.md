@@ -31,7 +31,7 @@ This repository contains the source code and assets for the Fleek.xyz website, w
   - [Announcement](#announcement)
     - [Announcement Marquee](#announcement-marquee)
     - [Announcement Modal](#announcement-modal)
-  - [Agents Admin Notifications]
+  - [Agents Admin Notifications](#agents-admin-notifications)
     - [Custom admin notifications](#custom-admin-notifications)
   - [Admonitions](#-admonitions)
   - [Navigation bar](#-navigation-bar)
