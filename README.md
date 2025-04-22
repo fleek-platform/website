@@ -605,7 +605,7 @@ To display modals only on specific pages:
 1. Add entries to the `perPath` array
 2. Each entry should adopt the [modal's structure](#announcement-modal-settings)
 
-## Agents Admin Notifications
+## Agents admin notifications
 
 The Agents app can display administration notifications for all users. The admin team can provide a raw text message and toggle the enabled property. Once settings are modified, the website has to be deployed to reflect this changes in the static API that the Agents app consumes.
 
