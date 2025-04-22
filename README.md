@@ -132,7 +132,7 @@ PUBLIC_OPEN_API_ENDPOINT="https://api.fleek.xyz/api/openapi.json"
 PUBLIC_FLEEK_WEBSITE_URL="https://fleek.xyz"
 ```
 
-💡 The SUPPORT_ALLOW_ORIGIN_ADDR and SUPPORT_RATE_LIMIT_PATHS are comma separated values (csv). the MEILISEARCH_DOCUMENTS_CLIENT_API_KEY is required when querying staging, production environments which should be provided in the headers.
+💡 The SUPPORT_ALLOW_ORIGIN_ADDR and SUPPORT_RATE_LIMIT_PATHS are comma separated values (csv). the MEILISEARCH_DOCUMENTS_CLIENT_API_KEY is required when querying staging, production environments, which should be provided in the headers.
 
 ## 🏗️ Build
 
@@ -142,7 +142,7 @@ Run the build command to create the distribution version. The files will be save
 npm run build
 ```
 
-💡 By default, the development server is available in the address [http://localhost:4321](http://localhost:4321).
+💡 By default, the development server is available at the address [http://localhost:4321](http://localhost:4321).
 
 Tweak environment settings (src/settings.json), such as the site URL. Declare the `NODE_ENV` with value `prod` or `production` to switch environment target settings.
 
@@ -200,7 +200,7 @@ On release to production, the `-rc*` suffix's removed and the application deploy
 
 ## 🙏 Contribution guideline
 
-Create branches from the `develop` branch and name it in accordance with conventional commits [here](https://www.conventionalcommits.org/en/v1.0.0/).
+Create branches from the `develop` branch and name them in accordance with conventional commits [here](https://www.conventionalcommits.org/en/v1.0.0/).
 
 Here's an example:
 
@@ -296,7 +296,7 @@ Go to the file `src/settings.json` and change the following line to the slug of 
 
 ## 📝 Docs
 
-Creating a document in the **Docs** section is similar to **Blog**.Learn how to create a document by using the instructions for [blog](#-blog).
+Creating a document in the **Docs** section is similar to **Blog**. Learn how to create a document by using the instructions for [blog](#-blog).
 
 ## 🎰 Sidebar menu item ordering
 
@@ -304,7 +304,7 @@ Editing the menu and sidebar is crucial. These elements serve as the primary nav
 
 To reorder menu items, edit the **docs -> menu -> order** section in the settings file located in **src/settings.json**.
 
-Here's an example where we order the categories accounts, projects and storage by naming the category name and order numerical value. If you don't order, the system will fallback to ordering it alphabetically or randomly.
+Here's an example where we order the categories accounts, projects and storage by naming the category name and order numerical value. If you don't order, the system will fall back to ordering it alphabetically or randomly.
 
 ```
 "docs": {
@@ -405,7 +405,7 @@ Click on the file tree icon to expand it.
 
 ![File tree](public/images/repo/github-file-tree-collapsed.png?202404161822)
 
-Once expanded you should see the file tree.
+Once expanded, you should see the file tree.
 
 ![File tree expanded](public/images/repo/github-file-tree-expanded.png?202404161824)
 
@@ -417,11 +417,11 @@ For example, in the image we see the creation of a branch named **docs/my-new-br
 
 ![New branch](public/images/repo/github-new-branch.png?202404161826)
 
-Click in the "Create branch docs/my-new-branch from develop".
+Click on the "Create branch docs/my-new-branch from develop".
 
 #### 4) Create a directory for the post content files
 
-To create a new directory in a repository click “create a new file.” Type your new directory's name in the area where you would write the file name, and at the end of the file name type a "/" to initialize it as a directory. After this you can create a new file in the directory.
+To create a new directory in a repository, click “create a new file.” Type your new directory's name in the area where you would write the file name, and at the end of the file name type a "/" to initialize it as a directory. After this, you can create a new file in the directory.
 
 ![Create directory](public/images/repo/create-new-directory.png?202404161826)
 
@@ -447,9 +447,9 @@ Select the option "Commit directly to the docs/my-new-branch branch" and commit 
 
 ![Click filename to open](public/images/repo/click-in-filename-index-md.png?202404161826)
 
-#### 8) Click in the option "Edit this file" to edit
+#### 8) Click on the option "Edit this file" to edit
 
-In the right side of the window, locate the pencil icon and click it to start editing the file.
+On the right side of the window, locate the pencil icon and click it to start editing the file.
 
 ![Edit this file](public/images/repo/edit-this-file.png?202404161826)
 
@@ -478,7 +478,7 @@ Learn more by reading the [New post](#new-post) section.
 
 Every time there's a new change, you can commit it. It'll store the changes in the repository branch you have created.
 
-#### 11) Once happy create a pull request
+#### 11) Once happy, create a pull request
 
 You can create a pull request by visiting the [compare](https://github.com/fleekxyz/fleekxyz-website/compare).
 
@@ -488,7 +488,7 @@ Use the second drop box to select the branch name you have just created for your
 
 Press the "Create pull request" and fill up the following fields by providing a title for your pull request and a description.
 
-To complete select "Create pull request".
+To complete, select "Create pull request".
 
 ![Pull request form](public/images/repo/pull-request-form.png?202404161849)
 
@@ -498,8 +498,8 @@ You can release to production following a linear strategy. This assumes that the
 
 Use-case examples:
 
-- The team has merged some feature branches into develop identified as commit hash "abc123" and want to release upto to the commit history hash "abc123" onto "main". By doing this they expect the build process to occur and deploy into the Fleek Platform
-- The team has merged several feature branches into develop identified as commit hashes `commitFeat1`, `commitFeat2` and `commitFeat3` by this historical order. It's decided to release everything in commit history until `commitFeat1`, but not `commitFeat2` and `commitFeat3`. Although, it'd be wiser to keep the feature branches in pending state as "develop" should always be in a ready state for testing and release as the team may want to release some quick hotfixes, etc
+- The team has merged some feature branches into develop identified as commit hash "abc123" and want to release up to the commit history hash "abc123" onto "main". By doing this, they expect the build process to occur and deploy into the Fleek Platform
+- The team has merged several feature branches into develop identified as commit hashes `commitFeat1`, `commitFeat2` and `commitFeat3` in this historical order. It's decided to release everything in the commit history until `commitFeat1`, but not `commitFeat2` and `commitFeat3`. Although, it'd be wiser to keep the feature branches in pending state as "develop" should always be in a ready state for testing and release, as the team may want to release some quick hotfixes, etc
 
 To release to production open the actions tab [here](https://github.com/fleek-platform/website/actions).
 
@@ -607,9 +607,9 @@ To display modals only on specific pages:
 
 ## Agents admin notifications
 
-The Agents app can display administration notifications for all users. The admin team can provide a raw text message and toggle the enabled property. Once settings are modified, the website has to be deployed to reflect this changes in the static API that the Agents app consumes.
+The Agents app can display administration notifications for all users. The admin team can provide a raw text message and toggle the enabled property. Once settings are modified, the website has to be deployed to reflect these changes in the static API that the Agents app consumes.
 
-To learn how to consume it read [here](#get-agents-ui-admin-notifications)
+To learn how to consume it, read [here](#get-agents-ui-admin-notifications)
 
 ### Custom admin notifications
 
@@ -618,7 +618,7 @@ Open the [settings.json](./src/settings.json) and locate the property `agentsAdm
 ```js
 "agentsAdminNotification": {
   "authenticatedUsers": {
-    "message": "When we have capacity to deploy new AI agents you will be first in line. Please try again later!",
+    "message": "When we have the capacity to deploy new AI agents you will be first in line. Please try again later!",
     "enable": false      
   },
   "default": {
@@ -628,7 +628,7 @@ Open the [settings.json](./src/settings.json) and locate the property `agentsAdm
 }
 ```
 
-Create a new PR, have it approved, merged, tested and if happy release it.
+Create a new PR, have it approved, merged, tested, and if happy release it.
 
 ### Behavior
 
@@ -666,7 +666,7 @@ This is a info
 
 ```
 
-To learn more read the directives [here](https://github.com/Microflash/remark-callout-directives)
+To learn more, read the directives [here](https://github.com/Microflash/remark-callout-directives)
 
 ## Navigation bar
 
@@ -775,7 +775,7 @@ When configuring your menu, ensure that the structure and properties of your obj
 
 Metadata is important for search engines, social media platforms, and others to understand the content and purpose of a page.
 
-The main location for the metadata is in the head element of the main base layout for our pages. At time of writing, is located as `BaseHtml.astro` in the `src/layouts`:
+The main location for the metadata is in the head element of the main base layout for our pages. At the time of writing, it is located as `BaseHtml.astro` in the `src/layouts`:
 
 ```sh
 src/layouts
@@ -895,7 +895,7 @@ The project services have the following naming convention:
 
 ### Support
 
-Support's based in ZenDesk, as an external provider that provides an API to interact with the service. The following documentation provides information to interact with the proxy server.
+Support's based in ZenDesk, as an external provider that provides an API to interact with the service. The following documentation provides information on interacting with the proxy server.
 
 ### Setup the service
 
@@ -927,7 +927,7 @@ Start the local API by running:
 npm run support:local_api
 ```
 
-💡 During implementation the API URL should be provided as an environment variable.
+💡 During implementation, the API URL should be provided as an environment variable.
 
 ### Interact with the API
 
@@ -1131,7 +1131,7 @@ The Job will index data that exists in the selected `main` branch. Learn how to 
 
 ## 📸 Images (Optimization)
 
-The build process can optimize the images but that requires the user to use the correct image components. Use the instructions provided to optimize the images.
+The build process can optimize the images, but that requires the user to use the correct image components. Use the instructions provided to optimize the images.
 
 ## Beehiiv Proxy
 
@@ -1237,9 +1237,9 @@ Note that the custom data is static, as the project is fully static (it means th
 
 ### Get latest posts
 
-Make a HTTP GET request to the path `/api/latestBlogposts.json` for the target environment, e.g. production as `https://fleek.xyz`.
+Make an HTTP GET request to the path `/api/latestBlogposts.json` for the target environment, e.g. production as `https://fleek.xyz`.
 
-In the example we make a HTTP GET request and [parse](https://developer.mozilla.org/en-US/docs/Web/API/Response/json) the body text as JSON data.
+In the example we make an HTTP GET request and [parse](https://developer.mozilla.org/en-US/docs/Web/API/Response/json) the body text as JSON data.
 
 ```js
 const res = await fetch('https://fleek.xyz/api/latestBlogPosts.json');
@@ -1272,13 +1272,13 @@ You'd get a list to iterate over as the following:
 }
 ```
 
-Everytime a build happens, the static JSON data should be updated.
+Every time a build happens, the static JSON data should be updated.
 
 ### Get Agents UI Admin notifications
 
-Make a HTTP GET request to the path `/api/agentsAdminNotification.json` for the target environment, e.g. production as `https://fleek.xyz`.
+Make an HTTP GET request to the path `/api/agentsAdminNotification.json` for the target environment, e.g. production as `https://fleek.xyz`.
 
-In the example we make a HTTP GET request and [parse](https://developer.mozilla.org/en-US/docs/Web/API/Response/json) the body text as JSON data.
+In the example we make an HTTP GET request and [parse](https://developer.mozilla.org/en-US/docs/Web/API/Response/json) the body text as JSON data.
 
 ```js
 const res = await fetch('https://fleek.xyz/api/agentsAdminNotification.json');
@@ -1292,7 +1292,7 @@ You'll get a response similar to:
 ```sh
 {
   "authenticatedUsers": {
-    "message": "When we have capacity to deploy new AI agents you will be first in line. Please try again later!",
+    "message": "When we have the capacity to deploy new AI agents you will be first in line. Please try again later!",
     "enable": false
   },
   "default": {
@@ -1302,15 +1302,15 @@ You'll get a response similar to:
 }
 ```
 
-Everytime a build happens, the static JSON data should be updated.
+Every time a build happens, the static JSON data should be updated.
 
 ## Video Content
 
-Place video content relative to the content. We must keep it in context of the content due to portability. At time of writing, Astro doesn't optimize video and suggests placing these in the public directory which would break the portability requirement.
+Place video content relative to the content. We must keep it in the context of the content due to portability. At the time of writing, Astro doesn't optimize video and suggests placing these in the public directory, which would break the portability requirement.
 
-💡 Video should be web optimized. Keep it short. At time of writing the maximum video file size is 6 MB. If lengthy, it's much preferred to distribute it on YouTube or similar.
+💡 Video should be web optimized. Keep it short. At the time of writing, the maximum video file size is 6 MB. If lengthy, it's much preferred to distribute it on YouTube or similar.
 
-To mitigate it, the Fleek Website build process includes handling of video files (mp4). It copies the content into the distribution directory to allow us to access it relatively. It doesn't optimize the files, thus video files should be web encoded by the author. For example, if you are on MacOS use [Handbrake](https://handbrake.fr) to optimize the videos, or [ffmpeg](https://www.ffmpeg.org) for any operating system.
+To mitigate it, the Fleek Website build process includes handling of video files (mp4). It copies the content into the distribution directory to allow us to access it relatively. It doesn't optimize the files, thus video files should be web encoded by the author. For example, if you are on MacOS, use [Handbrake](https://handbrake.fr) to optimize the videos, or [ffmpeg](https://www.ffmpeg.org) for any operating system.
 
 A video can be declared in the markdown as follows:
 
@@ -1332,13 +1332,13 @@ When visiting the site content, the file will be surfaced absolutely, e.g. `<sou
 </video>
 ```
 
-❌ If missing a trailing slash it'll look for the file in the wrong location. At time of writing, trailing slash is not required to resolve the site sections, thus its best practice to declare the file location with `./` as in `<source src="./my-video-filename.mp4">` to avoid confusion.
+❌ If missing a trailing slash, it'll look for the file in the wrong location. At the time of writing, a trailing slash is not required to resolve the site sections, thus its best practice to declare the file location with `./` as in `<source src="./my-video-filename.mp4">` to avoid confusion.
 
-💡 At time of writing its assumed that video files are put in the directory of a markdown file named `index.md(x)`, e.g. `src/content/guides/my-guide/index.md` and `src/content/guides/my-guide/my-video.mp4`. It's also expected that the base path is the directory of the content and not cross content. It's important to respect the convention for portability, otherwise you'll find unexpected results.
+💡 At the time of writing, its assumed that video files are put in the directory of a markdown file named `index.md(x)`, e.g. `src/content/guides/my-guide/index.md` and `src/content/guides/my-guide/my-video.mp4`. It's also expected that the base path is the directory of the content and not cross content. It's important to respect the convention for portability, otherwise you'll find unexpected results.
 
 ## Promotekit
 
-PromoteKit by Stripe is a tool that helps businesses integrate and manage promotional campaigns, like discounts and referrals, within Stripe's payment system to boost customer engagement and sales. To learn more read the documentation [here](https://docs.promotekit.com/).
+PromoteKit by Stripe is a tool that helps businesses integrate and manage promotional campaigns, like discounts and referrals, within Stripe's payment system to boost customer engagement and sales. To learn more, read the documentation [here](https://docs.promotekit.com/).
 
 ### How to setup?
 
@@ -1352,6 +1352,6 @@ TLDR; Visit [https://fleek.xyz/?via=Helder](https://fleek.xyz/?via=Helder) to en
 
 ## Changelog Resources
 
-The repositories contain a `CHANGELOG.md` file, which is generated automatically. Find the files in the root of the repositories, for example for [@fleek-platform/cli](https://github.com/fleek-platform/cli):
+The repositories contain a `CHANGELOG.md` file, which is generated automatically. Find the files in the root of the repositories, for example, for [@fleek-platform/cli](https://github.com/fleek-platform/cli):
 
 - SDK changelog
