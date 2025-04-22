@@ -609,6 +609,8 @@ To display modals only on specific pages:
 
 The Agents app can display administration notifications for all users. The admin team can provide a raw text message and toggle the enabled property. Once settings are modified, the website has to be deployed to reflect this changes in the static API that the Agents app consumes.
 
+To learn how to consume it read [here](#get-agents-ui-admin-notifications)
+
 ### Custom admin notifications
 
 Open the [settings.json](./src/settings.json) and locate the property `agentsAdminNotification`.
