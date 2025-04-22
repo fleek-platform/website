@@ -73,15 +73,13 @@ export const ChatToAIAgentDeploy = () => {
   };
 
   return (
-    <div className="agents-ui m-20 w-full text-14">
-      <div className="mx-auto w-[80rem]">
-        <ChatBox
-          onSubmit={onSubmit}
-          onSuccess={onSuccess}
-          onError={onError}
-          maxFileSize={MAX_FILE_SIZE}
-        />
-      </div>
+    <div className="agents-ui my-20 flex justify-center text-14">
+      <ChatBox
+        onSubmit={onSubmit}
+        onSuccess={onSuccess}
+        onError={onError}
+        maxFileSize={MAX_FILE_SIZE}
+      />
     </div>
   );
 };

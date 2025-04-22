@@ -37,7 +37,7 @@ export const Hero = () => {
               </div>
             </div>
             <BlurFade delay={calculateDelay(3)}>
-              <CreateAgentTextarea />
+              <ChatToAIAgentDeploy />
             </BlurFade>
           </div>
           <BlurFade delay={calculateDelay(4)}>
@@ -59,13 +59,5 @@ export const Hero = () => {
         </div>
       </div>
     </header>
-  );
-};
-
-export const CreateAgentTextarea = () => {
-  return (
-    <>
-      <ChatToAIAgentDeploy />
-    </>
   );
 };
