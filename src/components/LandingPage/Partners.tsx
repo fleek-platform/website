@@ -8,30 +8,39 @@ type PartnerProps = {
   caseStudyUrl: string;
 };
 
-const Partner: React.FC<PartnerProps> = ({ name, logo }) => {
-  return (
+const Partner: React.FC<PartnerProps> = ({ name, logo, caseStudyUrl }) => {
+  const className = 'flex h-80 items-center justify-center sm:h-116';
+  const img = (
     <img
       src={logo}
       alt={name}
+      className="scale-75 transition-all sm:scale-100"
       loading="lazy"
-      className="scale-[.65] last:col-span-2 last:mx-auto sm:scale-100 sm:last:col-span-1"
     />
   );
+
+  if (caseStudyUrl)
+    return (
+      <Link className={className} href={caseStudyUrl}>
+        {img}
+      </Link>
+    );
+
+  return <div className={className}>{img}</div>;
 };
 
 export const Partners: React.FC = () => {
   return (
-    <div className="mx-auto flex w-full max-w-[1048px] flex-col items-center px-24 pb-52 pt-100">
-      <div className="h-[1px] w-full bg-gradient-to-r from-transparent via-white/20 to-transparent" />
-      <h3 className="mt-48 max-w-480 text-balance text-center font-plex-sans text-20 font-medium leading-tight text-gray-dark-11 sm:text-18">
-        Trusted by industry leaders and companies
+    <section className="mx-auto flex w-full max-w-[1048px] flex-col items-center gap-24 px-24 pb-52">
+      <h3 className="max-w-480 text-balance text-center font-plex-sans text-20 leading-tight text-gray-dark-11 sm:text-24">
+        Join <span className="font-bold text-gray-dark-12">100,000+</span>
+        &nbsp;developers who rely on Fleek to power their apps and AI agents.
       </h3>
-      <div className="mt-36 grid w-full max-w-[650px] grid-cols-2 items-center justify-center gap-24 sm:grid-cols-5 sm:gap-46">
+      <div className="grid w-full grid-cols-2 items-center justify-center sm:grid-cols-3">
         {settings.landingPage.partners.map((partner) => (
           <Partner key={partner.name} {...partner} />
         ))}
       </div>
-      <div className="mt-50 hidden h-[1px] w-full bg-gradient-to-r from-transparent via-white/20 to-transparent" />
-    </div>
+    </section>
   );
 };
