@@ -7,44 +7,54 @@ image: './thumbnail.jpg'
 author:
   - 'Fleek'
 ---
+The agent layer is becoming real, and two major players are joining forces to accelerate its growth. Today, we’re announcing a strategic partnership between **Venice AI** and **Fleek** that connects intelligence and infrastructure at the foundation of a new internet.
 
-The agent layer is becoming real, and two major players are joining forces to accelerate its growth. Today, we’re excited to announce a strategic partnership between Venice AI and Fleek that connects infrastructure and intelligence at the foundation of a new internet.
+Venice is a privacy-first AI platform offering uncensored access to powerful open-source models for text, image, voice, and code generation, as well as character creation and interaction. Everything runs locally in the user’s browser. No data is stored or tracked. No filters or censors beyond what the base models include. It’s a level of user control and creative freedom that aligns far more closely with crypto values than anything emerging from closed-source labs. This client-side execution, combined with open model access, makes Venice one of the few platforms truly committed to crypto privacy standards.
 
-This collaboration has two key pillars:
+### **What’s Launching**
 
-First, Venice is powering Fleek’s free trial. Every new user on Fleek will now receive $10 in free LLM usage, made possible through Venice. This means that whether you’re arriving from Fleek.xyz, partner platforms like auto.fun, or anywhere else, you can immediately start building and deploying agents without paying upfront for compute.
+- **Every new Fleek user gets $10 in free Venice credits**
+    
+    Starting today, all new Fleek users including those coming from partner platforms like [auto.fun](https://auto.fun/) will receive $10 in free LLM usage powered by Venice. That means anyone can start deploying and testing agents immediately, with no upfront cost or setup required.
+    
+- **Uncensored models, privacy-first execution**
+    
+    Venice models are more expressive, less filtered, and better aligned with open internet values. They allow users to create agents that write, speak, draw, and engage without the friction or censorship that defines most consumer AI platforms. Combined with Fleek’s TEE-backed runtime, this enables a full privacy stack for deploying agents that can act, reason, and remember without compromising data ownership.
+    
+- **A tokenized system for autonomous agent operations**
+    
+    Venice’s token model allows users to stake **VVV** and access inference without paying monthly. With Fleek, the **FLK** token will allow users to stake for agent hosting, MCP hosting, and all other agent infrastructure needs outside of inference.
+    
 
-What makes this even more powerful is what Venice enables: unrestricted, uncensored LLMs across text, image, voice, and video. It removes the constraints of traditional AI providers and opens up possibilities that are much more aligned with the values of the Web3 ecosystem.
+Traditional payment methods like credit cards or monthly subscriptions don’t make sense for agents that are designed to operate autonomously. This tokenized model solves that—just stake once, and your agents can run without any recurring billing or platform lock-in. It’s permissionless software, operating on its own.
 
-With Venice, Fleek users can tap into models that feel more autonomous, more expressive, and less filtered.
+## Developer Access
 
-This is a huge unlock for the creator and builder communities using Fleek.
+**Direct API integration with Venice**
 
-These are agents that feel human, not corporate. They can write, speak, draw, and even produce content on behalf of their owners - without needing to tiptoe around blacklisted phrases or restricted intent.
+Developers can integrate Venice via its OpenAI-compatible API for text, image, and code generation, with support for custom character features. It works seamlessly with tools like Cursor, Brave, or ElizaOS no traditional billing or setup needed. Staking VVV is enough to unlock access.
 
-Even more important: it’s sustainable.
+## Why It Matters
 
-Venice offers token-based access to inference. That means you can stake VVV and access their LLMs without needing to pay a subscription. Similarly, Fleek will offer token-based access to its own infrastructure services. If you stake both VVV and FLK, your agents can run autonomously with no monthly bill. It’s a step toward truly decentralized, self-sustaining software.
+This partnership creates a full pipeline: **Venice provides the intelligence layer**, and **Fleek provides the runtime**. Venice gives creators new tools for expression, and Fleek gives them the infrastructure to deploy, manage, and scale what they build.
 
-Second, Fleek is powering Venice’s next product leap. Venice is already known for its AI-generated characters, used by over 300,000 people. Now, 25 percent of those users will be able to enhance their experience with advanced AI capabilities—thanks to Fleek’s infrastructure.
+Until now, launching agents required piecing together multiple tools LLM access, deployment infra, billing logic, observability. This integration eliminates that fragmentation. With Venice and Fleek, it’s all unified in a single flow.
 
-This means Venice users will benefit from more powerful AI-driven interactions, with enhanced capabilities supported by Fleek’s infrastructure. Fleek’s agent system and TEE-based infrastructure will be used under the hood to make it happen.
+As agents begin to operate more independently, the frontend starts to fade. And when that happens, the real questions emerge:
 
-In practical terms, Fleek will become the invisible backend behind Venice agents. Every time a user engages with advanced AI features, such as launching behavior systems or initiating complex interactions, that logic will be running on Fleek. It’s a true infrastructure integration - not a superficial collaboration.
-
-Together, these two moves create a full pipeline: Venice provides the intelligence layer, Fleek provides the runtime. Venice gives creators new forms of expression, Fleek gives them a place to deploy. Venice’s community gets to level up their creations, and Fleek’s platform becomes the easiest place to launch, run, and scale agents - now with built-in intelligence and compute included.
-
-This partnership is about more than integrations. It’s about creating the conditions for agents to thrive.
-
-When the frontend fades away and software starts acting on its own, the question becomes: what are the new primitives? What does the infrastructure stack for persistent, autonomous software actually look like?
+**What new primitives do we need? What infrastructure does this world actually run on?**
 
 We believe it looks like this:
 
-- Agents that are private by default, verifiable by design
-- Models that can be permissionless, expressive, and aligned with user values
-- Infrastructure that scales through tokenized access, not corporate billing
-- A runtime that isn’t hidden behind dashboards, but fully observable
+- Agents that are **private by default**, **verifiable by design**
+- Models that are **open**, **expressive**, and **not permissioned**
+- Infrastructure that scales through **tokenized access**, not corporate billing
+- A runtime that is **fully observable**, not hidden behind dashboards
 
-Launch an agent using the at [fleek.xyz](https://fleek.xyz/)And join the movement that’s replacing the app layer.
+## It’s Already Live
 
-And it’s already live.
+New to Fleek? You’ll get **$10 in free Venice credits** to start building instantly—text, image, code, whatever your agent needs. Whether you’re launching through Fleek directly or via platforms like [auto.fun](https://auto.fun/), it’s all ready to go.
+
+**→**
+
+[**Start building at Fleek.xyz**](https://fleek.xyz/) **and deploy your first agent with $10 in free inference credits.**
