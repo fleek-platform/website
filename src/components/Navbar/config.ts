@@ -145,7 +145,7 @@ export function getAuthenticationMenu(
           description: 'Manage your account',
         },
         {
-          label: 'Log out',
+          label: 'Sign out',
           action: handleLogout,
           description: 'Manage your account',
         },
@@ -154,12 +154,12 @@ export function getAuthenticationMenu(
 
     function getLoginLabel() {
       if (isError) {
-        return 'Log in failed';
+        return 'Sign in failed';
       }
       if (isLoggingIn) {
-        return 'Logging in...';
+        return 'Loading...';
       }
-      return 'Log in';
+      return 'Sign in';
     }
 
     return [
