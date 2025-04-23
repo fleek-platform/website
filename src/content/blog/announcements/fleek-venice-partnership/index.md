@@ -7,6 +7,7 @@ image: './thumbnail.jpg'
 author:
   - 'Fleek'
 ---
+
 The agent layer is becoming real, and two major players are joining forces to accelerate its growth. Today, we’re excited to announce a strategic partnership between Venice AI and Fleek that connects infrastructure and intelligence at the foundation of a new internet.
 
 This collaboration has two key pillars:
