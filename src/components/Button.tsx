@@ -1,4 +1,4 @@
-import Link, { Target } from '@components/Link';
+import Link, { type Target } from '@components/Link';
 import type { PropsWithChildren } from 'react';
 import { type VariantProps, cva } from 'class-variance-authority';
 import { cn } from '@utils/cn';
