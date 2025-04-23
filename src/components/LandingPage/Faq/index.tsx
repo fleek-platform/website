@@ -17,6 +17,8 @@ const Item: React.FC<ItemProps> = ({ item }) => {
 
   const toggle = () => setIsOpen((prev) => !prev);
 
+  const answer = item.answer.split('\n');
+
   return (
     <button
       type="button"
@@ -45,9 +47,11 @@ const Item: React.FC<ItemProps> = ({ item }) => {
           maxHeight: isOpen ? `${contentRef.current?.scrollHeight}px` : '0px',
         }}
       >
-        <Text variant="paragraph" className="pt-8">
-          {item.answer}
-        </Text>
+        {answer.map((a, idx) => (
+          <Text key={`${idx}: ${a}`} variant="paragraph" className="pt-8">
+            {a}
+          </Text>
+        ))}
       </div>
     </button>
   );
