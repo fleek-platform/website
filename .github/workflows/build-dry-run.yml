@@ -61,6 +61,8 @@ jobs:
         run: |
           scripts/setup-ci-dotenv
 
+      - run: npm install --include=optional sharp
+
       - name: Install
         run: npm ci
 
