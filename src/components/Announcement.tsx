@@ -44,9 +44,11 @@ export const Announcement: React.FC<AnnouncementProps> = ({
         href={settings.site.announcementMarquee.url}
         target={Target.Blank}
         rel="noopener noreferrer"
-        className="group flex flex-col gap-4 text-balance rounded-full border-t border-gray-dark-4 bg-gradient-to-br from-gray-dark-2 to-gray-dark-1 p-8 font-plex-sans text-13 font-normal leading-tight text-gray-dark-11 hover:border-gray-dark-5 hover:from-gray-dark-3 hover:to-gray-dark-2 hover:text-gray-dark-12"
+        className="group flex flex-col gap-4 text-balance rounded-8 border-t border-gray-dark-4 bg-gradient-to-br from-gray-dark-2 to-gray-dark-1 p-8 font-plex-sans text-13 font-normal leading-tight text-gray-dark-11 hover:border-gray-dark-5 hover:from-gray-dark-3 hover:to-gray-dark-2 hover:text-gray-dark-12"
       >
-        <span className="shrink-0">🎉</span>
+        <span className="shrink-0 text-10 font-medium uppercase text-yellow-dark-11">
+          ✨ new
+        </span>
         {settings.site.announcementMarquee.message}
       </Link>
     );
@@ -57,17 +59,19 @@ export const Announcement: React.FC<AnnouncementProps> = ({
       target={Target.Blank}
       rel="noopener noreferrer"
       className={cn(
-        'group relative mr-auto flex h-[33px] cursor-pointer items-center gap-8 rounded-full bg-neutral-2 px-8 py-6 pr-12 font-plex-sans outline-none ring-0 ring-gray-dark-8 transition-all hover:bg-gradient-to-br hover:pr-30 focus-visible:bg-gradient-to-br focus-visible:pr-30 focus-visible:ring-2',
+        'group relative mr-auto flex h-[33px] cursor-pointer items-center gap-8 rounded-8 bg-gray-dark-2 from-gray-dark-4 to-gray-dark-2 px-8 py-6 pr-12 font-plex-sans outline-none ring-0 ring-gray-dark-8 transition-all hover:bg-gradient-to-br hover:pr-30 focus-visible:bg-gradient-to-br focus-visible:pr-30 focus-visible:ring-2',
         {
           'w-full justify-center rounded-none px-24': variant === 'full',
         },
       )}
     >
-      <span className="shrink-0">🎉</span>
+      <span className="shrink-0 text-11 font-medium uppercase text-yellow-dark-11">
+        ✨ new
+      </span>
 
       <div
         ref={containerRef}
-        className="relative overflow-hidden whitespace-nowrap text-14 font-normal text-gray-dark-11 sm:text-15"
+        className="relative overflow-hidden whitespace-nowrap text-14 font-normal text-gray-dark-12 sm:text-15"
       >
         {/* Hidden element for consistent measurement */}
         <span
