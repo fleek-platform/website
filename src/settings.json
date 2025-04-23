@@ -3,7 +3,7 @@
     "mocksEnabled": true,
     "metadata": {
       "default": {
-        "title": "Fleek | Build and deploy autonomous apps and AI agents",
+        "title": "Fleek | Create AI agents and influencers",
         "slug": "",
         "description": "Fleek: Build next-gen apps and AI agents in minutes on an open-source, verifiable, auto-scalable cloud platform. Start for free!",
         "image": "/images/fleek-meta-image.png?202406061658"
@@ -192,8 +192,8 @@
   },
   "landingPage": {
     "hero": {
-      "h1": "Build and deploy autonomous apps and AI agents",
-      "h2": "Fleek makes it easy to build and deploy next-generation apps and AI agents in minutes on an open-source, verifiable, auto-scalable cloud platform.",
+      "h1": "Create AI agents and influencers",
+      "h2": "Create and manage social agents, virtual agents and digital twins with Fleek.",
       "primaryCta": "Deploy an agent",
       "secondaryCta": "Read our docs",
       "imageDesktop": "/images/landing-page/hero/hero-desktop.webp",
@@ -201,33 +201,50 @@
     },
     "partners": [
       {
-        "name": "Polygon",
-        "logo": "/images/landing-page/partners/polygon.svg",
+        "name": "Coinbase",
+        "logo": "/images/landing-page/partners/coinbase.png",
         "caseStudyUrl": ""
       },
       {
-        "name": "Filecoin",
-        "logo": "/images/landing-page/partners/filecoin.svg",
+        "name": "Polychain Capital",
+        "logo": "/images/landing-page/partners/polychaincapital.png",
         "caseStudyUrl": ""
       },
       {
-        "name": "Velodrome",
-        "logo": "/images/landing-page/partners/velodrome.svg",
+        "name": "DCG",
+        "logo": "/images/landing-page/partners/dcg.png",
         "caseStudyUrl": ""
       },
       {
-        "name": "Protocol Labs",
-        "logo": "/images/landing-page/partners/protocollabs.svg",
+        "name": "Eliza OS",
+        "logo": "/images/landing-page/partners/elizaos.png",
         "caseStudyUrl": ""
       },
       {
-        "name": "Berachain",
-        "logo": "/images/landing-page/partners/berachain.svg",
+        "name": "Venice",
+        "logo": "/images/landing-page/partners/venice.png",
+        "caseStudyUrl": ""
+      }
+    ],
+    "LLMs": [
+      {
+        "name": "OpenAI",
+        "logo": "/images/landing-page/llms/openai.png",
         "caseStudyUrl": ""
       },
       {
-        "name": "ENS",
-        "logo": "/images/landing-page/partners/ens.svg",
+        "name": "DeepSeek",
+        "logo": "/images/landing-page/llms/deepseek.png",
+        "caseStudyUrl": ""
+      },
+      {
+        "name": "Claude",
+        "logo": "/images/landing-page/llms/claude.png",
+        "caseStudyUrl": ""
+      },
+      {
+        "name": "Grok",
+        "logo": "/images/landing-page/llms/grok.png",
         "caseStudyUrl": ""
       }
     ]
