@@ -2,7 +2,7 @@ import type { Props } from '../../components/PricingCard';
 
 const dashboardUrl = import.meta.env.PUBLIC_UI_APP_URL;
 
-export const PricingInfo: Props[] = [
+export const HostingPricingInfo: Props[] = [
   {
     title: 'Free Plan',
     description:
@@ -60,6 +60,66 @@ export const PricingInfo: Props[] = [
       'Custom build resources',
       'Enterprise SLAs',
       'Dedicated support',
+    ],
+    cta: 'Contact us',
+    variant: 'primary-outline',
+    url: 'https://fleek.typeform.com/fleekinterest',
+  },
+];
+
+export const AiAgentsPricingInfo: Props[] = [
+  {
+    title: 'Standard',
+    description:
+      'For users just starting. Create or chat with AI agents and virtual influencers. ',
+    splitDescription: true,
+    cost: {
+      amount: 20,
+    },
+    featuresDescription: 'Includes:',
+    features: [
+      '1 custom AI avatar',
+      '1 seat',
+      'Add credits for $1 each',
+      'Add agents from $20/m/agent',
+    ],
+    cta: 'Get started',
+    variant: 'primary',
+    url: `${dashboardUrl}/agents`,
+  },
+  {
+    title: 'Star',
+    description: 'For rising stars to create and manage virtual influencers.',
+    splitDescription: true,
+    cost: {
+      amount: 50,
+    },
+    featuresDescription: 'Includes:',
+    features: [
+      '50 Fleek credits/month',
+      'Unlimited custom AI avatars',
+      'Unlimited seats',
+      '5% discount on added credits',
+    ],
+    cta: 'Coming soon',
+    variant: 'primary-outline',
+  },
+  {
+    title: 'Enterprise',
+    description: "Have a big project or custom needs?\n We've got you.",
+    splitDescription: true,
+    cost: {
+      amount: 'Custom',
+      prefix: '',
+      suffix: '',
+    },
+    featuresDescription:
+      'For users or companies looking to scale their experience.',
+    features: [
+      'Bulk agent creation',
+      'Concierge support',
+      'Volume discounting on credits',
+      'Admin tools',
     ],
     cta: 'Contact us',
     variant: 'primary-outline',

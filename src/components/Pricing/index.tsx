@@ -1,7 +1,5 @@
 import TableMobile from './Table/TableMobile';
 import TableDesktop from './Table/TableDesktop';
-import { PricingInfo } from '../../content/pricing/config';
-import PricingCard from '@components/PricingCard';
 import { Text } from '@components/LandingPage/Text';
 import Accordion from '@components/Accordion';
 import settings from '@base/settings.json';
@@ -9,6 +7,8 @@ import data from './data.json';
 import { parseContentWithLinkPlaceholders } from '@utils/parseContentWithLinkPlaceholders';
 import { Button } from '@components/Button';
 import { PricingPlanHero } from './PricingPlanHero';
+import { useState } from 'react';
+import { TabbedButtons } from '@components/TabbedButtons';
 
 const resources = settings.support.resources || {};
 
@@ -20,6 +20,9 @@ const processedFaqs = data.faqs.map(
 );
 
 const Pricing = () => {
+  const [priceFocus, setPriceFocus] = useState<'ai-agents' | 'hosting'>(
+    'ai-agents',
+  );
   return (
     <>
       <div className="grid grid-flow-dense grid-cols-16 gap-x-16 pb-80 pt-50">
@@ -29,13 +32,52 @@ const Pricing = () => {
               Pricing you can get pumped about
             </Text>
             <Text variant="description" className="mb-76">
-              Try for free and only pay for what you use. Transparent, simple
-              and flexible.
+              {priceFocus === 'ai-agents'
+                ? 'Create, manage and monetize AI agents using Fleek.'
+                : "Create, deploy and manage your Web apps on Fleek's platform."}
             </Text>
           </div>
-          <PricingPlanHero />
-          <TableMobile />
-          <TableDesktop />
+          <div className="mb-40 flex w-full justify-center gap-4">
+            <TabbedButtons
+              buttons={[
+                <Button
+                  key="ai-agents"
+                  variant={
+                    priceFocus === 'ai-agents'
+                      ? 'primary-ghost'
+                      : 'secondary-ghost'
+                  }
+                  onClick={() => {
+                    setPriceFocus('ai-agents');
+                  }}
+                >
+                  AI agent plans
+                </Button>,
+                <Button
+                  key="hosting"
+                  variant={
+                    priceFocus === 'hosting'
+                      ? 'primary-ghost'
+                      : 'secondary-ghost'
+                  }
+                  onClick={() => {
+                    setPriceFocus('hosting');
+                  }}
+                >
+                  Hosting and storage plans
+                </Button>,
+              ]}
+            />
+          </div>
+
+          <PricingPlanHero priceFocus={priceFocus} />
+
+          {priceFocus === 'hosting' && (
+            <>
+              <TableMobile />
+              <TableDesktop />
+            </>
+          )}
 
           <div className="mt-30">
             <Text as="h3" className="mb-24 text-left">
