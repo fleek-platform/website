@@ -10,7 +10,7 @@ on:
 
 jobs:
  commit-checkups:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-22.04
     defaults:
       run:
         shell: bash
@@ -45,6 +45,8 @@ jobs:
       - name: Setup dotenv
         run: |
           scripts/setup-ci-dotenv
+
+      - run: npm install --include=optional sharp
 
       - name: Install dependencies
         run: bun i
