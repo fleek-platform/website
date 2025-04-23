@@ -82,6 +82,8 @@ jobs:
       - name: Install Fleek CLI
         run: npm i -g @fleek-platform/cli
 
+      - run: npm install --include=optional sharp
+
       # TODO: Maybe separate into three steps:
       # - Site build
       # - Dashboard
