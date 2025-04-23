@@ -87,11 +87,7 @@ export const Hero = () => {
                   </h1>
                 </BlurFade>
                 <BlurFade delay={calculateDelay(2)}>
-                  <Text
-                    variant="description"
-                    as="h2"
-                    className="font-inter font-normal"
-                  >
+                  <Text variant="description" as="h2" className="font-normal">
                     {settings.landingPage.hero.h2}
                   </Text>
                 </BlurFade>
