@@ -83,6 +83,7 @@ export default {
         // System Fonts as used by GitHub
         system:
           '-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol"',
+        inter: ['Inter', 'sans-serif'],
       },
       backgroundImage: {
         'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
@@ -105,6 +106,8 @@ export default {
         'pricing-card': 'linear-gradient(148.41deg, #191919 0%, #111111 100%)',
         'pro-pricing-card':
           'linear-gradient(147.94deg, #FFE629 -454.44%, rgba(0, 0, 0, 0) 100%)',
+        'dash-pattern':
+          'repeating-linear-gradient(to right, #444 0, #444 6px, transparent 6px, transparent 14px)',
       },
       spacing: {
         '80vh': '80vh',
