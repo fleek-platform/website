@@ -18,7 +18,6 @@ import type { Project } from '@fleek-platform/sdk/browser';
 import { isClient } from '../../utils/common';
 import { useSession } from '@hooks/useSession';
 import { isReferralName } from '@utils/referrals';
-import { ROUTE_NEW_DRAFT } from '@fleek-platform/agents-ui';
 
 const dashboardUrl = import.meta.env.PUBLIC_UI_APP_URL;
 
@@ -34,10 +33,7 @@ const onAuthenticationSuccess = () => {
   });
 
   if (isReferralName('agents')) {
-    // TODO: Add input parser/validation
-    targetUrl = new URL(
-      `${import.meta.env.PUBLIC_UI_AGENTS_APP_URL}${ROUTE_NEW_DRAFT}`,
-    );
+    targetUrl = import.meta.env.PUBLIC_UI_AGENTS_APP_URL;
   }
 
   window.location.assign(targetUrl.toString());
@@ -285,7 +281,7 @@ const NavbarItem: React.FC<NavbarItemProps> = (props) => {
       <Link
         href={props.url}
         className={cn(
-          'flex h-48 cursor-pointer items-center text-neutral-12 outline-none ring-0 transition-colors hover:text-white focus-visible:bg-gray-dark-3 focus-visible:text-white md:px-12',
+          'flex h-48 cursor-pointer items-center outline-none ring-0 transition-colors hover:text-white focus-visible:bg-gray-dark-3 focus-visible:text-white md:px-14 lg:px-18',
           { 'text-white': isActivePage },
         )}
         onFocus={removeHovering}
@@ -303,7 +299,7 @@ const NavbarItem: React.FC<NavbarItemProps> = (props) => {
       <section
         tabIndex={0}
         className={cn(
-          'relative flex h-48 cursor-pointer items-center text-neutral-12 outline-none ring-0 transition-colors hover:text-white focus-visible:bg-gray-dark-3 focus-visible:text-white md:px-12',
+          'relative flex h-48 cursor-pointer items-center outline-none ring-0 transition-colors hover:text-white focus-visible:bg-gray-dark-3 focus-visible:text-white md:px-14 lg:px-18',
           {
             'text-white': isActiveSubMenu,
           },
@@ -390,11 +386,11 @@ export const Navbar: React.FC<NavbarProps> = ({
       <nav
         onMouseLeave={() => setHovering(null)}
         className={cn(
-          'z-20 mx-auto mt-18 flex h-50 w-full max-w-[1000px] items-center justify-between rounded-12 pr-12 font-plex-sans text-[1.4rem] font-medium text-gray-dark-11',
+          'z-20 mx-auto mt-18 flex h-50 w-full max-w-[1000px] items-center justify-between rounded-12 border border-gray-dark-3 bg-gray-dark-1/[.97] pr-12 font-plex-sans text-[1.4rem] font-medium text-gray-dark-11',
           className,
         )}
       >
-        <div className="flex items-center gap-6">
+        <div className="flex items-center gap-12 lg:gap-24">
           <Link
             tabIndex={0}
             href="/"
@@ -404,8 +400,8 @@ export const Navbar: React.FC<NavbarProps> = ({
           >
             <img
               src="/svg/fleek-logo.svg"
-              width={75}
-              height={30}
+              width={66}
+              height={25}
               alt="fleek logo"
             />
           </Link>
@@ -474,7 +470,7 @@ const SessionManagementActions: React.FC = () => {
   // `use-sync-external-store` prevent need for all this?
   // placeholder approach to prevent SSR issues
   if (!isClient) {
-    const buttonText = 'Sign in';
+    const buttonText = 'Log in';
 
     return (
       <>
@@ -527,14 +523,14 @@ const SessionManagementActions: React.FC = () => {
 
           // TODO: Move the button text computations
           // into the button container scope
-          let buttonText = 'Sign in';
+          let buttonText = 'Log in';
 
           if (error) {
-            buttonText = 'Sign in failed';
+            buttonText = 'Login failed';
           } else if (isLoading) {
             buttonText = 'Loading...';
           } else if (isLoggedIn) {
-            buttonText = 'Sign out';
+            buttonText = 'Log out';
           }
 
           return (
@@ -610,7 +606,7 @@ const ButtonContainer: React.FC<ButtonContainerProps> = ({
         </Button>
       )}
       <Button
-        variant="light-outline"
+        variant="secondary"
         size="sm"
         className="hidden md:flex"
         onClick={handleClick}
