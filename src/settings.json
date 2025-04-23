@@ -165,7 +165,7 @@
       }
     },
     "announcementMarquee": {
-      "message": "Introducing Fleek AI agent hosting, with Eliza framework support",
+      "message": "Announcing: Flee's upcoming $FLK sale on Coinlist",
       "url": "/agents/",
       "visible": true
     },
@@ -192,8 +192,8 @@
   },
   "landingPage": {
     "hero": {
-      "h1": "Create useful AI agents",
-      "h2": "Fleek is the no-code platform for creating AI agents that save you time",
+      "h1": "Create social agents",
+      "h2": "Create and manage social agents, virtual agents and digital twins with Fleek.",
       "primaryCta": "Deploy an agent",
       "secondaryCta": "Read our docs",
       "imageDesktop": "/images/landing-page/hero/hero-desktop.webp",

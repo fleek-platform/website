@@ -18,17 +18,31 @@ import { SecurityInMind } from '@components/LandingPage/SecurityInMind';
 import { MultiUse } from '@components/LandingPage/MultiUse';
 import { CaseStudies } from '@components/LandingPage/CaseStudies';
 import { Testimonials } from '@components/LandingPage/Testimonials';
+import DeployOnFleek from '@components/LandingPage/DeployOnFleek';
+import ImpressUsers from '@components/LandingPage/ImpressUsers';
+import ExplainerBlocks from '@components/LandingPage/ExplainerBlocks';
+import PricingLanding from '@components/LandingPage/PricingLanding';
+import BuildUseCases from '@components/LandingPage/BuildUseCases';
+import ReadyToLive from '@components/LandingPage/ReadyToLive';
 ---
 
 <LandingPageHtml>
   <div
-    class="pointer-events-none absolute left-0 top-0 h-[50vw] w-full bg-[radial-gradient(ellipse_60%_60%_at_top,rgba(255,230,41,0.25)_0%,transparent_100%)] sm:h-[30vw]"
+    class="pointer-events-none absolute left-0 top-0 h-[50vw] w-full bg-[radial-gradient(ellipse_60%_60%_at_top,#6E6E6E40_0%,transparent_100%)] sm:h-[30vw]"
   >
   </div>
   <AnnouncementModal pathname={Astro.url.pathname} client:only="react" />
   <Navbar pathname={Astro.url.pathname} variant="fixed" client:load />
   <Hero client:load />
   <Partners />
+  <DeployOnFleek />
+  <ImpressUsers client:load />
+  <ExplainerBlocks />
+  <PricingLanding client:load />
+  <BuildUseCases />
+  <ReadyToLive />
+  {
+    /*<Partners />
   <AgentsVideo />
   <IdeaToAgentSteps />
   <Templates client:load />
@@ -42,11 +56,7 @@ import { Testimonials } from '@components/LandingPage/Testimonials';
   <SecurityInMind />
   <Faq client:load />
   <PricingCalculator client:load />
-  <div class="relative">
-    <div
-      class="pointer-events-none absolute bottom-0 top-0 h-[50vw] w-full -translate-y-full bg-[radial-gradient(ellipse_60%_60%_at_bottom,rgba(255,230,41,0.25)_0%,transparent_100%)] sm:h-[30vw]"
-    >
-    </div>
-    <Footer />
-  </div>
+  */
+  }
+  <Footer />
 </LandingPageHtml>

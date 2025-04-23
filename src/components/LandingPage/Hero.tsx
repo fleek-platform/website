@@ -3,10 +3,64 @@ import { Announcement } from '../Announcement';
 import { Button } from '../Button';
 import { Text } from './Text';
 import { BlurFade } from './BlurFade';
-import { IoMdArrowForward } from 'react-icons/io';
+import {
+  IoHeartOutline,
+  IoLaptopOutline,
+  IoShirtOutline,
+  IoAirplaneOutline,
+  IoHappyOutline,
+  IoHeadsetOutline,
+  IoPawOutline,
+} from 'react-icons/io5';
 import { ChatToAIAgentDeploy } from '@components/ChatToAIAgentDeploy';
+import type { IconType } from 'react-icons/lib';
+import { cn } from '@utils/cn';
 
 const calculateDelay = (factor: number) => 0.25 * factor;
+
+type Template = {
+  name: string;
+  icon: IconType;
+  iconClass?: string;
+};
+
+const templates: Template[] = [
+  {
+    name: 'Tech Reviewer',
+    icon: IoLaptopOutline,
+    iconClass: 'text-[#768293]',
+  },
+  {
+    name: 'Fashion Stylist',
+    icon: IoShirtOutline,
+    iconClass: 'text-[#D98F66]',
+  },
+  {
+    name: 'Travel Guide',
+    icon: IoAirplaneOutline,
+    iconClass: 'text-[#8A75AD]',
+  },
+  {
+    name: 'Comedian',
+    icon: IoHappyOutline,
+    iconClass: 'text-[#C4A06B]',
+  },
+  {
+    name: 'Pet Enthusiast',
+    icon: IoPawOutline,
+    iconClass: 'text-[#759E9A]',
+  },
+  {
+    name: 'Musician',
+    icon: IoHeadsetOutline,
+    iconClass: 'text-[#6E927D]',
+  },
+  {
+    name: 'Relationship Coach',
+    icon: IoHeartOutline,
+    iconClass: 'text-[#C07DA5]',
+  },
+];
 
 export const Hero = () => {
   return (
@@ -25,12 +79,16 @@ export const Hero = () => {
               )}
               <div className="flex max-w-800 flex-col gap-24 self-center pt-12">
                 <BlurFade delay={calculateDelay(1)}>
-                  <h1 className="font-sans text-52 font-semibold leading-none text-neutral-12">
+                  <h1 className="text-52 font-medium leading-none text-neutral-12">
                     {settings.landingPage.hero.h1}
                   </h1>
                 </BlurFade>
                 <BlurFade delay={calculateDelay(2)}>
-                  <Text variant="description" as="h2">
+                  <Text
+                    variant="description"
+                    as="h2"
+                    className="font-inter font-normal"
+                  >
                     {settings.landingPage.hero.h2}
                   </Text>
                 </BlurFade>
@@ -42,18 +100,21 @@ export const Hero = () => {
           </div>
           <BlurFade delay={calculateDelay(4)}>
             <div className="mx-auto flex max-w-[600px] flex-wrap justify-center gap-12">
-              {Array.from({ length: 7 }).map((item, index) => (
-                <Button
-                  // biome-ignore lint/suspicious/noArrayIndexKey: <explanation>
-                  key={index}
-                  variant="secondary-ghost"
-                  size="sm"
-                  className="shrink-0 rounded-full"
-                >
-                  Data Detective
-                  <IoMdArrowForward className="size-16" />
-                </Button>
-              ))}
+              {templates.map((item, index) => {
+                const Icon = item.icon;
+                return (
+                  <Button
+                    // biome-ignore lint/suspicious/noArrayIndexKey: <explanation>
+                    key={index}
+                    variant="secondary-ghost"
+                    size="sm"
+                    className="shrink-0 gap-8"
+                  >
+                    <Icon className={cn('size-16', item.iconClass)} />
+                    {item.name}
+                  </Button>
+                );
+              })}
             </div>
           </BlurFade>
         </div>
