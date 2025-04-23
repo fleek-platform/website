@@ -12,7 +12,13 @@ import { setReferralQueryKeyValuePair } from '@utils/referrals';
 
 const MAX_FILE_SIZE = 10 * 1024 * 1024;
 
-export const ChatToAIAgentDeploy = () => {
+export const ChatToAIAgentDeploy = ({
+  role,
+  onDescriptionChange,
+}: {
+  role?: string;
+  onDescriptionChange?: () => void;
+}) => {
   const { triggerLoginModal, isLoggedIn } = useAuthStore();
 
   const onSubmit = async (description: string, files: FileWithPreview[]) => {
@@ -79,6 +85,10 @@ export const ChatToAIAgentDeploy = () => {
         onSuccess={onSuccess}
         onError={onError}
         maxFileSize={MAX_FILE_SIZE}
+        onDescriptionChange={onDescriptionChange}
+        prompt={
+          role ? `I want to create a ${role.toLocaleLowerCase()}.` : undefined
+        }
       />
     </div>
   );

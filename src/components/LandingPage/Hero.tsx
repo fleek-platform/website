@@ -15,6 +15,7 @@ import {
 import { ChatToAIAgentDeploy } from '@components/ChatToAIAgentDeploy';
 import type { IconType } from 'react-icons/lib';
 import { cn } from '@utils/cn';
+import { useState } from 'react';
 
 const calculateDelay = (factor: number) => 0.25 * factor;
 
@@ -63,6 +64,8 @@ const templates: Template[] = [
 ];
 
 export const Hero = () => {
+  const [role, setRole] = useState<string>();
+
   return (
     <header className="relative mx-auto w-full max-w-[1048px] px-24 pt-42 sm:pt-80">
       <div className="flex flex-col justify-center pt-64 text-center">
@@ -95,7 +98,10 @@ export const Hero = () => {
               </div>
             </div>
             <BlurFade delay={calculateDelay(3)}>
-              <ChatToAIAgentDeploy />
+              <ChatToAIAgentDeploy
+                role={role}
+                onDescriptionChange={() => setRole(undefined)}
+              />
             </BlurFade>
           </div>
           <BlurFade delay={calculateDelay(4)}>
@@ -109,6 +115,7 @@ export const Hero = () => {
                     variant="secondary-ghost"
                     size="sm"
                     className="shrink-0 gap-8"
+                    onClick={() => setRole(item.name)}
                   >
                     <Icon className={cn('size-16', item.iconClass)} />
                     {item.name}
