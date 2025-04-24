@@ -94,11 +94,10 @@ export const Features = () => {
               As free and expressive as human beings.
             </p>
           </div>
-          <div className="mt-16">
+          <div className="-mx-8 -mb-8 mt-8">
             <img
-              src="/images/landing-page/voice-generation.png"
+              src="/images/landing-page/unrestricted.png"
               alt="Unrestricted"
-              className="rounded-tl-10 bg-neutral-1"
             />
           </div>
         </div>
