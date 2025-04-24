@@ -34,6 +34,7 @@ import ReadyToLive from '@components/LandingPage/ReadyToLive';
   <AnnouncementModal pathname={Astro.url.pathname} client:only="react" />
   <Navbar pathname={Astro.url.pathname} variant="fixed" client:load />
   <Hero client:load />
+  <Templates client:load />
   <Partners />
   <DeployOnFleek />
   <ImpressUsers client:load />
@@ -43,10 +44,9 @@ import ReadyToLive from '@components/LandingPage/ReadyToLive';
   <Faq client:load />
   <ReadyToLive />
   {
-    /*<Partners />
+    /*
   <AgentsVideo />
   <IdeaToAgentSteps />
-  <Templates client:load />
   <Features />
   <LLMs />
   <Benefits />
