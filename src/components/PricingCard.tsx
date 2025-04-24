@@ -75,12 +75,7 @@ const PricingCard: React.FC<Props> = (props) => {
       </style>
       <div
         className={clsx(
-          'flex min-h-full w-full flex-col justify-end gap-24 rounded-12 border p-16',
-          {
-            'border-yellow-dark-9 bg-pro-pricing-card':
-              props.variant === 'primary',
-            'border-gray-dark-6 bg-pricing-card': props.variant !== 'primary',
-          },
+          'flex min-h-full w-full flex-col justify-end gap-24 rounded-12 border border-gray-dark-6 bg-gray-dark-2 p-16',
         )}
       >
         <div className="flex flex-col gap-16 border-b border-b-gray-dark-6 pb-20">

@@ -70,7 +70,8 @@ export const HostingPricingInfo: Props[] = [
 export const AiAgentsPricingInfo: Props[] = [
   {
     title: 'Fan',
-    description: 'Great for those who just want to chat with AI agents & virtual influencers',
+    description:
+      'Great for those who just want to chat with AI agents & virtual influencers',
     splitDescription: true,
     cost: {
       amount: 10,
@@ -100,12 +101,13 @@ export const AiAgentsPricingInfo: Props[] = [
       'Additional agents for $20/m',
     ],
     cta: 'Start free trial',
-    variant: 'primary',
+    variant: 'primary-white',
     url: `${dashboardUrl}/agents`,
   },
   {
     title: 'Manager',
-    description: 'Great for managing a fleet of agents for marketing/advertising',
+    description:
+      'Great for managing a fleet of agents for marketing/advertising',
     splitDescription: true,
     cost: {
       amount: 99,
@@ -121,15 +123,14 @@ export const AiAgentsPricingInfo: Props[] = [
   },
   {
     title: 'Enterprise',
-    description: "Great for teams looking to take things to the next level",
+    description: 'Great for teams looking to take things to the next level',
     splitDescription: true,
     cost: {
       amount: 'Custom',
       prefix: '',
       suffix: '',
     },
-    featuresDescription:
-      'Includes:',
+    featuresDescription: 'Includes:',
     features: [
       'Custom model training options',
       'Concierge support',
@@ -137,7 +138,7 @@ export const AiAgentsPricingInfo: Props[] = [
       'Admin tools',
     ],
     cta: 'Contact us',
-    variant: 'primary-outline',
+    variant: 'secondary',
     url: 'https://fleek.typeform.com/fleekinterest',
   },
 ];

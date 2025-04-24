@@ -10,6 +10,8 @@ export const buttonVariants = cva(
       variant: {
         primary:
           'bg-yellow-dark-9 hover:bg-yellow-dark-10 active:bg-yellow-dark-9 text-yellow-dark-1 ring-yellow-dark-8 disabled:bg-gray-dark-3 disabled:text-gray-dark-8 disabled:ring-gray-dark-3 disabled:cursor-not-allowed',
+        'primary-white':
+          'bg-white hover:bg-gray-dark-11 active:bg-yellow-dark-9 text-yellow-dark-1 ring-yellow-dark-8 disabled:bg-gray-dark-3 disabled:text-gray-dark-8 disabled:ring-gray-dark-3 disabled:cursor-not-allowed',
         'primary-ghost':
           'bg-transparent hover:bg-yellow-dark-3 active:bg-yellow-dark-9 text-yellow-dark-11 ring-yellow-dark-8 border-yellow-dark-7 border',
         secondary:
