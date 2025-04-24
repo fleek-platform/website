@@ -24,6 +24,7 @@ import ExplainerBlocks from '@components/LandingPage/ExplainerBlocks';
 import PricingLanding from '@components/LandingPage/PricingLanding';
 import BuildUseCases from '@components/LandingPage/BuildUseCases';
 import ReadyToLive from '@components/LandingPage/ReadyToLive';
+import { Content } from '@components/LandingPage/Content';
 ---
 
 <LandingPageHtml>
@@ -34,23 +35,19 @@ import ReadyToLive from '@components/LandingPage/ReadyToLive';
   <AnnouncementModal pathname={Astro.url.pathname} client:only="react" />
   <Navbar pathname={Astro.url.pathname} variant="fixed" client:load />
   <Hero client:load />
-  <Partners />
-  <DeployOnFleek />
-  <ImpressUsers client:load />
-  <ExplainerBlocks />
-  <PricingLanding client:load />
-  <BuildUseCases />
-  <Faq client:load />
-  <ReadyToLive />
-  {
-    /*<Partners />
-  <AgentsVideo />
-  <IdeaToAgentSteps />
   <Templates client:load />
+  <Partners />
+  <AgentsVideo client:load />
+  <Integrations client:load />
   <Features />
+  <Content />
+  <PricingLanding />
+  <Faq client:load />
+  {
+    /*
+  <IdeaToAgentSteps />
   <LLMs />
   <Benefits />
-  <Integrations client:load />
   <MultiUse />
   <Testimonials />
   <CaseStudies />

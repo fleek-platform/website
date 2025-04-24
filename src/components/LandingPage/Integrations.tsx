@@ -8,24 +8,19 @@ import { IoExtensionPuzzle } from 'react-icons/io5';
 const integrations = [
   '/images/integrations/apple.png',
   '/images/integrations/discord.png',
-  '/images/integrations/gmail.png',
   '/images/integrations/reddit.png',
   '/images/integrations/x.png',
-  '/images/integrations/linear.png',
-  '/images/integrations/notion.png',
   '/images/integrations/twitch.png',
   '/images/integrations/facebook.png',
-  '/images/integrations/hubspot.png',
-  '/images/integrations/airbnb.png',
-  '/images/integrations/paypal.png',
   '/images/integrations/slack.png',
   '/images/integrations/telegram.png',
-  '/images/integrations/solana.png',
-  '/images/integrations/intercom.png',
-  '/images/integrations/dropbox.png',
+  '/images/integrations/instagram.png',
+  '/images/integrations/tiktok.png',
+  '/images/integrations/snapchat.png',
+  '/images/integrations/whatsapp.png',
+  '/images/integrations/wechat.png',
 ];
 const shuffled1 = shuffle(integrations);
-const shuffled2 = shuffle(integrations);
 
 export const Integrations = () => {
   const ref = useRef(null);
@@ -35,43 +30,38 @@ export const Integrations = () => {
   });
 
   const leftScroll = useTransform(scrollYProgress, [0, 1], [-200, 0]);
-  const rightScroll = useTransform(scrollYProgress, [0, 1], [0, -200]);
 
   return (
-    <div className="mx-auto flex flex-col items-center py-48 text-center sm:py-100">
+    <div className="mx-auto flex flex-col items-center py-48 text-center sm:py-[75px]">
       <Badge>
-        <IoExtensionPuzzle className="size-16" />
-        Integrations
+        <span>🎛</span> Integrations
       </Badge>
-      <Text className="pt-24">
-        Integrate with the
-        <br />
-        <span className="text-yellow">tools you use every day</span>
+      <Text className="max-w-[600px] pt-24 font-inter text-[38px] font-normal leading-none">
+        Let your social influencer hang out everywhere humans do
       </Text>
       <p className="mt-24 max-w-[600px] text-18 text-neutral-11">
-        Whatever your agent's workflow looks like—whether it's for work or just
-        personal stuff—we've got the integrations to help make it happen.
+        Whether your agent is a virtual influencer or a personal assistant, use
+        custom integrations and MCP support to boost their effectiveness.
       </p>
 
       <div
         ref={ref}
-        className="relative mt-56 w-full max-w-[1200px] overflow-hidden"
+        className="relative mt-48 w-full max-w-[1200px] overflow-hidden"
       >
         {/* Left Fade */}
-        <div className="pointer-events-none absolute left-0 top-0 z-10 hidden h-full w-[20%] bg-gradient-to-r from-black to-transparent md:block" />
+        <div className="pointer-events-none absolute left-0 top-0 z-10 hidden h-full w-[20%] bg-gradient-to-r from-neutral-1 to-transparent md:block" />
 
         {/* Right Fade */}
-        <div className="pointer-events-none absolute right-0 top-0 z-10 hidden h-full w-[20%] bg-gradient-to-l from-black to-transparent md:block" />
+        <div className="pointer-events-none absolute right-0 top-0 z-10 hidden h-full w-[20%] bg-gradient-to-l from-neutral-1 to-transparent md:block" />
 
-        <motion.div style={{ x: leftScroll }} className="mt-56 flex gap-24">
+        <motion.div style={{ x: leftScroll }} className="flex gap-24">
           {shuffled1.map((item) => (
-            <img key={item} src={item} alt="" className="size-60 shrink-0" />
-          ))}
-        </motion.div>
-
-        <motion.div style={{ x: rightScroll }} className="mt-24 flex gap-24">
-          {shuffled2.map((item) => (
-            <img key={item} src={item} alt="" className="size-60 shrink-0" />
+            <img
+              key={item}
+              src={item}
+              alt=""
+              className="size-[82px] shrink-0"
+            />
           ))}
         </motion.div>
       </div>

@@ -1,58 +1,27 @@
-import React, { useState } from 'react';
+import type React from 'react';
 import { Container } from './Container';
 import { Text } from './Text';
 import { PricingPlanHero } from '@components/Pricing/PricingPlanHero';
-import { TabbedButtons } from '@components/TabbedButtons';
-import { Button } from '@components/Button';
 
 const PricingLanding: React.FC = () => {
-  const [priceFocus, setPriceFocus] = useState<'ai-agents' | 'hosting'>(
-    'ai-agents',
-  );
-
   return (
     <Container
-      gradient="right"
-      classNameOuterContainer="sm:pt-[72px] sm:pb-[105px]"
+      classNameOuterContainer="sm:pt-[75px] sm:pb-[51px] border-none"
+      gradient="none"
     >
       <div className="pb-44 text-center">
-        <Text as="h3">Fair and transparent pricing</Text>
+        <Text
+          as="h3"
+          className="font-inter text-[38px] font-normal leading-none"
+        >
+          AI Agent Plans
+        </Text>
 
-        <Text variant="description">
-          {priceFocus === 'ai-agents'
-            ? 'Create, manage and monetize AI agents using Fleek.'
-            : "Create, deploy and manage your Web apps on Fleek's platform."}
+        <Text variant="description" className="mt-24 font-inter font-normal">
+          Create, manage and monetize AI agents using Fleek.
         </Text>
       </div>
-      <div className="mb-40 flex w-full justify-center gap-4">
-        <TabbedButtons
-          buttons={[
-            <Button
-              key="ai-agents"
-              variant={
-                priceFocus === 'ai-agents' ? 'primary-ghost' : 'secondary-ghost'
-              }
-              onClick={() => {
-                setPriceFocus('ai-agents');
-              }}
-            >
-              AI agent plans
-            </Button>,
-            <Button
-              key="hosting"
-              variant={
-                priceFocus === 'hosting' ? 'primary-ghost' : 'secondary-ghost'
-              }
-              onClick={() => {
-                setPriceFocus('hosting');
-              }}
-            >
-              Hosting and storage plans
-            </Button>,
-          ]}
-        />
-      </div>
-      <PricingPlanHero priceFocus={priceFocus} />
+      <PricingPlanHero priceFocus="ai-agents" />
     </Container>
   );
 };

@@ -69,60 +69,76 @@ export const HostingPricingInfo: Props[] = [
 
 export const AiAgentsPricingInfo: Props[] = [
   {
-    title: 'Standard',
+    title: 'Fan',
     description:
-      'For users just starting. Create or chat with AI agents and virtual influencers. ',
+      'Great for those who just want to chat with AI agents & virtual influencers',
+    splitDescription: true,
+    cost: {
+      amount: 10,
+    },
+    featuresDescription: 'Includes:',
+    features: [
+      '10 credits per month',
+      'Generate videos, images in chats',
+      'Maintain private conversations',
+    ],
+    cta: 'Coming soon',
+    variant: 'primary-outline',
+  },
+  {
+    title: 'Creator',
+    description:
+      'Great for those creating their first AI agent or virtual influencer',
     splitDescription: true,
     cost: {
       amount: 20,
     },
-    featuresDescription: 'Includes:',
+    featuresDescription: 'Includes everything in Fan, plus:',
     features: [
-      '1 custom AI avatar',
+      '10 credits per month',
+      '1 AI agent or influencer',
       '1 seat',
-      'Add credits for $1 each',
-      'Add agents from $20/m/agent',
+      'Additional agents for $20/m',
     ],
-    cta: 'Get started',
-    variant: 'primary',
+    cta: 'Start free trial',
+    variant: 'primary-white',
     url: `${dashboardUrl}/agents`,
   },
   {
-    title: 'Star',
-    description: 'For rising stars to create and manage virtual influencers.',
+    title: 'Manager',
+    description:
+      'Great for managing a fleet of agents for marketing/advertising',
     splitDescription: true,
     cost: {
-      amount: 50,
+      amount: 99,
     },
-    featuresDescription: 'Includes:',
+    featuresDescription: 'Includes everything in Fan, plus:',
     features: [
-      '50 Fleek credits/month',
-      'Unlimited custom AI avatars',
+      '25 Fleek credits per month',
+      'Unlimited agents & influencers',
       'Unlimited seats',
-      '5% discount on added credits',
     ],
     cta: 'Coming soon',
     variant: 'primary-outline',
   },
   {
     title: 'Enterprise',
-    description: "Have a big project or custom needs?\n We've got you.",
+    description: 'Great for teams looking to take things to the next level',
     splitDescription: true,
     cost: {
       amount: 'Custom',
       prefix: '',
       suffix: '',
     },
-    featuresDescription:
-      'For users or companies looking to scale their experience.',
+    featuresDescription: 'Includes:',
     features: [
-      'Bulk agent creation',
+      'Custom model training options',
       'Concierge support',
-      'Volume discounting on credits',
+      'SLAs',
       'Admin tools',
     ],
     cta: 'Contact us',
-    variant: 'primary-outline',
+    variant: 'secondary',
     url: 'https://fleek.typeform.com/fleekinterest',
   },
 ];

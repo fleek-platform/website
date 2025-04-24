@@ -4,7 +4,7 @@ import type { PropsWithChildren } from 'react';
 type ContainerProps = PropsWithChildren & {
   classNameOuterContainer?: string;
   classNameInnerContainer?: string;
-  gradient?: 'left' | 'right';
+  gradient?: 'left' | 'right' | 'none';
 };
 
 export const Container: React.FC<ContainerProps> = ({
@@ -21,13 +21,12 @@ export const Container: React.FC<ContainerProps> = ({
       )}
     >
       <div
-        className={cn(
-          'absolute top-0 -z-1 h-full w-1/3 from-gray-dark-2/80 via-transparent to-transparent',
-          {
-            'left-0 bg-gradient-to-br': gradient === 'left',
-            'right-0 bg-gradient-to-bl': gradient === 'right',
-          },
-        )}
+        className={cn('absolute top-0 -z-1 h-full w-1/3', {
+          'from-gray-dark-2/80 via-transparent to-transparent':
+            gradient !== 'none',
+          'left-0 bg-gradient-to-br': gradient === 'left',
+          'right-0 bg-gradient-to-bl': gradient === 'right',
+        })}
       />
       <div
         className={cn(

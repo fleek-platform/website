@@ -67,7 +67,7 @@ export const Hero = () => {
   const [role, setRole] = useState<string>();
 
   return (
-    <header className="relative mx-auto w-full max-w-[1048px] px-24 pt-42 sm:pt-80">
+    <header className="relative mx-auto w-full max-w-[1048px] px-24 pt-42 sm:pb-36 sm:pt-80">
       <div className="flex flex-col justify-center pt-64 text-center">
         <div className="flex flex-col gap-48">
           <div className="flex flex-col gap-36">
@@ -87,7 +87,11 @@ export const Hero = () => {
                   </h1>
                 </BlurFade>
                 <BlurFade delay={calculateDelay(2)}>
-                  <Text variant="description" as="h2" className="font-normal">
+                  <Text
+                    variant="description"
+                    as="h2"
+                    className="font-inter font-normal"
+                  >
                     {settings.landingPage.hero.h2}
                   </Text>
                 </BlurFade>
@@ -110,7 +114,7 @@ export const Hero = () => {
                     key={index}
                     variant="secondary-ghost"
                     size="sm"
-                    className="shrink-0 gap-8"
+                    className="shrink-0 gap-8 font-inter"
                     onClick={() => setRole(item.name)}
                   >
                     <Icon className={cn('size-16', item.iconClass)} />

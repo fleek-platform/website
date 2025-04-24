@@ -4,66 +4,63 @@ import { Text } from './Text';
 
 export const Features = () => {
   return (
-    <div className="mx-auto hidden max-w-[800px] flex-col items-center py-48 text-center sm:flex sm:py-100">
+    <div className="mx-auto hidden max-w-[800px] flex-col items-center py-48 text-center sm:flex sm:py-[75px]">
       <Badge>
-        <IoGrid className="size-16" />
+        <span>💡</span>
         Features
       </Badge>
-      <Text className="pt-24">
-        Fleek lets you <span className="text-yellow">easily create</span> the
-        agent you've always wanted
+      <Text className="pt-24 font-inter text-[38px] font-normal leading-none">
+        Anything you can do, your virtual influencer can do better.
       </Text>
 
-      <div className="flex gap-16 pt-36 text-start">
-        <div className="flex flex-col rounded-10 bg-gradient-to-br from-neutral-2 to-neutral-1">
+      <div className="flex gap-16 pt-48 text-start">
+        <div className="flex flex-col overflow-hidden rounded-10 bg-gray-dark-2">
           <div className="mx-18 mb-auto mt-18">
-            <p className="text-18 font-bold text-neutral-12">
-              Build your agent with natural language
+            <p className="font-meidum text-18 text-neutral-12">
+              Chat with your agent the way you want, about anything
             </p>
             <p className="mt-8 text-14 text-neutral-11">
-              If you can describe your agent goals in a conversation, you can
-              build it.
+              Either within the Fleek platform or any of the apps your agent is
+              integrated with.
             </p>
           </div>
           <div className="ml-18 mt-18">
             <img
               src="/images/landing-page/agent-chat-demo-2.png"
               alt="Chat with agent"
-              className="rounded-tl-10 bg-neutral-1 "
             />
           </div>
         </div>
 
-        <div className="flex flex-col rounded-10 bg-neutral-1">
-          <div className="mx-18 mt-18">
-            <p className="text-18 font-bold text-neutral-12">
-              No API keys needed to start
+        <div className="flex flex-col rounded-10 bg-gray-dark-2 p-18">
+          <div className="mb-20">
+            <p className="text-18 font-medium text-neutral-12">
+              Voice generation
             </p>
             <p className="mt-8 text-14 text-neutral-11">
-              Use LLM models instantly with no configuration.
+              Get a custom voice model for your influencers.
             </p>
           </div>
-          <div className="mb-18 ml-18 mt-auto">
+          <div className="mt-auto">
             <img
-              src="/images/landing-page/api-keys.png"
-              alt="Chat with agent"
-              className="rounded-tl-10 bg-neutral-1"
+              src="/images/landing-page/voice-generation.png"
+              alt="Voice generation"
             />
           </div>
         </div>
 
-        <div className="flex flex-col rounded-10 bg-neutral-1">
-          <div className="mx-18 mb-auto mt-18">
-            <p className="text-18 font-bold text-neutral-12">
-              Keep tabs on your agents activity
+        <div className="flex flex-col rounded-10 bg-gray-dark-2 p-18">
+          <div className="mb-auto">
+            <p className="text-18 font-medium text-neutral-12">
+              Video generation
             </p>
             <p className="mt-8 text-14 text-neutral-11">
-              Easily check your agent's activity feed.
+              Create engaging videos of your influencer.
             </p>
           </div>
-          <div className="mb-18 ml-18 mt-14">
+          <div className="mt-14">
             <img
-              src="/images/landing-page/agent-activity.png"
+              src="/images/landing-page/video-generation.png"
               alt="Chat with agent"
               className="rounded-tl-10 bg-neutral-1"
             />
@@ -72,40 +69,41 @@ export const Features = () => {
       </div>
 
       <div className="mt-16 flex gap-16 text-start">
-        <div className="rounded-10 bg-neutral-1">
-          <div className="mx-18 mb-auto mt-18">
-            <p className="text-18 font-bold text-neutral-12">
-              Design a unique agent personality
+        <div className="rounded-10 bg-gray-dark-2 p-18">
+          <div className="mb-auto">
+            <p className="text-18 font-medium text-neutral-12">
+              Avatar Creation
             </p>
-            <p className="mt-8 text-14 text-neutral-11">Smart and funny.</p>
+            <p className="mt-8 text-14 text-neutral-11">
+              Fully customize the appearance of your agent.
+            </p>
           </div>
           <div className="mt-24">
             <img
-              src="/images/landing-page/agent-personality.png"
+              src="/images/landing-page/avatar-creation.png"
               alt="Chat with agent"
             />
           </div>
         </div>
 
-        <div className="flex flex-col rounded-10 bg-neutral-1">
-          <div className="mx-18 mb-auto mt-18">
-            <p className="text-18 font-bold text-neutral-12">
-              Access your agent from the CLI
+        <div className="flex flex-col rounded-10 bg-gray-dark-2 p-18">
+          <div className="mb-auto">
+            <p className="text-18 font-medium text-neutral-12">Unrestricted</p>
+            <p className="mt-8 text-14 text-neutral-11">
+              As free and expressive as human beings.
             </p>
-            <p className="mt-8 text-14 text-neutral-11">You a dev?</p>
           </div>
-          <div className="ml-18 mt-16">
+          <div className="-mx-8 -mb-8 mt-8">
             <img
-              src="/images/landing-page/terminal.png"
-              alt="Chat with agent"
-              className="rounded-tl-10 bg-neutral-1"
+              src="/images/landing-page/unrestricted.png"
+              alt="Unrestricted"
             />
           </div>
         </div>
 
-        <div className="flex flex-col rounded-10 bg-gradient-to-br from-neutral-2 to-neutral-1">
+        <div className="flex flex-col rounded-10 bg-gray-dark-2">
           <div className="mx-18 mb-auto mt-18">
-            <p className="text-18 font-bold text-neutral-12">
+            <p className="text-18 font-medium text-neutral-12">
               Check out the key stats on how your agent is performing
             </p>
             <p className="mt-8 text-14 text-neutral-11">
@@ -116,7 +114,6 @@ export const Features = () => {
             <img
               src="/images/landing-page/analytics.png"
               alt="Chat with agent"
-              className="rounded-tl-10 bg-neutral-1"
             />
           </div>
         </div>
