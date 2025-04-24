@@ -96,6 +96,7 @@ export const AiAgentsPricingInfo: Props[] = [
     features: [
       '7-day free trial',
       '1 custom AI avatar',
+      '1 seat',
       'Add credits for $1 each',
     ],
     cta: 'Start free trial',
