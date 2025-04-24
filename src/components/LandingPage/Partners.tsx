@@ -23,8 +23,8 @@ export const Partners: React.FC = () => {
   return (
     <div className="mx-auto flex w-full max-w-[1048px] flex-col items-center px-24 pb-52 pt-[75px]">
       <div className="h-[1px] w-full bg-gradient-to-r from-transparent via-white/20 to-transparent" />
-      <h3 className="mt-48 max-w-480 text-balance text-center font-plex-sans text-20 font-medium leading-tight text-gray-dark-11 sm:text-18">
-        Trusted by industry leaders and companies
+      <h3 className="mt-48 text-balance text-center font-plex-sans text-16 leading-tight text-gray-dark-11">
+        Trusted by 100,000+ users, industry leaders, and companies.
       </h3>
       <div className="mt-36 grid w-full max-w-[730px] grid-cols-2 items-center justify-center gap-24 sm:grid-cols-5 sm:gap-20">
         {settings.landingPage.partners.map((partner) => (
