@@ -69,8 +69,8 @@ export const HostingPricingInfo: Props[] = [
 
 export const AiAgentsPricingInfo: Props[] = [
   {
-    title: 'Chat',
-    description: 'Great for those who just want to chat with AI agents & virtual influencers. ',
+    title: 'Fan',
+    description: 'Great for those who just want to chat with AI agents & virtual influencers',
     splitDescription: true,
     cost: {
       amount: 10,
@@ -85,9 +85,9 @@ export const AiAgentsPricingInfo: Props[] = [
     variant: 'primary-outline',
   },
   {
-    title: 'Create',
+    title: 'Creator',
     description:
-      'Great for those creating their first AI agent or virtual influencer. ',
+      'Great for those creating their first AI agent or virtual influencer',
     splitDescription: true,
     cost: {
       amount: 20,
@@ -104,8 +104,8 @@ export const AiAgentsPricingInfo: Props[] = [
     url: `${dashboardUrl}/agents`,
   },
   {
-    title: 'Crush It',
-    description: 'Great for marketing, advertising, and bulk agent use cases. ',
+    title: 'Manager',
+    description: 'Great for managing a fleet of agents for marketing/advertising',
     splitDescription: true,
     cost: {
       amount: 99,
@@ -121,7 +121,7 @@ export const AiAgentsPricingInfo: Props[] = [
   },
   {
     title: 'Enterprise',
-    description: "Great for teams looking to take things to the next level.",
+    description: "Great for teams looking to take things to the next level",
     splitDescription: true,
     cost: {
       amount: 'Custom',
