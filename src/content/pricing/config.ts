@@ -102,7 +102,7 @@ export const AiAgentsPricingInfo: Props[] = [
     ],
     cta: 'Start free trial',
     variant: 'primary-white',
-    url: `${xyzWebsiteUrl}?referral=agents`,
+    url: `${dashboardUrl}/agents`,
   },
   {
     title: 'Manager',

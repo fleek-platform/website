@@ -4,7 +4,7 @@ import type { VariantProps } from 'class-variance-authority';
 import clsx from 'clsx';
 import { Text } from './LandingPage/Text';
 import { getCookie } from '@utils/cookies';
-import { useAuthStore } from '@fleek-platform/login-button';
+import { useLoginWithAgentsCTA } from '@hooks/useLoginWithAgentsCTA';
 
 export type Props = {
   title: string;
@@ -24,7 +24,7 @@ export type Props = {
 };
 
 const PricingCard: React.FC<Props> = (props) => {
-  const { isLoggedIn, triggerLoginModal } = useAuthStore();
+  const { onDeployAgentCTA } = useLoginWithAgentsCTA();
   const renderDescription = () => {
     if (props.splitDescription) {
       const [firstPart, secondPart] = props.description.split('\n');
@@ -47,11 +47,7 @@ const PricingCard: React.FC<Props> = (props) => {
     }
 
     if (url?.includes('agents')) {
-      window.history.replaceState({}, '', url);
-      if (!isLoggedIn) {
-        typeof triggerLoginModal === 'function' && triggerLoginModal(true);
-      }
-
+      onDeployAgentCTA();
       return;
     }
 
