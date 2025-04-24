@@ -1,6 +1,7 @@
 import type { Props } from '../../components/PricingCard';
 
 const dashboardUrl = import.meta.env.PUBLIC_UI_APP_URL;
+const xyzWebsiteUrl = import.meta.env.PUBLIC_FLEEK_WEBSITE_URL;
 
 export const HostingPricingInfo: Props[] = [
   {
@@ -102,7 +103,7 @@ export const AiAgentsPricingInfo: Props[] = [
     ],
     cta: 'Start free trial',
     variant: 'primary-white',
-    url: `${dashboardUrl}/agents`,
+    url: `${xyzWebsiteUrl}?referral=agents`,
   },
   {
     title: 'Manager',

@@ -4,7 +4,7 @@ import type { VariantProps } from 'class-variance-authority';
 import clsx from 'clsx';
 import { Text } from './LandingPage/Text';
 import { getCookie } from '@utils/cookies';
-import { isClient } from '@utils/common';
+import { useAuthStore } from '@fleek-platform/login-button';
 
 export type Props = {
   title: string;
@@ -24,6 +24,7 @@ export type Props = {
 };
 
 const PricingCard: React.FC<Props> = (props) => {
+  const { isLoggedIn, triggerLoginModal } = useAuthStore();
   const renderDescription = () => {
     if (props.splitDescription) {
       const [firstPart, secondPart] = props.description.split('\n');
@@ -41,6 +42,15 @@ const PricingCard: React.FC<Props> = (props) => {
   const replaceProjectIdInUrl = (url: string | undefined) => {
     if (url?.includes('typeform')) {
       window.location.href = url;
+
+      return;
+    }
+
+    if (url?.includes('agents')) {
+      window.history.replaceState({}, '', url);
+      if (!isLoggedIn) {
+        typeof triggerLoginModal === 'function' && triggerLoginModal(true);
+      }
 
       return;
     }
