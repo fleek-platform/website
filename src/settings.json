@@ -87,7 +87,7 @@
       "pricing": {
         "title": "Pricing",
         "slug": "pricing",
-        "description": "Fleek is an edge-optimized cloud platform. Effortlessly build, ship and scale highly performant apps. Try for free and deploy an app in 5 minutes.",
+        "description": "Fleek offers several paid plans for creating and chatting with AI agents and influencers. Find a plan that's right for you.",
         "image": "/images/fleek-meta-image.png?202406061658"
       },
       "support": {
@@ -165,8 +165,8 @@
       }
     },
     "announcementMarquee": {
-      "message": "Introducing Fleek AI agent hosting, with Eliza framework support",
-      "url": "/agents/",
+      "message": "Announcing: Fleek's $FLK sale on Coinlist",
+      "url": "https://coinlist.co/fleek",
       "visible": true
     },
     "announcementModal": {
