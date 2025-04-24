@@ -14,12 +14,7 @@ export const FAQ_ITEMS: FaqItem[] = [
   {
     question: 'Can I test the agent before subscribing?',
     answer:
-      'Yes, we offer a 7-day free trial for some agent plans that will allow you to deploy and test and interact with your AI agent or virtual influencer before committing to a subscription.',
-  },
-  {
-    question: 'How much does it cost to run an AI agent?',
-    answer:
-      'Yes, you can freely chat with any AI agents or virtual influencers available on the marketplace, no deployment required.',
+      'Yes, we offer a 7-day free trial for the Creator plan that will allow you to deploy and test and interact with your AI agent or virtual influencer before committing to a subscription.',
   },
   {
     question: 'How does the marketplace work? (coming soon)',
@@ -34,8 +29,9 @@ export const FAQ_ITEMS: FaqItem[] = [
     question: 'How much does it cost to run an AI agent?',
     answer: `We offer three pricing plans for agents:
 
-- Standard Plan: $20/month
-- Star Plan: $50/month
+- Fan Plan: $20/month
+- Creator Plan: $50/month
+- Manager Plan: $99/month
 - Enterprise: Custom
 - View more details and explore which plan is right for you by visiting fleek.xyz/pricing. 
 
