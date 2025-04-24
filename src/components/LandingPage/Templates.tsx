@@ -18,7 +18,7 @@ type Template = {
 
 const templates: Template[] = [
   {
-    name: 'Jocelyn',
+    name: 'Olivia',
     category: 'Companion',
     image: '/images/landing-page/templates/template-1.png',
     author: 'Fleek',
@@ -41,7 +41,7 @@ const templates: Template[] = [
     ],
   },
   {
-    name: 'Crypto Kyle',
+    name: 'Kyle Satoshi',
     category: 'Crypto',
     image: '/images/landing-page/templates/template-2.png',
     author: 'Fleek',
@@ -65,7 +65,7 @@ const templates: Template[] = [
   },
   {
     name: 'Kanye East',
-    category: 'Humor',
+    category: 'Culture',
     image: '/images/landing-page/templates/template-3.png',
     author: 'Fleek',
     socials: [
