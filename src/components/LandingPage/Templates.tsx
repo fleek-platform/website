@@ -163,7 +163,7 @@ export const Templates = () => {
       },
       '(min-width: 1280px)': {
         slides: {
-          perView: 2.45,
+          perView: 2.95,
           spacing: 24,
         },
       },
@@ -220,15 +220,12 @@ export const TemplateCard = ({ template }: { template: Template }) => {
       <img
         src={template.image}
         alt="Agent avatar"
-        className="size-[173px] shrink-0 object-cover"
+        className="size-[152px] shrink-0 object-cover"
       />
-      <div className="flex w-full flex-col items-start gap-10 px-12 py-16">
+      <div className="flex w-full flex-col items-start justify-between gap-10 px-12 py-16">
         <div className="flex w-full items-start justify-between">
           <div className="text-left">
             <Text variant="subtitle">{template.name}</Text>
-            <Text variant="paragraph" className="text-[1.2rem]">
-              By <span className="text-neutral-12">{template.author}</span>
-            </Text>
           </div>
           <div className="rounded-full border border-neutral-6 bg-neutral-1 px-8 py-4 text-12 text-neutral-12">
             {template.category}
@@ -245,9 +242,6 @@ export const TemplateCard = ({ template }: { template: Template }) => {
                 alt="Social media logo"
                 className="size-18"
               />
-              <Text variant="paragraph" className="font-medium text-neutral-12">
-                {formatCompactNumber(social.followers)}
-              </Text>
             </div>
           ))}
         </div>
