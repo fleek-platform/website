@@ -78,7 +78,7 @@ export const AiAgentsPricingInfo: Props[] = [
     featuresDescription: 'Includes:',
     features: [
       '10 credits per month',
-      'Generate videos and images in chats',
+      'Generate videos, images in chats',
       'Maintain private conversations',
     ],
     cta: 'Coming soon',
@@ -97,7 +97,7 @@ export const AiAgentsPricingInfo: Props[] = [
       '10 credits per month',
       '1 AI agent or influencer',
       '1 seat',
-      'Add additional credits for $1 or agents for $20/m',
+      'Additional agents for $20/m',
     ],
     cta: 'Start free trial',
     variant: 'primary',
@@ -121,7 +121,7 @@ export const AiAgentsPricingInfo: Props[] = [
   },
   {
     title: 'Enterprise',
-    description: "Great for businesses and brands looking to take things to the next level.",
+    description: "Great for teams looking to take things to the next level.",
     splitDescription: true,
     cost: {
       amount: 'Custom',
@@ -129,7 +129,7 @@ export const AiAgentsPricingInfo: Props[] = [
       suffix: '',
     },
     featuresDescription:
-      'Incldes:',
+      'Includes:',
     features: [
       'Custom model training options',
       'Concierge support',
