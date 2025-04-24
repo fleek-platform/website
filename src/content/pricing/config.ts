@@ -69,7 +69,24 @@ export const HostingPricingInfo: Props[] = [
 
 export const AiAgentsPricingInfo: Props[] = [
   {
-    title: 'Standard',
+    title: 'Chat',
+    description: 'For users only interested in chatting with existing agents.',
+    splitDescription: true,
+    cost: {
+      amount: 10,
+    },
+    featuresDescription: 'Includes:',
+    features: [
+      'Chat with existing agents. ',
+      'Generate images and video content. ',
+      'Maintain private conversations. ',
+      '
+    ],
+    cta: 'Coming soon',
+    variant: 'primary-outline',
+  },
+  {
+    title: 'Create',
     description:
       'For users just starting. Create or chat with AI agents and virtual influencers. ',
     splitDescription: true,
@@ -78,27 +95,25 @@ export const AiAgentsPricingInfo: Props[] = [
     },
     featuresDescription: 'Includes:',
     features: [
+      '7-day free trial',
       '1 custom AI avatar',
-      '1 seat',
       'Add credits for $1 each',
-      'Add agents from $20/m/agent',
     ],
-    cta: 'Get started',
+    cta: 'Start free trial',
     variant: 'primary',
     url: `${dashboardUrl}/agents`,
   },
   {
-    title: 'Star',
+    title: 'Crush It',
     description: 'For rising stars to create and manage virtual influencers.',
     splitDescription: true,
     cost: {
-      amount: 50,
+      amount: 99,
     },
     featuresDescription: 'Includes:',
     features: [
       '50 Fleek credits/month',
       'Unlimited custom AI avatars',
-      'Unlimited seats',
       '5% discount on added credits',
     ],
     cta: 'Coming soon',
