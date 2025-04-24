@@ -131,7 +131,7 @@ export const Templates = () => {
       </Badge>
       <Text
         variant="subtitle"
-        className="max-w-[600px] pt-24 text-[3.8rem] font-normal"
+        className="max-w-[600px] pt-24 font-inter text-[38px] font-normal leading-none"
       >
         Who do you want to chat with?
       </Text>
@@ -209,7 +209,7 @@ export const TemplateCard = ({ template }: { template: Template }) => {
           type="button"
           className="flex w-full cursor-not-allowed items-center justify-center gap-6 rounded-8 bg-white p-8 font-medium text-black"
         >
-          <IoChatbubbleEllipsesOutline /> Coming soon to chat
+          <IoChatbubbleEllipsesOutline /> Chat coming soon
         </button>
       </div>
     </div>

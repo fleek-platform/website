@@ -9,7 +9,7 @@ export const Features = () => {
         <span>💡</span>
         Features
       </Badge>
-      <Text className="pt-24 font-plex-sans font-normal">
+      <Text className="pt-24 font-inter text-[38px] font-normal leading-none">
         Anything you can do, your virtual influencer can do better.
       </Text>
 
@@ -45,7 +45,6 @@ export const Features = () => {
             <img
               src="/images/landing-page/voice-generation.png"
               alt="Voice generation"
-              className="rounded-tl-10 bg-neutral-1"
             />
           </div>
         </div>
@@ -94,11 +93,10 @@ export const Features = () => {
               As free and expressive as human beings.
             </p>
           </div>
-          <div className="mt-16">
+          <div className="-mx-8 -mb-8 mt-8">
             <img
-              src="/images/landing-page/voice-generation.png"
+              src="/images/landing-page/unrestricted.png"
               alt="Unrestricted"
-              className="rounded-tl-10 bg-neutral-1"
             />
           </div>
         </div>
@@ -116,7 +114,6 @@ export const Features = () => {
             <img
               src="/images/landing-page/analytics.png"
               alt="Chat with agent"
-              className="rounded-tl-10 bg-neutral-1"
             />
           </div>
         </div>
