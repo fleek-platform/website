@@ -35,9 +35,7 @@ const onAuthenticationSuccess = () => {
   });
 
   if (isReferralName('dashboard')) {
-    targetUrl = new URL(
-      dashboardUrl
-    );
+    targetUrl = new URL(dashboardUrl);
   }
 
   window.location.assign(targetUrl.toString());
