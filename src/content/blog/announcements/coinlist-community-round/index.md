@@ -7,6 +7,7 @@ image: './thumbnail.png'
 author:
   - 'Fleek'
 ---
+
 Fleek is launching its public token sale on **May 1** on [CoinList](https://coinlist.co/fleek) giving builders, creators, and believers in the AI agent economy a chance to own part of the infrastructure and ecosystem powering it.
 
 The rise of AI agents is transforming the internet. Just as mobile reshaped how we access content, **autonomous agents and virtual influencers are redefining how we interact online**. Instead of static apps or dashboards, users will soon engage through chatting with agents that learn, act, and create on your behalf.
@@ -87,25 +88,15 @@ Fleek is already powering apps & AI agents, with real usage. Fleek has over 25,0
 In just the past few weeks, we’ve launched:
 
 - **Embeddable Chat Agents**
-    
-    Deploy an agent directly to your website with a simple script. Fully interactive. No frontend code needed.
-    
+  Deploy an agent directly to your website with a simple script. Fully interactive. No frontend code needed.
 - **Conversational Agent Creation**
-    
-    Describe what you want in plain language. Fleek turns it into a live agent. No forms. No friction.
-    
+  Describe what you want in plain language. Fleek turns it into a live agent. No forms. No friction.
 - **Managed LLM Key Infrastructure**
-    
-    Don’t want to create an OpenAI account? You don’t have to. Fleek manages your API access natively, with billing and usage tracking built in.
-    
+  Don’t want to create an OpenAI account? You don’t have to. Fleek manages your API access natively, with billing and usage tracking built in.
 - **Crypto + Fiat Billing via Credits**
-    
-    Pay with a card or USDC. One balance. Full control. Power everything hosting, LLM calls, and more—with a single credit system. Built for devs and teams.
-    
+  Pay with a card or USDC. One balance. Full control. Power everything hosting, LLM calls, and more—with a single credit system. Built for devs and teams.
 - **Privacy-Ready Infrastructure with TEEs**
-    
-    Agents don’t just need speed. They need privacy. With Trusted Execution Environments, Fleek supports private, verifiable execution for agents that handle sensitive data.
-    
+  Agents don’t just need speed. They need privacy. With Trusted Execution Environments, Fleek supports private, verifiable execution for agents that handle sensitive data.
 
 We’ve made it easy enough for a solo creator, powerful enough for protocol teams, and composable enough to scale with the space. The best is yet to come, with custom social integrations, image, video, voice, and enhanced social content generation capabilities, the agent marketplace, and the first monetization features all rolling out within the next month.
 

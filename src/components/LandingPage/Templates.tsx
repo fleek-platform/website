@@ -247,7 +247,7 @@ export const TemplateCard = ({ template }: { template: Template }) => {
         </div>
         <button
           type="button"
-          className="flex w-full cursor-not-allowed items-center justify-center gap-6 rounded-8 bg-white p-8 font-medium text-black"
+          className="pointer-events-none flex w-full select-none items-center justify-center gap-6 rounded-8 bg-white p-8 font-medium text-black"
         >
           <IoChatbubbleEllipsesOutline /> Chat coming soon
         </button>
