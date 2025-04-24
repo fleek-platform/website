@@ -18,9 +18,32 @@ type Template = {
 
 const templates: Template[] = [
   {
+    name: 'Stephanie A. Smith',
+    category: 'Sports',
+    image: '/images/landing-page/templates/stephanie.png',
+    author: 'Fleek',
+    socials: [
+      {
+        name: 'twitter',
+        logo: '/images/landing-page/templates/socials/x.svg',
+        followers: 16200,
+      },
+      {
+        name: 'instagram',
+        logo: '/images/landing-page/templates/socials/instagram.svg',
+        followers: 32700,
+      },
+      {
+        name: 'tiktok',
+        logo: '/images/landing-page/templates/socials/tiktok.svg',
+        followers: 112200,
+      },
+    ],
+  },
+  {
     name: 'Olivia',
     category: 'Companion',
-    image: '/images/landing-page/templates/template-1.png',
+    image: '/images/landing-page/templates/olivia.png',
     author: 'Fleek',
     socials: [
       {
@@ -41,9 +64,9 @@ const templates: Template[] = [
     ],
   },
   {
-    name: 'Kyle Satoshi',
+    name: 'Crypto Chris',
     category: 'Crypto',
-    image: '/images/landing-page/templates/template-2.png',
+    image: '/images/landing-page/templates/chris.png',
     author: 'Fleek',
     socials: [
       {
@@ -66,7 +89,7 @@ const templates: Template[] = [
   {
     name: 'Kanye East',
     category: 'Culture',
-    image: '/images/landing-page/templates/template-3.png',
+    image: '/images/landing-page/templates/kanye.png',
     author: 'Fleek',
     socials: [
       {
@@ -86,6 +109,29 @@ const templates: Template[] = [
       },
     ],
   },
+  {
+    name: 'Kiki',
+    category: 'NSFW',
+    image: '/images/landing-page/templates/kiki.png',
+    author: 'Fleek',
+    socials: [
+      {
+        name: 'twitter',
+        logo: '/images/landing-page/templates/socials/x.svg',
+        followers: 9240,
+      },
+      {
+        name: 'instagram',
+        logo: '/images/landing-page/templates/socials/instagram.svg',
+        followers: 56700,
+      },
+      {
+        name: 'tiktok',
+        logo: '/images/landing-page/templates/socials/tiktok.svg',
+        followers: 32000,
+      },
+    ],
+  },
 ];
 
 export const Templates = () => {
@@ -94,7 +140,7 @@ export const Templates = () => {
     mode: 'free-snap',
     slides: {
       spacing: 24,
-      perView: 1.2,
+      perView: 1.1,
     },
     breakpoints: {
       '(min-width: 640px)': {
@@ -117,7 +163,7 @@ export const Templates = () => {
       },
       '(min-width: 1280px)': {
         slides: {
-          perView: 2.45,
+          perView: 2.95,
           spacing: 24,
         },
       },
@@ -174,15 +220,12 @@ export const TemplateCard = ({ template }: { template: Template }) => {
       <img
         src={template.image}
         alt="Agent avatar"
-        className="size-[173px] shrink-0 object-cover"
+        className="size-[152px] shrink-0 object-cover"
       />
-      <div className="flex w-full flex-col items-start gap-10 px-12 py-16">
+      <div className="flex w-full flex-col items-start justify-between gap-10 px-12 py-16">
         <div className="flex w-full items-start justify-between">
           <div className="text-left">
             <Text variant="subtitle">{template.name}</Text>
-            <Text variant="paragraph" className="text-[1.2rem]">
-              By <span className="text-neutral-12">{template.author}</span>
-            </Text>
           </div>
           <div className="rounded-full border border-neutral-6 bg-neutral-1 px-8 py-4 text-12 text-neutral-12">
             {template.category}
@@ -199,9 +242,6 @@ export const TemplateCard = ({ template }: { template: Template }) => {
                 alt="Social media logo"
                 className="size-18"
               />
-              <Text variant="paragraph" className="font-medium text-neutral-12">
-                {formatCompactNumber(social.followers)}
-              </Text>
             </div>
           ))}
         </div>
