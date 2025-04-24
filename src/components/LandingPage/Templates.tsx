@@ -129,7 +129,10 @@ export const Templates = () => {
       <Badge>
         <span>🌎</span> Explore
       </Badge>
-      <Text variant="subtitle" className="max-w-[600px] pt-24 text-[3.8rem]">
+      <Text
+        variant="subtitle"
+        className="max-w-[600px] pt-24 text-[3.8rem] font-normal"
+      >
         Who do you want to chat with?
       </Text>
       <p className="mt-24 text-18 text-neutral-11">
