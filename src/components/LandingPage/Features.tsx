@@ -45,7 +45,6 @@ export const Features = () => {
             <img
               src="/images/landing-page/voice-generation.png"
               alt="Voice generation"
-              className="rounded-tl-10 bg-neutral-1"
             />
           </div>
         </div>
