@@ -29,6 +29,7 @@ const PricingLanding: React.FC = () => {
           buttons={[
             <Button
               key="ai-agents"
+              className="text-[1.4rem] sm:text-[1.9rem]"
               variant={
                 priceFocus === 'ai-agents' ? 'primary-ghost' : 'secondary-ghost'
               }
@@ -40,6 +41,7 @@ const PricingLanding: React.FC = () => {
             </Button>,
             <Button
               key="hosting"
+              className="text-[1.4rem] sm:text-[1.9rem]"
               variant={
                 priceFocus === 'hosting' ? 'primary-ghost' : 'secondary-ghost'
               }

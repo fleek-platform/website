@@ -18,6 +18,7 @@ export const TabbedButtons: React.FC<TabbedButtonsProps> = ({ buttons }) => {
         const nextButtonProps = nextButton ? nextButton.props : null;
 
         const className = cn(
+          currentButtonProps.className ?? '',
           {
             'rounded-l-8 rounded-r-none': isFirst,
             'rounded-r-8 rounded-l-none': isLast,
