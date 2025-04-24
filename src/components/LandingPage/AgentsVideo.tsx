@@ -21,7 +21,7 @@ export const AgentsVideo = () => {
   };
 
   return (
-    <div className="rounded-xl group relative mx-auto my-100 max-w-[800px] overflow-hidden shadow-lg">
+    <div className="rounded-xl group relative mx-auto my-100 max-w-[800px] overflow-hidden rounded-8 shadow-lg">
       {/* biome-ignore lint/a11y/useMediaCaption: <explanation> */}
       <video
         ref={videoRef}
