@@ -31,7 +31,7 @@ export const Partners: React.FC = () => {
           <Partner key={partner.name} {...partner} />
         ))}
       </div>
-      <div className="mt-50 hidden h-[1px] w-full bg-gradient-to-r from-transparent via-white/20 to-transparent" />
+      <div className="mt-50 h-[1px] w-full bg-gradient-to-r from-transparent via-white/20 to-transparent" />
     </div>
   );
 };
