@@ -125,7 +125,7 @@ export const Templates = () => {
   });
 
   return (
-    <div className="mx-auto flex w-full max-w-screen-xl flex-col items-center px-24 py-48 text-center sm:py-100">
+    <div className="mx-auto flex w-full max-w-screen-xl flex-col items-center px-24 py-48 text-center sm:py-[75px]">
       <Badge>
         <span>🌎</span> Explore
       </Badge>

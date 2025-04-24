@@ -67,7 +67,7 @@ export const Hero = () => {
   const [role, setRole] = useState<string>();
 
   return (
-    <header className="relative mx-auto w-full max-w-[1048px] px-24 pt-42 sm:pt-80">
+    <header className="relative mx-auto w-full max-w-[1048px] px-24 pt-42 sm:pb-36 sm:pt-80">
       <div className="flex flex-col justify-center pt-64 text-center">
         <div className="flex flex-col gap-48">
           <div className="flex flex-col gap-36">
