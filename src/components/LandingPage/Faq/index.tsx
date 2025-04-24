@@ -31,7 +31,7 @@ const Item: React.FC<ItemProps> = ({ item }) => {
       )}
     >
       <div className="flex items-center justify-between gap-36">
-        <Text variant="subtitle" className="font-medium">
+        <Text variant="subtitle" className="font-inter font-medium">
           {item.question}
         </Text>
         <FaChevronDown
@@ -48,7 +48,11 @@ const Item: React.FC<ItemProps> = ({ item }) => {
         }}
       >
         {answer.map((a, idx) => (
-          <Text key={`${idx}: ${a}`} variant="paragraph" className="pt-8">
+          <Text
+            key={`${idx}: ${a}`}
+            variant="paragraph"
+            className="pt-8 font-inter"
+          >
             {a}
           </Text>
         ))}
@@ -60,8 +64,10 @@ const Item: React.FC<ItemProps> = ({ item }) => {
 export const Faq: React.FC = () => {
   return (
     <div className="mx-auto flex flex-col items-center gap-24 px-24 py-48 text-center sm:py-[75px] sm:text-left">
-      <Text>Frequently asked questions</Text>
-      <Text variant="description" className="font-normal">
+      <Text className="font-inter text-[38px] font-normal">
+        Frequently asked questions
+      </Text>
+      <Text variant="description" className="font-inter font-normal">
         Can't find the answer here?{' '}
         <Link
           href={settings.support.resources.newRequest}
