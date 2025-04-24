@@ -2,7 +2,7 @@ import type { Props } from '../../components/PricingCard';
 
 const dashboardUrl = import.meta.env.PUBLIC_UI_APP_URL;
 
-export const PricingInfo: Props[] = [
+export const HostingPricingInfo: Props[] = [
   {
     title: 'Free Plan',
     description:
@@ -60,6 +60,81 @@ export const PricingInfo: Props[] = [
       'Custom build resources',
       'Enterprise SLAs',
       'Dedicated support',
+    ],
+    cta: 'Contact us',
+    variant: 'primary-outline',
+    url: 'https://fleek.typeform.com/fleekinterest',
+  },
+];
+
+export const AiAgentsPricingInfo: Props[] = [
+  {
+    title: 'Fan',
+    description: 'Great for those who just want to chat with AI agents & virtual influencers',
+    splitDescription: true,
+    cost: {
+      amount: 10,
+    },
+    featuresDescription: 'Includes:',
+    features: [
+      '10 credits per month',
+      'Generate videos, images in chats',
+      'Maintain private conversations',
+    ],
+    cta: 'Coming soon',
+    variant: 'primary-outline',
+  },
+  {
+    title: 'Creator',
+    description:
+      'Great for those creating their first AI agent or virtual influencer',
+    splitDescription: true,
+    cost: {
+      amount: 20,
+    },
+    featuresDescription: 'Includes everything in Fan, plus:',
+    features: [
+      '10 credits per month',
+      '1 AI agent or influencer',
+      '1 seat',
+      'Additional agents for $20/m',
+    ],
+    cta: 'Start free trial',
+    variant: 'primary',
+    url: `${dashboardUrl}/agents`,
+  },
+  {
+    title: 'Manager',
+    description: 'Great for managing a fleet of agents for marketing/advertising',
+    splitDescription: true,
+    cost: {
+      amount: 99,
+    },
+    featuresDescription: 'Includes everything in Fan, plus:',
+    features: [
+      '25 Fleek credits per month',
+      'Unlimited agents & influencers',
+      'Unlimited seats',
+    ],
+    cta: 'Coming soon',
+    variant: 'primary-outline',
+  },
+  {
+    title: 'Enterprise',
+    description: "Great for teams looking to take things to the next level",
+    splitDescription: true,
+    cost: {
+      amount: 'Custom',
+      prefix: '',
+      suffix: '',
+    },
+    featuresDescription:
+      'Includes:',
+    features: [
+      'Custom model training options',
+      'Concierge support',
+      'SLAs',
+      'Admin tools',
     ],
     cta: 'Contact us',
     variant: 'primary-outline',

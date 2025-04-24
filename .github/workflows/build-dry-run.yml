@@ -13,7 +13,7 @@ on:
 
 jobs:
   build-dry-run:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-22.04
     environment: 'staging'
     env:
       DOPPLER_TOKEN: ${{ secrets.DOPPLER_TOKEN }} 
@@ -60,6 +60,8 @@ jobs:
       - name: Setup dotenv
         run: |
           scripts/setup-ci-dotenv
+
+      - run: npm install --include=optional sharp
 
       - name: Install
         run: npm ci

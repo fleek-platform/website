@@ -88,7 +88,9 @@ const PricingCard: React.FC<Props> = (props) => {
             <Text as="h3" variant="subtitle">
               {props.title}
             </Text>
-            <Text variant="paragraph">{renderDescription()}</Text>
+            <Text variant="paragraph" className="min-h-[42px]">
+              {renderDescription()}
+            </Text>
           </div>
           <div>
             <Text variant="subtitle">
@@ -99,7 +101,7 @@ const PricingCard: React.FC<Props> = (props) => {
             <Text variant="paragraph">{props.cost?.bottomText}</Text>
           </div>
         </div>
-        <div className="flex flex-col gap-18">
+        <div className="flex grow-[1] flex-col gap-18">
           <p className="typo-m block text-left text-gray-dark-12">
             {props?.featuresDescription}
           </p>
@@ -120,8 +122,10 @@ const PricingCard: React.FC<Props> = (props) => {
           </ul>
         </div>
         <Button
+          disabled={!!props.url}
+          className={!props.url ? 'pointer-events-none' : ''}
           href="#"
-          variant={props.variant}
+          variant={props.url ? props.variant : 'secondary-ghost'}
           size="lg"
           onClick={() => replaceProjectIdInUrl(props.url)}
         >
