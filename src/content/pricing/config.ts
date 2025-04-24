@@ -79,7 +79,7 @@ export const AiAgentsPricingInfo: Props[] = [
     features: [
       'Chat with existing agents',
       'Generate images and video content',
-      'Maintain private conversations. ',
+      'Maintain private conversations',
     ],
     cta: 'Coming soon',
     variant: 'primary-outline',
