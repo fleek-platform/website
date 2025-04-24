@@ -114,7 +114,6 @@ export const Features = () => {
             <img
               src="/images/landing-page/analytics.png"
               alt="Chat with agent"
-              className="rounded-tl-10 bg-neutral-1"
             />
           </div>
         </div>
