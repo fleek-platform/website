@@ -2,8 +2,8 @@ import '@fleek-platform/agents-ui/styles';
 import {
   ChatBox,
   type FileWithPreview,
-  DRAFT_BOOTSTRAP_DATA_KEY,
-  ROUTE_NEW_DRAFT,
+  CREATE_AGENT_FUNNEL_ROUTE,
+  CREATE_AGENT_FUNNEL_QUERY_PARAM_PROMPT,
 } from '@fleek-platform/agents-ui';
 import { useAuthStore } from '@fleek-platform/login-button';
 import { storeFunnelData } from '@utils/funnel';
@@ -31,23 +31,20 @@ export const ChatToAIAgentDeploy = ({
     const fileDataArray = await Promise.all(fileDataPromises);
 
     const data = {
-      mode: 'chat',
-      fromApp: 'website',
-      prompt: description,
-      timestamp: new Date(),
+      description,
     };
 
     setReferralQueryKeyValuePair('agents');
     storeFunnelData({
-      key: DRAFT_BOOTSTRAP_DATA_KEY,
       data,
     });
 
     if (isLoggedIn) {
       const currentParams = new URLSearchParams(window.location.search);
+      currentParams.append(CREATE_AGENT_FUNNEL_QUERY_PARAM_PROMPT, description);
 
       const targetUrl = new URL(
-        `${import.meta.env.PUBLIC_UI_AGENTS_APP_URL}${ROUTE_NEW_DRAFT}`,
+        `${import.meta.env.PUBLIC_UI_AGENTS_APP_URL}${CREATE_AGENT_FUNNEL_ROUTE}`,
       );
 
       currentParams.forEach((value, key) => {

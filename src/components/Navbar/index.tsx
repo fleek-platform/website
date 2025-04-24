@@ -18,7 +18,11 @@ import type { Project } from '@fleek-platform/sdk/browser';
 import { isClient } from '../../utils/common';
 import { useSession } from '@hooks/useSession';
 import { isReferralName } from '@utils/referrals';
-import { ROUTE_NEW_DRAFT } from '@fleek-platform/agents-ui';
+import {
+  CREATE_AGENT_FUNNEL_ROUTE,
+  CREATE_AGENT_FUNNEL_QUERY_PARAM_PROMPT,
+} from '@fleek-platform/agents-ui';
+import { retrieveFunnelData } from '@utils/funnel';
 
 const dashboardUrl = import.meta.env.PUBLIC_UI_APP_URL;
 const agentsUrl = `${import.meta.env.PUBLIC_UI_AGENTS_APP_URL}${ROUTE_NEW_DRAFT}`;
