@@ -70,15 +70,15 @@ export const HostingPricingInfo: Props[] = [
 export const AiAgentsPricingInfo: Props[] = [
   {
     title: 'Chat',
-    description: 'For users only interested in chatting with existing agents.',
+    description: 'Great for those who just want to chat with AI agents & virtual influencers. ',
     splitDescription: true,
     cost: {
       amount: 10,
     },
     featuresDescription: 'Includes:',
     features: [
-      'Chat with existing agents',
-      'Generate images and videos in chats',
+      '10 credits per month',
+      'Generate videos and images in chats',
       'Maintain private conversations',
     ],
     cta: 'Coming soon',
@@ -87,17 +87,17 @@ export const AiAgentsPricingInfo: Props[] = [
   {
     title: 'Create',
     description:
-      'For users just starting. Create or chat with AI agents and virtual influencers. ',
+      'Great for those creating their first AI agent or virtual influencer. ',
     splitDescription: true,
     cost: {
       amount: 20,
     },
     featuresDescription: 'Includes:',
     features: [
-      '7-day free trial',
-      '1 custom AI avatar',
+      '10 credits per month',
+      '1 AI agent or influencer',
       '1 seat',
-      'Add credits for $1 each',
+      'Add additional credits for $1 or agents for $20/m',
     ],
     cta: 'Start free trial',
     variant: 'primary',
@@ -105,24 +105,23 @@ export const AiAgentsPricingInfo: Props[] = [
   },
   {
     title: 'Crush It',
-    description: 'For rising stars to create and manage virtual influencers.',
+    description: 'Great for marketing, advertising, and bulk agent use cases. ',
     splitDescription: true,
     cost: {
       amount: 99,
     },
     featuresDescription: 'Includes:',
     features: [
-      '50 Fleek credits/month',
-      'Unlimited custom AI avatars',
+      '25 Fleek credits per month',
+      'Unlimited agents & influencers',
       'Unlimited seats',
-      '5% discount on added credits',
     ],
     cta: 'Coming soon',
     variant: 'primary-outline',
   },
   {
     title: 'Enterprise',
-    description: "Have a big project or custom needs?\n We've got you.",
+    description: "Great for businesses and brands looking to take things to the next level.",
     splitDescription: true,
     cost: {
       amount: 'Custom',
@@ -130,11 +129,11 @@ export const AiAgentsPricingInfo: Props[] = [
       suffix: '',
     },
     featuresDescription:
-      'For users or companies looking to scale their experience.',
+      'Incldes:',
     features: [
-      'Bulk agent creation',
+      'Custom model training options',
       'Concierge support',
-      'Volume discounting on credits',
+      'SLAs',
       'Admin tools',
     ],
     cta: 'Contact us',
