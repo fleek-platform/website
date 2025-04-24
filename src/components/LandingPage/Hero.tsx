@@ -114,7 +114,7 @@ export const Hero = () => {
                     key={index}
                     variant="secondary-ghost"
                     size="sm"
-                    className="shrink-0 gap-8"
+                    className="shrink-0 gap-8 font-inter"
                     onClick={() => setRole(item.name)}
                   >
                     <Icon className={cn('size-16', item.iconClass)} />
