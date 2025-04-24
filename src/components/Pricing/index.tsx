@@ -42,6 +42,7 @@ const Pricing = () => {
               buttons={[
                 <Button
                   key="ai-agents"
+                  className="text-[1.4rem] sm:text-[1.9rem]"
                   variant={
                     priceFocus === 'ai-agents'
                       ? 'primary-ghost'
@@ -55,6 +56,7 @@ const Pricing = () => {
                 </Button>,
                 <Button
                   key="hosting"
+                  className="text-[1.4rem] sm:text-[1.9rem]"
                   variant={
                     priceFocus === 'hosting'
                       ? 'primary-ghost'

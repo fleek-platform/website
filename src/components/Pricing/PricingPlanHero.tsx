@@ -17,7 +17,7 @@ export const PricingPlanHero: React.FC<PricingPlanHeroParams> = ({
       {priceFocus === 'ai-agents' && (
         <div className="flex flex-col gap-16">
           <div className="mb-24 flex flex-col justify-between gap-20 pt-16 lg:flex-row">
-            {AiAgentsPricingInfo.map((item, index) => {
+            {AiAgentsPricingInfo.map((item) => {
               return <PricingCard key={item.title} {...item} />;
             })}
           </div>
