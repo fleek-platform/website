@@ -131,7 +131,7 @@ export const Templates = () => {
       </Badge>
       <Text
         variant="subtitle"
-        className="max-w-[600px] pt-24 text-[3.8rem] font-normal"
+        className="max-w-[600px] pt-24 font-inter text-[38px] font-normal leading-none"
       >
         Who do you want to chat with?
       </Text>

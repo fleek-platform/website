@@ -9,7 +9,7 @@ export const Features = () => {
         <span>💡</span>
         Features
       </Badge>
-      <Text className="pt-24 font-plex-sans font-normal">
+      <Text className="pt-24 font-inter text-[38px] font-normal leading-none">
         Anything you can do, your virtual influencer can do better.
       </Text>
 

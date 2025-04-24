@@ -36,7 +36,7 @@ export const Integrations = () => {
       <Badge>
         <span>🎛</span> Integrations
       </Badge>
-      <Text className="max-w-[600px] pt-24 font-plex-sans text-[38px] font-normal">
+      <Text className="max-w-[600px] pt-24 font-inter text-[38px] font-normal leading-none">
         Let your social influencer hang out everywhere humans do
       </Text>
       <p className="mt-24 max-w-[600px] text-18 text-neutral-11">
