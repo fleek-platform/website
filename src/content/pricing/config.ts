@@ -114,6 +114,7 @@ export const AiAgentsPricingInfo: Props[] = [
     features: [
       '50 Fleek credits/month',
       'Unlimited custom AI avatars',
+      'Unlimited seats',
       '5% discount on added credits',
     ],
     cta: 'Coming soon',
