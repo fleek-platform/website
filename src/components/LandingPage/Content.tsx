@@ -71,7 +71,7 @@ const Post = ({
       <div className="flex flex-row gap-8 border-t border-gray-dark-6 p-12">
         <Button
           variant="secondary-ghost"
-          className="size-32 rounded-[8px] p-0"
+          className="pointer-events-none size-32 select-none rounded-[8px] p-0"
           size="sm"
         >
           <IoMenu className="size-16" />
@@ -79,14 +79,14 @@ const Post = ({
 
         <Button
           variant="secondary-ghost"
-          className="size-32 rounded-[8px] p-0"
+          className="pointer-events-none size-32 select-none rounded-[8px] p-0"
           size="sm"
         >
           <IoChatbubbleEllipses className="size-16" />
         </Button>
         <Button
           variant="secondary-ghost"
-          className="size-32 rounded-[8px] p-0"
+          className="pointer-events-none size-32 select-none rounded-[8px] p-0"
           size="sm"
         >
           <IoPencil className="size-16" />
@@ -94,24 +94,36 @@ const Post = ({
 
         <Button
           variant="secondary-ghost"
-          className="ml-auto rounded-[8px]"
+          className="pointer-events-none ml-auto select-none rounded-[8px]"
           size="sm"
         >
           <FaInstagram className="size-16" />
           Post to Instagram
         </Button>
 
-        <Button variant="secondary-ghost" className="rounded-[8px]" size="sm">
+        <Button
+          variant="secondary-ghost"
+          className="pointer-events-none select-none rounded-[8px]"
+          size="sm"
+        >
           <FaXTwitter className="size-16" />
           Post to X
         </Button>
 
-        <Button variant="secondary-ghost" className="rounded-[8px]" size="sm">
+        <Button
+          variant="secondary-ghost"
+          className="pointer-events-none select-none rounded-[8px]"
+          size="sm"
+        >
           <FaTiktok className="size-16" />
           Post to TikTok
         </Button>
 
-        <Button variant="secondary" className="rounded-[8px]" size="sm">
+        <Button
+          variant="secondary"
+          className="pointer-events-none select-none rounded-[8px]"
+          size="sm"
+        >
           Post to all
         </Button>
       </div>
