@@ -87,7 +87,11 @@ export const Hero = () => {
                   </h1>
                 </BlurFade>
                 <BlurFade delay={calculateDelay(2)}>
-                  <Text variant="description" as="h2" className="font-normal">
+                  <Text
+                    variant="description"
+                    as="h2"
+                    className="font-inter font-normal"
+                  >
                     {settings.landingPage.hero.h2}
                   </Text>
                 </BlurFade>
@@ -110,7 +114,7 @@ export const Hero = () => {
                     key={index}
                     variant="secondary-ghost"
                     size="sm"
-                    className="shrink-0 gap-8"
+                    className="shrink-0 gap-8 font-inter"
                     onClick={() => setRole(item.name)}
                   >
                     <Icon className={cn('size-16', item.iconClass)} />
