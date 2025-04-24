@@ -2,8 +2,8 @@
 title: 'Own the Agentic Future: Fleek ($FLK) Token Sale Launches May 1 on CoinList'
 date: 2025-04-24
 desc: 'Fleek is launching its $FLK token sale on CoinList to power the rise of AI agents and virtual influencers. Own the infrastructure of the agentic future.'
-thumbnail: './thumbnail.jpg'
-image: './thumbnail.jpg'
+thumbnail: './thumbnail.png'
+image: './thumbnail.png'
 author:
   - 'Fleek'
 ---
