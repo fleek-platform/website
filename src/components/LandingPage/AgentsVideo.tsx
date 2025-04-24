@@ -23,7 +23,13 @@ export const AgentsVideo = () => {
   return (
     <div className="rounded-xl group relative mx-auto my-100 max-w-[800px] overflow-hidden shadow-lg">
       {/* biome-ignore lint/a11y/useMediaCaption: <explanation> */}
-      <video ref={videoRef} loop playsInline className="h-auto w-full">
+      <video
+        ref={videoRef}
+        loop
+        playsInline
+        className="h-auto w-full"
+        poster="/images/landing-page/agents-video-preview.png"
+      >
         <source src="/videos/landing/fleek_agents.mp4" type="video/mp4" />
         Your browser does not support the video tag.
       </video>
