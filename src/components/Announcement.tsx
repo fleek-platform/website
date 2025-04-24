@@ -44,7 +44,7 @@ export const Announcement: React.FC<AnnouncementProps> = ({
         href={settings.site.announcementMarquee.url}
         target={Target.Blank}
         rel="noopener noreferrer"
-        className="group flex flex-col gap-4 text-balance rounded-full border-t border-gray-dark-4 bg-gradient-to-br from-gray-dark-2 to-gray-dark-1 p-8 font-plex-sans text-13 font-normal leading-tight text-gray-dark-11 hover:border-gray-dark-5 hover:from-gray-dark-3 hover:to-gray-dark-2 hover:text-gray-dark-12"
+        className="group flex flex-col gap-4 text-balance rounded-full border-t border-gray-dark-4 bg-gradient-to-br from-gray-dark-2 to-gray-dark-1 p-8 font-plex-sans text-13 font-normal leading-tight text-white hover:border-gray-dark-5 hover:from-gray-dark-3 hover:to-gray-dark-2 hover:text-gray-dark-12"
       >
         <span className="shrink-0">🎉</span>
         {settings.site.announcementMarquee.message}
@@ -67,7 +67,7 @@ export const Announcement: React.FC<AnnouncementProps> = ({
 
       <div
         ref={containerRef}
-        className="relative overflow-hidden whitespace-nowrap text-14 font-normal text-gray-dark-11 sm:text-15"
+        className="relative overflow-hidden whitespace-nowrap text-14 font-normal text-white sm:text-15"
       >
         {/* Hidden element for consistent measurement */}
         <span
