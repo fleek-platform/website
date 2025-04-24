@@ -7,7 +7,7 @@ const PricingLanding: React.FC = () => {
   return (
     <Container
       classNameOuterContainer="sm:pt-[75px] sm:pb-[51px] border-none"
-      gradient=""
+      gradient="none"
     >
       <div className="pb-44 text-center">
         <Text
