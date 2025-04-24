@@ -27,7 +27,7 @@ export const AgentsVideo = () => {
         ref={videoRef}
         loop
         playsInline
-        className="h-auto w-full"
+        className="h-auto w-full rounded-8"
         poster="/images/landing-page/agents-video-preview.png"
       >
         <source src="/videos/landing/fleek_agents.mp4" type="video/mp4" />
