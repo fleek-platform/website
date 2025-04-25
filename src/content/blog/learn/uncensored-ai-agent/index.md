@@ -90,7 +90,7 @@ You don’t need to bring your own LLM keys — we’ve got them covered. You do
 
 You still own your app. You still control the outputs. But all the friction? Gone.
 
-![](/.iceberg.png)
+![](./iceberg.png)
 
 ---
 
