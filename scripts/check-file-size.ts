@@ -28,11 +28,7 @@ files.forEach((file) => {
 
   const stats = fs.statSync(file);
   const bytesSize = stats.size;
-  const split = file.split('.');
-
-  if (!split.length) return;
-
-  const ext = split[1].toLowerCase();
+  const ext = file.split('.').pop().toLowerCase();
   const isVideo = videoExt.includes(ext);
 
   if (isVideo) {
