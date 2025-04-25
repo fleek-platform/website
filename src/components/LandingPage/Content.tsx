@@ -7,7 +7,7 @@ import { cn } from '@utils/cn';
 
 export const Content = () => {
   return (
-    <div className="mx-auto flex w-full flex-col items-center py-48 text-center sm:py-[75px]">
+    <div className="mx-auto flex w-full flex-col items-center px-24 py-48 text-center sm:py-[75px] md:px-0">
       <Badge>
         <span>📝</span> Content
       </Badge>
@@ -68,7 +68,7 @@ const Post = ({
         </div>
       </div>
 
-      <div className="flex flex-row gap-8 border-t border-gray-dark-6 p-12">
+      <div className="flex flex-row flex-wrap justify-end gap-8 border-t border-gray-dark-6 p-12">
         <Button
           variant="secondary-ghost"
           className="pointer-events-none size-32 select-none rounded-[8px] p-0"

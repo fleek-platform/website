@@ -4,7 +4,7 @@ import { Text } from './Text';
 
 export const Features = () => {
   return (
-    <div className="mx-auto hidden max-w-[800px] flex-col items-center py-48 text-center sm:flex sm:py-[75px]">
+    <div className="mx-auto hidden max-w-[800px] flex-col items-center px-24 py-48 text-center sm:flex sm:py-[75px] md:px-0">
       <Badge>
         <span>💡</span>
         Features
