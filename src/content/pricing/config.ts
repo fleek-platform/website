@@ -5,7 +5,8 @@ const dashboardUrl = import.meta.env.PUBLIC_UI_APP_URL;
 export const HostingPricingInfo: Props[] = [
   {
     title: 'Pro Plan',
-    description: 'Our most popular option for projects hosting Web apps on Fleek',
+    description:
+      'Our most popular option for projects hosting Web apps on Fleek',
     splitDescription: true,
     cost: {
       amount: 20,
@@ -24,7 +25,8 @@ export const HostingPricingInfo: Props[] = [
   },
   {
     title: 'Enterprise Plan',
-    description: "Have a big project or custom Web app hosting needs?\n We've got you.",
+    description:
+      "Have a big project or custom Web app hosting needs?\n We've got you.",
     splitDescription: true,
     cost: {
       amount: 'Custom',
