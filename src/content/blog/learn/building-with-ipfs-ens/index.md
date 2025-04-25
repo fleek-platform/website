@@ -32,7 +32,7 @@ Centralized systems are susceptible to government or corporate censorship. The <
 
 **3. Lack of portability:**
 
-Moving domains between providers is a huge headache, especially since they are tightly bundled with their provider-specfic services.
+Moving domains between providers is a huge headache, especially since they are tightly bundled with their provider-specific services.
 
 For example: AWS and its content-delivery network — <u>[CloudFront](https://aws.amazon.com/cloudfront/)</u>.
 
