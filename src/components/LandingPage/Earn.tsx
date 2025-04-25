@@ -8,7 +8,7 @@ import { Text } from './Text';
 
 export const Earn = () => {
   return (
-    <div className="mx-auto flex flex-col items-center py-48 text-center sm:py-[75px]">
+    <div className="mx-auto flex flex-col items-center px-24 py-48 text-center sm:py-[75px] md:px-0">
       <Badge>
         <span>🤑</span> Earn
       </Badge>
@@ -30,7 +30,7 @@ export const Earn = () => {
           <img
             src="/images/landing-page/earn/sponsored.png"
             alt="Chat with agent"
-            className="size-[340px] rounded-8"
+            className="size-[340px] rounded-8 object-cover"
             loading="lazy"
           />
         </div>
@@ -45,7 +45,7 @@ export const Earn = () => {
             <img
               src="/images/landing-page/earn/nsfw.png"
               alt="Chat with agent"
-              className="z-0 size-[340px] rounded-8"
+              className="z-0 size-[340px] rounded-8 object-cover"
               loading="lazy"
             />
             <div className="absolute inset-0 z-1 bg-gradient-to-b from-transparent via-black/50 to-black" />
