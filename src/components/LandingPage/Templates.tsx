@@ -20,7 +20,7 @@ type Template = {
 
 const templates: Template[] = [
   {
-    name: 'Stephanie A. Smith',
+    name: 'Stephanie',
     category: 'Sports',
     image: '/images/landing-page/templates/stephanie.png',
     author: 'Fleek',
@@ -280,7 +280,7 @@ export const TemplateCard = ({ template }: { template: Template }) => {
           <div className="text-left">
             <Text variant="subtitle">{template.name}</Text>
           </div>
-          <div className="rounded-full border border-neutral-6 bg-neutral-1 px-8 py-4 text-12 text-neutral-12">
+          <div className="hidden rounded-full border border-neutral-6 bg-neutral-1 px-8 py-4 text-12 text-neutral-12 sm:block">
             {template.category}
           </div>
         </div>
@@ -302,7 +302,9 @@ export const TemplateCard = ({ template }: { template: Template }) => {
           type="button"
           className="pointer-events-none flex w-full select-none items-center justify-center gap-6 rounded-8 bg-white p-8 font-medium text-black"
         >
-          <IoChatbubbleEllipsesOutline /> Chat coming soon
+          <IoChatbubbleEllipsesOutline className="shrink-0" />
+          <span className="sm:hidden"> Coming soon</span>
+          <span className="hidden sm:inline"> Chat coming soon</span>
         </button>
       </div>
     </div>

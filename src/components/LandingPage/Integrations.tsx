@@ -33,16 +33,18 @@ export const Integrations = () => {
 
   return (
     <div className="mx-auto flex flex-col items-center py-48 text-center sm:py-[75px]">
-      <Badge>
-        <span>🎛</span> Integrations
-      </Badge>
-      <Text className="max-w-[600px] pt-24 font-inter text-[38px] font-normal leading-none">
-        Let your social influencer hang out everywhere humans do
-      </Text>
-      <p className="mt-24 max-w-[600px] text-18 text-neutral-11">
-        Whether your agent is a virtual influencer or a personal assistant, use
-        custom integrations and MCP support to boost their effectiveness.
-      </p>
+      <div className="flex flex-col items-center px-24 text-center md:px-0">
+        <Badge>
+          <span>🎛</span> Integrations
+        </Badge>
+        <Text className="max-w-[600px] pt-24 font-inter text-[38px] font-normal leading-none">
+          Let your social influencer hang out everywhere humans do
+        </Text>
+        <p className="mt-24 max-w-[600px] text-18 text-neutral-11">
+          Whether your agent is a virtual influencer or a personal assistant,
+          use custom integrations and MCP support to boost their effectiveness.
+        </p>
+      </div>
 
       <div
         ref={ref}
