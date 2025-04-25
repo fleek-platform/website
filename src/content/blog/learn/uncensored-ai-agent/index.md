@@ -7,6 +7,7 @@ image: './thumbnail.png'
 author:
   - 'Fleek'
 ---
+
 AI tools are evolving fast — but so are their filters. If you’ve tried using mainstream platforms to generate images, stories, or conversations, you’ve probably hit some kind of content wall. Whether it’s an image that never renders or a chatbot that refuses to answer, the message is clear: **your creativity is being censored**.
 
 But it doesn’t have to be.
@@ -19,9 +20,9 @@ With **Venice + Fleek**, you can launch your own **uncensored AI**, **host it yo
 
 Search volume says it all. Thousands of people are actively hunting for ways to create without limitations:
 
-- *“uncensored ai generator”* → 9.9K monthly searches
-- *“uncensored ai image generator”* → 3.6K
-- *“ai image generator uncensored”* → 1.6K
+- _“uncensored ai generator”_ → 9.9K monthly searches
+- _“uncensored ai image generator”_ → 3.6K
+- _“ai image generator uncensored”_ → 1.6K
 
 It’s not just about making edgier content — it’s about **creative control**. Writers want to tell stories their way. Artists want freedom of expression. Developers want to build tools for communities that don’t fit into sanitized platforms.
 
