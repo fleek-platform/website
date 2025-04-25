@@ -3,6 +3,8 @@ import { useKeenSlider, type KeenSliderPlugin } from 'keen-slider/react';
 import { Badge } from './Badge';
 import { Text } from './Text';
 import { IoChatbubbleEllipsesOutline } from 'react-icons/io5';
+import { useState } from 'react';
+import { cn } from '@utils/cn';
 
 type Template = {
   name: string;
@@ -175,6 +177,7 @@ const ContinuousAutoscroll: KeenSliderPlugin = (slider) => {
 };
 
 export const Templates = () => {
+  const [loaded, setLoaded] = useState(false);
   const [sliderRef] = useKeenSlider<HTMLDivElement>(
     {
       loop: true,
@@ -209,6 +212,7 @@ export const Templates = () => {
           },
         },
       },
+      created: () => setLoaded(true),
     },
     [ContinuousAutoscroll],
   );
@@ -237,7 +241,13 @@ export const Templates = () => {
 
         <div
           ref={sliderRef}
-          className="keen-slider mt-56 cursor-grab active:cursor-grabbing"
+          className={cn(
+            'keen-slider mt-56 cursor-grab active:cursor-grabbing',
+            {
+              'opacity-0': !loaded,
+              'opacity-100': loaded,
+            },
+          )}
         >
           {templates.map((template) => (
             <div key={template.name} className="keen-slider__slide">
