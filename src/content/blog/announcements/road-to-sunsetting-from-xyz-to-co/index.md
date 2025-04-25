@@ -68,7 +68,7 @@ After a prudent time of co-existence between the platforms, and when the goals o
 
 ### Will Fleek.co stop its services?
 
-**A**: Yes, but not now or immedietely. Once V1 of the new platform releases, people won’t be able to create new accounts on Fleek.co. However, existing users will be able to use the legacy service and choose to migrate over for an extended period of time. Only then will we flip the switch.
+**A**: Yes, but not now or immediately. Once V1 of the new platform releases, people won’t be able to create new accounts on Fleek.co. However, existing users will be able to use the legacy service and choose to migrate over for an extended period of time. Only then will we flip the switch.
 
 ---
 
