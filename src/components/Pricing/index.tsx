@@ -66,7 +66,7 @@ const Pricing = () => {
                     setPriceFocus('hosting');
                   }}
                 >
-                  Hosting and storage plans
+                  Web app hosting
                 </Button>,
               ]}
             />
