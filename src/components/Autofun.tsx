@@ -57,7 +57,7 @@ export const AutofunHero: React.FC = () => {
           Welcome, auto.fun user!
         </Text>
         <Text variant="paragraph" className="text-[1.6rem]">
-          Fleek helps you create and manage AI agents, starting at $10/month
+          Fleek helps you create and manage AI agents, starting at $20/month
           with a 7-day free trial. After creating your agent, you'll be
           redirected to auto.fun. You can return to Fleek at any time to manage
           your agents.
