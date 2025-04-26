@@ -1,8 +1,10 @@
 import 'keen-slider/keen-slider.min.css';
-import { useKeenSlider } from 'keen-slider/react';
+import { useKeenSlider, type KeenSliderPlugin } from 'keen-slider/react';
 import { Badge } from './Badge';
 import { Text } from './Text';
 import { IoChatbubbleEllipsesOutline } from 'react-icons/io5';
+import { useState } from 'react';
+import { cn } from '@utils/cn';
 
 type Template = {
   name: string;
@@ -18,7 +20,7 @@ type Template = {
 
 const templates: Template[] = [
   {
-    name: 'Stephanie A. Smith',
+    name: 'Stephanie',
     category: 'Sports',
     image: '/images/landing-page/templates/stephanie.png',
     author: 'Fleek',
@@ -134,41 +136,86 @@ const templates: Template[] = [
   },
 ];
 
-export const Templates = () => {
-  const [sliderRef] = useKeenSlider<HTMLDivElement>({
-    loop: true,
-    mode: 'free-snap',
-    slides: {
-      spacing: 24,
-      perView: 1.1,
-    },
-    breakpoints: {
-      '(min-width: 640px)': {
-        slides: {
-          perView: 1.2,
-          spacing: 24,
-        },
-      },
-      '(min-width: 768px)': {
-        slides: {
-          perView: 1.5,
-          spacing: 24,
-        },
-      },
-      '(min-width: 1024px)': {
-        slides: {
-          perView: 2.2,
-          spacing: 24,
-        },
-      },
-      '(min-width: 1280px)': {
-        slides: {
-          perView: 2.95,
-          spacing: 24,
-        },
-      },
-    },
+const ContinuousAutoscroll: KeenSliderPlugin = (slider) => {
+  let raf: number;
+  let last: number;
+  let paused = false;
+
+  const speed = 0.000025;
+
+  const animate = (time: number) => {
+    if (!last) {
+      last = time;
+      raf = requestAnimationFrame(animate);
+      return;
+    }
+
+    const dt = time - last;
+    last = time;
+
+    if (!paused) {
+      slider.track.to((slider.track.details?.position ?? 0) - speed * dt);
+    }
+
+    raf = requestAnimationFrame(animate);
+  };
+
+  slider.on('created', () => {
+    slider.container.addEventListener('mouseenter', () => {
+      paused = true;
+    });
+    slider.container.addEventListener('mouseleave', () => {
+      paused = false;
+    });
+
+    raf = requestAnimationFrame(animate);
   });
+
+  slider.on('destroyed', () => {
+    cancelAnimationFrame(raf);
+  });
+};
+
+export const Templates = () => {
+  const [loaded, setLoaded] = useState(false);
+  const [sliderRef] = useKeenSlider<HTMLDivElement>(
+    {
+      loop: true,
+      mode: 'free-snap',
+      slides: {
+        spacing: 24,
+        perView: 1.1,
+      },
+      breakpoints: {
+        '(min-width: 640px)': {
+          slides: {
+            perView: 1.2,
+            spacing: 24,
+          },
+        },
+        '(min-width: 768px)': {
+          slides: {
+            perView: 1.5,
+            spacing: 24,
+          },
+        },
+        '(min-width: 1024px)': {
+          slides: {
+            perView: 2.2,
+            spacing: 24,
+          },
+        },
+        '(min-width: 1280px)': {
+          slides: {
+            perView: 2.95,
+            spacing: 24,
+          },
+        },
+      },
+      created: () => setLoaded(true),
+    },
+    [ContinuousAutoscroll],
+  );
 
   return (
     <div className="mx-auto flex w-full max-w-screen-xl flex-col items-center px-24 py-48 text-center sm:py-[75px]">
@@ -194,7 +241,13 @@ export const Templates = () => {
 
         <div
           ref={sliderRef}
-          className="keen-slider mt-56 cursor-grab active:cursor-grabbing"
+          className={cn(
+            'keen-slider mt-56 cursor-grab active:cursor-grabbing',
+            {
+              'opacity-0': !loaded,
+              'opacity-100': loaded,
+            },
+          )}
         >
           {templates.map((template) => (
             <div key={template.name} className="keen-slider__slide">
@@ -227,7 +280,7 @@ export const TemplateCard = ({ template }: { template: Template }) => {
           <div className="text-left">
             <Text variant="subtitle">{template.name}</Text>
           </div>
-          <div className="rounded-full border border-neutral-6 bg-neutral-1 px-8 py-4 text-12 text-neutral-12">
+          <div className="hidden rounded-full border border-neutral-6 bg-neutral-1 px-8 py-4 text-12 text-neutral-12 sm:block">
             {template.category}
           </div>
         </div>
@@ -249,7 +302,9 @@ export const TemplateCard = ({ template }: { template: Template }) => {
           type="button"
           className="pointer-events-none flex w-full select-none items-center justify-center gap-6 rounded-8 bg-white p-8 font-medium text-black"
         >
-          <IoChatbubbleEllipsesOutline /> Chat coming soon
+          <IoChatbubbleEllipsesOutline className="shrink-0" />
+          <span className="sm:hidden"> Coming soon</span>
+          <span className="hidden sm:inline"> Chat coming soon</span>
         </button>
       </div>
     </div>
