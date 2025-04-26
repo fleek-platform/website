@@ -55,7 +55,7 @@ This sale is structured to reward the community and early adopters with the best
 - **Token Price:** $0.75
 - **FDV:** $75M
 - **Total Supply:** 100M FLK
-- **Tokens Offered:** 7M FLK (7% of supply)
+- **Tokens Offered:** 6.67M FLK (6.67% of supply)
 - **Unlock:** 100% unlocked at TGE with **no lockups or vesting**
 - **Purchase Limits:** Min $100 – Max $250K
 - **Payment:** USDC / USDT (ERC-20 only)
