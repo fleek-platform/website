@@ -18,29 +18,19 @@ import type { Project } from '@fleek-platform/sdk/browser';
 import { isClient } from '../../utils/common';
 import { useSession } from '@hooks/useSession';
 import { isReferralName } from '@utils/referrals';
-import {
-  CREATE_AGENT_FUNNEL_ROUTE,
-  CREATE_AGENT_FUNNEL_QUERY_PARAM_PROMPT,
-} from '@fleek-platform/agents-ui';
-import { retrieveFunnelData } from '@utils/funnel';
 
 const dashboardUrl = import.meta.env.PUBLIC_UI_APP_URL;
-const agentsUrl = `${import.meta.env.PUBLIC_UI_AGENTS_APP_URL}${ROUTE_NEW_DRAFT}`;
 
 const onAuthenticationSuccess = () => {
-  if (!isClient) return;
+  if (!isClient || isReferralName('agents')) return;
 
   const currentParams = new URLSearchParams(window.location.search);
 
-  let targetUrl = new URL(agentsUrl);
+  const targetUrl = new URL(dashboardUrl);
 
   currentParams.forEach((value, key) => {
     targetUrl.searchParams.append(key, value);
   });
-
-  if (isReferralName('dashboard')) {
-    targetUrl = new URL(dashboardUrl);
-  }
 
   window.location.assign(targetUrl.toString());
 };
