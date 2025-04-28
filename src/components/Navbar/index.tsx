@@ -18,27 +18,19 @@ import type { Project } from '@fleek-platform/sdk/browser';
 import { isClient } from '../../utils/common';
 import { useSession } from '@hooks/useSession';
 import { isReferralName } from '@utils/referrals';
-import { ROUTE_NEW_DRAFT } from '@fleek-platform/agents-ui';
 
 const dashboardUrl = import.meta.env.PUBLIC_UI_APP_URL;
 
 const onAuthenticationSuccess = () => {
-  if (!isClient) return;
+  if (!isClient || isReferralName('agents')) return;
 
   const currentParams = new URLSearchParams(window.location.search);
 
-  let targetUrl = new URL(dashboardUrl);
+  const targetUrl = new URL(dashboardUrl);
 
   currentParams.forEach((value, key) => {
     targetUrl.searchParams.append(key, value);
   });
-
-  if (isReferralName('agents')) {
-    // TODO: Add input parser/validation
-    targetUrl = new URL(
-      `${import.meta.env.PUBLIC_UI_AGENTS_APP_URL}${ROUTE_NEW_DRAFT}`,
-    );
-  }
 
   window.location.assign(targetUrl.toString());
 };

@@ -16,6 +16,7 @@ import { ChatToAIAgentDeploy } from '@components/ChatToAIAgentDeploy';
 import type { IconType } from 'react-icons/lib';
 import { cn } from '@utils/cn';
 import { useState } from 'react';
+import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 
 const calculateDelay = (factor: number) => 0.25 * factor;
 
@@ -63,65 +64,69 @@ const templates: Template[] = [
   },
 ];
 
+const queryClient = new QueryClient();
+
 export const Hero = () => {
   const [role, setRole] = useState<string>();
 
   return (
-    <header className="relative mx-auto w-full max-w-[1048px] px-24 pt-42 sm:pt-80">
-      <div className="flex flex-col justify-center pt-64 text-center">
-        <div className="flex flex-col gap-48">
-          <div className="flex flex-col gap-36">
-            <div className="flex flex-col gap-24">
-              {settings.site.announcementMarquee.visible && (
-                <BlurFade
-                  delay={calculateDelay(0)}
-                  className="w-fit max-w-full self-center"
-                >
-                  <Announcement variant="content" />
-                </BlurFade>
-              )}
-              <div className="flex max-w-800 flex-col gap-24 self-center pt-12">
-                <BlurFade delay={calculateDelay(1)}>
-                  <h1 className="text-52 font-medium leading-none text-neutral-12">
-                    {settings.landingPage.hero.h1}
-                  </h1>
-                </BlurFade>
-                <BlurFade delay={calculateDelay(2)}>
-                  <Text variant="description" as="h2" className="font-normal">
-                    {settings.landingPage.hero.h2}
-                  </Text>
-                </BlurFade>
+    <QueryClientProvider client={queryClient}>
+      <header className="relative mx-auto w-full max-w-[1048px] px-24 pt-42 sm:pt-80">
+        <div className="flex flex-col justify-center pt-64 text-center">
+          <div className="flex flex-col gap-48">
+            <div className="flex flex-col gap-36">
+              <div className="flex flex-col gap-24">
+                {settings.site.announcementMarquee.visible && (
+                  <BlurFade
+                    delay={calculateDelay(0)}
+                    className="w-fit max-w-full self-center"
+                  >
+                    <Announcement variant="content" />
+                  </BlurFade>
+                )}
+                <div className="flex max-w-800 flex-col gap-24 self-center pt-12">
+                  <BlurFade delay={calculateDelay(1)}>
+                    <h1 className="text-52 font-medium leading-none text-neutral-12">
+                      {settings.landingPage.hero.h1}
+                    </h1>
+                  </BlurFade>
+                  <BlurFade delay={calculateDelay(2)}>
+                    <Text variant="description" as="h2" className="font-normal">
+                      {settings.landingPage.hero.h2}
+                    </Text>
+                  </BlurFade>
+                </div>
               </div>
+              <BlurFade delay={calculateDelay(3)}>
+                <ChatToAIAgentDeploy
+                  role={role}
+                  onDescriptionChange={() => setRole(undefined)}
+                />
+              </BlurFade>
             </div>
-            <BlurFade delay={calculateDelay(3)}>
-              <ChatToAIAgentDeploy
-                role={role}
-                onDescriptionChange={() => setRole(undefined)}
-              />
+            <BlurFade delay={calculateDelay(4)}>
+              <div className="mx-auto flex max-w-[600px] flex-wrap justify-center gap-12">
+                {templates.map((item, index) => {
+                  const Icon = item.icon;
+                  return (
+                    <Button
+                      // biome-ignore lint/suspicious/noArrayIndexKey: <explanation>
+                      key={index}
+                      variant="secondary-ghost"
+                      size="sm"
+                      className="shrink-0 gap-8"
+                      onClick={() => setRole(item.name)}
+                    >
+                      <Icon className={cn('size-16', item.iconClass)} />
+                      {item.name}
+                    </Button>
+                  );
+                })}
+              </div>
             </BlurFade>
           </div>
-          <BlurFade delay={calculateDelay(4)}>
-            <div className="mx-auto flex max-w-[600px] flex-wrap justify-center gap-12">
-              {templates.map((item, index) => {
-                const Icon = item.icon;
-                return (
-                  <Button
-                    // biome-ignore lint/suspicious/noArrayIndexKey: <explanation>
-                    key={index}
-                    variant="secondary-ghost"
-                    size="sm"
-                    className="shrink-0 gap-8"
-                    onClick={() => setRole(item.name)}
-                  >
-                    <Icon className={cn('size-16', item.iconClass)} />
-                    {item.name}
-                  </Button>
-                );
-              })}
-            </div>
-          </BlurFade>
         </div>
-      </div>
-    </header>
+      </header>
+    </QueryClientProvider>
   );
 };
