@@ -5,136 +5,10 @@ import { Text } from './Text';
 import { IoChatbubbleEllipsesOutline } from 'react-icons/io5';
 import { useState } from 'react';
 import { cn } from '@utils/cn';
-
-type Template = {
-  name: string;
-  category: string;
-  image: string;
-  author: string;
-  socials: {
-    name: string;
-    logo: string;
-    followers: number;
-  }[];
-};
-
-const templates: Template[] = [
-  {
-    name: 'Stephanie',
-    category: 'Sports',
-    image: '/images/landing-page/templates/stephanie.png',
-    author: 'Fleek',
-    socials: [
-      {
-        name: 'twitter',
-        logo: '/images/landing-page/templates/socials/x.svg',
-        followers: 16200,
-      },
-      {
-        name: 'instagram',
-        logo: '/images/landing-page/templates/socials/instagram.svg',
-        followers: 32700,
-      },
-      {
-        name: 'tiktok',
-        logo: '/images/landing-page/templates/socials/tiktok.svg',
-        followers: 112200,
-      },
-    ],
-  },
-  {
-    name: 'Olivia',
-    category: 'Companion',
-    image: '/images/landing-page/templates/olivia.png',
-    author: 'Fleek',
-    socials: [
-      {
-        name: 'twitter',
-        logo: '/images/landing-page/templates/socials/x.svg',
-        followers: 56600,
-      },
-      {
-        name: 'instagram',
-        logo: '/images/landing-page/templates/socials/instagram.svg',
-        followers: 98200,
-      },
-      {
-        name: 'tiktok',
-        logo: '/images/landing-page/templates/socials/tiktok.svg',
-        followers: 85300,
-      },
-    ],
-  },
-  {
-    name: 'Crypto Chris',
-    category: 'Crypto',
-    image: '/images/landing-page/templates/chris.png',
-    author: 'Fleek',
-    socials: [
-      {
-        name: 'twitter',
-        logo: '/images/landing-page/templates/socials/x.svg',
-        followers: 112400,
-      },
-      {
-        name: 'instagram',
-        logo: '/images/landing-page/templates/socials/instagram.svg',
-        followers: 2400,
-      },
-      {
-        name: 'tiktok',
-        logo: '/images/landing-page/templates/socials/tiktok.svg',
-        followers: 1100,
-      },
-    ],
-  },
-  {
-    name: 'Kanye East',
-    category: 'Culture',
-    image: '/images/landing-page/templates/kanye.png',
-    author: 'Fleek',
-    socials: [
-      {
-        name: 'twitter',
-        logo: '/images/landing-page/templates/socials/x.svg',
-        followers: 1500,
-      },
-      {
-        name: 'instagram',
-        logo: '/images/landing-page/templates/socials/instagram.svg',
-        followers: 1100,
-      },
-      {
-        name: 'tiktok',
-        logo: '/images/landing-page/templates/socials/tiktok.svg',
-        followers: 659,
-      },
-    ],
-  },
-  {
-    name: 'Kiki',
-    category: 'NSFW',
-    image: '/images/landing-page/templates/kiki.png',
-    author: 'Fleek',
-    socials: [
-      {
-        name: 'twitter',
-        logo: '/images/landing-page/templates/socials/x.svg',
-        followers: 9240,
-      },
-      {
-        name: 'instagram',
-        logo: '/images/landing-page/templates/socials/instagram.svg',
-        followers: 56700,
-      },
-      {
-        name: 'tiktok',
-        logo: '/images/landing-page/templates/socials/tiktok.svg',
-        followers: 32000,
-      },
-    ],
-  },
-];
+import {
+  publicAgents,
+  type PublicAgent,
+} from '@components/PublicAgents/config';
 
 const ContinuousAutoscroll: KeenSliderPlugin = (slider) => {
   let raf: number;
@@ -249,7 +123,7 @@ export const Templates = () => {
             },
           )}
         >
-          {templates.map((template) => (
+          {publicAgents.map((template) => (
             <div key={template.name} className="keen-slider__slide">
               <TemplateCard template={template} />
             </div>
@@ -260,7 +134,7 @@ export const Templates = () => {
   );
 };
 
-export const TemplateCard = ({ template }: { template: Template }) => {
+export const TemplateCard = ({ template }: { template: PublicAgent }) => {
   function formatCompactNumber(value: number): string {
     return new Intl.NumberFormat('en', {
       notation: 'compact',
