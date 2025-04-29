@@ -21,14 +21,15 @@ import { isReferralName } from '@utils/referrals';
 import { ROUTE_NEW_DRAFT } from '@fleek-platform/agents-ui';
 
 const dashboardUrl = import.meta.env.PUBLIC_UI_APP_URL;
-const agentsUrl = `${import.meta.env.PUBLIC_UI_AGENTS_APP_URL}${ROUTE_NEW_DRAFT}`;
+const agentsUrl = import.meta.env.PUBLIC_UI_AGENTS_APP_URL;
+const agentsNewDraftUrl = `${import.meta.env.PUBLIC_UI_AGENTS_APP_URL}${ROUTE_NEW_DRAFT}`;
 
 const onAuthenticationSuccess = () => {
   if (!isClient) return;
 
   const currentParams = new URLSearchParams(window.location.search);
 
-  let targetUrl = new URL(agentsUrl);
+  let targetUrl = new URL(agentsNewDraftUrl);
 
   currentParams.forEach((value, key) => {
     targetUrl.searchParams.append(key, value);
@@ -36,6 +37,10 @@ const onAuthenticationSuccess = () => {
 
   if (isReferralName('dashboard')) {
     targetUrl = new URL(dashboardUrl);
+  }
+
+  if (isReferralName('agents')) {
+    targetUrl = new URL(agentsUrl);
   }
 
   window.location.assign(targetUrl.toString());
@@ -485,7 +490,7 @@ const SessionManagementActions: React.FC = () => {
           isLoggingIn={isLoggingIn}
           isLoggedIn={isLoggedIn}
           handleLoginClick={handleLoginClick}
-          dashboardAppUrl={dashboardUrl}
+          targetAppUrl={agentsUrl}
           isLoadingProject={isLoadingProject}
           handleClick={() => null}
         />
@@ -546,7 +551,7 @@ const SessionManagementActions: React.FC = () => {
                 isLoggingIn={isLoggingIn}
                 isLoggedIn={isLoggedIn}
                 handleLoginClick={handleLoginClick}
-                dashboardAppUrl={dashboardUrl}
+                targetAppUrl={agentsUrl}
                 isLoadingProject={isLoadingProject}
                 handleClick={handleClick}
               />
@@ -568,7 +573,7 @@ type ButtonContainerProps = {
   handleLoginClick: (
     e?: React.MouseEvent<HTMLButtonElement | HTMLAnchorElement>,
   ) => void;
-  dashboardAppUrl: string;
+  targetAppUrl: string;
   buttonText: string;
   isLoadingProject: boolean;
   handleClick: () => void;
@@ -582,7 +587,7 @@ const ButtonContainer: React.FC<ButtonContainerProps> = ({
   isLoggedIn,
   isLoggingIn,
   handleLoginClick,
-  dashboardAppUrl,
+  targetAppUrl,
   buttonText,
   isLoadingProject,
   handleClick,
@@ -602,9 +607,9 @@ const ButtonContainer: React.FC<ButtonContainerProps> = ({
           variant="tertiary"
           size="sm"
           className="hidden md:flex"
-          href={dashboardAppUrl}
+          href={agentsUrl}
         >
-          Dashboard
+          Go to app
         </Button>
       )}
       <Button
@@ -622,7 +627,7 @@ const ButtonContainer: React.FC<ButtonContainerProps> = ({
           size="sm"
           className="hidden md:flex"
           onClick={handleLoginClick}
-          href={dashboardAppUrl}
+          href={agentsUrl}
         >
           Sign up
         </Button>
