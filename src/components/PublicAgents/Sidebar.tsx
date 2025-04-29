@@ -9,7 +9,7 @@ import {
   PiUserBold,
 } from 'react-icons/pi';
 import type { PublicAgent } from './config';
-import { Button, IconButton } from './ui/Button';
+import { Button, IconButton } from './Button';
 
 type SidebarProps = {
   agent: PublicAgent;

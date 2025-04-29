@@ -5,7 +5,7 @@ import {
   PiVideoCameraBold,
 } from 'react-icons/pi';
 import type { PublicAgent } from './config';
-import { Button } from './ui/Button';
+import { Button } from './Button';
 
 type AsideProfileProps = {
   agent: PublicAgent;

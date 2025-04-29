@@ -7,7 +7,7 @@ export const Button: React.FC<
     <button
       {...props}
       className={cn(
-        'flex h-36 items-center gap-8 rounded-12 px-8 font-medium transition-colors hover:bg-neutral-2 active:bg-neutral-1',
+        'flex h-36 items-center gap-8 rounded-12 px-8 font-medium transition-colors hover:bg-gray-dark-2 active:bg-gray-dark-1 disabled:cursor-not-allowed disabled:opacity-50 disabled:hover:bg-gray-dark-1',
         props.className,
       )}
     >

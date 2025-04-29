@@ -1,5 +1,5 @@
 import type React from 'react';
-import { Button, IconButton } from '../ui/Button';
+import { Button, IconButton } from '../Button';
 import {
   PiArrowUpBold,
   PiImageBold,
@@ -8,14 +8,37 @@ import {
   PiSlidersHorizontalBold,
   PiVideoBold,
 } from 'react-icons/pi';
+import { useState } from 'react';
 
-export const ChatBox: React.FC = () => {
+type ChatBoxProps = {
+  onMsgSubmit: (msg: string) => void;
+};
+
+export const ChatBox: React.FC<ChatBoxProps> = ({ onMsgSubmit }) => {
+  const [msg, setMsg] = useState('');
+
+  const handleChange = (e: React.ChangeEvent<HTMLTextAreaElement>) =>
+    setMsg(e.target.value);
+
+  const handleSubmit = () => {
+    onMsgSubmit(msg);
+    setMsg('');
+  };
+
   return (
     <div className="p-12">
       <div className="overflow-clip rounded-12 border border-neutral-6 bg-gray-dark-4">
         <textarea
           placeholder="Message..."
-          className="w-full resize-none bg-transparent p-16 text-neutral-12 outline-none placeholder:text-neutral-8"
+          className="w-full resize-none bg-transparent p-16 text-neutral-12 outline-none [field-sizing:content] placeholder:text-neutral-8"
+          value={msg}
+          onChange={handleChange}
+          onKeyDown={(e) => {
+            if (e.key === 'Enter') {
+              e.preventDefault();
+              handleSubmit();
+            }
+          }}
           // biome-ignore lint/a11y/noAutofocus: static page
           autoFocus
         />
@@ -31,7 +54,11 @@ export const ChatBox: React.FC = () => {
               <PiMagicWandBold className="size-16" />
             </IconButton>
           </div>
-          <IconButton className="border-none bg-neutral-1 hover:bg-black">
+          <IconButton
+            className="border-none bg-neutral-1 hover:bg-black"
+            onClick={handleSubmit}
+            disabled={!msg}
+          >
             <PiArrowUpBold />
           </IconButton>
         </div>

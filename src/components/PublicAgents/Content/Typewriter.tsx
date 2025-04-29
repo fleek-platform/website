@@ -1,5 +1,7 @@
 import { animate } from 'framer-motion';
 import { useEffect, useRef, useState } from 'react';
+import { Loading } from './Loading';
+import { sleep } from '../sleep';
 
 export const Typewriter: React.FC<{ text: string }> = ({ text }) => {
   const [hasLoaded, setHasLoaded] = useState(false);
@@ -8,7 +10,12 @@ export const Typewriter: React.FC<{ text: string }> = ({ text }) => {
   useEffect(() => {
     if (hasLoaded) return;
 
-    setTimeout(() => setHasLoaded(true), 2000);
+    const startTyping = async () => {
+      await sleep(2000);
+      setHasLoaded(true);
+    };
+
+    startTyping();
   }, [hasLoaded]);
 
   useEffect(() => {
@@ -28,16 +35,7 @@ export const Typewriter: React.FC<{ text: string }> = ({ text }) => {
     return text.split('');
   };
 
-  if (!hasLoaded)
-    return (
-      <div className="ml-6 mt-8 flex h-4 w-10 items-center justify-center">
-        <div className="flex space-x-4">
-          <div className="[animation-delay:-0.3s]' h-4 w-4 animate-bounce rounded-full bg-gray-dark-8" />
-          <div className="h-4 w-4 animate-bounce rounded-full bg-gray-dark-8 [animation-delay:-0.15s]" />
-          <div className="h-4 w-4 animate-bounce rounded-full bg-gray-dark-8" />
-        </div>
-      </div>
-    );
+  if (!hasLoaded) return <Loading />;
 
   return (
     <p
