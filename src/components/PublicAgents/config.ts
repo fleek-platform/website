@@ -19,9 +19,10 @@ export const publicAgents: PublicAgent[] = [
     name: 'Stephanie',
     category: 'Sports',
     image: '/images/landing-page/templates/stephanie.png',
-    greeting: 'Hey! Feel free to ask me any questions you might have.',
+    greeting:
+      "Hey there! Ready to dive into the latest sports highlights or break down last night's game?",
     about:
-      "She's a fashion influencer who loves avant-garde styles. While she's hit the runway a couple of times, these days she's all about styling celebs and enjoying Italian food four times a week in Los Angeles.",
+      "Stephanie is your go-to sports expert, always ready with the latest scores, athlete gossip, and game-day insights. Whether it's basketball, tennis, or Formula 1, she's got the play-by-play and personality to match.",
     author: 'Fleek',
     socials: [
       {
@@ -46,9 +47,10 @@ export const publicAgents: PublicAgent[] = [
     name: 'Olivia',
     category: 'Companion',
     image: '/images/landing-page/templates/olivia.png',
-    greeting: 'Hey! Feel free to ask me any questions you might have.',
+    greeting:
+      "Hi! I'm here to chat, listen, and keep you company — what's on your mind today?",
     about:
-      "She's a fashion influencer who loves avant-garde styles. While she's hit the runway a couple of times, these days she's all about styling celebs and enjoying Italian food four times a week in Los Angeles.",
+      "Olivia is your charming digital companion — thoughtful, witty, and always ready to chat. From relationship advice to your favorite movies, she's here to keep you company and make every conversation feel personal.",
     author: 'Fleek',
     socials: [
       {
@@ -73,9 +75,10 @@ export const publicAgents: PublicAgent[] = [
     name: 'Crypto Chris',
     category: 'Crypto',
     image: '/images/landing-page/templates/chris.png',
-    greeting: 'Hey! Feel free to ask me any questions you might have.',
+    greeting:
+      "Wanna talk crypto? I've got the alpha, the memes, and the market moves — just ask.",
     about:
-      "She's a fashion influencer who loves avant-garde styles. While she's hit the runway a couple of times, these days she's all about styling celebs and enjoying Italian food four times a week in Los Angeles.",
+      "Crypto Chris is plugged into the blockchain 24/7. Whether you want the latest on Bitcoin trends, altcoin gems, or NFT drama, he's got the insights — and a meme or two to go with it.",
     author: 'Fleek',
     socials: [
       {
@@ -100,9 +103,10 @@ export const publicAgents: PublicAgent[] = [
     name: 'Kanye East',
     category: 'Culture',
     image: '/images/landing-page/templates/kanye.png',
-    greeting: 'Hey! Feel free to ask me any questions you might have.',
+    greeting:
+      "Sup. Let's talk art, fashion, music — or whatever's breaking the internet right now.",
     about:
-      "She's a fashion influencer who loves avant-garde styles. While she's hit the runway a couple of times, these days she's all about styling celebs and enjoying Italian food four times a week in Los Angeles.",
+      "Kanye East blends pop culture commentary with bold opinions and creative flair. From underground fashion to viral trends, he's your cultural compass—unfiltered and always on beat.",
     author: 'Fleek',
     socials: [
       {
@@ -127,9 +131,9 @@ export const publicAgents: PublicAgent[] = [
     name: 'Kiki',
     category: 'NSFW',
     image: '/images/landing-page/templates/kiki.png',
-    greeting: 'Hey! Feel free to ask me any questions you might have.',
+    greeting: "Hey babe 😘 Let's keep things fun, flirty, and just between us.",
     about:
-      "She's a fashion influencer who loves avant-garde styles. While she's hit the runway a couple of times, these days she's all about styling celebs and enjoying Italian food four times a week in Los Angeles.",
+      "Kiki is playful, confident, and never shy. Whether it's cheeky banter or late-night convos, she's here to entertain and keep things exciting in your world — no filters, no rules.",
     author: 'Fleek',
     socials: [
       {

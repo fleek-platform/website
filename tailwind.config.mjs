@@ -133,6 +133,7 @@ export default {
     },
   },
   plugins: [
+    require("tailwindcss-animate"),
     tailwindPluginTypography,
     function ({ addUtilities }) {
       addUtilities({
