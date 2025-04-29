@@ -5,6 +5,7 @@ export type PublicAgent = {
   image: string;
   author: string;
   greeting: string;
+  about: string;
   socials: {
     name: string;
     logo: string;
@@ -19,6 +20,8 @@ export const publicAgents: PublicAgent[] = [
     category: 'Sports',
     image: '/images/landing-page/templates/stephanie.png',
     greeting: 'Hey! Feel free to ask me any questions you might have.',
+    about:
+      "She's a fashion influencer who loves avant-garde styles. While she's hit the runway a couple of times, these days she's all about styling celebs and enjoying Italian food four times a week in Los Angeles.",
     author: 'Fleek',
     socials: [
       {
@@ -44,6 +47,8 @@ export const publicAgents: PublicAgent[] = [
     category: 'Companion',
     image: '/images/landing-page/templates/olivia.png',
     greeting: 'Hey! Feel free to ask me any questions you might have.',
+    about:
+      "She's a fashion influencer who loves avant-garde styles. While she's hit the runway a couple of times, these days she's all about styling celebs and enjoying Italian food four times a week in Los Angeles.",
     author: 'Fleek',
     socials: [
       {
@@ -69,6 +74,8 @@ export const publicAgents: PublicAgent[] = [
     category: 'Crypto',
     image: '/images/landing-page/templates/chris.png',
     greeting: 'Hey! Feel free to ask me any questions you might have.',
+    about:
+      "She's a fashion influencer who loves avant-garde styles. While she's hit the runway a couple of times, these days she's all about styling celebs and enjoying Italian food four times a week in Los Angeles.",
     author: 'Fleek',
     socials: [
       {
@@ -94,6 +101,8 @@ export const publicAgents: PublicAgent[] = [
     category: 'Culture',
     image: '/images/landing-page/templates/kanye.png',
     greeting: 'Hey! Feel free to ask me any questions you might have.',
+    about:
+      "She's a fashion influencer who loves avant-garde styles. While she's hit the runway a couple of times, these days she's all about styling celebs and enjoying Italian food four times a week in Los Angeles.",
     author: 'Fleek',
     socials: [
       {
@@ -119,6 +128,8 @@ export const publicAgents: PublicAgent[] = [
     category: 'NSFW',
     image: '/images/landing-page/templates/kiki.png',
     greeting: 'Hey! Feel free to ask me any questions you might have.',
+    about:
+      "She's a fashion influencer who loves avant-garde styles. While she's hit the runway a couple of times, these days she's all about styling celebs and enjoying Italian food four times a week in Los Angeles.",
     author: 'Fleek',
     socials: [
       {
