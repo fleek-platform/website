@@ -1,0 +1,20 @@
+---
+import { publicAgents } from '@components/PublicAgents/config';
+import { Dashboard } from '@components/PublicAgents/Dashboard';
+import LandingPageHtml from '@layouts/LandingPageHtml.astro';
+
+export function getStaticPaths() {
+  return publicAgents.map((agent) => ({
+    params: {
+      agentId: agent.id,
+    },
+    props: {
+      agent,
+    },
+  }));
+}
+
+const { agent } = Astro.props;
+---
+
+<LandingPageHtml><Dashboard client:load agent={agent} /></LandingPageHtml>

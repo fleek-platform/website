@@ -124,7 +124,7 @@ export const Templates = () => {
           )}
         >
           {publicAgents.map((template) => (
-            <div key={template.name} className="keen-slider__slide">
+            <div key={template.id} className="keen-slider__slide">
               <TemplateCard template={template} />
             </div>
           ))}

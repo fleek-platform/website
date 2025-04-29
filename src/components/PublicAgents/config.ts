@@ -1,9 +1,10 @@
 export type PublicAgent = {
-  slug: string;
+  id: number;
   name: string;
   category: string;
   image: string;
   author: string;
+  greeting: string;
   socials: {
     name: string;
     logo: string;
@@ -13,10 +14,11 @@ export type PublicAgent = {
 
 export const publicAgents: PublicAgent[] = [
   {
-    slug: 'stephanie',
+    id: 1,
     name: 'Stephanie',
     category: 'Sports',
     image: '/images/landing-page/templates/stephanie.png',
+    greeting: 'Hey! Feel free to ask me any questions you might have.',
     author: 'Fleek',
     socials: [
       {
@@ -37,10 +39,11 @@ export const publicAgents: PublicAgent[] = [
     ],
   },
   {
-    slug: 'olivia',
+    id: 2,
     name: 'Olivia',
     category: 'Companion',
     image: '/images/landing-page/templates/olivia.png',
+    greeting: 'Hey! Feel free to ask me any questions you might have.',
     author: 'Fleek',
     socials: [
       {
@@ -61,10 +64,11 @@ export const publicAgents: PublicAgent[] = [
     ],
   },
   {
-    slug: 'chris',
+    id: 3,
     name: 'Crypto Chris',
     category: 'Crypto',
     image: '/images/landing-page/templates/chris.png',
+    greeting: 'Hey! Feel free to ask me any questions you might have.',
     author: 'Fleek',
     socials: [
       {
@@ -85,10 +89,11 @@ export const publicAgents: PublicAgent[] = [
     ],
   },
   {
-    slug: 'kanye',
+    id: 4,
     name: 'Kanye East',
     category: 'Culture',
     image: '/images/landing-page/templates/kanye.png',
+    greeting: 'Hey! Feel free to ask me any questions you might have.',
     author: 'Fleek',
     socials: [
       {
@@ -109,10 +114,11 @@ export const publicAgents: PublicAgent[] = [
     ],
   },
   {
-    slug: 'kiki',
+    id: 5,
     name: 'Kiki',
     category: 'NSFW',
     image: '/images/landing-page/templates/kiki.png',
+    greeting: 'Hey! Feel free to ask me any questions you might have.',
     author: 'Fleek',
     socials: [
       {
