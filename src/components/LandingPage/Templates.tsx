@@ -172,14 +172,14 @@ export const TemplateCard = ({ template }: { template: PublicAgent }) => {
             </div>
           ))}
         </div>
-        <button
-          type="button"
-          className="pointer-events-none flex w-full select-none items-center justify-center gap-6 rounded-8 bg-white p-8 font-medium text-black"
+        <a
+          href={`preview/${template.id}`}
+          className="flex w-full select-none items-center justify-center gap-6 rounded-8 bg-white p-8 font-medium text-black"
         >
           <IoChatbubbleEllipsesOutline className="shrink-0" />
-          <span className="sm:hidden"> Coming soon</span>
-          <span className="hidden sm:inline"> Chat coming soon</span>
-        </button>
+          <span className="sm:hidden"> Chat with {template.name}</span>
+          <span className="hidden sm:inline"> Chat with {template.name}</span>
+        </a>
       </div>
     </div>
   );
