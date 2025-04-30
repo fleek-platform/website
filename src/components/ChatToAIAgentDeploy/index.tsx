@@ -47,7 +47,7 @@ export const ChatToAIAgentDeploy = ({
       const currentParams = new URLSearchParams(window.location.search);
 
       const targetUrl = new URL(
-        `${import.meta.env.PUBLIC_UI_AGENTS_APP_URL}${ROUTE_NEW_DRAFT}`,
+        `${import.meta.env.PUBLIC_APP_AGENTS_URL}${ROUTE_NEW_DRAFT}`,
       );
 
       currentParams.forEach((value, key) => {
