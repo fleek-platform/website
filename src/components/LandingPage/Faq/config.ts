@@ -14,7 +14,7 @@ export const FAQ_ITEMS: FaqItem[] = [
   {
     question: 'Can I test the agent before subscribing?',
     answer:
-      'Yes, we offer a 7-day free trial for the Creator plan that will allow you to deploy and test and interact with your AI agent or virtual influencer before committing to a subscription.',
+      'Yes, we offer a 24-hour free trial for the Creator plan that will allow you to deploy and test and interact with your AI agent or virtual influencer before committing to a subscription.',
   },
   {
     question: 'How does the marketplace work? (coming soon)',
