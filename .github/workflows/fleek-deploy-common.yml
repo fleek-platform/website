@@ -38,6 +38,8 @@ jobs:
       PUBLIC_UI_APP_URL: ${{ vars.PUBLIC_UI_APP_URL }}
       PUBLIC_UI_AGENTS_APP_URL: ${{ vars.PUBLIC_UI_AGENTS_APP_URL }}
       PUBLIC_PERSONA_GENERATOR_API_URL: ${{ vars.PUBLIC_PERSONA_GENERATOR_API_URL }}
+      PUBLIC_APP_HOSTING_URL: ${{ vars.PUBLIC_APP_HOSTING_URL }}
+      PUBLIC_APP_AGENTS_URL: ${{ vars.PUBLIC_APP_AGENTS_URL }}
     steps:
       - name: Checkout
         uses: actions/checkout@v4
