@@ -36,15 +36,23 @@ const agentsUrl = import.meta.env.PUBLIC_UI_AGENTS_APP_URL;
 const agentsNewDraftUrl = `${import.meta.env.PUBLIC_APP_AGENTS_URL}${ROUTE_NEW_DRAFT}`;
 
 const onAuthenticationSuccess = () => {
-  if (!isClient || isReferralName('agents')) return;
+  if (!isClient) return;
 
   const currentParams = new URLSearchParams(window.location.search);
 
-  const targetUrl = new URL(agentsUrl);
+  let targetUrl = new URL(agentsNewDraftUrl);
 
   currentParams.forEach((value, key) => {
     targetUrl.searchParams.append(key, value);
   });
+
+  if (isReferralName('dashboard')) {
+    targetUrl = new URL(dashboardUrl);
+  }
+
+  if (isReferralName('agents')) {
+    targetUrl = new URL(agentsUrl);
+  }
 
   window.location.assign(targetUrl.toString());
 };
