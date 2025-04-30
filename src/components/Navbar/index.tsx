@@ -21,34 +21,26 @@ import { useSession } from '@hooks/useSession';
 import { isReferralName } from '@utils/referrals';
 import { ROUTE_NEW_DRAFT } from '@fleek-platform/agents-ui';
 
-const dashboardUrl = import.meta.env.PUBLIC_APP_HOSTING_URL;
-const agentsUrl = import.meta.env.PUBLIC_APP_AGENTS_URL;
-const agentsNewDraftUrl = `${import.meta.env.PUBLIC_APP_AGENTS_URL}${ROUTE_NEW_DRAFT}`;
-
 // Override login-button defaults
 setDefined({
   PUBLIC_APP_HOSTING_URL: import.meta.env.PUBLIC_APP_HOSTING_URL,
   PUBLIC_APP_AGENTS_URL: import.meta.env.PUBLIC_APP_AGENTS_URL,
 });
 
+const dashboardUrl = import.meta.env.PUBLIC_UI_APP_URL;
+const agentsUrl = import.meta.env.PUBLIC_UI_AGENTS_APP_URL;
+const agentsNewDraftUrl = `${import.meta.env.PUBLIC_APP_AGENTS_URL}${ROUTE_NEW_DRAFT}`;
+
 const onAuthenticationSuccess = () => {
-  if (!isClient) return;
+  if (!isClient || isReferralName('agents')) return;
 
   const currentParams = new URLSearchParams(window.location.search);
 
-  let targetUrl = new URL(agentsNewDraftUrl);
+  const targetUrl = new URL(agentsUrl);
 
   currentParams.forEach((value, key) => {
     targetUrl.searchParams.append(key, value);
   });
-
-  if (isReferralName('dashboard')) {
-    targetUrl = new URL(dashboardUrl);
-  }
-
-  if (isReferralName('agents')) {
-    targetUrl = new URL(agentsUrl);
-  }
 
   window.location.assign(targetUrl.toString());
 };
