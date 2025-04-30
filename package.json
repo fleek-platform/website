@@ -10,7 +10,7 @@
     "dev": "astro dev",
     "start": "astro dev",
     "build": "rm -rf dist && npm run check:strict && npm run check:json && npm run build:static_assets",
-    "build:static_assets": "NODE_OPTIONS=\"--max-old-space-size=8512\" astro build && ./scripts/build/copy-video-content-src-to-dist && cp ./public/_redirects ./dist",
+    "build:static_assets": "NODE_OPTIONS=\"--max-old-space-size=16000\" astro build && ./scripts/build/copy-video-content-src-to-dist && cp ./public/_redirects ./dist",
     "preview": "astro preview",
     "astro": "astro",
     "clean": "rm -rf .astro node_modules/.vite",
