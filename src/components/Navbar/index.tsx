@@ -1,7 +1,11 @@
 import '@fleek-platform/login-button/styles';
 
 import { useEffect } from 'react';
-import { LoginProvider, ProductDropdown, setDefined } from '@fleek-platform/login-button';
+import {
+  LoginProvider,
+  ProductDropdown,
+  setDefined,
+} from '@fleek-platform/login-button';
 import {
   getAuthenticationMenu,
   navbarMenu,
@@ -584,9 +588,8 @@ const handleProductClick = (product: any) => {
   if (product === 'Apps') {
     window.location.href = import.meta.env.PUBLIC_APP_HOSTING_URL;
   } else {
-      window.location.href = import.meta.env.PUBLIC_APP_AGENTS_URL;
+    window.location.href = import.meta.env.PUBLIC_APP_AGENTS_URL;
   }
-
 };
 
 const ButtonContainer: React.FC<ButtonContainerProps> = ({
@@ -605,7 +608,7 @@ const ButtonContainer: React.FC<ButtonContainerProps> = ({
   return (
     <>
       {isLoggedIn && (
-        <div className='login-button'>
+        <div className="login-button">
           <ProductDropdown />
         </div>
       )}
