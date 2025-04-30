@@ -1,6 +1,6 @@
 import type { Props } from '../../components/PricingCard';
 
-const dashboardUrl = import.meta.env.PUBLIC_UI_APP_URL;
+const dashboardUrl = import.meta.env.PUBLIC_APP_HOSTING_URL;
 
 export const HostingPricingInfo: Props[] = [
   {

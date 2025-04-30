@@ -1,5 +1,11 @@
+import '@fleek-platform/login-button/styles';
+
 import { useEffect } from 'react';
-import { LoginProvider } from '@fleek-platform/login-button';
+import {
+  LoginProvider,
+  ProductDropdown,
+  setDefined,
+} from '@fleek-platform/login-button';
 import {
   getAuthenticationMenu,
   navbarMenu,
@@ -13,16 +19,21 @@ import { cn } from '@utils/cn';
 import { RxHamburgerMenu } from 'react-icons/rx';
 import { isActivePath } from '@utils/url';
 import { Button } from '../Button';
-import { ProjectDropdown } from './ProjectDropdown/ProjectDropdown';
 import type { Project } from '@fleek-platform/sdk/browser';
 import { isClient } from '../../utils/common';
 import { useSession } from '@hooks/useSession';
 import { isReferralName } from '@utils/referrals';
 import { ROUTE_NEW_DRAFT } from '@fleek-platform/agents-ui';
 
+// Override login-button defaults
+setDefined({
+  PUBLIC_APP_HOSTING_URL: import.meta.env.PUBLIC_APP_HOSTING_URL,
+  PUBLIC_APP_AGENTS_URL: import.meta.env.PUBLIC_APP_AGENTS_URL,
+});
+
 const dashboardUrl = import.meta.env.PUBLIC_UI_APP_URL;
 const agentsUrl = import.meta.env.PUBLIC_UI_AGENTS_APP_URL;
-const agentsNewDraftUrl = `${import.meta.env.PUBLIC_UI_AGENTS_APP_URL}${ROUTE_NEW_DRAFT}`;
+const agentsNewDraftUrl = `${import.meta.env.PUBLIC_APP_AGENTS_URL}${ROUTE_NEW_DRAFT}`;
 
 const onAuthenticationSuccess = () => {
   if (!isClient) return;
@@ -594,23 +605,10 @@ const ButtonContainer: React.FC<ButtonContainerProps> = ({
 }) => {
   return (
     <>
-      {showProjectsDropDown && (
-        <ProjectDropdown
-          projects={userProjects}
-          selectedProjectId={activeProjectId}
-          isLoadingProject={isLoadingProject}
-          onProjectChange={setActiveProject}
-        />
-      )}
       {isLoggedIn && (
-        <Button
-          variant="tertiary"
-          size="sm"
-          className="hidden md:flex"
-          href={agentsUrl}
-        >
-          Go to app
-        </Button>
+        <div className="login-button">
+          <ProductDropdown />
+        </div>
       )}
       <Button
         variant="light-outline"

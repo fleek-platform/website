@@ -24,7 +24,8 @@ interface ImportMetaEnv {
   readonly SUPPORT_RATE_LIMIT_PATHS: string;
 
   readonly PUBLIC_GRAPHQL_ENDPOINT: string;
-  readonly PUBLIC_UI_APP_URL: string;
+  readonly PUBLIC_APP_HOSTING_URL: string;
+  readonly PUBLIC_APP_AGENTS_URL: string;
 
   readonly PUBLIC_DYNAMIC_ENVIRONMENT_ID: string;
 

@@ -1,7 +1,8 @@
 import { isProd, isClient } from '@utils/common';
 import { removeTrailingSlash } from '@utils/url';
 
-const appUrl = import.meta.env.PUBLIC_UI_APP_URL;
+const appUrl = import.meta.env.PUBLIC_APP_HOSTING_URL;
+
 if (!appUrl) {
   throw new Error('App url is required to generate template deployment link');
 }

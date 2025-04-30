@@ -2,7 +2,7 @@ import type { IconType } from 'react-icons/lib';
 import { MdHandshake } from 'react-icons/md';
 import settings from '@base/settings.json';
 
-const dashboardUrl = import.meta.env.PUBLIC_UI_APP_URL;
+const dashboardUrl = import.meta.env.PUBLIC_APP_HOSTING_URL;
 
 type NavMenuItemBase = {
   label: string;
