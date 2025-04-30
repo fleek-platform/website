@@ -582,16 +582,6 @@ type ButtonContainerProps = {
   handleClick: () => void;
 };
 
-const handleProductClick = (product: any) => {
-  console.log('[debug] handleProductClick: ', product);
-
-  if (product === 'Apps') {
-    window.location.href = import.meta.env.PUBLIC_APP_HOSTING_URL;
-  } else {
-    window.location.href = import.meta.env.PUBLIC_APP_AGENTS_URL;
-  }
-};
-
 const ButtonContainer: React.FC<ButtonContainerProps> = ({
   showProjectsDropDown,
   userProjects,
