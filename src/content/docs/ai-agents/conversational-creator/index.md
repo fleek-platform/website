@@ -1,9 +1,17 @@
 ---
 order: 1
-title: Conversational chat mode
+title: Conversational creator
 date: 2025-04-30
 desc: Build your AI Agent with natural language
 ---
+
+![](./image01.png)
+
+# **Conversational Creator**
+
+Conversationally build and update agents with natural language. Simply describe what you want, and your idea becomes a fully functional agent in seconds. Whether you're adjusting behavior, adding plugins, or starting from scratch, the process is as easy as having a conversation. In this guide, we’ll walk you through the step-by-step process to go from idea to deployed agent. 
+
+
 ## **Step 1: Log In and Describe Your Agent**
 
 1. Head to [fleek.xyz](https://fleek.xyz/) and log in to your account.
@@ -12,7 +20,7 @@ desc: Build your AI Agent with natural language
     - Example: *“I want to create a digital influencer, who is a woman expert on nutrition and exercise. I want this influencer to constantly interact with users on Twitter, posting regularly and replying to comments.”*
 4. Need inspiration? You can also select one of our **premade agent templates** at the bottom of the page — such as **Tech Reviewer**, **Fashion Stylist**, **Travel Guide**, and more — to give yourself a head start.
 
-![](./image1.png)
+![](./blog2.png)
 
 ## **Step 2: Chat With Your Agent to Refine It**
 
