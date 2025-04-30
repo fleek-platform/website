@@ -73,7 +73,7 @@ export const AiAgentsPricingInfo: Props[] = [
     cost: {
       amount: 20,
     },
-    featuresDescription: 'Includes everything in Fan, plus:',
+    featuresDescription: 'Everything in Fan Plan, plus:',
     features: [
       '10 credits per month',
       '1 AI agent or influencer',
@@ -92,9 +92,9 @@ export const AiAgentsPricingInfo: Props[] = [
     cost: {
       amount: 99,
     },
-    featuresDescription: 'Includes everything in Fan, plus:',
+    featuresDescription: 'Everything in Fan Plan, plus:',
     features: [
-      '25 Fleek credits per month',
+      '25 credits per month',
       'Unlimited agents & influencers',
       'Unlimited seats',
     ],
