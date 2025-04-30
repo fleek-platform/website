@@ -13,6 +13,7 @@ import { ChatBox } from './ChatBox';
 import { useEffect, useState } from 'react';
 import { Loading } from './Loading';
 import { sleep } from '../sleep';
+import { SubscribeModal } from './SubscribeModal';
 
 type ContentProps = {
   agent: PublicAgent;
@@ -22,13 +23,9 @@ export const Content: React.FC<ContentProps> = ({ agent }) => {
   const [userMsg, setUserMsg] = useState('');
   const [isLoading, setIsLoading] = useState(false);
   const [isOpen, setIsOpen] = useState(false);
+  const [hasClosed, setHasClosed] = useState(false);
 
   const { name, image, greeting } = agent;
-
-  const onMsgSubmit = (msg: string) => {
-    setUserMsg(msg);
-    setIsLoading(true);
-  };
 
   useEffect(() => {
     if (!isLoading) return;
@@ -41,8 +38,22 @@ export const Content: React.FC<ContentProps> = ({ agent }) => {
     onMsgReceived();
   }, [isLoading]);
 
+  const onMsgSubmit = (msg: string) => {
+    setUserMsg(msg);
+    setIsLoading(true);
+  };
+
+  const openModal = () => setIsOpen(true);
+
+  const closeModal = () => {
+    setIsOpen(false);
+    setIsLoading(false);
+    setHasClosed(true);
+  };
+
   return (
     <div className="p-12">
+      <SubscribeModal isOpen={isOpen} closeModal={closeModal} agent={agent} />
       <div className="flex h-full flex-col rounded-12 border border-neutral-6 bg-gray-dark-2">
         <div className="flex items-center justify-between p-12">
           <div className="flex items-center gap-8">
@@ -81,7 +92,7 @@ export const Content: React.FC<ContentProps> = ({ agent }) => {
                 {userMsg}
               </div>
             )}
-            {isLoading && (
+            {isLoading && !hasClosed && (
               <div className="flex items-start gap-12">
                 <img
                   src={image}
@@ -96,7 +107,12 @@ export const Content: React.FC<ContentProps> = ({ agent }) => {
               </div>
             )}
           </div>
-          <ChatBox onMsgSubmit={onMsgSubmit} />
+          <ChatBox
+            isLoading={isLoading}
+            hasClosed={hasClosed}
+            onMsgSubmit={onMsgSubmit}
+            openModal={openModal}
+          />
         </div>
       </div>
     </div>
