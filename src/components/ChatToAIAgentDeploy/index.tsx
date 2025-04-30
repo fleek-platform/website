@@ -4,6 +4,7 @@ import {
   type FileWithPreview,
   useDeployFromPrompt,
   SubscriptionModal,
+  setDefined,
 } from '@fleek-platform/agents-ui';
 import { useAuthStore } from '@fleek-platform/login-button';
 import { setReferralQueryKeyValuePair } from '@utils/referrals';
@@ -13,6 +14,14 @@ import { isClient } from '@utils/common';
 import toast from 'react-hot-toast';
 
 const MAX_FILE_SIZE = 10 * 1024 * 1024;
+
+const updateDefined = () => {
+  setDefined({
+    PUBLIC_FLEEK_REST_API_HOST: import.meta.env.PUBLIC_FLEEK_REST_API_HOST,
+    PUBLIC_PERSONA_GENERATOR_API_URL: import.meta.env
+      .PUBLIC_PERSONA_GENERATOR_API_URL,
+  });
+};
 
 export const ChatToAIAgentDeploy = ({
   role,
@@ -38,6 +47,7 @@ export const ChatToAIAgentDeploy = ({
   useEffect(() => {
     if (isLoggedIn && !hasRun.current && pendingPrompt.current) {
       hasRun.current = true;
+      updateDefined();
       deploy({
         prompt: pendingPrompt.current,
         accessToken,
@@ -49,6 +59,7 @@ export const ChatToAIAgentDeploy = ({
 
   const onSubmit = async (description: string, files: FileWithPreview[]) => {
     if (isLoggedIn) {
+      updateDefined();
       deploy({
         prompt: description,
         accessToken,
@@ -71,6 +82,10 @@ export const ChatToAIAgentDeploy = ({
 
     return true;
   };
+
+  useEffect(() => {
+    updateDefined();
+  }, []);
 
   const onSuccess = () => {
     console.log('[debug] Submission successful');
