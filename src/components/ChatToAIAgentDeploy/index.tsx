@@ -12,6 +12,7 @@ import { useEffect, useRef } from 'react';
 import { createPortal } from 'react-dom';
 import { isClient } from '@utils/common';
 import toast from 'react-hot-toast';
+import { ZodError } from 'zod';
 
 const MAX_FILE_SIZE = 10 * 1024 * 1024;
 
@@ -37,8 +38,14 @@ export const ChatToAIAgentDeploy = ({
     onDeploy: ({ agentId }) => {
       window.location.href = `${import.meta.env.PUBLIC_UI_AGENTS_APP_URL}/drafts/${agentId}/deploying`;
     },
-    onError: () => {
-      toast.error('Failed to deploy agent');
+    onError: (error) => {
+      if (error instanceof ZodError) {
+        toast.error(
+          'Your prompt didn’t generate a valid agent. Try refining it or click the magic wand button to enhance it.',
+        );
+      } else {
+        toast.error('Failed to deploy agent');
+      }
     },
   });
 
