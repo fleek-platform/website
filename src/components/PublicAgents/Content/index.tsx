@@ -53,11 +53,16 @@ export const Content: React.FC<ContentProps> = ({ agent }) => {
       <div className="flex h-full flex-col rounded-12 border border-neutral-6 bg-gray-dark-2">
         <div className="flex items-center justify-between p-12">
           <div className="flex items-center gap-8">
-            <Dropdown agent={agent} />
-            <Button className="pointer-events-none select-none justify-center border border-neutral-7 text-neutral-12">
-              <PiGlobeSimpleBold className="size-16" />
-              Public
-            </Button>
+            <div className="flex items-center gap-8 px-8 text-15 font-medium text-neutral-12">
+              <img
+                src={image}
+                width={16}
+                height={16}
+                alt={name}
+                className="rounded-4"
+              />
+              {name}
+            </div>
           </div>
           <div className="flex items-center gap-8">
             <IconButton>
