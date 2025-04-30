@@ -130,6 +130,7 @@ PUBLIC_POSTHOG_HOST="https://us.i.posthog.com"
 PUBLIC_POSTHOG_API_KEY="phc_SdvLWEagL7nAauyEBun0ZF6v59DxMIk8ofzI91gpIUw"
 PUBLIC_OPEN_API_ENDPOINT="https://api.fleek.xyz/api/openapi.json"
 PUBLIC_FLEEK_WEBSITE_URL="https://fleek.xyz"
+PUBLIC_PERSONA_GENERATOR_API_URL="https://persona-generator.flkservices.io"
 ```
 
 💡 The SUPPORT_ALLOW_ORIGIN_ADDR and SUPPORT_RATE_LIMIT_PATHS are comma separated values (csv). the MEILISEARCH_DOCUMENTS_CLIENT_API_KEY is required when querying staging, production environments which should be provided in the headers.

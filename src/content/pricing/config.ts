@@ -4,49 +4,29 @@ const dashboardUrl = import.meta.env.PUBLIC_APP_HOSTING_URL;
 
 export const HostingPricingInfo: Props[] = [
   {
-    title: 'Free Plan',
-    description:
-      'For those just starting out on Fleek.\n Go live today, on us.',
-    splitDescription: true,
-    cost: {
-      amount: 'Free',
-      prefix: '',
-      suffix: '',
-      bottomText: 'with resource limits',
-    },
-    featuresDescription: 'Our base resources, including:',
-    features: [
-      'Git integration & CI/CD',
-      'Preview URLs & global deployments',
-      'DNS, SSL, CDN & DDoS',
-      'Community support',
-    ],
-    cta: 'Start with Free',
-    variant: 'primary-outline',
-    url: dashboardUrl,
-  },
-  {
     title: 'Pro Plan',
-    description: 'Our most popular option for growing projects',
+    description:
+      'Our most popular option for projects hosting Web apps on Fleek',
     splitDescription: true,
     cost: {
       amount: 20,
       bottomText: '+ resource usage',
     },
-    featuresDescription: 'Everything in Free Plan, plus:',
+    featuresDescription: 'Includes:',
     features: [
       'Unlimited team members',
       'Unlimited custom domains',
       'Unlimited sites',
       'Email support',
     ],
-    cta: 'Go fast with Pro',
+    cta: 'Get started',
     variant: 'primary-outline',
     url: `${dashboardUrl}/projects/[projectId]/billing`,
   },
   {
     title: 'Enterprise Plan',
-    description: "Have a big project or custom needs?\n We've got you.",
+    description:
+      "Have a big project or custom Web app hosting needs?\n We've got you.",
     splitDescription: true,
     cost: {
       amount: 'Custom',
