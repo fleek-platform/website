@@ -28,6 +28,7 @@ jobs:
       PUBLIC_FLEEK_REST_API_URL: dry.run
       PUBLIC_DYNAMIC_ENVIRONMENT_ID: 'UNAVAILABLE'
       PUBLIC_UI_APP_URL: dry.run
+      PUBLIC_PERSONA_GENERATOR_API_URL: dry.run
     steps:
       - name: Checkout
         uses: actions/checkout@v4
