@@ -1,6 +1,6 @@
 ---
 order: 1
-title: Conversational Chat Mode
+title: Conversational chat mode
 date: 2025-04-30
 desc: Build your AI Agent with natural language
 ---
