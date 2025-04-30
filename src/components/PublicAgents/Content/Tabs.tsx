@@ -6,27 +6,36 @@ import {
   PiReceiptBold,
   PiSlideshowBold,
 } from 'react-icons/pi';
+import { PreviewModeTooltip } from '../Tooltip';
 
 const TabItem: React.FC<
-  React.PropsWithChildren & React.HTMLAttributes<HTMLButtonElement>
-> = ({ children, ...props }) => {
-  return (
+  React.PropsWithChildren &
+    React.HTMLAttributes<HTMLButtonElement> & {
+      hideTooltip?: boolean;
+    }
+> = ({ children, hideTooltip, ...props }) => {
+  const button = (
     <button
       {...props}
       className={cn(
-        '-mb-[1px] flex h-42 cursor-pointer items-center gap-4 border-b-2 border-transparent px-8 font-medium',
+        '-mb-[1px] flex h-42 cursor-pointer select-none items-center gap-4 border-b-2 border-transparent px-8 font-medium',
+        { 'cursor-not-allowed text-gray-dark-10': !hideTooltip },
         props.className,
       )}
     >
       {children}
     </button>
   );
+
+  if (hideTooltip) return button;
+
+  return <PreviewModeTooltip>{button}</PreviewModeTooltip>;
 };
 
 export const Tabs: React.FC = () => {
   return (
     <div className="flex items-center gap-12 border-b border-neutral-6 px-12">
-      <TabItem className="border-neutral-12 text-neutral-12">
+      <TabItem className="border-neutral-12 text-neutral-12" hideTooltip>
         <PiChatCircleDotsBold className="size-16" />
         Chat
       </TabItem>

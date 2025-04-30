@@ -1,8 +1,4 @@
-import {
-  PiGlobeSimpleBold,
-  PiMagnifyingGlassBold,
-  PiSidebarSimpleBold,
-} from 'react-icons/pi';
+import { PiGlobeSimpleBold, PiSidebarSimpleBold } from 'react-icons/pi';
 import type { PublicAgent } from '../config';
 import { Button, IconButton } from '../Button';
 import { Dropdown } from './Dropdown';
@@ -58,15 +54,12 @@ export const Content: React.FC<ContentProps> = ({ agent }) => {
         <div className="flex items-center justify-between p-12">
           <div className="flex items-center gap-8">
             <Dropdown agent={agent} />
-            <Button className="justify-center border border-neutral-7 text-neutral-12">
+            <Button className="pointer-events-none select-none justify-center border border-neutral-7 text-neutral-12">
               <PiGlobeSimpleBold className="size-16" />
               Public
             </Button>
           </div>
           <div className="flex items-center gap-8">
-            <IconButton>
-              <PiMagnifyingGlassBold className="size-16" />
-            </IconButton>
             <IconButton>
               <PiSidebarSimpleBold className="size-16" />
             </IconButton>

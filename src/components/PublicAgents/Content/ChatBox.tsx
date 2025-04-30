@@ -10,6 +10,7 @@ import {
   PiVideoBold,
 } from 'react-icons/pi';
 import { useState } from 'react';
+import { PreviewModeTooltip } from '../Tooltip';
 
 type ChatBoxProps = {
   isLoading: boolean;
@@ -71,15 +72,21 @@ export const ChatBox: React.FC<ChatBoxProps> = ({
         />
         <div className="flex items-center justify-between p-12">
           <div className="flex items-center gap-8">
-            <IconButton>
-              <PiPlusBold className="size-16" />
-            </IconButton>
-            <IconButton>
-              <PiSlidersHorizontalBold className="size-16" />
-            </IconButton>
-            <IconButton>
-              <PiMagicWandBold className="size-16" />
-            </IconButton>
+            <PreviewModeTooltip align="start" className="-top-34">
+              <IconButton className="pointer-events-none select-none">
+                <PiPlusBold className="size-16" />
+              </IconButton>
+            </PreviewModeTooltip>
+            <PreviewModeTooltip align="start" className="-top-34">
+              <IconButton className="pointer-events-none select-none">
+                <PiSlidersHorizontalBold className="size-16" />
+              </IconButton>
+            </PreviewModeTooltip>
+            <PreviewModeTooltip align="start" className="-top-34">
+              <IconButton className="pointer-events-none select-none">
+                <PiMagicWandBold className="size-16" />
+              </IconButton>
+            </PreviewModeTooltip>
           </div>
           <IconButton
             className="border-none bg-neutral-1 hover:bg-black"
@@ -94,13 +101,17 @@ export const ChatBox: React.FC<ChatBoxProps> = ({
           </IconButton>
         </div>
         <div className="flex items-center gap-8 bg-gray-dark-3 p-12">
-          <Button className="border border-neutral-6">
-            <PiImageBold className="size-16 text-[#75C7F0]" /> Create image
-          </Button>
-          <Button className="border border-neutral-6">
-            <PiVideoBold className="size-16 text-[#FF949D]" />
-            Create video
-          </Button>
+          <PreviewModeTooltip align="start" className="-top-34">
+            <Button className="pointer-events-none select-none border border-neutral-6">
+              <PiImageBold className="size-16 text-[#75C7F0]" /> Create image
+            </Button>
+          </PreviewModeTooltip>
+          <PreviewModeTooltip align="start" className="-top-34">
+            <Button className="pointer-events-none select-none border border-neutral-6">
+              <PiVideoBold className="size-16 text-[#FF949D]" />
+              Create video
+            </Button>
+          </PreviewModeTooltip>
         </div>
       </div>
     </div>
