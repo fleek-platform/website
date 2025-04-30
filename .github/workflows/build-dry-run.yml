@@ -16,22 +16,22 @@ jobs:
     runs-on: ubuntu-22.04
     environment: 'staging'
     env:
-      DOPPLER_TOKEN: ${{ secrets.DOPPLER_TOKEN }} 
+      DOPPLER_TOKEN: ${{ secrets.DOPPLER_TOKEN }}
       PRIVATE_MEILISEARCH_DOCUMENTS_ADMIN_API_KEY: dry.run
       PUBLIC_MEILISEARCH_DOCUMENTS_CLIENT_API_KEY: dry.run
       PUBLIC_MEILISEARCH_HOST: dry.run
       PUBLIC_SUPPORT_API_HOST: dry.run
       PUBLIC_BEHIIV_API_KEY: dry.run
-      PUBLIC_BEHIIV_SUBSCRIBE_URL: dry.run
-      PUBLIC_BEEHIIV_PROXY_SERVER_URL: dry.run
-      PUBLIC_GRAPHQL_ENDPOINT: dry.run
-      PUBLIC_FLEEK_REST_API_URL: dry.run
+      PUBLIC_BEHIIV_SUBSCRIBE_URL: "http://dry.run"
+      PUBLIC_BEEHIIV_PROXY_SERVER_URL: "http://dry.run"
+      PUBLIC_GRAPHQL_ENDPOINT: "http://dry.run"
+      PUBLIC_FLEEK_REST_API_URL: "http://dry.run"
       PUBLIC_DYNAMIC_ENVIRONMENT_ID: 'UNAVAILABLE'
-      PUBLIC_UI_APP_URL: dry.run
-      PUBLIC_PERSONA_GENERATOR_API_URL: dry.run
-      PUBLIC_APP_HOSTING_URL: "dry.run"
-      PUBLIC_APP_AGENTS_URL: "dry.run"
-      PUBLIC_OPEN_API_ENDPOINT: "dry.run"
+      PUBLIC_UI_APP_URL: "http://dry.run"
+      PUBLIC_PERSONA_GENERATOR_API_URL: "http://dry.run"
+      PUBLIC_APP_HOSTING_URL: "http://dry.run"
+      PUBLIC_APP_AGENTS_URL: "http://dry.run"
+      PUBLIC_OPEN_API_ENDPOINT: "http://dry.run"
     steps:
       - name: Checkout
         uses: actions/checkout@v4
