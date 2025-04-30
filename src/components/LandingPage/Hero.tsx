@@ -16,6 +16,9 @@ import { ChatToAIAgentDeploy } from '@components/ChatToAIAgentDeploy';
 import type { IconType } from 'react-icons/lib';
 import { cn } from '@utils/cn';
 import { useState } from 'react';
+import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
+
+const queryClient = new QueryClient();
 
 const calculateDelay = (factor: number) => 0.25 * factor;
 
@@ -98,10 +101,12 @@ export const Hero = () => {
               </div>
             </div>
             <BlurFade delay={calculateDelay(3)}>
-              <ChatToAIAgentDeploy
-                role={role}
-                onDescriptionChange={() => setRole(undefined)}
-              />
+              <QueryClientProvider client={queryClient}>
+                <ChatToAIAgentDeploy
+                  role={role}
+                  onDescriptionChange={() => setRole(undefined)}
+                />
+              </QueryClientProvider>
             </BlurFade>
           </div>
           <BlurFade delay={calculateDelay(4)}>

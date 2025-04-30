@@ -14,11 +14,11 @@ jobs:
     environment: ${{ inputs.environment }}
     env:
       FLEEK_TOKEN: ${{ secrets.FLEEK_TOKEN }}
-      DOPPLER_TOKEN: ${{ secrets.DOPPLER_TOKEN }}
+      DOPPLER_TOKEN: ${{ secrets.DOPPLER_TOKEN }} 
       TARGET_ENVIRONMENT: ${{ inputs.environment }}
       FLEEK_PROJECT_ID: ${{ vars.FLEEK_PROJECT_ID }}
       FLEEK_SLUG: ${{ vars.FLEEK_SLUG }}
-      GITHUB_DASHBOARD_SOURCE_REPO: 'fleek-platform/dashboard'
+      GITHUB_DASHBOARD_SOURCE_REPO: "fleek-platform/dashboard"
       GITHUB_TOKEN: ${{ github.token }}
       PRIVATE_MEILISEARCH_DOCUMENTS_ADMIN_API_KEY: ${{ secrets.PRIVATE_MEILISEARCH_DOCUMENTS_ADMIN_API_KEY }}
       PUBLIC_BEEHIIV_PROXY_SERVER_URL: ${{ vars.PUBLIC_BEEHIIV_PROXY_SERVER_URL }}
