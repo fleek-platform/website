@@ -2,15 +2,27 @@ import '@fleek-platform/agents-ui/styles';
 import {
   ChatBox,
   type FileWithPreview,
-  DRAFT_BOOTSTRAP_DATA_KEY,
-  ROUTE_NEW_DRAFT,
+  useDeployFromPrompt,
+  SubscriptionModal,
+  setDefined,
 } from '@fleek-platform/agents-ui';
 import { useAuthStore } from '@fleek-platform/login-button';
-import { storeFunnelData } from '@utils/funnel';
-import { fileToBase64 } from '@utils/file';
 import { setReferralQueryKeyValuePair } from '@utils/referrals';
+import { useEffect, useRef } from 'react';
+import { createPortal } from 'react-dom';
+import { isClient } from '@utils/common';
+import toast from 'react-hot-toast';
+import { ZodError } from 'zod';
 
 const MAX_FILE_SIZE = 10 * 1024 * 1024;
+
+const updateDefined = () => {
+  setDefined({
+    PUBLIC_FLEEK_REST_API_HOST: import.meta.env.PUBLIC_FLEEK_REST_API_HOST,
+    PUBLIC_PERSONA_GENERATOR_API_URL: import.meta.env
+      .PUBLIC_PERSONA_GENERATOR_API_URL,
+  });
+};
 
 export const ChatToAIAgentDeploy = ({
   role,
@@ -19,46 +31,54 @@ export const ChatToAIAgentDeploy = ({
   role?: string;
   onDescriptionChange?: () => void;
 }) => {
-  const { triggerLoginModal, isLoggedIn } = useAuthStore();
+  const { triggerLoginModal, isLoggedIn, accessToken, projectId } =
+    useAuthStore();
+
+  const { deploy, isDeploying } = useDeployFromPrompt({
+    onDeploy: ({ agentId }) => {
+      window.location.href = `${import.meta.env.PUBLIC_UI_AGENTS_APP_URL}/drafts/${agentId}/deploying`;
+    },
+    onError: (error) => {
+      if (error instanceof ZodError) {
+        toast.error(
+          'Your prompt didn’t generate a valid agent. Try refining it or click the magic wand button to enhance it.',
+        );
+      } else {
+        toast.error('Failed to deploy agent');
+      }
+    },
+  });
+
+  const hasRun = useRef(false);
+  const pendingPrompt = useRef<string>();
+  useEffect(() => {
+    if (isLoggedIn && !hasRun.current && pendingPrompt.current) {
+      hasRun.current = true;
+      updateDefined();
+      deploy({
+        prompt: pendingPrompt.current,
+        accessToken,
+        projectId,
+      });
+      pendingPrompt.current = undefined;
+    }
+  }, [isLoggedIn, accessToken, projectId, deploy]);
 
   const onSubmit = async (description: string, files: FileWithPreview[]) => {
-    console.log('[debug] Description:', description);
-    console.log('[debug] Files:', files);
-
-    // TODO: Validate data
-
-    const fileDataPromises = files.map((file) => fileToBase64(file));
-    const fileDataArray = await Promise.all(fileDataPromises);
-
-    const data = {
-      mode: 'chat',
-      fromApp: 'website',
-      prompt: description,
-      timestamp: new Date(),
-    };
-
-    setReferralQueryKeyValuePair('agents');
-    storeFunnelData({
-      key: DRAFT_BOOTSTRAP_DATA_KEY,
-      data,
-    });
-
     if (isLoggedIn) {
-      const currentParams = new URLSearchParams(window.location.search);
-
-      const targetUrl = new URL(
-        `${import.meta.env.PUBLIC_UI_AGENTS_APP_URL}${ROUTE_NEW_DRAFT}`,
-      );
-
-      currentParams.forEach((value, key) => {
-        targetUrl.searchParams.append(key, value);
+      updateDefined();
+      deploy({
+        prompt: description,
+        accessToken,
+        projectId,
       });
-
-      window.location.assign(targetUrl.toString());
 
       return true;
     }
 
+    pendingPrompt.current = description;
+    hasRun.current = false;
+    setReferralQueryKeyValuePair('agents');
     if (typeof triggerLoginModal !== 'function') {
       console.log('[debug] triggerLoginModal is not a fn!');
 
@@ -69,6 +89,10 @@ export const ChatToAIAgentDeploy = ({
 
     return true;
   };
+
+  useEffect(() => {
+    updateDefined();
+  }, []);
 
   const onSuccess = () => {
     console.log('[debug] Submission successful');
@@ -89,7 +113,16 @@ export const ChatToAIAgentDeploy = ({
         prompt={
           role ? `I want to create a ${role.toLocaleLowerCase()}.` : undefined
         }
+        isSubmitting={isDeploying}
       />
+
+      {isClient &&
+        createPortal(
+          <div className="agents-ui">
+            <SubscriptionModal />
+          </div>,
+          document.body,
+        )}
     </div>
   );
 };
