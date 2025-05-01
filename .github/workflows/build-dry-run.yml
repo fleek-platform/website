@@ -32,6 +32,9 @@ jobs:
       PUBLIC_APP_HOSTING_URL: 'http://dry.run'
       PUBLIC_APP_AGENTS_URL: 'http://dry.run'
       PUBLIC_OPEN_API_ENDPOINT: 'http://dry.run'
+      PUBLIC_CUSTOM_AGENTS_URL: 'http://dry.run'
+      PUBLIC_POSTHOG_API_KEY: 'dry.run'
+      PUBLIC_POSTHOG_HOST: 'http://dry.run'
     steps:
       - name: Checkout
         uses: actions/checkout@v4
