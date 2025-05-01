@@ -39,13 +39,15 @@ export const ChatToAIAgentDeploy = ({
       window.location.href = `${import.meta.env.PUBLIC_UI_AGENTS_APP_URL}/drafts/${agentId}/deploying`;
     },
     onError: (error) => {
+      let message = 'Failed to deploy agent';
       if (error instanceof ZodError) {
-        toast.error(
-          'Your prompt didn’t generate a valid agent. Try refining it or click the magic wand button to enhance it.',
-        );
-      } else {
-        toast.error('Failed to deploy agent');
+        message =
+          'Your prompt didn’t generate a valid agent. Try refining it or click the magic wand button to enhance it.';
       }
+
+      toast.error(message, {
+        duration: 20_000,
+      });
     },
   });
 
