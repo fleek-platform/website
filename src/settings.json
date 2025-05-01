@@ -594,7 +594,7 @@
   "agentsAdminNotification": {
     "authenticatedUsers": {
       "message": "When we have capacity to deploy new AI agents you will be first in line. Please try again later!",
-      "enable": true
+      "enable": false
     },
     "default": {
       "message": "We're currently over capacity and unable to deploy new AI agents. Sign in now to save time and try again later!",
