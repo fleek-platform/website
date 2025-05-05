@@ -1,0 +1,62 @@
+#!/usr/bin/env bun
+
+const port = 3002;
+const spaRoutes = ["/agents", "/dashboard"];
+
+Bun.serve({
+  port,
+  fetch: async (req) => {
+    const url = new URL(req.url);
+    let pathname = url.pathname;
+    
+    const directFile = Bun.file(`./dist${pathname}`);
+    if (await directFile.exists()) {
+      return new Response(directFile);
+    }
+    
+    const spaRoot = spaRoutes.find(route => 
+      pathname === route || pathname.startsWith(`${route}/`)
+    );
+    
+    if (spaRoot) {
+      const spaIndex = Bun.file(`./dist${spaRoot}/index.html`);
+      if (await spaIndex.exists()) {
+        return new Response(await spaIndex.text(), {
+          headers: {
+            "Content-Type": "text/html",
+          },
+        });
+      }
+    }
+    
+    const pathToCheck = pathname.endsWith('/') ? pathname : `${pathname}/`;
+    const directoryIndex = Bun.file(`./dist${pathToCheck}index.html`);
+
+    if (await directoryIndex.exists()) {
+      return new Response(await directoryIndex.text(), {
+        headers: {
+          "Content-Type": "text/html",
+        },
+      });
+    }
+    
+    const rootIndex = Bun.file("./dist/index.html");
+
+    if (await rootIndex.exists()) {
+      return new Response(await rootIndex.text(), {
+        headers: {
+          "Content-Type": "text/html",
+        },
+      });
+    }
+    
+    return new Response("Not Found", { status: 404 });
+  },
+  error(error) {
+    console.error('👹 Oops! Failed to serve file', error);
+    return new Response("Not Found", { status: 404 });
+  },
+});
+
+console.log(`🤖 Server running at http://localhost:${port}`);
+console.log(`🚀 SPA routes configured are ${spaRoutes.join(', ')}`);
