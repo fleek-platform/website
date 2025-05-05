@@ -159,7 +159,7 @@ export const TemplateCard = ({ template }: { template: PublicAgent }) => {
           </div>
         </div>
         <div className="grid w-full grid-cols-3 gap-6">
-          {template.socials.map((social) => (
+          {/*template.socials.map((social) => (
             <div
               key={`${template.name} - ${social.name}`}
               className="flex items-center justify-center gap-4 rounded-8 bg-gray-dark-4 p-8"
@@ -170,7 +170,7 @@ export const TemplateCard = ({ template }: { template: PublicAgent }) => {
                 className="size-18"
               />
             </div>
-          ))}
+          ))*/}
         </div>
         <a
           href={`preview/${template.id}`}

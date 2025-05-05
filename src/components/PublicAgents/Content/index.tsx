@@ -1,7 +1,6 @@
-import { PiGlobeSimpleBold, PiSidebarSimpleBold } from 'react-icons/pi';
+import { PiSidebarSimpleBold } from 'react-icons/pi';
 import type { PublicAgent } from '../config';
-import { Button, IconButton } from '../Button';
-import { Dropdown } from './Dropdown';
+import { IconButton } from '../Button';
 import { Typewriter } from './Typewriter';
 import type React from 'react';
 import { Tabs } from './Tabs';
@@ -10,6 +9,15 @@ import { useEffect, useState } from 'react';
 import { Loading } from './Loading';
 import { sleep } from '../sleep';
 import { SubscribeModal } from './SubscribeModal';
+import { LoginProvider } from '@fleek-platform/login-button';
+import { setDefined, FanSubscriptionModal } from '@fleek-platform/agents-ui';
+import '@fleek-platform/agents-ui/styles';
+import { isClient } from '@utils/common';
+import { createPortal } from 'react-dom';
+
+setDefined({
+  PUBLIC_FLEEK_REST_API_HOST: import.meta.env.PUBLIC_FLEEK_REST_API_HOST,
+});
 
 type ContentProps = {
   agent: PublicAgent;
@@ -21,7 +29,7 @@ export const Content: React.FC<ContentProps> = ({ agent }) => {
   const [isOpen, setIsOpen] = useState(false);
   const [hasClosed, setHasClosed] = useState(false);
 
-  const { name, image, greeting } = agent;
+  const { name, image } = agent;
 
   useEffect(() => {
     if (!isLoading) return;
@@ -49,7 +57,29 @@ export const Content: React.FC<ContentProps> = ({ agent }) => {
 
   return (
     <div className="p-12">
-      <SubscribeModal isOpen={isOpen} closeModal={closeModal} agent={agent} />
+      <LoginProvider
+        graphqlApiUrl={import.meta.env.PUBLIC_GRAPHQL_ENDPOINT}
+        dynamicEnvironmentId={import.meta.env.PUBLIC_DYNAMIC_ENVIRONMENT_ID}
+      >
+        {(props) => {
+          return (
+            <SubscribeModal
+              isOpen={isOpen}
+              closeModal={closeModal}
+              agent={agent}
+            />
+          );
+        }}
+      </LoginProvider>
+
+      {isClient &&
+        createPortal(
+          <div className="agents-ui">
+            <FanSubscriptionModal />
+          </div>,
+          document.body,
+        )}
+
       <div className="flex h-full flex-col rounded-12 border border-neutral-6 bg-gray-dark-2">
         <div className="flex items-center justify-between p-12">
           <div className="flex items-center gap-8">
@@ -82,7 +112,7 @@ export const Content: React.FC<ContentProps> = ({ agent }) => {
                 className="rounded-4"
               />
               <div className="flex flex-col gap-16">
-                <Typewriter text={greeting} />
+                <Typewriter text={/*greeting*/ ''} />
               </div>
             </div>
             {userMsg && (

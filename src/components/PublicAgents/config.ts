@@ -1,156 +1,162 @@
 export type PublicAgent = {
-  id: number;
+  id: string;
   name: string;
   category: string;
   image: string;
   author: string;
-  greeting: string;
+  /*greeting: string;
   about: string;
   socials: {
     name: string;
     logo: string;
     followers: number;
-  }[];
+  }[];*/
+  status: string;
+  agentId: string;
+  avatar: string;
+  frameworkName: string;
+  characterFile: string;
+  createdAt: string;
+  createdBy: string;
+  host: string;
+  projectId: string;
+  slotNumber: number;
+  updatedAt: string;
+  publicToken: string;
+  publicChat: boolean;
 };
 
 export const publicAgents: PublicAgent[] = [
   {
-    id: 1,
-    name: 'Stephanie',
-    category: 'Sports',
-    image: '/images/landing-page/templates/stephanie.png',
-    greeting:
-      "Hey there! Ready to dive into the latest sports highlights or break down last night's game?",
-    about:
-      "Stephanie is your go-to sports expert, always ready with the latest scores, athlete gossip, and game-day insights. Whether it's basketball, tennis, or Formula 1, she's got the play-by-play and personality to match.",
-    author: 'Fleek',
-    socials: [
-      {
-        name: 'twitter',
-        logo: '/images/landing-page/templates/socials/x.svg',
-        followers: 16200,
-      },
-      {
-        name: 'instagram',
-        logo: '/images/landing-page/templates/socials/instagram.svg',
-        followers: 32700,
-      },
-      {
-        name: 'tiktok',
-        logo: '/images/landing-page/templates/socials/tiktok.svg',
-        followers: 112200,
-      },
-    ],
-  },
-  {
-    id: 2,
-    name: 'Olivia',
-    category: 'Companion',
-    image: '/images/landing-page/templates/olivia.png',
-    greeting:
-      "Hi! I'm here to chat, listen, and keep you company — what's on your mind today?",
-    about:
-      "Olivia is your charming digital companion — thoughtful, witty, and always ready to chat. From relationship advice to your favorite movies, she's here to keep you company and make every conversation feel personal.",
-    author: 'Fleek',
-    socials: [
-      {
-        name: 'twitter',
-        logo: '/images/landing-page/templates/socials/x.svg',
-        followers: 56600,
-      },
-      {
-        name: 'instagram',
-        logo: '/images/landing-page/templates/socials/instagram.svg',
-        followers: 98200,
-      },
-      {
-        name: 'tiktok',
-        logo: '/images/landing-page/templates/socials/tiktok.svg',
-        followers: 85300,
-      },
-    ],
-  },
-  {
-    id: 3,
-    name: 'Crypto Chris',
-    category: 'Crypto',
-    image: '/images/landing-page/templates/chris.png',
-    greeting:
-      "Wanna talk crypto? I've got the alpha, the memes, and the market moves — just ask.",
-    about:
-      "Crypto Chris is plugged into the blockchain 24/7. Whether you want the latest on Bitcoin trends, altcoin gems, or NFT drama, he's got the insights — and a meme or two to go with it.",
-    author: 'Fleek',
-    socials: [
-      {
-        name: 'twitter',
-        logo: '/images/landing-page/templates/socials/x.svg',
-        followers: 112400,
-      },
-      {
-        name: 'instagram',
-        logo: '/images/landing-page/templates/socials/instagram.svg',
-        followers: 2400,
-      },
-      {
-        name: 'tiktok',
-        logo: '/images/landing-page/templates/socials/tiktok.svg',
-        followers: 1100,
-      },
-    ],
-  },
-  {
-    id: 4,
-    name: 'Kanye East',
-    category: 'Culture',
-    image: '/images/landing-page/templates/kanye.png',
-    greeting:
-      "Sup. Let's talk art, fashion, music — or whatever's breaking the internet right now.",
-    about:
-      "Kanye East blends pop culture commentary with bold opinions and creative flair. From underground fashion to viral trends, he's your cultural compass—unfiltered and always on beat.",
-    author: 'Fleek',
-    socials: [
-      {
-        name: 'twitter',
-        logo: '/images/landing-page/templates/socials/x.svg',
-        followers: 1500,
-      },
-      {
-        name: 'instagram',
-        logo: '/images/landing-page/templates/socials/instagram.svg',
-        followers: 1100,
-      },
-      {
-        name: 'tiktok',
-        logo: '/images/landing-page/templates/socials/tiktok.svg',
-        followers: 659,
-      },
-    ],
-  },
-  {
-    id: 5,
     name: 'Kiki',
+    status: 'Running',
+    agentId: '91ab9e80-f2db-4087-befb-9a410b630a8a',
     category: 'NSFW',
-    image: '/images/landing-page/templates/kiki.png',
-    greeting: "Hey babe 😘 Let's keep things fun, flirty, and just between us.",
-    about:
-      "Kiki is playful, confident, and never shy. Whether it's cheeky banter or late-night convos, she's here to entertain and keep things exciting in your world — no filters, no rules.",
+    image:
+      'https://social-agent.dev.platform.fleeksandbox.xyz/api/v1/files/91ab9e80-f2db-4087-befb-9a410b630a8a/5395e1d3-0bbf-4ae1-8b21-9c7a7fe06b80/image-1746070774164.jpg',
+    avatar:
+      'https://social-agent.dev.platform.fleeksandbox.xyz/api/v1/files/91ab9e80-f2db-4087-befb-9a410b630a8a/5395e1d3-0bbf-4ae1-8b21-9c7a7fe06b80/image-1746070774164.jpg',
     author: 'Fleek',
-    socials: [
-      {
-        name: 'twitter',
-        logo: '/images/landing-page/templates/socials/x.svg',
-        followers: 9240,
-      },
-      {
-        name: 'instagram',
-        logo: '/images/landing-page/templates/socials/instagram.svg',
-        followers: 56700,
-      },
-      {
-        name: 'tiktok',
-        logo: '/images/landing-page/templates/socials/tiktok.svg',
-        followers: 32000,
-      },
-    ],
+    frameworkName: 'Fleek',
+    characterFile: '',
+    createdAt: '',
+    createdBy: '',
+    host: '',
+    id: '91ab9e80-f2db-4087-befb-9a410b630a8a',
+    projectId: '',
+    slotNumber: 0,
+    updatedAt: '',
+    publicToken: '',
+    publicChat: false,
+  },
+  {
+    name: 'Stephanie',
+    status: 'Running',
+    agentId: 'dc894a33-05e7-4fca-997e-00296612eaad',
+    category: 'Sports',
+    image:
+      'https://social-agent.dev.platform.fleeksandbox.xyz/api/v1/files/dc894a33-05e7-4fca-997e-00296612eaad/a538b692-6cb8-41e8-a970-cd3cfa27a628/image-1746070839876.jpg',
+    avatar:
+      'https://social-agent.dev.platform.fleeksandbox.xyz/api/v1/files/dc894a33-05e7-4fca-997e-00296612eaad/a538b692-6cb8-41e8-a970-cd3cfa27a628/image-1746070839876.jpg',
+    author: 'Fleek',
+    frameworkName: 'Fleek',
+    characterFile: '',
+    createdAt: '',
+    createdBy: '',
+    host: '',
+    id: 'dc894a33-05e7-4fca-997e-00296612eaad',
+    projectId: '',
+    slotNumber: 0,
+    updatedAt: '',
+    publicToken: '',
+    publicChat: false,
+  },
+  {
+    name: 'Brianna',
+    status: 'Running',
+    agentId: '98a76838-c016-4295-9bc9-ff2ae273673d',
+    category: 'Therapy',
+    image:
+      'https://social-agent.dev.platform.fleeksandbox.xyz/api/v1/files/98a76838-c016-4295-9bc9-ff2ae273673d/e099c7a0-c731-45c5-a80f-dab0c6d44c48/image-1746070896251.jpg',
+    avatar:
+      'https://social-agent.dev.platform.fleeksandbox.xyz/api/v1/files/98a76838-c016-4295-9bc9-ff2ae273673d/e099c7a0-c731-45c5-a80f-dab0c6d44c48/image-1746070896251.jpg',
+    author: 'Fleek',
+    frameworkName: 'Fleek',
+    characterFile: '',
+    createdAt: '',
+    createdBy: '',
+    host: '',
+    id: '98a76838-c016-4295-9bc9-ff2ae273673d',
+    projectId: '',
+    slotNumber: 0,
+    updatedAt: '',
+    publicToken: '',
+    publicChat: false,
+  },
+  {
+    name: 'Carl',
+    status: 'Running',
+    agentId: '0004b5ed-1713-4ba6-a2a2-4bd689ecbcc0',
+    category: 'Crypto',
+    image:
+      'https://social-agent.dev.platform.fleeksandbox.xyz/api/v1/files/0004b5ed-1713-4ba6-a2a2-4bd689ecbcc0/1195b16f-002b-4da6-a24c-57a743ab6956/image-1746070966364.jpg',
+    avatar:
+      'https://social-agent.dev.platform.fleeksandbox.xyz/api/v1/files/0004b5ed-1713-4ba6-a2a2-4bd689ecbcc0/1195b16f-002b-4da6-a24c-57a743ab6956/image-1746070966364.jpg',
+    author: 'Fleek',
+    frameworkName: 'Fleek',
+    characterFile: '',
+    createdAt: '',
+    createdBy: '',
+    host: '',
+    id: '0004b5ed-1713-4ba6-a2a2-4bd689ecbcc0',
+    projectId: '',
+    slotNumber: 0,
+    updatedAt: '',
+    publicToken: '',
+    publicChat: false,
+  },
+  {
+    name: 'Jackie',
+    status: 'Running',
+    agentId: '9bb62709-c606-4ddd-8225-78fbb382eb11',
+    category: 'Fashion',
+    image:
+      'https://social-agent.dev.platform.fleeksandbox.xyz/api/v1/files/9bb62709-c606-4ddd-8225-78fbb382eb11/a551f7d4-e808-446e-b80e-063c83885a30/image-1746071020923.jpg',
+    avatar:
+      'https://social-agent.dev.platform.fleeksandbox.xyz/api/v1/files/9bb62709-c606-4ddd-8225-78fbb382eb11/a551f7d4-e808-446e-b80e-063c83885a30/image-1746071020923.jpg',
+    author: 'Fleek',
+    frameworkName: 'Fleek',
+    characterFile: '',
+    createdAt: '',
+    createdBy: '',
+    host: '',
+    id: '9bb62709-c606-4ddd-8225-78fbb382eb11',
+    projectId: '',
+    slotNumber: 0,
+    updatedAt: '',
+    publicToken: '',
+    publicChat: false,
+  },
+  {
+    name: 'Victoria',
+    status: 'Running',
+    agentId: '6af00700-9c66-4f7d-8815-0e30fd060f67',
+    category: 'NSFW',
+    image:
+      'https://social-agent.dev.platform.fleeksandbox.xyz/api/v1/files/6af00700-9c66-4f7d-8815-0e30fd060f67/ca064611-429e-48b9-be61-1298a811610e/image-1746071081866.jpg',
+    avatar:
+      'https://social-agent.dev.platform.fleeksandbox.xyz/api/v1/files/6af00700-9c66-4f7d-8815-0e30fd060f67/ca064611-429e-48b9-be61-1298a811610e/image-1746071081866.jpg',
+    author: 'Fleek',
+    frameworkName: 'Fleek',
+    characterFile: '',
+    createdAt: '',
+    createdBy: '',
+    host: '',
+    id: '6af00700-9c66-4f7d-8815-0e30fd060f67',
+    projectId: '',
+    slotNumber: 0,
+    updatedAt: '',
+    publicToken: '',
+    publicChat: false,
   },
 ];

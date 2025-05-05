@@ -2,6 +2,11 @@ import { Sidebar } from './Sidebar';
 import { AsideProfile } from './AsideProfile';
 import { Content } from './Content';
 import type { PublicAgent } from './config';
+import { useEffect } from 'react';
+import { useHasFanPlan } from '@fleek-platform/agents-ui';
+import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
+
+export const queryClient = new QueryClient();
 
 type DashboardProps = {
   agent: PublicAgent;
@@ -9,10 +14,12 @@ type DashboardProps = {
 
 export const Dashboard: React.FC<DashboardProps> = ({ agent }) => {
   return (
-    <div className="grid grid-cols-[240px_minmax(0,1fr)_320px] font-inter">
-      <Sidebar agent={agent} />
-      <Content agent={agent} />
-      <AsideProfile agent={agent} />
-    </div>
+    <QueryClientProvider client={queryClient}>
+      <div className="grid grid-cols-[240px_minmax(0,1fr)_320px] font-inter">
+        <Sidebar agent={agent} />
+        <Content agent={agent} />
+        <AsideProfile agent={agent} />
+      </div>
+    </QueryClientProvider>
   );
 };

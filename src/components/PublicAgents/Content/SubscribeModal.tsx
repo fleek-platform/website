@@ -3,6 +3,16 @@ import type React from 'react';
 import type { PublicAgent } from '../config';
 import { Button } from '../Button';
 import { PiCoinsBold, PiCreditCardBold } from 'react-icons/pi';
+import { useAuthStore } from '@fleek-platform/login-button';
+import { useEffect, useRef } from 'react';
+import {
+  getOrCreateAgentThread,
+  useAgentPlans,
+  useFanSubscriptionModal,
+  useHasFanPlan,
+} from '@fleek-platform/agents-ui';
+import toast from 'react-hot-toast';
+import { getUserIdFromAccessToken } from '@utils/accessToken';
 
 type SubscribeModalProps = {
   isOpen: boolean;
@@ -16,6 +26,85 @@ export const SubscribeModal: React.FC<SubscribeModalProps> = ({
   closeModal,
 }) => {
   const { name, image } = agent;
+  const { triggerLoginModal, isLoggedIn, accessToken, projectId } =
+    useAuthStore();
+  const pendingPayment = useRef(false);
+  const { openSubscriptionModal, setOnSuccess } = useFanSubscriptionModal();
+  const { refetchPlans } = useAgentPlans();
+
+  const handlePay = async () => {
+    try {
+      if (!isLoggedIn) {
+        if (typeof triggerLoginModal !== 'function') {
+          throw new Error(
+            `expected triggerLoginModal type to be a function but found ${typeof triggerLoginModal}`,
+          );
+        }
+        closeModal();
+        triggerLoginModal(true);
+        pendingPayment.current = true;
+        return;
+      }
+
+      closeModal();
+      await startCheckout();
+    } catch (e) {
+      console.error(e);
+    }
+  };
+
+  useEffect(() => {
+    if (isLoggedIn && pendingPayment.current) {
+      pendingPayment.current = false;
+      void startCheckout();
+    }
+  }, [isLoggedIn]);
+
+  const startCheckout = async () => {
+    const { fan } = await refetchPlans();
+    openSubscriptionModal({
+      plan: fan,
+    });
+    setOnSuccess(onCheckoutSuccess.current);
+    hasRun.current = false;
+  };
+
+  const onCheckoutSuccess = useRef(() => {});
+  const hasRun = useRef(false);
+
+  useEffect(() => {
+    onCheckoutSuccess.current = async () => {
+      if (hasRun.current) return;
+      hasRun.current = true;
+      try {
+        if (!accessToken) {
+          throw new Error('Missing accessToken');
+        }
+        const userId = getUserIdFromAccessToken(accessToken);
+        if (!userId) {
+          throw new Error('Missing userId');
+        }
+
+        await getOrCreateAgentThread({
+          userId,
+          accessToken,
+          projectId,
+          agentId: agent.id,
+        });
+        window.location.href = `${import.meta.env.PUBLIC_UI_AGENTS_APP_URL}/agent/${agent.id}`;
+      } catch (e) {
+        console.error(e);
+        toast.error('Failed to create thread.');
+      }
+    };
+  }, [accessToken, projectId, agent]);
+
+  const { billing } = useHasFanPlan();
+  useEffect(() => {
+    if (billing?.activePlans) {
+      onCheckoutSuccess.current();
+    }
+  }, [billing]);
 
   return (
     <Modal
@@ -50,7 +139,10 @@ export const SubscribeModal: React.FC<SubscribeModalProps> = ({
             </p>
           </div>
           <div className="flex w-full flex-col gap-12">
-            <Button className="justify-center bg-neutral-12 text-gray-dark-1 hover:bg-white active:bg-neutral-12">
+            <Button
+              className="justify-center bg-neutral-12 text-gray-dark-1 hover:bg-white active:bg-neutral-12"
+              onClick={handlePay}
+            >
               <PiCreditCardBold className="size-16" />
               Pay with credit card
             </Button>
