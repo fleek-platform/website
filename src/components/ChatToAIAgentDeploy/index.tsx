@@ -13,6 +13,7 @@ import { createPortal } from 'react-dom';
 import { isClient } from '@utils/common';
 import toast from 'react-hot-toast';
 import { ZodError } from 'zod';
+import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 
 const MAX_FILE_SIZE = 10 * 1024 * 1024;
 
@@ -22,7 +23,9 @@ setDefined({
     .PUBLIC_PERSONA_GENERATOR_API_URL,
 });
 
-export const ChatToAIAgentDeploy = ({
+const queryClient = new QueryClient();
+
+export const ChatToAIAgentDeployChild = ({
   role,
   onDescriptionChange,
 }: {
@@ -51,6 +54,7 @@ export const ChatToAIAgentDeploy = ({
 
   const hasRun = useRef(false);
   const pendingPrompt = useRef<string>();
+
   useEffect(() => {
     if (isLoggedIn && !hasRun.current && pendingPrompt.current) {
       hasRun.current = true;
@@ -96,6 +100,23 @@ export const ChatToAIAgentDeploy = ({
     console.error('[debug] Submission failed:', error);
   };
 
+  const portalRef = useRef<React.ReactPortal>();
+
+  useEffect(() => {
+    if (isClient && !portalRef.current) {
+      // Be careful with createPortal
+      // causes unwanted re-render
+      // due to SubscriptionModal context or store triggers
+      // Here we use a reference to prevent subsequent render
+      portalRef.current = createPortal(
+        <div className="agents-ui">
+          <SubscriptionModal />
+        </div>,
+        document.body,
+      );
+    }
+  }, []);
+
   return (
     <div className="agents-ui my-20 flex justify-center text-14">
       <ChatBox
@@ -110,13 +131,22 @@ export const ChatToAIAgentDeploy = ({
         isSubmitting={isDeploying}
       />
 
-      {isClient &&
-        createPortal(
-          <div className="agents-ui">
-            <SubscriptionModal />
-          </div>,
-          document.body,
-        )}
+      {portalRef.current}
     </div>
   );
 };
+
+export const ChatToAIAgentDeploy = ({
+  role,
+  onDescriptionChange,
+}: {
+  role?: string;
+  onDescriptionChange?: () => void;
+}) => (
+  <QueryClientProvider client={queryClient}>
+    <ChatToAIAgentDeployChild
+      role={role}
+      onDescriptionChange={onDescriptionChange}
+    />
+  </QueryClientProvider>
+);
