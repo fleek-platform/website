@@ -30,7 +30,7 @@ setDefined({
   PUBLIC_APP_AGENTS_URL: import.meta.env.PUBLIC_APP_AGENTS_URL,
 });
 
-const agentsUrl = import.meta.env.PUBLIC_UI_AGENTS_APP_URL;
+const agentsUrl = import.meta.env.PUBLIC_APP_AGENTS_URL;
 
 const onAuthenticationSuccess = () => {
   if (!isClient || isReferralName('agents')) return;
