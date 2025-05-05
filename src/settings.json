@@ -593,7 +593,7 @@
   },
   "agentsAdminNotification": {
     "authenticatedUsers": {
-      "message": "When we have capacity to deploy new AI agents you will be first in line. Please try again later!",
+      "message": "When we have capacity to deploy new AI agents you will be first in line. Please try again in a few hours!",
       "enable": true
     },
     "default": {
