@@ -101,7 +101,7 @@ export const publicAgents: PublicAgent[] = [
     status: 'Running',
     agentId: '0004b5ed-1713-4ba6-a2a2-4bd689ecbcc0',
     category: '🔮 Crypto',
-    about: 'Carl is your crypto confidant.',
+    about: 'Carl is your crypto confidant',
     image:
       'https://social-agent.dev.platform.fleeksandbox.xyz/api/v1/files/0004b5ed-1713-4ba6-a2a2-4bd689ecbcc0/1195b16f-002b-4da6-a24c-57a743ab6956/image-1746070966364.jpg',
     avatar:

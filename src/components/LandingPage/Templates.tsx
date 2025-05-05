@@ -6,6 +6,25 @@ import {
   type PublicAgent,
 } from '@components/PublicAgents/config';
 
+const SOCIALS_MAP = [
+  {
+    name: 'twitter',
+    logo: '/images/landing-page/templates/socials/x.svg',
+  },
+  {
+    name: 'instagram',
+    logo: '/images/landing-page/templates/socials/instagram.svg',
+  },
+  {
+    name: 'tiktok',
+    logo: '/images/landing-page/templates/socials/tiktok.svg',
+  },
+  {
+    name: 'snapchat',
+    logo: '/images/landing-page/templates/socials/snapchat.svg',
+  },
+];
+
 export const Templates = () => {
   return (
     <div className="mx-auto flex w-full max-w-screen-xl flex-col items-center px-24 py-48 text-center sm:py-[75px]">
@@ -22,7 +41,7 @@ export const Templates = () => {
         Explore social agents and start chatting.
       </p>
 
-      <div className="grid w-full max-w-[800px] gap-12 pt-40 sm:grid-cols-2 md:grid-cols-3">
+      <div className="grid w-full max-w-[1000px] gap-12 pt-40 sm:grid-cols-2 lg:grid-cols-3">
         {publicAgents.map((template) => (
           <div key={template.id}>
             <TemplateCard template={template} />
@@ -41,7 +60,7 @@ export const TemplateCard = ({ template }: { template: PublicAgent }) => (
     <img
       src={template.image}
       alt={template.name}
-      className="absolute inset-0 -z-1 min-w-[259px] w-full h-[460px] object-cover transition-all group-hover:scale-[1.02] group-hover:opacity-80"
+      className="absolute inset-0 -z-1 h-[460px] w-full min-w-[325px] object-cover transition-all group-hover:scale-[1.02] group-hover:opacity-80"
       loading="lazy"
     />
     <div className="mr-auto flex w-full items-start justify-between p-12">
@@ -49,6 +68,16 @@ export const TemplateCard = ({ template }: { template: PublicAgent }) => (
         <div className="flex h-24 items-center justify-center rounded-full bg-black/60 px-8 font-medium text-neutral-12">
           {template.category}
         </div>
+      </div>
+      <div className="flex flex-col gap-8">
+        {SOCIALS_MAP.map((social) => (
+          <div
+            key={social.name}
+            className="flex size-36 items-center justify-center rounded-12 bg-black/60"
+          >
+            <img src={social.logo} width={16} height={16} alt={social.name} />
+          </div>
+        ))}
       </div>
     </div>
     <div className="flex flex-col items-start gap-16 bg-gradient-to-b from-transparent via-black/80 to-black p-12">
