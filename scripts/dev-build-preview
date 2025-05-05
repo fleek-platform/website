@@ -10,6 +10,7 @@ Bun.serve({
     let pathname = url.pathname;
     
     const directFile = Bun.file(`./dist${pathname}`);
+
     if (await directFile.exists()) {
       return new Response(directFile);
     }
@@ -20,6 +21,7 @@ Bun.serve({
     
     if (spaRoot) {
       const spaIndex = Bun.file(`./dist${spaRoot}/index.html`);
+
       if (await spaIndex.exists()) {
         return new Response(await spaIndex.text(), {
           headers: {
