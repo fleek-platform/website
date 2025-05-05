@@ -104,6 +104,10 @@ export const ChatToAIAgentDeployChild = ({
 
   useEffect(() => {
     if (isClient && !portalRef.current) {
+      // Be careful with createPortal
+      // causes unwanted re-render
+      // due to SubscriptionModal context or store triggers
+      // Here we use a reference to prevent subsequent render
       portalRef.current = createPortal(
         <div className="agents-ui">
           <SubscriptionModal />
@@ -115,19 +119,19 @@ export const ChatToAIAgentDeployChild = ({
 
   return (
     <div className="agents-ui my-20 flex justify-center text-14">
-        <ChatBox
-          onSubmit={onSubmit}
-          onSuccess={onSuccess}
-          onError={onError}
-          maxFileSize={MAX_FILE_SIZE}
-          onDescriptionChange={onDescriptionChange}
-          prompt={
-            role ? `I want to create a ${role.toLocaleLowerCase()}.` : undefined
-          }
-          isSubmitting={isDeploying}
-        />
+      <ChatBox
+        onSubmit={onSubmit}
+        onSuccess={onSuccess}
+        onError={onError}
+        maxFileSize={MAX_FILE_SIZE}
+        onDescriptionChange={onDescriptionChange}
+        prompt={
+          role ? `I want to create a ${role.toLocaleLowerCase()}.` : undefined
+        }
+        isSubmitting={isDeploying}
+      />
 
-        {portalRef.current}
+      {portalRef.current}
     </div>
   );
 };
@@ -139,7 +143,10 @@ export const ChatToAIAgentDeploy = ({
   role?: string;
   onDescriptionChange?: () => void;
 }) => (
-    <QueryClientProvider client={queryClient}>
-      <ChatToAIAgentDeployChild role={role} onDescriptionChange={onDescriptionChange} />
-    </QueryClientProvider>
-  );
+  <QueryClientProvider client={queryClient}>
+    <ChatToAIAgentDeployChild
+      role={role}
+      onDescriptionChange={onDescriptionChange}
+    />
+  </QueryClientProvider>
+);

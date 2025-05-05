@@ -129,11 +129,3 @@ export const Hero = () => {
     </header>
   );
 };
-
-export const HeroTest = () => {
-  console.log('[debug] HeroTest render');
-  
-  return (
-    <p>HeroTest</p>
-  );
-};
