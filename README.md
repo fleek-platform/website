@@ -194,11 +194,21 @@ npm run preview
 🚀 SPA routes configured are /agents, /dashboard
 ```
 
-💡 By default, the local site will be available in the address [http://localhost:3002](http://localhost:3002). If you are testing locally, you may be interested in tweaking your environment variables to:
+💡 By default, the local site will be available in the address [http://localhost:3002](http://localhost:3002). 
+
+If you are testing locally, you may be interested in tweaking your environment variables to:
 
 ```sh
 PUBLIC_APP_HOSTING_URL="http://localhost:3002/dashboard"
 PUBLIC_APP_AGENTS_URL="http://localhost:3002/agents"
+```
+
+Note that the `preview` is a custom process that is aware of site's hosted applications. It doesn't support Astrojs previewer features! Instead, this is a custom HTTP server for local purposes supportin the single page applications. To learn more, read the [Single page applications setup](#single-page-applications-setup-spa).
+
+If you are looking for Astrojs default preview that's available as:
+
+```sh
+npm run preview:astro
 ```
 
 ## 👀 Preview staging
