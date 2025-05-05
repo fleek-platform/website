@@ -1,6 +1,6 @@
 #!/usr/bin/env bun
 
-const port = 3002;
+const port = process.env.DEV_PREVIEW_PORT || 3002;
 const spaRoutes = ["/agents", "/dashboard"];
 
 Bun.serve({

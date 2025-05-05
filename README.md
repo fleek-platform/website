@@ -194,7 +194,7 @@ npm run preview
 🚀 SPA routes configured are /agents, /dashboard
 ```
 
-💡 By default, the local site will be available in the address [http://localhost:3002](http://localhost:3002). 
+💡 By default, the local site will be available in the address [http://localhost:3002](http://localhost:3002). You can override it by declaring an environment variable `DEV_PREVIEW_PORT` and the desired port number.
 
 If you are testing locally, you may be interested in tweaking your environment variables to:
 
