@@ -112,7 +112,7 @@ export const Content: React.FC<ContentProps> = ({ agent }) => {
                 className="rounded-4"
               />
               <div className="flex flex-col gap-16">
-                <Typewriter text={/*greeting*/ ''} />
+                <Typewriter text={/*greeting*/ `Hey, I'm ${agent.name}!`} />
               </div>
             </div>
             {userMsg && (
