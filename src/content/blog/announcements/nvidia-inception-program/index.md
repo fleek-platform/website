@@ -7,6 +7,7 @@ image: './thumbnail.png'
 author:
   - 'Fleek'
 ---
+
 The next generation of software won’t live in dashboards or app stores. It will run as agents that work 24/7 for users and organizations. The same way the web needed cloud infrastructure to scale, agents need a new kind of compute layer.
 
 That’s why today, we’re excited to share that Fleek has joined the [NVIDIA Inception Program](https://www.nvidia.com/en-us/startups/), a global initiative supporting startups building next-generation AI and data science applications.
@@ -60,4 +61,4 @@ Stay tuned as we share what we’re building next. The agent layer isn’t comin
 
 Deploy an agent today on [fleek.xyz](https://fleek.xyz/)And follow our journey as we scale into the AI future.
 
-*© 2025 NVIDIA, the NVIDIA logo, and NVIDIA Inception Program are trademarks and/or registered trademarks of NVIDIA Corporation in the U.S. and other countries.*
+_© 2025 NVIDIA, the NVIDIA logo, and NVIDIA Inception Program are trademarks and/or registered trademarks of NVIDIA Corporation in the U.S. and other countries._
