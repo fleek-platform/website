@@ -5,15 +5,22 @@ import { Typewriter } from './Typewriter';
 import type React from 'react';
 import { Tabs } from './Tabs';
 import { ChatBox } from './ChatBox';
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { Loading } from './Loading';
 import { sleep } from '../sleep';
-import { SubscribeModal } from './SubscribeModal';
-import { LoginProvider } from '@fleek-platform/login-button';
-import { setDefined, FanSubscriptionModal } from '@fleek-platform/agents-ui';
+import { LoginProvider, useAuthStore } from '@fleek-platform/login-button';
+import {
+  setDefined,
+  FanSubscriptionModal,
+  useFanSubscriptionModal,
+  getOrCreateAgentThread,
+  useHasFanPlan,
+} from '@fleek-platform/agents-ui';
 import '@fleek-platform/agents-ui/styles';
 import { isClient } from '@utils/common';
 import { createPortal } from 'react-dom';
+import toast from 'react-hot-toast';
+import { getUserIdFromAccessToken } from '@utils/accessToken';
 
 setDefined({
   PUBLIC_FLEEK_REST_API_HOST: import.meta.env.PUBLIC_FLEEK_REST_API_HOST,
@@ -26,8 +33,9 @@ type ContentProps = {
 export const Content: React.FC<ContentProps> = ({ agent }) => {
   const [userMsg, setUserMsg] = useState('');
   const [isLoading, setIsLoading] = useState(false);
-  const [isOpen, setIsOpen] = useState(false);
   const [hasClosed, setHasClosed] = useState(false);
+  const { openSubscriptionModal, setOnSuccess } = useFanSubscriptionModal();
+  const { accessToken, projectId } = useAuthStore();
 
   const { name, image } = agent;
 
@@ -36,7 +44,7 @@ export const Content: React.FC<ContentProps> = ({ agent }) => {
 
     const onMsgReceived = async () => {
       await sleep(2000);
-      setIsOpen(true);
+      openModal();
     };
 
     onMsgReceived();
@@ -47,13 +55,52 @@ export const Content: React.FC<ContentProps> = ({ agent }) => {
     setIsLoading(true);
   };
 
-  const openModal = () => setIsOpen(true);
-
-  const closeModal = () => {
-    setIsOpen(false);
+  const openModal = () => {
+    openSubscriptionModal({
+      agent,
+    });
+    setOnSuccess(onCheckoutSuccess.current);
+    hasRun.current = false;
     setIsLoading(false);
     setHasClosed(true);
   };
+
+  const onCheckoutSuccess = useRef(() => {});
+  const hasRun = useRef(false);
+
+  useEffect(() => {
+    onCheckoutSuccess.current = async () => {
+      if (hasRun.current) return;
+      hasRun.current = true;
+      try {
+        if (!accessToken) {
+          throw new Error('Missing accessToken');
+        }
+        const userId = getUserIdFromAccessToken(accessToken);
+        if (!userId) {
+          throw new Error('Missing userId');
+        }
+
+        await getOrCreateAgentThread({
+          userId,
+          accessToken,
+          projectId,
+          agentId: agent.id,
+        });
+        window.location.href = `${import.meta.env.PUBLIC_UI_AGENTS_APP_URL}/agent/${agent.id}`;
+      } catch (e) {
+        console.error(e);
+        toast.error('Failed to create thread.');
+      }
+    };
+  }, [accessToken, projectId, agent]);
+
+  const { billing } = useHasFanPlan();
+  useEffect(() => {
+    if (billing?.activePlans) {
+      onCheckoutSuccess.current();
+    }
+  }, [billing]);
 
   return (
     <div className="p-12">
@@ -63,22 +110,18 @@ export const Content: React.FC<ContentProps> = ({ agent }) => {
       >
         {(props) => {
           return (
-            <SubscribeModal
-              isOpen={isOpen}
-              closeModal={closeModal}
-              agent={agent}
-            />
+            <>
+              {isClient &&
+                createPortal(
+                  <div className="agents-ui">
+                    <FanSubscriptionModal />
+                  </div>,
+                  document.body,
+                )}
+            </>
           );
         }}
       </LoginProvider>
-
-      {isClient &&
-        createPortal(
-          <div className="agents-ui">
-            <FanSubscriptionModal />
-          </div>,
-          document.body,
-        )}
 
       <div className="flex h-full flex-col rounded-12 border border-neutral-6 bg-gray-dark-2">
         <div className="flex items-center justify-between p-12">
