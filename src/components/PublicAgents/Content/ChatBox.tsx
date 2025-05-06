@@ -89,7 +89,7 @@ export const ChatBox: React.FC<ChatBoxProps> = ({
             </PreviewModeTooltip>
           </div>
           <IconButton
-            className="border-none bg-neutral-1 hover:bg-black"
+            className="border-none bg-white text-gray-dark-1 hover:bg-gray-dark-11 disabled:bg-gray-dark-3 disabled:text-gray-dark-11"
             onClick={handleSubmit}
             disabled={!msg || isLoading}
           >
