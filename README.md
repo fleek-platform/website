@@ -132,6 +132,7 @@ PUBLIC_POSTHOG_API_KEY="phc_SdvLWEagL7nAauyEBun0ZF6v59DxMIk8ofzI91gpIUw"
 PUBLIC_OPEN_API_ENDPOINT="https://api.fleek.xyz/api/openapi.json"
 PUBLIC_FLEEK_WEBSITE_URL="https://fleek.xyz"
 PUBLIC_PERSONA_GENERATOR_API_URL="https://persona-generator.flkservices.io"
+PUBLIC_CUSTOM_AGENTS_URL="https://social-agent.platform.fleek.xyz"
 ```
 
 💡 The SUPPORT_ALLOW_ORIGIN_ADDR and SUPPORT_RATE_LIMIT_PATHS are comma separated values (csv). the MEILISEARCH_DOCUMENTS_CLIENT_API_KEY is required when querying staging, production environments which should be provided in the headers.
@@ -668,7 +669,7 @@ Open the [settings.json](./src/settings.json) and locate the property `agentsAdm
 "agentsAdminNotification": {
   "authenticatedUsers": {
     "message": "When we have capacity to deploy new AI agents you will be first in line. Please try again later!",
-    "enable": false      
+    "enable": false
   },
   "default": {
     "message": "We're currently over capacity and unable to deploy new AI agents. Sign in now to save time and try again later!",
