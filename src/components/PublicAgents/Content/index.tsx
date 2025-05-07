@@ -25,6 +25,7 @@ import { useMutation } from '@tanstack/react-query';
 
 setDefined({
   PUBLIC_FLEEK_REST_API_HOST: import.meta.env.PUBLIC_FLEEK_REST_API_HOST,
+  PUBLIC_CUSTOM_AGENTS_URL: import.meta.env.PUBLIC_CUSTOM_AGENTS_URL,
 });
 
 type ContentProps = {
