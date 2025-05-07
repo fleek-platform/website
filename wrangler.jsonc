@@ -10,9 +10,7 @@
 
   "env": {
     "staging": {
-      "name": "",
-      "route": "",
-      "zone_id": ""
+      "name": ""
     },
     "production": {
       "name": "",
