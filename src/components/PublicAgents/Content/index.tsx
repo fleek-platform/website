@@ -113,7 +113,6 @@ export const Content: React.FC<ContentProps> = ({ agent }) => {
 
   useEffect(() => {
     onCheckoutSuccess.current = async () => {
-      console.log('on checkout success!');
       if (hasRun.current) return;
       hasRun.current = true;
       setIsLoading(true);
