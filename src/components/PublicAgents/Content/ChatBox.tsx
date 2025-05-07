@@ -49,13 +49,13 @@ export const ChatBox: React.FC<ChatBoxProps> = ({
           </Button>
         </div>
       )}
-      <div className="relative overflow-clip rounded-12 border border-neutral-6 bg-gray-dark-4">
+      <div className="relative overflow-clip rounded-12 border border-neutral-7 bg-gray-dark-4">
         {hasClosed && (
           <div className="absolute inset-0 z-10 cursor-not-allowed bg-gray-dark-3/50" />
         )}
         <textarea
           placeholder="Message..."
-          className="w-full resize-none bg-transparent p-16 text-neutral-12 outline-none [field-sizing:content] placeholder:text-neutral-8"
+          className="w-full resize-none bg-transparent p-12 text-neutral-12 outline-none [field-sizing:content] placeholder:text-neutral-8"
           value={msg}
           onChange={handleChange}
           onKeyDown={(e) => {
