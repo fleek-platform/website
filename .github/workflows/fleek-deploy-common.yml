@@ -110,7 +110,7 @@ jobs:
         run: |
           wranglerConfig="wrangler.jsonc"
           tempConfig="temp.jsonc"
-          projectName="fleek-website"
+          projectName="fleek-xyz"
           projectRoute="${{ vars.PUBLIC_FLEEK_CF_PROJECT_ROUTE }}"
           environment="${{ inputs.environment }}"
 
