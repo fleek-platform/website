@@ -1,5 +1,6 @@
 import tailwindCustomConfig from './.tailwind/tailwind.custom.config';
 import tailwindPluginTypography from './.tailwind/tailwind.plugin.typography';
+import tailwindcssAnimate from "tailwindcss-animate";
 
 export const colors = {
   title: '#F1F1F1',
@@ -133,6 +134,7 @@ export default {
     },
   },
   plugins: [
+    tailwindcssAnimate,
     tailwindPluginTypography,
     function ({ addUtilities }) {
       addUtilities({
