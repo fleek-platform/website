@@ -7,6 +7,7 @@ image: './thumbnail.png'
 author:
   - 'Fleek'
 ---
+
 ## The Next Layer Needs New Rights
 
 Agents are changing how content gets generated and who owns the rights and value it generates. That’s why we’re excited to announce our partnership with Story bringing native IP support this shift.
