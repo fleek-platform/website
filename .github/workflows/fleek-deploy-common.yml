@@ -130,8 +130,7 @@ jobs:
               --arg projectRoute "$projectRoute" \
             '
               .workers_dev = true |
-              .env.staging.name = $projectName |
-              .env.staging.route = $projectRoute
+              .env.staging.name = $projectName
             ' \
             "$wranglerConfig" > "$tempConfig" \
             && mv "$tempConfig" "$wranglerConfig"
