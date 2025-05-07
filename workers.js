@@ -21,6 +21,18 @@ async function handleEvent(event) {
       }
     }
 
+    if (url.pathname.startsWith('/dashboard/')) {
+      try {
+        return await getAssetFromKV(event)
+      } catch (assetError) {
+        return await getAssetFromKV(event, {
+          mapRequestToAsset: req => {
+            return mapRequestToAsset(new Request(`${new URL(req.url).origin}/dashboard/index.html`, req))
+          }
+        })
+      }
+    }
+
     return await getAssetFromKV(event)
   } catch (e) {
     return new Response('Not found', { status: 404 })
