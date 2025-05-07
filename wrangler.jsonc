@@ -2,9 +2,10 @@
   "$schema": "node_modules/wrangler/config-schema.json",
   "name": "fleek-website",
   "compatibility_date": "2025-05-06",
+  "main": "workers.js",
 
-  "assets": {
-    "directory": "./dist"
+  "site": {
+    "bucket": "./dist"
   },
 
   "env": {
