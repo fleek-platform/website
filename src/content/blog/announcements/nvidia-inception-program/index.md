@@ -59,6 +59,6 @@ We're not just building tools. We're building the future of autonomous systems -
 
 Stay tuned as we share what we’re building next. The agent layer isn’t coming. It’s already here - and now it runs on GPUs.
 
-Deploy an agent today on [fleek.xyz](https://fleek.xyz/)And follow our journey as we scale into the AI future.
+Deploy an agent today on [fleek.xyz](https://fleek.xyz/) and follow our journey as we scale into the AI future.
 
 _© 2025 NVIDIA, the NVIDIA logo, and NVIDIA Inception Program are trademarks and/or registered trademarks of NVIDIA Corporation in the U.S. and other countries._
