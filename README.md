@@ -219,7 +219,7 @@ npm run preview:cf
 
 ## 👀 Preview staging
 
-You can preview the develop branch version by visiting the preview [here](https://fleek-xyz-staging.fleeksandbox.xyz).
+You can preview the develop branch version by visiting the preview [here](https://fleek-xyz-staging.dev-dbf.workers.dev/).
 
 ## 🎀 Code Formatter
 
