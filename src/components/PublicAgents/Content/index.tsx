@@ -21,6 +21,7 @@ import { isClient } from '@utils/common';
 import { createPortal } from 'react-dom';
 import toast from 'react-hot-toast';
 import { getUserIdFromAccessToken } from '@utils/accessToken';
+import { useMutation } from '@tanstack/react-query';
 
 setDefined({
   PUBLIC_FLEEK_REST_API_HOST: import.meta.env.PUBLIC_FLEEK_REST_API_HOST,
@@ -55,7 +56,13 @@ export const Content: React.FC<ContentProps> = ({ agent }) => {
     setIsLoading(true);
   };
 
+  const { billing } = useHasFanPlan();
+
   const openModal = () => {
+    if (billing?.activePlans) {
+      onCheckoutSuccess.current();
+      return;
+    }
     openSubscriptionModal({
       agent,
     });
@@ -68,39 +75,64 @@ export const Content: React.FC<ContentProps> = ({ agent }) => {
   const onCheckoutSuccess = useRef(() => {});
   const hasRun = useRef(false);
 
+  const { mutate: createThread } = useMutation({
+    mutationFn: async () => {
+      if (!accessToken) {
+        throw new Error('Missing accessToken');
+      }
+      const userId = getUserIdFromAccessToken(accessToken);
+      if (!userId) {
+        throw new Error('Missing userId');
+      }
+
+      return getOrCreateAgentThread({
+        userId,
+        accessToken,
+        projectId,
+        agentId: agent.id,
+      });
+    },
+    onSuccess: () => {
+      localStorage.setItem(
+        `fleek-xyz-influencer-payload-${agent.id}`,
+        JSON.stringify({
+          lead: userMsg,
+        }),
+      );
+      window.location.href = `${import.meta.env.PUBLIC_UI_AGENTS_APP_URL}/agent/${agent.id}`;
+    },
+    onError: (e) => {
+      console.error(e);
+      toast.error('Failed to create thread.');
+    },
+    onSettled: () => {
+      setIsLoading(false);
+    },
+    retry: 3,
+  });
+
   useEffect(() => {
     onCheckoutSuccess.current = async () => {
+      console.log('on checkout success!');
       if (hasRun.current) return;
       hasRun.current = true;
-      try {
-        if (!accessToken) {
-          throw new Error('Missing accessToken');
-        }
-        const userId = getUserIdFromAccessToken(accessToken);
-        if (!userId) {
-          throw new Error('Missing userId');
-        }
-
-        await getOrCreateAgentThread({
-          userId,
-          accessToken,
-          projectId,
-          agentId: agent.id,
-        });
-        window.location.href = `${import.meta.env.PUBLIC_UI_AGENTS_APP_URL}/agent/${agent.id}`;
-      } catch (e) {
-        console.error(e);
-        toast.error('Failed to create thread.');
-      }
+      setIsLoading(true);
+      createThread();
     };
-  }, [accessToken, projectId, agent]);
+  }, [createThread]);
 
-  const { billing } = useHasFanPlan();
+  const portalRef = useRef<React.ReactPortal>();
+
   useEffect(() => {
-    if (billing?.activePlans) {
-      onCheckoutSuccess.current();
+    if (isClient && !portalRef.current) {
+      portalRef.current = createPortal(
+        <div className="agents-ui">
+          <FanSubscriptionModal />
+        </div>,
+        document.body,
+      );
     }
-  }, [billing]);
+  }, []);
 
   return (
     <div className="p-12">
@@ -109,19 +141,11 @@ export const Content: React.FC<ContentProps> = ({ agent }) => {
         dynamicEnvironmentId={import.meta.env.PUBLIC_DYNAMIC_ENVIRONMENT_ID}
       >
         {(props) => {
-          return (
-            <>
-              {isClient &&
-                createPortal(
-                  <div className="agents-ui">
-                    <FanSubscriptionModal />
-                  </div>,
-                  document.body,
-                )}
-            </>
-          );
+          return <></>;
         }}
       </LoginProvider>
+
+      {portalRef.current}
 
       <div className="flex h-full flex-col rounded-12 border border-neutral-6 bg-gray-dark-2">
         <div className="flex items-center justify-between p-12">
