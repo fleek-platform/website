@@ -10,7 +10,7 @@
     "dev": "astro dev",
     "start": "astro dev",
     "build": "rm -rf dist && npm run check:strict && npm run check:json && npm run build:static_assets",
-    "build:static_assets": "npx astro build && ./scripts/build/copy-video-content-src-to-dist && cp ./public/_redirects ./dist",
+    "build:static_assets": "npx astro build && ./scripts/build/copy-video-content-src-to-dist",
     "preview:build": "./scripts/dev-build-preview",
     "preview:cf": "npx wrangler dev --port 4321",
     "preview:astro": "astro preview",
