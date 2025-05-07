@@ -1,0 +1,21 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "",
+  "compatibility_date": "2025-05-06",
+  "main": "workers.js",
+
+  "site": {
+    "bucket": "./dist"
+  },
+
+  "env": {
+    "staging": {
+      "name": ""
+    },
+    "production": {
+      "name": "",
+      "route": "",
+      "zone_id": ""
+    }
+  }
+}
