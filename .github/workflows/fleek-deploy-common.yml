@@ -140,6 +140,10 @@ jobs:
           echo "🤖 Wrangler config"
           cat "$wranglerConfig"
 
+      - name: Build
+        run: |
+          npm run build
+
       - name: Deploy
         uses: cloudflare/wrangler-action@v3
         with:
