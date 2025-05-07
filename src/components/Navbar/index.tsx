@@ -510,7 +510,7 @@ const SessionManagementActions: React.FC = () => {
         onAuthenticationSuccess={onAuthenticationSuccess}
       >
         {(props) => {
-          const { accessToken, isLoading, error, login, logout } = props;
+          const { isLoading, error, login, logout } = props;
 
           // TODO: This should be removed added temporary
           // due to an issue with the expectation for /prices
@@ -521,7 +521,7 @@ const SessionManagementActions: React.FC = () => {
           }
 
           const handleClick = () => {
-            if (accessToken) {
+            if (isLoggedIn) {
               logout();
             } else {
               login();
