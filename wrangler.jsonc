@@ -1,6 +1,6 @@
 {
   "$schema": "node_modules/wrangler/config-schema.json",
-  "name": "fleek-website",
+  "name": "",
   "compatibility_date": "2025-05-06",
   "main": "workers.js",
 
