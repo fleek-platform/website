@@ -21,6 +21,7 @@ setDefined({
   PUBLIC_FLEEK_REST_API_HOST: import.meta.env.PUBLIC_FLEEK_REST_API_HOST,
   PUBLIC_PERSONA_GENERATOR_API_URL: import.meta.env
     .PUBLIC_PERSONA_GENERATOR_API_URL,
+  PUBLIC_FLEEK_WEBSITE_URL: import.meta.env.PUBLIC_FLEEK_WEBSITE_URL,
 });
 
 const queryClient = new QueryClient();

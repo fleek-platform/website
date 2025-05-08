@@ -30,15 +30,23 @@ const findBase = (splitted: string[]) => {
   return splitted[1];
 };
 
+enum ViewCategory {
+  aiAgents = 'ai-agents',
+  webHosting = 'web-hosting',
+}
+
 const SidebarMenu: React.FC<Props> = ({ data, pathname, indexNameDocs }) => {
-  const [currentView, setCurrentView] = useState<'ai-agents' | 'hosting'>(
-    () => {
-      if (pathname === '/docs/' || pathname.includes('/docs/ai-agents/')) {
-        return 'ai-agents';
-      }
-      return 'hosting';
-    },
-  );
+  const [currentView, setCurrentView] = useState<ViewCategory>(() => {
+    if (
+      pathname === '/docs/' ||
+      pathname === '/docs' ||
+      pathname.includes('/docs/ai-agents/') ||
+      pathname.includes('/docs/ai-agents')
+    ) {
+      return ViewCategory.aiAgents;
+    }
+    return ViewCategory.webHosting;
+  });
 
   useEffect(() => {
     if (isClient) {
@@ -48,9 +56,9 @@ const SidebarMenu: React.FC<Props> = ({ data, pathname, indexNameDocs }) => {
           currentPath === '/docs/' ||
           currentPath.includes('/docs/ai-agents/')
         ) {
-          setCurrentView('ai-agents');
+          setCurrentView(ViewCategory.aiAgents);
         } else {
-          setCurrentView('hosting');
+          setCurrentView(ViewCategory.webHosting);
         }
       };
 
@@ -65,9 +73,9 @@ const SidebarMenu: React.FC<Props> = ({ data, pathname, indexNameDocs }) => {
   const filteredData = useMemo(() => {
     return data.filter((item) => {
       if (currentView === 'ai-agents') {
-        return item.category === 'ai-agents';
+        return item.category === ViewCategory.aiAgents;
       }
-      return item.category !== 'ai-agents';
+      return item.category !== ViewCategory.aiAgents;
     });
   }, [data, currentView]);
 
@@ -139,7 +147,7 @@ const SidebarMenu: React.FC<Props> = ({ data, pathname, indexNameDocs }) => {
                 }
                 size="sm"
                 onClick={() => {
-                  setCurrentView('ai-agents');
+                  setCurrentView(ViewCategory.aiAgents);
                 }}
               >
                 AI Agents
@@ -147,16 +155,16 @@ const SidebarMenu: React.FC<Props> = ({ data, pathname, indexNameDocs }) => {
               <Button
                 key="hosting"
                 variant={
-                  currentView === 'hosting'
+                  currentView === ViewCategory.webHosting
                     ? 'primary-ghost'
                     : 'secondary-ghost'
                 }
                 size="sm"
                 onClick={() => {
-                  setCurrentView('hosting');
+                  setCurrentView(ViewCategory.webHosting);
                 }}
               >
-                Hosting
+                Web Hosting
               </Button>,
             ]}
           />

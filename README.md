@@ -211,9 +211,15 @@ If you are looking for Astrojs default preview that's available as:
 npm run preview:astro
 ```
 
+Another preview's available for `cf`
+
+```sh
+npm run preview:cf
+```
+
 ## 👀 Preview staging
 
-You can preview the develop branch version by visiting the preview [here](https://fleek-xyz-staging.fleeksandbox.xyz).
+You can preview the develop branch version by visiting the preview [here](https://fleek-xyz-staging.dev-dbf.workers.dev/).
 
 ## 🎀 Code Formatter
 

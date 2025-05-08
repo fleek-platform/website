@@ -106,9 +106,27 @@ jobs:
             "$DIST_PATH" \
             "$BUILD"
 
-      - name: Build & deploy
+      - name: Prepare wrangler.jsonc
         run: |
-          fleek sites deploy
+          environment="${{ inputs.environment }}"
+          projectName="fleek-xyz-$environment"
+          projectRoute="${{ vars.PUBLIC_FLEEK_CF_PROJECT_ROUTE }}"
+
+          ./scripts/prepare-cf-wrangler \
+            "$environment" \
+            "$projectName" \
+            "$projectRoute"
+
+      - name: Build
+        run: |
+          npm run build
+
+      - name: Deploy
+        uses: cloudflare/wrangler-action@v3
+        with:
+          apiToken: ${{ secrets.PRIVATE_CLOUDFLARE_API_TOKEN }}
+          accountId: ${{ secrets.PRIVATE_CLOUDFLARE_ACCOUNT_ID }}
+          command: deploy --env ${{ env.TARGET_ENVIRONMENT }}
 
       - name: Clear
         run: |

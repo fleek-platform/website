@@ -1,0 +1,38 @@
+#!/bin/bash
+
+environment="$1"
+projectName="$2"
+projectRoute="$3"
+
+if [[ -z "$1" || -z "$2" || -z "$3" ]]; then
+  echo "👹 Oops! Missing arguments, e.g. environment ($environment), projectName ($projectName) or projectRoute ($projectRoute)"
+  exit 1
+fi
+
+wranglerConfig="wrangler.jsonc"
+tempConfig="temp.jsonc"
+
+if [[ "$environment" == "production" ]]; then
+  # TODO: Once ready to move prd DNS
+  # disable workers_dev and declare route 
+  jq --arg projectName "$projectName" \
+    --arg projectRoute "$projectRoute" \
+  '
+    .workers_dev = true |
+    .env.production.name = $projectName
+  ' \
+  "$wranglerConfig" > "$tempConfig" \
+  && mv "$tempConfig" "$wranglerConfig"
+else
+  jq --arg projectName "$projectName" \
+    --arg projectRoute "$projectRoute" \
+  '
+    .workers_dev = true |
+    .env.staging.name = $projectName
+  ' \
+  "$wranglerConfig" > "$tempConfig" \
+  && mv "$tempConfig" "$wranglerConfig"
+fi
+
+echo "🤖 Wrangler config"
+cat "$wranglerConfig"
