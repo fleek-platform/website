@@ -1,0 +1,36 @@
+#!/bin/bash
+
+environment="$1"
+projectName="$2"
+projectRoute="$3"
+
+if [[ -z "$1" || -z "$2" || -z "$3" || -z "$4" ]]; then
+  echo "👹 Oops! Missing arguments, e.g. github token, organisation repository, artifact name, etc"
+  exit 1
+fi
+
+wranglerConfig="wrangler.jsonc"
+tempConfig="temp.jsonc"
+
+if [[ "$environment" == "production" ]]; then
+  jq --arg projectName "$projectName-$environment" \
+    --arg projectRoute "$projectRoute" \
+  '
+    .workers_dev = true |
+    .env.production.name = $projectName
+  ' \
+  "$wranglerConfig" > "$tempConfig" \
+  && mv "$tempConfig" "$wranglerConfig"
+else
+  jq --arg projectName "$projectName-$environment" \
+    --arg projectRoute "$projectRoute" \
+  '
+    .workers_dev = true |
+    .env.staging.name = $projectName
+  ' \
+  "$wranglerConfig" > "$tempConfig" \
+  && mv "$tempConfig" "$wranglerConfig"
+fi
+
+echo "🤖 Wrangler config"
+cat "$wranglerConfig"
