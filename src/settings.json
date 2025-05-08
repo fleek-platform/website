@@ -165,9 +165,9 @@
       }
     },
     "announcementMarquee": {
-      "message": "$FLK token sale now LIVE on Coinlist",
-      "url": "https://coinlist.co/fleek",
-      "visible": true
+      "message": "",
+      "url": "",
+      "visible": false
     },
     "announcementModal": {
       "generic": {
