@@ -109,7 +109,7 @@ jobs:
       - name: Prepare wrangler.jsonc
         run: |
           environment="${{ inputs.environment }}"
-          projectName="$projectName-$environment"
+          projectName="fleek-xyz-$environment"
           projectRoute="${{ vars.PUBLIC_FLEEK_CF_PROJECT_ROUTE }}"
 
           ./scripts/prepare-cf-wrangler \

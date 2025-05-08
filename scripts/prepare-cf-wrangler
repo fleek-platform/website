@@ -13,7 +13,9 @@ wranglerConfig="wrangler.jsonc"
 tempConfig="temp.jsonc"
 
 if [[ "$environment" == "production" ]]; then
-  jq --arg projectName "$projectName-$environment" \
+  # TODO: Once ready to move prd DNS
+  # disable workers_dev and declare route 
+  jq --arg projectName "$projectName" \
     --arg projectRoute "$projectRoute" \
   '
     .workers_dev = true |
@@ -22,7 +24,7 @@ if [[ "$environment" == "production" ]]; then
   "$wranglerConfig" > "$tempConfig" \
   && mv "$tempConfig" "$wranglerConfig"
 else
-  jq --arg projectName "$projectName-$environment" \
+  jq --arg projectName "$projectName" \
     --arg projectRoute "$projectRoute" \
   '
     .workers_dev = true |
