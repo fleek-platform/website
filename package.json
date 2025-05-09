@@ -56,7 +56,7 @@
     "@astrojs/sitemap": "^3.1.4",
     "@astrojs/tailwind": "^5.1.0",
     "@cloudflare/kv-asset-handler": "^0.4.0",
-    "@fleek-platform/agents-ui": "8.29.2",
+    "@fleek-platform/agents-ui": "8.31.3",
     "@fleek-platform/dashboard": "0.20.7",
     "@fleek-platform/login-button": "2.16.0",
     "@fleek-platform/sdk": "^3.6.2",
