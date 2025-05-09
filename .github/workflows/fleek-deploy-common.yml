@@ -53,15 +53,28 @@ jobs:
 
       - uses: ./.github/actions/setup-nodejs
 
-      # - name: Cache astro build
-      #   uses: actions/cache@v3
-      #   with:
-      #     path: |
-      #       .astro
-      #       ./node_modules/.astro
-      #     key: ${{ runner.os }}-build-${{ hashFiles('**/package-lock.json') }}
-      #     restore-keys: |
-      #       ${{ runner.os }}-build-
+      - name: Cache node modules
+        uses: actions/cache@v4
+        id: node-cache
+        with:
+          path: node_modules
+          key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
+          restore-keys: |
+            ${{ runner.os }}-node-
+
+      - name: Cache Astro build
+        uses: actions/cache@v4
+        id: astro-cache
+        with:
+          path: |
+            .astro
+            node_modules/.vite
+            node_modules/.astro
+            dist
+          key: ${{ runner.os }}-astro-${{ hashFiles('src/**/*.{js,ts,jsx,tsx,astro,md,mdx}', 'public/**/*') }}-${{ hashFiles('astro.config.mjs', 'tsconfig.json') }}
+          restore-keys: |
+            ${{ runner.os }}-astro-${{ hashFiles('src/**/*.{js,ts,jsx,tsx,astro,md,mdx}', 'public/**/*') }}-
+            ${{ runner.os }}-astro-
 
       - name: Install Doppler CLI
         uses: dopplerhq/cli-action@v3
@@ -93,6 +106,7 @@ jobs:
       # - Dashboard
       # - Deploy
       - name: Install Packages
+        if: steps.node-cache.outputs.cache-hit != 'true'
         run: npm install
 
       - name: Setup fleek.config.json
