@@ -106,7 +106,9 @@ jobs:
       # - Dashboard
       # - Deploy
       - name: Install Packages
-        if: steps.node-cache.outputs.cache-hit != 'true'
+        # Obs: Preventing the npm i would block the
+        # install hook that prepares the apps
+        # if: steps.node-cache.outputs.cache-hit != 'true'
         run: npm install
 
       - name: Setup fleek.config.json
