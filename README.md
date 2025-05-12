@@ -14,6 +14,7 @@ This repository contains the source code and assets for the Fleek.xyz website, w
   - [Develop](#%EF%B8%8Fdevelop)
     - [EnvVars](#env-vars)
   - [Build](#%EF%B8%8F-build)
+  - [Single page applications setup](#single-page-applications-setup-spa)
   - [Preview (locally)](#-preview-locally)
   - [Preview (staging)](#-preview-staging)
   - [Code formatter](#-code-formatter)
@@ -124,12 +125,13 @@ PUBLIC_BEHIIV_SUBSCRIBE_URL=***
 PUBLIC_BEEHIIV_PROXY_SERVER_URL=***
 PUBLIC_GRAPHQL_ENDPOINT="https://graphql.service.fleek.xyz/graphql"
 PUBLIC_DYNAMIC_ENVIRONMENT_ID="de23a5f0-aaa5-412e-8212-4fb056a3b30d"
-PUBLIC_UI_APP_URL="https://fleek.xyz/dashboard"
-PUBLIC_UI_AGENTS_APP_URL="https://fleek.xyz/eliza"
+PUBLIC_APP_HOSTING_URL="https://fleek.xyz/dashboard"
+PUBLIC_APP_AGENTS_URL="https://fleek.xyz/agents"
 PUBLIC_POSTHOG_HOST="https://us.i.posthog.com"
 PUBLIC_POSTHOG_API_KEY="phc_SdvLWEagL7nAauyEBun0ZF6v59DxMIk8ofzI91gpIUw"
 PUBLIC_OPEN_API_ENDPOINT="https://api.fleek.xyz/api/openapi.json"
 PUBLIC_FLEEK_WEBSITE_URL="https://fleek.xyz"
+PUBLIC_PERSONA_GENERATOR_API_URL="https://persona-generator.flkservices.io"
 ```
 
 💡 The SUPPORT_ALLOW_ORIGIN_ADDR and SUPPORT_RATE_LIMIT_PATHS are comma separated values (csv). the MEILISEARCH_DOCUMENTS_CLIENT_API_KEY is required when querying staging, production environments which should be provided in the headers.
@@ -152,7 +154,34 @@ Alternatively, you can skip build checkups and build assets only:
 npm run build:static_assets
 ```
 
-## 🙈 Preview locally
+Consider that the Fleek website hosts single page applications in its distributed files. Whenever you build, make sure to have run `npm install` to make sure that the packages and related side-effects occur before building!
+
+To learn more, read the [Single page applications setup](#single-page-applications-setup-spa).
+
+## Single page applications setup (SPA)
+
+The applications [Agents-UI](https://github.com/fleek-platform/agents-ui) and [Hosting dashboard](https://github.com/fleek-platform/dashboard) are hosted under the same domain as site.
+
+At time of writing, Fleek's site is based on static site generator (SSG) and the applications are single page applications (SPA).
+
+In the future, we can expect to have some middleware (an HTTP proxy to route requests to the particular applications or fallback to site). But currently, we serve the applications over the site's distribution, which is done statically.
+
+The Agents and Dashboard SPA's are installed in site by package version. Our host site can override the prebuilt environment variables for concurrent environments, such as staging.
+
+There's an npm install hook that handles the process for you, e.g. copies the SPA package distribution files locally and setup the environment variables overrides.
+
+> [!IMPORTANT]  
+> When updating the SPA Agents-UI or Dashboard, it's crucial to run the "npm install" command. The reason is that the npm install hook only occurs for install and not install <package>.
+
+The SPA's are placed in astrojs public directory and when astro build occurs, it copies the applications over to the distribution, e.g. out directory.
+
+Consequently, the SPA's paths `/agents` and `/dashboard` are reserved; these are not served as SSG directories or files but route to the SPA base. Meaning, that when a request is made to `/agents` it routes to `/agents/index.html` which is then resolved by the application runtime router, e.g. possible due to redirects setup.
+
+It's important to comprehend the process of how static routing occurs in the application. You can test it locally by using the [build preview](#preview-locally).
+
+## Preview locally
+
+The preview server is a custom static site generator (SSG) http server for testing locally and not meant for production.It's purpose is to handle the SSG project host site but also the applications served under the domain, which reserved routes are `/agents` and `/dashboard`. You can learn more about how the single page apps are setup in site by reading [here](#single-page-applications-spa).
 
 You can preview the distribution build locally by starting the preview HTTP server:
 
@@ -160,11 +189,37 @@ You can preview the distribution build locally by starting the preview HTTP serv
 npm run preview
 ```
 
-💡 By default, the local site will be available in the address [http://localhost:4322](http://localhost:4322).
+```sh
+🤖 Server running at http://localhost:3002
+🚀 SPA routes configured are /agents, /dashboard
+```
+
+💡 By default, the local site will be available in the address [http://localhost:3002](http://localhost:3002). You can override it by declaring an environment variable `DEV_PREVIEW_PORT` and the desired port number.
+
+If you are testing locally, you may be interested in tweaking your environment variables to:
+
+```sh
+PUBLIC_APP_HOSTING_URL="http://localhost:3002/dashboard"
+PUBLIC_APP_AGENTS_URL="http://localhost:3002/agents"
+```
+
+Note that the `preview` is a custom process that is aware of site's hosted applications. It doesn't support Astrojs previewer features! Instead, this is a custom HTTP server for local purposes supportin the single page applications. To learn more, read the [Single page applications setup](#single-page-applications-setup-spa).
+
+If you are looking for Astrojs default preview that's available as:
+
+```sh
+npm run preview:astro
+```
+
+Another preview's available for `cf`
+
+```sh
+npm run preview:cf
+```
 
 ## 👀 Preview staging
 
-You can preview the develop branch version by visiting the preview [here](https://fleek-xyz-staging.fleeksandbox.xyz).
+You can preview the develop branch version by visiting the preview [here](https://fleek-xyz-staging.dev-dbf.workers.dev/).
 
 ## 🎀 Code Formatter
 

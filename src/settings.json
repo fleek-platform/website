@@ -165,9 +165,9 @@
       }
     },
     "announcementMarquee": {
-      "message": "Announcing: Fleek's $FLK sale on Coinlist",
-      "url": "https://coinlist.co/fleek",
-      "visible": true
+      "message": "",
+      "url": "",
+      "visible": false
     },
     "announcementModal": {
       "generic": {
@@ -594,7 +594,7 @@
   "agentsAdminNotification": {
     "authenticatedUsers": {
       "message": "When we have capacity to deploy new AI agents you will be first in line. Please try again later!",
-      "enable": false
+      "enable": true
     },
     "default": {
       "message": "We're currently over capacity and unable to deploy new AI agents. Sign in now to save time and try again later!",

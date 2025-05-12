@@ -9,7 +9,7 @@ export const useDeployAgentCta = () => {
       return;
     }
 
-    window.location.href = import.meta.env.PUBLIC_UI_AGENTS_APP_URL;
+    window.location.href = import.meta.env.PUBLIC_APP_AGENTS_URL;
   };
 
   return { deployAgentCta };

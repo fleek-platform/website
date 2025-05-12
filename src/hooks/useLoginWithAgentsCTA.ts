@@ -17,7 +17,7 @@ export const useLoginWithAgentsCTA = () => {
       return;
     }
 
-    window.location.href = import.meta.env.PUBLIC_UI_AGENTS_APP_URL;
+    window.location.href = import.meta.env.PUBLIC_APP_AGENTS_URL;
   }, [isLoggedIn, triggerLoginModal]);
 
   return { onDeployAgentCTA };

@@ -2,63 +2,86 @@ import '@fleek-platform/agents-ui/styles';
 import {
   ChatBox,
   type FileWithPreview,
-  DRAFT_BOOTSTRAP_DATA_KEY,
-  ROUTE_NEW_DRAFT,
+  useDeployFromPrompt,
+  SubscriptionModal,
+  setDefined,
 } from '@fleek-platform/agents-ui';
 import { useAuthStore } from '@fleek-platform/login-button';
-import { storeFunnelData } from '@utils/funnel';
-import { fileToBase64 } from '@utils/file';
 import { setReferralQueryKeyValuePair } from '@utils/referrals';
+import { useEffect, useRef } from 'react';
+import { createPortal } from 'react-dom';
+import { isClient } from '@utils/common';
+import toast from 'react-hot-toast';
+import { ZodError } from 'zod';
+import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 
 const MAX_FILE_SIZE = 10 * 1024 * 1024;
 
-export const ChatToAIAgentDeploy = ({
+setDefined({
+  PUBLIC_FLEEK_REST_API_HOST: import.meta.env.PUBLIC_FLEEK_REST_API_HOST,
+  PUBLIC_PERSONA_GENERATOR_API_URL: import.meta.env
+    .PUBLIC_PERSONA_GENERATOR_API_URL,
+  PUBLIC_FLEEK_WEBSITE_URL: import.meta.env.PUBLIC_FLEEK_WEBSITE_URL,
+});
+
+const queryClient = new QueryClient();
+
+export const ChatToAIAgentDeployChild = ({
   role,
   onDescriptionChange,
 }: {
   role?: string;
   onDescriptionChange?: () => void;
 }) => {
-  const { triggerLoginModal, isLoggedIn } = useAuthStore();
+  const { triggerLoginModal, isLoggedIn, accessToken, projectId } =
+    useAuthStore();
+
+  const { deploy, isDeploying } = useDeployFromPrompt({
+    onDeploy: ({ agentId }) => {
+      window.location.href = `${import.meta.env.PUBLIC_UI_AGENTS_APP_URL}/drafts/${agentId}/deploying`;
+    },
+    onError: (error) => {
+      let message = 'Failed to deploy agent';
+      if (error instanceof ZodError) {
+        message =
+          'Your prompt didn’t generate a valid agent. Try refining it or click the magic wand button to enhance it.';
+      }
+
+      toast.error(message, {
+        duration: 20_000,
+      });
+    },
+  });
+
+  const hasRun = useRef(false);
+  const pendingPrompt = useRef<string>();
+
+  useEffect(() => {
+    if (isLoggedIn && !hasRun.current && pendingPrompt.current) {
+      hasRun.current = true;
+      deploy({
+        prompt: pendingPrompt.current,
+        accessToken,
+        projectId,
+      });
+      pendingPrompt.current = undefined;
+    }
+  }, [isLoggedIn, accessToken, projectId, deploy]);
 
   const onSubmit = async (description: string, files: FileWithPreview[]) => {
-    console.log('[debug] Description:', description);
-    console.log('[debug] Files:', files);
-
-    // TODO: Validate data
-
-    const fileDataPromises = files.map((file) => fileToBase64(file));
-    const fileDataArray = await Promise.all(fileDataPromises);
-
-    const data = {
-      mode: 'chat',
-      fromApp: 'website',
-      prompt: description,
-      timestamp: new Date(),
-    };
-
-    setReferralQueryKeyValuePair('agents');
-    storeFunnelData({
-      key: DRAFT_BOOTSTRAP_DATA_KEY,
-      data,
-    });
-
     if (isLoggedIn) {
-      const currentParams = new URLSearchParams(window.location.search);
-
-      const targetUrl = new URL(
-        `${import.meta.env.PUBLIC_UI_AGENTS_APP_URL}${ROUTE_NEW_DRAFT}`,
-      );
-
-      currentParams.forEach((value, key) => {
-        targetUrl.searchParams.append(key, value);
+      deploy({
+        prompt: description,
+        accessToken,
+        projectId,
       });
-
-      window.location.assign(targetUrl.toString());
 
       return true;
     }
 
+    pendingPrompt.current = description;
+    hasRun.current = false;
+    setReferralQueryKeyValuePair('agents');
     if (typeof triggerLoginModal !== 'function') {
       console.log('[debug] triggerLoginModal is not a fn!');
 
@@ -78,6 +101,23 @@ export const ChatToAIAgentDeploy = ({
     console.error('[debug] Submission failed:', error);
   };
 
+  const portalRef = useRef<React.ReactPortal>();
+
+  useEffect(() => {
+    if (isClient && !portalRef.current) {
+      // Be careful with createPortal
+      // causes unwanted re-render
+      // due to SubscriptionModal context or store triggers
+      // Here we use a reference to prevent subsequent render
+      portalRef.current = createPortal(
+        <div className="agents-ui">
+          <SubscriptionModal />
+        </div>,
+        document.body,
+      );
+    }
+  }, []);
+
   return (
     <div className="agents-ui my-20 flex justify-center text-14">
       <ChatBox
@@ -89,7 +129,25 @@ export const ChatToAIAgentDeploy = ({
         prompt={
           role ? `I want to create a ${role.toLocaleLowerCase()}.` : undefined
         }
+        isSubmitting={isDeploying}
       />
+
+      {portalRef.current}
     </div>
   );
 };
+
+export const ChatToAIAgentDeploy = ({
+  role,
+  onDescriptionChange,
+}: {
+  role?: string;
+  onDescriptionChange?: () => void;
+}) => (
+  <QueryClientProvider client={queryClient}>
+    <ChatToAIAgentDeployChild
+      role={role}
+      onDescriptionChange={onDescriptionChange}
+    />
+  </QueryClientProvider>
+);

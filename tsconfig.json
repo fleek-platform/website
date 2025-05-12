@@ -23,5 +23,7 @@
     "module": "es2020",
     "noErrorTruncation": true,
     "types": ["./src/types/global.d.ts"]
-  }
+  },
+  "include": ["src/**/*"],
+  "exclude": ["node_modules", "dist", "public", "Services", ".tailwind", "scripts", ".astro"]
 }

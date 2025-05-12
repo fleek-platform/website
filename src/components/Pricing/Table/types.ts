@@ -41,7 +41,7 @@ export type PlanHeader = {
   };
 };
 export type PlanSection = Record<string, string | number | boolean>;
-export type PlanKeys = 'wagmi' | 'pro' | 'enterprise';
+export type PlanKeys = 'pro' | 'enterprise';
 export type Plan = {
   features: Record<SectionKey, PlanSection>;
   header: PlanHeader;

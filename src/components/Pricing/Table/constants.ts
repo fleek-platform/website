@@ -22,7 +22,7 @@ export const PLAN_SECTIONS: SectionFeatures = {
     features: {
       bandwidth: 'Bandwidth',
     },
-    overage: ['$0.05 / GB (Overage)'],
+    overage: ['$0.09 / GB (Overage)'],
   },
   hosting: {
     icon: '/svg/storageIconPricing.svg',
@@ -52,7 +52,7 @@ export const PLAN_SECTIONS: SectionFeatures = {
     features: {
       storage: 'Storage',
     },
-    overage: ['$0.04 / GB (Overage)'],
+    overage: ['$0.09 / GB (Overage)'],
   },
   platform: {
     icon: '/svg/functionIconPricing.svg',
@@ -90,66 +90,6 @@ export const PLAN_SECTIONS: SectionFeatures = {
 };
 
 export const PRICING_PLANS: Record<PlanKeys, Plan> = {
-  wagmi: {
-    features: {
-      storage: {
-        storage: '5GB',
-      },
-      hosting: {
-        sites: '3',
-        buildMin: '500',
-        buildTier: 'Basic',
-        conBuild: '2',
-        autogenSubDomain: false,
-        domain: '1',
-        ssl: true,
-        customssl: false,
-      },
-      bandwidth: {
-        bandwidth: '20GB',
-      },
-      platform: {
-        teamMem: '1',
-        GitCon: true,
-        ddos: true,
-        imageOp: true,
-        dns: true,
-        cdn: true,
-        anycastDNS: true,
-        loadBal: true,
-        autoCacheRef: true,
-        sdk: true,
-        analytics: 'Basic',
-        support: 'Basic',
-      },
-      compute: {
-        requests: '100,000',
-        duration: '100 GB-hours included',
-        vCPU: '$0.00003 / vCPU-Sec',
-      },
-      onchainFeatures: {
-        ens: '1',
-        threedns: '1',
-        ipfs: '$0.07 / GB',
-        filecoin: '$0.04 / GB',
-        arweave: '$4.00 / GB',
-        ipns: '1',
-        privGate: '1',
-      },
-    },
-    header: {
-      title: 'Free Plan',
-      titleClassName: clsx('bg-clip-text', styles.wagmiHeader),
-      subtitle: '$0',
-      description:
-        'For those just starting.\n⚡ Up to $5 in free usage every month. ⚡',
-      cta: {
-        text: ' Start with Free',
-        href: 'https://fleek.xyz',
-        variant: 'app-success',
-      },
-    },
-  },
   pro: {
     features: {
       storage: {

@@ -37,6 +37,10 @@ jobs:
       PUBLIC_SUPPORT_API_HOST: ${{ vars.PUBLIC_SUPPORT_API_HOST }}
       PUBLIC_UI_APP_URL: ${{ vars.PUBLIC_UI_APP_URL }}
       PUBLIC_UI_AGENTS_APP_URL: ${{ vars.PUBLIC_UI_AGENTS_APP_URL }}
+      PUBLIC_PERSONA_GENERATOR_API_URL: ${{ vars.PUBLIC_PERSONA_GENERATOR_API_URL }}
+      PUBLIC_APP_HOSTING_URL: ${{ vars.PUBLIC_APP_HOSTING_URL }}
+      PUBLIC_APP_AGENTS_URL: ${{ vars.PUBLIC_APP_AGENTS_URL }}
+      PUBLIC_OPEN_API_ENDPOINT: ${{ vars.PUBLIC_OPEN_API_ENDPOINT }}
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -49,15 +53,28 @@ jobs:
 
       - uses: ./.github/actions/setup-nodejs
 
-      # - name: Cache astro build
-      #   uses: actions/cache@v3
-      #   with:
-      #     path: |
-      #       .astro
-      #       ./node_modules/.astro
-      #     key: ${{ runner.os }}-build-${{ hashFiles('**/package-lock.json') }}
-      #     restore-keys: |
-      #       ${{ runner.os }}-build-
+      - name: Cache node modules
+        uses: actions/cache@v4
+        id: node-cache
+        with:
+          path: node_modules
+          key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
+          restore-keys: |
+            ${{ runner.os }}-node-
+
+      - name: Cache Astro build
+        uses: actions/cache@v4
+        id: astro-cache
+        with:
+          path: |
+            .astro
+            node_modules/.vite
+            node_modules/.astro
+            dist
+          key: ${{ runner.os }}-astro-${{ hashFiles('src/**/*.{js,ts,jsx,tsx,astro,md,mdx}', 'public/**/*') }}-${{ hashFiles('astro.config.mjs', 'tsconfig.json') }}
+          restore-keys: |
+            ${{ runner.os }}-astro-${{ hashFiles('src/**/*.{js,ts,jsx,tsx,astro,md,mdx}', 'public/**/*') }}-
+            ${{ runner.os }}-astro-
 
       - name: Install Doppler CLI
         uses: dopplerhq/cli-action@v3
@@ -89,6 +106,9 @@ jobs:
       # - Dashboard
       # - Deploy
       - name: Install Packages
+        # Obs: Preventing the npm i would block the
+        # install hook that prepares the apps
+        # if: steps.node-cache.outputs.cache-hit != 'true'
         run: npm install
 
       - name: Setup fleek.config.json
@@ -102,9 +122,27 @@ jobs:
             "$DIST_PATH" \
             "$BUILD"
 
-      - name: Build & deploy
+      - name: Prepare wrangler.jsonc
         run: |
-          fleek sites deploy
+          environment="${{ inputs.environment }}"
+          projectName="fleek-xyz-$environment"
+          projectRoute="${{ vars.PUBLIC_FLEEK_CF_PROJECT_ROUTE }}"
+
+          ./scripts/prepare-cf-wrangler \
+            "$environment" \
+            "$projectName" \
+            "$projectRoute"
+
+      - name: Build
+        run: |
+          npm run build
+
+      - name: Deploy
+        uses: cloudflare/wrangler-action@v3
+        with:
+          apiToken: ${{ secrets.PRIVATE_CLOUDFLARE_API_TOKEN }}
+          accountId: ${{ secrets.PRIVATE_CLOUDFLARE_ACCOUNT_ID }}
+          command: deploy --env ${{ env.TARGET_ENVIRONMENT }}
 
       - name: Clear
         run: |

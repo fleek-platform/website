@@ -12,9 +12,9 @@ import {
   IoHeadsetOutline,
   IoPawOutline,
 } from 'react-icons/io5';
-import { ChatToAIAgentDeploy } from '@components/ChatToAIAgentDeploy';
 import type { IconType } from 'react-icons/lib';
 import { cn } from '@utils/cn';
+import { ChatToAIAgentDeploy } from '@components/ChatToAIAgentDeploy';
 import { useState } from 'react';
 
 const calculateDelay = (factor: number) => 0.25 * factor;

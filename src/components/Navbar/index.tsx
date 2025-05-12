@@ -1,5 +1,11 @@
+import '@fleek-platform/login-button/styles';
+
 import { useEffect } from 'react';
-import { LoginProvider } from '@fleek-platform/login-button';
+import {
+  LoginProvider,
+  ProductDropdown,
+  setDefined,
+} from '@fleek-platform/login-button';
 import {
   getAuthenticationMenu,
   navbarMenu,
@@ -13,30 +19,29 @@ import { cn } from '@utils/cn';
 import { RxHamburgerMenu } from 'react-icons/rx';
 import { isActivePath } from '@utils/url';
 import { Button } from '../Button';
-import { ProjectDropdown } from './ProjectDropdown/ProjectDropdown';
 import type { Project } from '@fleek-platform/sdk/browser';
 import { isClient } from '../../utils/common';
 import { useSession } from '@hooks/useSession';
 import { isReferralName } from '@utils/referrals';
-import { ROUTE_NEW_DRAFT } from '@fleek-platform/agents-ui';
 
-const dashboardUrl = import.meta.env.PUBLIC_UI_APP_URL;
-const agentsUrl = `${import.meta.env.PUBLIC_UI_AGENTS_APP_URL}${ROUTE_NEW_DRAFT}`;
+// Override login-button defaults
+setDefined({
+  PUBLIC_APP_HOSTING_URL: import.meta.env.PUBLIC_APP_HOSTING_URL,
+  PUBLIC_APP_AGENTS_URL: import.meta.env.PUBLIC_APP_AGENTS_URL,
+});
+
+const agentsUrl = import.meta.env.PUBLIC_APP_AGENTS_URL;
 
 const onAuthenticationSuccess = () => {
-  if (!isClient) return;
+  if (!isClient || isReferralName('agents')) return;
 
   const currentParams = new URLSearchParams(window.location.search);
 
-  let targetUrl = new URL(agentsUrl);
+  const targetUrl = new URL(agentsUrl);
 
   currentParams.forEach((value, key) => {
     targetUrl.searchParams.append(key, value);
   });
-
-  if (isReferralName('dashboard')) {
-    targetUrl = new URL(dashboardUrl);
-  }
 
   window.location.assign(targetUrl.toString());
 };
@@ -485,7 +490,7 @@ const SessionManagementActions: React.FC = () => {
           isLoggingIn={isLoggingIn}
           isLoggedIn={isLoggedIn}
           handleLoginClick={handleLoginClick}
-          dashboardAppUrl={dashboardUrl}
+          targetAppUrl={agentsUrl}
           isLoadingProject={isLoadingProject}
           handleClick={() => null}
         />
@@ -505,7 +510,7 @@ const SessionManagementActions: React.FC = () => {
         onAuthenticationSuccess={onAuthenticationSuccess}
       >
         {(props) => {
-          const { accessToken, isLoading, error, login, logout } = props;
+          const { isLoading, error, login, logout } = props;
 
           // TODO: This should be removed added temporary
           // due to an issue with the expectation for /prices
@@ -516,7 +521,7 @@ const SessionManagementActions: React.FC = () => {
           }
 
           const handleClick = () => {
-            if (accessToken) {
+            if (isLoggedIn) {
               logout();
             } else {
               login();
@@ -546,7 +551,7 @@ const SessionManagementActions: React.FC = () => {
                 isLoggingIn={isLoggingIn}
                 isLoggedIn={isLoggedIn}
                 handleLoginClick={handleLoginClick}
-                dashboardAppUrl={dashboardUrl}
+                targetAppUrl={agentsUrl}
                 isLoadingProject={isLoadingProject}
                 handleClick={handleClick}
               />
@@ -568,7 +573,7 @@ type ButtonContainerProps = {
   handleLoginClick: (
     e?: React.MouseEvent<HTMLButtonElement | HTMLAnchorElement>,
   ) => void;
-  dashboardAppUrl: string;
+  targetAppUrl: string;
   buttonText: string;
   isLoadingProject: boolean;
   handleClick: () => void;
@@ -582,30 +587,17 @@ const ButtonContainer: React.FC<ButtonContainerProps> = ({
   isLoggedIn,
   isLoggingIn,
   handleLoginClick,
-  dashboardAppUrl,
+  targetAppUrl,
   buttonText,
   isLoadingProject,
   handleClick,
 }) => {
   return (
     <>
-      {showProjectsDropDown && (
-        <ProjectDropdown
-          projects={userProjects}
-          selectedProjectId={activeProjectId}
-          isLoadingProject={isLoadingProject}
-          onProjectChange={setActiveProject}
-        />
-      )}
       {isLoggedIn && (
-        <Button
-          variant="tertiary"
-          size="sm"
-          className="hidden md:flex"
-          href={dashboardAppUrl}
-        >
-          Dashboard
-        </Button>
+        <div className="login-button">
+          <ProductDropdown />
+        </div>
       )}
       <Button
         variant="light-outline"
@@ -622,7 +614,7 @@ const ButtonContainer: React.FC<ButtonContainerProps> = ({
           size="sm"
           className="hidden md:flex"
           onClick={handleLoginClick}
-          href={dashboardAppUrl}
+          href={agentsUrl}
         >
           Sign up
         </Button>
