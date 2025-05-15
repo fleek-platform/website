@@ -24,7 +24,13 @@ export const getDeploymentUrl = (
 ): string => {
   if (!isClient) return '';
 
-  const deploymentUrl = `${removeTrailingSlash(appUrl)}/projects/${projectId}/sites/new/?templateId=${templateId}`;
+  let hostingAppUrl = appUrl;
+
+  if (window.location.hostname.startsWith('hosting.')) {
+    hostingAppUrl = 'https://hosting.fleek.xyz/dashboard';
+  }
+
+  const deploymentUrl = `${removeTrailingSlash(hostingAppUrl)}/projects/${projectId}/sites/new/?templateId=${templateId}`;
 
   return deploymentUrl;
 };

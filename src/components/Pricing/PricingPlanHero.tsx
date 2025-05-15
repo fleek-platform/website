@@ -1,6 +1,6 @@
 import {
-  HostingPricingInfo,
-  AiAgentsPricingInfo,
+  getAiAgentsPricingInfo,
+  getHostingPricingInfo,
 } from '@base/content/pricing/config';
 import { Text } from '@components/LandingPage/Text';
 import PricingCard from '@components/PricingCard';
@@ -12,6 +12,8 @@ interface PricingPlanHeroParams {
 export const PricingPlanHero: React.FC<PricingPlanHeroParams> = ({
   priceFocus,
 }) => {
+  const AiAgentsPricingInfo = getAiAgentsPricingInfo();
+  const HostingPricingInfo = getHostingPricingInfo();
   return (
     <section className="flex flex-col text-left">
       {priceFocus === 'ai-agents' && (
