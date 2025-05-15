@@ -139,7 +139,7 @@ export function getAuthenticationMenu(
 ) {
   function getAuthenticationSubMenu(): NavMenuItem[] {
     let hostingAppUrl = dashboardUrl;
-    if (isClient && window.location.hostname.startsWith('hosting.')) {
+    if (isClient && window.location.hostname.startsWith('resources.')) {
       hostingAppUrl = 'https://hosting.fleek.xyz/dashboard';
     }
 

@@ -5,7 +5,7 @@ const dashboardUrl = import.meta.env.PUBLIC_APP_HOSTING_URL;
 export const getHostingPricingInfo: () => Props[] = () => {
   let hostingAppUrl = dashboardUrl;
 
-  if (isClient && window.location.hostname.startsWith('hosting.')) {
+  if (isClient && window.location.hostname.startsWith('resources.')) {
     hostingAppUrl = 'https://hosting.fleek.xyz/dashboard';
   }
 
@@ -58,7 +58,7 @@ export const getHostingPricingInfo: () => Props[] = () => {
 export const getAiAgentsPricingInfo: () => Props[] = () => {
   let agentsAppUrl = dashboardUrl;
 
-  if (isClient && window.location.hostname.startsWith('hosting.')) {
+  if (isClient && window.location.hostname.startsWith('resources.')) {
     agentsAppUrl = 'https://eliza.fleek.xyz/agents';
   }
 

@@ -26,7 +26,7 @@ export const getDeploymentUrl = (
 
   let hostingAppUrl = appUrl;
 
-  if (window.location.hostname.startsWith('hosting.')) {
+  if (window.location.hostname.startsWith('resources.')) {
     hostingAppUrl = 'https://hosting.fleek.xyz/dashboard';
   }
 
