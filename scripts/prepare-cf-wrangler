@@ -4,8 +4,8 @@ environment="$1"
 projectName="$2"
 projectRoute="$3"
 
-if [[ -z "$1" || -z "$2" || -z "$3" ]]; then
-  echo "👹 Oops! Missing arguments, e.g. environment ($environment), projectName ($projectName) or projectRoute ($projectRoute)"
+if [[ -z "$1" || -z "$2" || -z "$3" || -z "$4" ]]; then
+  echo "👹 Oops! Missing arguments, e.g. github token, organisation repository, artifact name, etc"
   exit 1
 fi
 
