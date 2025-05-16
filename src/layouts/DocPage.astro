@@ -43,6 +43,9 @@ const {
   id: string;
 } = (() => {
   let entries = Astro.url.pathname.split('/').filter(Boolean);
+  if (!entries.length) {
+    entries = ['docs'];
+  }
 
   if (!Array.isArray(entries)) {
     throw new Error('Expected an array');
