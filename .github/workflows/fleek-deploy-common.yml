@@ -122,49 +122,9 @@ jobs:
             "$DIST_PATH" \
             "$BUILD"
 
-      - name: Prepare wrangler.jsonc
+      - name: Build & deploy
         run: |
-          wranglerConfig="wrangler.jsonc"
-          tempConfig="temp.jsonc"
-          projectName="fleek-xyz"
-          projectRoute="${{ vars.PUBLIC_FLEEK_CF_PROJECT_ROUTE }}"
-          environment="${{ inputs.environment }}"
-
-          if [[ "$environment" == "production" ]]; then
-            jq --arg projectName "$projectName-$TARGET_ENVIRONMENT" \
-              --arg projectRoute "$projectRoute" \
-            '
-              .env.production.name = $projectName |
-              .env.production.route = $projectRoute |
-
-              .workers_dev = false
-            ' \
-            "$wranglerConfig" > "$tempConfig" \
-            && mv "$tempConfig" "$wranglerConfig"
-          else
-            jq --arg projectName "$projectName-$environment" \
-              --arg projectRoute "$projectRoute" \
-            '
-              .workers_dev = true |
-              .env.staging.name = $projectName
-            ' \
-            "$wranglerConfig" > "$tempConfig" \
-            && mv "$tempConfig" "$wranglerConfig"
-          fi
-
-          echo "🤖 Wrangler config"
-          cat "$wranglerConfig"
-
-      - name: Build
-        run: |
-          npm run build
-
-      - name: Deploy
-        uses: cloudflare/wrangler-action@v3
-        with:
-          apiToken: ${{ secrets.PRIVATE_CLOUDFLARE_API_TOKEN }}
-          accountId: ${{ secrets.PRIVATE_CLOUDFLARE_ACCOUNT_ID }}
-          command: deploy --env ${{ env.TARGET_ENVIRONMENT }}
+          fleek sites deploy
 
       - name: Clear
         run: |
