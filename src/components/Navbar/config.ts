@@ -1,6 +1,7 @@
 import type { IconType } from 'react-icons/lib';
 import { MdHandshake } from 'react-icons/md';
 import settings from '@base/settings.json';
+import { isClient } from '@utils/common';
 
 const dashboardUrl = import.meta.env.PUBLIC_APP_HOSTING_URL;
 
@@ -137,11 +138,16 @@ export function getAuthenticationMenu(
   handleLogout: () => void,
 ) {
   function getAuthenticationSubMenu(): NavMenuItem[] {
+    let hostingAppUrl = dashboardUrl;
+    if (isClient && window.location.hostname.startsWith('resources.')) {
+      hostingAppUrl = 'https://hosting.fleek.xyz/dashboard';
+    }
+
     if (isLoggedIn) {
       return [
         {
           label: 'Dashboard',
-          url: dashboardUrl,
+          url: hostingAppUrl,
           description: 'Manage your account',
         },
         {

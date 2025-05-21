@@ -13,24 +13,32 @@ import { Integrations } from '@components/LandingPage/Integrations';
 import PricingLanding from '@components/LandingPage/PricingLanding';
 import { Content } from '@components/LandingPage/Content';
 import { Earn } from '@components/LandingPage/Earn';
+import Docs from './docs/index.astro';
+
+const url = new URL(Astro.request.url);
+const hostname = url.hostname;
+const isNewDomain = hostname.startsWith('resources.');
 ---
 
-<LandingPageHtml>
-  <div
-    class="pointer-events-none absolute left-0 top-0 h-[50vw] w-full bg-[radial-gradient(ellipse_60%_60%_at_top,#6E6E6E40_0%,transparent_100%)] sm:h-[30vw]"
-  >
-  </div>
-  <AnnouncementModal pathname={Astro.url.pathname} client:only="react" />
-  <Navbar pathname={Astro.url.pathname} variant="fixed" client:load />
-  <Hero client:load />
-  <Templates client:load />
-  <Partners />
-  <AgentsVideo client:load />
-  <Integrations client:load />
-  <Features />
-  <Earn />
-  <Content />
-  <Faq client:load />
-  <PricingLanding client:load />
-  <Footer />
-</LandingPageHtml>
+{
+  isNewDomain ? (
+    <Docs />
+  ) : (
+    <LandingPageHtml>
+      <div class="pointer-events-none absolute left-0 top-0 h-[50vw] w-full bg-[radial-gradient(ellipse_60%_60%_at_top,#6E6E6E40_0%,transparent_100%)] sm:h-[30vw]" />
+      <AnnouncementModal pathname={Astro.url.pathname} client:only="react" />
+      <Navbar pathname={Astro.url.pathname} variant="fixed" client:load />
+      <Hero client:load />
+      <Templates client:load />
+      <Partners />
+      <AgentsVideo client:load />
+      <Integrations client:load />
+      <Features />
+      <Earn />
+      <Content />
+      <Faq client:load />
+      <PricingLanding client:load />
+      <Footer />
+    </LandingPageHtml>
+  )
+}
