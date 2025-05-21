@@ -28,6 +28,8 @@ const schema = ({ image }: { image: ImageFunction }) =>
 
 const docsCollection = createCollection('content', z.object({}));
 
+const elizaCollection = createCollection('content', z.object({}));
+
 const blogCollection = createCollection(
   'content',
   z.object({ is_seo: z.boolean().optional() }),
@@ -46,6 +48,7 @@ const changelogCollection = createCollection('content', z.object({}));
 // Export a single `collections` object to register your collection(s)
 export const collections = {
   docs: docsCollection,
+  eliza: elizaCollection,
   blog: blogCollection,
   guides: guidesCollection,
   templates: templatesCollection,

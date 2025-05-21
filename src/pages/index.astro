@@ -16,8 +16,9 @@ import { Earn } from '@components/LandingPage/Earn';
 import Docs from './docs/index.astro';
 
 const url = new URL(Astro.request.url);
-const hostname = url.hostname;
-const isNewDomain = hostname.startsWith('resources.');
+const isResourcesDomain = url.hostname.hostname.startsWith('resources.');
+const isHostingDomain = url.hostname.hostname.startsWith('hosting.');
+const isElizaDomain = url.hostname.hostname.startsWith('eliza.');
 ---
 
 {

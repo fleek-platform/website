@@ -11,7 +11,7 @@ Users can edit character files for their agents, manually start and stop them, c
 
 ## Edit AI agent characterfile
 
-You can edit characterfiles of your AI agents after they have been deployed. Start by navigating to [fleek.xyz/agents](https://fleek.xyz/agents), where you'll find a list of agents in the sidebar. Otherwise, create an agent by selecting one of the three deployment options.
+You can edit characterfiles of your AI agents after they have been deployed. Start by navigating to [eliza.fleek.xyz](https://eliza.fleek.xyz), where you'll find a list of agents in the sidebar. Otherwise, create an agent by selecting one of the three deployment options.
 
 To edit a characterfile, you must:
 
@@ -33,7 +33,7 @@ After you press the button, you should get an “Agent updated” confirmation p
 
 ## Starting and Stopping agents
 
-Deployed agents can be started and stopped directly from the [Fleek dashboard](https://fleek.xyz/dashboard/) and [Eliza deployment page](/eliza).
+Deployed agents can be started and stopped directly from the [Fleek dashboard](https://hosting.fleek.xyz) and [Eliza deployment page](/eliza).
 
 AI Agents have three states:
 

@@ -1,9 +1,10 @@
 import type { IconType } from 'react-icons/lib';
 import { MdHandshake } from 'react-icons/md';
 import settings from '@base/settings.json';
-import { isClient } from '@utils/common';
 
-const dashboardUrl = import.meta.env.PUBLIC_APP_HOSTING_URL;
+const dashboardUrl = `${import.meta.env.PUBLIC_APP_NEW_HOSTING_URL}/dashboard`;
+const resourcesUrl = import.meta.env.PUBLIC_APP_RESOURCES_URL;
+const elizaUrl = import.meta.env.PUBLIC_APP_ELIZA_URL;
 
 type NavMenuItemBase = {
   label: string;
@@ -138,16 +139,11 @@ export function getAuthenticationMenu(
   handleLogout: () => void,
 ) {
   function getAuthenticationSubMenu(): NavMenuItem[] {
-    let hostingAppUrl = dashboardUrl;
-    if (isClient && window.location.hostname.startsWith('resources.')) {
-      hostingAppUrl = 'https://hosting.fleek.xyz/dashboard';
-    }
-
     if (isLoggedIn) {
       return [
         {
           label: 'Dashboard',
-          url: hostingAppUrl,
+          url: dashboardUrl,
           description: 'Manage your account',
         },
         {

@@ -13,7 +13,7 @@ Conversationally build and update agents with natural language. Simply describe 
 
 ## **Step 1: Log In and Describe Your Agent**
 
-1. Head to [fleek.xyz](https://fleek.xyz/) and log in to your account.
+1. Head to [eliza.fleek.xyz](https://eliza.fleek.xyz/) and log in to your account.
 2. Once you're in, you'll land on the **Create AI agents and influencers** page.
 3. In the description box, describe the agent or virtual influencer you want to create.
    - Example: _“I want to create a digital influencer, who is a woman expert on nutrition and exercise. I want this influencer to constantly interact with users on Twitter, posting regularly and replying to comments.”_
