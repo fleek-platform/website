@@ -4,6 +4,9 @@ import settings from '@base/settings.json';
 import { isClient } from '@utils/common';
 
 const dashboardUrl = import.meta.env.PUBLIC_APP_HOSTING_URL;
+const elizaUrl = import.meta.env.PUBLIC_APP_ELIZA_URL;
+const resourcesUrl = import.meta.env.PUBLIC_APP_RESOURCES_URL;
+const hostingUrl = import.meta.env.PUBLIC_APP_NEW_HOSTING_URL;
 
 type NavMenuItemBase = {
   label: string;
@@ -35,25 +38,25 @@ export const navbarMenu: NavMenuItemRoot[] = [
     subMenu: [
       {
         label: 'AI agent hosting',
-        url: '/docs/ai-agents/',
+        url: elizaUrl,
         description: 'Build autonomous agents',
         icon: '/svg/robot.svg',
       },
       {
         label: 'Web app hosting',
-        url: '/docs/platform/hosting/',
+        url: hostingUrl.concat('/hosting/'),
         description: 'Host web applications',
         icon: '/svg/navbar-platform-icon.svg',
       },
       {
         label: 'Fleek Machines',
-        url: '/docs/platform/fleek-machines/',
+        url: hostingUrl.concat('/fleek-machines/'),
         description: 'Run lightweight TEE VMs',
         icon: '/svg/machine.svg',
       },
       {
         label: 'Fleek Functions',
-        url: '/docs/platform/fleek-functions/',
+        url: hostingUrl.concat('/fleek-functions/'),
         description: 'Run serverless functions',
         icon: '/svg/globe-filled.svg',
       },
@@ -64,13 +67,13 @@ export const navbarMenu: NavMenuItemRoot[] = [
     subMenu: [
       {
         label: 'Documentation',
-        url: '/docs/',
+        url: resourcesUrl.concat('/docs/'),
         description: 'Learn about Fleek',
         icon: '/svg/blog-navbar-icon.svg',
       },
       {
         label: 'Guides',
-        url: '/guides/',
+        url: resourcesUrl.concat('/guides/'),
         description: 'Tips and tricks',
         icon: '/svg/guides-navbar-icon.svg',
       },
@@ -83,7 +86,7 @@ export const navbarMenu: NavMenuItemRoot[] = [
       },
       {
         label: 'Changelog',
-        url: '/changelog/',
+        url: resourcesUrl.concat('/changelog/'),
         description: 'Our latest developments',
         icon: '/svg/blog-navbar-icon.svg',
       },
@@ -103,7 +106,7 @@ export const navbarMenu: NavMenuItemRoot[] = [
       },
       {
         label: 'Support Center',
-        url: '/support/',
+        url: resourcesUrl.concat('/support/'),
         description: 'Get help',
         icon: '/svg/community-navbar-icon.svg',
       },
@@ -118,15 +121,15 @@ export const navbarMenu: NavMenuItemRoot[] = [
   },
   {
     label: 'Docs',
-    url: '/docs/',
+    url: resourcesUrl.concat('/docs/'),
   },
   {
     label: 'Blog',
-    url: '/blog/',
+    url: resourcesUrl.concat('/blog/'),
   },
   {
     label: 'Pricing',
-    url: '/pricing/',
+    url: resourcesUrl.concat('/pricing/'),
   },
 ];
 
