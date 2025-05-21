@@ -26,9 +26,11 @@ const schema = ({ image }: { image: ImageFunction }) =>
     custom_title: z.string().optional(),
   });
 
-const docsCollection = createCollection('content', z.object({}));
-
 const elizaCollection = createCollection('content', z.object({}));
+
+const resourcesCollection = createCollection('content', z.object({}));
+
+const hostingCollection = createCollection('content', z.object({}));
 
 const blogCollection = createCollection(
   'content',
@@ -47,8 +49,9 @@ const changelogCollection = createCollection('content', z.object({}));
 
 // Export a single `collections` object to register your collection(s)
 export const collections = {
-  docs: docsCollection,
   eliza: elizaCollection,
+  resources: resourcesCollection,
+  hosting: hostingCollection,
   blog: blogCollection,
   guides: guidesCollection,
   templates: templatesCollection,

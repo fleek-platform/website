@@ -6,7 +6,7 @@ import settings from '@base/settings.json';
 import { generateSidebarDSByUserOrder } from '@utils/generateSidebarDS';
 import type { DocsLink } from './[...slug].astro';
 
-const entry = await getEntry('docs', 'index');
+const entry = await getEntry('resources/docs', 'index');
 
 const docsEntries = await getCollection('docs');
 const orderBy = settings.docs.menu.order;
