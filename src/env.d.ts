@@ -26,6 +26,9 @@ interface ImportMetaEnv {
   readonly PUBLIC_GRAPHQL_ENDPOINT: string;
   readonly PUBLIC_APP_HOSTING_URL: string;
   readonly PUBLIC_APP_AGENTS_URL: string;
+  readonly PUBLIC_APP_ELIZA_URL: string;
+  readonly PUBLIC_APP_NEW_HOSTING_URL: string;
+  readonly PUBLIC_APP_RESOURCES_URL: string;
 
   readonly PUBLIC_DYNAMIC_ENVIRONMENT_ID: string;
 
