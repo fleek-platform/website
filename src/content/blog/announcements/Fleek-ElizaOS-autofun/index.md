@@ -56,7 +56,7 @@ There’s a deeper alignment here too. Eliza and Fleek both share a vision of ag
 
 That’s why this partnership will continue to grow and evolve.
 
-Eliza helps define the agent logic, framework and OS. Fleek provides the infrastructure and platform to make it easy to create and manage the agents . Auto.fun becomes the place where the agents go to launch and activate their communities.
+Eliza helps define the agent logic, framework and OS. Fleek provides the infrastructure and platform to make it easy to create and manage the agents. Auto.fun becomes the place where the agents go to launch and activate their communities.
 
 It’s not just a better launchpad. It’s a new standard for launching the next wave of crypto x AI projects, and we are proud to be involved.
 
