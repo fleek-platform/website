@@ -202,7 +202,7 @@ From the [Fleek.xyz](https://fleek.xyz) dashboard, you have the ability to manag
 
 Congratulations! You just deployed your NextJS blog to the Fleek.xyz platform. The basics from this guide can be taken and applied to any static NextJS app to deploy on Fleek.xyz
 
-If you’d like to learn more about Fleek, visit our [documentation](/docs/) page, join our D[iscord server](https://discord.gg/fleek), and stay up to date with us on [X](https://twitter.com/fleek/)!
+If you’d like to learn more about Fleek, visit our [documentation](https://resources.fleek.xyz/docs/) page, join our D[iscord server](https://discord.gg/fleek), and stay up to date with us on [X](https://twitter.com/fleek/)!
 
 See you in the next guide 🤙
 

@@ -180,5 +180,5 @@ Now that you know how to register your first ENS domain, and how to use it toget
 - [Sign up](https://fleek.xyz/dashboard/) to try Fleek
 - Join our [Community Chat](https://discord.com/invite/fleek)
 - Follow us on [Twitter](https://twitter.com/fleek)
-- Check out our [Tech Docs](/docs/)
+- Check out our [Tech Docs](https://resources.fleek.xyz/docs/)
 - Contact us at https://fleek.xyz/requests/new/

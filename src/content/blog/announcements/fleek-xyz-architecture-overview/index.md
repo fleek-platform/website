@@ -15,7 +15,7 @@ TL;DR
 
 ---
 
-In case you’ve missed it, [we’ve just announced our Series A led by Polychain](/blog/announcements/introducing-fleek-network-and-fleek-xyz/). One of the reasons we’ve raised is to build Fleek.xyz, a next-gen development platform for web3, and the successor to our current Fleek.co platform.
+In case you’ve missed it, [we’ve just announced our Series A led by Polychain](https://resources.fleek.xyz/blog/announcements/introducing-fleek-network-and-fleek-xyz/). One of the reasons we’ve raised is to build Fleek.xyz, a next-gen development platform for web3, and the successor to our current Fleek.co platform.
 
 In an effort to build more in public, this blog is part one of a two part series that will outline the what, why, and how of Fleek.xyz development. Part one, this blog, is a dive into **what is the new Fleek.xyz architecture and why it unlocks total freedom, flexibility, and extensibility** for web3 developers.
 

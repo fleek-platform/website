@@ -8,7 +8,7 @@ author:
   - 'Olayinka Oshidipe'
 ---
 
-In this guide, you’ll learn how to build a file upload web app that takes any file and uploads it to IPFS. With Fleek there are a few ways you could upload files to IPFS, one being that you could use the Fleek CLI — we have a guide on that [here](https://www.youtube.com/watch?v=2OzwtDH7K0A&t=38s). You could also upload files directly from the [platform](https://fleek.xyz/dashboard) or via the [SDK](/docs/sdk/).
+In this guide, you’ll learn how to build a file upload web app that takes any file and uploads it to IPFS. With Fleek there are a few ways you could upload files to IPFS, one being that you could use the Fleek CLI — we have a guide on that [here](https://www.youtube.com/watch?v=2OzwtDH7K0A&t=38s). You could also upload files directly from the [platform](https://fleek.xyz/dashboard) or via the [SDK](https://hosting.fleek.xyz/sdk/).
 
 ## What is Vue Js?
 
@@ -218,7 +218,7 @@ export default {
 </style>
 ```
 
-We’ll need to add a `client_id` before we’re able to make use of the Fleek SDK. To get one, we’ll open up our terminal and run `fleek applications create` this command is going to generate an applicationsTokenService (ATS) ID. You can read more about the ATS on the SDK section of the docs here: [Application Token Service](/docs/sdk/)
+We’ll need to add a `client_id` before we’re able to make use of the Fleek SDK. To get one, we’ll open up our terminal and run `fleek applications create` this command is going to generate an applicationsTokenService (ATS) ID. You can read more about the ATS on the SDK section of the docs here: [Application Token Service](https://hosting.fleek.xyz/sdk/)
 
 When you run `fleek applications create` you should get a response that looks like this:
 
@@ -355,7 +355,7 @@ From the [Fleek.xyz](https://fleek.xyz/) dashboard, you have the ability to ma
 
 Congratulations! You just deployed your UploadIt Vuejs App to the Fleek.xyz platform. The basics from this guide can be taken and applied to any static VueJs app to deploy on Fleek.xyz
 
-If you’d like to learn more about Fleek, visit our [documentation](/docs/) page, join our [Discord server](https://discord.gg/fleek), and stay up to date with us on [X](https://twitter.com/fleek/)!
+If you’d like to learn more about Fleek, visit our [documentation](https://resources.fleek.xyz/docs/) page, join our [Discord server](https://discord.gg/fleek), and stay up to date with us on [X](https://twitter.com/fleek/)!
 
 See you in the next guide 🤙
 
