@@ -15,7 +15,7 @@ tags:
 The Fleek SDK lets you create, deploy, and manage Fleek Functions within your applications. This document outlines the available methods for interacting with the Fleek Functions service.
 
 :::note
-You need to [authenticate to Fleek](/docs/sdk/#authentication) via the Fleek SDK.
+You need to [authenticate to Fleek](https://hosting.fleek.xyz/sdk/#authentication) via the Fleek SDK.
 :::
 
 The `FunctionsClient` class provides an interface for managing Fleek Functions, enabling users to create, deploy, update, list, and delete serverless functions via the Fleek SDK.

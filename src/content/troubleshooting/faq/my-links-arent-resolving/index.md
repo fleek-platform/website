@@ -12,4 +12,4 @@ Explore Fleek's method for resolving IPFS link issues. This in-depth tutorial st
 
 The guide highlights the significance of utilizing trailing slashes for seamless URL resolution and showcases the power of \_redirects files for handling expired or broken links.
 
-[Read the full guide!](/guides/ipfs-resolving-tips)
+[Read the full guide!](https://resources.fleek.xyz/guides/ipfs-resolving-tips)

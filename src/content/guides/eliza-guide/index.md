@@ -119,9 +119,9 @@ This file specifies “TechAI” as an AI researcher who focuses on practical AI
 
 Go to [fleek.xyz/agents](https://fleek.xyz/agents/) where you’ll see three deployment options:
 
-1. [Manually enter details [⚡ : no developer experience needed]](/guides/eliza-guide#manually-enter-agent-details)
-2. [Use a predefined template [⚡ : no developer experience needed]](/guides/eliza-guide#use-a-predefined-template)
-3. [Upload a characterfile](/guides/eliza-guide#upload-a-characterfile)
+1. [Manually enter details [⚡ : no developer experience needed]](https://resources.fleek.xyz/guides/eliza-guide#manually-enter-agent-details)
+2. [Use a predefined template [⚡ : no developer experience needed]](https://resources.fleek.xyz/guides/eliza-guide#use-a-predefined-template)
+3. [Upload a characterfile](https://resources.fleek.xyz/guides/eliza-guide#upload-a-characterfile)
 
 ![landing page of the Eliza deployment platform](./landing-page.png)
 
@@ -289,4 +289,4 @@ You are then provided with the option to resolve that on your end and **Retry de
 
 Fleek takes the complexity out of deploying AI agents, offering a streamlined, open-source, and scalable environment ideally suited for Eliza-based projects. By combining Eliza’s robust multi-agent framework with Fleek’s verifiable cloud infrastructure, you can launch an AI researcher, customer support bot, or social media persona in mere minutes. Whether you’re a seasoned developer or exploring AI deployments for the first time, Fleek’s user-friendly interface and automatic scaling features provide a smooth path from concept to production.
 
-Have more questions? Check out our full documentation [here](/docs/ai-agents/).
+Have more questions? Check out our full documentation [here](https://resources.fleek.xyz/docs/ai-agents/).

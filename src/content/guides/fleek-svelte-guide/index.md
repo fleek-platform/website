@@ -168,7 +168,7 @@ From the [Fleek.xyz](https://fleek.xyz) dashboard, you have the ability to man
 
 Congratulations! You just deployed your Svelte App to the Fleek.xyz platform. The basics from this guide can be taken and applied to any static Svelte app to deploy on Fleek.xyz
 
-If you’d like to learn more about Fleek, visit our [documentation](/docs) page, join our [Discord server](https://discord.gg/fleek), and stay up to date with us on [X](https://twitter.com/fleek/)!
+If you’d like to learn more about Fleek, visit our [documentation](https://resources.fleek.xyz/docs) page, join our [Discord server](https://discord.gg/fleek), and stay up to date with us on [X](https://twitter.com/fleek/)!
 
 See you in the next guide 🤙
 

@@ -145,7 +145,7 @@ This unified solution allows teams to focus on leveraging the strengths of their
 
 ## **Simplifying SSR deployment with Fleek**
 
-[Fleek Platform](https://fleek.xyz/) is a comprehensive solution for developers who want to simplify their SSR deployment workflow regardless of the framework they choose.
+[Fleek Platform](https://hosting.fleek.xyz/) is a comprehensive solution for developers who want to simplify their SSR deployment workflow regardless of the framework they choose.
 
 Here's how Fleek tackles common SSR challenges:
 
@@ -175,7 +175,7 @@ Fleek embraces the ethos of permissionless development, allowing developers to b
 
 Here are a couple of resources to help you get started:
 
-1. Read how Fleek made [server-side rendering](https://fleek.xyz/blog/announcements/server-side-nextjs-on-fleek/) with Next.js possible.
+1. Read how Fleek made [server-side rendering](https://resources.fleek.xyz/blog/announcements/server-side-nextjs-on-fleek/) with Next.js possible.
 2. Fleek’s [Github documentation](https://github.com/fleek-platform/fleek-next) of the Fleek Next adapter.
-3. How you can use [Fleek functions](https://fleek.xyz/blog/announcements/introducing-fleek-functions/) — code snippets executed server-side — in your next project.
-4. Stay updated with the latest SSR trends, and Fleek features on our [blog](http://blog.fleek.xyz/).
+3. How you can use [Fleek functions](https://resources.fleek.xyz/blog/announcements/introducing-fleek-functions/) — code snippets executed server-side — in your next project.
+4. Stay updated with the latest SSR trends, and Fleek features on our [blog](http://resources.fleek.xyz/blog).

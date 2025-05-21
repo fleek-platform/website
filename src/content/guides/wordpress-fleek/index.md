@@ -49,5 +49,5 @@ Congratulations! Your content is now deployed and a part of IPFS! Your cool site
 - [Sign up](https://fleek.xyz/dashboard) to try yourself
 - Join our [Community Chat](https://discord.com/invite/fleek)
 - Follow us on [Twitter](https://twitter.com/fleek)
-- Check out our [Tech Docs](/docs/)
+- Check out our [Tech Docs](https://resources.fleek.xyz/docs/)
 - Contact us at support@fleek.xyz
