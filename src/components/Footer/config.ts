@@ -12,7 +12,7 @@ const { fleekPlatformOrgUrl } = settings.github;
 
 const resourcesUrl = import.meta.env.PUBLIC_APP_RESOURCES_URL;
 const elizaUrl = import.meta.env.PUBLIC_APP_ELIZA_URL;
-const hostingUrl = import.meta.env.PUBLIC_APP_HOSTING_URL;
+const hostingUrl = import.meta.env.PUBLIC_APP_NEW_HOSTING_URL;
 
 export default {
   fleekPlatformOrgUrl,
