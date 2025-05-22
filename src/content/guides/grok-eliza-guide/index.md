@@ -76,7 +76,7 @@ Great! Your agent will be live on X and ready to interact. Tag it for responses 
 
 To learn more, check out:
 
-- [The AI agents documentation](/docs/ai-agents/)
-- [Learn to deploy an Eliza AI agent with our guide](/guides/eliza-guide/)
-- [Learn to deploy a Telegram AI Agent with OpenAI](/guides/telegram-ai-agent)
+- [The AI agents documentation](https://resources.fleek.xyz/docs/ai-agents/)
+- [Learn to deploy an Eliza AI agent with our guide](https://resources.fleek.xyz/guides/eliza-guide/)
+- [Learn to deploy a Telegram AI Agent with OpenAI](https://resources.fleek.xyz/guides/telegram-ai-agent)
 - [Learn to deploy a Discord AI Agent with DeepSeek](https://fleek.xyz/guides/deploy-ai-agent-deepseek-fleek)

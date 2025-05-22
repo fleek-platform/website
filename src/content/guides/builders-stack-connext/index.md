@@ -133,7 +133,7 @@ Dodo is a decentralized trading platform that uses the [Proactive Market Maker (
 
 We hope you enjoyed learning about Connext. Cross-chain governance is on the team's roadmap and coming soon! Follow Connext on [X](https://twitter.com/ConnextNetwork) to stay up to date on what the team is working on.
 
-If you enjoyed learning about the protocol check out more of our [Build3rs Stack articles](/guides/).
+If you enjoyed learning about the protocol check out more of our [Build3rs Stack articles](https://resources.fleek.xyz/guides/).
 
 You can also [join our Discord server](https://discord.com/invite/fleek) to jam with the team and learn more!
 

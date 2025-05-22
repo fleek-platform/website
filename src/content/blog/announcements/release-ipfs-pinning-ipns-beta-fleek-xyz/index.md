@@ -8,7 +8,7 @@ image: './ipfspinningbeta.png'
 
 This is not a drill, it’s Fleek.xyz first beta release. We are stoked to start the first chapter of Fleek’s new platform with the **test-phase of our new CLI and its two services: IPFS pinning and IPNS mapping.** Both services are live and ready to be battle-tested.
 
-Tested by whom, you ask? **Well everyone’s welcome!** If you’ve signed up for our newsletter already, you probably got the heads-up already, else… Our [docs are live and ready](/docs/) for testers to follow, and if you find any bugs or have feedback to share: [let us know here](https://discord.gg/fleek), it’ll be greatly appreciated!
+Tested by whom, you ask? **Well everyone’s welcome!** If you’ve signed up for our newsletter already, you probably got the heads-up already, else… Our [docs are live and ready](https://resources.fleek.xyz/docs/) for testers to follow, and if you find any bugs or have feedback to share: [let us know here](https://discord.gg/fleek), it’ll be greatly appreciated!
 
 We’re kicking off with Pinning and IPNS, and expect us to follow up on our next release with Sites Deployment. In this beta, we want to hear from developers testing our CLI, as we prepare to **build these services in Fleek’s UI, API, and SDK.**
 
@@ -61,7 +61,7 @@ The second service in this beta is one of IPFS’ other features, IPNS (the Inte
 
 IPNS records allow developers to create a static hash that maps to a dynamic record. This way, for example, you could map an IPNS hash to a website’s .html IPFS hash. Each time you make a deployment and the content changes (hence changing the IPFS hash of the file), your main address remains the same for the user (IPNS), but you update the IPFS hash resolved by the IPNS name via the CLI.
 
-How do you do it in the CLI? With the command above. In this beta, you can create and manage new IPNS records, publish auto generated IPNS names for any hash, list all your records, and set IPNS names to resolve to any hash. [More in the documentation](/docs/).
+How do you do it in the CLI? With the command above. In this beta, you can create and manage new IPNS records, publish auto generated IPNS names for any hash, list all your records, and set IPNS names to resolve to any hash. [More in the documentation](https://resources.fleek.xyz/docs/).
 
 ---
 
