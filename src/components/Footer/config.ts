@@ -77,7 +77,7 @@ export default {
   product: [
     {
       text: 'AI agent hosting',
-      url: elizaUrl,
+      url: elizaUrl.concat('/docs/'),
     },
     {
       text: 'Web app hosting',
