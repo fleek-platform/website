@@ -7,6 +7,7 @@ image: './thumbnail.png'
 author:
   - 'Fleek'
 ---
+
 As virtual influencers go mainstream, trust becomes the core infrastructure problem.
 
 Who created the character you’re chatting with?
