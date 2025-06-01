@@ -86,7 +86,7 @@ Once we update our site with this change, we can now access [https://redirects-n
 
 ![redirects file config alt](./redirects-401.png)
 
-As you can see, a wide array of possibilites open up with simple IPFS \_redirects support. In this blog, we've covered multiple options to ensure proper link resolution on your IPFS site. How you handle your site's pages and links is now completely up to you!
+As you can see, a wide array of possibilities open up with simple IPFS \_redirects support. In this blog, we've covered multiple options to ensure proper link resolution on your IPFS site. How you handle your site's pages and links is now completely up to you!
 
 If you are still encountering issues with your Domains, or anything else on the Fleek platform/beta, open a ticket in our [Discord](https://discord.gg/fleek) server and let's chat ⚡️
 
