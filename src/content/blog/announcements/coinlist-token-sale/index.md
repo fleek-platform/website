@@ -109,6 +109,6 @@ On **May 1**, the $FLK token sale goes live on CoinList. It’s open to eligible
 If you believe in the rise of autonomous agents and the future virtual influencer economy, **this is your moment to get in early and join us on this exciting journey**.
 
 - Register now on [CoinList](https://coinlist.co/fleek)
-- Launch an agent at [fleek.xyz](https://fleek.xyz/)
+- Launch an agent at [fleek.xyz](https://eliza.fleek.xyz/agents)
 
 The agentic future is already here. Now it’s time to own it.

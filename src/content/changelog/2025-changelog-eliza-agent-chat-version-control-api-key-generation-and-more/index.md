@@ -40,7 +40,7 @@ When preparing to deploy an AI agent on Fleek, you can select the Eliza version 
 
 1. Visiting [fleek.xyz/agents/](https://fleek.xyz/agents/).
 2. Using the **drop-down toggle** to select the desired version.
-3. Proceeding with one of the [three deployment options](/docs/ai-agents/#deploy-ai-agents).
+3. Proceeding with one of the [three deployment options](https://resources.fleek.xyz/docs/ai-agents/#deploy-ai-agents).
 
 This provides greater control over testing, iterating, and deploying AI agents on the latest stable versions.
 
@@ -48,7 +48,7 @@ This provides greater control over testing, iterating, and deploying AI agents o
 
 ## API key generation made easier
 
-Generating API tokens for Fleek’s [AI agents APIs](/docs/ai-agents/agents-apis/) is now more streamlined. You can create, view, copy, and regenerate API keys directly from the [Eliza deployment page](/eliza/) or the [Fleek dashboard](https://fleek.xyz/dashboard/).
+Generating API tokens for Fleek’s [AI agents APIs](https://resources.fleek.xyz/docs/ai-agents/agents-apis/) is now more streamlined. You can create, view, copy, and regenerate API keys directly from the [Eliza deployment page](https://eliza.fleek.xyz/agents/account) or the [Fleek dashboard](https://hosting.fleek.xyz/dashboard/).
 
 **Steps to generate an API key:**
 
@@ -80,7 +80,7 @@ Additionally, users can:
 - Delete draft agents if no longer needed.
 - Track all status changes with updated visual indicators.
 
-The draft creation APIs are also available now. Learn more in our [AI agents API documentation](/docs/ai-agents/agents-apis/).
+The draft creation APIs are also available now. Learn more in our [AI agents API documentation](https://resources.fleek.xyz/docs/ai-agents/agents-apis/).
 
 ![Draft AI agent](./draft-agent.png)
 
@@ -88,10 +88,10 @@ The draft creation APIs are also available now. Learn more in our [AI agents API
 
 That’s all for now! Thank you for choosing Fleek.
 
-[Check out our documentation](/docs/ai-agents/) for more details.
+[Check out our documentation](https://resources.fleek.xyz/docs/ai-agents/) for more details.
 
 Don’t forget to:
 
 - Follow us on [X](https://x.com/fleek)
 - Join our [Discord](https://discord.gg/fleek)
-- Explore our [guides](/guides/) and [resources](/docs/)
+- Explore our [guides](https://resources.fleek.xyz/guides/) and [resources](https://resources.fleek.xyz/docs/)

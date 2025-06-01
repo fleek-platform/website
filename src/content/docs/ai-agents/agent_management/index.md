@@ -33,7 +33,7 @@ After you press the button, you should get an “Agent updated” confirmation p
 
 ## Starting and Stopping agents
 
-Deployed agents can be started and stopped directly from the [Fleek dashboard](https://fleek.xyz/dashboard/) and [Eliza deployment page](/eliza).
+Deployed agents can be started and stopped directly from the [Eliza management](https://eliza.fleek.xyz/agents).
 
 AI Agents have three states:
 

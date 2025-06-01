@@ -11,7 +11,7 @@ image: './eliza-references.png'
 - Post-Deployment Prompt: After deploying your agent, look for the prompt that provides a direct link to your agent’s dashboard.
 - Via Fleek Web Interface:
 
-  - Go to [fleek.xyz](https://fleek.xyz)
+  - Go to [fleek.xyz](https://eliza.fleek.xyz/agents)
   - Log in to your account
   - Navigate to the Agents tab to locate your deployed agent
 
@@ -109,11 +109,11 @@ Navigate to:
 
 ### 3. Update Your Agent File on Fleek
 
-- Edit your agent file on [Fleek](https://fleek.xyz/agents) and add the following secret:
+- Edit your agent file on [Fleek](https://eliza.fleek.xyz/agents) and add the following secret:
   ```ini
   "TWITTER_2FA_SECRET": "YOUR_SECRET_CODE"
   ```
-- Restart your agent on [Fleek App](https://fleek.xyz/dashboard).
+- Restart your agent on [Fleek App](https://hosting.fleek.xyz/dashboard).
 
 ---
 
@@ -126,7 +126,7 @@ Navigate to:
 
 ## How much does it cost to deploy an agent using Fleek?
 
-Deploying an agent on Fleek costs $20 per month per agent. You can find more details on the [pricing page](/pricing). Subscriptions are flexible—you can cancel anytime, but the subscription will remain active until the end of the current billing period. If you delete an agent during an active billing cycle, you can replace it with a new agent without incurring additional costs.
+Deploying an agent on Fleek costs $20 per month per agent. You can find more details on the [pricing page](https://resources.fleek.xyz/pricing). Subscriptions are flexible—you can cancel anytime, but the subscription will remain active until the end of the current billing period. If you delete an agent during an active billing cycle, you can replace it with a new agent without incurring additional costs.
 
 ---
 
@@ -179,7 +179,7 @@ By instructing Eliza to use emojis in its adjectives, your bot will integrate th
     - Confirm all billing details are current and valid.
 
 2.  Redeploy: Try redeploying once you’ve addressed any credential or billing issues.
-3.  Contact Support: If problems persist, [Support](https://fleek.xyz/requests/new/) can help troubleshoot further.
+3.  Contact Support: If problems persist, [Support](https://resources.fleek.xyz/requests/new/) can help troubleshoot further.
 
 ---
 
@@ -187,7 +187,7 @@ By instructing Eliza to use emojis in its adjectives, your bot will integrate th
 
 - Monitor status and performance: Regularly check your agent’s performance and ensure it’s operating as expected. You do this by viewing the agent’s logs.
 - Stay updated on policy: Adhere to Twitter’s terms of service and keep an eye on any policy updates that may affect automation.
-- Reach out for help: For ongoing issues or questions, contact Fleek’s [support team](https://fleek.xyz/support).
+- Reach out for help: For ongoing issues or questions, contact Fleek’s [support team](https://resources.fleek.xyz/support).
 
 ---
 
@@ -208,4 +208,4 @@ We made patches to Eliza to ensure that memory consumption is always under 4GB.
 ---
 
 Need more assistance?  
-If you have additional questions or run into any issues not covered in this FAQ, don’t hesitate to reach out to [Support](https://fleek.xyz/requests/new/) or consult [the documentation](https://fleek.xyz/docs/ai-agents/).
+If you have additional questions or run into any issues not covered in this FAQ, don’t hesitate to reach out to [Support](https://resources.fleek.xyz/requests/new/) or consult [the documentation](https://eliza.fleek.xyz/).

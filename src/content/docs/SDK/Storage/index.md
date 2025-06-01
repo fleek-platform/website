@@ -16,7 +16,7 @@ tags:
 The Fleek Platform SDK allows you to interface with the storage service to store files in a decentralized manner. Our service supports IPFS as our main storage protocol, complemented by Arweave and Filecoin as a backup layer. This approach ensures a high-performing and highly available service. Filecoin acts as the default backup layer, but modifications can be implemented in the storage settings.
 
 :::warn
-If you're authenticating the Fleek Platform SDK with a Personal Access Token (PAT), you must provide a Project ID to the [PersonalAccessTokenService](/docs/cli/pat/).
+If you're authenticating the Fleek Platform SDK with a Personal Access Token (PAT), you must provide a Project ID to the [PersonalAccessTokenService](https://hosting.fleek.xyz/cli/pat/).
 :::
 
 :::note

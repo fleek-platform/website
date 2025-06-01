@@ -13,7 +13,7 @@ tags:
 
 # Projects
 
-Projects help categorize your work and certain services, including [Storage](/docs/sdk/storage) and [IPNS](/docs/sdk/ipns), require authentication with a projectId to interact with them. The SDK makes it easy to get the projectId needed for the services that call for it.
+Projects help categorize your work and certain services, including [Storage](https://hosting.fleek.xyz/sdk/storage) and [IPNS](https://hosting.fleek.xyz/sdk/ipns), require authentication with a projectId to interact with them. The SDK makes it easy to get the projectId needed for the services that call for it.
 
 :::note
 When importing the SDK (version 3 and above), you should explicitly specify the environment, e.g. for server-side (Node.js) use the @fleek-platform/sdk/node in the import statement. If not specified, the import defaults to the browser version.

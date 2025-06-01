@@ -14,7 +14,7 @@ Each Fleek user can link only one personal GitHub account to their Fleek Platfor
 
 ## Connecting GitHub organizations
 
-You have full flexibility to deploy repositories from any GitHub organization to the desired Platform [project](/docs/platform/projects/). For example, each project under your Fleek account can have sites deployed using repositories from different organizations.
+You have full flexibility to deploy repositories from any GitHub organization to the desired Platform [project](https://resources.fleek.xyz/docs/platform/projects/). For example, each project under your Fleek account can have sites deployed using repositories from different organizations.
 
 ## Single GitHub source per project
 

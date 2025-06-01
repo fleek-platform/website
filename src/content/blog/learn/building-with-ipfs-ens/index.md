@@ -58,7 +58,7 @@ Onchain websites are integral to achieving an open and democratic internet. They
 
 **5. Improving portability:** There are no vendor lock-ins or private algorithms that onchain websites need to abide by. Hence, onchain websites can be moved across protocols and storage providers.
 
-💡Read more to learn how Fleek enables <u>[Progressive web apps (PWAs)](/guides/builders-stack-pwas/)</u>
+💡Read more to learn how Fleek enables <u>[Progressive web apps (PWAs)](https://resources.fleek.xyz/guides/builders-stack-pwas/)</u>
 
 ---
 
@@ -80,7 +80,7 @@ For onchain websites, in particular, ENS plays a key role:
 
 5. Ensures the owners have **full control** over the website with the ability to update, transfer, or sell their domains.
 
-> 💡Learn more onchain domains — <u>[ENS, and Unstoppable Domains](/guides/builders-stack-decentralized-domains/)</u>
+> 💡Learn more onchain domains — <u>[ENS, and Unstoppable Domains](https://resources.fleek.xyz/guides/builders-stack-decentralized-domains/)</u>
 
 ---
 

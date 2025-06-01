@@ -2,8 +2,9 @@ import Text from '@components/Text';
 import { BarChart, Calendar, CodeTag, RocketShip } from '@components/Icons';
 import type { Template } from '../types';
 import ContentBox from '@components/ContentBox';
-import settings from '@base/settings.json';
 import { formatDate } from '@utils/date';
+
+const resourcesUrl = import.meta.env.PUBLIC_APP_RESOURCES_URL;
 
 const Separator = () => (
   <div className="separator my-10 border-b-1 border-b-neutral-8" />
@@ -39,8 +40,6 @@ const DetailItem: React.FC<DetailItemProps> = ({
     <Separator />
   </>
 );
-
-const { reportAbuseUrl } = settings.site.resources;
 
 interface TemplateSpecsProps {
   template: Template;
@@ -93,7 +92,7 @@ export const TemplateSpecs: React.FC<TemplateSpecsProps> = ({ template }) => {
         target="_blank"
         rel="noopener noreferrer"
         className="text-12 md:text-16"
-        href={reportAbuseUrl}
+        href={resourcesUrl.concat('/requests/report-site/')}
       >
         Report template for abuse
       </a>

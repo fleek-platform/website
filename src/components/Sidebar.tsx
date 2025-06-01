@@ -20,6 +20,10 @@ interface Props {
   indexNameDocs: string;
 }
 
+const elizaUrl = import.meta.env.PUBLIC_APP_ELIZA_URL;
+const resourcesUrl = import.meta.env.PUBLIC_APP_RESOURCES_URL;
+const hostingUrl = import.meta.env.PUBLIC_APP_NEW_HOSTING_URL;
+
 const findBase = (splitted: string[]) => {
   if (splitted[0] === '/docs') return ROOT_FALLBACK_CATEGORY;
 
@@ -109,7 +113,7 @@ const SidebarMenu: React.FC<Props> = ({ data, pathname, indexNameDocs }) => {
         <li>
           <a
             ref={isHome ? activeItemRef : null}
-            href="/docs/"
+            href={resourcesUrl.concat('/docs')}
             className={cn(
               'group flex items-center gap-8 font-semibold hover:text-gray-dark-12',
               {
@@ -177,7 +181,7 @@ const SidebarMenu: React.FC<Props> = ({ data, pathname, indexNameDocs }) => {
                 <li key={`${idx}-${item.slug}`}>
                   <a
                     ref={isActiveSlug(item.slug) ? activeItemRef : null}
-                    href={`/docs/${item.slug}`}
+                    href={`${resourcesUrl}/${item.slug}`}
                     className={cn(
                       'font-semibold text-gray-dark-11 hover:text-gray-dark-12',
                       {
@@ -208,7 +212,7 @@ const SidebarMenu: React.FC<Props> = ({ data, pathname, indexNameDocs }) => {
                             ? activeItemRef
                             : null
                         }
-                        href={`/docs/${item.category}/${!sItem.index ? sItem.slug : ''}`}
+                        href={`${elizaUrl}/${!sItem.index ? sItem.slug : ''}`}
                         className={cn(
                           'w-full border-gray-dark-10 py-4 pl-16 text-gray-dark-11 hover:-ml-[1px] hover:border-l hover:text-gray-dark-12',
                           {
@@ -277,32 +281,44 @@ const SidebarMenu: React.FC<Props> = ({ data, pathname, indexNameDocs }) => {
                         (
                           sItem: GenerateSidebarResponse[number]['list'][number],
                           idx: number,
-                        ) => (
-                          <a
-                            key={`${idx}-${sItem.slug}`}
-                            ref={
-                              isActiveCategory(item.category) &&
-                              isActiveSlug(sItem.slug)
-                                ? activeItemRef
-                                : null
-                            }
-                            href={`/docs/${item.category}/${!sItem.index ? sItem.slug : ''}`}
-                            className={cn(
-                              'w-full border-gray-dark-10 py-4 pl-16 text-gray-dark-11 hover:-ml-[1px] hover:border-l hover:text-gray-dark-12',
-                              {
-                                '-ml-[1px] border-l border-yellow-dark-11 text-16 font-semibold text-gray-dark-12':
-                                  isActiveCategory(item.category) &&
-                                  isActiveSlug(sItem.slug),
-                              },
-                            )}
-                          >
-                            <span
-                              data-menu-item={`${generateSlug(sItem.title)}`}
+                        ) => {
+                          let url = resourcesUrl.concat('/', item.category);
+
+                          if (item.category === 'platform') {
+                            url = hostingUrl;
+                          }
+
+                          if (['sdk', 'cli'].includes(item.category)) {
+                            url = hostingUrl.concat('/', item.category);
+                          }
+
+                          return (
+                            <a
+                              key={`${idx}-${sItem.slug}`}
+                              ref={
+                                isActiveCategory(item.category) &&
+                                isActiveSlug(sItem.slug)
+                                  ? activeItemRef
+                                  : null
+                              }
+                              href={`${url}/${!sItem.index ? sItem.slug : ''}`}
+                              className={cn(
+                                'w-full border-gray-dark-10 py-4 pl-16 text-gray-dark-11 hover:-ml-[1px] hover:border-l hover:text-gray-dark-12',
+                                {
+                                  '-ml-[1px] border-l border-yellow-dark-11 text-16 font-semibold text-gray-dark-12':
+                                    isActiveCategory(item.category) &&
+                                    isActiveSlug(sItem.slug),
+                                },
+                              )}
                             >
-                              {sItem.title}
-                            </span>
-                          </a>
-                        ),
+                              <span
+                                data-menu-item={`${generateSlug(sItem.title)}`}
+                              >
+                                {sItem.title}
+                              </span>
+                            </a>
+                          );
+                        },
                       )}
                     </div>
                   </details>

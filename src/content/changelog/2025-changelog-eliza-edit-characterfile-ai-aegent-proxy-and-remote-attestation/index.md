@@ -10,11 +10,11 @@ author:
 
 What’s new, Fleek community?
 
-We’re excited to announce significant updates to Fleek’s AI Agent capabilities, including a new **AI Agent Proxy API** and the ability to **edit characterfiles** directly from [fleek.xyz/agents](/agents/)!
+We’re excited to announce significant updates to Fleek’s AI Agent capabilities, including a new **AI Agent Proxy API** and the ability to **edit characterfiles** directly from [fleek.xyz/agents](https://eliza.fleek.xyz/agents/)!
 
 ## Characterfile Editing
 
-Editing your AI agent’s characterfile is now easier than ever on [fleek.xyz/agents](/agents/).
+Editing your AI agent’s characterfile is now easier than ever on [fleek.xyz/agents](https://eliza.fleek.xyz/agents/).
 
 ### Key Features:
 
@@ -23,7 +23,7 @@ Editing your AI agent’s characterfile is now easier than ever on [fleek.xyz/ag
 
 ### How to Edit a Characterfile:
 
-1. **Go to the agents sidebar** on [fleek.xyz/agents](/agents/).
+1. **Go to the agents sidebar** on [fleek.xyz/agents](https://eliza.fleek.xyz/agents/).
 2. **Select your agent**, then click **“Edit agent”**.
 3. Make your edits and click **“Update agent characterfile”**.
 4. You’ll see a success notification: **“Agent updated”**.
@@ -74,10 +74,10 @@ We’ve added a settings panel on the AI **Agents tab** where you can access thi
 
 These updates make deploying, managing, and verifying your AI agents on Fleek easier than ever.
 
-[Check out our documentation](/docs/ai-agents/) to learn more.
+[Check out our documentation](https://resources.fleek.xyz/docs/ai-agents/) to learn more.
 
 Don’t forget to:
 
 - Follow us on [X](https://x.com/fleek)
 - Join our [Discord](https://discord.gg/fleek)
-- Explore our [guides](/guides/) and [resources](/docs/)
+- Explore our [guides](https://resources.fleek.xyz/guides/) and [resources](https://resources.fleek.xyz/docs/)

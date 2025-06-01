@@ -8,14 +8,14 @@ desc: An overview of the Fleek Next Adapter, a tool that simplifies the deployme
 # Fleek Next adapter
 
 :::info
-Install the [Fleek CLI](/docs) and [login](/docs/cli/#login) locally on your machine to be able to deploy your application.
+Install the [Fleek CLI](https://resources.fleek.xyz/docs) and [login](https://hosting.fleek.xyz/cli/#login) locally on your machine to be able to deploy your application.
 :::
 
-The Fleek Next.js adapter enables seamless deployment of server-side Next.js applications on Fleek, allowing users to host fullstack Next.js apps straight from the terminal with optimized performance and edge compatibility. With this adapter, you can deploy your Next.js app as a [Fleek Function](/docs/cli/functions), leveraging the edge runtime of the [Fleek Network](/docs/infrastructure/) to power your application efficiently.
+The Fleek Next.js adapter enables seamless deployment of server-side Next.js applications on Fleek, allowing users to host fullstack Next.js apps straight from the terminal with optimized performance and edge compatibility. With this adapter, you can deploy your Next.js app as a [Fleek Function](https://hosting.fleek.xyz/cli/functions), leveraging the edge runtime of the [Fleek Network](https://resources.fleek.xyz/docs/infrastructure/) to power your application efficiently.
 
 We are going to walk you through the adapter, features it offers, and how to deploy your Next.js app with it on Fleek. This adapter supports both JavaScript and TypeScript Next applications.
 
-You need to make sure that your **Node.js version is at least 18, check that your [Fleek CLI version](/docs/cli/#install) is at least version 3 and that you have a working Next.js application setup**.
+You need to make sure that your **Node.js version is at least 18, check that your [Fleek CLI version](https://hosting.fleek.xyz/cli/#install) is at least version 3 and that you have a working Next.js application setup**.
 
 ## Install
 
@@ -70,7 +70,7 @@ To prepare your Next.js application for deployment on Fleek, follow these steps:
 ## Deploying your Next.js application
 
 :::info
-To learn about support for Next.js features on Fleek, see the [documentation](/docs/platform/frameworks#nextjs-on-fleek)
+To learn about support for Next.js features on Fleek, see the [documentation](https://resources.fleek.xyz/docs/platform/frameworks#nextjs-on-fleek)
 :::
 
 1. Before you can deploy your Next.js application you will first need to create a Fleek function with the below command:
@@ -89,7 +89,7 @@ To learn about support for Next.js features on Fleek, see the [documentation](/d
    Fleek Functions do not support runtime environment variables yet. Use build-time variables instead.
    :::
 
-The above command will prompt you to [login to your Fleek account](/docs/cli/#login) from your CLI if you are not already logged in.
+The above command will prompt you to [login to your Fleek account](https://hosting.fleek.xyz/cli/#login) from your CLI if you are not already logged in.
 
 If you are logged in, you will :
 
