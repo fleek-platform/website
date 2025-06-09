@@ -92,7 +92,7 @@ Twitter typically sends two main types of login alerts when Fleek attempts to ac
 
 This feature will allow you to manage troublesome login situations more easily.
 
-Aditionally, try adding 2FA into your character file's secrets. Here's how:
+Additionally, try adding 2FA into your character file's secrets. Here's how:
 
 ### 1. Go to Your Agent’s Twitter Settings
 
