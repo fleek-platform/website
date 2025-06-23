@@ -47,7 +47,7 @@ files.forEach((file) => {
       );
 
       console.log(
-        '💡 For lenghty video content is much preferred to upload to a proper video streaming service, such as YouTube due to large file size. Please consider uploading to YouTube and using the video source-code snippet.',
+        '💡 For lengthy video content it is much preferred to upload to a proper video streaming service, such as YouTube due to large file size. Please consider uploading to YouTube and using the video source-code snippet.',
       );
 
       process.exit(1);

@@ -13,7 +13,7 @@ tags:
 
 # IPFS
 
-The Fleek Platform SDK helps you pin files to IPFS. The Interplanetary File system (IPFS) is a distributed file storage protocol that allow computers all over the globe to store and serve files as part of a giant peer-to-peer network.
+The Fleek Platform SDK helps you pin files to IPFS. The Interplanetary File system (IPFS) is a distributed file storage protocol that allows computers all over the globe to store and serve files as part of a giant peer-to-peer network.
 
 :::warn
 We're transitioning from using the IPFS service to our new Storage service. To help you make this change smoothly, there's a grace period and we've included warnings within our SDK code. We recommend reviewing our [Storage documentation](https://hosting.fleek.xyz/sdk/storage) to understand how to switch to the Storage service. You should start utilizing the Storage service over the IPFS service.

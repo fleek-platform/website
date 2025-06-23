@@ -20,7 +20,7 @@ export const getTopLevelDomain = (url: string) => {
 
     // The only expected hostnames
     // are a maximum of three levels
-    // at time of writting
+    // at time of writing
     // e.g. staging -> fleek-xyz-staging.on-fleek.app
     // and prod -> fleek.xyz
     const topLevelDomain = hostname.split('.').slice(-2).join('.');
