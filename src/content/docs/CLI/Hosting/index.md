@@ -145,7 +145,7 @@ fleek sites deploy
 
 As the deployment starts, you'll be given the option to create a new site or use an existing one. First, the process will carry out the build command outlined in the fleek.json file and subsequently upload the build directory to the designated storage.
 
-If sucessfully, you'll get a confirmation message.
+If successfully, you'll get a confirmation message.
 
 ```sh
 > Site IPFS Content Identifier (CID): QmbAwexQq1wqk9XZEzZs6CycbARDEp42ZRg5tUHp1XW2RQ
