@@ -6,4 +6,4 @@ thumbnail: './part-of-the-website-loading-error.png'
 image: './part-of-the-website-loading-error.png'
 ---
 
-If parts of your website fail to update or don't reflect changes properly on your custom domain after a deployment, you can see the changes live on your fleek preview URL [please submit a ticket](/requests/new). We will fix this for you within your pullZone settings on our CDN provider.
+If parts of your website fail to update or don't reflect changes properly on your custom domain after a deployment, you can see the changes live on your fleek preview URL [please submit a ticket](https://resources.fleek.xyz/requests/new). We will fix this for you within your pullZone settings on our CDN provider.

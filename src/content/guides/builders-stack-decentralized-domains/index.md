@@ -112,6 +112,6 @@ To enable users to associate their decentralized websites with IPFS hashes, Unst
 
 We hope that this guide has given you the necessary information and tools to start building with decentralized domains! Make sure to follow [ENS](https://twitter.com/ensdomains), [Unstoppable Domains](https://twitter.com/unstoppableweb) and [Handshake](https://twitter.com/HNS) for further updates and developments.
 
-Additionally, we encourage you to check out the previous guides from our [Build3rs Stack](/guides/) series and keep an eye out for upcoming ones so that you can stay informed about the latest updates about web3 infrastructure. You can also join our [Discord](https://discord.gg/fleek) community to connect with us quickly.
+Additionally, we encourage you to check out the previous guides from our [Build3rs Stack](https://resources.fleek.xyz/guides/) series and keep an eye out for upcoming ones so that you can stay informed about the latest updates about web3 infrastructure. You can also join our [Discord](https://discord.gg/fleek) community to connect with us quickly.
 
 If you need more resources, please visit our [LinkTree](https://linktr.ee/fleek)!

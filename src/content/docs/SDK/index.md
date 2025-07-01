@@ -32,7 +32,7 @@ npm install @fleek-platform/sdk
 Authentication requires providing an access token. There are currently two methods available:
 
 - The [ApplicationAccessTokenService](#applicationaccesstokenservice): For public-facing applications, which tokens are generated via the Fleek Platform user account's [dashboard](https://fleek.xyz/dashboard)
-- The [PersonalAccessTokenService](#personalaccesstokenservice): Used typically for server-side applications, which tokens are managed via [CLI](/docs/cli). You must keep these tokens secure and hidden
+- The [PersonalAccessTokenService](#personalaccesstokenservice): Used typically for server-side applications, which tokens are managed via [CLI](https://hosting.fleek.xyz/cli). You must keep these tokens secure and hidden
 
 These services differ in their application, depending on whether you're deploying them in a client-side or server-side context.
 
@@ -99,7 +99,7 @@ projectID (Optional)                 A Project ID required for IPFS and IPNS ser
 graphqlServiceApiUrl (Optional)      The GraphQL Service API URL, which defaults to the main Fleek Platform GraphQL Service API
 ```
 
-This method of authentication relies on a `personalAccessToken` which can be obtained from the CLI [pat create](/docs/cli/pat) command.
+This method of authentication relies on a `personalAccessToken` which can be obtained from the CLI [pat create](https://hosting.fleek.xyz/cli/pat) command.
 
 ### Usage example
 
@@ -121,7 +121,7 @@ const fleekSdk = new FleekSdk({
 Application credentials are the access tokens to your project. You can use this authentication method if you want to upload files or directories
 to the Fleek Storage. For other SDK methods you need to use the PersonalAccessTokenService.
 
-You can create an application token following the steps [here](/docs/platform/projects#application-credentials).
+You can create an application token following the steps [here](https://resources.fleek.xyz/docs/platform/projects#application-credentials).
 
 ### Parameters
 
@@ -132,7 +132,7 @@ clientID                             The Client ID generated in the applications
 authAppsServiceUrl (Optional)        The Applications Authentication Service URL
 ```
 
-This method of authentication relies on a `clientId` which can be obtained after creating an application from the CLI [application create](/docs/cli/applications/#create) command.
+This method of authentication relies on a `clientId` which can be obtained after creating an application from the CLI [application create](https://hosting.fleek.xyz/cli/applications/#create) command.
 
 ### Usage example
 
@@ -152,7 +152,7 @@ const fleekSdk = new FleekSdk({
 
 The Fleek.co's [SDK](https://www.npmjs.com/package/@fleekhq/sdk) and [Storage](https://www.npmjs.com/package/@fleekhq/fleek-storage-js) features are part of Fleek Platform SDK, which brings enhanced performance, new features, and broader support for all your development needs.
 
-Learn how to migrate to Fleek Platform with these steps or consult our [SDK docs](/docs/sdk) for a deep dive.
+Learn how to migrate to Fleek Platform with these steps or consult our [SDK docs](https://hosting.fleek.xyz/sdk) for a deep dive.
 
 ### Fleek Storage JS
 
@@ -184,7 +184,7 @@ const fleekSdk = new FleekSdk({
 });
 ```
 
-Learn more by reading the SDK documentation [here](/docs/sdk).
+Learn more by reading the SDK documentation [here](https://hosting.fleek.xyz/sdk).
 
 ### Fleek.co's SDK
 
@@ -226,7 +226,7 @@ const result = await fleekSdk.storage().uploadFile({
 });
 ```
 
-Support for Internet Computer asset canister has been deprecated. You must use the Fleek Platform [Storage](/docs/sdk/storage), which includes similar methods as follows:
+Support for Internet Computer asset canister has been deprecated. You must use the Fleek Platform [Storage](https://hosting.fleek.xyz/sdk/storage), which includes similar methods as follows:
 
 ```js
 # Deprecated feature
@@ -242,4 +242,4 @@ const items = await fleekSdk.storage().list();
 const item = await fleekSdk.storage().get({ cid });
 ```
 
-Learn more about [Storage](/docs/sdk/storage) and feature coverage by reading the SDK's Storage documentation [here](/docs/sdk/storage).
+Learn more about [Storage](https://hosting.fleek.xyz/sdk/storage) and feature coverage by reading the SDK's Storage documentation [here](https://hosting.fleek.xyz/sdk/storage).

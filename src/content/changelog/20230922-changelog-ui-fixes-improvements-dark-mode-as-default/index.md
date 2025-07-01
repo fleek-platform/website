@@ -8,7 +8,7 @@ author:
   - 'Fleek'
 ---
 
-What’s up Fleek Freaks? We’re back with another Fleek Release Notes, giving y’all a look into the improvements and bug fixes we’ve implemented into the Fleek.xyz alpha over the last week. If you missed the previous Fleek Release Notes, get caught up [here](/changelog/20231012-changelog-fleek-v0-0-1-changelog-custom-url-slugs-validation-improvements/)!
+What’s up Fleek Freaks? We’re back with another Fleek Release Notes, giving y’all a look into the improvements and bug fixes we’ve implemented into the Fleek.xyz alpha over the last week. If you missed the previous Fleek Release Notes, get caught up [here](https://resources.fleek.xyz/changelog/20231012-changelog-fleek-v0-0-1-changelog-custom-url-slugs-validation-improvements/)!
 
 This week, the focus was mainly on some bug fixes, visual improvements, and foundational work for upcoming features like site deletion/template submission. _Don’t forget_: The application form for the Fleek.xyz Alpha is closed, you can access the platform [here](https://fleek.xyz/dashboard)⚡
 
@@ -86,4 +86,4 @@ See you soon ⚡
 
 - [App](https://fleek.xyz/dashboard)
 - [Read our documentation in full](https://fleek.xyz/docs/)
-- [Bookmark the changelog so you don’t miss a single thing](/changelog/)
+- [Bookmark the changelog so you don’t miss a single thing](https://resources.fleek.xyz/changelog/)

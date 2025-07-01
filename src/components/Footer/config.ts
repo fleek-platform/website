@@ -2,7 +2,6 @@ import settings from '@base/settings.json';
 
 const {
   careersUrl,
-  reportAbuseUrl,
   statusURl,
   mediaKit,
   fleekNetworkWebsiteUrl,
@@ -10,6 +9,10 @@ const {
 } = settings.site.resources;
 
 const { fleekPlatformOrgUrl } = settings.github;
+
+const resourcesUrl = import.meta.env.PUBLIC_APP_RESOURCES_URL;
+const elizaUrl = import.meta.env.PUBLIC_APP_ELIZA_URL;
+const hostingUrl = import.meta.env.PUBLIC_APP_HOSTING_URL;
 
 export default {
   fleekPlatformOrgUrl,
@@ -22,7 +25,7 @@ export default {
     },
     {
       text: 'Changelog',
-      url: '/changelog/',
+      url: resourcesUrl.concat('/changelog/'),
       target: '_blank',
       rel: 'noopener noreferrer',
     },
@@ -42,11 +45,11 @@ export default {
   company: [
     {
       text: 'Blog',
-      url: '/blog/',
+      url: resourcesUrl.concat('/blog/'),
     },
     {
       text: 'Pricing',
-      url: '/pricing/',
+      url: resourcesUrl.concat('/pricing/'),
     },
     {
       text: 'Careers',
@@ -56,43 +59,43 @@ export default {
     },
     {
       text: 'About',
-      url: '/about/',
+      url: resourcesUrl.concat('/about/'),
     },
     {
       text: 'Terms of Service',
-      url: '/legal/terms-of-service/',
+      url: resourcesUrl.concat('/legal/terms-of-service/'),
     },
     {
       text: 'Privacy Policy',
-      url: '/legal/privacy-policy/',
+      url: resourcesUrl.concat('/legal/privacy-policy/'),
     },
     {
       text: 'Contact us',
-      url: '/requests/new/',
+      url: resourcesUrl.concat('/requests/new/'),
     },
   ],
   product: [
     {
       text: 'AI agent hosting',
-      url: '/agents/',
+      url: elizaUrl,
     },
     {
       text: 'Web app hosting',
-      url: '/docs/platform/hosting/',
+      url: hostingUrl.concat('/hosting/'),
     },
     {
       text: 'Fleek Machines',
-      url: '/docs/platform/fleek-machines/',
+      url: hostingUrl.concat('/fleek-machines/'),
     },
     {
       text: 'Fleek Functions',
-      url: '/docs/platform/fleek-functions/',
+      url: hostingUrl.concat('/fleek-functions/'),
     },
   ],
   resources: [
     {
       text: 'Documentation',
-      url: '/docs/',
+      url: resourcesUrl.concat('/docs/'),
     },
     {
       text: 'Media kit',
@@ -102,16 +105,16 @@ export default {
     },
     {
       text: 'Guides',
-      url: '/guides/',
+      url: resourcesUrl.concat('/guides/'),
     },
     {
       text: 'Support',
-      url: '/support/',
+      url: resourcesUrl.concat('/support/'),
       rel: 'noopener noreferrer',
     },
     {
       text: 'Report abuse',
-      url: reportAbuseUrl,
+      url: resourcesUrl.concat('/requests/report-site/'),
       target: '_blank',
       rel: 'noopener noreferrer',
     },

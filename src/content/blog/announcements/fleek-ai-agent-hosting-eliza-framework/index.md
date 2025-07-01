@@ -59,11 +59,11 @@ Fleek Machines empower developers to take full control of their deployments. Fle
 
 Ready to deploy your AI agent? Get started in just a few minutes:
 
-1. [Use a predefined template [⚡: no developer experience needed]](https://fleek.xyz/guides/eliza-guide#use-a-predefined-template)
-2. [Manually enter details [ ⚡: no developer experience needed ]](https://fleek.xyz/guides/eliza-guide#manually-enter-agent-details)
+1. [Use a predefined template [⚡: no developer experience needed]](https://resources.fleek.xyz/guides/eliza-guide#use-a-predefined-template)
+2. [Manually enter details [ ⚡: no developer experience needed ]](https://resources.fleek.xyz/guides/eliza-guide#manually-enter-agent-details)
 3. [Upload a characterfile](https://fleek.xyz/guides/eliza-guide#upload-a-characterfile)
 
-Need help along the way? Check out our [Quick Start Guide](https://fleek.xyz/guides/eliza-guide/) to get started and join the Discord for questions.
+Need help along the way? Check out our [Quick Start Guide](https://resources.fleek.xyz/guides/eliza-guide/) to get started and join the Discord for questions.
 
 ---
 
@@ -75,7 +75,7 @@ Our platform supports the evolution from single agents to complex interconnected
 
 The launch of Fleek AI Agent Hosting marks a significant milestone in AI development. We invite developers to join us in shaping the future of AI agent deployment. Together, we're creating an environment where security, simplicity, and scalability enable unprecedented possibilities.
 
-Visit [fleek.xyz/agents](https://fleek.xyz/agents/) to begin deploying AI agents with enhanced security, simplified processes and scalable infrastructure.
+Visit [eliza.fleek.xyz/agents](https://eliza.fleek.xyz/agents/) to begin deploying AI agents with enhanced security, simplified processes and scalable infrastructure.
 
 ### **What’s To Come?**
 
@@ -88,5 +88,5 @@ Our ultimate vision for this platform is to provide users with the best possible
 **Resources:**
 
 - [Eliza GitHub repository](https://github.com/ai16z/eliza)
-- [Fleek Machines documentation](https://fleek.xyz/docs/ai-agents/)
-- [Quick Start Guide](https://fleek.xyz/guides/eliza-guide/)
+- [Fleek Machines documentation](https://eliza.fleek.xyz)
+- [Quick Start Guide](https://resources.fleek.xyz/guides/eliza-guide/)

@@ -127,6 +127,9 @@ PUBLIC_GRAPHQL_ENDPOINT="https://graphql.service.fleek.xyz/graphql"
 PUBLIC_DYNAMIC_ENVIRONMENT_ID="de23a5f0-aaa5-412e-8212-4fb056a3b30d"
 PUBLIC_APP_HOSTING_URL="https://fleek.xyz/dashboard"
 PUBLIC_APP_AGENTS_URL="https://fleek.xyz/agents"
+PUBLIC_APP_ELIZA_URL="https://eliza.fleek.xyz"
+PUBLIC_APP_NEW_HOSTING_URL="https://hosting.fleek.xyz"
+PUBLIC_APP_RESOURCES_URL="https://resources.fleek.xyz"
 PUBLIC_POSTHOG_HOST="https://us.i.posthog.com"
 PUBLIC_POSTHOG_API_KEY="phc_SdvLWEagL7nAauyEBun0ZF6v59DxMIk8ofzI91gpIUw"
 PUBLIC_OPEN_API_ENDPOINT="https://api.fleek.xyz/api/openapi.json"
@@ -201,6 +204,9 @@ If you are testing locally, you may be interested in tweaking your environment v
 ```sh
 PUBLIC_APP_HOSTING_URL="http://localhost:3002/dashboard"
 PUBLIC_APP_AGENTS_URL="http://localhost:3002/agents"
+PUBLIC_APP_ELIZA_URL="http://localhost:3002/docs/ai-agents"
+PUBLIC_APP_NEW_HOSTING_URL="http://localhost:3002/docs/platform"
+PUBLIC_APP_RESOURCES_URL="http://localhost:3002/docs"
 ```
 
 Note that the `preview` is a custom process that is aware of site's hosted applications. It doesn't support Astrojs previewer features! Instead, this is a custom HTTP server for local purposes supportin the single page applications. To learn more, read the [Single page applications setup](#single-page-applications-setup-spa).

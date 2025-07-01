@@ -146,7 +146,7 @@ Next, we can deploy our contract to the Goerli network by running the following 
 
 ### Deploying the Frontend to Fleek
 
-Now to deploy the Frontend, we’ll use Fleek CLI, which allows us to deploy to IPFS from the CLI. If you haven’t used Fleek CLI before, read the CLI section of [our docs](/docs/cli/hosting/).
+Now to deploy the Frontend, we’ll use Fleek CLI, which allows us to deploy to IPFS from the CLI. If you haven’t used Fleek CLI before, read the CLI section of [our docs](https://hosting.fleek.xyz/cli/hosting/).
 
 You’ll need to install the CLI as a global package by running the following command:
 
@@ -192,7 +192,7 @@ You can now **deploy your site to IPFS** by running `fleek sites deploy`:
 
     > Success! Deployed! IPFS CID: QmQ88SAK9shZ7NUFTPJDcS9zuMmU7tDPbC9e9j5264Yfj4
 
-If you are interested in other features like **continuous integration**, you can check this guide on deploying to fleek using GitHub Actions [here](/docs/cli/github-actions/).
+If you are interested in other features like **continuous integration**, you can check this guide on deploying to fleek using GitHub Actions [here](https://hosting.fleek.xyz/cli/github-actions/).
 
 ---
 

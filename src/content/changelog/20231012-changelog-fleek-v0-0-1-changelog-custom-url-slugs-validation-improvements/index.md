@@ -48,7 +48,7 @@ We’ve given our validation system a little tune-up in this update– now you�
 - Added new AR token balance monitors
 - Streamlined support process now no longer needs users to provide details on things like Private Gateways, Project Members, Filecoin & Arweave file info, and other project/site details, when reaching out for support
 
-That's not all though– head [here](/changelog/20230922-changelog-ui-fixes-improvements-dark-mode-as-default/) for a full list of the 50+ other changes and improvements coming to the Fleek.xyz Alpha with this release.
+That's not all though– head [here](https://resources.fleek.xyz/changelog/20230922-changelog-ui-fixes-improvements-dark-mode-as-default/) for a full list of the 50+ other changes and improvements coming to the Fleek.xyz Alpha with this release.
 
 ---
 
@@ -71,4 +71,4 @@ See you soon ⚡
 
 - [App](https://fleek.xyz/dashboard)
 - [Read our documentation in full](https://fleek.xyz/docs/)
-- [Bookmark the changelog so you don’t miss a single thing](/changelog/)
+- [Bookmark the changelog so you don’t miss a single thing](https://resources.fleek.xyz/changelog/)
