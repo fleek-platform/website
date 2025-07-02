@@ -199,7 +199,7 @@ systemctl status nginx
 systemctl reload nginx
 ```
 
-💡At time of writting, templates are available under the repository path [/Services/ZenDesk](https://github.com/fleek-platform/website/tree/331f5c1b9e75d3e6c580a93bedb612267257bda7/Services/ZenDesk).
+💡At time of writing, templates are available under the repository path [/Services/ZenDesk](https://github.com/fleek-platform/website/tree/331f5c1b9e75d3e6c580a93bedb612267257bda7/Services/ZenDesk).
 
 ## Environment Variables
 
