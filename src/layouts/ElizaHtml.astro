@@ -6,6 +6,7 @@ import Trackers from '@components/Tracking/Trackers.astro';
 
 import { Navbar } from '@components/Navbar';
 import { generateCanonicalUrl } from '@utils/generateCanonicalUrl';
+import { ShutdownBanner } from '@components/ShutdownBanner';
 
 interface Props {
   title: string;
@@ -226,6 +227,7 @@ const metaTitle = ogMeta['custom_title'] ?? ogMeta?.title;
   <body
     class="relative flex min-h-dvh flex-col bg-black [scrollbar-gutter:stable]"
   >
+    <ShutdownBanner />
     <Navbar
       client:load
       pathname={Astro.url.pathname}
@@ -234,7 +236,7 @@ const metaTitle = ogMeta['custom_title'] ?? ogMeta?.title;
       variant="fixed"
     />
     <div
-      class="relative w-full max-w-[1300px] flex-1 self-center px-24 pt-[10rem] xl:max-w-[1066px] xl:px-0 2xl:max-w-[1300px]"
+      class="relative w-full max-w-[1300px] flex-1 self-center px-24 pt-[12rem] xl:max-w-[1066px] xl:px-0 2xl:max-w-[1300px]"
     >
       <slot />
     </div>
