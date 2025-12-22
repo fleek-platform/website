@@ -212,7 +212,7 @@ In addition to mapping domain names to wallet addresses, they also may support o
 
 ## Hosting / Orchestration
 
-Web3 aims to create a decentralized internet ecosystem, which requires new hosting and orchestration solutions that are different from traditional centralized approaches - with this, you can **deploy and scale dAPPs within the blockchain, utilizing distributed storage systems, infrastructure protocols**, and on-chain data that these orchestrators help faciliate.
+Web3 aims to create a decentralized internet ecosystem, which requires new hosting and orchestration solutions that are different from traditional centralized approaches - with this, you can **deploy and scale dAPPs within the blockchain, utilizing distributed storage systems, infrastructure protocols**, and on-chain data that these orchestrators help facilitate.
 
 - [Fleek](https://fleek.xyz/) - We’re a web3 infrastructure platform that simplifies the process of building, deploying, and scaling decentralized applications and websites on different blockchain networks and distributed storage systems like IPFS, Arweave, Filecoin, etc. It provides a suite of developer tools, including domain management, storage, and hosting services.
 - [QuickNode](https://www.quicknode.com/) - A blockchain infrastructure provider that offers fast, reliable, and scalable access to blockchain network data and interactions on Ethereum, Bitcoin, Binance Smart Chain, and others via easy-to-use API access to these networks, get alerts, and react to them with actions.
