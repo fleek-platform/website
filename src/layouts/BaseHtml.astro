@@ -7,6 +7,7 @@ import settings from '@base/settings.json';
 import Trackers from '@components/Tracking/Trackers.astro';
 
 import { Announcement } from '@components/Announcement';
+import { ShutdownBanner } from '@components/ShutdownBanner';
 import Footer from '@components/Footer';
 import { Navbar } from '@components/Navbar';
 import SupportMenu from '@components/Support/SupportMenu';
@@ -257,6 +258,7 @@ const metaTitle = ogMeta['custom_title'] ?? ogMeta?.title;
       customBodyClass,
     )}
   >
+    {!singlePage && <ShutdownBanner />}
     {
       !singlePage && (
         <>
@@ -274,7 +276,8 @@ const metaTitle = ogMeta['custom_title'] ?? ogMeta?.title;
     }
     <div
       class={cn(
-        'relative w-full self-center px-24 py-32 xl:max-w-[1066px] 2xl:max-w-[1300px]',
+        'relative w-full self-center px-24 xl:max-w-[1066px] 2xl:max-w-[1300px]',
+        !singlePage ? 'pt-[120px] pb-32' : 'py-32',
         customContentWrapperClass,
       )}
     >
