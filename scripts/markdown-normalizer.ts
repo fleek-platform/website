@@ -2,13 +2,14 @@
 
 import fs from 'fs';
 
-if (!process.argv.slice(1).length) {
+const args = process.argv.slice(2);
+
+if (!args.length) {
   console.error('👹 Oops! Missing the filename argument.');
   process.exit(1);
 }
 
-const args = process.argv.slice(1);
-const filepath = args[1];
+const filepath = args[0];
 
 let fileContent: string = '';
 
