@@ -39,7 +39,7 @@ When new services/protocols become available (maybe Akash or Arweave 👀), they
 
 ![Fleek.xyz Platform types and services](https://storageapi.fleek.co/fleek-team-bucket/Blogs/xyz-arch-services.png)
 
-Going one level deeper, we have Fleek services. Each service is independent of each other and together are accesible from all of the four core building blocks (see diagram above).
+Going one level deeper, we have Fleek services. Each service is independent of each other and together are accessible from all of the four core building blocks (see diagram above).
 
 **The key word here is independent**. Internally, independent services mean that we can move fast, without worrying about how changes might affect other services or the teams building them. It also means that projects like templates (yes, definitely coming in the future) are able to be bootstrapped to production way quicker than before.
 

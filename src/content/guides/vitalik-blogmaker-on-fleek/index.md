@@ -9,7 +9,7 @@ author: 'Kanishk Khurana'
 
 <br/>
 
-<u>[Vitalik Buterin’s website](https://vitalik.eth.limo/index.html)</u> has been a community-favorite resource for blockchain and web3 knowledge since its inception. It contains valuable information on the Ethereum roadmap and technical deep dives on all sorts of concepts relevent to the onchain ecosystem as a whole– **but, did you know all of this is deployed on Fleek?**
+<u>[Vitalik Buterin’s website](https://vitalik.eth.limo/index.html)</u> has been a community-favorite resource for blockchain and web3 knowledge since its inception. It contains valuable information on the Ethereum roadmap and technical deep dives on all sorts of concepts relevant to the onchain ecosystem as a whole– **but, did you know all of this is deployed on Fleek?**
 
 <br/>
 
